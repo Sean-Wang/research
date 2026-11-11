@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英特尔 2026 Q3 财报 · 四篇报道全文精读与观点全集</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#16181d;
+    --ink-2:#3d4450;
+    --ink-3:#6b7280;
+    --line:#e4e7ec;
+    --blue:#1f5fbf;
+    --blue-soft:#eaf1fc;
+    --red:#c0392b;
+    --red-soft:#fdeeec;
+    --green:#1e7a4b;
+    --green-soft:#eaf6ef;
+    --amber:#a86400;
+    --amber-soft:#fdf3e3;
+    --purple:#5b3fa8;
+    --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;
+    line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px 90px;}
+  header.top{padding:54px 0 26px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:32px;line-height:1.3;margin:0 0 12px;letter-spacing:-.015em;font-weight:700;}
+  .sub{font-size:16.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.65;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+
+  h2{font-size:22px;margin:54px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:9px;}
+  h3{font-size:17.5px;margin:34px 0 8px;font-weight:650;}
+  h3 .ch{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--ink-2);border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px;letter-spacing:.03em;}
+  h4{font-size:14.5px;margin:22px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 26px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+  .kpi.neg .val{color:var(--red);}
+  .kpi.pos .val{color:var(--green);}
+  .kpi.warn .val{color:var(--amber);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:18px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--card);}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.5px;color:var(--ink-2);white-space:nowrap;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  table.tight td,table.tight th{padding:7px 10px;}
+  .up{color:var(--red);font-weight:600;}
+  .down{color:var(--green);font-weight:600;}
+  .mute{color:var(--ink-3);}
+
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 7px;line-height:1.7;white-space:nowrap;}
+  .tag.bull{background:var(--red-soft);color:var(--red);}
+  .tag.bear{background:var(--green-soft);color:var(--green);}
+  .tag.neu{background:#eef0f4;color:var(--ink-2);}
+  .tag.warn{background:var(--amber-soft);color:var(--amber);}
+  .tag.info{background:var(--blue-soft);color:var(--blue);}
+
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:18px 0;overflow:hidden;}
+  .qa .qh{background:#f0f2f5;padding:11px 18px;font-size:13px;font-weight:650;color:var(--ink-2);border-bottom:1px solid var(--line);}
+  .qa .qb{padding:14px 18px;}
+  .qa .q{font-weight:650;margin:0 0 10px;color:var(--ink);}
+  .qa .who{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--blue);border-radius:4px;padding:1px 7px;margin-right:7px;vertical-align:1px;}
+
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 14px;margin:14px 0;color:var(--ink-2);font-size:14.5px;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0;}
+  .cols .box{margin:0;}
+
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);}
+  .disclaimer{background:#f0f2f5;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-top:26px;font-size:13px;color:var(--ink-2);}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .cols{grid-template-columns:1fr;}
+    h1{font-size:26px;}
+    .wrap{padding:0 16px 60px;}
+    table{font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">INTEL · 2026 财年第三季度 · 财报精读</div>
+  <h1>营收 165.13 亿美元、Non-GAAP EPS 0.52 美元，双双超指引<br>却因一张四季度指引单日盘后跌超 20%</h1>
+  <p class="sub">基于四篇原始报道（腾讯科技财报解读、404K 会计拆解、404K 电话会完整实录、海豚研究基本面研判）的全文提炼与交叉核对。覆盖财报全部数据、管理层两人陈述、七轮分析师问答、卖方预期差，并逐条标注四篇之间的口径差异与原文勘误，确保不遗漏任何一个观点。</p>
+  <div class="meta">
+    <span>财报发布：2026 年 10 月 29 日（美国时间）</span>
+    <span>覆盖期间：截至 2026 年 9 月</span>
+    <span>资料整理：2026 年 10 月 30 日</span>
+    <span>数据来源：四篇公开报道原文</span>
+  </div>
+</header>
+
+<h2><span class="num">00</span>核心速览</h2>
+
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">总营收</div>
+    <div class="val">165.13 亿美元</div>
+    <div class="note">同比 <strong>+21%</strong>；符合预期（165.3 亿），超 7 月指引中点约 2 亿</div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">Non-GAAP 每股收益</div>
+    <div class="val">0.52 美元</div>
+    <div class="note">同比 <strong>+126%</strong>；预期 0.40，超指引 0.14 美元</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">GAAP 归母净利润</div>
+    <div class="val">33.2 亿美元</div>
+    <div class="note">同比 <strong>-18%</strong>；EPS 0.60 美元，同比 <strong>-33%</strong></div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">Non-GAAP 毛利率</div>
+    <div class="val">44.1%</div>
+    <div class="note">同比 <strong>+4.1pct</strong>；超指引 2.1pct，环比 +约 2pct</div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">DCAI 数据中心及 AI</div>
+    <div class="val">73.18 亿美元</div>
+    <div class="note">同比 <strong>+78%</strong>、环比 +17%；营业利润率 41.5%</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">CCPG 客户端</div>
+    <div class="val">80.97 亿美元</div>
+    <div class="note">同比 <strong>-5%</strong>、环比 -9%；低于预期 88.4–89.8 亿</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Intel Foundry 代工</div>
+    <div class="val">66.97 亿美元</div>
+    <div class="note">同比 <strong>+58%</strong>；但外部代工仅 <strong>4.11 亿</strong>，亏损 18.53 亿</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">Q4 营收指引</div>
+    <div class="val">150–160 亿美元</div>
+    <div class="note">中值 155 亿，环比 <strong>-6%</strong>；市场预期 <strong>170.6 亿</strong></div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">Q4 毛利率指引</div>
+    <div class="val">38%</div>
+    <div class="note">环比 <strong>-6.1pct</strong>；含 Fab 28 事故 <strong>-200bp</strong></div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">Q4 EPS 指引</div>
+    <div class="val">0.25 美元</div>
+    <div class="note">市场预期 <strong>0.43 美元</strong>，缺口约 42%</div>
+  </div>
+  <div class="kpi warn">
+    <div class="lab">季度资本开支</div>
+    <div class="val">42.19 亿美元</div>
+    <div class="note">去年同期 29.56 亿；全年 200 亿，2027 年再显著增长</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">盘后股价</div>
+    <div class="val">-20% 以上</div>
+    <div class="note">收盘 92.07 美元（-3.6%）；10 月单月累跌约 29%</div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>一句话结论</h4>
+  <p>这是一份<strong>"经营在修复、指引在断裂"</strong>的季报。三组反差同时成立：营收 +21%、Non-GAAP EPS +126%、毛利率超指引 2.1pct，是<strong>连续第八个季度超越财务预期</strong>；但 Q4 指引把营收砍到 150–160 亿、毛利率砍到 38%、EPS 砍到 0.25 美元，三项同时大幅低于预期；而数据中心 78% 的增长与 PC 环比 -20% 以上的下滑<strong>发生在同一个季度</strong>。四篇报道的共同指向是：<strong>英特尔的业绩基本盘（服务器 CPU 涨价 + 供给释放）确实在变好，但市场此前押注的"数据中心放量 + PC 稳住"双引擎，只剩下一台在转；估值弹性则全部押在对外代工这个尚未产生收入的故事上。</strong></p>
+</div>
+
+<div class="box red">
+  <h4>四篇报道的定位与最强分歧</h4>
+  <table class="tight">
+    <thead><tr><th>来源</th><th>标题落点</th><th>核心判断</th><th>独有信息</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>腾讯科技</strong><br><span class="mute">晓静 / 徐青阳</span></td>
+        <td>《AI 芯片供不应求，英特尔却暴跌 20%》</td>
+        <td>AI 需求真实，但 PC 疲软 + CPU 供应受限 + 以色列事故，让"AI 需求能否持续转化为收入利润"被打上问号</td>
+        <td>TD Cowen 分析师观点、合作名单（甲骨文 / Meta / 谷歌 / AMD / SAP）、蓝思科技、路透"今年累涨超一倍"</td>
+      </tr>
+      <tr>
+        <td><strong>404K · 财报解读</strong><br><span class="mute">会计拆解视角</span></td>
+        <td>《数据中心拉动利润修复，现金支出与 PC 放缓如何影响持续性》</td>
+        <td>超预期幅度<strong>集中在利润端而非收入端</strong>；制造亏损收窄≠外部代工成功；本季正现金流含合作方出资，不能等同于业务自身造血</td>
+        <td>分部利润增量的勾稽（DCAI 增 20.75 亿 &gt; 集团增 18.39 亿）、7.44 亿"裸自由现金流"、合作方出资 50.32 亿 / 分配 144.42 亿、存货与在产品拆分</td>
+      </tr>
+      <tr>
+        <td><strong>404K · 电话会</strong><br><span class="mute">完整实录</span></td>
+        <td>《服务器芯片卖断货、供应紧到 2028 年，PC 却要连跌两年》</td>
+        <td>供需错配是全行业性的、且延续到 2028 年；2027 是"投资年"而非"收获年"</td>
+        <td>服务器 CPU TAM 400 亿→2000 亿、PC TAM 2026 -12% / 2027 -10%、40–60% 边际贡献率、20% ROI、2027 无正自由现金流</td>
+      </tr>
+      <tr>
+        <td><strong>海豚研究</strong><br><span class="mute">海豚君 / 基本面研判</span></td>
+        <td>《PC "崩了"，小跟头还是真祭旗？》</td>
+        <td>业绩符合预期，关键是<strong>指引崩了</strong>；PC 这只脚已崩，涨价能否落地要打问号；真正的估值弹性只在对外代工</td>
+        <td>37 倍 2027 PE 估值拆解、股价"过山车"三段复盘（95 美元增发→127→10 月 -29%）、Mercury 份额数据、Terafab / 苹果 / 台积电传闻链条</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;"><strong>最强分歧在两处：</strong>① <strong>PC 下滑的性质</strong>——腾讯与 404K 倾向"库存调整 + 存储涨价的外部冲击，属周期性"；海豚更尖锐，认为"涨价驱动的增长本身已到消费者接受度上限，属结构性"。② <strong>正现金流的含义</strong>——海豚与腾讯均直接引用"调整后自由现金流 +16.39 亿"作为改善证据；404K 明确拆出其中含合作方净出资，剔除后仅 7.44 亿，并提示"一次结算后的改善不足以证明今后每季都能用经营资金覆盖扩产"。</p>
+</div>
+
+<h2><span class="num">01</span>财报数据全景</h2>
+
+<h3><span class="ch">1.1</span>损益表：GAAP 与 Non-GAAP 的双重叙事</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">同比</th><th>备注</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>总营收</strong></td><td class="num">165.13 亿</td><td class="num">—</td><td class="num up">+21%</td><td>符合预期 165.3 亿；比 7 月指引中点高约 2 亿</td></tr>
+    <tr><td>GAAP 毛利</td><td class="num">70.96 亿</td><td class="num">52.18 亿</td><td class="num up">+18.78 亿</td><td>GAAP 毛利率 <strong>43%</strong>，同比 +4.8pct，好于预期 41.1%</td></tr>
+    <tr><td>Non-GAAP 毛利率</td><td class="num">44.1%</td><td class="num">40.0%</td><td class="num up">+4.1pct</td><td>超指引 2.1pct；环比 +约 2pct</td></tr>
+    <tr><td>营业费用</td><td class="num">—</td><td class="num">—</td><td class="num">仅 +0.39 亿</td><td>费用几乎零增长，是经营杠杆的主要来源</td></tr>
+    <tr><td><strong>GAAP 营业利润</strong></td><td class="num">25.22 亿</td><td class="num">6.83 亿</td><td class="num up">+18.39 亿</td><td>尚未剔除股权激励等项目，改善已成立</td></tr>
+    <tr><td><strong>Non-GAAP 营业利润</strong></td><td class="num">32.34 亿</td><td class="num">15.24 亿</td><td class="num up">+17.10 亿</td><td>与 GAAP 差 7.12 亿，主要是股权激励</td></tr>
+    <tr><td><strong>GAAP 净利润</strong></td><td class="num">33.2 亿</td><td class="num">约 40.5 亿</td><td class="num down">-18%</td><td>去年含较大<strong>业务处置收益</strong>；本季含<strong>托管股份公允价值收益</strong></td></tr>
+    <tr><td><strong>Non-GAAP 归母净利润</strong></td><td class="num">27.56 亿</td><td class="num">10.23 亿</td><td class="num up">+169%</td><td>剔除股权投资收益、重组费用、股权激励</td></tr>
+    <tr><td>GAAP 摊薄 EPS</td><td class="num">0.60 美元</td><td class="num">0.90 美元</td><td class="num down">-33%</td><td>净利 -18% 而 EPS -33%，差额来自股数扩大 17%</td></tr>
+    <tr><td><strong>Non-GAAP 摊薄 EPS</strong></td><td class="num">0.52 美元</td><td class="num">0.23 美元</td><td class="num up">+126%</td><td>高于市场预期 0.40 美元；超指引 0.14 美元</td></tr>
+    <tr><td>稀释加权平均股数</td><td class="num">53.07 亿股</td><td class="num">45.31 亿股</td><td class="num up">+17%</td><td>8 月 230 亿美元增发的分母效应</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>三个必须分清的口径陷阱</h4>
+  <ul>
+    <li><strong>"净利 -18%" 不代表经营变差。</strong>404K 的拆解是：去年包含较大的业务处置收益，本季也有托管股份公允价值收益，两者都改变最终净利润、但都不代表芯片业务的赚钱能力。用 Non-GAAP 看，归母净利从 10.23 亿升至 27.56 亿，营业利润从 15.24 亿升至 32.34 亿。</li>
+    <li><strong>但也不能把 Non-GAAP 当成"真实利润"。</strong>404K 特意补了一句：调整口径便于观察经营趋势，<strong>但股权激励等仍有经济成本</strong>——这是四篇里唯一主动给 Non-GAAP 打折的表述。</li>
+    <li><strong>"EPS -33%" 有一半是增发造成的。</strong>整体利润下降 18%，而股数增加 17%，两者叠加才有 EPS 的 -33%。这也是为什么"扩产回报"最终必须回答"增量利润能否抵消融资成本与摊薄"。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">1.2</span>分部业绩：一台引擎在转，一台在熄火，一台还没点火</h3>
+
+<table>
+  <thead>
+    <tr><th>分部</th><th class="num">营收</th><th class="num">同比</th><th class="num">环比</th><th class="num">营业利润</th><th class="num">利润率</th><th>关键备注</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DCAI</strong><br><span class="mute">数据中心与 AI</span></td>
+      <td class="num">73.18 亿</td>
+      <td class="num up">+78%</td>
+      <td class="num up">+17%</td>
+      <td class="num">30.39 亿<br><span class="mute">去年 9.64 亿</span></td>
+      <td class="num">41.5%</td>
+      <td><strong>15 年来最强营收增长</strong>；CFO 口述"占营收 42%"；环比营业利润 +约 6 亿</td>
+    </tr>
+    <tr>
+      <td><strong>CCPG</strong><br><span class="mute">客户端计算与物理 AI</span></td>
+      <td class="num">80.97 亿</td>
+      <td class="num down">-5%</td>
+      <td class="num down">-9%</td>
+      <td class="num">22.85 亿<br><span class="mute">去年 26.94 亿</span></td>
+      <td class="num">28.2%</td>
+      <td>低于预期 88.4–89.8 亿；利润率环比基本持平，靠<strong>更低的库存减记费用</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Intel Foundry</strong><br><span class="mute">代工</span></td>
+      <td class="num">66.97 亿</td>
+      <td class="num up">+58%</td>
+      <td class="num up">+16%</td>
+      <td class="num down">-18.53 亿<br><span class="mute">去年 -23.21 亿</span></td>
+      <td class="num down">-27.7%</td>
+      <td>含 <strong>62.91 亿内部交易</strong>；<strong>外部代工仅 4.11 亿</strong>，环比 +1.18 亿</td>
+    </tr>
+    <tr>
+      <td>内部抵消</td>
+      <td class="num down">-62.91 亿</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td>产品部门向代工部门支付的内部制造费用，计入代工收入后再抵消</td>
+    </tr>
+    <tr>
+      <td>其他 / 未分配</td>
+      <td class="num">约 +6.92 亿<span class="mute">（推算）</span></td>
+      <td class="num">—</td>
+      <td class="num">—</td>
+      <td class="num">约 -9.49 亿<span class="mute">（推算）</span></td>
+      <td class="num">—</td>
+      <td>四篇均未单独披露；按分部加总与合并数倒推</td>
+    </tr>
+    <tr>
+      <td><strong>合并</strong></td>
+      <td class="num"><strong>165.13 亿</strong></td>
+      <td class="num up">+21%</td>
+      <td class="num">—</td>
+      <td class="num"><strong>25.22 亿</strong></td>
+      <td class="num">15.3%</td>
+      <td>GAAP 口径</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>404K 最重要的一处勾稽：利润增量几乎全部来自 DCAI</h4>
+  <p>数据中心营业利润同比增加 <strong>20.75 亿美元</strong>，而集团营业利润同比只增加 <strong>18.39 亿美元</strong>——<strong>DCAI 一家的增量超过了集团总增量</strong>，意味着其余环节合计<strong>抵消了 2.36 亿</strong>的改善。这句话把"数据中心拉动利润修复"从定性判断变成了可验证的算术：利润修复的成色是真的，但集中度极高，没有第二条腿在帮忙。</p>
+</div>
+
+<h3><span class="ch">1.3</span>现金流、资本开支与资产负债表</h3>
+
+<table class="tight">
+  <thead><tr><th>项目</th><th class="num">本季</th><th>解读</th></tr></thead>
+  <tbody>
+    <tr><td>经营活动现金流</td><td class="num">50.82 亿<br><span class="mute">CFO 口述 51 亿</span></td><td>经营回款与当季支出之间已有改善</td></tr>
+    <tr><td>资本开支</td><td class="num">42.19 亿</td><td>去年同期 29.56 亿，同比 +43%</td></tr>
+    <tr><td><strong>调整后自由现金流</strong></td><td class="num up">+16.39 亿</td><td>公司口径；<strong>包含合作方净出资</strong>，不完全等于业务自身造血</td></tr>
+    <tr><td>404K"裸"自由现金流</td><td class="num">7.44 亿</td><td>经营现金流 − 总资本开支 − 融资租赁付款；<strong>为算术比较，非公司指引</strong></td></tr>
+    <tr><td>前三季度合作方出资 / 分配</td><td class="num">50.32 亿 / 144.42 亿</td><td>支出时点可显著改变单季结果，单季转正不足以证明可持续</td></tr>
+    <tr><td>现金 + 短期投资</td><td class="num">540.05 亿</td><td>CFO 实录写作"约 5.4 亿美元"，属明显转录错误</td></tr>
+    <tr><td>短期 + 长期债务</td><td class="num">501.34 亿</td><td>流动资金较充足，为投入争取了时间</td></tr>
+    <tr><td>循环信贷额度</td><td class="num">150 亿</td><td>由 100 亿扩大，未动用借款能力</td></tr>
+    <tr><td>8 月股权融资</td><td class="num">募资 230 亿 / 净额 226.17 亿</td><td>引入新的主权财富基金与长期成长型投资者</td></tr>
+    <tr><td>存货</td><td class="num">130.68 亿</td><td>较年末 +14.5 亿，其中<strong>在产品 87.97 亿</strong>；备货只有卖出才回到现金</td></tr>
+    <tr><td>员工总数</td><td class="num">8.1 万人</td><td>环比减少 1200 人；核心经营费用 45 亿，费用率 27%，环比 -0.8pct</td></tr>
+  </tbody>
+</table>
+
+<div class="box red">
+  <h4>404K 对现金流的四点提醒（四篇中唯一做此拆解）</h4>
+  <ol>
+    <li><strong>16.39 亿不是纯经营结果。</strong>该指标包含合作方净出资；剔除后只剩 7.44 亿。虽然仍为正、说明本季回款并非全靠外部融资，但差额说明"资金安排对最终余额有明显影响"。</li>
+    <li><strong>上一季是负的，本季转正应放在同一口径下看。</strong>二季度负的调整后自由现金流同样受合作方结算影响；一次结算后的改善，不足以证明今后每季都能用经营资金覆盖扩产。</li>
+    <li><strong>账上现金增加不全来自卖芯片。</strong>前三季度公开增发净收入 226.17 亿，显著影响了资金规模。</li>
+    <li><strong>存货是提前消耗现金的隐性项。</strong>为增加供给而备货有经营理由，但只有顺利完成生产并出售才回到现金；<strong>未来若收入放缓而库存继续上升，资金占用和减值风险就会加大</strong>——这句话正好对上了 Q4 客户端环比 -20% 的指引。</li>
+  </ol>
+</div>
+
+<h3><span class="ch">1.4</span>Q4 指引与市场预期差：缺口在哪里</h3>
+
+<table>
+  <thead><tr><th>指引项</th><th class="num">公司指引</th><th class="num">市场预期</th><th class="num">缺口</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>营收</strong></td><td class="num">150–160 亿<br><span class="mute">中值 155</span></td><td class="num">170.6–170.7 亿</td><td class="num down">约 -15 亿</td><td>中值环比 -6%；海豚测算环比 -3% 至 -9%</td></tr>
+    <tr><td><strong>Non-GAAP 毛利率</strong></td><td class="num">38%</td><td class="num">41.8%<span class="mute">（海豚口径）</span></td><td class="num down">-3.8pct</td><td>环比 -6.1pct；含 Fab 28 事故 -200bp</td></tr>
+    <tr><td><strong>Non-GAAP EPS</strong></td><td class="num">0.25 美元</td><td class="num">0.43 美元</td><td class="num down">-42%</td><td>税率 11%</td></tr>
+    <tr><td>DCAI</td><td class="num">环比中双位数增长</td><td class="num">—</td><td class="num">—</td><td>专用芯片增速高于 DCAI 整体</td></tr>
+    <tr><td>CCPG</td><td class="num down">环比 -20% 以上</td><td class="num">—</td><td class="num">—</td><td>客户迅速降低库存周数，采购对齐 2027 消耗预期</td></tr>
+    <tr><td>Fab 28 事故</td><td class="num">营收 -3 亿<br>毛利率 -200bp</td><td class="num">—</td><td class="num">—</td><td>几乎全部与 <strong>10nm 服务器产品</strong>相关；Q1 影响类似规模</td></tr>
+    <tr><td>Non-GAAP 运营费用</td><td class="num">44 亿<span class="mute">（全年 163 亿）</span></td><td class="num">—</td><td class="num">—</td><td>—</td></tr>
+    <tr><td>非控股权益 NCI</td><td class="num">2.5 亿</td><td class="num">—</td><td class="num">—</td><td>2027、2028 年均约 11 亿</td></tr>
+    <tr><td>完全稀释股数</td><td class="num">54.4 亿</td><td class="num">—</td><td class="num">—</td><td>8 月增发的完整季度体现</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>404K 的指引反推：营业利润要从 32.34 亿掉到约 14.9 亿</h4>
+  <p>按收入中点 155 亿 × 38% 毛利率 = <strong>58.9 亿毛利</strong>；再扣除约 44 亿调整后运营费用，<strong>近似营业利润 14.9 亿</strong>，明显低于本季的 32.34 亿。404K 明确标注这是"依据公司指引组合推算的结果，未替代正式盈利指引，也未预测税项、非经营收益和股数变化"。</p>
+  <p>它由此得出一个关键判断：<strong>"毛利率下降对利润的影响大于收入降幅本身"</strong>——收入只降 6%，营业利润却腰斩以上。同时它拒绝把落差归因于单一因素："现有披露没有量化它们各自造成多少毛利率下降，无法把全部落差归于某一个因素。"</p>
+</div>
+
+<div class="box green">
+  <h4>海豚对毛利率的三段式拆解（比"38%"这个数字更有信息量）</h4>
+  <ul>
+    <li><strong>Fab 28 的 2pct 是短期影响</strong>，毛利率还会回到 <strong>39–40%</strong> 左右。</li>
+    <li>但即便剔除这部分，毛利率<strong>还降了 4pct</strong>，主因是 <strong>PC 大幅下滑导致产能利用率不足</strong>（公司口径：按当前需求状况调整客户端晶圆投片量，在固定成本基础上整体营收降低）。</li>
+    <li>这 4pct 能否"拿回来"，要看 PC 修复及利用率表现；<strong>从管理层表述看，要等到 2027 年下半年及之后</strong>。</li>
+    <li>另有一层结构性拖累：Q4 营收结构中<strong>专用芯片强劲增长</strong>造成较难的环比对比基数——该业务利润率低于公司平均，但公司选择优先做毛利总额。</li>
+  </ul>
+</div>
+
+<h2><span class="num">02</span>三条主线拆解</h2>
+
+<h3><span class="ch">2.1</span>数据中心与 AI：15 年最强增长，但天花板是供给不是需求</h3>
+
+<h4>增长的质量</h4>
+<ul>
+  <li><strong>规模与增速：</strong>营收 73.18 亿，同比 +78%、环比 +17%，是公司<strong>15 年来最强劲的营收增长</strong>（CFO 原话）。</li>
+  <li><strong>利润弹性：</strong>营业利润 30.39 亿（去年 9.64 亿），利润率 41.5%，环比增加约 6 亿；改善由"更高的营收 + 更低的营业支出"共同推动。</li>
+  <li><strong>全年口径上修：</strong>DCAI 全年营收预计比年初预期<strong>高出近 100 亿美元</strong>。</li>
+  <li><strong>需求结构广泛：</strong>覆盖超大规模云厂商、企业级客户、新兴云服务商（neo cloud）三类，不是单一客户拉动。</li>
+  <li><strong>专用芯片是隐藏增量：</strong>环比 +50%、同比翻倍以上；过去三年规模增长至三倍，管理层预计<strong>未来几年再翻三倍</strong>。但公司<strong>未披露其具体规模</strong>——404K 因此提醒：这限制了"把整个部门增长都归给至强 CPU"的做法。</li>
+</ul>
+
+<h4>需求为什么突然变强：智能体给 CPU 重新定价</h4>
+<div class="box blue">
+  <p>陈立武的论证链条是四篇中唯一的"需求侧第一性原理"：</p>
+  <ol>
+    <li>AI 工作负载正从<strong>基于提示词的简单响应</strong>，走向<strong>多步骤推理编排和自主持久化行动</strong>；</li>
+    <li>服务器需要承担<strong>任务调度、数据处理、内存管理及其他通用计算</strong>，CPU 在 AI 服务器系统中的配置需求随之提高；</li>
+    <li>能效正成为 AI 基建最重要的衡量指标——<strong>GPU 擅长"思考"类任务，但确定性任务上 CPU 效率高得多</strong>；</li>
+    <li>量化对比：<strong>GPU 的推理查询能耗可能高达数瓦时，而单次 CPU 查询消耗的能量可能仅为焦耳级别</strong>；</li>
+    <li>结论：即使对数字智能体的总数、以及单颗 CPU 所支持的智能体数量采用<strong>保守估计</strong>，服务器 CPU 的潜在市场规模也可能在未来五年<strong>从目前 400 亿美元增长多达五倍，达到 2000 亿美元以上</strong>。</li>
+  </ol>
+</div>
+
+<h4>供给：三重瓶颈叠加</h4>
+<table class="tight">
+  <thead><tr><th>瓶颈</th><th>管理层表述</th><th>缓解时点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Intel 3 良率与周期</strong></td><td>"良率与生产周期持续改善，然而我对团队的执行力有着更高的要求"</td><td>持续改善中；俄勒冈工厂 Intel 3 于 <strong>2027 下半年</strong>量产</td></tr>
+    <tr><td><strong>先进有机基板（EMIB 封装用）</strong></td><td>"全行业短缺，同样影响了我们扩大产出的能力"；陈立武专程赴日本与多家载板供应商沟通锁量</td><td>基板产能 +40%，但<strong>大部分要到 2027 下半年才体现</strong></td></tr>
+    <tr><td><strong>Fab 28 以色列工厂事故</strong></td><td>10 月爆炸，停产约两周，主要生产 <strong>10nm 制程</strong>部分数据中心芯片</td><td>10 月底前后逐步复产；Q4 影响营收 3 亿 / 毛利率 200bp，Q1 类似规模</td></tr>
+  </tbody>
+</table>
+<p>CFO 的判断是：<strong>"我们预计整个行业在 2027 年全年、在进入 2028 年时仍将处于供应受限状态"</strong>；2027 上半年在晶圆和基板供应方面<strong>可能更加紧张</strong>，下半年随基板产能释放才有缓解。行业服务器 CPU 出货量在 <strong>2026 和 2027 年均增长 30% 以上</strong>，且"如果行业有更多额外供应可用，这两年的增速还会更高"。</p>
+
+<h4>产品与客户进展</h4>
+<ul>
+  <li><strong>Granite Rapids（Intel 3）：</strong>已成为<strong>服务器产品组合中规模最大的产品系列</strong>，是"产能爬坡最快的服务器产品之一"，且当前<strong>对毛利率具有增厚作用</strong>；海豚称其持续处于"紧缺"状态。</li>
+  <li><strong>Clearwater Forest（18A）：</strong>首款 18A 服务器产品，<strong>已开始出货并确认收入</strong>；OCP 峰会展示配置可扩展至<strong>每机架超 46,000 个核心、总功耗约 133 千瓦</strong>，主打"同类最佳每瓦性能"。</li>
+  <li><strong>Diamond Rapids（18A-P）：</strong>目前处于<strong>样品阶段</strong>，有望按计划于 <strong>2027 年</strong>实现产能爬坡；面向高性能计算、AI 推理与企业级负载；将被用于甲骨文 OCI 的 <strong>X14</strong> 产品。</li>
+  <li><strong>Coral Rapids：</strong>CEO 称"将具备与 AMD 竞争的实力；而在下一代产品（Tick-Tock 节奏）上，我们将会领先于 AMD"。</li>
+  <li><strong>GPU D 系列（原代号 Crescent Island）：</strong>专为推理优化，提升"持续高内存密集型 AI 推理"的经济性；早期反馈令人鼓舞，但<strong>"这对我们来说是一个新市场，实现规模化尚需时日"</strong>。</li>
+  <li><strong>甲骨文 OCI：</strong>多年合作，覆盖当前及未来至强平台，包括 Diamond Rapids。CEO 补充："我们还有多家客户，他们都非常有兴趣与我们签署<strong>长期协议（LTA）</strong>，以确保我们能为其保障 CPU 的供应交付。"</li>
+</ul>
+
+<h4>份额：唯一被明确承认的软肋</h4>
+<div class="box red">
+  <p><strong>海豚给出的第三方数据（Mercury）：</strong>英特尔服务器 x86 CPU 的<strong>出货份额已下降至 7 成以下</strong>，PC CPU 份额也<strong>下降至 6 成附近</strong>，而且<strong>未来几个季度服务器份额可能继续下滑</strong>。AMD 凭借"CPU + GPU"组合持续蚕食。</p>
+  <p><strong>财报应验了市场的两点担心：</strong>① 在内存涨价推高整机成本的情况下，CPU 的 ASP 还有多少上行空间——<strong>目前看 PC 客户或许已经开始抵触</strong>；② 面对 AMD Venice / Verano 等新品，公司又将如何稳住服务器份额。</p>
+  <p><strong>分析师当面质问（Morgan Stanley, Joseph Moore）：</strong>AMD 给出的指引是 70% 的收入增长，ARM 阵营势头也相当迅猛，英特尔怎么看明年的份额格局？</p>
+  <p><strong>CEO 的回应没有给数字：</strong>"明年的市场份额在很大程度上<strong>取决于供应能力</strong>。相对而言，我们的供应改善得越多，我们在市场份额上的表现就会越好。"——这句话实质上承认了<strong>份额在 2027 年是一个供给函数，而不是需求函数</strong>。</p>
+</div>
+
+<h3><span class="ch">2.2</span>客户端：PC "崩了"的三重叠加</h3>
+
+<h4>下滑的传导链条</h4>
+<div class="box amber">
+  <p>四篇对这一链条的描述高度一致，可归纳为一条完整的因果链：</p>
+  <p><strong>存储（内存）涨价与供应紧张 → 整机终端价格大幅上涨 → 本已有限的 IT 预算被进一步挤压 → 终端实际销售转弱 → OEM 主动管理库存、迅速降低库存周数 → 采购与 2027 年消耗预期对齐 → 英特尔客户端晶圆投片量下调 → 固定成本基础上营收降低 → 毛利率承压</strong></p>
+  <p>关键的时间细节（CEO）："近几周来，受内存价格和供货情况影响，我们的客户开始释放 PC 市场放缓的信号。<strong>过去两个月，PC 市场的调整步伐明显加快。</strong>"CFO 补充："这种压力在第三季度进一步加剧，<strong>尤其是在季度末</strong>，导致客户的采购模式发生了重大调整。"</p>
+</div>
+
+<h4>管理层给出的 TAM 路径</h4>
+<table class="tight">
+  <thead><tr><th>期间</th><th class="num">PC 出货量 TAM</th><th>管理层表述</th></tr></thead>
+  <tbody>
+    <tr><td>2026 全年</td><td class="num down">约 -12%</td><td>上半年保持韧性后转弱，<strong>下半年出货量下降超过 20%</strong></td></tr>
+    <tr><td>2027 全年</td><td class="num down">约 -10%</td><td>上半年同比下滑更明显；下半年在<strong>较低基数</strong>对比下有改善潜力</td></tr>
+    <tr><td>库存调整窗口</td><td class="num">Q4 / Q1 最集中</td><td>可能"稍微延伸到第二季度"；<strong>对英特尔的冲击超过 TAM 本身的下滑</strong></td></tr>
+    <tr><td>存储供应恢复</td><td class="num">看 2028</td><td>CFO 明确："<strong>在存储供应方面，我们对明年并不乐观……我们的预期是 2027 年不会有所改善</strong>"</td></tr>
+  </tbody>
+</table>
+<p class="mute" style="font-size:13px;">注：Q3 全球 PC 出货量同比 -17%（海豚引用），而公司口径的 2026 全年 TAM 为 -12%——两者统计范围/时点不同，不宜直接对比。</p>
+
+<h4>被下滑掩盖的四个亮点</h4>
+<ul>
+  <li><strong>AI PC 营收同比 +35%</strong>（在 CCPG 总营收 -5% 的背景下）。</li>
+  <li><strong>Wildcat Lake（成本优化的 18A 客户端 CPU）出货量环比 +70%，且已全部售罄</strong>；管理层称其"推出恰逢其时，正因其成本经过优化，市场给予了高度关注"。</li>
+  <li><strong>18A 客户端 CPU 占客户端 CPU 营收的比重，从第一季度的不足 5% 升至如今的近三分之一</strong>——这是代工良率改善最硬的客户端侧证据。</li>
+  <li><strong>Panther Lake（第三代酷睿 Ultra）</strong>：18A 量产爬坡成功，采用 ASML 高数值孔径 EUV；需求"依然强劲"、在弱市中"顶住了压力"；毛利率有实质性改善，但<strong>尚未达到或超过公司整体平均</strong>。海豚补充：它是首款用 High-NA EUV 大规模制造的产品。</li>
+</ul>
+
+<h4>2027 的反攻牌：Nova Lake</h4>
+<div class="box green">
+  <p><strong>Nova Lake 是首款 18A-P 客户端产品，进展快于预期</strong>：</p>
+  <ul>
+    <li>发布时的<strong>设计定案数量预计达到 Panther Lake 的两倍</strong>；</li>
+    <li><strong>填补了公司在高端台式机产品组合中的空缺</strong>（CFO 明确点出这是此前的一个空白）；</li>
+    <li>管理层定性："我们认为这是我们在很长一段时间内拥有的<strong>最出色的产品组合</strong>"，并判断"明年及未来几年，我们在客户端领域将处于一种<strong>份额扩张</strong>的环境中"；</li>
+    <li>2027 年 1 月 CES 分享更多信息。</li>
+  </ul>
+  <p>CFO 还主动延伸到更远："尽管面临这些情况，PC 仍将经历一场<strong>复兴</strong>。随着 AI 工作负载开始转移，在客户端空间（无论是作为 PC 还是某种<strong>智能体终端设备</strong>）都将需要处理大量工作负载。"</p>
+</div>
+
+<h4>海豚的独立判断：这次不一样</h4>
+<div class="box red">
+  <p>海豚给出的视角是四篇中最尖锐的，且<strong>不与公司口径一致</strong>：</p>
+  <ul>
+    <li>"此前公司的增长主要来自<strong>价格和产品结构（AI PC 占比提升），而非出货量</strong>。但由于终端市场的持续低迷，<strong>涨价也不是"长久之计"（消费者接受度越来越低）</strong>。"</li>
+    <li>"即便英特尔是 PC 市场 CPU 的核心供应商，也很难"独善其身"。<strong>在终端市场需求出现两位数下滑的情况下，想通过涨价来实现"成本转嫁"是相当困难的</strong>。"</li>
+    <li>"此前市场寄希望于公司 PC 端能稳住，但从本季度开始终究还是<strong>"没能稳住"</strong>。"</li>
+  </ul>
+  <p>换言之，海豚认为 PC 的问题不只是"库存周期 + 存储涨价"的外部冲击，而是<strong>"涨价驱动增长"这一模式本身已触及需求弹性上限</strong>。这是与腾讯、404K 最本质的分歧。</p>
+</div>
+
+<h4>一个被忽略的产能套利机会</h4>
+<p><strong>Morgan Stanley 的 Joseph Moore 提问：</strong>PC 疲软是否为重新分配晶圆产能、加速产能转换提供了机会？<strong>CFO 答"是"</strong>：俄勒冈工厂下线并腾出空间导入 Intel 3 的原本是 18A 晶圆（通常用于生产 Panther Lake），"我们看到利用释放出的部分产能去生产更多数据中心晶圆的机会。但需要牢记的是，<strong>我们的瓶颈不仅在于晶圆端，在载板端也同样受限</strong>"。这条信息很关键：它说明 PC 的下滑在财务上是拖累，但在产能上<strong>部分对冲了数据中心的供给约束</strong>——只是被基板卡住了。</p>
+
+<h3><span class="ch">2.3</span>代工：58% 增长背后的真实数字</h3>
+
+<h4>先把水分挤掉</h4>
+<div class="box red">
+  <table class="tight" style="margin-top:0;">
+    <thead><tr><th>口径</th><th class="num">金额</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td>Intel Foundry 分部收入</td><td class="num">66.97 亿</td><td>同比 +58%，环比 +16%，好于市场预期 61.2 亿</td></tr>
+      <tr><td>减：内部交易抵消</td><td class="num down">-62.91 亿</td><td>产品部门向代工部门支付的内部制造费用</td></tr>
+      <tr><td><strong>外部代工收入</strong></td><td class="num"><strong>4.11 亿</strong></td><td>环比 +1.18 亿，<strong>主要源于"一项非经常性客户项目"</strong></td></tr>
+      <tr><td>代工营业亏损</td><td class="num down">-18.53 亿</td><td>去年同期 -23.21 亿；环比改善 2.36 亿；亏损率 27.7%</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-bottom:0;"><strong>这是整份财报最容易被误读的一组数字。</strong>海豚的表述最直白："公司的代工业务目前主要是<strong>对内服务</strong>，因而从总数上也主要体现了公司自有产品的表现……海豚君预估公司本季度的<strong>对外代工收入约为 4 亿美元，依然是相当少的</strong>。"404K 的表述更严格："66.97 亿包含大量内部交易……<strong>用制造部门总收入衡量外部客户商业成功，会把自有产品扩产和第三方订单混在一起</strong>。"</p>
+</div>
+
+<h4>成本改善是真实的，但只解决了"减亏"</h4>
+<table class="tight">
+  <thead><tr><th>指标</th><th>改善幅度</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>Intel 3 成本</td><td class="up">较第一季度改善约 15%</td><td>晶圆产量环比增长"十几个百分点"</td></tr>
+    <tr><td>Intel 18A 成本</td><td class="up">自第一季度以来下降约 40%</td><td>反映良率和生产周期的持续改善</td></tr>
+    <tr><td>18A 良率</td><td class="up">两位数改善</td><td>"达到行业标准水平的速度超出了我们的内部预测"</td></tr>
+    <tr><td>两个节点晶圆产出</td><td class="up">均超出预期</td><td>Intel 3 与 18A 良率"再次双双提高"</td></tr>
+  </tbody>
+</table>
+<p>404K 的定性最克制："本期可以确认<strong>制造亏损收窄</strong>，尚不足以确认<strong>外部代工已经成为稳定利润来源</strong>。"并进一步指出："短期可以根据已发生的减亏调整集团利润预期；更长期的外部代工价值，需要可确认的客户需求、量产收入和资本回报支持。本期并未提供足以独立估算这些回报的外部收入及订单数据，因此<strong>无法仅凭 58% 的部门增速给出新的成熟代工估值</strong>。"</p>
+
+<h4>四个节点的进度条</h4>
+<table>
+  <thead><tr><th>节点</th><th>当前状态</th><th>下一步</th><th>外部客户含义</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Intel 3</strong></td>
+      <td>Granite Rapids 已成最大产品系列；爱尔兰设备安装顺利；俄勒冈腾出 18A 空间导入</td>
+      <td>俄勒冈 <strong>2027 下半年</strong>量产；"明年对我们也将实现盈利"</td>
+      <td>纯内部节点</td>
+    </tr>
+    <tr>
+      <td><strong>18A</strong></td>
+      <td>Panther Lake 量产爬坡成功；Clearwater Forest 出货并确认收入；良率两位数改善</td>
+      <td>18A-P <strong>年底前在内部产品全线启用</strong></td>
+      <td>"我们目前正在与<strong>几家具备高度战略意义的客户</strong>展开合作"；"目前也有来自外部客户的主动接洽"；重点在<strong>裸片尺寸</strong>与 IP 就绪</td>
+    </tr>
+    <tr>
+      <td><strong>18A-P</strong></td>
+      <td>已进入风险试产，优化性能、功耗、热特性</td>
+      <td>Nova Lake 为首款 18A-P 客户端产品；Diamond Rapids 亦基于 18A-P</td>
+      <td>与 18A 共用客户管道</td>
+    </tr>
+    <tr>
+      <td><strong>14A</strong></td>
+      <td><strong>10 月已向部分精选客户发布 0.9 版 PDK</strong>，"这是我们质量最高的一版 0.9 PDK，在发布时即达到了行业标准的良率与性能指标"</td>
+      <td><strong>2027 Q1 推出 1.0 版 PDK</strong>；2027 风险试产；<strong>2028 投产</strong></td>
+      <td>"届时就可以开始与有意愿采用我们晶圆厂制造产品的客户展开实质性对接"</td>
+    </tr>
+    <tr>
+      <td><strong>先进封装 EMIB-T</strong></td>
+      <td>Google / MediaTek TPU、Meta MTIA <strong>已评估</strong>；与蓝思科技合作玻璃加工；EMIB 与 EMICube 在内部产品进展满意</td>
+      <td><strong>2027 年底开始量产</strong>；新墨西哥州与马来西亚扩产以支持"明年先进封装客户强劲的量产爬坡"</td>
+      <td>海豚：<strong>单个客户机会超过 10 亿美元</strong></td>
+    </tr>
+    <tr>
+      <td><strong>HBI 混合键合</strong></td>
+      <td>"就绪度方面取得扎实进展"</td>
+      <td>为即将推出的服务器产品实现 <strong>3D 芯片堆叠</strong>的关键使能技术</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>外部客户的真实名单：一个确定，四个传闻</h4>
+<div class="box purple">
+  <p><strong>已公开落地的外部大单只有一个：为马斯克 Terafab 项目（Tesla / SpaceX）供应 14A。</strong></p>
+  <p><strong>传闻与未签约的：</strong></p>
+  <ul>
+    <li><strong>谷歌：</strong>定制 TPU 可能由英特尔代工（对应 EMIB-T 先进封装），未见正式协议。</li>
+    <li><strong>苹果：</strong>此前与公司达成<strong>初步代工框架（18A）</strong>，又传出 <strong>M7 基础款部分晶圆或由 18A-P 在美国工厂生产</strong>，但<strong>均未签署最终量产合同</strong>。</li>
+    <li><strong>AMD、SpaceX：</strong>在潜在合作方名单中。</li>
+    <li><strong>英伟达：</strong>与英特尔在制造业务上的潜在合作，<strong>截至本次财报披露，相关订单规模和正式制造协议仍缺少英特尔官方确认</strong>（腾讯）。</li>
+  </ul>
+  <p><strong>负面变量：</strong>近期传闻<strong>台积电可能参与 Terafab 运营</strong>，这让市场开始怀疑英特尔在"<strong>唯一确定订单</strong>"中的地位。海豚明确指出：这动摇了英特尔"唯一美国本土代工选项"的叙事，是 10 月股价累跌 29% 的直接触发因素。</p>
+</div>
+
+<h4>卖方怎么看封装与前端</h4>
+<p><strong>TD Cowen 分析师 Joshua Buchalter：</strong>英特尔 EMIB-T 先进封装技术<strong>正在形成有价值的外部市场机会</strong>，公司计划在明年扩大相关客户业务。<strong>但他同时指出，真正影响英特尔代工业务估值的关键，仍然是能否获得有规模的前端晶圆制造客户。</strong>——这与 404K 的"58% 增速不能给出成熟代工估值"、海豚的"对外代工才是估值倍数核心叙事"形成三方一致的判断。</p>
+
+<h4>产能建设：钱花在哪</h4>
+<ul>
+  <li><strong>亚利桑那：</strong>Fab 62 为第二座 18A 大规模量产工厂，正在加快洁净室建设。</li>
+  <li><strong>爱尔兰：</strong>Intel 3 设备安装进展顺利。</li>
+  <li><strong>俄勒冈：</strong>18A 推进良好，同时为 Intel 3 腾出空间。</li>
+  <li><strong>新墨西哥 / 马来西亚：</strong>扩充产能以支持明年先进封装客户的量产爬坡。</li>
+  <li><strong>俄亥俄新奥尔巴尼：</strong>完成首个主要结构桁架安装；"持续评估独特且高度差异化的机会以加快俄亥俄州基地的建设"。</li>
+  <li><strong>基板：</strong>产能 +40%，"在很大程度上要到下半年才会体现出来"。</li>
+</ul>
+
+<h2><span class="num">03</span>电话会实录精要</h2>
+
+<p class="mute" style="font-size:13px;">参会：CEO 陈立武（Lip-Bu Tan）、CFO 戴维·津斯纳（Dave Zinsner）、投资者关系企业副总裁 John Pitzer。以下按"管理层陈述 → 七轮问答"顺序完整还原，保留所有量化口径与未被打断的原话。</p>
+
+<h3><span class="ch">3.1</span>CEO 陈立武陈述</h3>
+
+<h4>开场定调</h4>
+<div class="quote">"第三季度的需求环境比前几个季度更为均衡。DCAI 的强劲势头带动了业绩上行，并实现了该业务板块 15 年来最强劲的营收增长。由于内存价格上涨和 IT 预算有限带来的全行业影响，CCPG 表现疲软，部分抵消了上述增长。"</div>
+<p>他把宏观背景定义为："在<strong>超级智能前所未有的需求</strong>驱动下，整个行业仍在经历<strong>历史上最严重的供应短缺之一</strong>。"并坦承："我对我们在第三季度扩大服务器供应方面取得的进展感到欣慰。我也清楚地意识到，我们在<strong>未来几个季度仍面临持续的挑战</strong>，以跟上服务器需求的步伐。"</p>
+<p>关于 8 月增发：顺利完成，引入<strong>新的主权财富基金和长期成长型投资者</strong>；"我们正在<strong>迅速而审慎</strong>地配置这笔资金。我们预计未来几个季度的资本支出以及<strong>关键零部件的采购承诺</strong>将大幅增加。"并感谢存储与晶圆制造设备供应商的支持。</p>
+
+<h4>服务器业务</h4>
+<ul>
+  <li><strong>Granite Rapids（Intel 3）：</strong>"已成为产能爬坡最快的服务器产品之一"。</li>
+  <li><strong>Clearwater Forest（18A）：</strong>"首款 Intel 18A 服务器产品，已开始出货并确认收入"。</li>
+  <li><strong>2027 需求：</strong>"十分庞大，特别是在 <strong>CPU 密集型的智能体（Agentic）机架级基础设施</strong>中"。</li>
+  <li><strong>Diamond Rapids：</strong>"目前正处于样品阶段，并有望按计划于 2027 年实现产能爬坡，市场对<strong>推理和智能体工作负载</strong>表现出浓厚兴趣"。</li>
+  <li><strong>甲骨文 OCI：</strong>部署最新一代 CPU 支持其 AI 基础设施建设。</li>
+</ul>
+
+<h4>三处"必须坦诚面对的逆风"</h4>
+<ol>
+  <li>Intel 3 的良率与生产周期持续改善，"然而，<strong>我对团队的执行力有着更高的要求</strong>"。</li>
+  <li>"尽管我们的 Intel 3 晶圆产出迅速攀升，但<strong>全行业用于 EMIB 封装的先进有机基板短缺</strong>，同样影响了我们扩大产出的能力。"</li>
+  <li>"本月早些时候，一场<strong>不幸且令人悲痛的事故</strong>导致我们在以色列的工厂停产较长时间……这仍将对我们第四季度的 <strong>10 纳米服务器出货</strong>造成影响。"</li>
+</ol>
+
+<h4>专用芯片与推理 GPU</h4>
+<p>专用芯片"仍是我们<strong>增长最快的业务板块</strong>，过去三年规模增长至三倍，并有望在未来几年<strong>再次翻三倍</strong>"；客户包括现有客户以及<strong>AI 实验室</strong>等新潜在客户，同时在拓展 IP 产品组合。Crescent Island（GPU D 系列）"早期反馈令人鼓舞，性能表现良好。这对我们来说是一个新市场，<strong>实现规模化尚需时日</strong>，但与客户的对接正在稳步推进，并逐步走向<strong>确定性承诺</strong>"。</p>
+
+<h4>客户端</h4>
+<p>"近几周来，受内存价格和供货情况影响，我们的客户开始释放 PC 市场放缓的信号。今年以来，<strong>整机终端价格大幅上涨</strong>，给本已有限的 IT 预算带来了额外压力。<strong>过去两个月，PC 市场的调整步伐明显加快。</strong>"并预判"这种环境将持续存在，<strong>直到内存供应和价格开始恢复正常</strong>"。产品侧：Panther Lake 在 18A 上成功爬坡，Wildcat Lake <strong>供不应求</strong>，Nova Lake "进展快于预期、设计定案预计达到 Panther Lake 的两倍"，CES 分享更多。</p>
+
+<h4>代工与制造网络</h4>
+<ul>
+  <li>Intel 3 与 18A 良率"再次双双提高"，<strong>18A 实现两位数改善</strong>；两个节点晶圆产出均超预期。</li>
+  <li>18A 在内部产品组合中"仍有望按计划在年底前推出"。</li>
+  <li>外部客户："正在与<strong>几家具备高度战略意义的客户</strong>展开合作"；"我越来越确信，我们的 18A 对外部代工客户而言将是一个极具吸引力的节点"。</li>
+  <li>14A："正如承诺的那样，我们在 10 月份向部分精选客户发布了<strong>行业标准的 0.9 版本 PDK</strong>。这是我们<strong>质量最高的一版</strong> 0.9 PDK，在发布时即达到了行业标准的良率与性能指标。"并重申"<strong>我始终坚持不披露客户细节</strong>"。</li>
+  <li>封装：EMIB 与 EMICube 在内部产品进展满意，在外部客户中"同样展现出强劲的吸引力"；HBI 为 3D 芯片堆叠的关键使能技术。</li>
+</ul>
+
+<h4>转型叙事与 TAM 论证</h4>
+<div class="quote">"我始终强调重塑英特尔将是一段<strong>长达数年的征程</strong>……目前我们在这段征程中<strong>仅走过了一年半的时间</strong>。在这 18 个月里，我们取得了长足的进步，包括<strong>大幅精简员工规模、消除中层管理与官僚作风、精简高管团队</strong>，并建立起了一支<strong>近乎全新的领导班子</strong>。我们重新树立了<strong>以工程为中心的文化</strong>，精简了产品组合，并为 Intel 产品与 Intel 代工制定了更具竞争力的路线图。"</div>
+<p>他给出一条关键的能效论证（见 2.1 节），并给出 TAM 结论：<strong>服务器 CPU 市场可能在未来五年从 400 亿美元增长多达五倍，达到 2000 亿美元以上</strong>。</p>
+
+<h4>三条受益路径（"英特尔凭什么"）</h4>
+<table class="tight">
+  <thead><tr><th>#</th><th>路径</th><th>原话要点</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>x86 守护者</strong></td><td>"作为全球部署最广泛的指令集架构 x86 的守护者，我们正在<strong>加倍投入 x86 创新</strong>"；并"首次推出了经过验证的<strong>完全模块化 x86 CPU 实例</strong>，针对客户的定制工作负载进行了优化"</td></tr>
+    <tr><td>2</td><td><strong>美国唯一先进制程代工</strong></td><td>"全球仅有的三家先进制程半导体代工厂之一，也是<strong>唯一一家总部位于美国的代工厂</strong>"；"我们乐于为客户大规模制造<strong>任何 CPU，完全不受底层 ISA 架构的限制</strong>"</td></tr>
+    <tr><td>3</td><td><strong>先进封装领先</strong></td><td>"随着现代计算平台日益演变成复杂的<strong>系统级封装（System-in-Package）</strong>，我们在先进封装领域的领先地位提供了高度差异化的解决方案"</td></tr>
+  </tbody>
+</table>
+
+<h4>前沿技术与量子</h4>
+<p>持续投资<strong>硅光子学、神经拟态计算、先进材料、量子计算</strong>。本周宣布<strong>收购以色列量子软件提供商 Q-CTRL 的意向</strong>：其跨硬件的通用软件平台层"为更多用户探索量子计算提供了入口"，与内部量子软硬件技术栈"形成绝佳互补"；完成后英特尔将成为"一家<strong>全栈式、具备创收能力的量子计算公司</strong>"，在 CPU、GPU、ASIC 之外新增 <strong>QPU</strong>。</p>
+
+<h4>收尾</h4>
+<div class="quote">"我对本季度<strong>无法完全满足强劲的客户需求感到遗憾</strong>。我们面临着近期挑战，包括制造供应短缺、前所未有的内存供应吃紧，以及由此导致的 PC 需求疲软。"</div>
+
+<h3><span class="ch">3.2</span>CFO 津斯纳陈述</h3>
+
+<h4>总体与指引达成</h4>
+<ul>
+  <li>"营收、毛利率和每股收益均超出指引预期。这标志着我们<strong>连续第八个季度超越财务预期</strong>。"</li>
+  <li>Non-GAAP 毛利率 44.1%，"比第二季度高出约 200 个基点"，环比改善主要由于<strong>Intel 3 和 18A 的成本改善以及更有利的产品组合</strong>。</li>
+  <li>Non-GAAP EPS 0.52 美元，此前指引 0.38 美元；超预期"主要得益于更高的营收、更强劲的毛利率以及审慎的开支管理，这些因素共同带来了<strong>好于预期的经营杠杆</strong>"。</li>
+  <li>经营现金流 51 亿美元；现金及短期投资约 540 亿（实录误作"5.4 亿"）；循环信贷额度由 100 亿扩大至 <strong>150 亿</strong>。</li>
+  <li>8 月 230 亿股权融资带来的<strong>增量利息收入为 Q3 EPS 贡献约 0.01 美元</strong>，"这在最初的指引中并未考虑"。</li>
+</ul>
+
+<h4>分部</h4>
+<table class="tight">
+  <thead><tr><th>分部</th><th>CFO 原话要点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>DCAI</strong></td><td>73 亿，环比 +17%、同比近 80%；"由于我们的工厂网络和外部供应商支持了更高的产出，营收<strong>大幅超出预期</strong>"；<strong>全年营收预计比年初预期高出近 100 亿美元</strong>；增长基础广泛（超大规模云、企业、新兴云）；专用芯片环比 +50%、同比翻倍以上；营业利润 30 亿、占营收 42%，环比 +约 6 亿，"由更高的营收和更低的营业支出推动"</td></tr>
+    <tr><td><strong>CCPG</strong></td><td>81 亿，环比 -9%，低于预期；"这种压力在第三季度进一步加剧，尤其是在<strong>季度末</strong>"；AI PC 营收同比 +35%；Wildcat Lake 出货环比 +70% 且<strong>全部售罄</strong>；边缘业务"展现出更强的韧性"；营业利润 23 亿、占营收 28%，环比基本持平，"主要得益于<strong>更低的库存减记费用</strong>"</td></tr>
+    <tr><td><strong>Foundry</strong></td><td>67 亿，环比 +16%；<strong>外部代工 4.11 亿，环比 +1.18 亿，主要源于一项非经常性客户项目</strong>；营业亏损 19 亿，环比改善 2.36 亿；"尽管我们仍在积极投资，为明年 14A 的风险试产做准备"；成本改善见 2.3 节</td></tr>
+  </tbody>
+</table>
+
+<h4>行业供需判断（本次电话会最重要的三句话）</h4>
+<div class="box blue">
+  <ol>
+    <li><strong>供给："我们预计整个行业在 2027 年全年、在进入 2028 年时仍将处于供应受限状态。"</strong></li>
+    <li><strong>服务器："我们现在预计，行业服务器 CPU 出货量在 2026 年和 2027 年都将增长 30% 以上。如果行业有更多额外供应可用，这两年的增速还会更高。"</strong></li>
+    <li><strong>PC："我们预计 2026 年 PC 出货量 TAM 将下降约 12%，其中下半年出货量将下降超过 20%……对于 2027 年，我们预计 PC 出货量 TAM 将下降约 10%。"</strong></li>
+  </ol>
+  <p style="margin-bottom:0;">对 PC 的长期看法不变：传统 PC 将在"赋能 AI 应用以及推动 AI 基础设施支出的强劲回报方面发挥重要作用"；并看到"新的智能体系统"与"边缘和物理 AI"的长期机遇。</p>
+</div>
+
+<h4>资本开支与自由现金流：2027 是"投资年"</h4>
+<ul>
+  <li>2026 年总资本开支<strong>仍有望保持在 200 亿美元</strong>（此前由 180 亿上调）；2027 年<strong>将强劲增长</strong>。</li>
+  <li>"向设备供应商下达的<strong>确定采购订单环比增长了近 40%</strong>"。</li>
+  <li>加快洁净室建设（含亚利桑那 Fab 62），探索俄亥俄加速。</li>
+  <li>"尽管资本支出和营运资金有所增加，我们依然<strong>致力于在 2027 年实现去杠杆</strong>。"</li>
+  <li><strong>纪律宣言："除非我们对自身产品和制程技术的健康状况充满信心，并掌握客户需求的明确证据，否则我们不会花费一美元的资本。"</strong></li>
+</ul>
+
+<h4>长期框架</h4>
+<div class="quote">"我们在投资时将保持纪律……我们的核心服务器 CPU 市场增长速度超过以往任何时候……我们有机会<strong>夺回市场份额</strong>，并实现比底层市场更快的增速。除了核心 x86 业务之外，我们还在投资<strong>三大巨大机遇</strong>——专用芯片、先进封装和外部晶圆代工。<strong>每一个都代表着数百亿美元的新市场</strong>……综合来看，我们具备实现<strong>长期双位数营收增长</strong>的清晰路径，同时伴随显著的<strong>经营杠杆</strong>和不断扩大的利润率。"</div>
+
+<h3><span class="ch">3.3</span>七轮分析师问答（完整还原）</h3>
+
+<div class="qa">
+  <div class="qh">Q1 · 瑞银 Timothy Arcuri · 2027 年框架与资本开支</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>考虑到各种消长因素以及 PC 现状，能否给一些明年全年的参考边界？看起来 DCAI 年对年增长可能达到 100 亿到 150 亿美元，但 PC 业务可能会略有下滑。</p>
+    <p><strong>CFO 答（不提供具体指引，只给定性）：</strong></p>
+    <ul>
+      <li><strong>"在宏观层面上，我们认为明年将是一个增长年。"</strong>本季数据中心的势头（若刨除以色列工厂影响，本会延续到 Q4）预计将在明年继续保持。</li>
+      <li><strong>唯一的变化在上半年仍受限：</strong>基板产能 +40%，但"很大程度上要到下半年才会体现"；Intel 3 节点仍产能受限，正努力把部分供应转移到俄勒冈，"但在晶圆厂出产并转化为产品之前还需要一段时间"。</li>
+      <li>专用芯片"过去三年以 3 倍的速率增长，我们预计它在<strong>未来三年内仍将以 3 倍的速率增长</strong>"，贯穿 2027 年都非常看好。</li>
+      <li><strong>客户端是最难预测的：</strong>2026 TAM -12%，明年再 -10%，叠加库存调整；"我们在第三季度稍微感受到了一些，第四季度将有强烈感受，我们认为这<strong>至少会延续到第一季度</strong>"，之后回归取决于 TAM 走势。</li>
+      <li>Nova Lake 是"很长一段时间内拥有的最出色的产品组合"，涵盖"参与客户端竞争所需的全部要素"，"明年及未来几年，我们在客户端领域将处于一种<strong>份额扩张</strong>的环境中"。</li>
+      <li>主动延伸："PC 仍将经历一场<strong>复兴</strong>……随着 AI 工作负载开始转移，在客户端空间（无论是作为 PC 还是某种<strong>智能体终端设备</strong>）都将需要处理大量工作负载。"</li>
+    </ul>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>很多人都在考虑明年资本开支约 300 亿美元，真正的问题是：你们是否致力于在明年实现正向自由现金流？</p>
+    <p><strong>CFO 答：</strong></p>
+    <ul>
+      <li>"我们还没有完全敲定具体数字……但我们对可能发生的情况有方向性的把握。考虑到交期，我们已经在向设备供应商下达采购订单。"</li>
+      <li><strong>"我认为明年对我们来说将是一个投资之年。从全年的情况来看，明年可能不是一个能产生正向自由现金流的局面。"</strong></li>
+      <li>ROI 框架："只要你进行正确的投资，以正确的方式爬坡制程节点，你就会看到盈利，并看到投资资本回报率……<strong>我们应该至少获得 20% 的 ROI</strong>。"</li>
+      <li>为什么现金流转负：18A 产能爬坡、Intel 3 一定程度爬坡、为 14A 在 <strong>2028 年投产</strong>做准备——"所有这些大量的投资<strong>几乎集中在同一年内</strong>"。"这就是我们在 8 月初筹集资金的原因。"</li>
+      <li>长期信心来源："今天的 Intel 7（即 10 纳米/7）对我们来说<strong>已经是一个盈利的制程节点</strong>。Intel 3 明年对我们也将实现盈利。我们知道我们可以让这些业务实现盈利……<strong>我们只需要挺过 2027 年这个基本上可以说是狭窄瓶颈期的阶段</strong>。"</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q2 · Melius Research Ben Reitzes · 指引下调的拆解与服务器爬坡时点</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>Q4 及可能延续到 Q1 的问题，能否对比此前预期评估规模？以色列影响约 3 亿美元，此后几个季度会怎样？客户端指引比市场预期低约 18 亿美元，这三点（以色列、客户端、执行力）各自影响多大？</p>
+    <p><strong>CFO 答：</strong></p>
+    <ul>
+      <li><strong>以色列：</strong>停产约两周，"预计本周末就会恢复生产"；正在评估产线上所有晶圆，判断哪些材料可用。"Q4 将受到约 <strong>3 亿美元</strong>的影响，<strong>第一季度的影响可能也差不多</strong>"。</li>
+      <li><strong>报废时点：</strong>"我们认为大部分晶圆资产减记或报废<strong>基本上都将发生在第四季度</strong>，这也是导致毛利率受到 200 个基点影响的原因。<strong>我不认为第一季度还会发生额外的报废。</strong>"同时强调"目前时间尚早，我们正在进行全面排查"。</li>
+      <li><strong>客户端：</strong>"各季度之间的库存调整通常都会非常相似"，Q1 还会叠加季节性因素，"无论我们讨论的第四季度水平如何，下个季度都会出现一定的季节性下滑"。</li>
+      <li><strong>对"执行力"的正面回应：</strong>"在执行层面上有很多非常积极的进展……Lip-Bu 和团队在提升 Intel 3 良率和 18A 良率方面做得非常出色。在与载板供应商合作方面，<strong>Lip-Bu 专程前往日本与多家载板供应商沟通</strong>，以确保我们能获得充足的配额供应。我认为在供货保障方面，我们的布局<strong>不亚于行业内的任何人</strong>。"</li>
+      <li><strong>供应节奏：</strong>"供应确实偏紧，下个季度会很紧，明年上半年也依然紧张。不过……在此之后，我们应该会看到数据中心业务迎来<strong>相当健康的增长</strong>。"</li>
+    </ul>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>鉴于市场正迈向 2000 多亿美元规模，你们预计何时能跟上市场增速？是明年下半年吗？</p>
+    <p><strong>CEO 答（产品接力顺序）：</strong></p>
+    <ul>
+      <li>最大收入来源是基于 Intel 3 的 Granite Rapids，持续提升良率效率、扩大产能；<strong>俄勒冈工厂计划明年下半年让 Intel 3 投入量产</strong>。</li>
+      <li>Clearwater Forest（18A）"即将面世、已开始出货确认收入，我们对此应该具备充足的产能"。</li>
+      <li>Diamond Rapids 2027 年推出，配 <strong>18A-P</strong>；<strong>2028 年即将推出的产品将采用 14A</strong>。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q3 · 摩根士丹利 Joseph Moore · 产能再分配与 2027 份额</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>PC 市场的疲软是否为重新分配晶圆产能并解决部分问题提供了机会？能否借此加速产能转换？</p>
+    <p><strong>CFO 答：</strong>"回答是肯定的。我们在俄勒冈工厂下线并腾出空间导入 Intel 3 的原本是 18A 晶圆，这些晶圆通常用于生产 Panther Lake 产品。我们看到利用释放出的部分产能去<strong>生产更多数据中心晶圆</strong>的机会。但需要牢记的是，<strong>我们的瓶颈不仅在于晶圆端，在载板端也同样受限</strong>。因此，让载板环节的产能提升以满足需求至关重要。"</p>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>你们之前提到 30% 的出货量增长，而 AMD 给出的指引是 70% 的收入增长，ARM 阵营势头也相当迅猛。你们认为未来的市场份额格局会如何演变？</p>
+    <p><strong>CEO 答：</strong></p>
+    <ul>
+      <li>"我们拥有明确的路线图，我们对现有的产品组合充满信心。在 <strong>Coral Rapids</strong> 方面，我们将具备与 AMD 竞争的实力；而在下一代产品（<strong>Tick-Tock 节奏</strong>）上，我们将会领先于 AMD。请拭目以待。"</li>
+      <li>"CPU 确实是我们的立足之本，我们坚定致力于在该领域取得成功。"</li>
+      <li><strong>最关键的一句："我确实认为明年的市场份额在很大程度上取决于供应能力。相对而言，我们的供应改善得越多，我们在市场份额上的表现就会越好。"</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q4 · 伯恩斯坦 Stacy Rasgon · 毛利率的"put and takes"与 PC 库存</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>我明白如果不是以色列事件，38% 的指引本来可能是 40%。展望明年，客户端去库存与产能利用率是负面、折旧上升是负面、18A 与 Intel 3 放量但毛利率是否仍低于 Intel 10 和 Intel 7？产品结构变化加上 ASIC、封装是否构成逆风？服务器倾斜与定价是有利的。变动因素太多，能否梳理？</p>
+    <p><strong>CFO 答（逐项拆解）：</strong></p>
+    <ul>
+      <li><strong>以色列：</strong>"在利润率层面上实际上主要发生在第四季度"，Q1 不会有大额报废。</li>
+      <li><strong>产品结构正面项：</strong>"至强需求依然非常强劲……<strong>Granite Rapids 目前对我们的毛利率具有增厚作用</strong>。Granite Rapids 的增长有助于提升毛利率。"</li>
+      <li><strong>结构性成本：</strong>着力点在良率、产出效率，"我们在第三季度表现优异，预计第四季度会做得更好，目标是在全年持续推进改善"。</li>
+      <li><strong>18A 的负面项（承认）：</strong>"你对 18A 的看法是对的，其<strong>产能负荷尚未达到我们期望的水平</strong>。我们正在通过将 Intel 3 导入俄勒冈工厂来一定程度上弥补这一缺口。尽管如此，18A 依然会出现一定程度的<strong>产能负荷不足</strong>，这会带来一些逆风。"</li>
+      <li><strong>专用芯片的"好逆风"：</strong>"该业务的利润率<strong>低于公司平均水平</strong>，但我们在那里看到了巨大的增长空间。我们决定<strong>重点专注于推动毛利总额（gross profit）的增长</strong>。只要不断扩大毛利润总额，就会带动净收益增长。<strong>这可能会对明年的营业利润率百分比带来一些压力，但我认为这总体上是件好事。</strong>"</li>
+      <li><strong>量化锚：</strong>"变动因素实在太多，很难一一量化。我依然倾向于 <strong>40% 到 60% 的边际贡献率（fall-through）</strong>……如果明年是一个增长年，我们应该会看到毛利率的扩张。虽然可能并非每个季度都能完全契合，但从同比来看，应该会落在这个区间内。"</li>
+    </ul>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>就环比而言，第三季度可能是我至少 20 年来见过的最糟糕的一个三季度。客户很可能在 Q3 建立了库存，你能否证实？听起来 Q4 大量清理、可能延续到 Q1，而下半年会好转。<strong>是什么让你们确信存储供应真的会改善？那些存储厂商似乎都在暗示供应不会改善。</strong></p>
+    <p><strong>CFO 答（本次电话会最坦率的一段）：</strong></p>
+    <ul>
+      <li>"我直截了当地说吧，你说得完全正确，<strong>第四季度和第一季度很可能是库存调整最集中的两个季度</strong>。这对我们的冲击<strong>超过了潜在市场总额（TAM）本身的下滑</strong>。我们将在第四季度、第一季度，甚至可能稍微延伸到第二季度看到这种情况。"</li>
+      <li>"在那之后，业务确实会恢复到理论上我们的出货账单金额与客户实际消耗基本相当的水平。"</li>
+      <li><strong>"然而，千万不要误会，在存储供应方面，我们对明年并不乐观。我们认为这将对 TAM 造成冲击，预计明年按出货台数计算的 TAM 将下降 10%。至于情况是否好转，我们还得看 2028 年，但我们的预期是 2027 年不会有所改善。"</strong></li>
+    </ul>
+    <p class="mute" style="font-size:13px;">这段回答实际上否定了"下半年随存储改善而复苏"的市场假设，是理解 Q4/Q1 指引为何如此保守的关键。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q5 · 美银证券 Vivek Arya · DCAI 年化 350 亿与代工客户落地路径</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>按 Q4 隐含的数据中心指引推算，规模约 85 亿美元，年化约 350 亿美元。这是切实可行的底部目标吗？能否做得更好？在需求大于供给下 ASP 是否有提升空间？</p>
+    <p><strong>CFO 答：</strong>"我认为这是一个很好的切入点，也是正确的思考方式。"</p>
+    <ul>
+      <li>"我们目前的判断是，<strong>2027 年上半年在晶圆和基板供应方面可能会更加紧张</strong>。"</li>
+      <li>已做的工作：提升 Intel 3 晶圆产出、通过提高良率获得更多产品产出；与供应商在基板方面的投资"将在下半年释放出相应产能"。"我们确实预计这将是一个<strong>大幅增长的年份</strong>。"</li>
+      <li>口径提醒："我们已经将<strong>定制专用芯片（ASIC 业务）整合并入了该业务部门</strong>，这也是推动第四季度大幅增长的部分原因。"</li>
+    </ul>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>代工与外部客户进展的最新情况？先进封装之外，更重要的是晶圆制造代工：你们是否预期 18A 会有外部客户，还是所有外部合作都将集中在 14A？何时能从评估推进到流片或产生切实收入？这样我们才能明确何时开始为外部代工收入建模。</p>
+    <p><strong>CEO 答（分三层）：</strong></p>
+    <ul>
+      <li><strong>先进封装：</strong>三个抓手——① 基板产能锁定与基板材料良率；② 良率提升"目前正在取得大幅改善"；③ 生产周期。特别点名"曾任 SK 海力士 CEO、工艺整合专家<strong>李锡熙（Seok-Hee Lee）</strong>，他做得非常出色，极其敬业"。"我认为未来两年我们在基板材料方面将获得充裕的产能。"</li>
+      <li><strong>披露节奏："请大家拭目以待，我们预计在<u>接下来的两个季度内会有几家客户准备好宣布合作</u>。我们始终尊重客户的意愿，由他们决定何时公布。"</strong></li>
+      <li><strong>18A 外部客户：</strong>"目前，我们也有来自外部客户的<strong>主动接洽</strong>，我们正在与他们紧密合作，他们对良率表现感到非常满意。目前我们的重点是<strong>裸片尺寸（die size）</strong>，确保我们能够按期向他们交付，并确保相关 IP 准备就绪。"</li>
+      <li><strong>14A：</strong>0.9 PDK 已向精选客户提供，"反馈非常积极"；性能、良率、缺陷密度、工艺一致性波动"每天都在取得进步"；<strong>"我们应该能在明年第一季度推出 1.0 版 PDK，届时就可以开始与有意愿采用我们晶圆厂制造产品的客户展开实质性对接"</strong>。</li>
+    </ul>
+    <p class="mute" style="font-size:13px;">这是全篇最可检验的一句承诺：<strong>"接下来两个季度内会有几家客户准备好宣布合作"</strong>——即最晚 2027 年 Q1 至 Q2 应有可验证的客户公告。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q6 · 摩根大通 Harlan Sur · Q1 DCAI 环比与 Panther Lake 毛利率</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>下半年起有一批新 GPU 和 XPU 平台推出，大部分明年上半年持续放量，对 CPU 有很强的搭售带动效应，且多基于英特尔 x86。叠加供应偏紧、产能释放、良率提升，我们是否应预期 Q1 DCAI 营收环比持续增长？</p>
+    <p><strong>CFO 答：</strong></p>
+    <ul>
+      <li>"我想尽量避免对具体季度给出过多指引。不过我认为你的总体前提是正确的。市场上确实存在推动 CPU 需求的强劲动力，我们预计这一势头将<strong>贯穿明年全年</strong>。"</li>
+      <li>"我们可能<strong>无法完全满足客户的全部需求</strong>，而且我认为<strong>上半年面临的挑战会比下半年更严峻</strong>。这是一个额外的数据点，供大家在建立财务模型时参考。"</li>
+      <li>"除此之外，我更倾向于<strong>再观察一个季度</strong>，然后再对第一季度的数据中心业务给出指引。"</li>
+    </ul>
+    <p><strong>CEO 补充：</strong>"显然大家已经看到了我们与甲骨文云的联合发布。此外我们还有多家客户，他们都非常有兴趣与我们签署<strong>长期协议（LTA）</strong>，以确保我们能为其保障 CPU 的供应交付。我认为这些都是表明 CPU 需求极为强劲的令人鼓舞的信号。"</p>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>第二季度时 Panther Lake 和 Granite Rapids 的毛利率都低于公司平均。Q3 你们提到 Granite Rapids 对毛利率起到增益拉动。那么 Q3 团队是否也推动 Panther Lake 的毛利率提升到了 <strong>40% 低段至中段</strong>之上？</p>
+    <p><strong>CFO 答：</strong>"我们在 Panther Lake 的毛利率上确实取得了<strong>实质性改善</strong>。<strong>虽然目前尚未达到或超过公司整体平均水平</strong>，但已经取得了长足进步。这本质上就是要在良率和产量吞吐上持续打磨，并推动实现合理的规模效应……<strong>随着时间推移，这些产品对毛利率都会带来增益，只是目前尚未完全达到那个水平</strong>。"</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">Q7 · Cantor Fitzgerald CJ Muse · 资本开支结构与 PC 产品组合定价</div>
+  <div class="qb">
+    <p class="q"><span class="who">问</span>资本开支预期显著提高，如何权衡晶圆制造设备（WFE）与厂房建筑的支出分配？过去你们曾说大部分新增支出用于厂房建设。</p>
+    <p><strong>CFO 答：</strong>"本季度我们的<strong>设备支出有了显著增加</strong>，预计下季度增幅会更加明显。目前我们的大部分支出实际上都投向了<strong>设备</strong>。我们在基建方面的投资已经基本到位，在很多情况下可以说是在对部分厂房空间进行收尾完善，绝大部分支出都转向了设备；<strong>唯一的例外是俄亥俄州项目</strong>，那里目前仍处于大规模施工建设阶段。"</p>
+    <p class="q" style="margin-top:14px;"><span class="who">追问</span>PC 业务明年行业出货量可能下降 10%，如何看待产品组合结构变化（低端与高端的转变）及其对定价的影响？</p>
+    <p><strong>CFO 答：</strong></p>
+    <ul>
+      <li>"<strong>Panther Lake 的需求依然强劲</strong>。显然整个市场都在走弱，但 Panther Lake 顶住了压力、表现稳健。"</li>
+      <li>"Wildcat Lake 是一款针对成本进行优化的产品，我们看到它<strong>实现了显著增长</strong>，它的推出恰逢其时。"</li>
+      <li>"步入明年，我们将推出 Nova Lake。关键意义在于，此前我们在<strong>高端台式机产品组合中存在一定的空缺</strong>，而 Nova Lake 正好填补了这一空白。因此我预计我们在产品组合结构方面的表现会相当不错。"</li>
+      <li><strong>"凭借 Nova Lake 产品组合，我们确实认为在进入新的一年时我们能够成为市场份额的赢家。"</strong></li>
+    </ul>
+    <p class="q" style="margin-top:14px;"><span class="who">CEO 收尾</span>"本季度我们在英特尔转型之路上取得了良好进展。我们前方仍有许多工作要做。我期待……<strong>在明年一月份向大家通报最新进展</strong>。"</p>
+  </div>
+</div>
+
+<h3><span class="ch">3.4</span>管理层量化口径总表（可直接用于建模）</h3>
+
+<table class="tight">
+  <thead><tr><th>维度</th><th>口径</th><th class="num">数值</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="4">行业需求</td><td>服务器 CPU 出货量增速 2026</td><td class="num up">&gt; 30%</td></tr>
+    <tr><td>服务器 CPU 出货量增速 2027</td><td class="num up">&gt; 30%</td></tr>
+    <tr><td>服务器 CPU TAM（当前 → 5 年后）</td><td class="num">400 亿 → 2000 亿+</td></tr>
+    <tr><td>供应受限持续时间</td><td class="num">至 2028 年</td></tr>
+    <tr><td rowspan="4">PC</td><td>2026 PC 出货 TAM</td><td class="num down">约 -12%（下半年 &gt; -20%）</td></tr>
+    <tr><td>2027 PC 出货 TAM</td><td class="num down">约 -10%</td></tr>
+    <tr><td>库存调整集中期</td><td class="num">Q4 / Q1，或延至 Q2</td></tr>
+    <tr><td>存储供应改善时点</td><td class="num">2028（2027 不改善）</td></tr>
+    <tr><td rowspan="3">财务框架</td><td>毛利率边际贡献率（fall-through）</td><td class="num">40%–60%</td></tr>
+    <tr><td>新增投资目标 ROI</td><td class="num">至少 20%</td></tr>
+    <tr><td>2027 自由现金流</td><td class="num down">大概率为负</td></tr>
+    <tr><td rowspan="3">资本开支</td><td>2026 全年</td><td class="num">200 亿</td></tr>
+    <tr><td>2027</td><td class="num up">强劲增长（设备订单环比 +近 40%）</td></tr>
+    <tr><td>基板产能扩张</td><td class="num up">+40%（下半年释放）</td></tr>
+    <tr><td rowspan="3">代工</td><td>外部代工收入（Q3）</td><td class="num">4.11 亿</td></tr>
+    <tr><td>客户公告窗口</td><td class="num">未来两个季度内（几家）</td></tr>
+    <tr><td>14A 1.0 PDK</td><td class="num">2027 Q1</td></tr>
+    <tr><td rowspan="2">费用与股数</td><td>Q4 Non-GAAP 运营费用 / 全年</td><td class="num">44 亿 / 163 亿</td></tr>
+    <tr><td>Q4 完全稀释股数</td><td class="num">54.4 亿</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">04</span>四篇报道观点全集（逐篇，不遗漏）</h2>
+
+<h3><span class="ch">4.1</span>腾讯科技《AI 芯片供不应求，英特尔却暴跌 20%》</h3>
+<p class="mute" style="font-size:13px;">文｜晓静　编辑｜徐青阳　2026-10-30 07:59</p>
+
+<h4>核心论点</h4>
+<p>股价大跌的直接原因是 Q4 营收和盈利指引明显低于预期。"<strong>尽管 AI 服务器需求强劲，但 PC 业务疲软、CPU 供应受限，以及以色列工厂事故带来的产能损失，令投资者担忧英特尔能否将 AI 需求持续转化为收入和利润。</strong>"</p>
+
+<h4>五节结构与全部要点</h4>
+<table class="tight">
+  <thead><tr><th>小节</th><th>全部观点</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>01 至强卖爆了，PC 却在掉队</strong></td>
+      <td>
+        DCAI 73.18 亿 +78%，营业利润 30.39 亿（去年 9.64 亿，增长超两倍），利润率 41.5%；CCPG 80.97 亿 -5%，营业利润 22.85 亿（去年 26.94 亿），利润率 28.2%。<br>
+        需求逻辑：AI 模型推理与智能体应用增加，服务器需承担<strong>任务调度、数据处理、内存管理及其他通用计算</strong>，CPU 配置需求随之提高。<br>
+        陈立武："尽管 PC 行业面临短期压力，公司 CPU 需求仍然强劲。目前公司的首要任务是<strong>增加供应</strong>，以满足至强处理器的需求，同时强化产品组合和路线图。"<br>
+        津斯纳：Q3 数据中心实现<strong>公司 15 年来最强的收入增长</strong>，营收、毛利率和 EPS 均超此前指引。<br>
+        供给仍是限制增长的重要因素：需求增速超部分产品供应扩张速度；正<strong>提高工厂产出、改善良率、缩短生产周期</strong>。<br>
+        产品：Diamond Rapids（HPC、AI 推理、企业级）；OCP 峰会展示<strong>基于至强的机架级设计</strong>与<strong>面向 AI 推理的独立 GPU D 系列</strong>。<br>
+        PC：81 亿 -5%，低于预期 89.8 亿；津斯纳预计<strong>放缓至少持续到 2027 年上半年</strong>；存储涨价推高整机成本、影响购买意愿。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>02 代工增长 58%，单季仍亏 18.5 亿</strong></td>
+      <td>
+        66.97 亿 +58%，<strong>含内部制造交易，不能直接视为外部客户贡献</strong>；内部抵消 62.91 亿。<br>
+        营业亏损 18.53 亿（去年 23.21 亿），亏损率约 27.7%。<br>
+        18A 已进入量产；Panther Lake 进入大规模制造，使用 ASML <strong>High-NA EUV</strong>；Q2 推出<strong>至强 6+</strong>，为首款 18A 服务器级产品。<br>
+        18A-P 已进入<strong>风险试产</strong>，优化性能、功耗、热特性；Q3 发布 <strong>14A 0.9 版 PDK</strong> 供潜在客户设计与验证。<br>
+        14A 是关键：需进一步提升制造能力并吸引外部客户；公司此前预计客户将在 <strong>2026 下半年至 2027 上半年</strong>陆续作出 14A 工艺选择。<br>
+        先进封装：推进 EMIB-T，<strong>与中国企业蓝思科技合作</strong>，探索玻璃加工技术与先进半导体封装的结合。<br>
+        <strong>TD Cowen 的 Joshua Buchalter：</strong>EMIB-T 正在形成有价值的外部市场机会，公司计划明年扩大相关客户业务；<strong>但真正影响代工估值的关键，仍是能否获得有规模的前端晶圆制造客户</strong>。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>03 资本开支升至 200 亿，2027 还要增加</strong></td>
+      <td>
+        Q3 资本开支 42.19 亿（去年 29.56 亿）；经营现金流 50.82 亿；调整后自由现金流 16.39 亿。<br>
+        2026 全年资本开支预期<strong>从 180 亿提高至 200 亿</strong>；2027 年<strong>显著增加</strong>。投资重点：<strong>制造设备、洁净室空间、基板产能</strong>。<br>
+        8 月完成约 230 亿美元公开股票发行，带来约 <strong>226.17 亿净现金收入</strong>。<br>
+        <strong>核心矛盾：</strong>"英特尔需要在<strong>增加产能和控制资金消耗之间取得平衡</strong>。"<br>
+        <strong>与 Arm 等轻资产设计企业不同</strong>，英特尔需承担工厂建设、设备采购、制程研发、产能爬坡等长期支出；新建产能从投入到形成稳定收入，需经历<strong>设备安装、工艺验证、客户认证、量产爬坡</strong>。<br>
+        <strong>双向风险：</strong>若服务器需求持续强劲，新增产能有望转化为收入；若 PC 继续疲软、或外部代工订单兑现慢于预期，<strong>固定资产投入就可能进一步压低利润率和现金回报</strong>。<br>
+        毛利率：Q3 Non-GAAP 44.1%（+4.1pct），Q4 指引仅 38%（-6.1pct）；"资本开支继续增加的同时，<strong>毛利率能否保持在较高水平，将直接影响英特尔扩张计划的财务可持续性</strong>"。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>04 谷歌、甲骨文、Meta 加入合作名单</strong></td>
+      <td>
+        甲骨文：多年合作，扩大至强在 OCI 的应用，覆盖当前与未来平台，含计划采用 <strong>Diamond Rapids 的 OCI X14</strong>。<br>
+        Meta：<strong>Muse Spark Open</strong> 已在即将推出的 <strong>GPU D 系列</strong>和至强平台完成测试并运行（GPU D 系列原代号 Crescent Island，面向 AI 推理）。<br>
+        谷歌：合作推出首批 <strong>Googlebook</strong> 设备，采用第三代酷睿 Ultra，由<strong>宏碁、华硕、联想</strong>参与。<br>
+        AMD：合作将面向 PyTorch 的 x86 CPU 优化整合到 <strong>oneDNN</strong> 软件库。<br>
+        SAP：将企业 IT 系统与<strong>控制物理设备和生产流程的运营技术</strong>连接，拓展物理 AI 在工业场景的应用。<br>
+        <strong>关键提醒："合作关系、产品测试和实际采购订单需要区分。"</strong>英特尔尚未披露上述合作对应的<strong>具体采购金额、长期订单规模或收入贡献</strong>，<strong>不能将合作公告直接计入已兑现的新增收入</strong>。<br>
+        代工外部客户同样：谷歌定制 TPU、英伟达潜在合作，<strong>截至本次财报披露，订单规模与正式制造协议仍缺少官方确认</strong>。<br>
+        竞争：台积电在先进制程与客户关系的优势；AMD、英伟达在不同计算市场的竞争；<strong>微软、谷歌、亚马逊、Meta 同时在发展自研芯片以降低对单一供应商的依赖</strong>。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>05 以色列工厂事故拖累指引</strong></td>
+      <td>
+        基里亚特加特（Kiryat Gat）工厂 10 月爆炸，停产约两周，主要使用 <strong>Intel 10 制程</strong>生产部分数据中心芯片。<br>
+        预计使 Q4 营收减少约 <strong>3 亿美元</strong>、毛利率降低约 <strong>200 个基点</strong>；10 月底前后逐步复产，仍在检查受损晶圆确认可用性。<br>
+        <strong>对 2027 年 Q1 营收也可能产生类似规模的影响</strong>；若受损晶圆无法恢复使用，影响还可能<strong>延续更长时间</strong>。<br>
+        <strong>陈立武面临的三个问题：</strong>① 增加至强处理器供应；② 控制工厂扩张带来的成本压力；③ 将 18A 和 14A 技术进展转化为外部客户订单。<br>
+        <strong>路透：</strong>英特尔股价今年此前<strong>已累计上涨超过一倍</strong>，投资者正在重新评估其增长空间与制造业务扩张所需的资金。
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">4.2</span>404K《数据中心拉动利润修复，现金支出与 PC 放缓如何影响持续性》</h3>
+<p class="mute" style="font-size:13px;">2026-10-30 04:23　会计拆解视角，全文以"这个数字能不能证明那件事"为方法论</p>
+
+<h4>核心论点</h4>
+<p>"英特尔三季度把服务器需求转成了<strong>更高利润和正现金流</strong>，但四季度指引明显降温。判断修复能走多远，要同时看<strong>数据中心交付、制造成本和扩产后每股能够留下多少收益</strong>。"</p>
+
+<h4>六节结构与全部要点</h4>
+<table class="tight">
+  <thead><tr><th>小节</th><th>全部观点</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>1 超过原指引，为什么净利润反而下降</strong></td>
+      <td>
+        收入 165.13 亿 +21%，比 7 月指引中点高约 2 亿；调整后毛利率 44.1%，高出原指引 2.1pct；调整后 EPS 0.52，高出 0.14。<strong>"这证明服务器供给和制造执行改善已经进入利润表，超出的幅度却主要体现在利润端。"</strong><br>
+        毛利 70.96 亿（+18.78 亿），营业费用只增 3900 万，营业利润由 6.83 亿升至 25.22 亿（GAAP）——"经营改善在尚未剔除股权激励等项目之前已经成立"。<br>
+        归母净利 -18%、EPS 0.90→0.60：<strong>去年包含较大的业务处置收益，本季也有托管股份公允价值收益</strong>，它们改变最终净利润，不能直接代表芯片业务赚钱能力。<br>
+        调整后营业利润 32.34 亿、归母净利 27.56 亿（去年 15.24 / 10.23 亿）。<strong>"调整口径便于观察经营趋势，但股权激励等仍有经济成本。"</strong><br>
+        二季度已显现"服务器利润改善、扩产回报仍待验证"；三季度加强了前半项证据，<strong>同时出现新的约束：下一季度毛利率指引明显降低</strong>。<strong>"把本季创出的利润率直接延伸到全年以后，会忽略公司自己给出的变化。"</strong>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>2 数据中心变强，PC 压力并未消失</strong></td>
+      <td>
+        集团收入需扣除内部交易，<strong>"产品卖得更多与工厂盈利更多也不一定同步发生"</strong>。<br>
+        DCAI 营业利润同比 +20.75 亿，<strong>超过集团营业利润 18.39 亿的增量</strong>，说明其它环节合计抵消了部分改善。<br>
+        需求来源：大型云服务商、企业、新兴云服务商；服务器产出超预期。"<strong>需求与能够交付的芯片相遇，才会成为当季收入。</strong>"<br>
+        <strong>关键限制：</strong>本期<strong>没有披露处理器销量、售价与份额的完整拆分</strong>，<strong>收入增幅不能直接解释成出货量增幅</strong>；DCAI 还含专用芯片（同比翻倍以上但未给规模），这限制了把整个部门增长都归给至强 CPU。<br>
+        甲骨文合作"有助于理解客户需求，<strong>实际收入仍取决于产品推出、采购和供货节奏</strong>。把合作公告提前计入收入，会跳过这些商业条件"。<br>
+        客户端：内存短缺压制 PC，疲弱至少延续到 2027 上半年；即使 <strong>18A 的 Wildcat Lake 需求较强、AI PC 继续增长，也不能消除整个部门收入下降的事实</strong>；利润率 28.2% 高于二季度演示口径 26.4%，但收入减少仍使利润规模受压；<strong>"产品升级能改善结构，未必足以抵消终端整机成本上升"</strong>。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>3 制造改善到外部代工盈利还有距离</strong></td>
+      <td>
+        66.97 亿 +58%，亏损收窄至 18.53 亿；良率提高与周期缩短降低了晶圆成本（"同样设备和材料得到更多合格产品，单位成本才有下降空间"）。<br>
+        <strong>"66.97 亿包含大量内部交易"</strong>；集团抵消 62.91 亿，<strong>"抵销项也不是外部代工收入的独立披露"</strong>；<strong>"用制造部门总收入衡量外部客户商业成功，会把自有产品扩产和第三方订单混在一起"</strong>。<br>
+        <strong>结论："本期可以确认制造亏损收窄，尚不足以确认外部代工已经成为稳定利润来源。"</strong><br>
+        <strong>技术进度应分层理解：</strong>14A 0.9 PDK 已发布，客户可据此推进设计；管理层同时强调 Intel 3、18A 良率与先进封装执行，并加快俄亥俄扩张。<strong>"设计工具到位、良率改善、客户量产和现金回款是不同步骤，前面的进展不能替代后面的结果。"</strong><br>
+        <strong>"本期并未提供足以独立估算这些回报的外部收入及订单数据，因此无法仅凭 58% 的部门增速给出新的成熟代工估值。"</strong>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>4 正现金流与增发资金需要分开看</strong></td>
+      <td>
+        调整后自由现金流 +16.39 亿，"<strong>但这个指标包含合作方净出资，不能完全等同于业务自身在扩产后留下的现金</strong>"。<br>
+        只把经营现金流减总资本开支和融资租赁付款，余 <strong>7.44 亿</strong>——"这是为了观察补助和合作方资金以外的覆盖程度所做的算术比较，并非公司的另一项自由现金流指引"；它仍为正，说明本季回款并非全靠外部融资。<br>
+        二季度负的调整后 FCF 同样受合作方结算影响；<strong>前三季度合作方出资 50.32 亿、分配 144.42 亿，支出时点可显著改变单季结果</strong>；<strong>"一次结算后的改善，不足以证明今后每季都能用经营资金覆盖扩产。"</strong><br>
+        资产负债表：现金与短期投资 540.05 亿，短期与长期债务合计 501.34 亿，"流动资金较充足，为投入争取了时间"。<br>
+        前三季度公开增发净收入 226.17 亿，"<strong>账上现金增加并不全来自卖芯片</strong>"。<br>
+        股数：稀释加权平均 53.07 亿（去年 45.31 亿），+约 17%；"<strong>公司整体利润增长，要先覆盖股数扩大的影响，才能转成相应的每股增长</strong>"；扩产回报最终需同时回答"项目能否赚钱"与"增量利润能否抵消融资成本与摊薄"。<br>
+        存货 130.68 亿，较年末 +14.5 亿，<strong>在产品 87.97 亿</strong>；备货有经营理由，"但只有顺利完成生产并出售，才会回到现金"；<strong>"未来若收入放缓而库存继续上升，资金占用和减值风险就会加大"</strong>。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>5 四季度指引如何改变盈利预期</strong></td>
+      <td>
+        指引：150–160 亿（中点 155，比 Q3 低约 6%）；调整后毛利率 38%（-6.1pct）；EPS 0.25。<strong>"同比仍有改善，与环比降温可以同时成立，不能只挑一个比较方向描述趋势。"</strong><br>
+        <strong>推算：</strong>155 × 38% = 58.9 亿毛利；减约 44 亿调整后运营费用，近似营业利润 14.9 亿，明显低于本季 32.34 亿（明确标注为推算、未替代正式指引）。<br>
+        <strong>"毛利率下降对利润的影响大于收入降幅本身。"</strong><br>
+        <strong>"服务器需求强劲并不足以保证集团利润连续上升"</strong>；客户端压力、产品结构、制造投入都可能影响利润，<strong>现有披露没有量化各自造成多少毛利率下降，无法把全部落差归于某一个因素</strong>。<br>
+        <strong>"盈利预期需要区分时间"：</strong>当前数据支持经营能力比去年更好，下一季度指引则要求<strong>降低对短期利润延续性的判断</strong>；若未来产出增加而毛利率未恢复，就要重新检验价格、产品组合或制造成本的贡献，<strong>不能只凭收入增长推高利润预测</strong>。
+      </td>
+    </tr>
+    <tr>
+      <td><strong>6 接下来用哪些公开数字检验</strong></td>
+      <td>
+        <strong>① 下一次财报首先把 DCAI 收入与利润率放在一起看</strong>：收入继续增长、利润率保持韧性，才支持"新增供给确实带来盈利"；若只有收入增长，需检查成本和产品结构。<br>
+        <strong>② 客户端收入、集团毛利率、库存三者同步变化</strong>，可帮助区分"终端需求压力"与"生产爬坡压力"。<br>
+        <strong>③ 资本回报连续跟踪</strong>：经营现金流、总资本开支、合作方资金净额、稀释股数。<br>
+        <strong>④ 外部代工若出现可确认的量产收入或客户承诺</strong>，可提高新增产能的回报可见性；若这些证据仍缺席、而投入和股数继续上升，<strong>长期每股收益的假设就需要更谨慎</strong>。<br>
+        <strong>"关键是交付增长最终能留下多少现金，以及这些现金需要由多少股份分享。"</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">4.3</span>404K 电话会实录：标题即结论</h3>
+<div class="box blue">
+  <p><strong>标题：《服务器芯片卖断货、供应紧到 2028 年，PC 却要连跌两年》</strong></p>
+  <p>这个标题本身包含三个可验证的判断，且全部来自管理层原话而非记者推断：</p>
+  <ul>
+    <li><strong>"卖断货"</strong>——CFO："对 DCAI 产品的需求仍然明显超过现有供应"；Wildcat Lake "已全部售罄"；CEO："我对本季度无法完全满足强劲的客户需求感到遗憾"。</li>
+    <li><strong>"供应紧到 2028 年"</strong>——CFO："我们预计整个行业在 2027 年全年、在进入 2028 年时仍将处于供应受限状态"。</li>
+    <li><strong>"PC 要连跌两年"</strong>——2026 TAM -12%、2027 TAM -10%，且"2027 年不会有所改善"。</li>
+  </ul>
+  <p style="margin-bottom:0;">该篇的价值在于<strong>完整保留了口径</strong>：包括"资本开支至少 20% ROI""40–60% fall-through""2027 年可能不是正自由现金流的一年""接下来两个季度内会有几家客户准备好宣布合作"等只出现在问答环节、未被其他三篇引用的关键表述。</p>
+</div>
+
+<h3><span class="ch">4.4</span>海豚研究《PC "崩了"，小跟头还是真祭旗？》</h3>
+<p class="mute" style="font-size:13px;">海豚君　2026-10-30 10:56　基本面研判，唯一给出完整估值框架的一篇</p>
+
+<h4>核心论点</h4>
+<p>"业绩整体符合预期，<strong>关键是下季度指引"崩了"</strong>。"英特尔下季度指引大幅低于市场预期，收入和毛利率双双环比下滑，<strong>和上季度的大超预期形成鲜明反差，这是盘后大跌的直接原因</strong>。"</p>
+<p>管理层把原因归结为<strong>以色列工厂爆炸停产</strong>和 <strong>PC 需求断崖式下滑</strong>。但更深层："市场原本'<strong>数据中心持续放量、PC 端稳住</strong>'的期待已经落空：存储涨价叠加内存产能向 HBM 倾斜，再加上渠道去库存，<strong>PC 这只脚已经崩了</strong>，后续 CPU 涨价能否落地也要打个问号。<strong>要挽回市场信心，只能看服务器 CPU 和对外代工能否超预期。</strong>"</p>
+
+<h4>八节结构与全部要点</h4>
+<table class="tight">
+  <thead><tr><th>小节</th><th>全部观点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1 核心指标：下季度指引"崩了"</strong></td><td>
+      Q4 营收 150–160 亿，环比 -3% 至 -9%，大幅低于预期 170.6 亿。<br>
+      DCAI 维持两位数环增，CCG <strong>环比下滑 20% 以上</strong>，主因 PC 受<strong>存储短缺与终端需求疲软双重压力，渠道进一步压降库存</strong>。<br>
+      Q4 毛利率 37.1%（海豚口径），环比 -6pct，远低于预期 41.8%；<strong>Fab 28 爆炸影响约 2pct，剔除后还降 4pct，主因 PC 大幅下滑导致利用率不足</strong>。<br>
+      <strong>判断："Fab 28 的 2pct 是短期影响，毛利率还会回到 39–40% 左右。但毛利率想要进一步"拿回"这 4pct，还要看 PC 修复及利用率的表现。从管理层表述看，要等到 2027 年下半年及之后。"</strong>
+    </td></tr>
+    <tr><td><strong>2 数据中心及 AI</strong></td><td>
+      73 亿 +78%，好于预期 66.3 亿；增长<strong>仍主要来自至强服务器 CPU 的量价齐升</strong>，Granite Rapids 持续处于"<strong>紧缺</strong>"状态。
+    </td></tr>
+    <tr><td><strong>3 客户端业务</strong></td><td>
+      81 亿 -5%，远低于预期 88.4 亿。<strong>"此前市场寄希望于公司 PC 端能稳住，但从本季度开始终究还是"没能稳住"。"</strong><br>
+      此前增长主要来自<strong>价格和产品结构（AI PC 占比提升），而非出货量</strong>；终端持续低迷，<strong>涨价不是"长久之计"（消费者接受度越来越低）</strong>。<br>
+      结合全球 PC 出货同比 -17%：内存涨价推高整机成本、需求持续被压制；即便英特尔是核心供应商也难"独善其身"；<strong>"在终端市场需求出现两位数下滑的情况下，想通过涨价来实现"成本转嫁"是相当困难的"</strong>。
+    </td></tr>
+    <tr><td><strong>4 代工业务</strong></td><td>
+      67 亿 +58%，好于预期 61.2 亿；目前主要是<strong>对内服务</strong>，总数上主要体现自有产品表现。<br>
+      结合内部抵消，<strong>预估对外代工收入约 4 亿美元，"依然是相当少的"</strong>。<br>
+      代工收入主要跟随自有产品晶圆投片（<strong>18A 的 Panther Lake 放量</strong>）增长；对外收入仍以<strong>先进封装（EMIB-T）和成熟制程</strong>为主，<strong>14A/18A 的对外订单尚未进入收入</strong>。<br>
+      进展：18A-P 年底前内部产品全线启用，正与几家战略性客户接洽；14A 按承诺 10 月向特定客户发布 0.9 PDK，明年风险试产。
+    </td></tr>
+    <tr><td><strong>5 经营数据</strong></td><td>
+      营收 165 亿 +21%，符合预期 165.3 亿，主要来自 DCAI 继续放量、客户端已开始下滑。<br>
+      毛利率 43%，好于预期 41.1%；此前毛利率持续提升受<strong>CPU 涨价、良率提升</strong>带动，但 Q4 指引将大幅滑坡（Fab 28 + PC 下滑）。
+    </td></tr>
+    <tr><td><strong>6 裁员控费</strong></td><td>
+      核心经营费用（研发 + 销售及管理）45 亿，费用率 27%，环比 -0.8pct；<strong>仍在裁员控费，员工总数 8.1 万，环比减少 1200 人</strong>。
+    </td></tr>
+    <tr><td><strong>7 资本开支与两个观察维度</strong></td><td>
+      维持上季度口径：<strong>2027 年资本开支显著高于 2026 年（200 亿）</strong>，并补充<strong>对设备商的确定性订单增长近 40%</strong>；按 40% 预估 2027 年资本开支有望达 <strong>280 亿</strong>，基本符合市场预期（260–300 亿）。<br>
+      <strong>a) CPU 份额（业绩基本盘）：</strong>英特尔、AMD 双寡头；AMD 凭"CPU + GPU"持续蚕食；Mercury 数据：<strong>服务器 x86 出货份额已降至 7 成以下，PC CPU 份额降至 6 成附近，未来几个季度服务器份额可能继续下滑</strong>。本季 DCAI 增长仍主要受下游需求增加与产品提价带动。<strong>财报应验了两点担心</strong>：① 内存涨价推高整机成本下，CPU ASP 还有多少上行空间——PC 客户或许已开始抵触；② 面对 AMD Venice / Verano 新品如何稳住服务器份额。<br>
+      <strong>b) 代工进展（决定估值倍数的核心叙事）：</strong>18A 良率继续提升、18A-P 年底内部全线启用并接洽战略客户；14A 10 月发布 0.9 PDK、2027 风险试产；<strong>EMIB-T：Google / MediaTek TPU、Meta MTIA 已评估，预计 2027 年底量产，单个客户机会超过 10 亿美元</strong>。<br>
+      <strong>"在美国本土优势的加持下，市场愿意相信英特尔有机会获得大厂的"溢出订单"，这也是市场愿意给予公司相对较高估值的主要原因。"</strong><br>
+      <strong>潜在合作方：</strong>谷歌（EMIB-T 先进封装）、苹果（M 系列）、AMD、SpaceX；<strong>但截至目前公开落地的外部大单仍只有为马斯克 Terafab 项目（Tesla / SpaceX）供应 14A</strong>。苹果曾达成初步框架（18A）、传 M7 基础款部分晶圆或由 18A-P 在美国工厂生产，<strong>但均未签署最终量产合同</strong>；近期传<strong>台积电可能参与 Terafab 运营</strong>，让市场开始怀疑英特尔在"唯一确定订单"中的地位。<strong>"对外代工的实质落地，才能给公司带来更大的成长空间。"</strong>
+    </td></tr>
+    <tr><td><strong>8 估值与股价</strong></td><td>
+      <strong>估值：</strong>当前市值 4837 亿美元，对应 2027 年税后核心经营利润（non-GAAP）约 <strong>37 倍 PE</strong>（假设：营收两年复合增速 17%、non-GAAP 毛利率 43%、税率 10%）。<br>
+      <strong>股价：</strong>从 6 月高点约 142 美元回落至 90 美元附近，跌幅约 36%，<strong>明显大于半导体板块（-20% 至 -25%）</strong>。<br>
+      <strong>季度内"过山车"三段：</strong>① 8 月以每股 95 美元增发约 197 亿美元后，股价在 90 美元附近企稳；② 9 月 <strong>PC CPU 第三轮提价（约 10%）</strong>消息叠加 <strong>Agent CPU</strong> 热度，股价一度反弹至 127 美元；③ 10 月初传台积电可能参与 Terafab 运营，<strong>动摇了英特尔"唯一美国本土代工选项"的叙事，10 月累计下跌约 29%</strong>。<br>
+      <strong>估值拆两块：</strong>① <strong>芯片业务</strong>——对外代工极少，业绩基本体现芯片销售；CPU 景气周期下年收入增速 <strong>15–20%</strong>（受传统 CPU 拖累）；② <strong>代工能力</strong>——受益美国本土制造需求，但对外代工收入极少，<strong>"市场并未给这部分足够的定价"</strong>。<br>
+      <strong>"如果公司与苹果、谷歌等意向客户的订单能顺利落地并成功交付，会让市场重新审视公司代工部分的价值。"</strong><br>
+      <strong>结论：</strong>回调后股价"逐渐进入相对合适的位置"；<strong>"在当前对外代工极少的情况下，公司也能撑起 3 千亿的市值；如果对外代工实现突破，更有可能继续向上。"</strong><br>
+      本次下跌主要是对"差劲指引"以及"PC 稳住信念"的下杀；但服务器 CPU 依然持续增长（两位数环增）、也有对外代工的潜在机会，<strong>"海豚君认为英特尔依然是有底部支撑的"</strong>。<br>
+      <strong>风险提示：</strong>"英特尔的 CPU 依然是 AI Capex 链上的分支，<strong>如果市场对资本开支担忧持续，仍会带来压制公司股价的行业面影响</strong>。尤其是在 PC 端开始承压的情况下，公司更应该结合"美国本土化优势"、聚焦在对外代工上的突破，才有机会走出自身的独立行情。"
+    </td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">4.5</span>四篇共识与分歧矩阵</h3>
+
+<table>
+  <thead><tr><th>议题</th><th>腾讯科技</th><th>404K 财报解读</th><th>404K 电话会</th><th>海豚研究</th><th>共识度</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Q4 指引为何差</strong></td>
+      <td>PC 疲软 + CPU 供应受限 + 以色列事故</td>
+      <td>客户端压力、产品结构、制造投入三者叠加，<strong>未量化、无法归因单一因素</strong></td>
+      <td>库存调整冲击<strong>超过 TAM 下滑</strong>；存储 2027 不改善</td>
+      <td>指引"崩了"；Fab 28 短期 2pct + PC 利用率 4pct</td>
+      <td><span class="tag info">高</span> 但归因颗粒度差异大</td>
+    </tr>
+    <tr>
+      <td><strong>PC 下滑的性质</strong></td>
+      <td>存储涨价推高成本，周期性</td>
+      <td>周期性 + 结构性并存，"产品升级未必抵消整机成本上升"</td>
+      <td>管理层：2027 不会改善，看 2028</td>
+      <td><span class="tag bear">结构性</span> 涨价模式已触需求弹性上限</td>
+      <td><span class="tag warn">分歧</span></td>
+    </tr>
+    <tr>
+      <td><strong>代工 58% 增长的含义</strong></td>
+      <td>含内部交易，不能视为外部贡献</td>
+      <td><strong>最严格</strong>：无法仅凭此给出成熟代工估值</td>
+      <td>外部 4.11 亿，含非经常性项目</td>
+      <td>对外约 4 亿，"依然是相当少的"</td>
+      <td><span class="tag info">完全一致</span></td>
+    </tr>
+    <tr>
+      <td><strong>正现金流的含金量</strong></td>
+      <td>直接引用 +16.39 亿作为改善证据</td>
+      <td><strong>唯一拆解</strong>：含合作方出资，裸口径仅 7.44 亿</td>
+      <td>—</td>
+      <td>未展开拆解</td>
+      <td><span class="tag warn">分歧</span></td>
+    </tr>
+    <tr>
+      <td><strong>数据中心前景</strong></td>
+      <td>AI 需求真实，但转化存疑</td>
+      <td>利润增量几乎全部来自 DCAI，成色真实但集中度极高</td>
+      <td>TAM 5 年 5 倍，供应紧至 2028</td>
+      <td>量价齐升，Granite Rapids 紧缺</td>
+      <td><span class="tag info">高</span></td>
+    </tr>
+    <tr>
+      <td><strong>2027 年财务特征</strong></td>
+      <td>资本开支增加，需平衡产能与资金消耗</td>
+      <td>若证据缺席而投入与股数继续上升，长期 EPS 假设需更谨慎</td>
+      <td><strong>投资年，大概率为负自由现金流</strong></td>
+      <td>毛利率修复要等 2027 下半年及之后</td>
+      <td><span class="tag info">高</span></td>
+    </tr>
+    <tr>
+      <td><strong>估值判断</strong></td>
+      <td>不直接给估值；提示"今年已涨超一倍"</td>
+      <td>不直接给估值；强调"每股能留下多少"</td>
+      <td>不直接给估值；给 20% ROI 与 40–60% fall-through 作锚</td>
+      <td><span class="tag bull">37 倍 2027 PE；3 千亿市值有底</span></td>
+      <td><span class="tag warn">仅海豚给数</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><span class="num">05</span>数据交叉核对与原文勘误</h2>
+
+<p>四篇报道由不同作者、不同口径写成，直接混用会产生错误结论。以下逐条列出差异、判定与建议采用值。</p>
+
+<table>
+  <thead><tr><th>#</th><th>争议点</th><th>各篇表述</th><th>判定 / 建议采用</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>现金及短期投资</strong></td>
+      <td>电话会实录（CFO）："约 <strong>5.4 亿美元</strong>"；404K：<strong>540.05 亿</strong></td>
+      <td><span class="tag warn">勘误</span> 取 <strong>540.05 亿</strong>。5.4 亿与"债务 501.34 亿 + 循环信贷 150 亿"的上下文明显矛盾，属<strong>转录或口播单位遗漏</strong></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>8 月增发规模</strong></td>
+      <td>腾讯：募资 230 亿、净额 226.17 亿；CFO：230 亿；海豚："每股 95 美元增发<strong>约 197 亿美元</strong>"</td>
+      <td><span class="tag warn">勘误</span> 以 <strong>230 亿募资 / 226.17 亿净额</strong>为准（两处独立印证）。197 亿可能是发行股数或某一时点口径，<strong>不宜用于计算摊薄</strong></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Q4 毛利率口径</strong></td>
+      <td>腾讯/CFO：指引 <strong>38%（Non-GAAP）</strong>、-6.1pct；海豚：<strong>37.1%</strong>、环比 -6pct、预期 41.8%</td>
+      <td><span class="tag info">口径差异</span> 38% 是<strong>公司 Non-GAAP 指引</strong>；37.1% 是海豚按 <strong>GAAP 口径</strong>推算（43% − 5.9pct）。两者不可直接比较，<strong>引用指引应用 38%</strong></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>DCAI 营业利润率</strong></td>
+      <td>腾讯/海豚：<strong>41.5%</strong>；CFO 口述："占营收 <strong>42%</strong>"</td>
+      <td><span class="tag neu">四舍五入</span> 30.39 ÷ 73.18 = <strong>41.5%</strong>，CFO 为口播约数，两者不矛盾</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>PC 收入的市场预期</strong></td>
+      <td>腾讯：<strong>89.8 亿</strong>；海豚：<strong>88.4 亿</strong></td>
+      <td><span class="tag neu">卖方口径差异</span> 不同机构/不同时点的 consensus，<strong>不必强行统一</strong>；实际值 80.97 亿，<strong>两口径均大幅低于预期</strong></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>2026 全年资本开支的上调动作</strong></td>
+      <td>腾讯："<strong>从 180 亿提高至 200 亿</strong>"；CFO："<strong>仍有望保持在 200 亿</strong>"</td>
+      <td><span class="tag info">时点差异</span> 上调发生在<strong>上一季度</strong>；本季度是<strong>维持</strong>。腾讯的表述容易被误读为"本季新上调"</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>"首款 18A 服务器产品"出现两次</strong></td>
+      <td>CEO 先说 Clearwater Forest 是"首款 18A 服务器产品，已开始出货并确认收入"，后又说 Diamond Rapids 是"首款 18A 服务器产品，目前处于样品阶段"</td>
+      <td><span class="tag warn">原文勘误</span> 二者只能有一个是首款。按上下文：<strong>Clearwater Forest 已出货确认收入（真·首款）；Diamond Rapids 是下一代、2027 爬坡</strong>。腾讯独立印证 Clearwater Forest 为 18A 服务器首发</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>分部加总缺口</strong></td>
+      <td>73.18 + 80.97 + 66.97 − 62.91 = <strong>158.21</strong>，与合并营收 165.13 差 <strong>6.92 亿</strong></td>
+      <td><span class="tag neu">推算</span> 应为"其他/未分配"分部，<strong>四篇均未披露</strong>。本报告已标注为推算，未计入任何观点</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>2027 年资本开支 280 亿</strong></td>
+      <td>海豚："按 40% 来预估，2027 年资本开支有望达到 280 亿"</td>
+      <td><span class="tag info">外推</span> 公司<strong>未给 2027 数字</strong>；280 亿是海豚按"设备订单 +40%"外推，<strong>非指引</strong>。CFO 明确"还没有完全敲定具体数字"</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>对外代工 4 亿是"预估"还是"披露"</strong></td>
+      <td>海豚："海豚君<strong>预估</strong>对外代工收入约为 4 亿美元"；CFO：外部代工 <strong>4.11 亿</strong></td>
+      <td><span class="tag neu">殊途同归</span> 海豚按"分部收入 − 内部抵消"倒推，与 CFO 实际披露<strong>基本一致</strong>，可交叉验证</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>"净利润 33.2 亿"与"归母净利 27.56 亿"</strong></td>
+      <td>腾讯：GAAP 净利 33.2 亿、-18%；404K：Non-GAAP 归母净利 27.56 亿、+169%</td>
+      <td><span class="tag info">口径差异</span> 前者为 <strong>GAAP 且可能含非控股权益</strong>，后者为 <strong>Non-GAAP 归母</strong>。GAAP 反而高于 Non-GAAP，因含托管股份公允价值收益。<strong>不可直接比较</strong></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><strong>两处"营业利润 30 亿"</strong></td>
+      <td>腾讯："DCAI 营业利润 30.39 亿"；404K："调整后营业利润 32.34 亿"</td>
+      <td><span class="tag neu">层级不同</span> 前者是<strong>分部</strong>，后者是<strong>集团 Non-GAAP</strong>。混用会得出"数据中心=集团利润"的错误结论</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><strong>Q3 全球 PC 出货 -17% vs 2026 TAM -12%</strong></td>
+      <td>海豚引 -17%（单季）；公司口径 2026 全年 -12%</td>
+      <td><span class="tag neu">统计范围不同</span> 前者为<strong>第三方单季出货统计</strong>，后者为<strong>公司全年 TAM 预测</strong>，且 Q3 恰为库存调整最剧烈的季度，故降幅更深</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><strong>"调整后自由现金流"的定义</strong></td>
+      <td>公司：+16.39 亿；404K 自算：7.44 亿</td>
+      <td><span class="tag info">口径差异</span> 公司口径<strong>含合作方净出资</strong>；404K 口径为"经营现金流 − 总 capex − 融资租赁付款"。<strong>两者都对，但回答的是不同问题</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>一条方法论提醒（来自 404K 的隐含立场）</h4>
+  <p>这份财报里几乎每个正面数字都有一个"但是"：营收超指引，但超的是利润端；毛利率超指引，但下季要降 6pct；代工增 58%，但外部只有 4 亿；自由现金流为正，但含合作方出资；净利同比 -18%，但主要是去年处置收益的高基数；EPS -33%，但一半是增发摊薄。<strong>把任何一个数字单独拿出来讲，都能讲出一个与真相相反的故事。</strong></p>
+</div>
+
+<h2><span class="num">06</span>投资视角：估值、核心矛盾与可检验清单</h2>
+
+<h3><span class="ch">6.1</span>海豚的估值框架（四篇中唯一给出完整数字的）</h3>
+
+<table>
+  <thead><tr><th>项目</th><th class="num">数值 / 假设</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>当前市值</td><td class="num">4837 亿美元</td><td>对应股价约 90 美元附近</td></tr>
+    <tr><td>营收两年复合增速</td><td class="num">17%</td><td>假设值</td></tr>
+    <tr><td>Non-GAAP 毛利率</td><td class="num">43%</td><td>假设值（高于 Q4 指引 38%，低于 Q3 的 44.1%）</td></tr>
+    <tr><td>税率</td><td class="num">10%</td><td>假设值（Q4 指引为 11%）</td></tr>
+    <tr><td><strong>2027 年 PE</strong></td><td class="num"><strong>约 37 倍</strong></td><td>基于 2027 年税后核心经营利润（non-GAAP）</td></tr>
+    <tr><td>芯片业务收入增速</td><td class="num">15%–20%</td><td>"受传统 CPU 拖累"</td></tr>
+    <tr><td>代工业务定价</td><td class="num">未给足</td><td>"当前毕竟实实在在的对外代工收入极少，市场并未给这部分足够的定价"</td></tr>
+    <tr><td>底部市值参考</td><td class="num">约 3000 亿美元</td><td>"在当前对外代工极少的情况下，公司也能撑起 3 千亿的市值"</td></tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>海豚估值的逻辑内核：这是一个"期权定价"问题</h4>
+  <p>它把英特尔拆成两块：<strong>芯片业务</strong>（15–20% 增速，可支撑 3000 亿市值）+ <strong>代工期权</strong>（当前收入约等于 0，但市场愿意为"美国唯一本土先进制程代工"支付溢价，从而把市值推到 4837 亿）。</p>
+  <p>因此 37 倍 PE 并不是在为当前盈利付钱，<strong>而是在为"对外代工能否落地"这个二元事件付钱</strong>。这解释了为什么"台积电可能参与 Terafab"这样一条传闻，能在一个月内打掉 29% 的市值——它直接动摇了期权的前提（唯一性）。</p>
+  <p>海豚自己的结论是双向的：<strong>"如果对外代工实现突破，更有可能继续向上"</strong>；同时<strong>"英特尔依然是有底部支撑的"</strong>。它没有给目标价，只给了两个边界。</p>
+</div>
+
+<h3><span class="ch">6.2</span>五个尚未解决的核心矛盾</h3>
+
+<table>
+  <thead><tr><th>#</th><th>矛盾</th><th>多头论据</th><th>空头论据</th><th>谁在什么时候能证伪</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>PC：周期性库存 vs 结构性需求</strong></td>
+      <td>CFO：Q4/Q1 是库存调整最集中的两季，之后"出货与消耗基本相当"；2027 下半年低基数有改善潜力；Nova Lake 填补高端台式空缺</td>
+      <td>海豚：涨价驱动已触消费者接受度上限；CFO 自己说存储 2027 不会改善、要看 2028；2027 TAM 再 -10%</td>
+      <td><strong>2027 Q2 财报</strong>：若库存已清、出货仍低于消耗，则结构性成立</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>代工：叙事 vs 收入</strong></td>
+      <td>18A 良率两位数改善、成本降 40%；EMIB-T 单客户机会超 10 亿；CEO 承诺"未来两个季度内几家客户宣布"</td>
+      <td>外部收入仅 4.11 亿且含非经常性项目；TD Cowen：真正关键是<strong>有规模的前端晶圆客户</strong>；404K：无法据此给出成熟代工估值</td>
+      <td><strong>2027 Q1–Q2</strong>：CEO 承诺的客户公告窗口；以及 14A 1.0 PDK（2027 Q1）后的 tape-out</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>2027：增长年 vs 投资年</strong></td>
+      <td>DCAI 全年比年初预期高近 100 亿；服务器 CPU 行业出货两年各 +30%；专用芯片三年再翻三倍</td>
+      <td>CFO 明确"明年可能不是正自由现金流的一年"；三节点投资集中在同一年；2027 上半年供应更紧</td>
+      <td><strong>2027 全年</strong>：自由现金流与折旧占收入比</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>涨价能否持续</strong></td>
+      <td>至强需求远超供给，Granite Rapids 对毛利率有增厚；多家客户想签 LTA</td>
+      <td>海豚：PC 客户已开始抵触；内存涨价推高整机成本，涨价边际拉动减弱；Q4 专用芯片占比上升反而拖累毛利率</td>
+      <td><strong>2027 Q1–Q2</strong>：DCAI 收入增长中量 vs 价的拆分（公司目前未披露）</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>毛利率何时修复</strong></td>
+      <td>Fab 28 影响是一次性的 2pct；Intel 3 与 18A 成本持续下降；40–60% fall-through</td>
+      <td>海豚：剔除 Fab 28 还降 4pct，需等 2027 下半年及之后；18A 产能负荷不足是持续逆风；折旧上升</td>
+      <td><strong>2027 下半年</strong>：毛利率能否回到 39–40%（海豚给出的锚）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">6.3</span>下一次财报的六个检验点</h3>
+
+<div class="box green">
+  <ol>
+    <li><strong>DCAI 收入与利润率必须一起看</strong>（404K）：收入继续增长且利润率保持韧性，才支持"新增供给带来盈利"；若只有收入增长，要检查成本与产品结构。</li>
+    <li><strong>CCPG 收入 + 集团毛利率 + 库存三者同步变化</strong>（404K）：用于区分"终端需求压力"与"生产爬坡压力"。</li>
+    <li><strong>外部代工收入是否脱离"非经常性项目"</strong>：Q3 的 4.11 亿中有 1.18 亿环比增量来自一项非经常性客户项目，需看 Q4 是否回落到 3 亿以下。</li>
+    <li><strong>CEO 承诺的客户公告是否兑现</strong>："未来两个季度内会有几家客户准备好宣布合作"——这是最硬、也最容易被检验的一句话。</li>
+    <li><strong>现金流三件套</strong>：经营现金流、总资本开支、合作方资金净额，以及<strong>稀释股数</strong>（Q4 指引 54.4 亿，之后是否继续上升）。</li>
+    <li><strong>基板产能与俄勒冈 Intel 3 的进度</strong>：这两项决定了 2027 下半年供给释放能否兑现，也是"份额是供给函数"这一说法的落脚点。</li>
+  </ol>
+</div>
+
+<h3><span class="ch">6.4</span>四篇报道各自最值得记住的一句话</h3>
+
+<div class="cols">
+  <div class="box blue">
+    <h4>腾讯科技</h4>
+    <p>"尽管 AI 服务器需求强劲，但 PC 业务疲软、CPU 供应受限，以及以色列工厂事故带来的产能损失，令投资者担忧英特尔<strong>能否将 AI 需求持续转化为收入和利润</strong>。"</p>
+    <p class="mute" style="font-size:13px;">落点在"转化率"，不在"需求真假"。</p>
+  </div>
+  <div class="box amber">
+    <h4>404K · 财报解读</h4>
+    <p>"<strong>关键是交付增长最终能留下多少现金，以及这些现金需要由多少股份分享。</strong>"</p>
+    <p class="mute" style="font-size:13px;">落点在每股含金量，这是四篇里唯一把"摊薄"当作核心变量的。</p>
+  </div>
+  <div class="box purple">
+    <h4>404K · 电话会</h4>
+    <p>"<strong>服务器芯片卖断货、供应紧到 2028 年，PC 却要连跌两年。</strong>"</p>
+    <p class="mute" style="font-size:13px;">落点在供需的时间错配：一边到 2028 年都缺，一边连跌两年。</p>
+  </div>
+  <div class="box red">
+    <h4>海豚研究</h4>
+    <p>"<strong>在当前对外代工极少的情况下，公司也能撑起 3 千亿的市值；如果对外代工实现突破，更有可能继续向上。</strong>"</p>
+    <p class="mute" style="font-size:13px;">落点在二元期权：下行有 CPU 基本盘托底，上行全看代工。</p>
+  </div>
+</div>
+
+<h2><span class="num">07</span>附录：关键数字速查</h2>
+
+<table class="tight">
+  <thead><tr><th>类别</th><th>项目</th><th class="num">数值</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="6">Q3 损益</td><td>营收</td><td class="num">165.13 亿（+21%）</td></tr>
+    <tr><td>GAAP 毛利率 / Non-GAAP</td><td class="num">43.0% / 44.1%</td></tr>
+    <tr><td>GAAP 营业利润 / Non-GAAP</td><td class="num">25.22 亿 / 32.34 亿</td></tr>
+    <tr><td>GAAP 净利 / Non-GAAP 归母</td><td class="num">33.2 亿（-18%）/ 27.56 亿（+169%）</td></tr>
+    <tr><td>GAAP EPS / Non-GAAP EPS</td><td class="num">0.60（-33%）/ 0.52（+126%）</td></tr>
+    <tr><td>稀释股数</td><td class="num">53.07 亿（+17%）</td></tr>
+    <tr><td rowspan="3">分部</td><td>DCAI</td><td class="num">73.18 亿，+78%，利润率 41.5%</td></tr>
+    <tr><td>CCPG</td><td class="num">80.97 亿，-5%，利润率 28.2%</td></tr>
+    <tr><td>Foundry</td><td class="num">66.97 亿，+58%，亏损 18.53 亿，外部 4.11 亿</td></tr>
+    <tr><td rowspan="4">Q4 指引</td><td>营收</td><td class="num">150–160 亿（预期 170.6）</td></tr>
+    <tr><td>Non-GAAP 毛利率</td><td class="num">38%（-6.1pct）</td></tr>
+    <tr><td>Non-GAAP EPS</td><td class="num">0.25（预期 0.43）</td></tr>
+    <tr><td>Fab 28 影响</td><td class="num">营收 -3 亿，毛利率 -200bp</td></tr>
+    <tr><td rowspan="5">现金与资产</td><td>经营现金流</td><td class="num">50.82 亿</td></tr>
+    <tr><td>调整后自由现金流</td><td class="num">+16.39 亿（裸口径 7.44 亿）</td></tr>
+    <tr><td>资本开支（季度 / 2026 全年）</td><td class="num">42.19 亿 / 200 亿</td></tr>
+    <tr><td>现金+短期投资 / 债务</td><td class="num">540.05 亿 / 501.34 亿</td></tr>
+    <tr><td>存货（其中在产品）</td><td class="num">130.68 亿（87.97 亿）</td></tr>
+    <tr><td rowspan="4">行业</td><td>服务器 CPU 出货增速 2026/2027</td><td class="num">各 &gt; 30%</td></tr>
+    <tr><td>服务器 CPU TAM 5 年</td><td class="num">400 亿 → 2000 亿+</td></tr>
+    <tr><td>PC TAM 2026 / 2027</td><td class="num">-12% / -10%</td></tr>
+    <tr><td>供应受限</td><td class="num">延续至 2028 年</td></tr>
+    <tr><td rowspan="3">股价</td><td>收盘（10/29）</td><td class="num">92.07 美元（-3.6%）</td></tr>
+    <tr><td>盘后</td><td class="num down">-20% 以上</td></tr>
+    <tr><td>6 月高点 → 10 月</td><td class="num down">142 → 约 90（-36%），10 月单月 -29%</td></tr>
+  </tbody>
+</table>
+
+<div class="disclaimer">
+  <strong>资料说明：</strong>本报告基于四篇公开报道原文（腾讯科技、404K 两篇、海豚研究）整理，所有数字与观点均标注出处或口径；凡属推算、外推、口径差异之处均已明确标注，未做任何未经说明的加工。原文之间存在的矛盾已在第 05 节逐条列出，未擅自取一弃一。
+  <br><br>
+  <strong>免责声明：</strong>本文为公开信息的整理与提炼，不构成任何投资建议，不代表任何机构或个人观点，仅供学习与研究参考。
+</div>
+
+<div class="foot">
+  英特尔（INTC）2026 财年第三季度财报 · 四篇报道全文精读与观点全集　|　整理日期：2026 年 10 月 30 日　|　财报发布：2026 年 10 月 29 日（美国时间）
+</div>
+
+</div>
+</body>
+</html>

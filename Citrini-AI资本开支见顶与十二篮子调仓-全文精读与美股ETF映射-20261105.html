@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citrini：AI 资本开支增速已见顶，十二篮子全面调仓（全文精读 + 美股/ETF 映射）</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc;
+    --red:#c0392b; --red-soft:#fdeeec; --green:#1e7a4b; --green-soft:#eaf6ef;
+    --amber:#a86400; --amber-soft:#fdf3e3; --purple:#5b3fa8; --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px;}
+  header.top{padding:52px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:31px;line-height:1.32;margin:0 0 12px;letter-spacing:-.01em;font-weight:700;}
+  .sub{font-size:16px;color:var(--ink-2);margin:0 0 18px;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+  .meta a{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);}
+
+  h2{font-size:22px;margin:52px 0 10px;padding-top:18px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:8px;}
+  h3{font-size:17px;margin:30px 0 8px;font-weight:650;}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+  .src{font-size:12px;color:var(--ink-3);margin:6px 0 0;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.5;}
+  .up{color:var(--red);} .down{color:var(--green);} .neutral{color:var(--ink);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child,.box ol:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--card);}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.3px;color:var(--ink-2);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;}
+  tbody tr:hover{background:#fafbfc;}
+
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0;}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px;}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;}
+  .chart{width:100%;height:320px;}
+
+  .tag{display:inline-block;font-size:11.3px;padding:2px 8px;border-radius:20px;font-weight:600;margin-right:6px;vertical-align:1px;white-space:nowrap;}
+  .tag.buy{background:var(--red-soft);color:var(--red);}
+  .tag.hold{background:var(--amber-soft);color:var(--amber);}
+  .tag.avoid{background:var(--green-soft);color:var(--green);}
+  .tag.core{background:var(--blue-soft);color:var(--blue);}
+  .tag.gray{background:#eef0f3;color:var(--ink-3);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .quote{border-left:3px solid var(--blue);padding:4px 0 4px 16px;margin:16px 0;color:var(--ink-2);font-size:14.5px;}
+  .quote .who{display:block;font-size:12px;color:var(--ink-3);margin-top:6px;}
+
+  .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0;font-size:13px;}
+  .chain span.n{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px;}
+  .chain span.a{color:var(--ink-3);}
+
+  .disclaimer{margin-top:46px;padding:18px 20px;background:#eceff3;border-radius:var(--radius);font-size:12.5px;color:var(--ink-2);line-height:1.7;}
+  .footer{margin-top:26px;font-size:12px;color:var(--ink-3);text-align:center;}
+
+  table.pts{table-layout:fixed;}
+  table.pts th:nth-child(1),table.pts td:nth-child(1){width:36px;text-align:center;padding-left:4px;padding-right:4px;color:var(--ink-3);}
+  table.pts th:nth-child(2),table.pts td:nth-child(2){width:52%;}
+  table.pts th:nth-child(3),table.pts td:nth-child(3){width:16%;}
+  table.pts td{font-size:12.7px;}
+
+  table.mk th:nth-child(1),table.mk td:nth-child(1){width:19%;}
+  table.mk th:nth-child(2),table.mk td:nth-child(2){width:11%;}
+  table.mk th:nth-child(3),table.mk td:nth-child(3){width:40%;}
+  table.mk th:nth-child(4),table.mk td:nth-child(4){width:30%;}
+  table.mk td{font-size:12.7px;}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .two,.three{grid-template-columns:1fr;}
+    h1{font-size:25px;}
+    table{font-size:12.3px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">深度研究 · 美股 · AI 资本周期 / 主题投资 / 宏观策略</div>
+  <h1>AI 资本开支增速已经见顶：Citrini 的十二篮子大调仓</h1>
+  <p class="sub">一篇"主题投资宣言式"的调仓文件——全文逐节精读、<strong>189 条观点零遗漏梳理</strong>，以及由此推导的美股个股与 ETF 映射</p>
+  <div class="meta">
+    <span>原文：<a href="https://mp.weixin.qq.com/s/ZAMmc9CmHeG5sHU5QrPe7g" target="_blank">《Citrini 判断 AI 资本开支增速已经见顶，AI 降温，实体经济升温，Citrini 怎么调仓》</a></span>
+    <span>作者：Citrini Research（公众号署名 "s s"）</span>
+    <span>发布：2026-11-05 16:36　第 10 期《主题全景》</span>
+    <span>整理日期：2026-11-05</span>
+  </div>
+</header>
+
+<!-- ================= 速览 ================= -->
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">全文唯一核心结论</div>
+    <div class="val down">资本开支增速已见顶</div>
+    <div class="note">不是"AI 崩盘"，而是<strong>二阶导数转向</strong>：斜率见顶、活动不停</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">超大规模云厂商年化 Capex</div>
+    <div class="val">≈ 1 万亿美元</div>
+    <div class="note">且尚未涵盖 AI 支出全口径</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">全生态 ARR（当前）</div>
+    <div class="val">≥ 2000 亿美元</div>
+    <div class="note">2023 年几乎无人预测，但仍<strong>不足以支撑</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Capex 再翻倍所需营收</div>
+    <div class="val down">万亿级</div>
+    <div class="note">研究团队明确认为<strong>不会发生</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Citrindex 累计表现</div>
+    <div class="val up">&gt; 2.5 倍 SPX</div>
+    <div class="note">2023-05-31 设立即至文中</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">周期股 vs 防御股</div>
+    <div class="val down">-2.4% / -2.9% / -6.9%</div>
+    <div class="note">1 / 3 / 6 个月，趋势仍向下</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Regime Cube 资产对</div>
+    <div class="val">14 组中 9 组</div>
+    <div class="note">交易表现偏向<strong>滞胀</strong>象限</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">德州数据中心暂停令</div>
+    <div class="val down">150 亿美元</div>
+    <div class="note">Anthropic 支持项目停工，银行被套过桥贷</div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>怎么读这篇报告</h4>
+  <p>这篇原文表面上是一份"第 10 期组合调整说明"，实质上是 Citrini Research 对自己创立三年来的方法论做一次<strong>公开的立场切换</strong>：从"买最锐的叙事"切换到"买最实的资产"。全文可以拆成四层论证：<strong>①AI 资本开支的二阶导数见顶 → ②但实体经济反而在扩张 → ③因此市场进入"周期后期扩张" → ④组合从高贝塔动量切向质量、现金流与相对价值</strong>。所有 12 个篮子、几十组配对交易，都是第四层的执行细节。</p>
+  <p>需要特别提醒：<strong>原文第 8 节"酒类与泡沫：干杯"在抓取到的原文中只有标题、正文缺失</strong>；第 10 节"娱乐：稀缺溢价"开头一段缺失；文中多处"下方列出""下面是"所指的回测图与公司清单表格在原文中未呈现。本报告对这些缺口做了标注，未做臆测填充。</p>
+</div>
+
+<!-- ================= 00 ================= -->
+<h2><span class="num">00</span>原文骨架：一篇"调仓宣言"的四层论证</h2>
+
+<div class="chain">
+  <span class="n">① Capex 增速见顶</span><span class="a">→</span>
+  <span class="n">② 实体扩张 & 通胀回潮</span><span class="a">→</span>
+  <span class="n">③ 周期后期扩张 / 滞胀象限</span><span class="a">→</span>
+  <span class="n">④ 高质量 + 低贝塔 + 相对价值</span>
+</div>
+
+<table>
+  <thead><tr><th style="width:14%">层级</th><th style="width:44%">命题</th><th style="width:42%">对组合的含义</th></tr></thead>
+  <tbody>
+    <tr><td><strong>第一层<br>事实判断</strong></td><td>AI 营收确实爆发（全生态 ARR ≥ 2000 亿美元），但营收与 capex 之间的<strong>鸿沟在扩大</strong>；capex 已达 1 万亿美元年化，翻倍需要万亿级营收，不会发生。</td><td>AI 主题从"贝塔行情"降级为"相对价值行情"：做多真实交付、真实利润，做空叙事与订单。</td></tr>
+    <tr><td><strong>第二层<br>宏观判断</strong></td><td>4 年来首次职位空缺普遍回升、周期性制造业强劲、服务业与制造业 PMI 处多年高位、价格压力上行。AI 降温与实体升温<strong>同时发生</strong>。</td><td>不能简单做空股票；要<strong>换风格</strong>而不是降仓位。资金从"高贝塔动量"流向"低贝塔质量 + 周期后段价值"。</td></tr>
+    <tr><td><strong>第三层<br>周期定位</strong></td><td>14 组资产对中 9 组偏滞胀；周期股相对防御股 6 个月 -6.9%。这是<strong>周期后期扩张</strong>的样子。</td><td>"收起球回家"或"改打小球"：更小、更战术性的组合，因子层面主动降低动量与高贝塔暴露。</td></tr>
+    <tr><td><strong>第四层<br>执行</strong></td><td>12 个篮子重构，其中 AI 拆成 7 组市场中性配对；新增老派软件、金融股、娱乐、酒类（正文缺失）四个类别。</td><td>收益来源从"方向"转向"价差"；从"讲故事"转向"收现金流"。</td></tr>
+  </tbody>
+</table>
+
+<!-- ================= 01 ================= -->
+<h2><span class="num">01</span>起点与转折：为什么"主题研究"突然变难了</h2>
+
+<h3>1.1 一个诚实的时间戳</h3>
+<p>Citrini Research 创立于 2023 年，作者自认赶上了"主题投资的好时机"：<strong>股票便宜、市场情绪低迷、一场技术革命刚刚拉开帷幕</strong>。当时的方法是三步走——广泛寻找机会、识别结构性顺风、然后让上涨行情带动相关公司，研究并不难做。研究从 AI 起步，随后把同一套方法复制到<strong>财政主导、GLP-1、机器人、能源、国防、医疗</strong>六个领域。成果可以量化：<strong>Citrindex 自 2023 年 5 月 31 日设立以来，总回报超过 SPX 的 2.5 倍</strong>。</p>
+
+<h3>1.2 但过去 12 个月，写"主题"开始变难</h3>
+<p>作者给出了非常具体的诊断，这是全文最值得记录的"卖方自我反思"段落：</p>
+<ul>
+  <li>随着市场计入更多上涨预期，<strong>主题叙事沿着风险曲线不断向外延伸</strong>——从"优势明确、价格便宜、已证明自身实力的公司"，转向"依赖 2030 年潜在市场总规模（TAM）支撑估值、尚未盈利的投机性公司"。</li>
+  <li>股票已经不便宜，市场情绪也不再低迷。<strong>市场变得更挑剔了。</strong></li>
+  <li>挑剔之中仍有机会：夏季生命科学行业出现的拐点就是"尚未被充分定价"的例子。</li>
+  <li>但另一些主题"显得牵强，甚至有些勉强"——<strong>"拍桌子力荐"的坚定判断，逐渐变成了不断重复叙事的循环</strong>。作者强调这种变化是客观存在的，不能归咎于研究者的想象力。</li>
+</ul>
+<p>于是有了这份第 10 期《主题全景》：<strong>整个模型组合自下而上重新梳理，大部分核心主题保留，但表达方式大幅改变；同时新增几个类别，覆盖市场持续忽视的行业</strong>。</p>
+
+<h3>1.3 起点为什么是 2023 年 5 月 31 日</h3>
+<p>作者特意解释了起点的"择时含量"：这体现了对市场周期位置的判断、对适用策略的主动选择，<strong>也包含择时上的幸运</strong>。第一篇报告《AI：全球股票受益者》发布在 NVDA 首次公布远超预期季度业绩之后几天，并非巧合——ChatGPT 于 2022 年底推出，市场开始相信这个小聊天机器人除了写诗、发邮件，还可能带领科技行业走出长达 18 个月的低谷。NVDA 的业绩给出了确凿证据：<strong>相关投资规模将十分庞大，NVDA 等公司即将卖出大量芯片</strong>。此前 NVDA 股价曾回撤 <strong>68%</strong>。</p>
+<p>事后才知道大盘早在 2022 年 10 月就已触底，但当时并不明显：<strong>极端劳动力短缺正在迅速缓解、美联储仍在加息、银行业刚经历 2008 年以来最严重的一场惊吓</strong>。早期市场的核心特征是：<strong>优质公司估值合理，而市场仍严重低估即将到来的投资规模</strong>——这句话是理解全文的钥匙，因为作者认为今天这两条<strong>同时反转了</strong>。</p>
+
+<h3>1.4 三年牛市的"燃料清单"</h3>
+<p>作者按时间顺序复盘了推动这轮行情的政治与流动性因素，这一段是全文对"为什么涨"最完整的归因：</p>
+<ul>
+  <li><strong>Trump 当选</strong>意味着放松监管、减税，以及一个带有强烈自身利益诉求的"高度宽松"监管环境。</li>
+  <li><strong>关税威胁成了空头陷阱</strong>；DOGE 的表现则令人失望。</li>
+  <li><strong>财政支出只是换了去向</strong>：从非营利组织、非政府组织、环保和咨询领域，转向国防与安保。</li>
+  <li>"市场的冒险热情无法永远压制，<strong>美国总统发行迷因币或许早已给出线索</strong>。到 2025 年底，市场已达到逃逸速度。"</li>
+  <li><strong>4 月</strong>：伊朗相关事件引发回撤，随后智能体及编程算力需求、模型实验室年度经常性收入（ARR）爆发式增长，推动市场出现<strong>长达 3 个月的狂热冲顶</strong>。无论按研究团队主观判断，还是摩根士丹利 TMT 动量因子指数等统计指标衡量，情况都是如此。<strong>随后，买盘耗尽。</strong></li>
+</ul>
+
+<!-- ================= 02 ================= -->
+<h2><span class="num">02</span>核心判断：AI 资本开支增速已经见顶（六段论证）</h2>
+
+<p>这是全文最硬的部分。作者的论证不是"AI 是泡沫"这种粗糙判断，而是一条<strong>从营收门槛 → 融资约束 → 执行瓶颈 → 政策成本 → 信贷冻结 → 定价崩塌</strong>的链条。以下逐段还原。</p>
+
+<h3>2.1 第一段：亮眼的营收，已经变成"及格线"</h3>
+<p>今年 AI 营收终于实现了数十亿美元规模的爆发式增长。但作者指出一个残酷的逻辑变化：<strong>这些亮眼数字如今已成为证明当下数万亿美元投入合理性的"基本门槛"，早先被低估的上涨空间已经发生变化。营收与资本开支之间存在巨大鸿沟，非对称风险已转向下行。</strong></p>
+
+<h3>2.2 第二段：缺口只有两个变量能收窄，而两者都不利</h3>
+<p>超大规模云厂商年化资本开支即将达到 <strong>1 万亿美元</strong>，且这还没有涵盖 AI 支出的全部范围。这个缺口必须收窄，而<strong>能够调整的只有两个变量</strong>：</p>
+<ol>
+  <li><strong>营收实现一个数量级的增长</strong>；</li>
+  <li><strong>资本开支放缓</strong>——但这会打破许多投资假设。</li>
+</ol>
+<p>作者判断"最终可能两者都会发生一些"。随后给出三条关键证据：</p>
+<ul>
+  <li><strong>"巨额投资承诺"的高峰早已过去</strong>，剩余履约义务（RPO）的季度增速降至多年来最低水平。</li>
+  <li>曾经宣布 5000 亿美元的支出承诺就足以让市场兴奋，<strong>但那样的日子似乎已经过去</strong>。</li>
+  <li>市场经常讨论无穷无尽的算力需求、讨论 Jevons 悖论，但作者反问：<strong>"那些已经放缓投资承诺的领先模型实验室，难道不比其他人更清楚未来需求吗？"</strong></li>
+</ul>
+
+<h3>2.3 第三段：2000 亿美元 ARR 很惊人，但仍然不够</h3>
+<p>要让资本开支的账算得过来，<strong>营收增速必须在已经极快的基础上进一步加速</strong>。整个生态的年度经常性收入看起来将至少达到 <strong>2000 亿美元</strong>——作者承认这个数字十分惊人，2023 年时很少有人做出这样的预测。但结论是："<strong>但这仍然不够。在当前水平上将资本开支翻倍，需要以万亿美元计的营收，而研究团队认为这不会发生。</strong>"</p>
+<div class="box red">
+  <p><strong>一句话结论：资本开支增速已经见顶。</strong></p>
+  <p class="src">作者紧接着用历史尺度做对照：红杉资本 2023 年 9 月提出的"2000 亿美元问题"、2024 年 6 月提出的"6000 亿美元问题"，<strong>如今看起来已是小数目</strong>。这句话的潜台词是：缺口不是收敛的，而是按几何级数放大的。</p>
+</div>
+
+<h3>2.4 第四段：融资端——资本也有供需曲线</h3>
+<p>作者先承认"过度炒作和过度建设的可能性并不难看见，市场上大多数人很可能都预计这种周期迟早会出现"，但关键在于<strong>时点与触发条件</strong>：</p>
+<blockquote class="quote">只要信念、动量，尤其是资金仍然存在，这套交易逻辑就能延续。<span class="who">原文</span></blockquote>
+<p>而资金这条腿正在出问题：</p>
+<ul>
+  <li>总市值远超 <strong>10 万亿美元</strong>的超大规模云厂商，<strong>已经无法再仅靠自身现金流为这些项目融资</strong>，正不断向"愿意按当前公允市价买入"的投资者发行债券和股票。</li>
+  <li>每次股票和债券发行，都会<strong>消耗资本市场的整体流动性</strong>。</li>
+  <li>每轮股权稀释，都在<strong>削弱此前市场对"以超过 80% 的利润率销售词元"的热情</strong>。</li>
+  <li>"任何事物都有供需曲线，资本也不例外。显然，市场对这些新发行证券的需求<strong>也开始减弱</strong>。"</li>
+</ul>
+
+<h3>2.5 第五段：执行端与政策端——"瓶颈™"从题材变成现实</h3>
+<p>作者用了一个带讽刺意味的写法："电力、接电和政策这些<strong>瓶颈™</strong>，已经从动量交易题材变成了现实风险。"具体传导路径是：</p>
+<div class="chain">
+  <span class="n">电网接入 / 劳动力 / 物资不到位</span><span class="a">→</span>
+  <span class="n">建设拖慢、延期累积</span><span class="a">→</span>
+  <span class="n">涡轮机积压订单无法交付</span><span class="a">→</span>
+  <span class="n">投入成本上涨</span><span class="a">→</span>
+  <span class="n">对照"延后完工日 vs 债务到期日"</span><span class="a">→</span>
+  <span class="n">接续融资风险 / 完工违约</span>
+</div>
+<p>作者点出一个"温和下行"的机制：这些瓶颈或许会成为一些人<strong>悄悄下调自身预测的理由，同时避免引发集中撤离</strong>。也就是说，坏消息可能以"慢慢渗漏"而非"一次性爆破"的方式被消化。</p>
+<p><strong>政策方向也已不再模糊</strong>：得克萨斯、俄亥俄、佐治亚是美国最大的数据中心聚集地之一，这 3 个州的州长选举，实际上成了<strong>对数据中心建设的一次公投</strong>。作者判断：即将上任的州长大概都不会彻底叫停建设，但<strong>成本几乎肯定会大幅上升</strong>——向地方政府作出更多让步、满足清洁能源要求、保护电力用户，以及面对更慢的审批流程。</p>
+<div class="box amber">
+  <h4>德州案例：全文最具体的"硬证据"</h4>
+  <p>选票尚未统计完毕，德州就提前展示了可能发生的情况：<strong>上周，一个由 Anthropic 支持的数据中心项目因德州数据中心建设暂停令而停工，银行因此被套在已发放的 150 亿美元过桥贷款中。</strong>作者称，仅这项暂停令，就已是"最可能冲击 AI 资本开支交易逻辑的不确定因素之一"。</p>
+</div>
+<p><strong>信贷端同步恶化</strong>：缺少超大规模云厂商托底的信贷市场<strong>已经彻底停滞</strong>。对银行而言，最令人紧张的情况莫过于<strong>承担了无法转移的风险</strong>。新型云服务商（neocloud）、高收益私人信贷和商业发展公司（BDC）面临的处境都不乐观。</p>
+
+<h3>2.6 第六段：模型实验室与"词元价格战"</h3>
+<p>这是全文对 AI 基本面最细致的一段，作者给出了<strong>既肯定又否定</strong>的双面评价：</p>
+<h4>值得肯定的部分</h4>
+<ul>
+  <li>Anthropic 上周公布的 S-1 注册文件，<strong>比一些人预期的干净得多</strong>。</li>
+  <li>该公司让其他参与者承担了大量资本密集型建设风险，<strong>同时保留了巨额现金</strong>，并<strong>远早于多数人的预期实现现金流转正</strong>。</li>
+</ul>
+<h4>但"颠覆性的词元定价能迅速瓦解原有优势"</h4>
+<ul>
+  <li><strong>7 月 30 日，OpenAI 大幅下调词元价格</strong>，以从其他模型实验室手中夺回市场份额。这一招对 OpenAI 奏效了，但也<strong>明确显示出产品正在商品化</strong>。</li>
+  <li>作者给了一个历史类比：<strong>价格战曾标志着铁路大周期开始走向终点。</strong></li>
+  <li><strong>Anthropic 的爆发式增长随即受阻，市场份额迅速流向 OpenAI。</strong>原因被拆得很清楚：行业产品高度相似、客户切换几乎没有摩擦、可以瞬间完成、且往往自动进行、许多客户对价格变化十分敏感。</li>
+</ul>
+<h4>缓和与转折</h4>
+<ul>
+  <li>词元价格目前<strong>似乎已经稳定</strong>；Anthropic 的 <strong>Opus 5.5 表现良好</strong>；两家实验室很可能都<strong>具有很大的长期价值</strong>。</li>
+  <li>"但如同所有技术革命一样，<strong>维持当前资本开支增速所需的条件，在现实中很可能无法实现</strong>。"</li>
+  <li>"当数万亿美元的投资和财富，都系于<strong>两家公司未来几年营收增长至当前 10 倍</strong>的假设之上时，更严格的审视是合理的。"</li>
+</ul>
+
+<h3>2.7 一个对称性判断：NVDA 的 2023 与今天</h3>
+<p>作者用了一个很漂亮的对称结构收尾：如果 NVDA 在 2023 年的业绩确认了当时已经开始的<strong>向上拐点</strong>，那么如今可能正在出现<strong>对应的下行变化</strong>——<strong>SaaS 和搜索等领域受到的破坏性冲击，终于开始体现在业绩数字中</strong>。他提到《2028 年全球智能危机》"只是一篇思想推演，但其中至少有些内容与现实颇为贴合"。</p>
+
+<h3>2.8 三个自问，与"这不是崩盘"的边界</h3>
+<p>作者主动设问："这次会不同吗？此前经历过 DeepSeek、关税和伊朗相关事件，这次是否也只是一次回调？"他的回答把判断标准落在<strong>预期</strong>上：<strong>基准情景是什么、价格已经反映了什么、又有谁愿意提供资金？</strong>并给出三个可验证的问题：</p>
+<ol>
+  <li>明年模型实验室的年度经常性收入增速，<strong>会高于还是低于过去 1 年</strong>？</li>
+  <li>2027 年和 2028 年的数据中心交付进度，<strong>更可能提前还是延后</strong>？</li>
+  <li>金融市场向这一主题提供贷款的意愿，<strong>会增强还是减弱</strong>？</li>
+</ol>
+<div class="box green">
+  <h4>必须划清的边界（作者自己划的）</h4>
+  <p>"需要明确的是，<strong>词元使用量、词元支出和 AI 采用率都将继续增长</strong>，并在下游同时带来生产力提升和颠覆性影响，<strong>这一点没有疑问</strong>。更不确定的是，那些迄今从这轮投资中获取了大部分价值的公司，是否仍能提供足够好的投资机会。"</p>
+  <p>所以这不是一篇"做空 AI"的报告，而是一篇<strong>"AI 受益者换人"</strong>的报告。作者用音乐做比喻："接下来会出现一段<strong>尾声</strong>：音乐的调性或节奏略有变化，随后过渡到新的旋律。"</p>
+</div>
+
+<!-- ================= 03 ================= -->
+<h2><span class="num">03</span>宏观对冲面：AI 降温 × 实体升温 = 周期后期扩张</h2>
+
+<h3>3.1 一个反直觉的组合</h3>
+<p>作者先自问：如果 AI 基础设施交易的预期高峰已经过去，股市乃至随后整个经济是否都会陷入困境？他的回答很谨慎——"这个判断涉及二阶导数、变化率和市场整体炒作程度，本身带有模糊的主观性。在某个时间尺度上，或许会，也或许不会。至少今天看到的并非如此，明天也不会立刻发生。"</p>
+<p>然后给出<strong>当前看到的恰恰相反</strong>的证据链：</p>
+<ul>
+  <li><strong>4 年来首次，各行业职位空缺普遍增加</strong>，周期性制造业尤其强劲，就业人数开始回升。</li>
+  <li>持续 4 年的宽松周期和 AI 投资热潮，<strong>似乎终于推动整体经济重新显现出更广泛的扩张迹象与通胀压力</strong>。</li>
+  <li>调查数据同样：服务业和制造业的总体指标都处于<strong>多年高位</strong>，价格压力仍在上升。</li>
+</ul>
+
+<h3>3.2 三个"与 AI 无关"的扩张引擎</h3>
+<p>作者承认"其中一部分显然来自 AI 投资激增"，并且对"真正的 AI 崩盘能否不重创经济"持怀疑态度。但他强调<strong>其他驱动因素依然很多</strong>，且无论 AI 如何变化都将继续存在：</p>
+<ol>
+  <li><strong>OBBBA 减税</strong>（One Big Beautiful Bill Act）；</li>
+  <li><strong>关税缓解</strong>；</li>
+  <li><strong>生产回流</strong>（reshoring）。</li>
+</ol>
+<p>同时，"价格压力和通胀仍明显高于美联储目标，劳动力市场状况也在支撑工资。"</p>
+
+<h3>3.3 劳动力市场：全文最专业的一段数据论证</h3>
+<p>作者用美联储理事会的 <strong>Murray–Vidangos 序列</strong>估计"维持劳动力市场平衡所需的新增就业"：</p>
+<table>
+  <thead><tr><th style="width:34%">时期</th><th class="num" style="width:22%">平衡所需月均新增就业</th><th style="width:44%">背景</th></tr></thead>
+  <tbody>
+    <tr><td>2023–2024（移民激增期）</td><td class="num">155,000 人</td><td>劳动力供给大幅扩张，需要高就业增速才能"持平"</td></tr>
+    <tr><td>2025 年</td><td class="num">85,000 人</td><td>移民流入放缓</td></tr>
+    <tr><td>2026 年底</td><td class="num">5,000–10,000 人</td><td>净移民转负，平衡门槛大幅下移</td></tr>
+    <tr><td><strong>实际：过去 3 个月</strong></td><td class="num"><strong>+51,000 人</strong></td><td>非农月均</td></tr>
+    <tr><td><strong>实际：年初至今</strong></td><td class="num"><strong>+68,000 人</strong></td><td>非农月均</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：原文引用美联储理事会 Murray–Vidangos 序列与劳工部非农数据。</p>
+<p>结论很关键：<strong>"即使表面数字显得疲弱，劳动力市场仍在以达到或超过平衡所需的速度吸收新增劳动力供给。"</strong>换言之，5 万–7 万的月均新增就业在 2023 年是"衰退信号"，在 2026 年底却是"健康信号"。作者进一步指出：劳动力供给减少也意味着，几年前看起来相对疲弱的职位空缺数量，<strong>如今仍能对工资形成不错的支撑</strong>——"这很可能也是将移民作为政策变量背后的部分政治考量"。</p>
+
+<h3>3.4 为什么"AI 调整"不等于"经济崩溃"</h3>
+<p>作者给出三条缓冲：</p>
+<ul>
+  <li>即便 AI 投资出现剧烈调整——<strong>这还远未成为定局</strong>——实体经济也不会刚显露一点疲态就崩溃。</li>
+  <li>现有建设项目<strong>距离完工仍有数年时间</strong>；增加产量或许有助于缓解内存和电力瓶颈，<strong>却无法迅速培养出新的电工</strong>。劳动力瓶颈尚未解决，只要没有全面崩溃，预计还会持续一段时间。</li>
+  <li>"从'股价因 2029 年内存价格预测而下跌'，到'数据中心工地空无一人'，中间还相隔很远。"——但作者立刻补了一句关键的限定：<strong>"但市场往往能在坏消息真正落地前，提前计价并重估估值。"</strong></li>
+</ul>
+<p>他还提醒不要机械类比："简单套用上一轮周期、假设历史会以同样方式重演，风险很大。回想 2022 年，有多少人因笃信'收益率曲线倒挂必然预示衰退'而判断失误。"但同时强调"当前确实存在足够多值得重视的相似之处。市场已显露出<strong>'周期后期扩张'</strong>的气息"。</p>
+
+<h3>3.5 实际利率维度：14 组资产对里 9 组指向滞胀</h3>
+<p>作者引入自研 <strong>Regime Cube 模型</strong>做交叉验证：</p>
+<ul>
+  <li>经济数据仍显示扩张，但在模型追踪的 <strong>14 组资产对中，有 9 组的交易表现偏向滞胀</strong>。</li>
+  <li>最典型的是<strong>周期股相对防御股</strong>：可选消费、工业、材料 相对 必需消费、公用事业、医疗保健——<strong>过去 1 个月 -2.4%、3 个月 -2.9%、6 个月 -6.9%，趋势仍然向下</strong>。</li>
+  <li>通胀和增长指标将模型的基础判断定位在"<strong>通胀性增长</strong>"，但<strong>叠加资产价格行为和 10 年期实际收益率后，判断开始移向滞胀象限</strong>。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">周期股相对防御股：相对表现持续走弱</div>
+  <div class="cs">可选消费+工业+材料 相对 必需消费+公用事业+医疗保健，原文数据</div>
+  <div id="c1" class="chart"></div>
+</div>
+
+<p>作者对这个信号保持了难得的克制：<strong>"在某些资产对上，这个趋势早已持续了一段时间。因此，在关注整体环境变化的同时，也不宜盲目加码这一交易思路。"</strong>并且指出一个反向风险：<strong>"'防御性'轮动已经持续数月，将部分必需消费股推至极高估值，同时也为 AI 和动量方向的反弹创造了条件。"</strong></p>
+
+<h3>3.6 策略含义：收起球，改打小球</h3>
+<p>作者把选择题摆得很清楚："这就是周期后期扩张的样子。是<strong>寄望于贝塔和动量迎来第二轮上涨</strong>，并承担判断错误时的巨大下行风险，还是<strong>以更高估值追逐增长乏力的落后公司</strong>？"他的答案是：<strong>"如果已经积累了牛市周期的丰厚收益，或许到了收起球回家的时候，也可能该开始改打小球战术。"</strong></p>
+<p>具体到因子层面：</p>
+<ul>
+  <li><strong>高贝塔因子</strong>能够放大敞口和回报，牛市中是优势，熊市中则成了弱点。</li>
+  <li>在一轮局部抛售的底部切换策略并不容易，但拉长视角仍有帮助：当前判断针对的是<strong>一个历经数年形成的市场周期</strong>，依据是主观与量化信号之间足够广泛的一致性。<strong>上周的下跌或今天的反弹，都不足以单独解释这次调整。</strong></li>
+  <li>高贝塔因子最近几周表现大幅落后，但<strong>放到数年跨度，其变化率指向一个新阶段的开始，低贝塔的相对优势可能才刚刚显现</strong>。</li>
+  <li>其他动量指标也表明，市场<strong>刚刚离开一段历史上持续时间极长、偏向动量策略的强势行情顶部</strong>。</li>
+  <li>与主观判断的吻合点："冲顶行情中出现历史性的动量崩塌，几个月后再形成<strong>双顶</strong>？与此同时，这套交易逻辑的基本面显然正在变化，融资正在冻结，连最坚定的支持者也开始看到无法忽视的裂痕。"</li>
+</ul>
+
+<h3>3.7 市场结构：为什么"更小、更战术"</h3>
+<p>作者给了一个常被忽略的解释：<strong>10 月，纳斯达克指数从历史高点回撤 8%，但指数之下的个股已经历惨烈抛售，带杠杆的多空交易被集中平仓。</strong>他做了个类比："正如零日期权的出现改变了标普 500 指数的价格走势，<strong>因子交易也使某些主题变得拥挤</strong>，因此建立规模更小、战术性更强的组合具有合理性。"</p>
+<p>展望部分只有一句，但信息量很大：<strong>"昔日赢家预计将经历一段重新分化的时期，质量与炒作程度将受到重新审视，而那些被遗忘的实体经济机会有望继续展开。"</strong></p>
+
+<!-- ================= 04 ================= -->
+<h2><span class="num">04</span>十二个篮子总览：Citrindex 2.0 的全貌</h2>
+
+<table>
+  <thead><tr><th style="width:5%">#</th><th style="width:20%">篮子</th><th style="width:12%">状态</th><th style="width:63%">核心变化与主张</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>AI：相对价值</strong></td><td><span class="tag core">重构</span></td><td>从"买贝塔"改为 7 组市场中性配对；判断标准：先行者优于新进入者、质量优于增长、<strong>已投产算力优于订单储备</strong></td></tr>
+    <tr><td>2</td><td><strong>生命科学与医疗</strong></td><td><span class="tag core">升级</span></td><td>"去脂增肌"；GLP-1 组合解散，礼来与巴亨并入；看好实验/真实世界数据/验证环节；新增医疗科技、动物保健、牙科</td></tr>
+    <tr><td>3</td><td><strong>财政主导</strong></td><td><span class="tag hold">重聚焦</span></td><td>自 6 月以来明显落后；从"财政刺激/保护主义/重新武装/能源"多线分散，收敛到中期选举后的政策受益方向（医疗补助）</td></tr>
+    <tr><td>4</td><td><strong>天然气与能源</strong></td><td><span class="tag buy">加码</span></td><td>三大核心判断：周期后期扩张、霍尔木兹海峡多空、太阳能意外成赢家</td></tr>
+    <tr><td>5</td><td><strong>机器人</strong></td><td><span class="tag hold">观察</span></td><td>物理 AI 仍在研发阶段，最好的公司未上市；最有信心的是"迭代式制造"</td></tr>
+    <tr><td>6</td><td><strong>现代战争</strong></td><td><span class="tag core">转向防御</span></td><td>从"进攻性题材"转向"已锁定、体现迫切需求的支出"；导弹补库、造船、反无人机</td></tr>
+    <tr><td>7</td><td><strong>老派软件</strong></td><td><span class="tag buy">新增</span></td><td>SaaS 幸存者：拥有核心记录系统、按用量收费、界面糟糕但不可替代</td></tr>
+    <tr><td>8</td><td><strong>酒类与泡沫</strong></td><td><span class="tag gray">新增</span></td><td><strong>原文正文缺失，仅存标题"干杯"</strong>，无法还原</td></tr>
+    <tr><td>9</td><td><strong>金融股</strong></td><td><span class="tag buy">新增</span></td><td>"等待也有回报"；久期环境改善 + 被遗忘的价值轮动；财险因子拥挤</td></tr>
+    <tr><td>10</td><td><strong>娱乐</strong></td><td><span class="tag buy">新增</span></td><td>"稀缺溢价"；VICI 的 CPI 挂钩租金、院线供给受合约保障、流媒体被迫为溢价买单</td></tr>
+    <tr><td>11</td><td><strong>女友指数</strong></td><td><span class="tag core">延续</span></td><td>文化潮流 → 多空机会；VSXY、ELF 看好；CELH 受 Poppi 威胁；奢侈品中性</td></tr>
+    <tr><td>12</td><td><strong>圣诞袜小礼物</strong></td><td><span class="tag core">延续</span></td><td>假日购物季消费股组合；玩具三巨头 + 尚科宁家</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">"状态"栏为本报告依原文表述归纳，非原文用词。原文第 8 节仅有标题"8) 新增：酒类与泡沫：干杯"，其后直接跳至第 9 节。</p>
+
+<!-- ================= 05 ================= -->
+<h2><span class="num">05</span>篮子①：AI 相对价值——7 组配对逐一拆解</h2>
+
+<h3>5.1 方法论：两条曲线之比</h3>
+<p>作者先明确"不预期活动迅速崩塌"：已经启动的项目规模庞大、资金落实、正在建设。最可能的中间情景是<strong>"艰难推进"</strong>——瓶颈、融资和政策仍将带来挑战，导致<strong>项目延期、成本增加</strong>，并对"依赖外溢算力需求或替代供应商"的公司构成严重风险。</p>
+<p>由此提炼出三条选股准则：<strong>先行者优于新进入者、质量优于增长、已投产算力优于订单储备</strong>。</p>
+<p>然后用一个"曲线比值"的思想实验说明为什么现在要做多空：假设"实际基本面"曲线代表质量最高的公司，"市场认知"曲线代表投机性公司——<strong>在市场冒险热情出现拐点之前，优质公司表现更好；此后直到行情见顶，优质公司的相对表现会大幅落后。</strong></p>
+<div class="box purple">
+  <h4>一个具体的类比：BWXT vs Oklo</h4>
+  <p>核能领域 <strong>BWX Technologies（BWXT）</strong>拥有实际核反应堆制造业务，并由此取得真实利润；<strong>Oklo</strong> 尚不具备这些条件。作者用这组对比说明"质量 vs 叙事"的价差如何在炒作周期末段被拉至极值。</p>
+  <p>回测结论（原文提及但图表缺失）：<strong>2021 年至 2025 年中，市场中性组合在牛市和熊市中都表现不错</strong>；但去年夏天市场冒险热情释放后，<strong>资金以惊人的力度涌向低质量股票</strong>，"这种情况很可能逆转"。</p>
+</div>
+
+<h3>5.2 配对一：做多 NVDA / 做空 AMD</h3>
+<p><strong>核心逻辑</strong>：英伟达的竞争压力来自 ASIC，而 ASIC 对"行业第二名"的压力还要更大。</p>
+<ul>
+  <li>AMD 昨天公布的业绩显示<strong>数据中心销售额接近翻倍</strong>，但公司预计 <strong>2027 年 PC 出货量将出现两位数下降</strong>。PC 需求受损，对 AMD 的影响会大于 NVDA。</li>
+  <li>AMD 的加速器平台竞争力较弱，<strong>Helios 发布又受到热炒</strong>。"颇具讽刺意味的是，它承担的风险明显更高，估值却也更贵。"</li>
+  <li>当超大规模云厂商部署 ASIC 时，<strong>AMD 的平台将最先受到削减</strong>。</li>
+  <li>"无论竞争如何，NVDA 仍是行业中占据绝对优势的巨头，其芯片仍是行业首选。"</li>
+</ul>
+<table>
+  <thead><tr><th style="width:40%">指标</th><th class="num" style="width:22%">NVDA</th><th class="num" style="width:22%">AMD</th><th style="width:16%">含义</th></tr></thead>
+  <tbody>
+    <tr><td>2023 年以来营收增长倍数</td><td class="num">&gt; 5 倍</td><td class="num">2 倍</td><td>增长质量差距</td></tr>
+    <tr><td>远期市盈率（市场一致预期）</td><td class="num">≈ 17 倍</td><td class="num">≈ 36 倍</td><td><strong>贵的是 AMD</strong></td></tr>
+    <tr><td>2023 年以来累计回报（11/3 收盘）</td><td class="num">≈ 14 倍</td><td class="num">≈ 7 倍</td><td>NVDA 约为 AMD 的 2 倍</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：原文引用（"按 11 月 3 日收盘价计算，两者分别约为 14 倍和 7 倍"）。原文表述为"两者分别约为 14 倍和 7 倍"，结合上下文理解为自 2023 年以来的累计回报倍数。</p>
+
+<div class="chart-card">
+  <div class="ct">NVDA vs AMD：增长更快、估值更便宜</div>
+  <div class="cs">左轴：倍数；右轴：远期市盈率。原文数据</div>
+  <div id="c2" class="chart"></div>
+</div>
+
+<h3>5.3 配对二：做多甲骨文（ORCL）/ 做空 Nebius（NBIS）</h3>
+<p>作者承认这组"相当难选"：CoreWeave 拥有先发优势，但<strong>资本结构棘手</strong>；那些投机性最强的公司已经遭遇重挫，<strong>继续押注其下跌也有风险</strong>。于是转向该领域规模最大的参与者——甲骨文。</p>
+<ul>
+  <li>"一家乏味的传统企业大举转向数据中心，听起来同样符合新型云服务商（neocloud）的特征。"</li>
+  <li><strong>关键区别在于：甲骨文的传统业务确实能够提供可观现金流，其股票市值也仍足够大，可以继续发行股票融资。</strong></li>
+</ul>
+
+<h3>5.4 配对三：做多 Meta（META）/ 做空谷歌（GOOGL）</h3>
+<p>这是全文最具争议、也最反共识的一组。作者称"在大举投入 AI 的超大市值公司中，Meta 与谷歌是最受看好的一组配对"：</p>
+<ul>
+  <li>两者都是相互竞争的广告巨头，<strong>但谷歌的核心搜索业务显然面临重大颠覆，Meta 则正在扩大份额，其社交和娱乐产品在智能体时代甚至可能更有价值</strong>。</li>
+  <li>谷歌的 AI 业务<strong>持续流失人才，产品化和用户留存都不理想</strong>。</li>
+  <li>Meta 长期遭到质疑的 AI 投入，<strong>却在模型表现上带来超预期结果</strong>，消费级产品的推出也成功得多。</li>
+  <li>谷歌必须投入资本开支，既要应对<strong>生存性威胁</strong>——作者的反问很刺人："认真想想，如今你还多常使用谷歌搜索？"——又要依靠云业务弥补或替代核心业务利润。</li>
+  <li>Meta 迄今尚未充分变现其资本开支。作者指出两条"期权价值"：<strong>如果确有"过剩算力"，直接对外出售将带来财务上的额外收益；而缩减投入所伴随的风险，可能也更低。</strong></li>
+</ul>
+
+<h3>5.5 配对四：做多 GE Vernova（GEV）/ 做空 Bloom Energy（BE）</h3>
+<p>这组的逻辑不是"技术优劣"，而是<strong>"产能售罄造成的替代品溢价终将回吐"</strong>：</p>
+<ul>
+  <li>Bloom Energy 的燃料电池被选作电表后侧的替代电源。由于不产生某些排放，这项技术确实帮助部分开发商<strong>解决了许可和社区投诉问题</strong>。</li>
+  <li>但作者列出三条硬伤：<strong>长期表现尚未得到验证，过去还出现过性能衰减</strong>；公司的<strong>全部增长依赖少数项目及关联方交易融资结构</strong>（"这类结构过去也曾给 BE 带来严重问题"）；<strong>近期确认的营收中，有很大一部分尚未实际向客户开票</strong>。</li>
+  <li>"替代"电源之所以成为主题，主要是因为那些最简单、最高效、最适合大规模部署的首选方案——<strong>由 GE Vernova、西门子和三菱制造的联合循环燃气轮机——未来数年的产能都已售罄</strong>。</li>
+  <li>一旦 GEV 出现可供交付的设备，那些目前正四处寻找效率更低、系统更复杂的次优方案的买家，就会立即抢购。</li>
+  <li>此外，<strong>已售出的涡轮机还将带来规模庞大、持续多年的服务业务</strong>。</li>
+</ul>
+
+<h3>5.6 配对五：做多施耐德电气（SU FP）/ 做空艾诺斯（ENS）</h3>
+<ul>
+  <li>施耐德电气是全球电气设备龙头，业务十分多元化。</li>
+  <li>艾诺斯（EnerSys）从事电池储能管理，<strong>处于风险更高的一端</strong>。</li>
+  <li>一个非常"软"但作者重视的信号：<strong>ENS 管理层主动选择了更保守的薪酬方案、放弃期权，明确释放了降低风险的信号。</strong></li>
+</ul>
+
+<h3>5.7 配对六：做多三星电子 / 做空 SK 海力士（内存）</h3>
+<p>作者引用半导体研究员 <strong>Jukan 和 Zephyr</strong> 的观点：</p>
+<ul>
+  <li>三星在 <strong>HBM4 上领先</strong>，售价较 SK 海力士<strong>溢价 20%–25%</strong>，并拥有最好的 HBM 基础裸片。</li>
+  <li><strong>SF4 节点还有大量闲置产能</strong>，可用于增加基础裸片产量。</li>
+  <li>晶圆代工业务也在赢得客户，包括 <strong>Groq、迈威尔科技（Marvell），以及可能的 Anthropic</strong>。</li>
+</ul>
+<p>同时，研究团队认为<strong>NAND 厂商目前是不错的做空对象</strong>，理由四条：</p>
+<ol>
+  <li>SK 海力士刚刚宣布投资 <strong>1000 亿美元建设 2 座晶圆厂</strong>；</li>
+  <li><strong>长江存储正在迅速扩张</strong>，2028 年将迎来第 4 座和第 5 座晶圆厂；</li>
+  <li><strong>铠侠不太可能上调合约价格</strong>；</li>
+  <li>"围绕 NAND 的市场情绪还会低迷一段时间。"</li>
+</ol>
+
+<h3>5.8 配对七：做多施耐德 / 空 ENS 之外，第 7 组去哪了</h3>
+<p>原文明确列出的是 <strong>AI 加速器、新型云服务商、大举投入 AI 的科技巨头、电力、工程、内存</strong>共 6 组配对（作者称之为"每条主要供应链环节都选择了两家可比公司"）。原文并未给出第 7 组，此处不做补充。</p>
+
+<div class="box amber">
+  <h4>读这 6 组配对必须注意的三件事</h4>
+  <ol>
+    <li><strong>这是相对交易，不是方向交易。</strong>作者明确说"这里比较的是它们在当前环境下的相对表现，绝对回报并非讨论重点"。做空腿在牛市里可能是亏损的，配对的意义在于价差。</li>
+    <li><strong>多数组无法用美股纯多头表达。</strong>施耐德（SU FP，巴黎）、三星（005930 KS）、SK 海力士（000660 KS）都不是美股标的，需要 ADR、韩国 ETF 或美股同业替代（详见第 15 节映射表）。</li>
+    <li><strong>原文未给出回测图。</strong>"下面是所提出的市场中性配对组合与高贝塔 ETF 的回测对比"所指图表在抓取文本中缺失，因此无法核验其回测口径与夏普比率。</li>
+  </ol>
+</div>
+
+<!-- ================= 06 ================= -->
+<h2><span class="num">06</span>篮子②：生命科学与医疗——"去脂增肌"</h2>
+
+<h3>6.1 6 月的判断被验证了</h3>
+<p>作者回顾：6 月的判断是生命科学工具行业拥有<strong>两股顺风——周期触底与 AI 催化</strong>，"如今两者都已出现"。业绩可以量化：</p>
+<table>
+  <thead><tr><th style="width:52%">组合 / 指数</th><th class="num" style="width:24%">自 6 月 8 日以来</th><th style="width:24%">备注</th></tr></thead>
+  <tbody>
+    <tr><td>Citrindex 生命科学与医疗板块</td><td class="num up">+37.6%</td><td>主力组合</td></tr>
+    <tr><td>更新后的周期拐点组合</td><td class="num up">+35.7%</td><td>子组合</td></tr>
+    <tr><td>XLV（医疗保健精选行业 SPDR）</td><td class="num up">+20.6%</td><td>基准</td></tr>
+    <tr><td>XBI（SPDR 生物科技）</td><td class="num up">+20.7%</td><td>基准</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：原文。超额收益约 15–17 个百分点。</p>
+
+<div class="chart-card">
+  <div class="ct">生命科学篮子 vs 基准：6 月 8 日以来</div>
+  <div class="cs">原文数据；红涨绿跌</div>
+  <div id="c3" class="chart"></div>
+</div>
+
+<h3>6.2 价值链五阶段：谁在领跑，谁在落后</h3>
+<p>作者把 AI 药物发现拆成 5 个阶段，并指出一个非常清晰的规律：</p>
+<ul>
+  <li><strong>第 1 阶段（测量生物信息、提供生物学输入）领跑</strong>——部分涨幅来自 10x Genomics（TXG）、Illumina（ILMN）等较小公司，这些公司经历 2023–2025 年的去库存后正走出低谷。</li>
+  <li><strong>第 2–4 阶段（设计、实验、测试）紧随其后</strong>；<strong>第 5 阶段（制造）表现落后</strong>。</li>
+  <li>整体表现仍符合市场的广泛叙事：<strong>AI 主要惠及药物发现的早期阶段，对后续开发阶段的影响则很小。</strong></li>
+</ul>
+
+<h3>6.3 核心判断：瓶颈在"谁拥有实验猴和实验室"</h3>
+<p>Citrini Therapeutics 研究提出的核心投资判断，是<strong>看好实验、真实世界数据及验证环节</strong>。作者点名四家公司，并指出它们"都围绕同一个核心问题开展业务：<strong>缩短从构想到体外实验，甚至体内实验的时间</strong>"：</p>
+<ul>
+  <li><strong>查尔斯河实验室（CRL）</strong></li>
+  <li><strong>瑞孚迪（RVTY）</strong></li>
+  <li><strong>丹纳赫（DHR）</strong></li>
+  <li><strong>赛默飞世尔（TMO）</strong></li>
+</ul>
+<p>然后用一句极凝练的话概括："简单来说，AI 驱动药物开发流程目前的瓶颈——如果以为这个词会消失，那就得再想想——归根结底在于<strong>谁拥有实验猴和实验室</strong>。"</p>
+
+<h3>6.4 监管催化：FDA 的"个体化特征空间"框架</h3>
+<p>作者注意到一个精确到日期的事件：<strong>10 月 27 日，FDA 发布了"个体化特征空间"（IFS）框架草案</strong>，允许<strong>一张许可证覆盖同一基因编辑工具针对不同患者的多个版本</strong>。这是 FDA 首次提出，对于某个范围极窄的药物类别，<strong>实验室验证加上计算建模证据，可能就已足够</strong>。</p>
+<p>作者的评价保持了分寸："对于仅针对单个患者的基因疗法，这是值得关注的一步，<strong>对组合本身的影响很小</strong>，但很好地反映了 FDA 当前的思路。"</p>
+
+<h3>6.5 风险提示：定价跑在现实前面</h3>
+<div class="box red">
+  <p>"近期，许多相关公司的市场定价已经跑在现实前面。即使对这一领域的未来保持乐观，<strong>市场很可能正在进入避险阶段</strong>，也意味着其中许多公司的<strong>下行风险相对于上涨空间，呈现出明显的不对称性</strong>。"</p>
+  <p class="src">这是全文少见的一段"对自己已实现盈利的主题主动降温"，值得注意其方法论意义：赚钱之后先减仓，而不是加仓。</p>
+</div>
+
+<h3>6.6 其他价值机会：落后者的补涨期权</h3>
+<p>作者的选股逻辑是"表现落后、可能随自身周期转向而追赶的业务"，并强调"<strong>只要出现周期已经触底的迹象，或许就足以推动市场开始交易这些公司的补涨机会</strong>"：</p>
+<table>
+  <thead><tr><th style="width:18%">子行业</th><th style="width:34%">点名公司</th><th style="width:48%">原文观点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>大型医疗科技</strong></td><td>GE HealthCare（GEHC）、爱尔康（ALC）、Globus Medical（GMED）</td><td>覆盖多类医疗操作，较受看好</td></tr>
+    <tr><td><strong>非美国医疗科技</strong></td><td>康乐保（COLOB DC）、生物梅里埃（BIM FP）</td><td>微生物诊断龙头生物梅里埃被点名</td></tr>
+    <tr><td><strong>动物保健</strong></td><td>硕腾（ZTS）、爱德士（IDXX）</td><td>仍受美国兽医就诊次数下降拖累，但<strong>只有硕腾预计今年销售额将下降</strong></td></tr>
+    <tr><td><strong>牙科</strong></td><td>爱齐科技（ALGN）、Straumann（STMN SW）</td><td>周期特征更传统；板块已严重超卖，但<strong>ALGN 第三季度面向北美正畸医生的出货量出现 6 个季度以来首次增长</strong></td></tr>
+  </tbody>
+</table>
+<p>作者同时给了一个"双向可能"的诚实判断："部分业务仍处于周期下行，因此<strong>空头在技术层面上依然可能'判断正确'</strong>，这种局面却也为<strong>向上的逼空行情</strong>创造了条件。"</p>
+
+<h3>6.7 GLP-1 组合解散：一个主题的完整生命周期</h3>
+<ul>
+  <li>GLP-1 组合<strong>作为独立主题将结束</strong>，礼来（LLY）和巴亨（BANB SW）将并入更广泛的生命科学与医疗组合。</li>
+  <li>业绩：自设立以来<strong>上涨约 75%，但年初至今略有下跌</strong>；目前仅剩 4 家公司，规模已远不及从前。</li>
+  <li>历史地位：GLP-1 是 Citrini 创立之初的 <strong>3 大主题之一</strong>；2023 年中，研究团队称这类药物为"<strong>一代人难遇一次的重大突破</strong>"。</li>
+  <li>解散理由："如今，这个主题已经成熟得多，单独维持一个组合的必要性有所降低。其中几家公司与前文的实验环节逻辑十分契合。"</li>
+</ul>
+<p>剩余四家的逐一评价：</p>
+<ul>
+  <li><strong>礼来（LLY）</strong>：无论在运营还是化学研发上，都是这一领域的领先者。如果 AI 如预期那样缩短快速跟进型分子的开发时间，礼来将处于有利位置。<strong>但股价已经大幅上涨。</strong></li>
+  <li><strong>巴亨（BANB SW）</strong>：拥有宝贵的多肽制造产能。口服和下一代多肽每位患者所需的活性成分更多，使 CDMO 产能成为一定程度上的瓶颈。</li>
+  <li><strong>第一三共（4568 JP）</strong>：具有价值型制药股的特点。</li>
+  <li><strong>Alnylam（ALNY）与箭头制药（ARWR）</strong>：GLP-1 组合中的 RNA 干扰平台，心血管代谢和肥胖项目有一定吸引力；但<strong>两家近期都遭遇了令人失望的挫折，已经无法提供研究团队希望获得的主题敞口</strong>——这是清仓的直接理由。</li>
+</ul>
+
+<!-- ================= 07 ================= -->
+<h2><span class="num">07</span>篮子③：财政主导——"捕捉钟摆"</h2>
+<ul>
+  <li>组合旨在把握政府支出的起伏。<strong>自设立以来一直是核心主题，也是表现突出的赢家</strong>，但<strong>自 6 月上一期《主题全景》以来，表现明显落后</strong>。</li>
+  <li>判断："从大方向看，这个主题没有放缓迹象，但组合近期分散在<strong>财政刺激、保护主义、重新武装和能源</strong>等不同类别。现在需要大幅重新聚焦，而时机恰到好处。"</li>
+  <li>底层信念："<strong>政府支出从不停止，只是换了流向。</strong>"</li>
+</ul>
+
+<h3>7.1 政治钟摆：中期选举的解读</h3>
+<p>原文表述为"美国中期选举中，<strong>民主党取得压倒性胜利</strong>。这应被视为选民对 Trump 政策的否定，也显示出<strong>政治钟摆自 2024 年以来已摆动多远</strong>"。</p>
+<p>由此推出两条受益路径：</p>
+<ol>
+  <li><strong>医疗</strong>——以及联邦医疗保险（Medicare）和医疗补助（Medicaid）可能重新迎来更有利的环境。</li>
+  <li><strong>莫利纳医疗（MOH）</strong>——一家管理式医疗服务商，大部分营收来自医疗补助，是<strong>共和党失去众议院控制权后最明确的受益者之一</strong>。</li>
+</ol>
+<p>时点判断很克制："中期选举<strong>不会立刻改变</strong>莫利纳医疗的营收，但市场<strong>可以开始计入</strong>成本和利润率正常化的预期。"</p>
+
+<!-- ================= 08 ================= -->
+<h2><span class="num">08</span>篮子④：天然气与能源——三大核心判断</h2>
+
+<p>背景：自 2025 年 10 月发布入门报告《能源之争：天然气》以来，天然气与能源就一直是 Citrindex 的组成部分。业绩上，能源是"大赢家，大幅跑赢 SPX"，相关组合自设立以来也跑赢了 XLE 行业指数。</p>
+<p>但作者对板块的"人气质"有一段极生动的描述，值得完整保留：<strong>"这个板块仿佛找到了某种方式，一边上涨，一边让尝试参与的人都吃亏。交易疲劳、XLE 涨幅过大，以及单条新闻就可能让大宗商品下跌 10% 的风险，足以让人不愿再碰这个领域。但它仍值得关注。"</strong></p>
+
+<h3>判断一（作者自称"说服力最弱"）：周期后期扩张</h3>
+<ul>
+  <li><strong>见顶的顺序是：收益率 → 股票 → 大宗商品。</strong></li>
+  <li>历史佐证："即便实体经济基本面走弱，'大宗商品超级周期'仍一直繁荣到 2008 年中。"</li>
+  <li>更宏大的问题："是否到了大宗商品引领周期的时候？<strong>有可能，但这并非这里的核心论点。</strong>"</li>
+</ul>
+
+<h3>判断二（核心）：霍尔木兹海峡多空策略</h3>
+<ul>
+  <li>自 3 月以来一直强调：<strong>卡塔尔液化天然气退出全球市场将产生重要影响</strong>。这一结论"显而易见"，但<strong>夏季需求淡季中，市场沉浸于自我安慰和自满，忽视了这一风险</strong>。</li>
+  <li>批评对象很明确："<strong>欧盟监管机构和能源交易商对此忽视了太久</strong>，押注霍尔木兹海峡问题会在寒冷天气到来前顺利解决。但<strong>补库季已经结束，接下来进入去库阶段</strong>。"</li>
+  <li>数据验证：<strong>本周天然气库存出现首次下降</strong>，与通常的季节性规律一致；<strong>欧洲天然气库存水平约为 75%，处于过去 10 多年有记录以来的最低</strong>，而且正在继续下降。</li>
+  <li>历史对照：<strong>上一次在补库高峰期接近如此低的库存水平，还是 2021 年。这一轮 TTF 天然气价格的上涨走势，与当时几乎如出一辙。</strong></li>
+</ul>
+<table>
+  <thead><tr><th style="width:26%">标的</th><th style="width:12%">代码</th><th style="width:62%">原文论点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Venture Global</strong></td><td>VG US</td><td>商业模式依赖 <strong>Henry Hub 天然气价格与欧洲 TTF 价格之间的价差</strong>，直接受益于这种不稳定局面</td></tr>
+    <tr><td><strong>挪威国家能源</strong></td><td>EQNR US</td><td>挪威石油企业，<strong>能够向欧洲销售能源，同时无需应对该地区的监管环境</strong></td></tr>
+    <tr><td><strong>Thungela Resources</strong></td><td>TGA LN</td><td>销售动力煤，"动力煤可能成为冬季应急能源供应的<strong>最后一道补充</strong>"</td></tr>
+  </tbody>
+</table>
+<p>延伸判断：<strong>"鉴于美国石化企业在原料和能源成本上的优势不断扩大，它们有望跑赢全球同行。"</strong></p>
+<p>反面提示：<strong>"炼油商今年攫取了相当大一部分利润，也贡献了能源精选行业指数基金（XLE）的大部分表现。但裂解价差正在回落。"</strong></p>
+
+<h3>判断三（最具预期差）：太阳能意外成为赢家</h3>
+<ul>
+  <li>时间线：<strong>经历 2022 年至 2024 年的大幅调整后，太阳能在特朗普政府任内意外成为赢家。</strong></li>
+  <li>估值：<strong>第一太阳能（FSLR）的估值约为 10 倍</strong>。</li>
+  <li><strong>T1 Energy（TE）</strong>：一度带有些迷因股色彩，但实际上也颇具吸引力，因为<strong>其最大的风险一直围绕税收优惠</strong>展开。</li>
+  <li>基本面论据："即使没有政府激励，<strong>太阳能的经济性也在改善</strong>，整个行业也在增长，这些变化尚未获得应有的关注。"</li>
+  <li>催化剂："如今，<strong>政治风向重新转向有利于该行业的一侧</strong>，太阳能股票可能再度大幅上涨。"</li>
+</ul>
+
+<!-- ================= 09 ================= -->
+<h2><span class="num">09</span>篮子⑤⑥：机器人（观察）与现代战争（转向防御）</h2>
+
+<h3>9.1 机器人：诚实地承认"太早"</h3>
+<ul>
+  <li>去年 5 月撰写人形机器人文章时，"我们就知道讨论这个主题可能有些早，但希望提前展开研究"。此后"亲眼所见的进展令人十分振奋"。</li>
+  <li>核心约束："问题在于，<strong>'物理 AI'的发展仍处于研发阶段，最值得关注的公司通常尚未上市</strong>。"</li>
+  <li>模拟半导体的定位很清醒："模拟半导体是为机器人提供信号输入的硬件。在这一轮半导体周期中，模拟半导体的前景或许确实更好，<strong>但这种前景显然并非由机器人业务决定</strong>。"</li>
+  <li>最有信心的方向：<strong>迭代式制造</strong>，但相关企业这一轮财报表现不一——<strong>Protolabs（PRLB）业绩超出预期，第四季度指引却偏弱；择幂（XMTR）则在业绩超预期的同时上调了指引</strong>。</li>
+  <li>投机端信号："投机性较强的领域甚至也出现了一些热情升温的迹象。敏捷机器人（CCXI，即将更名为 AGLT）通过特殊目的收购公司合并上市的进展，比许多人担忧的情况更顺利。它仍是<strong>美国市场上唯一的纯人形机器人标的</strong>。不过，相较于其未上市竞争对手，<strong>我们对这家公司并未特别看好</strong>。"</li>
+  <li>收尾是一个开放的问句："市场是否找到了新的热门题材？"</li>
+</ul>
+
+<h3>9.2 现代战争：从"进攻"转向"防御"</h3>
+<h4>国防资本周期的传导规律</h4>
+<p>"在国防资本周期中，判断需要<strong>领先于资金实际流入的环节几个季度</strong>。主承包商首先宣布重大合同，展示庞大的在手订单，随后营收才逐步流向分包商和零部件供应商。"</p>
+<ul>
+  <li><strong>洛克希德马丁（LMT）</strong>：在手订单规模庞大，<strong>导弹防御合同迎来拐点</strong>是重要推动因素；这些合同用于补充中东局势扰动期间迅速消耗的 <strong>PAC-3 和 THAAD 弹药</strong>。</li>
+  <li><strong>奥尔巴尼国际（AIN）</strong>：报告其<strong>工程复合材料业务同比增长 107%</strong>，印证了导弹补库研究的判断。</li>
+</ul>
+
+<h4>但资金传导有一个"重大堵点"</h4>
+<div class="box red">
+  <p><strong>"拥有在手订单，并不意味着订单一定能够转化为收入。"</strong>许多人都想争夺拨给特朗普政府部分重点项目的资金。</p>
+  <ul>
+    <li>特朗普政府正推动一项 <strong>1.5 万亿美元</strong>的国防方案；作者预计这笔支出将获通过，但<strong>具体投向可能变化</strong>。五角大楼目前依靠<strong>临时拨款</strong>运转。</li>
+    <li><strong>民主党在 11 月 3 日选举后掌控国会两院</strong>，要求以 <strong>Hegseth 下台、结束伊朗战争</strong>，以及满足其他一系列诉求，作为提供资金的条件。</li>
+    <li>今年秋季整个板块出现调整，<strong>中盘国防股受到的冲击最重</strong>。与特朗普政府宏大目标关系密切的国防公司，似乎<strong>对在手订单的变化最为敏感</strong>。</li>
+  </ul>
+</div>
+
+<h4>两个具体的政策风险点</h4>
+<ul>
+  <li><strong>Golden Dome（金穹）</strong>：政治争议很大。2027 财年<strong>几乎所有相关资金都列入了一项预算协调法案</strong>，而这项法案的资金落实将面临困难。这动摇了围绕<strong>航天生态系统</strong>的交易逻辑，因为政府对<strong>重型发射能力和天基拦截器</strong>的支出都可能面临风险。</li>
+  <li><strong>Elon Musk 可能成为一个问题</strong>："全球发射能力可能落入政治对手手中。在这种情况下，<strong>拖延和阻挠</strong>，同时等待关系更友好的企业开始追赶，或者接手那些原以为政府资金已稳稳到手的航天公司的剩余业务，可能更符合相关方面的利益。"</li>
+  <li>结果："<strong>政治风险与今年 10 月的'信贷供给'恐慌共同推动了整个国防行业的估值重估。</strong>"</li>
+</ul>
+
+<h4>调整之后：贝塔能不能买？</h4>
+<p>"经过这轮调整，简单获取国防板块的贝塔敞口是否合理？<strong>作为中期选举后的释压交易，或许可以博取反弹</strong>，但小型国防企业还存在其他需要考虑的风险。"</p>
+
+<h4>无人机：一个"上市公司缺乏护城河"的完美案例</h4>
+<ul>
+  <li>需求端很硬：战争部推出 <strong>Drone Dominance 计划</strong>，开放小型无人机领域竞争，目标是<strong>到 2027 年将规模扩大至 20 万架</strong>。</li>
+  <li>但供给端分不到钱："<strong>首轮竞赛的获胜者几乎全部是未上市公司。</strong>"</li>
+  <li>另一端的机会：<strong>雷神（RTX）</strong>获得合同，将利用 <strong>Coyote 拦截器</strong>为美国、卡塔尔和约旦建设反无人机系统，并融入第一轮中东局势扰动中获得的经验。</li>
+  <li>技术迭代判断："<strong>无人机群和巡飞弹的优势可能迅速消退。空中无人机已经是去年的热门方向，如今的新热点是水下或地下无人系统</strong>，康士伯（KOG NO）最近的财报就体现了这一点。"</li>
+  <li>执行风险："工程技术的落地并不容易。我们此前对<strong>恩耐（LASR）</strong>的技术判断较为准确：如果一切进展顺利，这项技术有望使其<strong>转型为一种新型国防主承包商</strong>。"</li>
+</ul>
+
+<h4>新的现代战争篮子：三个方向</h4>
+<ol>
+  <li><strong>大型主承包商</strong>——"无论政界人士优先推动哪些项目，大型国防承包商都会分得一杯羹。"</li>
+  <li><strong>已锁定、体现迫切需求的支出</strong>——导弹补库篮子中的企业已经开始受益；另一个预计迎来资金轮动的子板块是<strong>咨询和服务公司</strong>（曾在特朗普政府上台后因支出削减而遭受冲击）。</li>
+  <li><strong>造船</strong>——"造船支出正在加速增长。安杜里尔正在建设 Arsenal-2，这是一座新型船厂，旨在加快潜艇零部件的制造速度。"</li>
+</ol>
+<div class="quote">
+  "我们度过了一个前所未有的季度，获得超过 320 亿美元的新合同，主要来自 Block VI Virginia-class 和 Build II Columbia-class 潜艇合同，以及一份 CVN 82 长交期材料合同。"
+  <span class="who">Chris Kastner，亨廷顿英格尔斯工业（HII）首席执行官，10 月 29 日财报电话会（原文引用）</span>
+</div>
+<p>由此纳入篮子的四家公司：<strong>亨廷顿英格尔斯（HII）</strong>（最近营收和利润均超预期）；<strong>BWX 科技（BWXT）</strong>（"这些舰艇将需要核动力，因此 BWX 科技被纳入篮子"）；<strong>柯蒂斯-莱特（CW）与奥斯塔（ASB AU）</strong>（负责零部件和系统集成）。</p>
+
+<!-- ================= 10 ================= -->
+<h2><span class="num">10</span>篮子⑦：老派软件——SaaS 幸存者（全文最"反共识"的一节）</h2>
+
+<h3>10.1 一个 187 家公司的量化调查</h3>
+<p>作者先承认空头逻辑："所谓的'SaaS 末日'重创了一批公司。这些公司面临 <strong>AI 原生替代产品的冲击、用户席位数量下降，以及软件界面日益商品化</strong>的问题。这样的担忧或许有其道理。随着 AI 智能体成本下降、数量增加，颠覆的可能性也在上升。"</p>
+<p>然后给出方法："仔细梳理软件指数，就会发现许多企业确实面临被颠覆的风险。但也有一些公司，至少目前受到 AI 冲击的速度，没有市场原先预想得那么快。<strong>我们调取了 187 家软件和 IT 公司过去 1 年的财报电话会记录，考察财务数据、管理层表态，以及 AI 是否影响了业绩指引。</strong>"</p>
+<div class="box blue">
+  <p><strong>结论："对其中大多数公司而言，AI 对实际业绩和前景的影响，至多只是中性。"</strong></p>
+  <p>市场层面的验证："这些公司中的大多数年初至今仍然下跌，但在 AI 板块调整期间，<strong>已经开始获得买盘支持</strong>。"</p>
+  <p>最精辟的一句归因：<strong>"此前软件股的定价隐含了通用 AI 即将到来的预期，实际迎来的却是更多 API 调用。这利好的是另一类公司。"</strong></p>
+</div>
+
+<h3>10.2 定义"老派软件"</h3>
+<p>作者给出四条特征：</p>
+<ol>
+  <li><strong>业务范围</strong>：为公共部门提供核心记录系统、交易基础设施、银行业务基础设施，以及税务管理服务。</li>
+  <li><strong>财务特征</strong>：业务乏味，却能创造现金，保持增长，或者至少没有萎缩。</li>
+  <li><strong>生存性</strong>：短期内不会消失。</li>
+  <li><strong>产品本质</strong>：界面以糟糕著称，却依然取得了成功。其产品价值来自<strong>数据、与关键业务流程的紧密联系，以及根深蒂固、让客户难以承受流失成本的分销网络</strong>。<strong>"界面从来就不是核心产品。"</strong></li>
+</ol>
+<p>为什么这些特征现在值钱？因为<strong>它们恰好与智能体的需求高度契合</strong>："智能体不需要精美的仪表盘或数据可视化。它们需要<strong>访问数据、获得执行工作流的权限，并能可靠地量化自身效果</strong>。"</p>
+
+<h3>10.3 商业模式的分水岭：席位制 vs 用量制</h3>
+<ul>
+  <li>AI 正在迅速使传统应用软件的用户界面商品化，也让两类公司之间的界限日益清晰：<strong>一类只提供应用，另一类拥有有价值的核心记录系统</strong>。</li>
+  <li>前一类仍然面临 AI 颠覆的直接威胁；<strong>后一类则有充分理由扭转"SaaS 末日"的局面</strong>。</li>
+  <li>传统 SaaS 依靠<strong>席位数量和定价</strong>实现增长，智能体天然挑战这一模式——"这项技术可能替代对人类用户的需求，同时增加整个生态系统的活动量"。</li>
+  <li>如《智能体公用事业》所提出：<strong>机会在于那些从按人数收费转向按用量收费的公司。</strong></li>
+  <li>但转型有代价："对于大多数软件企业而言，这意味着<strong>蚕食现有商业模式</strong>，寄希望于新增用量收入能够超过按席位销售收入的下降。"</li>
+  <li><strong>老派软件无需做出这样的取舍</strong>："在按用量收费成为热门模式之前，它们的商业模式就已经与用量挂钩。"</li>
+</ul>
+
+<h3>10.4 四个子行业与具体标的</h3>
+<table>
+  <thead><tr><th style="width:22%">子行业</th><th style="width:22%">标的</th><th style="width:56%">原文论点（含关键数据）</th></tr></thead>
+  <tbody>
+    <tr><td rowspan="2"><strong>专有风险与信用数据</strong></td><td>Verisk（VRSK）</td><td>在美国财产及意外险数据领域<strong>近乎垄断</strong>；监管机构要求保险公司向统计代理机构报送理赔和保单数据，Verisk 旗下 ISO 占据主导，因此积累了<strong>海量无法从其他地方获取的专有数据</strong>；"目前仍然便宜，<strong>市盈率处于过去 10 年区间的第 10 百分位</strong>"</td></tr>
+    <tr><td>益博睿（EXPN LN）</td><td>在消费信贷领域具备类似逻辑；"贷款机构的机器或决策引擎可以<strong>在无人参与的情况下调用益博睿数据库</strong>，智能体承保业务增加，意味着未来调用次数可能更多"</td></tr>
+    <tr><td><strong>受监管机构的核心记录系统</strong></td><td>泰勒科技（TYL）</td><td>为约 <strong>16000 个美国政府实体</strong>提供核心记录系统，也曾被认为会因政府效率部（DOGE）而受损；市场担忧县、市或学区会通过自然语言提示自行编写 ERP 系统，使其估值处于<strong>历史区间中略高于第 10 百分位</strong>的位置；"这种担忧对政府的技术雄心给出了相当慷慨的假设"</td></tr>
+    <tr><td rowspan="3"><strong>金融数据提供商</strong></td><td>汤森路透（TRI）、慧甚（FDS）、晨星（MORN）</td><td>拥有专有数据，"智能体对这些数据的需求更多，需求并未减少"；<strong>晨星旗下 PitchBook 的 MCP 连接器，工具调用次数从 7 月的 100 万次增至 10 月的 1300 万次</strong>；<strong>慧甚披露 10% 的新增订阅来自 AI 产品</strong>；"营收结构正在向按用量收费倾斜，我们预计用量和营收结构都将延续这一趋势"</td></tr>
+    <tr><td>洲际交易所（ICE）、Tradeweb（TW）、伦敦证券交易所集团（LSEG LN）</td><td>市场基础设施提供商，"<strong>远未达到超卖状态</strong>，但可能继续在当前环境中表现出色"；也看好它们与<strong>新型代币化产品</strong>进一步整合（见加密资产专题《打破壁垒》）</td></tr>
+    <tr><td colspan="2" style="color:var(--ink-3)">注：原文将"交易基础设施"单列为第 4 子行业，与"金融数据提供商"并列</td></tr>
+  </tbody>
+</table>
+<p>作者同时强调："这些判断<strong>没有改变我们对按席位收费的软件企业的看法</strong>。转向按用量收费需要付出代价。"</p>
+
+<h3>10.5 两家"转型走得最远"的公司</h3>
+<h4>Workday（WDAY）</h4>
+<ul>
+  <li><strong>资产本质</strong>：为员工提供核心记录系统，整合了支撑企业日常运营的<strong>组织数据、层级结构和业务规则</strong>。</li>
+  <li><strong>产品动作</strong>：Workday Rising 大会期间发布无界面的 <strong>Trusted Agent Platform</strong>——一个不依赖特定模型的控制中心，允许第三方智能体使用同样受到人工治理的数据执行操作。首席 AI 官的原话被引用："<strong>AI 是新的 UL</strong>"。</li>
+  <li><strong>商业模式</strong>：2025 年推出 <strong>Flex Credits</strong>，按照智能体的实际使用量计费，取代订阅收费。</li>
+  <li><strong>组织动作</strong>：2025 年 11 月收购 <strong>Sana</strong>，并<strong>请回 Aneel Bhusri 担任首席执行官</strong>。</li>
+  <li><strong>量化进展</strong>：<strong>AI 年度经常性收入（ARR）接近 6 亿美元，同比增长超过 200%</strong>；<strong>5500 家客户正在使用 Workday 智能体</strong>；<strong>约 900 家购买智能体功能的客户实现了 12% 的增幅</strong>。</li>
+  <li><strong>作者的保留</strong>："其中一些内容带有包装成分，但指向很明确：Workday 可以扩大潜在市场，<strong>无需为获取新客户支付高昂成本</strong>，因为它已经具备大规模部署所需的<strong>业务背景信息、客户关系和分销能力</strong>。"</li>
+</ul>
+<h4>DocuSign（DOCU）</h4>
+<ul>
+  <li>"延续了《智能体公用事业》中的观点，<strong>其转型进度或许比 Workday 更靠前</strong>。"</li>
+  <li>三张底牌：<strong>190 万家客户、监管护城河，以及按信封计费的模式</strong>——"能够把握按用量收费的趋势"。</li>
+  <li>量化进展：<strong>智能协议管理（IAM）上季度占 ARR 的比例超过 15%，高于前一季度的 12.6%</strong>；<strong>MCP 连接器的活跃账户数量已增至原来的 4 倍以上</strong>。</li>
+</ul>
+<p>收尾判断："'SaaS 末日'对按席位收费的软件所面临的风险进行了合理定价。但<strong>市场才刚刚开始奖励那些有能力从现有客户群中获取更多收入的软件供应商</strong>。"</p>
+
+<!-- ================= 11 ================= -->
+<h2><span class="num">11</span>篮子⑧⑨⑩：酒类（缺失）、金融股、娱乐</h2>
+
+<div class="box amber">
+  <h4>篮子⑧：酒类与泡沫——原文缺失</h4>
+  <p>原文第 8 节仅有标题"<strong>8) 新增：酒类与泡沫：干杯</strong>"，其后直接跳至第 9 节，<strong>正文与标的完全缺失</strong>。从标题判断，该节应讨论酒类（可能涉及啤酒/烈酒）与"泡沫"（可能指估值泡沫或气泡饮料），但<strong>本报告不做任何推测性填充</strong>。若需该节内容，需查阅公众号原文的图文版本。</p>
+</div>
+
+<h3>11.1 篮子⑨：金融股——"等待也有回报"</h3>
+<p><strong>宏观前提</strong>：作者"仍然认为，经济的内在动能尚可"。证据是"经济活动篮子显示<strong>人力资源服务及就业相关股票普遍上涨</strong>"，以及"GDPNow 和申领失业救济金数据都支持这一判断：<strong>经济增长预测仍为正，申领失业救济金人数维持低位</strong>"。</p>
+<p>这带来一个双向推论："这显然可能给利率带来<strong>上行压力</strong>，但也意味着<strong>信用风险表现稳定</strong>。"</p>
+<p><strong>久期判断</strong>："从收益率走势来看，我们仍然认为，<strong>当前环境对久期的支持力度，强于今年大部分时间</strong>。"依据是一项历史统计："我们研究了收益率急升后的回落，发现<strong>大多数情况下，收益率在随后 6 个月内都未能重新触及此前高点</strong>。反例主要集中在 2022 年，当时利率市场的<strong>脆弱性和凸性都远高于现在</strong>。"</p>
+<p><strong>风险提示</strong>："政治僵局同样带来风险，市场一些热门主题周围存在局部不稳定因素。美国仍面临<strong>财政融资问题</strong>。"</p>
+<p><strong>选股逻辑与标的</strong>：</p>
+<ul>
+  <li>"随着周期推进，一组<strong>能在多种环境下表现良好的金融股</strong>，更适合表达这一判断。如果利率和抵押贷款利率走势有利，它们显然还能获得额外助力。"</li>
+  <li>共同特征：<strong>估值合理，基本面稳健</strong>。</li>
+  <li><strong>拥挤度警告</strong>："财产及意外险股票似乎出现了<strong>被迫涌入的因子拥挤交易</strong>。<strong>旅行者保险（TRV）和安达保险（CB）的估值尤其偏高，美国国际集团（AIG）则可作为自然的融资端。</strong>"</li>
+  <li><strong>轮动逻辑</strong>："对以往久期行情的分析表明，明年的利率环境对<strong>利率敏感型金融股</strong>的支持，可能强于它们今年经历的环境。随着一些投资组合经理可能希望在年底前锁定收益、采取更谨慎的策略，<strong>资金或将重新轮动至这些被遗忘的价值领域</strong>。"</li>
+</ul>
+<p class="tbl-note">"融资端"在配对交易语境中指做空腿/资金来源腿，即通过做空 AIG 为做多 TRV、CB 等同业提供资金——这是一种相对价值表达，而非单边看空 AIG。</p>
+
+<h3>11.2 篮子⑩：娱乐——"稀缺溢价"</h3>
+<p class="tbl-note">原文该节开头部分缺失，现有文本从一句残缺的要点"- 为未来带来颇具吸引力的扩张机会。"开始，因此无法确认原本引导的是哪家公司。以下为可确认的内容。</p>
+
+<h4>VICI Properties：把"体验稀缺"做成债券</h4>
+<ul>
+  <li>资产："VICI 拥有<strong>拉斯维加斯大道上部分最有价值的房地产</strong>，通过<strong>长期三重净租赁合同</strong>收取可预测、<strong>与消费者价格指数（CPI）挂钩</strong>的租金，无需经营度假村和赌场。"</li>
+  <li>资产广度："在拉斯维加斯以外，VICI 还拥有<strong>超过 100 项体验类资产</strong>，包括 <strong>4 座锦标赛级高尔夫球场</strong>，以及靠近拉斯维加斯大道、<strong>约 33 英亩的未开发土地</strong>。"</li>
+  <li>股东回报："该股<strong>股息收益率为 7.5%</strong>，每股调整后运营资金（AFFO）<strong>每年增长 4% 至 5%</strong>。公司还刚刚宣布了 <strong>20 亿美元的回购授权</strong>，增加了另一条股东回报渠道。"</li>
+  <li>与美高梅的区别："与美高梅不同，VICI 的表现与拉斯维加斯旅游业复苏<strong>并非线性相关</strong>。但其<strong>租户质量、合同约定的租金递增机制，以及对利率的凸性</strong>，共同构成了颇具吸引力的总回报特征。拥有世界上一些最具标志性的物业所坐落的土地，具有相当大的吸引力。"</li>
+</ul>
+
+<h4>"好屏幕"：院线的供给侧改革</h4>
+<ul>
+  <li><strong>结构性保障</strong>："根据和解裁定，合并后的电影公司<strong>每年必须发行 30 部电影，其中 20 部须大规模上映</strong>，同时<strong>维持最低院线窗口期</strong>，并<strong>承诺增加制作支出</strong>。"</li>
+  <li>意义："好莱坞规模最大的整合由此<strong>消除了行业的一项重大结构性风险</strong>：天空之舞实际上为院线影片供给建立了保障，<strong>减少了影片被转向流媒体的风险</strong>。"</li>
+  <li>核心比喻："我们认为，<strong>天空之舞和奈飞（NFLX）等新一代媒体网络，已经接过了它们曾试图颠覆的传统有线电视网络的负担。</strong>"</li>
+  <li>机构报告《（P）SKY 的空中楼阁式雄心》的论点："这些企业<strong>承担了超出自身消化能力的业务</strong>，如今陷入了对内容、分发渠道，以及最重要的<strong>观众注意力</strong>的持续争夺。争取这些注意力的成本正变得相当高昂。"</li>
+</ul>
+
+<h4>为什么流媒体是"被迫买单方"</h4>
+<ul>
+  <li><strong>成本刚性</strong>："体育转播权价格持续上涨，制作预算不断膨胀，而<strong>观众看完第 1 季后却没有留下来</strong>。"</li>
+  <li><strong>替代品免费</strong>："消费者拥有丰富的替代选择，尤其包括手机上<strong>免费、由广告支持的内容</strong>。"</li>
+  <li><strong>定价权丧失</strong>："消费者越来越不愿接受成本转嫁，并<strong>积极抵制提价</strong>。"</li>
+  <li><strong>天空之舞的困境</strong>："庞大的债务负担要求公司去杠杆，但<strong>合并时作出的让步，让管理层可动用的手段所剩无几。单靠削减成本无法摆脱这一困境</strong>。"</li>
+  <li><strong>奈飞的隐忧</strong>："尽管拥有全球规模和行业领先的利润率，奈飞仍在应对<strong>用户参与度下降和原创内容不足</strong>的问题。它控制住了用户流失，但<strong>如果订阅用户只是把平台当作背景音，这又意味着其广告资源具备多大价值？</strong>"</li>
+</ul>
+
+<h4>结论：谁收租，谁付租</h4>
+<p>"消费者正将可自由支配支出转向<strong>现实世界中稀缺的体验</strong>，减少对无限数字信息流的投入。最值得关注的是<strong>能够将这一变化变现的企业</strong>，包括<strong>收取稀缺溢价的场馆、院线、高端放映制式提供商和物业业主</strong>。<strong>另一些公司则越来越被迫为这种溢价买单。</strong>"</p>
+<p class="tbl-note">原文点名"高端放映制式提供商"但<strong>未点名任何具体公司</strong>（未出现 IMAX、Cinemark 等名称），此处不做补充。</p>
+
+<!-- ================= 12 ================= -->
+<h2><span class="num">12</span>篮子⑪⑫：女友指数与圣诞袜小礼物</h2>
+
+<h3>12.1 女友指数（Girlfriend Index）：把文化潮流变成多空</h3>
+<p><strong>方法论</strong>："自今年创立以来，表现一直优于非必需消费品基准指数。通过跟踪文化潮流和消费者偏好的变化，我们将<strong>品牌热度转化为差异化的多空机会</strong>，并努力在<strong>市场共识数据显现之前</strong>，提前发现消费需求正在何处形成。"</p>
+<p><strong>战略定位</strong>："当市场纷纷追逐 AI 和科技板块的上涨势头时，我们一直在<strong>消费板块寻找超额收益</strong>。"</p>
+
+<table>
+  <thead><tr><th style="width:22%">标的</th><th style="width:10%">代码</th><th style="width:8%">方向</th><th style="width:60%">原文论点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>维多利亚的秘密</strong></td><td>原文标注 VSXY</td><td><span class="tag buy">看好</span></td><td>时装秀后不断出现强劲品牌热度信号；VS 和 PINK 产品都有改善，消费者也注意到了这些变化；两品牌重新推出<strong>能引起消费者共鸣的怀旧产品</strong>，美妆品类表现一直不错；强劲营收将带动<strong>整个利润表的经营杠杆效应</strong>，而利润率仍<strong>显著低于历史峰值</strong></td></tr>
+    <tr><td><strong>e.l.f. Cosmetics</strong></td><td>ELF</td><td><span class="tag buy">高度看好</span></td><td>对截至年底表现高度看好，有望成为<strong>假日购物季美妆品类大赢家</strong>；尤其 <strong>Rhode</strong> 凭爆款产品、售罄表现和极高品牌热度继续占优；ELF 主品牌近几周接连涌现爆款，<strong>新推出的一款染唇液颇受欢迎</strong></td></tr>
+    <tr><td><strong>餐饮品牌国际</strong></td><td>QSR</td><td><span class="tag buy">看好</span></td><td>跟踪汉堡王 <strong>Hello Kitty 联名</strong>活动带来的积极品牌热度；"继续预计汉堡王将实现强劲的营收表现"</td></tr>
+    <tr><td><strong>摄氏控股</strong></td><td>CELH</td><td><span class="tag avoid">看空</span></td><td>百事可乐（PEP）旗下 <strong>Poppi 推出首款能量饮料</strong>，将很快对 Alani Nu 构成竞争威胁；Poppi 已有强劲品牌势头，与网红紧密合作可能进一步推动增长；核心消费者是<strong>年轻女性</strong>，对网红推荐响应程度尤其高；<strong>Alani Nu 销售放缓将成为该股非常不利的催化因素</strong></td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">事实核对提示：Victoria's Secret &amp; Co. 在纽交所的代码为 <strong>VSCO</strong>（2021 年自 L Brands 分拆上市）。原文标注的 "VSXY" 与其美股实际代码不符，疑似笔误或指代其他上市实体，交易前务必核对。</p>
+
+<h4>消费力从哪里来</h4>
+<ul>
+  <li>"此前促使我们看好韩国相关股票的<strong>财富效应，如今正在逆转</strong>。"</li>
+  <li>"但最终推动消费支出的是<strong>消费群体中最富裕的 10%</strong>，这一群体仍在持续消费，并受益于广泛的财富效应。"</li>
+  <li>"即便这一群体的情绪也可能偏低迷，我们仍认为<strong>消费者的实际状况比调查数据显示的更健康</strong>，并预计<strong>选举后，以及战争若得到解决时，消费者情绪将有所改善</strong>。"</li>
+</ul>
+
+<h4>奢侈品：中性，但分化加剧</h4>
+<ul>
+  <li>"今年早些时候，奢侈品股曾短暂受益于韩国的财富效应，但如今越来越清楚的是，<strong>奢侈品行业今年将难以实现此前市场普遍期待的加速增长</strong>。"</li>
+  <li>"我们认为，随着消费者在这一品类中变得更加挑剔，<strong>行业分化将加剧，赢家和输家将更加鲜明</strong>。"</li>
+  <li>"我们对假日购物季的奢侈品行业持<strong>中性</strong>看法。各大品牌仍在持续调整，尚未出现受到大众明确认可的趋势。总体而言，<strong>品牌风格和消费者偏好继续向更张扬、色彩更鲜明的审美转移</strong>。"</li>
+  <li><strong>普拉达（1913 HK）</strong>：尤其旗下<strong>缪缪（Miu Miu）</strong>有望表现良好；两者是 2024–2025 年的热门品牌，<strong>SS27 时装秀引起很高关注，重点展示了其标志性的半身裙</strong>；"我们认为，普拉达和缪缪将在今年假日购物季表现良好。"</li>
+  <li><strong>香奈儿</strong>：今年久违地抢占了大量份额，出现<strong>排队、候购名单和售罄</strong>现象，"这些都是这个通常较为平静的品牌多年来未曾经历过的情况"。</li>
+  <li><strong>新世界（004170 KS）</strong>：运营韩国最大的香奈儿门店；"尽管香奈儿持续表现出色，但考虑到<strong>韩国正在显现的经济风险</strong>，我们对新世界持谨慎态度。"</li>
+</ul>
+
+<h3>12.2 "赢得 TikTok Shop，就能胜出"</h3>
+<ul>
+  <li>定位："TikTok Shop 已成为品牌<strong>重要的增量营收渠道</strong>，为获客和销售转化创造了新机会。我们认为，今年假日购物季将凸显这一渠道对品牌的重要性。"</li>
+  <li>当前最大参与者：<strong>美迪丘（隶属 APR，278470 KS）</strong>与<strong>尚科宁家（SN）</strong>。</li>
+  <li>跟踪方向："我们一直在跟踪 VSXY 及其他服饰等<strong>软商品品牌</strong>进军这一渠道的情况。"</li>
+  <li>为什么美妆最适合："美妆品类尤其适合 TikTok Shop，因为消费者希望找到<strong>优惠、组合装</strong>，以及任何能让他们感觉获得了<strong>其他渠道没有的独特体验</strong>的商品。许多品牌也在尝试推出 TikTok Shop 独家商品。"</li>
+  <li>有效打法："<strong>巧妙的合作、稀缺性和组合装</strong>。"</li>
+  <li>结论："在其他条件不变的情况下，今年假日购物季的消费将<strong>格外强劲</strong>，TikTok Shop 也将释放<strong>很强的增长动能</strong>。"</li>
+</ul>
+
+<h3>12.3 圣诞袜小礼物：为假日购物季做准备</h3>
+<ul>
+  <li>组合定位："上个月，我们推出了'圣诞袜小礼物'股票组合，纳入了一批预计将在<strong>圣诞购物季表现出色</strong>的消费股。"</li>
+  <li>一段表述较含糊的宏观判断："显然，双方都希望为圣诞商品贸易提供便利，这可能在<strong>1 至 2 个季度内改善利润率</strong>。协议尚未敲定，也可能赶不上今年假日购物季，但相关意向已经释放。"（原文未明确"双方"与"协议"所指主体，属信息缺口。）</li>
+  <li>已表现标的：<strong>美泰（MAT）</strong>——10 月初受 <strong>Authentic Brands Group 可能收购</strong>的传闻推动获得买盘支持；<strong>孩之宝（HAS）</strong>——近期公布财报后<strong>突破至多年新高</strong>；<strong>杰克仕太平洋（JAKK）</strong>——业绩超预期后尝试走出类似行情。</li>
+  <li><strong>尚科宁家（SN）</strong>：股价走势同样印证这一趋势，其<strong>玫瑰石英色 Ninja Crispi DualZone 空气炸锅</strong>值得留意——"仿佛直接从《杰森一家》中走出来的产品"。</li>
+</ul>
+
+<h3>12.4 收尾：Citrindex 焕新出发</h3>
+<p>全文最后一段只有一句，但把整篇的"平衡术"讲清楚了：<strong>"我们认为，已经较好地兼顾了不同方向：既能从相对价值角度参与 AI 行情，也能把握整体经济的强劲表现。当然，最终仍将由市场决定。"</strong></p>
+
+<!-- ================= 13 ================= -->
+<h2><span class="num">13</span>观点全集：189 条，逐条不漏</h2>
+<p class="src">按原文出现顺序编号，尽量保留原文措辞与数据。标注"〔缺失〕"者为原文本身缺失。</p>
+
+<table class="pts">
+  <thead><tr><th>#</th><th>观点 / 论据</th><th>类别</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>2023 年创立时股票便宜、情绪低迷、技术革命刚开始，是主题投资的好时机。</td><td>背景</td></tr>
+    <tr><td>2</td><td>方法：广泛寻找机会 → 识别结构性顺风 → 让上涨带动相关公司；从 AI 复制到财政主导、GLP-1、机器人、能源、国防、医疗。</td><td>方法论</td></tr>
+    <tr><td>3</td><td>Citrindex 自 2023-05-31 设立以来，总回报超过 SPX 的 2.5 倍。</td><td>业绩</td></tr>
+    <tr><td>4</td><td>过去 12 个月写主题研究变难：叙事沿风险曲线外扩，从"便宜、已验证"转向"依赖 2030 年 TAM、未盈利"。</td><td>核心</td></tr>
+    <tr><td>5</td><td>"拍桌子力荐"的坚定判断，逐渐变成不断重复叙事的循环——这是客观变化，不是想象力问题。</td><td>核心</td></tr>
+    <tr><td>6</td><td>第 10 期对 Citrindex 全面调整：保留大部分核心主题，表达方式大幅改变，新增覆盖被忽视行业。</td><td>执行</td></tr>
+    <tr><td>7</td><td>2023-05-31 的起点既是周期位置判断与策略选择，也包含择时上的幸运。</td><td>方法论</td></tr>
+    <tr><td>8</td><td>首篇报告发布在 NVDA 首次大超预期财报后几天，并非巧合；NVDA 此前曾回撤 68%。</td><td>历史</td></tr>
+    <tr><td>9</td><td>2022 年 10 月大盘已触底但当时不明显：劳动力短缺缓解、美联储仍加息、银行业刚经历 2008 以来最严重惊吓。</td><td>历史</td></tr>
+    <tr><td>10</td><td>早期市场特征：优质公司估值合理，市场严重低估即将到来的投资规模。</td><td>历史</td></tr>
+    <tr><td>11</td><td>Trump 当选 = 放松监管 + 减税 + 带有强烈自身利益诉求的"高度宽松"监管环境。</td><td>宏观</td></tr>
+    <tr><td>12</td><td>关税威胁成了空头陷阱；DOGE 表现令人失望；财政支出只是换了去向（非营利/NGO/环保/咨询 → 国防与安保）。</td><td>宏观</td></tr>
+    <tr><td>13</td><td>总统发行迷因币早已给出冒险热情的线索；到 2025 年底市场达到逃逸速度。</td><td>宏观</td></tr>
+    <tr><td>14</td><td>4 月伊朗事件回撤 + 智能体/编程算力需求 + 模型实验室 ARR 爆发 → 3 个月狂热冲顶（摩根士丹利 TMT 动量因子亦印证）→ 买盘耗尽。</td><td>宏观</td></tr>
+    <tr><td>15</td><td>AI 营收的数十亿美元级爆发，如今已成为证明数万亿投入的"基本门槛"，早先被低估的上涨空间已变化。</td><td>核心</td></tr>
+    <tr><td>16</td><td>营收与资本开支之间存在巨大鸿沟，<strong>非对称风险已转向下行</strong>。</td><td>核心</td></tr>
+    <tr><td>17</td><td>超大规模云厂商年化 capex 即将达 1 万亿美元，且未涵盖 AI 支出全口径。</td><td>核心</td></tr>
+    <tr><td>18</td><td>缺口只能靠两个变量收窄：营收数量级增长，或 capex 放缓（后者会打破许多投资假设）；最终可能两者都有一些。</td><td>核心</td></tr>
+    <tr><td>19</td><td>"巨额投资承诺"的高峰早已过去，剩余履约义务（RPO）季度增速降至多年来最低。</td><td>核心</td></tr>
+    <tr><td>20</td><td>曾宣布 5000 亿美元支出承诺就足以让市场兴奋的日子已经过去。</td><td>核心</td></tr>
+    <tr><td>21</td><td>反问：已放缓投资承诺的领先模型实验室，难道不比别人更懂未来需求？（对 Jevons 无穷需求论的直接质疑）</td><td>核心</td></tr>
+    <tr><td>22</td><td>要算得过来账，营收增速必须在已经极快的基础上进一步加速。</td><td>核心</td></tr>
+    <tr><td>23</td><td>全生态 ARR 至少达 2000 亿美元（2023 年几乎无人预测），但仍然不够。</td><td>核心</td></tr>
+    <tr><td>24</td><td>在当前水平把 capex 翻倍需要万亿级营收，研究团队认为不会发生。</td><td>核心</td></tr>
+    <tr><td>25</td><td><strong>资本开支增速已经见顶。</strong></td><td>核心</td></tr>
+    <tr><td>26</td><td>红杉 2023-09 的"2000 亿美元问题"、2024-06 的"6000 亿美元问题"，如今看起来已是小数目。</td><td>核心</td></tr>
+    <tr><td>27</td><td>过度炒作与过度建设不难看见，多数人预期周期迟早出现；但只要信念、动量、尤其资金还在，交易逻辑就能延续。</td><td>核心</td></tr>
+    <tr><td>28</td><td>总市值超 10 万亿美元的云厂商已无法靠自身现金流融资，不断向"愿意按当前公允市价买入"的投资者发债发股。</td><td>融资</td></tr>
+    <tr><td>29</td><td>每次股债发行都消耗资本市场整体流动性；每轮股权稀释都在削弱"以 80% 以上毛利率卖词元"的热情。</td><td>融资</td></tr>
+    <tr><td>30</td><td>资本也有供需曲线；市场对新发行证券的需求也开始减弱。</td><td>融资</td></tr>
+    <tr><td>31</td><td>电力、接电、政策这些"瓶颈™"已从动量题材变成现实风险。</td><td>执行</td></tr>
+    <tr><td>32</td><td>电网接入、劳动力与物资拖慢建设；延期累积 + 涡轮机积压订单无法交付 + 成本上涨 → 对照完工日与债务到期日 → "接续融资风险""完工违约"。</td><td>执行</td></tr>
+    <tr><td>33</td><td>这些瓶颈会成为一些人悄悄下调预测的理由，同时避免引发集中撤离。</td><td>执行</td></tr>
+    <tr><td>34</td><td>德州、俄亥俄、佐治亚 3 州州长选举实际上成了对数据中心建设的公投。</td><td>政策</td></tr>
+    <tr><td>35</td><td>新州长不会彻底叫停，但成本几乎肯定大幅上升：更多地方让步、清洁能源要求、保护电力用户、更慢审批。</td><td>政策</td></tr>
+    <tr><td>36</td><td>德州案例：Anthropic 支持的数据中心项目因建设暂停令停工，银行被套 150 亿美元过桥贷款；仅此一项即是最可能冲击 AI capex 逻辑的不确定因素之一。</td><td>政策</td></tr>
+    <tr><td>37</td><td>缺少超大规模云厂商托底的信贷市场已彻底停滞；银行最紧张的是承担无法转移的风险。</td><td>信贷</td></tr>
+    <tr><td>38</td><td>新型云服务商、高收益私人信贷、商业发展公司（BDC）处境都不乐观。</td><td>信贷</td></tr>
+    <tr><td>39</td><td>Anthropic 的 S-1 比预期干净：让其他参与者承担大量资本密集型建设风险、保留巨额现金、远早于预期现金流转正。</td><td>AI 基本面</td></tr>
+    <tr><td>40</td><td>但颠覆性的词元定价能迅速瓦解原有优势。</td><td>AI 基本面</td></tr>
+    <tr><td>41</td><td>7 月 30 日 OpenAI 大幅下调词元价格夺回份额，奏效但显示产品正在商品化。</td><td>AI 基本面</td></tr>
+    <tr><td>42</td><td>价格战曾标志着铁路大周期开始走向终点。</td><td>AI 基本面</td></tr>
+    <tr><td>43</td><td>Anthropic 的爆发式增长随即受阻，份额迅速流向 OpenAI。</td><td>AI 基本面</td></tr>
+    <tr><td>44</td><td>产品高度相似、切换几乎无摩擦、可瞬间完成且常自动进行、客户对价格高度敏感。</td><td>AI 基本面</td></tr>
+    <tr><td>45</td><td>缓和：词元价格似乎已稳定，Opus 5.5 表现良好，两家实验室很可能都有很大长期价值。</td><td>AI 基本面</td></tr>
+    <tr><td>46</td><td>但维持当前 capex 增速所需的条件，在现实中很可能无法实现。</td><td>AI 基本面</td></tr>
+    <tr><td>47</td><td>数万亿美元的投资与财富系于两家公司未来几年营收增至当前 10 倍的假设，更严格的审视是合理的。</td><td>AI 基本面</td></tr>
+    <tr><td>48</td><td>对称判断：若 NVDA 2023 业绩确认向上拐点，如今可能正出现对应下行变化——SaaS 与搜索的破坏性冲击终于体现在业绩数字中。</td><td>核心</td></tr>
+    <tr><td>49</td><td>《2028 年全球智能危机》只是思想推演，但至少有些内容与现实颇为贴合。</td><td>核心</td></tr>
+    <tr><td>50</td><td>三个自问：模型实验室 ARR 增速会更高还是更低？2027–2028 数据中心交付提前还是延后？金融市场放贷意愿增强还是减弱？</td><td>核心</td></tr>
+    <tr><td>51</td><td>边界：词元使用量、支出与 AI 采用率都将继续增长，下游生产力提升与颠覆没有疑问；不确定的是"迄今获取大部分价值的公司"是否仍有好机会。</td><td>核心</td></tr>
+    <tr><td>52</td><td>预计出现"尾声"：音乐调性或节奏略变，随后过渡到新的旋律。</td><td>核心</td></tr>
+    <tr><td>53</td><td>4 年来首次各行业职位空缺普遍增加，周期性制造业尤其强劲，就业人数开始回升。</td><td>宏观</td></tr>
+    <tr><td>54</td><td>4 年宽松周期 + AI 投资热潮，终于推动经济显现更广泛扩张迹象与通胀压力。</td><td>宏观</td></tr>
+    <tr><td>55</td><td>服务业与制造业总体指标处多年高位，价格压力仍在上升。</td><td>宏观</td></tr>
+    <tr><td>56</td><td>真正的"AI 崩盘"能否不重创经济，研究团队持怀疑态度；但 OBBBA 减税、关税缓解、生产回流三个引擎与 AI 无关地继续存在。</td><td>宏观</td></tr>
+    <tr><td>57</td><td>Murray–Vidangos 序列：平衡所需月均新增就业 2023–2024 为 15.5 万，2025 降至 8.5 万，2026 年底降至 0.5–1 万。</td><td>宏观</td></tr>
+    <tr><td>58</td><td>实际非农：过去 3 个月月均 +5.1 万，年初至今月均 +6.8 万 → 劳动力市场仍以达标速度吸收供给，表面数字疲弱具有误导性。</td><td>宏观</td></tr>
+    <tr><td>59</td><td>劳动力供给减少，使几年前看似疲弱的职位空缺如今仍能支撑工资；这也是把移民作为政策变量的政治考量之一。</td><td>宏观</td></tr>
+    <tr><td>60</td><td>即便 AI 投资剧烈调整（远未成定局），实体经济也不会刚显疲态就崩溃。</td><td>宏观</td></tr>
+    <tr><td>61</td><td>现有项目距完工仍有数年；增产可缓解内存与电力瓶颈，却无法迅速培养新电工，劳动力瓶颈将持续。</td><td>宏观</td></tr>
+    <tr><td>62</td><td>从"股价因 2029 年内存价格预测下跌"到"数据中心工地空无一人"相隔很远；但市场往往提前计价并重估估值。</td><td>宏观</td></tr>
+    <tr><td>63</td><td>不要机械类比上一轮周期（2022 年"倒挂必衰退"的误判）；但当前确有足够多相似之处，市场已显露"周期后期扩张"气息。</td><td>宏观</td></tr>
+    <tr><td>64</td><td>Regime Cube：14 组资产对中 9 组交易表现偏向滞胀。</td><td>宏观</td></tr>
+    <tr><td>65</td><td>周期股 vs 防御股：1 个月 -2.4%、3 个月 -2.9%、6 个月 -6.9%，趋势仍向下。</td><td>宏观</td></tr>
+    <tr><td>66</td><td>基础判断为"通胀性增长"，叠加资产价格行为与 10 年期实际收益率后移向滞胀象限。</td><td>宏观</td></tr>
+    <tr><td>67</td><td>但不宜盲目加码：某些资产对该趋势已持续一段；"防御性"轮动已把部分必需消费股推至极高估值，也为 AI 与动量反弹创造了条件。</td><td>宏观</td></tr>
+    <tr><td>68</td><td>选择题：寄望贝塔与动量第二轮上涨（承担巨大下行风险），还是以更高估值追逐增长乏力的落后公司？</td><td>策略</td></tr>
+    <tr><td>69</td><td>若已积累牛市丰厚收益，或许该"收起球回家"，或改打"小球战术"。</td><td>策略</td></tr>
+    <tr><td>70</td><td>高贝塔在牛市是优势、在熊市是弱点；局部抛售底部切换策略不易，但拉长视角有帮助。</td><td>策略</td></tr>
+    <tr><td>71</td><td>当前判断针对数年形成的周期，依据主客观信号的广泛一致性；上周下跌或今天反弹都不足以单独解释这次调整。</td><td>策略</td></tr>
+    <tr><td>72</td><td>高贝塔最近几周大幅落后，但数年跨度看变化率指向新阶段开始，低贝塔的相对优势可能才刚显现。</td><td>策略</td></tr>
+    <tr><td>73</td><td>其他动量指标显示市场刚离开历史上持续时间极长、偏动量策略的强势行情顶部。</td><td>策略</td></tr>
+    <tr><td>74</td><td>冲顶行情中出现历史性动量崩塌，几个月后是否形成双顶？基本面在变、融资在冻结、最坚定支持者也看到裂痕。</td><td>策略</td></tr>
+    <tr><td>75</td><td>10 月纳指从历史高点回撤 8%，但指数之下个股惨烈抛售、带杠杆多空交易被集中平仓。</td><td>结构</td></tr>
+    <tr><td>76</td><td>零日期权改变了标普 500 的价格走势，因子交易也使某些主题变得拥挤，因此应建立更小、更战术性的组合。</td><td>结构</td></tr>
+    <tr><td>77</td><td>昔日赢家将重新分化，质量与炒作程度受重新审视；被遗忘的实体经济机会有望继续展开。</td><td>结构</td></tr>
+    <tr><td>78</td><td>AI 篮子三条准则：先行者优于新进入者、质量优于增长、已投产算力优于订单储备。</td><td>AI 篮子</td></tr>
+    <tr><td>79</td><td>"实际基本面"与"市场认知"曲线之比：冒险热情拐点前优质公司占优，此后到行情见顶优质公司相对表现大幅落后。</td><td>AI 篮子</td></tr>
+    <tr><td>80</td><td>BWXT 有真实核反应堆制造业务与真实利润，Oklo 尚不具备。</td><td>AI 篮子</td></tr>
+    <tr><td>81</td><td>回测：2021–2025 年中市场中性组合牛熊皆可；去年夏天资金以惊人力度涌向低质量股票，这种情况很可能逆转。</td><td>AI 篮子</td></tr>
+    <tr><td>82</td><td>多 NVDA / 空 AMD：ASIC 对行业第二压力更大；AMD 数据中心接近翻倍但 2027 年 PC 出货两位数下降；AMD 平台竞争力弱、Helios 被热炒、风险更高却更贵。</td><td>配对</td></tr>
+    <tr><td>83</td><td>NVDA 2023 以来营收增至 5 倍以上、AMD 仅 2 倍；远期 PE 约 17 倍 vs 约 36 倍；累计回报约 14 倍 vs 7 倍（11/3 收盘）。</td><td>配对</td></tr>
+    <tr><td>84</td><td>多 ORCL / 空 NBIS：CoreWeave 先发但资本结构棘手，押注投机股继续下跌也有风险；甲骨文传统业务提供现金流、市值足够大可持续融资。</td><td>配对</td></tr>
+    <tr><td>85</td><td>多 META / 空 GOOGL：谷歌搜索面临重大颠覆，Meta 在扩大份额；谷歌 AI 流失人才、留存不佳；Meta 模型与消费级产品更成功。</td><td>配对</td></tr>
+    <tr><td>86</td><td>谷歌必须为生存性威胁而 capex，又要靠云弥补核心利润；Meta 尚未充分变现，若有过剩算力可直接出售，缩减投入的风险也更低。</td><td>配对</td></tr>
+    <tr><td>87</td><td>多 GEV / 空 BE：BE 长期表现未验证、曾性能衰减、依赖少数项目与关联方融资、确认营收很大部分未开票。</td><td>配对</td></tr>
+    <tr><td>88</td><td>替代电源成为主题，主因是 GEV/西门子/三菱的联合循环燃气轮机未来数年产能售罄；GEV 一旦可交付，买家会立即抢购，且涡轮机带来多年服务业务。</td><td>配对</td></tr>
+    <tr><td>89</td><td>多施耐德 / 空 ENS：施耐德多元稳健，ENS 处风险更高一端；ENS 管理层主动放弃期权、选择更保守薪酬，释放降风险信号。</td><td>配对</td></tr>
+    <tr><td>90</td><td>多三星 / 空 SK 海力士：三星 HBM4 领先、溢价 20%–25%、拥有最好基础裸片、SF4 大量闲置产能、代工赢得 Groq/Marvell/可能 Anthropic。</td><td>配对</td></tr>
+    <tr><td>91</td><td>NAND 是不错做空对象：SK 海力士投 1000 亿美元建 2 座厂、长江存储 2028 年扩至第 4/5 座、铠侠难涨价、情绪还会低迷。</td><td>配对</td></tr>
+    <tr><td>92</td><td>生命科学两股顺风（周期触底 + AI 催化）均已出现；板块自 6/8 涨 37.6%，周期拐点组合 35.7%，XLV 20.6%、XBI 20.7%。</td><td>医疗</td></tr>
+    <tr><td>93</td><td>AI 药物发现第 1 阶段领跑、第 2–4 阶段紧随、第 5 阶段（制造）落后；整体符合"AI 只惠及早期"的叙事。</td><td>医疗</td></tr>
+    <tr><td>94</td><td>核心判断：看好实验、真实世界数据及验证环节；CRL/RVTY/DHR/TMO 都围绕"缩短构想到实验的时间"。</td><td>医疗</td></tr>
+    <tr><td>95</td><td>瓶颈归根结底在于"谁拥有实验猴和实验室"。</td><td>医疗</td></tr>
+    <tr><td>96</td><td>FDA 10 月 27 日发布 IFS 框架草案，允许一张许可证覆盖同一基因编辑工具的多患者版本；首次认可实验室验证 + 计算建模可能已足够。</td><td>医疗</td></tr>
+    <tr><td>97</td><td>但许多相关公司定价已跑在现实前面，市场很可能进入避险阶段，下行风险相对上涨空间明显不对称。</td><td>医疗</td></tr>
+    <tr><td>98</td><td>其他价值机会：GEHC、ALC、GMED、康乐保、生物梅里埃；动物保健 ZTS/IDXX（只有硕腾预计销售额下降）；牙科 ALGN/STMN（ALGN 北美正畸出货 6 季来首增）。</td><td>医疗</td></tr>
+    <tr><td>99</td><td>子行业复苏可能尚未到来，但只要出现触底迹象就足以推动补涨交易；空头技术层面仍可能正确，这反而为逼空创造条件。</td><td>医疗</td></tr>
+    <tr><td>100</td><td>GLP-1 作为独立主题结束，LLY 与 BANB 并入；组合自设立涨约 75%、年初至今略跌，仅剩 4 家。</td><td>医疗</td></tr>
+    <tr><td>101</td><td>礼来运营与化学研发领先、AI 缩短快速跟进分子开发时间对其有利，但股价已大幅上涨；巴亨多肽产能宝贵；第一三共具价值型制药特征。</td><td>医疗</td></tr>
+    <tr><td>102</td><td>ALNY 与 ARWR 近期遭遇失望挫折，已无法提供希望的主题敞口——清仓理由。</td><td>医疗</td></tr>
+    <tr><td>103</td><td>财政主导组合自设立以来是赢家，但自 6 月以来明显落后；需大幅重新聚焦，时机恰到好处。</td><td>财政</td></tr>
+    <tr><td>104</td><td>政府支出从不停止，只是换了流向。</td><td>财政</td></tr>
+    <tr><td>105</td><td>中期选举民主党压倒性胜利 = 选民对 Trump 政策的否定，显示政治钟摆自 2024 年以来摆动多远。</td><td>财政</td></tr>
+    <tr><td>106</td><td>医疗是另一条路径：Medicare 与 Medicaid 可能重新迎来更有利环境。</td><td>财政</td></tr>
+    <tr><td>107</td><td>莫利纳医疗（MOH）是共和党失去众议院后最明确受益者之一；不会立刻改变营收，但市场可开始计入成本与利润率正常化。</td><td>财政</td></tr>
+    <tr><td>108</td><td>能源是大赢家、大幅跑赢 SPX 与 XLE，但仍不受欢迎：一边上涨一边让参与者吃亏；交易疲劳、XLE 涨幅过大、单条新闻可致大宗商品跌 10%。</td><td>能源</td></tr>
+    <tr><td>109</td><td>见顶顺序：收益率 → 股票 → 大宗商品；即便实体走弱，大宗商品超级周期仍繁荣到 2008 年中。</td><td>能源</td></tr>
+    <tr><td>110</td><td>卡塔尔 LNG 退出全球市场影响重大，但夏季淡季市场自满、欧盟监管与交易商忽视太久，押注霍尔木兹在冷天前解决。</td><td>能源</td></tr>
+    <tr><td>111</td><td>补库季已结束进入去库；本周库存首次下降；欧洲库存约 75%，为 10 多年有记录最低，上次类似水平是 2021 年，TTF 走势几乎如出一辙。</td><td>能源</td></tr>
+    <tr><td>112</td><td>受益标的：VG（Henry Hub 与 TTF 价差）、EQNR（向欧洲售能源且不受当地监管）、TGA LN（动力煤为冬季最后补充）。</td><td>能源</td></tr>
+    <tr><td>113</td><td>美国石化企业原料与能源成本优势扩大，有望跑赢全球同行。</td><td>能源</td></tr>
+    <tr><td>114</td><td>炼油商今年攫取大部分利润、贡献 XLE 大部分表现，但裂解价差正在回落。</td><td>能源</td></tr>
+    <tr><td>115</td><td>太阳能在特朗普任内意外成为赢家；FSLR 约 10 倍估值；T1 Energy 最大风险一直围绕税收优惠。</td><td>能源</td></tr>
+    <tr><td>116</td><td>即使没有政府激励，太阳能经济性也在改善、行业在增长，变化未被充分关注；政治风向重新有利，可能再度大涨。</td><td>能源</td></tr>
+    <tr><td>117</td><td>物理 AI 仍处研发阶段，最值得关注的公司通常尚未上市。</td><td>机器人</td></tr>
+    <tr><td>118</td><td>模拟半导体前景或许更好，但这种前景并非由机器人业务决定。</td><td>机器人</td></tr>
+    <tr><td>119</td><td>最有信心的是迭代式制造：PRLB 业绩超预期但 Q4 指引偏弱；XMTR 超预期并上调指引。</td><td>机器人</td></tr>
+    <tr><td>120</td><td>敏捷机器人（CCXI→AGLT）SPAC 合并进展顺利，是美国唯一纯人形机器人标的，但相较未上市对手并不特别看好。</td><td>机器人</td></tr>
+    <tr><td>121</td><td>国防资本周期：判断需领先资金流入几个季度；主承包商先宣布合同与在手订单，营收才流向分包商。</td><td>国防</td></tr>
+    <tr><td>122</td><td>LMT 在手订单庞大，导弹防御合同拐点推动；用于补充中东扰动中消耗的 PAC-3 与 THAAD。</td><td>国防</td></tr>
+    <tr><td>123</td><td>奥尔巴尼国际（AIN）工程复合材料业务同比 +107%，印证导弹补库判断。</td><td>国防</td></tr>
+    <tr><td>124</td><td>重大堵点：有在手订单不等于能转化为收入，许多人都想争夺重点项目的资金。</td><td>国防</td></tr>
+    <tr><td>125</td><td>1.5 万亿美元国防方案预计通过但投向可能变化；五角大楼靠临时拨款运转。</td><td>国防</td></tr>
+    <tr><td>126</td><td>民主党掌控两院后，以 Hegseth 下台、结束伊朗战争等诉求作为拨款条件。</td><td>国防</td></tr>
+    <tr><td>127</td><td>秋季板块调整，中盘国防股受冲击最重；与政府宏大目标关系密切的公司对在手订单变化最敏感。</td><td>国防</td></tr>
+    <tr><td>128</td><td>Golden Dome 争议大，2027 财年资金几乎全在预算协调法案中，落实困难；动摇航天生态交易逻辑（重型发射与天基拦截器支出均面临风险）。</td><td>国防</td></tr>
+    <tr><td>129</td><td>Musk 可能成为问题：发射能力或落入政治对手手中，拖延阻挠并等待友好企业追赶更符合相关方利益。</td><td>国防</td></tr>
+    <tr><td>130</td><td>政治风险 + 10 月"信贷供给"恐慌共同推动国防行业估值重估。</td><td>国防</td></tr>
+    <tr><td>131</td><td>调整后获取国防贝塔可作为中期选举后的释压交易博反弹，但小型国防企业另有风险。</td><td>国防</td></tr>
+    <tr><td>132</td><td>无人机说明上市公司缺乏护城河：Drone Dominance 计划目标 2027 年扩至 20 万架，首轮获胜者几乎全是未上市公司。</td><td>国防</td></tr>
+    <tr><td>133</td><td>反无人机端：RTX 获合同以 Coyote 拦截器为美、卡、约建设系统。</td><td>国防</td></tr>
+    <tr><td>134</td><td>无人机群与巡飞弹优势可能迅速消退；空中无人机是去年热点，新热点是水下/地下无人系统（康士伯财报体现）。</td><td>国防</td></tr>
+    <tr><td>135</td><td>恩耐（LASR）技术判断较准，若顺利有望转型为新型国防主承包商。</td><td>国防</td></tr>
+    <tr><td>136</td><td>不确定性分布不均衡：大型承包商总会分得一杯羹；小型公司应聚焦已锁定、体现迫切需求的支出。</td><td>国防</td></tr>
+    <tr><td>137</td><td>造船支出加速；安杜里尔建 Arsenal-2 船厂；HII 营收利润均超预期，获超 320 亿美元新合同（Virginia/Columbia/CVN 82）。</td><td>国防</td></tr>
+    <tr><td>138</td><td>舰艇需核动力 → BWXT 纳入篮子；CW 与 ASB 负责零部件与系统集成。</td><td>国防</td></tr>
+    <tr><td>139</td><td>"SaaS 末日"担忧有其道理：AI 原生替代、席位下降、界面商品化；智能体成本下降与数量增加使颠覆可能性上升。</td><td>软件</td></tr>
+    <tr><td>140</td><td>调取 187 家软件与 IT 公司过去 1 年财报电话会，考察财务、管理层表态与 AI 是否影响指引。</td><td>软件</td></tr>
+    <tr><td>141</td><td>结论：对其中大多数公司，AI 对实际业绩与前景的影响至多只是中性。</td><td>软件</td></tr>
+    <tr><td>142</td><td>这些公司多数年初至今仍下跌，但在 AI 板块调整期间已开始获得买盘支持。</td><td>软件</td></tr>
+    <tr><td>143</td><td>此前软件股定价隐含通用 AI 即将到来，实际迎来的是更多 API 调用——这利好另一类公司。</td><td>软件</td></tr>
+    <tr><td>144</td><td>"老派软件"：公共部门核心记录系统、交易基础设施、银行基础设施、税务管理；乏味但创造现金、不萎缩、短期不会消失。</td><td>软件</td></tr>
+    <tr><td>145</td><td>界面以糟糕著称却成功；价值来自数据、与关键业务流程的紧密联系、根深蒂固的分销网络；界面从来不是核心产品。</td><td>软件</td></tr>
+    <tr><td>146</td><td>这些特征与智能体需求高度契合：不需要精美仪表盘，需要数据访问、执行权限、可量化效果。</td><td>软件</td></tr>
+    <tr><td>147</td><td>两类公司界限清晰化：只提供应用的 vs 拥有核心记录系统的；后者有充分理由扭转"SaaS 末日"。</td><td>软件</td></tr>
+    <tr><td>148</td><td>席位制天然被智能体挑战：技术可能替代人类用户需求，同时增加生态活动量。</td><td>软件</td></tr>
+    <tr><td>149</td><td>机会在于从按人数收费转向按用量收费的公司；但多数软件商转型需蚕食现有模式。</td><td>软件</td></tr>
+    <tr><td>150</td><td>老派软件无需取舍：在按用量收费成为热门之前，其商业模式已与用量挂钩。</td><td>软件</td></tr>
+    <tr><td>151</td><td>VRSK 在美国财险数据近乎垄断（ISO 主导、监管强制报送），PE 处过去 10 年第 10 百分位；EXPN 在消费信贷同理，智能体承保增加调用次数。</td><td>软件</td></tr>
+    <tr><td>152</td><td>TYL 服务约 16000 个政府实体，曾被认为受 DOGE 冲击，估值处历史区间略高于第 10 百分位；"政府自行写 ERP"的担忧过于慷慨。</td><td>软件</td></tr>
+    <tr><td>153</td><td>TRI/FDS/MORN 拥有专有数据，智能体需求更多；PitchBook MCP 调用从 7 月 100 万次增至 10 月 1300 万次；FDS 10% 新增订阅来自 AI 产品。</td><td>软件</td></tr>
+    <tr><td>154</td><td>ICE/TW/LSEG 远未超卖，但可能继续表现出色；看好与代币化产品整合。</td><td>软件</td></tr>
+    <tr><td>155</td><td>WDAY：Trusted Agent Platform（无界面、不依赖特定模型、受人工治理）；"AI 是新的 UL"；Flex Credits 按用量计费；收购 Sana、Bhusri 回归。</td><td>软件</td></tr>
+    <tr><td>156</td><td>WDAY 量化：AI ARR 近 6 亿美元、同比 +200% 以上；5500 家客户使用智能体；约 900 家购买者实现 12% 增幅；部分含包装成分。</td><td>软件</td></tr>
+    <tr><td>157</td><td>DOCU 转型可能比 WDAY 更靠前：190 万客户、监管护城河、按信封计费；IAM 占 ARR 超 15%（前季 12.6%）；MCP 活跃账户增至 4 倍以上。</td><td>软件</td></tr>
+    <tr><td>158</td><td>"SaaS 末日"已合理定价席位制风险，但市场才刚开始奖励能从存量客户获取更多收入的供应商。</td><td>软件</td></tr>
+    <tr><td>159</td><td>酒类与泡沫（第 8 节）：<strong>〔缺失〕</strong>原文仅有标题。</td><td>缺失</td></tr>
+    <tr><td>160</td><td>经济内在动能尚可：人力资源服务与就业相关股票普遍上涨；GDPNow 与初请数据支持。</td><td>金融</td></tr>
+    <tr><td>161</td><td>增长预测为正 + 初请低位 → 可能给利率上行压力，但也意味着信用风险稳定。</td><td>金融</td></tr>
+    <tr><td>162</td><td>当前环境对久期的支持力度强于今年大部分时间；历史上收益率急升后 6 个月内多数未重回高点，反例集中在 2022 年（当时脆弱性与凸性更高）。</td><td>金融</td></tr>
+    <tr><td>163</td><td>风险：政治僵局、热门主题周边局部不稳定、美国财政融资问题。</td><td>金融</td></tr>
+    <tr><td>164</td><td>选择能在多种环境下表现良好、估值合理、基本面稳健的金融股；若利率与房贷利率有利可获额外助力。</td><td>金融</td></tr>
+    <tr><td>165</td><td>财险出现被迫涌入的因子拥挤交易；TRV 与 CB 估值尤其偏高，AIG 可作为自然的融资端。</td><td>金融</td></tr>
+    <tr><td>166</td><td>明年利率环境对利率敏感型金融股支持可能强于今年；年底锁定收益的资金或重新轮动至被遗忘的价值领域。</td><td>金融</td></tr>
+    <tr><td>167</td><td>VICI 持有拉斯维加斯大道优质地产，长期三重净租赁、CPI 挂钩租金，无需经营度假村赌场；另有 100+ 体验资产、4 座高尔夫球场、约 33 英亩未开发土地。</td><td>娱乐</td></tr>
+    <tr><td>168</td><td>VICI 股息率 7.5%，AFFO 年增 4%–5%，新增 20 亿美元回购授权；与美高梅不同，其表现与拉斯维加斯旅游复苏非线性相关。</td><td>娱乐</td></tr>
+    <tr><td>169</td><td>院线供给端：和解裁定要求合并后电影公司每年发行 30 部（20 部大规模上映）、维持最低窗口期、增加制作支出。</td><td>娱乐</td></tr>
+    <tr><td>170</td><td>该整合消除了行业重大结构性风险：天空之舞为院线供给建立保障，减少影片转向流媒体。</td><td>娱乐</td></tr>
+    <tr><td>171</td><td>天空之舞与奈飞等新一代媒体网络，已接过它们曾试图颠覆的传统有线电视网络的负担。</td><td>娱乐</td></tr>
+    <tr><td>172</td><td>这些企业承担超出消化能力的业务，陷入对内容、分发与观众注意力的持续争夺，成本高昂。</td><td>娱乐</td></tr>
+    <tr><td>173</td><td>体育版权涨价、制作预算膨胀，观众看完第 1 季不留存；免费广告支持内容构成替代；消费者抵制提价。</td><td>娱乐</td></tr>
+    <tr><td>174</td><td>天空之舞债务负担重需去杠杆，但合并让步使管理层手段所剩无几，单靠削减成本无法脱困。</td><td>娱乐</td></tr>
+    <tr><td>175</td><td>奈飞面临参与度下降与原创不足；若用户只把平台当背景音，其广告资源价值存疑。</td><td>娱乐</td></tr>
+    <tr><td>176</td><td>消费者转向现实世界稀缺体验，减少无限数字信息流投入；受益者=收取稀缺溢价的场馆、院线、高端放映制式商、物业业主。</td><td>娱乐</td></tr>
+    <tr><td>177</td><td>女友指数今年跑赢非必需消费基准；把品牌热度转化为差异化多空，力求在市场共识数据之前发现需求形成。</td><td>消费</td></tr>
+    <tr><td>178</td><td>VSXY：时装秀后品牌热度强劲，VS/PINK 产品改善并重推怀旧产品，美妆表现好；营收强劲将带动经营杠杆，利润率仍显著低于历史峰值。</td><td>消费</td></tr>
+    <tr><td>179</td><td>ELF：高度看好年底表现，Rhode 凭爆款与售罄继续占优，主品牌新染唇液受欢迎。</td><td>消费</td></tr>
+    <tr><td>180</td><td>此前看好韩国相关股票的财富效应正在逆转。</td><td>消费</td></tr>
+    <tr><td>181</td><td>QSR：汉堡王 Hello Kitty 联名带来积极热度，预计强劲营收。</td><td>消费</td></tr>
+    <tr><td>182</td><td>PEP 旗下 Poppi 推首款能量饮料，将威胁 CELH 的 Alani Nu；Poppi 网红合作强、客群为年轻女性，Alani Nu 放缓是 CELH 重大利空催化。</td><td>消费</td></tr>
+    <tr><td>183</td><td>最终推动消费的是最富裕的 10%；其情绪或低迷，但实际状况比调查更健康；选举后与战争解决后情绪将改善。</td><td>消费</td></tr>
+    <tr><td>184</td><td>奢侈品今年难以实现市场期待的加速增长，分化加剧；对假日季奢侈品持中性；审美转向更张扬、色彩更鲜明。</td><td>消费</td></tr>
+    <tr><td>185</td><td>普拉达/缪缪有望在假日季表现良好，SS27 时装秀关注度高；香奈儿今年抢份额（排队、候购、售罄），但缺直接标的；新世界因韩国经济风险而谨慎。</td><td>消费</td></tr>
+    <tr><td>186</td><td>TikTok Shop 成为重要增量渠道；最大参与者为美迪丘（APR）与尚科宁家；美妆最适配（优惠、组合装、独家体验）；有效打法为合作、稀缺性、组合装。</td><td>消费</td></tr>
+    <tr><td>187</td><td>假日季消费将格外强劲，TikTok Shop 释放很强增长动能。</td><td>消费</td></tr>
+    <tr><td>188</td><td>圣诞袜组合：MAT 受 ABG 收购传闻推动；HAS 财报后创多年新高；JAKK 业绩超预期；SN 走势印证（Ninja Crispi DualZone 空气炸锅）。</td><td>消费</td></tr>
+    <tr><td>189</td><td>Citrindex 已兼顾两个方向：以相对价值参与 AI 行情，同时把握整体经济强劲表现；最终仍由市场决定。</td><td>收尾</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">实际编号 189 条（含 1 条缺失标注）。为保持"逐条不漏"，未做合并压缩；同一主题下的多句判断分别编号，便于逐条核对与引用。</p>
+
+<!-- ================= 14 ================= -->
+<h2><span class="num">14</span>美股与 ETF 映射：从原文观点到可执行标的</h2>
+
+<div class="box amber">
+  <h4>映射前必须说清的三条前提</h4>
+  <ol>
+    <li><strong>本报告未接入实时行情。</strong>本次会话的金融数据服务未返回可用凭证，因此下文<strong>不提供任何当前股价、涨跌幅或实时估值</strong>。所有数字均来自原文（时点为 2026-11-05 前后），标注为"原文数据"。下单前请自行核对最新报价。</li>
+    <li><strong>原文的多空配对多数无法用美股纯多头复制。</strong>施耐德（SU FP）、三星（005930 KS）、SK 海力士（000660 KS）、Thungela（TGA LN）、康士伯（KOG NO）、奥斯塔（ASB AU）、普拉达（1913 HK）均非美股。下表的"美股替代"是<strong>本报告的映射推断，不是原文主张</strong>，已明确标注。</li>
+    <li><strong>配对交易的做空腿 ≠ 看空该公司的长期价值。</strong>例如 AIG 在原文中是"自然的融资端"，即用来为做多财险同业提供资金的腿，不应理解为对 AIG 的独立看空判断。</li>
+  </ol>
+</div>
+
+<h3>14.1 第一层：原文点名的美股标的（可直接交易）</h3>
+<table class="mk">
+  <thead><tr><th>标的（代码）</th><th>篮子</th><th>原文观点</th><th>映射备注</th></tr></thead>
+  <tbody>
+    <tr><td><strong>英伟达 NVDA</strong></td><td>AI 配对</td><td>多腿；"行业中占据绝对优势的巨头，芯片仍是行业首选"；远期 PE 约 17 倍，2023 以来营收增至 5 倍以上</td><td><span class="tag buy">配对多头</span>注意：若"capex 增速见顶"成立，NVDA 仍是相对赢家但绝对估值可能压缩</td></tr>
+    <tr><td><strong>超威半导体 AMD</strong></td><td>AI 配对</td><td>空腿；数据中心接近翻倍但 2027 年 PC 出货两位数下降；平台竞争力弱、Helios 被热炒、风险更高却更贵（远期 PE 约 36 倍）</td><td><span class="tag avoid">配对空头</span>与市场主流"AMD 抢份额"叙事相反</td></tr>
+    <tr><td><strong>甲骨文 ORCL</strong></td><td>AI 配对</td><td>多腿；传统业务提供可观现金流，市值足够大可持续发股融资</td><td><span class="tag buy">配对多头</span>本质是"最像 neocloud 的巨头"，兼具现金流与融资能力</td></tr>
+    <tr><td><strong>Nebius NBIS</strong></td><td>AI 配对</td><td>空腿；原文仅作为 ORCL 的对手方出现，未单独论述</td><td><span class="tag avoid">配对空头</span>原文提醒"押注投机股继续下跌也有风险"</td></tr>
+    <tr><td><strong>Meta META</strong></td><td>AI 配对</td><td>多腿；扩大广告份额、模型超预期、消费级产品更成功；过剩算力可对外出售，缩减投入风险更低</td><td><span class="tag buy">配对多头</span>全文对 META 最正面的评价集中在此</td></tr>
+    <tr><td><strong>谷歌 GOOGL</strong></td><td>AI 配对</td><td>空腿；核心搜索面临重大颠覆、AI 流失人才、留存不佳、必须为生存性威胁而 capex</td><td><span class="tag avoid">配对空头</span><strong>与市场主流（TPU 优势）判断相反，是本报告最需警惕的分歧点</strong></td></tr>
+    <tr><td><strong>GE Vernova GEV</strong></td><td>电力</td><td>多腿；联合循环燃气轮机未来数年产能售罄，一旦可交付即被抢购，并带来多年服务业务</td><td><span class="tag buy">配对多头</span>亦可作为"AI 电力"主题的核心多头单独持有</td></tr>
+    <tr><td><strong>Bloom Energy BE</strong></td><td>电力</td><td>空腿；长期表现未验证、曾性能衰减、依赖少数项目与关联方融资、确认营收很大部分未开票</td><td><span class="tag avoid">配对空头</span>本工作区另有 BE 财报精读，结论方向不同，建议对照阅读</td></tr>
+    <tr><td><strong>艾诺斯 ENS</strong></td><td>工程</td><td>空腿；电池储能管理、风险更高一端；管理层主动放弃期权释放降风险信号</td><td><span class="tag avoid">配对空头</span>原文用"薪酬信号"作为辅助证据，属软信号</td></tr>
+    <tr><td><strong>查尔斯河 CRL</strong></td><td>医疗</td><td>核心多头；"谁拥有实验猴和实验室"</td><td><span class="tag buy">主题多头</span>但原文同时提示"定价跑在现实前面"</td></tr>
+    <tr><td><strong>瑞孚迪 RVTY / 丹纳赫 DHR / 赛默飞 TMO</strong></td><td>医疗</td><td>核心多头；围绕"缩短构想到实验时间"</td><td><span class="tag buy">主题多头</span>DHR、TMO 为大型多元化平台，防御性更强</td></tr>
+    <tr><td><strong>Illumina ILMN / 10x Genomics TXG</strong></td><td>医疗</td><td>第 1 阶段领跑者，去库存后走出低谷</td><td><span class="tag buy">主题多头</span>原文归为"较小公司"，波动更大</td></tr>
+    <tr><td><strong>GE HealthCare GEHC / 爱尔康 ALC / Globus Medical GMED</strong></td><td>医疗</td><td>落后补涨候选，覆盖多类医疗操作</td><td><span class="tag hold">补涨期权</span>原文强调"复苏可能尚未到来"</td></tr>
+    <tr><td><strong>硕腾 ZTS / 爱德士 IDXX</strong></td><td>医疗</td><td>动物保健；只有硕腾预计今年销售额下降</td><td><span class="tag hold">相对多 IDXX / 弱 ZTS</span>原文隐含此层意思但未明确配对</td></tr>
+    <tr><td><strong>爱齐科技 ALGN</strong></td><td>医疗</td><td>牙科；北美正畸出货 6 个季度来首次增长</td><td><span class="tag hold">拐点观察</span>"严重超卖"是前提条件</td></tr>
+    <tr><td><strong>礼来 LLY</strong></td><td>医疗</td><td>GLP-1 并入母组合；运营与化学研发领先，但股价已大幅上涨</td><td><span class="tag hold">并入母组合</span>原文的态度是"看好但贵"</td></tr>
+    <tr><td><strong>Alnylam ALNY / 箭头制药 ARWR</strong></td><td>医疗</td><td>已无法提供希望的主题敞口，被移出</td><td><span class="tag avoid">移出</span>这是明确的负面表述</td></tr>
+    <tr><td><strong>莫利纳医疗 MOH</strong></td><td>财政</td><td>共和党失去众议院后最明确受益者之一；Medicaid 营收占比高</td><td><span class="tag buy">政策多头</span>政策敏感度极高，波动大</td></tr>
+    <tr><td><strong>Venture Global VG</strong></td><td>能源</td><td>商业模式依赖 Henry Hub 与 TTF 价差</td><td><span class="tag buy">主题多头</span>价差交易，非纯天然气方向</td></tr>
+    <tr><td><strong>挪威国家能源 EQNR</strong></td><td>能源</td><td>向欧洲售能源且不受当地监管环境约束</td><td><span class="tag buy">主题多头</span>兼具高股息属性</td></tr>
+    <tr><td><strong>第一太阳能 FSLR</strong></td><td>能源</td><td>估值约 10 倍；太阳能经济性改善 + 政治风向转好</td><td><span class="tag buy">主题多头</span>原文认为"变化尚未获得应有关注"</td></tr>
+    <tr><td><strong>T1 Energy TE</strong></td><td>能源</td><td>曾带迷因股色彩但实际颇具吸引力；最大风险围绕税收优惠</td><td><span class="tag hold">高波动</span>小市值，注意流动性</td></tr>
+    <tr><td><strong>Protolabs PRLB / 择幂 XMTR</strong></td><td>机器人</td><td>迭代式制造；PRLB 超预期但 Q4 指引弱，XMTR 超预期并上调指引</td><td><span class="tag hold">相对多 XMTR</span>原文未明说配对，属映射推断</td></tr>
+    <tr><td><strong>敏捷机器人 CCXI → AGLT</strong></td><td>机器人</td><td>美国唯一纯人形机器人标的，但"并未特别看好"</td><td><span class="tag hold">观察</span>SPAC 合并标的，注意解禁与稀释</td></tr>
+    <tr><td><strong>洛克希德马丁 LMT</strong></td><td>国防</td><td>在手订单庞大，导弹防御合同拐点</td><td><span class="tag buy">主题多头</span>大型承包商"总会分得一杯羹"</td></tr>
+    <tr><td><strong>奥尔巴尼国际 AIN</strong></td><td>国防</td><td>工程复合材料同比 +107%，印证导弹补库</td><td><span class="tag buy">主题多头</span>分包商传导已开始体现</td></tr>
+    <tr><td><strong>雷神 RTX</strong></td><td>国防</td><td>Coyote 反无人机系统获合同（美、卡、约）</td><td><span class="tag buy">主题多头</span>兼具民航售后现金流</td></tr>
+    <tr><td><strong>亨廷顿英格尔斯 HII</strong></td><td>国防</td><td>营收利润均超预期；获超 320 亿美元新合同</td><td><span class="tag buy">主题多头</span>造船周期最直接受益</td></tr>
+    <tr><td><strong>BWX 科技 BWXT</strong></td><td>国防</td><td>舰艇需核动力，纳入篮子；同时是"质量优于叙事"的范例（对比 Oklo）</td><td><span class="tag buy">双重逻辑</span>国防 + 核能质量端，全文出现两次</td></tr>
+    <tr><td><strong>柯蒂斯-莱特 CW</strong></td><td>国防</td><td>零部件与系统集成</td><td><span class="tag buy">主题多头</span></td></tr>
+    <tr><td><strong>恩耐 LASR</strong></td><td>国防</td><td>技术判断较准，若顺利有望转型为新型国防主承包商</td><td><span class="tag hold">期权型</span>小市值、执行风险高</td></tr>
+    <tr><td><strong>Verisk VRSK</strong></td><td>软件</td><td>财险数据近乎垄断，PE 处 10 年第 10 百分位</td><td><span class="tag buy">核心多头</span>原文给出明确估值分位，是本篮子里最"可量化"的标的</td></tr>
+    <tr><td><strong>泰勒科技 TYL</strong></td><td>软件</td><td>16000 个政府实体核心记录系统，估值处历史区间略高于第 10 百分位</td><td><span class="tag buy">核心多头</span>被 DOGE 错杀的代表</td></tr>
+    <tr><td><strong>汤森路透 TRI / 慧甚 FDS / 晨星 MORN</strong></td><td>软件</td><td>专有数据 + 按用量收费；PitchBook MCP 调用 100 万→1300 万次；FDS 10% 新增订阅来自 AI</td><td><span class="tag buy">核心多头</span>数据是"智能体的燃料"，逻辑最顺</td></tr>
+    <tr><td><strong>洲际交易所 ICE / Tradeweb TW</strong></td><td>软件</td><td>市场基础设施，远未超卖，看好与代币化整合</td><td><span class="tag buy">核心多头</span>受 AI 冲击最小的一类</td></tr>
+    <tr><td><strong>Workday WDAY</strong></td><td>软件</td><td>AI ARR 近 6 亿美元、同比 +200%+；5500 家客户用智能体；Flex Credits 按用量计费</td><td><span class="tag buy">转型龙头</span>原文提示"部分内容带包装成分"</td></tr>
+    <tr><td><strong>DocuSign DOCU</strong></td><td>软件</td><td>转型进度可能比 WDAY 更靠前；IAM 占 ARR 超 15%；MCP 活跃账户 4 倍以上</td><td><span class="tag buy">转型龙头</span>原文明确说其"更靠前"</td></tr>
+    <tr><td><strong>旅行者 TRV / 安达 CB</strong></td><td>金融</td><td>估值尤其偏高，但属"被迫涌入的因子拥挤交易"</td><td><span class="tag hold">拥挤</span>原文语气是"贵但趋势在"，非推荐追高</td></tr>
+    <tr><td><strong>美国国际集团 AIG</strong></td><td>金融</td><td>"可作为自然的融资端"</td><td><span class="tag avoid">配对空头</span>仅作融资腿，非独立看空</td></tr>
+    <tr><td><strong>VICI Properties VICI</strong></td><td>娱乐</td><td>股息率 7.5%，AFFO 年增 4%–5%，20 亿美元回购，CPI 挂钩三重净租赁</td><td><span class="tag buy">收益型核心</span>本质是"体验资产的通胀挂钩债"</td></tr>
+    <tr><td><strong>奈飞 NFLX</strong></td><td>娱乐</td><td>参与度下降、原创不足；若用户只当背景音，广告资源价值存疑</td><td><span class="tag avoid">偏空</span>原文将其列为"被迫为溢价买单"的一方</td></tr>
+    <tr><td><strong>维多利亚的秘密（原文标 VSXY）</strong></td><td>消费</td><td>看好；品牌热度、怀旧产品、美妆、经营杠杆</td><td><span class="tag buy">看好</span><strong>代码需核对：美股实际为 VSCO</strong></td></tr>
+    <tr><td><strong>e.l.f. Beauty ELF</strong></td><td>消费</td><td>高度看好，假日季美妆大赢家；Rhode 爆款</td><td><span class="tag buy">看好</span></td></tr>
+    <tr><td><strong>餐饮品牌国际 QSR</strong></td><td>消费</td><td>汉堡王 Hello Kitty 联名带来积极热度</td><td><span class="tag buy">看好</span></td></tr>
+    <tr><td><strong>摄氏控股 CELH</strong></td><td>消费</td><td>Poppi 推能量饮料构成威胁，Alani Nu 放缓是重大利空催化</td><td><span class="tag avoid">看空</span>原文唯一明确点名的消费空头</td></tr>
+    <tr><td><strong>百事 PEP</strong></td><td>消费</td><td>旗下 Poppi 推出首款能量饮料，势头强劲</td><td><span class="tag hold">间接受益</span>Poppi 占 PEP 收入比重小，弹性有限</td></tr>
+    <tr><td><strong>尚科宁家 SN</strong></td><td>消费</td><td>TikTok Shop 最大参与者之一；股价走势印证假日季趋势；Ninja Crispi 新品</td><td><span class="tag buy">看好</span>原文在两处提及</td></tr>
+    <tr><td><strong>美泰 MAT / 孩之宝 HAS / 杰克仕 JAKK</strong></td><td>消费</td><td>圣诞袜组合；MAT 受 ABG 收购传闻推动，HAS 创多年新高，JAKK 超预期</td><td><span class="tag buy">事件驱动</span>MAT 的收购传闻属事件性催化，非基本面</td></tr>
+  </tbody>
+</table>
+
+<h3>14.2 第二层：原文点名但非美股的标的，与美股替代方案</h3>
+<table class="mk">
+  <thead><tr><th>原文标的（代码）</th><th>市场</th><th>原文观点</th><th>美股替代映射（<strong>本报告推断</strong>）</th></tr></thead>
+  <tbody>
+    <tr><td><strong>施耐德电气 SU FP</strong></td><td>巴黎</td><td>多腿；全球电气设备龙头、业务多元</td><td>ETN（伊顿）、VRT（Vertiv）、PWR（Quanta）、HUBB（Hubbell）；ETF：<strong>GRID</strong>（电网基建）</td></tr>
+    <tr><td><strong>三星电子 005930 KS</strong></td><td>韩国</td><td>多腿；HBM4 领先、溢价 20%–25%、SF4 闲置产能、代工客户拓展</td><td>无纯正美股替代；可用 <strong>EWY</strong>（韩国 ETF）表达国别贝塔，或用 <strong>MU</strong>（美光）表达 HBM 存储景气</td></tr>
+    <tr><td><strong>SK 海力士 000660 KS</strong></td><td>韩国</td><td>空腿；NAND 扩产 1000 亿美元，情绪低迷</td><td>难以直接做空；可用 <strong>EWY</strong> 相对 <strong>SOXX</strong> 表达，或做空 <strong>MU</strong> 的 NAND 敞口（粗糙替代）</td></tr>
+    <tr><td><strong>Thungela TGA LN</strong></td><td>伦敦</td><td>动力煤，冬季应急能源最后补充</td><td>BTU（Peabody）、ARCH（Arch Resources）、AMR（Alpha）；ETF：<strong>KOL</strong></td></tr>
+    <tr><td><strong>挪威国家能源 EQNR</strong></td><td>纽约（ADR）</td><td>向欧洲售能源且不受当地监管约束</td><td><strong>本身即为美股 ADR，可直接交易</strong></td></tr>
+    <tr><td><strong>康士伯 KOG NO</strong></td><td>奥斯陆</td><td>水下/地下无人系统新热点</td><td>LHX、GD、HII、TDG（TransDigm）；ETF：<strong>SHLD</strong>（Global X 国防科技）</td></tr>
+    <tr><td><strong>奥斯塔 ASB AU</strong></td><td>澳洲</td><td>造船零部件与系统集成</td><td>HII、GD、CW、TXT（Textron）</td></tr>
+    <tr><td><strong>巴亨 BANB SW</strong></td><td>瑞士</td><td>多肽制造产能宝贵，CDMO 产能成瓶颈</td><td>LONN（龙沙 Lonza，OTC）、WST（West Pharma）、CAT（Catalent 已被收购，不可用）；ETF：<strong>XBI</strong> 表达生物科技贝塔</td></tr>
+    <tr><td><strong>第一三共 4568 JP</strong></td><td>东京</td><td>具价值型制药股特点</td><td>美股 ADR 可交易（OTC）；替代：BMY、PFE、MRK 等价值型制药</td></tr>
+    <tr><td><strong>益博睿 EXPN LN</strong></td><td>伦敦</td><td>消费信贷数据，智能体承保增加调用</td><td>TRU（TransUnion）、EFX（Equifax）——<strong>逻辑最接近的美股对标</strong></td></tr>
+    <tr><td><strong>伦敦证交所 LSEG LN</strong></td><td>伦敦</td><td>市场基础设施 + 代币化整合</td><td>ICE、NDAQ（纳斯达克）、CME、CBOE</td></tr>
+    <tr><td><strong>康乐保 COLOB DC</strong></td><td>哥本哈根</td><td>医疗科技落后补涨</td><td>GEHC、ALC、MDT、BDX</td></tr>
+    <tr><td><strong>生物梅里埃 BIM FP</strong></td><td>巴黎</td><td>微生物诊断龙头</td><td>BDX（Becton Dickinson）、TMO、DHR（诊断业务）</td></tr>
+    <tr><td><strong>Straumann STMN SW</strong></td><td>瑞士</td><td>牙科，周期特征传统</td><td>ALGN（爱齐科技）、XRAY（Dentsply Sirona）、NVST（Envista）</td></tr>
+    <tr><td><strong>普拉达 1913 HK</strong></td><td>香港</td><td>假日季有望表现良好，SS27 秀关注度高</td><td>无直接对标；可用 <strong>LVMUY</strong>（LVMH ADR）、<strong>PPRUY</strong>（开云 ADR）、<strong>CFRUY</strong>（历峰 ADR）表达奢侈品贝塔</td></tr>
+    <tr><td><strong>新世界 004170 KS</strong></td><td>韩国</td><td>运营韩国最大香奈儿门店，但因韩国经济风险而谨慎</td><td>无对应；可关注 DFS/旅游零售链条，但相关性弱</td></tr>
+    <tr><td><strong>美迪丘 APR 278470 KS</strong></td><td>韩国</td><td>TikTok Shop 最大参与者之一</td><td>无对应；可参考 <strong>ELF</strong>、<strong>SN</strong> 作为 TikTok 渠道受益的美股代理</td></tr>
+    <tr><td><strong>Oklo OKLO</strong></td><td>纽约</td><td>作为"叙事端"的反面案例出现（无真实制造业务与利润）</td><td><strong>本身是美股</strong>；原文用其做对比，隐含"做多 BWXT / 做空叙事型核能"的相对思路</td></tr>
+    <tr><td><strong>天空之舞（Skydance）</strong></td><td>—</td><td>债务负担重、合并让步多、单靠削减成本无法脱困；但为院线供给提供保障</td><td>原文未给代码；对应上市公司实体需自行核对（合并后主体）。<strong>不做推断</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>14.3 第三层：ETF 工具层——把观点变成可交易的篮子</h3>
+<table>
+  <thead><tr><th style="width:26%">ETF（代码）</th><th style="width:16%">对应原文观点</th><th style="width:58%">用法与注意</th></tr></thead>
+  <tbody>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">A. 风格与因子（原文最核心的策略主张）</td></tr>
+    <tr><td><strong>QUAL</strong>（iShares MSCI USA Quality Factor）</td><td>"质量优于增长"、"收起球改打小球"</td><td>最直接表达"从炒作转向质量"的工具；ROE、盈利稳定性、低杠杆三重筛选</td></tr>
+    <tr><td><strong>USMV / SPLV</strong>（低波动）</td><td>"低贝塔的相对优势可能才刚显现"</td><td>低贝塔是原文明确的因子判断；但原文也警告"防御性轮动已持续数月"，追高需谨慎</td></tr>
+    <tr><td><strong>SPHB</strong>（S&amp;P 500 高贝塔）</td><td>"高贝塔在熊市是弱点"</td><td>作为<strong>减仓/对冲腿</strong>的参照，而非做多工具</td></tr>
+    <tr><td><strong>RSP</strong>（标普 500 等权）</td><td>"指数之下个股已惨烈抛售""昔日赢家重新分化"</td><td>等权化本身就是"去动量、去集中"的表达，与"更小更战术"一致</td></tr>
+    <tr><td><strong>SPHQ</strong>（标普 500 质量）</td><td>同上</td><td>与 QUAL 二选一，成分更偏大盘</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">B. AI 与算力（原文主张"相对价值"，非方向）</td></tr>
+    <tr><td><strong>SMH / SOXX</strong></td><td>AI 加速器配对</td><td><strong>不宜作为原文观点的表达工具</strong>：两者都是市值加权，NVDA 权重高，会同时买到原文想放空的部分</td></tr>
+    <tr><td><strong>IGV / XSW</strong>（软件）</td><td>"老派软件"SaaS 幸存者</td><td>IGV 覆盖广、含大量"仅提供应用"的公司；<strong>原文观点更适合个股表达</strong>，ETF 会稀释 alpha</td></tr>
+    <tr><td><strong>DLR / EQIX</strong>（数据中心 REITs）</td><td>"已投产算力优于订单储备"</td><td>已建成机房的现金流属性，最贴合"已投产优于订单"的准则；但利率敏感度高</td></tr>
+    <tr><td><strong>GRID</strong>（电网基建）</td><td>电力瓶颈 + 施耐德配对</td><td>覆盖电网设备、输配电；是"瓶颈™变成现实风险"的双面表达——既是风险也是受益方</td></tr>
+    <tr><td><strong>XLU / UTES</strong>（公用事业）</td><td>电力需求 + 防御属性</td><td>同时承载"AI 电力需求"与"防御轮动"两个逻辑，但原文警告防御股已贵</td></tr>
+    <tr><td><strong>NLR / URA</strong>（核能 / 铀）</td><td>BWXT vs Oklo 的质量分层</td><td>NLR 含 BWXT 等实体制造，URA 偏上游铀矿；与原文"质量优于叙事"取向一致</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">C. 医疗与生命科学</td></tr>
+    <tr><td><strong>XLV / XBI / IBB</strong></td><td>原文明确用 XLV、XBI 做基准</td><td>原文组合跑赢两者约 15–17 个百分点；若无法复制选股，XLV 是低摩擦替代</td></tr>
+    <tr><td><strong>IHI</strong>（医疗器械）</td><td>GEHC / ALC / GMED 医疗科技补涨</td><td>覆盖大型医疗科技，与"覆盖多类医疗操作"的描述匹配</td></tr>
+    <tr><td><strong>IHF</strong>（医疗保健服务）</td><td>MOH 管理式医疗</td><td>Medicaid 政策转向的行业级表达，比单押 MOH 分散</td></tr>
+    <tr><td><strong>PAWZ</strong>（宠物经济）</td><td>ZTS / IDXX 动物保健</td><td>覆盖宠物医疗与食品，与"兽医就诊次数下降"周期相关</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">D. 能源与大宗</td></tr>
+    <tr><td><strong>XLE / XOP / OIH</strong></td><td>能源组合跑赢 XLE；但裂解价差回落</td><td>XLE 是原文的基准；OIH 偏油服、XOP 偏上游，均比 XLE 更纯粹</td></tr>
+    <tr><td><strong>FCG / UNG / BOIL</strong></td><td>霍尔木兹 + TTF 价差</td><td>FCG 为天然气生产商（更接近 VG/EQNR 逻辑）；<strong>UNG/BOIL 是期货型产品，有展期损耗，不宜长期持有</strong></td></tr>
+    <tr><td><strong>TAN / ICLN</strong></td><td>太阳能意外成为赢家</td><td>TAN 更纯粹（含 FSLR）；ICLN 含全球公用事业，稀释度高</td></tr>
+    <tr><td><strong>KOL</strong>（煤炭）</td><td>动力煤是冬季最后补充</td><td>小规模、流动性有限，注意买卖价差</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">E. 国防与航天</td></tr>
+    <tr><td><strong>ITA</strong>（iShares 航空航天与国防）</td><td>大型承包商"总会分得一杯羹"</td><td>最贴合原文"不确定性分布不均衡，大承包商受益"的判断</td></tr>
+    <tr><td><strong>PPA</strong>（航空航天与国防）</td><td>同上</td><td>与 ITA 高度重叠，费率与成分略有差异</td></tr>
+    <tr><td><strong>XAR</strong>（SPDR 航空航天与国防）</td><td>中小型国防</td><td><strong>原文明确警示中盘/小型国防股风险最大</strong>，XAR 等权、中小盘暴露更高，需注意</td></tr>
+    <tr><td><strong>SHLD</strong>（Global X 国防科技）</td><td>无人机、反无人机、水下系统</td><td>更偏"新战争"主题（含无人机、网络、太空），与原文"新热点是水下/地下无人系统"呼应</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">F. 金融</td></tr>
+    <tr><td><strong>KIE / IAK</strong>（保险）</td><td>财险因子拥挤（TRV/CB 偏贵，AIG 为融资腿）</td><td>行业 ETF 会同时买到贵的一端，<strong>原文的相对价值取向更适合个股表达</strong></td></tr>
+    <tr><td><strong>XLF / KRE</strong></td><td>"利率敏感型金融股"、久期环境改善</td><td>KRE 对利率与信用更敏感；XLF 更偏大行与保险</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">G. 消费与娱乐</td></tr>
+    <tr><td><strong>XLY / XLP</strong></td><td>女友指数跑赢非必需消费基准</td><td>XLY 是原文的基准；原文的超额来自选股而非行业</td></tr>
+    <tr><td><strong>PEJ / RETL</strong></td><td>假日季消费、TikTok Shop</td><td>PEJ 偏休闲娱乐，RETL 偏零售，均属高贝塔，与"低贝塔"主张存在张力</td></tr>
+    <tr><td><strong>VNQ / SCHH</strong>（REITs）</td><td>VICI 的净租赁逻辑</td><td>VICI 本身即是净租赁 REIT，单一个股表达更精确</td></tr>
+    <tr><td colspan="3" style="background:#f7f8fa;font-weight:650;color:var(--ink-2)">H. 宏观与对冲</td></tr>
+    <tr><td><strong>TIP / SCHP</strong>（通胀挂钩债）</td><td>"滞胀象限"、实际利率维度</td><td>若滞胀判断成立，TIPS 是比股票更直接的工具</td></tr>
+    <tr><td><strong>GLD / DBC / PDBC</strong></td><td>"收益率→股票→大宗商品"的见顶顺序</td><td>DBC/PDBC 为商品篮子，可表达"大宗商品接棒"的弱论点（原文自称说服力最弱）</td></tr>
+    <tr><td><strong>EWY</strong>（韩国）</td><td>三星 / SK 海力士配对</td><td>无法表达多空价差，只能表达国别贝塔；且会同时买入多空两腿</td></tr>
+  </tbody>
+</table>
+
+<h3>14.4 配对交易的可执行化：6 组原文配对 → 美股版本</h3>
+<table>
+  <thead><tr><th style="width:20%">原文配对</th><th style="width:24%">美股可执行版本</th><th style="width:14%">可执行度</th><th style="width:42%">关键风险</th></tr></thead>
+  <tbody>
+    <tr><td><strong>多 NVDA / 空 AMD</strong></td><td>NVDA 多 / AMD 空（均可直接交易）</td><td><span class="tag core">高</span></td><td>AMD 若 MI 系列或 Helios 超预期，价差会剧烈反向；空头面临无上限亏损</td></tr>
+    <tr><td><strong>多 ORCL / 空 NBIS</strong></td><td>ORCL 多 / NBIS 空</td><td><span class="tag core">高</span></td><td>NBIS 已被重挫，<strong>继续做空的下行空间有限、逼空风险高</strong>（原文自己也提示了这点）</td></tr>
+    <tr><td><strong>多 META / 空 GOOGL</strong></td><td>META 多 / GOOGL 空</td><td><span class="tag core">高</span></td><td><strong>与市场主流判断相反</strong>；GOOGL 的 TPU 与云业务若持续超预期，此配对将持续亏损</td></tr>
+    <tr><td><strong>多 GEV / 空 BE</strong></td><td>GEV 多 / BE 空</td><td><span class="tag core">高</span></td><td>BE 的高波动与散户情绪可能长期脱离基本面；空头成本高</td></tr>
+    <tr><td><strong>多施耐德 / 空 ENS</strong></td><td>ETN 或 VRT 多 / ENS 空（<strong>映射推断</strong>）</td><td><span class="tag hold">中</span></td><td>ETN/VRT 与施耐德的业务结构不完全一致，配对纯度下降</td></tr>
+    <tr><td><strong>多三星 / 空 SK 海力士</strong></td><td>无法在美股复制；可用 EWY 表达国别，或用 MU 表达存储景气</td><td><span class="tag avoid">低</span></td><td>韩国市场做空工具稀缺、成本高；EWY 会同时买入两腿，<strong>完全失效</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>14.5 本报告的投资观点：把原文翻译成三档组合</h3>
+<div class="two">
+  <div class="box green">
+    <h4>核心仓（低贝塔、现金流、可验证）</h4>
+    <ul>
+      <li><strong>质量因子：QUAL / RSP</strong>——最贴合"质量优于增长"与"更小更战术"</li>
+      <li><strong>老派软件：VRSK、TYL、TRI/FDS/MORN、ICE</strong>——原文给出明确估值分位，是全文最"可量化"的一组</li>
+      <li><strong>VICI</strong>——CPI 挂钩租金 + 7.5% 股息率，是"稀缺体验"最纯粹的表达</li>
+      <li><strong>GEV</strong>——产能售罄的实体瓶颈，兼具成长与现金流</li>
+    </ul>
+  </div>
+  <div class="box blue">
+    <h4>卫星仓（主题弹性，控制单一权重）</h4>
+    <ul>
+      <li><strong>医疗工具：CRL、RVTY、DHR、TMO</strong>——但原文明确提示"定价跑在现实前面"，宜分批</li>
+      <li><strong>国防：LMT、RTX、HII、BWXT、AIN</strong>——大承包商 + 已锁定支出</li>
+      <li><strong>能源：VG、EQNR、FSLR</strong>——TTF 价差与太阳能预期差</li>
+      <li><strong>转型软件：WDAY、DOCU</strong>——AI ARR 已可量化</li>
+      <li><strong>消费：ELF、SN、QSR</strong>——假日季 + TikTok Shop</li>
+    </ul>
+  </div>
+</div>
+<div class="box red">
+  <h4>需要明确回避或对冲的方向</h4>
+  <ul>
+    <li><strong>CELH</strong>——原文唯一明确点名的消费空头逻辑（Poppi 冲击 Alani Nu）。</li>
+    <li><strong>NFLX</strong>——"被迫为稀缺溢价买单"的一方，参与度与广告价值双重质疑。</li>
+    <li><strong>ALNY / ARWR</strong>——原文明确说"已无法提供希望的主题敞口"。</li>
+    <li><strong>叙事型核能（如 OKLO）</strong>——原文用其作为"无真实利润"的反面案例。</li>
+    <li><strong>高贝塔动量整体（SPHB 类）</strong>——原文认为其相对优势可能才刚开始消退。</li>
+    <li><strong>纯席位制的应用软件</strong>——原文认为这类仍面临 AI 颠覆的直接威胁。</li>
+  </ul>
+</div>
+
+<!-- ================= 15 ================= -->
+<h2><span class="num">15</span>批判性视角：原文没有回答的七个问题</h2>
+
+<p>这篇文章质量很高，但作为投资依据，有几处内在张力与未验证假设必须点明。以下不是否定，而是"如果要拿它下单，还缺什么"。</p>
+
+<div class="box amber">
+  <h4>① "capex 见顶"与"实体扩张"存在逻辑张力</h4>
+  <p>原文一方面说资本开支增速已见顶，另一方面把当前的经济扩张部分归因于"AI 投资激增"。如果 capex 真的大幅放缓，那么支撑"实体升温"的一个引擎就会熄火，而"周期后期扩张"的宏观叙事也会被削弱。<strong>原文没有量化"AI 投资对 GDP 增长的贡献占比"，因此无法判断这个张力有多大。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>② 2000 亿美元 ARR 的口径没有交代</h4>
+  <p>"整个生态的年度经常性收入看起来将至少达到 2000 亿美元"——这个数字是模型实验室 ARR 之和，还是包含云厂商 AI 收入？是否含内部结算？<strong>口径不同，"够不够"的结论会差出数倍。</strong>原文未说明，也未给出与 1 万亿美元 capex 的对应测算表。</p>
+</div>
+
+<div class="box amber">
+  <h4>③ "两家公司营收增至当前 10 倍"是作者的设问，不是事实</h4>
+  <p>原文说"数万亿美元的投资和财富，都系于两家公司未来几年营收增长至当前 10 倍的假设之上"。这是<strong>对市场隐含预期的反推</strong>，而非任何机构的正式预测。作为论证它是有效的（说明隐含预期之激进），但不应被引用为"市场共识是 10 倍"。</p>
+</div>
+
+<div class="box amber">
+  <h4>④ Meta vs Google 的配对，与"AI 赢家"的主流判断相反</h4>
+  <p>市场普遍认为谷歌在模型能力、TPU 自研算力、云业务上具备结构性优势，而 Meta 的 AI 投入回报长期受质疑。原文的论证（搜索被颠覆、人才流失、Meta 份额扩大）<strong>在逻辑上成立，但缺少可验证的量化证据</strong>——没有给出搜索份额、AI 产品留存、云增速的具体数字。这是全文最需要独立验证的一组。</p>
+</div>
+
+<div class="box amber">
+  <h4>⑤ 三星 HBM4"溢价 20%–25%"缺少出处</h4>
+  <p>这个数字是整组内存配对的核心依据，但原文只写"半导体研究人员 Jukan 和 Zephyr 认为"，<strong>没有给出数据来源、时间点与口径</strong>（是合约价还是现货价？是 HBM4 还是 HBM4E？）。同时"SK 海力士投 1000 亿美元建 2 座厂"也需要核对是总额还是分年。</p>
+</div>
+
+<div class="box amber">
+  <h4>⑥ 大量图表与清单缺失，回测无法核验</h4>
+  <p>原文至少 5 处提到"下方列出""下面是"（市场中性组合 vs 高贝塔 ETF 回测、生命科学价值链公司范围、资产对表现、经济活动篮子等），<strong>这些图表在文本中均未呈现</strong>。因此本报告无法核验其回测区间、夏普比率、最大回撤，也无法看到完整的成分股清单。<strong>第 8 节"酒类与泡沫"整节正文缺失。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>⑦ 事件驱动成分重，时效性强</h4>
+  <p>文中大量判断建立在极具体的事件上：德州数据中心暂停令、Anthropic 的 S-1、7 月 30 日 OpenAI 降价、10 月 27 日 FDA 的 IFS 草案、10 月 29 日 HII 财报电话会、11 月 3 日选举结果、11 月 3 日收盘价。<strong>这些判断的有效期可能只有数周</strong>。原文自己也很清楚："上周的下跌或今天的反弹，都不足以单独解释这次调整"——反过来，一篇依赖具体事件的报告，也需要按事件节奏更新。</p>
+</div>
+
+<div class="box purple">
+  <h4>但也必须承认它的三个真正强项</h4>
+  <ol>
+    <li><strong>敢于公开推翻自己。</strong>作者明确说"拍桌子力荐"变成了"重复叙事的循环"，并据此重构整个组合。这种自我修正的透明度在卖方研究中很少见。</li>
+    <li><strong>把"观点"翻译成了"结构"。</strong>不说"看多 AI"，而说"多 NVDA 空 AMD、多 GEV 空 BE、多老派软件空席位制软件"——每一条都可以被证伪，这是高质量研究的标志。</li>
+    <li><strong>对已盈利的主题主动降温。</strong>生命科学赚了 37.6% 之后先说"定价跑在现实前面"、先提示"下行风险不对称"，这是仓位管理的纪律，而非继续讲故事的惯性。</li>
+  </ol>
+</div>
+
+<!-- ================= 16 ================= -->
+<h2><span class="num">16</span>跟踪清单：接下来该盯什么</h2>
+
+<table>
+  <thead><tr><th style="width:24%">观察项</th><th style="width:38%">具体指标 / 事件</th><th style="width:38%">对应原文判断</th></tr></thead>
+  <tbody>
+    <tr><td><strong>云厂商 capex 指引</strong></td><td>四大云厂商下一季财报的全年 capex 指引是否<strong>下调或持平</strong>（而非上调）</td><td>"资本开支增速已经见顶"的直接验证点</td></tr>
+    <tr><td><strong>RPO 增速</strong></td><td>剩余履约义务的季度同比增速是否继续走低</td><td>"巨额投资承诺高峰已过"</td></tr>
+    <tr><td><strong>模型实验室 ARR</strong></td><td>Anthropic 与 OpenAI 的 ARR 增速是否<strong>低于过去 1 年</strong></td><td>三个自问之一</td></tr>
+    <tr><td><strong>数据中心交付进度</strong></td><td>2027 / 2028 年项目的并网时间表是否<strong>普遍延后</strong></td><td>三个自问之二</td></tr>
+    <tr><td><strong>AI 相关信贷</strong></td><td>neocloud 高收益债利差、BDC 折价率、银行过桥贷款余额</td><td>"信贷市场已彻底停滞"</td></tr>
+    <tr><td><strong>德州与三州政策</strong></td><td>数据中心暂停令是否扩大、新州长就职后的审批与电价条款</td><td>"州长选举是对数据中心的公投"</td></tr>
+    <tr><td><strong>词元定价</strong></td><td>是否出现第二轮降价；Opus 5.5 之后的份额变化</td><td>"价格战标志大周期走向终点"</td></tr>
+    <tr><td><strong>欧洲天然气库存</strong></td><td>库存率是否跌破 70%；TTF 与 JKM、Henry Hub 价差</td><td>霍尔木兹多空策略</td></tr>
+    <tr><td><strong>周期股 / 防御股比值</strong></td><td>是否止跌转升（若转升，滞胀判断需修正）</td><td>Regime Cube 滞胀象限</td></tr>
+    <tr><td><strong>软件财报的 AI ARR</strong></td><td>WDAY 的 AI ARR 是否继续翻倍、DOCU 的 IAM 占比是否破 20%</td><td>老派软件转型验证</td></tr>
+    <tr><td><strong>国防拨款</strong></td><td>1.5 万亿美元方案的具体投向；Golden Dome 预算协调法案进展</td><td>现代战争篮子</td></tr>
+    <tr><td><strong>FDA IFS 落地</strong></td><td>草案是否转为正式指南、覆盖范围是否扩大</td><td>医疗监管催化</td></tr>
+    <tr><td><strong>假日季消费</strong></td><td>TikTok Shop 渠道数据、ELF / VSCO / SN 的同店与指引</td><td>女友指数与圣诞袜组合</td></tr>
+  </tbody>
+</table>
+
+<!-- ================= 17 ================= -->
+<h2><span class="num">17</span>总结一下</h2>
+
+<div class="box blue">
+  <p><strong>一句话：这不是一篇"看空 AI"的报告，而是一篇"AI 的钱要换个位置赚"的报告。</strong></p>
+</div>
+
+<p>Citrini 用三年 2.5 倍于 SPX 的业绩建立了自己的信誉，然后用这份第 10 期《主题全景》做了一次公开的立场切换。它的核心判断只有一句：<strong>资本开支增速已经见顶</strong>——不是因为 AI 不行了，而是因为"2000 亿美元的生态 ARR"面对"1 万亿美元的 capex"，缺口大到只能靠两个变量收窄，而这两个变量（营收数量级增长、capex 放缓）都不会舒服地发生。</p>
+
+<p>更关键的是它的<strong>第二条腿</strong>：AI 降温的同时，实体经济反而在升温——职位空缺 4 年来首次普遍回升、周期性制造业强劲、服务业与制造业指标处多年高位、通胀压力仍在上行。于是市场进入"<strong>周期后期扩张</strong>"，14 组资产对里 9 组已经指向滞胀。这就解释了为什么它的结论不是"减仓"，而是"<strong>换风格</strong>"：从高贝塔、高动量、讲故事，换到低贝塔、有现金流、能被验证。</p>
+
+<p>执行层面，全文最值得记住的是三组"翻译"：</p>
+<ul>
+  <li>把"AI 分化"翻译成 <strong>6 组市场中性配对</strong>——多 NVDA 空 AMD、多 ORCL 空 NBIS、多 META 空 GOOGL、多 GEV 空 BE、多施耐德空 ENS、多三星空海力士。判断标准是"<strong>先行者优于新进入者、质量优于增长、已投产算力优于订单储备</strong>"。</li>
+  <li>把"AI 之外的机会"翻译成 <strong>老派软件</strong>——187 家公司的财报电话会调查显示，AI 对多数软件公司的实际影响"至多只是中性"；真正的分水岭是"<strong>拥有核心记录系统</strong>"还是"<strong>只提供应用</strong>"。VRSK、TYL、TRI、FDS、MORN、ICE、WDAY、DOCU 是这一逻辑的载体。</li>
+  <li>把"稀缺"翻译成 <strong>收费权</strong>——VICI 用 CPI 挂钩租金收体验稀缺的租，院线用合约锁定的影片供给收窗口期的租，而天空之舞与奈飞则<strong>被迫为这种溢价买单</strong>。</li>
+</ul>
+
+<p>对美股投资者而言，最可执行的三条结论是：<strong>①</strong> 用 <strong>QUAL / RSP</strong> 这类工具把组合从"动量集中"拉回"质量分散"；<strong>②</strong> 把 AI 敞口从"买赛道"改成"买交付"——GEV、DLR/EQIX、已投产算力，而非订单储备；<strong>③</strong> 在原文最反共识的两处（多 META 空 GOOGL、多 GEV 空 BE）上，<strong>先做小仓位、先做验证</strong>，因为这两组的胜负取决于原文未能提供的量化证据。</p>
+
+<p>最后必须重复原文自己的边界：<strong>词元使用量、支出与 AI 采用率都将继续增长，下游的生产力提升与颠覆没有疑问</strong>。这份报告质疑的从来不是 AI，而是"<strong>迄今从这轮投资中获取了大部分价值的那些公司，是否还能提供足够好的投资机会</strong>"。这个问句，比任何一个具体标的都更值得记住。</p>
+
+<div class="disclaimer">
+  <strong>数据与口径说明</strong><br>
+  1. 本文所有观点、数字、公司名与股票代码均来自原文（Citrini Research，2026-11-05），标注为"原文数据"者为原文披露，未经独立核验。<br>
+  2. <strong>本报告未接入实时行情。</strong>本次会话的金融数据服务未返回可用凭证，因此文中不包含任何当前股价、涨跌幅或实时估值；所有估值数字（如 NVDA 远期 PE 约 17 倍、AMD 约 36 倍、FSLR 约 10 倍、VRSK 处 10 年第 10 百分位）均为原文口径。<br>
+  3. 原文第 8 节"酒类与泡沫：干杯"正文缺失、第 10 节开头缺失、多处图表与公司清单缺失，本报告已标注，<strong>未做推测性填充</strong>。<br>
+  4. 标注"映射推断"的美股替代标的、ETF 选择与配对交易可执行方案，均为本报告基于原文逻辑的推导，<strong>不是原文主张</strong>。<br>
+  5. 原文标注的"维多利亚的秘密 VSXY"与该公司在纽交所的实际代码 VSCO 不符，已在正文标注，交易前请自行核对。<br><br>
+  ⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。
+</div>
+
+<div class="footer">
+  原文：Citrini Research《Citrini 判断 AI 资本开支增速已经见顶，AI 降温，实体经济升温，Citrini 怎么调仓》· 2026-11-05 · 第 10 期《主题全景》<br>
+  精读整理：2026-11-05
+</div>
+
+</div>
+
+<script>
+(function(){
+  var axis = {
+    axisLine:{lineStyle:{color:'#d5d9e0'}},
+    axisLabel:{color:'#6b7280',fontSize:11},
+    splitLine:{lineStyle:{color:'#eef0f3'}}
+  };
+
+  // 图1：周期股 vs 防御股
+  var c1 = echarts.init(document.getElementById('c1'));
+  c1.setOption({
+    grid:{left:52,right:24,top:36,bottom:34},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return v+'%';}},
+    xAxis:Object.assign({type:'category',data:['过去 1 个月','过去 3 个月','过去 6 个月']},axis),
+    yAxis:Object.assign({type:'value',name:'相对表现 %',nameTextStyle:{color:'#6b7280',fontSize:11}},axis),
+    series:[{
+      type:'bar',barWidth:'42%',
+      data:[
+        {value:-2.4,itemStyle:{color:'#1e7a4b'}},
+        {value:-2.9,itemStyle:{color:'#1e7a4b'}},
+        {value:-6.9,itemStyle:{color:'#1e7a4b'}}
+      ],
+      label:{show:true,position:'bottom',formatter:'{c}%',color:'#1e7a4b',fontSize:12,fontWeight:600}
+    }]
+  });
+
+  // 图2：NVDA vs AMD
+  var c2 = echarts.init(document.getElementById('c2'));
+  c2.setOption({
+    grid:{left:52,right:56,top:44,bottom:34},
+    legend:{top:6,textStyle:{color:'#3d4450',fontSize:12}},
+    tooltip:{trigger:'axis'},
+    xAxis:Object.assign({type:'category',data:['2023 以来营收倍数','2023 以来累计回报倍数','远期市盈率']},axis),
+    yAxis:[
+      Object.assign({type:'value',name:'倍数',nameTextStyle:{color:'#6b7280',fontSize:11}},axis),
+      Object.assign({type:'value',name:'PE',nameTextStyle:{color:'#6b7280',fontSize:11}},axis)
+    ],
+    series:[
+      {name:'NVDA',type:'bar',barGap:'12%',data:[5,14,{value:17,yAxisIndex:1}],itemStyle:{color:'#1f5fbf'},
+       label:{show:true,position:'top',color:'#1f5fbf',fontSize:11,fontWeight:600}},
+      {name:'AMD',type:'bar',data:[2,7,{value:36,yAxisIndex:1}],itemStyle:{color:'#a86400'},
+       label:{show:true,position:'top',color:'#a86400',fontSize:11,fontWeight:600}}
+    ]
+  });
+
+  // 图3：生命科学
+  var c3 = echarts.init(document.getElementById('c3'));
+  c3.setOption({
+    grid:{left:52,right:24,top:36,bottom:46},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return v+'%';}},
+    xAxis:Object.assign({type:'category',data:['Citrini 生命科学','周期拐点组合','XLV','XBI'],
+      axisLabel:{color:'#6b7280',fontSize:11,interval:0,rotate:0}},axis),
+    yAxis:Object.assign({type:'value',name:'涨幅 %',nameTextStyle:{color:'#6b7280',fontSize:11}},axis),
+    series:[{
+      type:'bar',barWidth:'46%',
+      data:[
+        {value:37.6,itemStyle:{color:'#c0392b'}},
+        {value:35.7,itemStyle:{color:'#c0392b'}},
+        {value:20.6,itemStyle:{color:'#9aa3b0'}},
+        {value:20.7,itemStyle:{color:'#9aa3b0'}}
+      ],
+      label:{show:true,position:'top',formatter:'{c}%',color:'#3d4450',fontSize:12,fontWeight:600}
+    }]
+  });
+
+  window.addEventListener('resize',function(){c1.resize();c2.resize();c3.resize();});
+})();
+</script>
+</body>
+</html>

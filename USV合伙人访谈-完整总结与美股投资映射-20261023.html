@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USV 合伙人深度访谈 · 完整总结与美股映射</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --card:#ffffff;
+    --ink:#1a1d21;
+    --ink-2:#33383f;
+    --muted:#6b7280;
+    --line:#e8e3da;
+    --line-2:#f1ede5;
+    --accent:#14524a;
+    --accent-soft:#e8f1ee;
+    --up:#b3261e;
+    --up-soft:#fbeceb;
+    --down:#0f766e;
+    --down-soft:#e7f2f0;
+    --amber:#b45309;
+    --amber-soft:#fdf3e3;
+    --shadow:0 1px 2px rgba(26,29,33,.04),0 8px 24px -12px rgba(26,29,33,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:16px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 120px;display:grid;grid-template-columns:210px 1fr;gap:56px}
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;align-self:start;padding:44px 0 0;max-height:100vh;overflow:auto}
+  nav .nav-title{font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;font-weight:600}
+  nav a{display:block;font-size:13px;color:var(--muted);text-decoration:none;padding:5px 0 5px 12px;border-left:2px solid transparent;line-height:1.5}
+  nav a:hover{color:var(--accent);border-left-color:var(--accent)}
+  nav a.sub{padding-left:24px;font-size:12.5px}
+  /* ---------- header ---------- */
+  header{grid-column:1/-1;padding:72px 0 44px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:700;margin-bottom:20px}
+  h1{font-family:"Songti SC","Noto Serif SC",Georgia,serif;font-size:44px;line-height:1.28;margin:0 0 20px;font-weight:700;letter-spacing:-.01em}
+  h1 .thin{color:var(--muted);font-weight:400;display:block;font-size:26px;margin-top:10px;letter-spacing:0}
+  .lede{font-size:17.5px;color:var(--ink-2);max-width:760px;margin:0 0 28px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;font-size:12.5px;color:var(--muted)}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+  /* ---------- content ---------- */
+  main{min-width:0;padding-top:44px}
+  h2{font-family:"Songti SC","Noto Serif SC",Georgia,serif;font-size:30px;line-height:1.35;margin:76px 0 8px;padding-top:20px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em}
+  h2:first-child{margin-top:0;border-top:none;padding-top:0}
+  h2 .num{display:inline-block;font-family:-apple-system,sans-serif;font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:700;vertical-align:middle;margin-right:14px;transform:translateY(-2px)}
+  h3{font-size:19px;margin:44px 0 12px;font-weight:700;letter-spacing:-.005em}
+  h4{font-size:15px;margin:26px 0 8px;font-weight:700;color:var(--ink-2)}
+  p{margin:0 0 16px}
+  .sub{color:var(--muted);font-size:14.5px;margin-top:-2px;margin-bottom:22px}
+  ul,ol{margin:0 0 18px;padding-left:22px}
+  li{margin-bottom:9px}
+  strong{font-weight:700}
+  em{font-style:normal;background:linear-gradient(transparent 62%, #fdf0c9 62%);padding:0 1px}
+  a{color:var(--accent)}
+  /* quote */
+  blockquote{margin:24px 0;padding:18px 24px;background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-family:"Songti SC","Noto Serif SC",Georgia,serif;font-size:17px;line-height:1.8;color:#123f39}
+  blockquote p:last-child{margin-bottom:0}
+  /* cards */
+  .grid{display:grid;gap:14px;margin:24px 0 30px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;box-shadow:var(--shadow)}
+  .card .n{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;margin-bottom:6px}
+  .card h4{margin:0 0 6px;font-size:15.5px}
+  .card p{font-size:13.5px;line-height:1.7;color:var(--muted);margin:0}
+  /* tables */
+  .tw{overflow-x:auto;margin:22px 0 30px;border:1px solid var(--line);border-radius:10px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.65}
+  th{background:#f7f4ee;text-align:left;font-weight:700;font-size:12.5px;letter-spacing:.02em;color:var(--ink-2);padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#fcfbf8}
+  td.c,th.c{text-align:center}
+  .tick{font-weight:700;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+  /* rating pills */
+  .r{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:5px;white-space:nowrap;line-height:1.6}
+  .r-up{background:var(--up-soft);color:var(--up)}
+  .r-mid{background:#f1f2f4;color:#4b5563}
+  .r-down{background:var(--down-soft);color:var(--down)}
+  /* callout */
+  .note{border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14px;line-height:1.8;border:1px solid}
+  .note-warn{background:var(--amber-soft);border-color:#f0dcb8;color:#6b4410}
+  .note-info{background:#f4f6f8;border-color:#e2e6ea;color:#374151}
+  .note-key{background:var(--up-soft);border-color:#f3d3d0;color:#7f1d18}
+  .note b{font-weight:700}
+  .note .t{display:block;font-weight:700;margin-bottom:5px;font-size:13px;letter-spacing:.04em}
+  /* stat row */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:26px 0 32px}
+  .stat{background:#fff;padding:18px 16px}
+  .stat .v{font-family:"Songti SC",Georgia,serif;font-size:26px;font-weight:700;line-height:1.2;color:var(--accent)}
+  .stat .l{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5}
+  /* weight bars */
+  .alloc{margin:22px 0 30px}
+  .alloc .row{display:grid;grid-template-columns:150px 1fr 46px;align-items:center;gap:14px;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .alloc .row:last-child{border-bottom:none}
+  .alloc .nm{font-size:13.5px;font-weight:600}
+  .alloc .bar{height:9px;background:#f1ede5;border-radius:999px;overflow:hidden}
+  .alloc .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1c6b60,#3f9a8b)}
+  .alloc .pc{font-size:13px;font-weight:700;text-align:right;color:var(--accent);font-variant-numeric:tabular-nums}
+  /* divider */
+  .rule{height:1px;background:var(--line);margin:52px 0}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;background:var(--accent-soft);color:var(--accent);vertical-align:middle;margin-left:6px}
+  .tag.src{background:#eef2ff;color:#3730a3}
+  footer{grid-column:1/-1;margin-top:70px;padding-top:26px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.9}
+  @media (max-width:900px){
+    .wrap{grid-template-columns:1fr;gap:0;padding:0 20px 80px}
+    nav{display:none}
+    h1{font-size:32px}
+    h1 .thin{font-size:19px}
+    .g2,.g3{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .alloc .row{grid-template-columns:110px 1fr 40px;gap:10px}
+    header{padding:44px 0 30px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">深度访谈 · 全文梳理 + 二级市场映射</div>
+  <h1>彻底颠覆，而非自动化
+    <span class="thin">USV 三位合伙人谈 9 亿美元新基金、AI 应用层与四个下注方向</span>
+  </h1>
+  <p class="lede">联合广场创投（USV）在坚持二十年「以小为美」后，首次把基金周期扩到 9 亿美元。这篇 1.6 万字访谈里，藏着他们对 AI 时代最锋利也最具争议的一套判断——以及一套可以直接翻译成美股与 ETF 的投资框架。</p>
+  <div class="meta">
+    <span class="chip">原文：AGI 2050</span>
+    <span class="chip">2026-10-09 发布</span>
+    <span class="chip">Sourcery 播客 · 85 分钟</span>
+    <span class="chip">Fred Wilson / Rebecca Kaden / Michael Mignano</span>
+    <span class="chip">整理：2026-10-23</span>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-title">目录</div>
+  <a href="#core">核心论点</a>
+  <a href="#part1">一 · 完整梳理</a>
+  <a class="sub" href="#s31">基金与四个方向</a>
+  <a class="sub" href="#s33">9 亿美元怎么花</a>
+  <a class="sub" href="#s34">UI 不会死</a>
+  <a class="sub" href="#s35">2003 年的互联网</a>
+  <a class="sub" href="#s37">尽调风向变了</a>
+  <a class="sub" href="#s38">起义军同盟</a>
+  <a class="sub" href="#s39">干掉律师会计医生</a>
+  <a class="sub" href="#s310">ARR 是假指标</a>
+  <a class="sub" href="#s311">Agent 安全</a>
+  <a class="sub" href="#s312">不赌万亿</a>
+  <a class="sub" href="#s313">周期赢家</a>
+  <a href="#views">二 · 观点全清单</a>
+  <a href="#data">三 · 数据速查</a>
+  <a href="#map">四 · 美股映射</a>
+  <a class="sub" href="#m1">方法论</a>
+  <a class="sub" href="#m2">应用层颠覆</a>
+  <a class="sub" href="#m3">开源栈</a>
+  <a class="sub" href="#m4">算力与补贴</a>
+  <a class="sub" href="#m5">物理 AI</a>
+  <a class="sub" href="#m6">能源</a>
+  <a class="sub" href="#m7">UI 与平台</a>
+  <a class="sub" href="#m9">信任与安全</a>
+  <a class="sub" href="#m10">金融主权</a>
+  <a class="sub" href="#m12">ETF 工具箱</a>
+  <a class="sub" href="#m13">组合框架</a>
+  <a class="sub" href="#m15">反方观点</a>
+  <a class="sub" href="#m16">一页速览</a>
+</nav>
+
+<main>
+
+<h2 id="core"><span class="num">00</span>一句话与十条核心论点</h2>
+
+<blockquote>
+  <p>USV 扩容不是因为市场变热，而是因为<strong>AI 的基础设施已经建完、定义时代的应用还没被造出来</strong>——这个时点极像 2003 年的互联网。所以把弹药压向四个方向，而应用层的信条是：不是给旧流程做自动化，而是用近乎免费的智能，把律师、会计、医生这些「按人头计费」的中间层连根拔起。</p>
+</blockquote>
+
+<div class="stats">
+  <div class="stat"><div class="v">9 亿</div><div class="l">美元新基金，USV 历史最大（上期 2.75 亿）</div></div>
+  <div class="stat"><div class="v">30–40</div><div class="l">计划投资家数，种子 + A 轮混合</div></div>
+  <div class="stat"><div class="v">20–30%</div><div class="l">能源资产占组合比重</div></div>
+  <div class="stat"><div class="v">20–30%</div><div class="l">内部法律工作已无人类律师介入</div></div>
+</div>
+
+<div class="grid g2">
+  <div class="card"><div class="n">01</div><h4>彻底颠覆，而非自动化</h4><p>过去十年 SaaS 是给旧流程提效；AI 的机会是让个人以极低成本获得被专业机构垄断的智能，重构产业结构。</p></div>
+  <div class="card"><div class="n">02</div><h4>今天的 AI ≈ 2003 年的互联网</h4><p>谷歌、亚马逊、雅虎、eBay 已立住，但 Facebook、推特、YouTube、iPhone 都还没出现。基础设施就绪，杀手级应用未生。</p></div>
+  <div class="card"><div class="n">03</div><h4>巨头无法自我防御</h4><p>律所不敢给客户免费发投资意向书，因为按人头、按工时计费就是它的饭碗。商业模式建立在「人」身上，就砍不掉人。</p></div>
+  <div class="card"><div class="n">04</div><h4>起义军同盟崛起</h4><p>开发者怕被 Claude 下场碾碎，转向开源模型 + 开放权重 + harness + 记忆 + 路由构成的开放栈。Coinbase 已弃用 Claude。</p></div>
+  <div class="card"><div class="n">05</div><h4>ARR 是假指标</h4><p>订阅制让公司在用户还没判断喜不喜欢之前就收满一年钱。当下试用处于历史峰值、黏性处于历史谷底。</p></div>
+  <div class="card"><div class="n">06</div><h4>UI 绝对不会死</h4><p>智能体替人做不想做的事（比价、报税），但不会替人看 Netflix、刷 YouTube。视觉信任折不进聊天框。</p></div>
+  <div class="card"><div class="n">07</div><h4>小基金策略不变</h4><p>规模小才容易进 Carry、才敢挑剔、激励才不变形。9 亿美元横向比仍属小巧。</p></div>
+  <div class="card"><div class="n">08</div><h4>不赌万亿美元</h4><p>只要规模与持股比例合适，几十亿到百亿美元级的赢家就能带来顶级回报。不再对赛道三四名抱幻想。</p></div>
+  <div class="card"><div class="n">09</div><h4>能源是杠杆最高的牌</h4><p>算力与模型何时见顶没人算得清，但可编程、便宜、充沛的电力是所有上层建筑的硬通货。</p></div>
+  <div class="card"><div class="n">10</div><h4>把想法做对 + 融到钱</h4><p>产品直觉与资本号召力两端兼备才能活到最后。只擅长一端，都会被对手碾过。</p></div>
+</div>
+
+<h2 id="part1"><span class="num">01</span>全文完整梳理</h2>
+<p class="sub">按原文顺序逐段还原，保留全部观点、案例、数字与原话，不做取舍。</p>
+
+<h3 id="s31">1.1　背景：一家「偏执自律」的基金为什么破例</h3>
+<p>USV 过去二十年有意把每期核心基金压到很小（上一期仅 <strong>2.75 亿美元</strong>），靠清晰的主题驱动（Thesis-Driven）逻辑，在互联网、移动、加密浪潮初期极早押中 Twitter、Coinbase、Stripe、MongoDB、Twilio、Etsy、Duolingo，以及近年的医疗 AI 公司 Abridge。</p>
+<p>但这一次，它破天荒募集了整整 <strong>9 亿美元</strong>，创机构历史最高纪录。编者按抛出的问题是：市场到底发生了什么？答案是——钱只投向四个方向。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:150px">方向</th><th>核心判断（原文）</th></tr></thead>
+<tbody>
+<tr><td><strong>AI 应用层</strong></td><td>「彻底颠覆，而非自动化」（Obliterate, don't automate）。不再雇佣律师、会计、医生，而是直接使用 AI 律师、AI 会计、AI 医生。</td></tr>
+<tr><td><strong>AI 基础设施</strong></td><td>称为「起义军同盟」。开发者不愿把核心业务建在 Claude 这类闭源模型上，以免模型厂商下场后被挤出；开源模型、开放权重、执行框架（harness）、记忆与路由构成的开放栈正在成形。</td></tr>
+<tr><td><strong>物理 AI</strong></td><td>投资自研模型并自行部署的全栈机器人公司，以及传感器网络，目标是获取此前无法采集的线下数据。</td></tr>
+<tr><td><strong>能源</strong></td><td>押注 AI 最直接、杠杆最高的方式之一。能源资产已占组合的 <strong>20%–30%</strong>。</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="s33">1.2　9 亿美元怎么花：基金算术</h3>
+<h4>为什么是 9 亿而不是 10 亿</h4>
+<p>Michael Mignano 强调，USV 的克制不只是总额，还包括<strong>基金构成</strong>：计划投多少家、开多大支票、阶段分布、公司总数。9 亿美元是<strong>自下而上严格推导</strong>出来的，不把基金规模当虚荣指标，「绝不是为了图好看说我们一定要做个 10 亿或 20 亿美元的基金」。</p>
+
+<h4>投多少家、什么阶段</h4>
+<ul>
+  <li>尽量不定死数量，大体 <strong>30–40 家</strong>，种子轮 + A 轮混合。</li>
+  <li>会做<strong>比以往多得多的种子轮</strong>。AI 催生海量创业公司、竞争激烈，<strong>把阶段前移变得越来越关键</strong>。</li>
+  <li>今天的 A 轮：Fred 起步时想的是开一张 <strong>300 万美元</strong>的支票，那是他「最初最舒服的投资区间」；<strong>今天的 A 轮起步怎么也得 1000 万美元</strong>。Rebecca 补充：1000 万现在都算偏小的，市面上不少 A 轮动辄 1 亿甚至 10 亿美元，「完全不在我们的射程之内」。</li>
+  <li>本期 A 轮支票 <strong>1000 万–3000 万美元</strong>，希望领投或联合领投，建立实质持股；不需要占满整轮，所以实际轮次总额可能更大。</li>
+</ul>
+
+<h4>种子轮的三形态光谱</h4>
+<ol>
+  <li><strong>纯创始人下注（Pure founder bets）</strong>：作为主题驱动基金，过去其实很少这么做。</li>
+  <li><strong>内部孵化</strong>：造原型成本极低、速度快，加上主题判断强，可以在合伙人内部自己孵化方向（如刚公布的 Supertake）。</li>
+  <li><strong>专有种子轮（Proprietary seeds）</strong>：风险合伙人 <strong>Jared Hecht、Scott Belsky</strong> 都是实战经验极强的创业者与产品思想家，配合 Mignano，可以「有了想法 → 主动在市场上找人 → 和对方搭档从零做起」。USV 本身不是创始人，但早期拥有极高控制度，在项目推向市场前包揽前两笔支票。</li>
+</ol>
+<p>判断：<em>未来种子投资里，这种形态可能占到三分之一到一半。</em></p>
+
+<h4>为什么坚持小基金：两条硬理由</h4>
+<ul>
+  <li><strong>经济模型</strong>：基金规模越小，越容易把本金挣回来并进入超额收益分成（Carry）。</li>
+  <li><strong>保持挑剔</strong>：自下而上管理，绝不为了凑数学模型硬性规定「必须投中全市场百分之几的公司」，只看重自己是否有坚定的假设和洞察。</li>
+</ul>
+<p>Mignano 补了一层激励视角：规模克制时，团队所有注意力都被压在被投公司的实际表现上；<strong>基金体量膨胀太大，底层激励机制往往会发生变形</strong>。9 亿美元对 USV 是巨大跃升，但横向对比其他基金依然算相对小巧。</p>
+<p>Fred 则给出「四方向一致性」原则：物理 AI、AI 应用、AI 基础设施、能源，在平时对话、官网、跟 LP 和创始人沟通时反复讲。<em>「其他赛道的创始人有大量机构可以选，但他们不会来找我们，因为我们在那些方向上从不大声发声。但在我们大声呼吁的这几个领域，创始人会主动找上门来。」</em></p>
+
+<h4>LP 的反应</h4>
+<p>USV 每季度与 LP 开电话会，同步策略、复盘组合、坦白讲清什么在起作用、什么没有，所以正式提出调规模时 LP 早就知道。让 Rebecca 意外的是，<strong>相当多 LP 反问：「你们确定不该再多募一些吗？」</strong>他们看得到生态演变，但也欣赏 USV 坚持做相对小基金的做法。</p>
+
+<h3 id="s34">1.3　UI 绝对不会死</h3>
+<p>Mignano 被问「你眼下最反主流的观点是什么」，回答是：<strong>图形用户界面绝不会消失。</strong>现在 X 上到处有人鼓吹「UI 已死，一切软件都要被折叠进聊天机器人」，他完全不信。理由三条：</p>
+<ul>
+  <li>UI 是用户与产品<strong>建立信任、获得安全感、在不同体验中导航</strong>的场所；</li>
+  <li>UI 是产品<strong>通过视觉传达复杂概念</strong>的方式；</li>
+  <li>很难想象人类会把所有计算活动都完全让渡给智能体。</li>
+</ul>
+<blockquote><p>智能体会帮我们处理不想做的事，比如比价购物、报税填表。但它不会替你去看 Netflix，不会替你去看 YouTube，甚至不会替你刷 X 或 Instagram。这些事情人类想亲自去体验。</p></blockquote>
+<p>结论：图形界面不会在所有领域统统退化成一个聊天框。</p>
+
+<h3 id="s35">1.4　今天的 AI，像极了 2003 年的互联网</h3>
+<p>Fred 回顾 2004 年写给 LP 的信：商用互联网 1995 年前后成型，到 2003 年<strong>大量底层基础设施已经完工</strong>。今天 AI 的处境极其相似——基础设施大体建好，但大家还在屏息以待杀手级应用。</p>
+<p>2003 年的底层基建有谷歌、亚马逊、雅虎、eBay，但<strong>没有 Facebook、没有推特、没有 YouTube、更没有 iPhone</strong>。当时 USV 坚信必然会有一大批新应用依托万维网破土而出。「现在的 AI 让我强烈回想起那个时刻。」</p>
+
+<h4>那融那么多钱到底花在哪</h4>
+<p>Mignano：做产品门槛确实降低了，但这意味着你要从密密麻麻的竞品噪音中冲杀出来。很大一部分资金砸在<strong>突围</strong>上——市场营销、品牌发声、定位叙事，尤其消费端。</p>
+<p>Rebecca：坚定看好开源模型，但看看企业在算力上的底层开销，完全进入了一个全新的数量级；即使像 Instinct 这样的产品，为满足服务需求在算力上的开支数字也非常夸张。这里有巨大未知数：<strong>算力成本究竟能降到多低？模型能力瓶颈究竟何时出现？</strong>「我们仿佛在一片未知的旷野中下注。」</p>
+
+<h4>推理补贴：必须咽下去的成本</h4>
+<p>Fred：OpenAI 和 Anthropic 至今还在为聊天产品兜底补贴算力。Claude 最终会弹窗催你付费，但 ChatGPT 免费了多久？Gemini 到现在还是免费的。<em>初创团队根本不可能对一个竞争对手正在免费送的能力收费。</em>推理和算力开销，在相当长一段时间内，都会是高速扩张型应用必须咽下的高昂补贴。</p>
+
+<h4>推特的历史对照</h4>
+<p>Rebecca 追问：推特当年是否也承受过「资本需求空前庞大」的压力？Fred：确实需要海量资金。推特首轮 <strong>500 万美元</strong>，一年后 <strong>2500 万</strong>，再过一年直接跳到 <strong>1 亿美元</strong>。乘以十，正好对应今天的 5000 万、2.5 亿和 10 亿美元轮次；何况那是 2007 年，通胀还会再放大几倍。</p>
+
+<h4>本质区别：网络效应</h4>
+<p>Mignano：很多人指出今天许多 AI 产品留存很差，因为缺乏网络效应。但当年看推特和 Facebook，第一反应一定是拼命狂奔——一旦把规模拉起来，就会形成不可思议的网络效应和锁定效应。</p>
+<p>Fred：当年最关键的区别是<strong>并不是每个 VC 都看得懂网络效应</strong>。一大批风投天天催促管理层「必须商业化、必须上订阅制才能产生收入」，而 USV 站在对立阵营：「只要能拿下 1000 万、5000 万、1 亿用户，公司永远不愁融不到钱。」后来事实证明 USV 赢了这场辩论，这也是企业通往网络效应的经典路径。</p>
+<p>Rebecca 给出当下最重要的一个开放问题：行业流行观点是「决胜关键只有规模」——功能大同小异，只要算力管够、分发够强就能拿下市场。但 USV 在推演另一条路径：<em>你依然需要某种网络效应来维持生意的长久生命力和高留存，而这种网络效应很可能取决于谁能率先把单人行为（Single-player）改造成真正的多人协同（Multiplayer）。网络效应并没有消失，只是需要一种前所未见的方式重新达成，而全行业目前还没看到最终解。</em></p>
+
+<h3 id="s37">1.5　尽调风向突变：产品直觉、同期群与新叙事能力</h3>
+<p><strong>第一层：合伙人必须有人真心为产品兴奋。</strong>Mignano 说这并非绝对——有时必须在极早期单纯押注一个人，或者像能源板块投微型核反应堆，那就不能只谈软件产品。</p>
+<p><strong>第二层：产品直觉 × 同期群数据。</strong>Fred 的方法论是亲手深度使用产品，凭第一直觉判断好不好，再把直觉与留存数据、同期群数据（Cohort data）结合，让两者彼此印证。<em>「有时你用着用着会觉得因为某些原因我可能很快会弃用它，回头一看数据，果然惊人一致，你就知道这家公司面临严重的流失隐患。」</em>这种原生体感与底层行为的交叉印证，是尽调的核心。</p>
+<p><strong>第三层：团队权重比以往更高。</strong>Rebecca 给出两条原因：</p>
+<ul>
+  <li><strong>招募顶级人才的难度达到历史峰值</strong>。优秀人才要么在头部前沿实验室和巨头拿极高薪水，要么被融资数十亿美元的明星初创争抢。必须有极强的创始人才能把这批人吸引来并组织起来。</li>
+  <li><strong>市场叙事聚合速度远超以往，资本在极早期就飞速「指定赢家」</strong>。估值和关注度的聚集远远跑在公司实际业务前面。创始人能否讲好故事、驾驭叙事、穿透噪音、在极早期把自己锚定为赛道领跑者，对后续融资、吸纳团队、获客都前所未有地重要。</li>
+</ul>
+<p>结论：<strong>对创始人「叙事与破局能力」的关注权重，远高于以往市场周期。</strong></p>
+
+<h3 id="s38">1.6　「起义军同盟」：开发者为何出逃 Claude</h3>
+<p><strong>关于平台智能体。</strong>Fred 坚信「每家大厂都推自己的智能体」可以成为可持续的长期品类：未来亚马逊有亚马逊的智能体，Shopify、Etsy 也有各自的智能体；<em>但我一定也想要一个完全代表我个人的智能体</em>，由它去和平台智能体沟通，而不是逼我逐一对接。</p>
+<p>现状是智能体还在粗糙地模拟人类行为：拿着账号密码登录各大网站。亚马逊非常反感，<strong>前几天明确对 Meta 表态：禁止 Muse 访问亚马逊</strong>。Fred 判断这种封杀还会上演，但最终行业会跑出一套<strong>标准协议</strong>，让个人智能体与平台智能体顺畅握手。</p>
+
+<h4>「起义军」针对谁</h4>
+<p>针对的是既得利益大赢家——OpenAI、Anthropic、Grok、谷歌 Gemini。另一端，是由开源模型、开源权重模型、开源 harness（执行套件）以及各类基础设施拼装起来的<strong>开放技术栈</strong>，可以用这些组件搭出对抗闭源巨头的全栈产品。</p>
+<p>为什么叫「同盟」：全世界很多开发者根本不想把身家性命押在封闭技术栈上，极度担忧「今天把业务架在 Claude 之上，Anthropic 哪天下场做个一模一样的功能，自己瞬间就被碾碎」。社交媒体早期的教训历历在目——<strong>许多人在 Facebook 生态上做大，最终 Facebook 亲自下场做同样功能，第三方直接被掐死。</strong></p>
+
+<h4>开放栈的四个层次</h4>
+<div class="grid g2">
+  <div class="card"><div class="n">LAYER 1</div><h4>模型对齐 Alignment</h4><p>确保模型符合特定企业或客户的核心诉求。</p></div>
+  <div class="card"><div class="n">LAYER 2</div><h4>记忆层 Memory</h4><p>让模型具备记忆能力。</p></div>
+  <div class="card"><div class="n">LAYER 3</div><h4>路由分发 Routing</h4><p>在不同模型间做智能请求分发。</p></div>
+  <div class="card"><div class="n">LAYER 4</div><h4>开源权重 Open-weights</h4><p>让开发者能随心调整模型，满足业务所需。</p></div>
+</div>
+
+<h4>Coinbase 弃用 Claude 的现场细节</h4>
+<p>上周 USV 内部 CEO 峰会，Fred 在台上访谈 Coinbase 的 CTO，聊如何在组织内部全面落地以 AI 为核心的工作方式。对方顺口提到：<strong>Coinbase 内部已经停用 Claude，基于一个叫 Pi 的开源产品，自研了内部专用代码智能体框架。</strong>巧合的是，Pi 背后的公司正是 USV 的被投项目——Fred 坐在台上当时毫不知情，内心暗喜。</p>
+<p>Shopify 也在公开推行同样的策略。Fred 猜想许多公司的 CTO 和技术领袖都意识到：「我们不能把一切死锁在 Claude 身上，必须拥有适应自身业务演进的弹性工具。」<em>这正是开源工具正在爆发的领域；很多 VC 对此并不感冒，这反倒让我们能与志同道合的创始人建立极深的信任。</em></p>
+<p>能源被再次强调：如果你想要一个最简单、不需要被各种繁杂概念干扰的押注 AI 的方式，那就直接押注能源。能源占组合 <strong>20%–30%</strong>，是支撑 AI 极具杠杆率的硬底牌。</p>
+
+<h3 id="s39">1.7　彻底颠覆，而非自动化：直接干掉律师、会计和医生</h3>
+<p>Mignano 解释这句口号：它会彻底颠覆既有的传统市场。过去十年企服和 SaaS 的主旋律是「自动化」——顺着既有商业流程帮大公司提效；但借助 AI，企业和普通人能以<strong>微不足道的成本，直接获取过去被大型专业机构垄断的顶级智慧</strong>。智能的平民化将彻底重构产业链。</p>
+<p>以医疗为例，USV 投资的 <strong>Doctronic</strong> 不是给现有医疗体系做效率软件，而是直接给消费者一个装在口袋里的「AI 医生」。Fred 补充：在某些州，比如<strong>犹他州，Doctronic 已经能合规开出处方药</strong>（不包含受控管制类药物）。</p>
+
+<div class="note note-key">
+  <span class="t">原文最锋利的一段</span>
+  不要聘请律师，直接使用 AI 律师；不要聘请会计，直接使用 AI 会计；不要挂号找医生，直接使用 AI 医生。<b>流程里根本不需要有人类在中间。</b>这不是把 AI 卖给医生、律师或会计的生意。
+</div>
+
+<p>Fred 用自己的例子佐证：我甚至不想要会计，只会让 AI 调取银行数据，替我把税表填完直接发给国税局。<strong>USV 内部目前已有 20%–30% 的法律工作完全没有外部人类律师介入</strong>，边界拿捏得很清楚；但像起草一份投资意向书（Term Sheet），早就不需要律师了。Rebecca 补充：拿 USV 历年积累的所有意向书训练内部模型，一键生成。<em>最让人兴奋的从来不是现有的绝对水准，而是它的进步斜率（Slope）。</em></p>
+
+<blockquote><p>你今天使用的 AI 律师，已经是它这辈子最差的一天了，往后它只会越来越强。</p></blockquote>
+
+<h4>为什么大厂做不到</h4>
+<p>Fred：他们的组织全靠「人」来维持。以律所为例，如果对外部律师说「意向书你们可以继续发，但我们以后不会付一分钱」，对方只会说：「凭什么？我底下养着大把律师要发工资。」<strong>大厂的商业模式完全依赖人头和工时计费，根本不可能把现有收费业务做成免费。</strong></p>
+<p>Rebecca 引用合伙人 Brad 的话：<em>押注对手失灵的最佳时刻，就是当你的颠覆动作会直接威胁到他当前的既得利益之时。</em>成熟大厂极难壮士断腕（Burn their own boats）。现在很多知名大律所也在大批招揽机器学习研究员、尝试自建模型，但从根子上，这会直接蚕食他们现有的核心饭碗。</p>
+
+<h4>谷歌为什么是例外</h4>
+<p>Fred 罕见地给出高度评价：谷歌在这一波变革中表现得非常值得钦佩——他们明知道 Gemini 会蚕食 Google Search，<strong>上周的数据显示传统搜索量确实在大幅度下滑</strong>，但谷歌敢自我革命，因为他们手握 YouTube、Waymo、安卓、Gmail 等极庞大的业务帝国；就算核心搜索受到冲击，其他业务也能顶上。「如果他们手上只有搜索业务，现在的处境恐怕会极其危险。」</p>
+
+<h4>护城河被重新定义</h4>
+<p>Rebecca：当所有人写代码都变得极快时，真正的护城河究竟是什么？回到最初的判断——<strong>网络效应、迭代速度、团队质量、产品直觉</strong>，以及那些涉及物理 AI、边缘数据和能源等<strong>不易被纯软件轻易复刻的硬核资产</strong>。</p>
+
+<h3 id="s310">1.8　ARR 是个虚假指标：留存塌陷与试用狂欢</h3>
+<p>Mignano：上次在 Sourcery 说「ARR 是个假指标」，片段在 X 上传得很广。很多投资人一看到收入曲线拉得极快就蜂拥而上，但订阅制带来一个巨大漏洞：<strong>你太容易在用户还没搞清楚喜不喜欢产品时，就先忽悠他们掏钱办了年卡</strong>；用户往往需要先付费才能完整试用。</p>
+<p>因此现在极度关注真实使用留存：用户每天都打开吗？每周都回来用吗？用了一个月之后还会继续使用吗？<em>如果实际使用留存是崩塌的，即便靠激进销售把前两年收入锁死，用户迟早会大规模流失（Churn），整门生意最终还是会瓦解。</em></p>
+
+<div class="note note-warn">
+  <span class="t">Rebecca 对当下市场的判断</span>
+  消费级应用市场处于极端状态：<b>试用行为（Trial）处于历史最高峰，日常黏性（Engagement）处于历史最低谷。</b>全网都在被各种新奇工具轰炸——「你试过 Instinct 了吗？用过 Muse 了吗？」大家都在好奇地尝鲜付费，但这是一种「假象」，绝大多数产品根本无法真正融入用户的日常生活。
+</div>
+
+<p>早期投资不可能拿到完美的长期留存数据（否则投资成本极高），必须依靠对团队产品迭代能力的敏锐洞察，从有限的数据和产品细节里推断未来的留存潜力。</p>
+
+<h4>Abridge 的「三脚凳」</h4>
+<p>上周 CEO 峰会，2016 年基金投出的医疗 AI 明星项目 Abridge 创始人 Shiv Rao 提到：过去五六年公司全部收入几乎都来自单一产品；但就在过去 12 个月内，<strong>连续打爆了两个新产品线</strong>。Abridge 原本是「一把单腿着地的椅子」，现在变成了极其稳固的三脚凳——三个产品高度协同：客户买了一个就被绑定，买了第二个黏性加倍，买了第三个就彻底离不开。</p>
+<p>在风投模型里，一个基金通常就靠两三家甚至三四家明星企业拉动整体超额回报，<strong>Abridge 正在展现这种百倍潜质</strong>。</p>
+
+<h4>伟大公司从来不是直线</h4>
+<p>Fred：USV 至今发行十多期早期基金，每一期都诞生两到三家真正伟大的公司。</p>
+<ul>
+  <li><strong>第一期</strong>：推特、Etsy、Indeed。Indeed 已退出 15 年，现在电视上还有铺天盖地的广告，推测体量比当年卖掉时<strong>大了 50–100 倍</strong>；</li>
+  <li><strong>第二期</strong>：面向开发者的 MongoDB 和 Twilio；</li>
+  <li><strong>再往后</strong>：Stripe、Coinbase、Duolingo；</li>
+  <li><strong>最近这批</strong>：2016 年投资的 Abridge。</li>
+</ul>
+<p>过去二十年大概投了 <strong>20–25 家</strong>称得上非凡的企业。而成长细节全是泥淖：Indeed 刚创立时只有 Paul、Rony 和几个工程师；推特刚拿到投资时全公司只有五六个人；<strong>Coinbase 是典型的「往前推几步、横盘极长时间、再推几步、又横盘极久」</strong>，直到 2017 和 2019 年两次爆发性飞跃才走入公开市场；推特则长期以 CEO 像「走马灯」一样频繁轮换闻名。</p>
+
+<h4>Abridge 的「错位」教训</h4>
+<p>Rebecca：Abridge 最初的产品构想和现在大体相似，但团队在一条完全错误的商业化路径上死磕了好几年，几乎颗粒无收。Fred 补充：他们当时的设想是患者走进诊室、掏出设备把问诊录下来；后来证明，<strong>真正迫切想记录就诊过程的其实是医生群体自己</strong>。</p>
+<p>Rebecca 的总结值得整段引用：<em>你以为自己下注的是一个无比笃定的商业构想，但事后证明你真正买单的根本不是这个。你买单的是团队、是产品直觉、是前瞻方向。</em>你下注的是 Shiv 这个创始人，相信他能搭起强队伍，把「大方向正确但执行细节完全跑偏」的模糊火苗护送到正确产品形态，再通过连续推出协同产品，在正确的时间与正确的商业模式迎头相撞。这种顿悟有时来得极快，有时需要熬上数年，<strong>你必须找到能承受这种折磨并死战到底的团队</strong>。</p>
+
+<h4>看走眼的四种死法</h4>
+<p>Fred 承认「我们看走眼的次数远多于看对的次数」。常见死法：</p>
+<ol>
+  <li>想法太多，<strong>极度内耗</strong>；</li>
+  <li><strong>招不来厉害的人</strong>，招来了也留不住；</li>
+  <li>严重的<strong>微观管理倾向（Micromanager）</strong>；</li>
+  <li>迈不过自己的<strong>性格缺陷</strong>。</li>
+</ol>
+<p>Rebecca 补充第五种：<strong>不敢壮士断腕</strong>——当原有商业路径明显走不通时，缺乏在早期做出刮骨疗毒式大转向的魄力。初创企业要亲手烧掉自己的后路，极其艰难。</p>
+
+<h4>主题驱动的威力与风险</h4>
+<p>Mignano：所有成功案例回溯下注时点都早得难以置信——投 Coinbase 时处于加密行业的绝对洪荒期，投 Abridge 时处于 AI 与医疗数据结合的极早期。Fred 担任董事的微型核反应堆公司 <strong>Radiant，2021 年就投进去了</strong>；当时全天下根本没人意识到 AI 对电力的饥渴会到这种程度，但团队基于主题推演认定充沛能源是未来基石。<strong>五年过去，这个主题完全被印证——这正是主题驱动的威力。</strong></p>
+<p>Rebecca 给出两面性：好处是敢于下注尚未成型、甚至完全不显眼的边缘赛道；和创始人的第一次对话从完全不同的地方开始——不是他单向推销、你看他信不信，而是<em>「我有我的假设，你有你的假设，看我们的认知在哪里对齐」</em>。风险是：你可能挑错了人，甚至整个主题从第一天起就错了；但只要走通一条正确的路，回报是惊人的。</p>
+
+<h3 id="s311">1.9　Agent 接管身家之后，谁来保护你</h3>
+<p>Mignano 提出一个非常具体的隐忧：用户现在动辄把大把权限托管给智能体。<em>「今天早上我还在想：密码重置机制在未来很可能会彻底失效。」</em>如果智能体接管了你的主邮箱，而所有密码重置邮件都发到邮箱里，一旦智能体失控，它能瞬间接管你名下全部账户。</p>
+<p>Fred：USV 投资了一家刚宣布新进展的公司 <strong>Common Fabric</strong>，专门做安全沙盒——既要给智能体足够的系统权限，又要为用户筑起不可逾越的沙盒边界。</p>
+<p>Rebecca 给出商业层面的冷静判断：USV 一直关注「让用户掌控自己的安全和隐私、对抗大平台」，但<strong>商业上有赚有赔</strong>，取决于终端用户到底多在乎。DuckDuckGo 找到了足够多真正在乎隐私的用户，做成了一门很强的生意；更多时候用户没有足够动力为安全折腾。<em>但这个临界点可能正在到来。</em></p>
+<p>Fred 的第二解：如果强大模型能直接在 iPhone 这类安全设备上本地跑通，高度敏感数据可交给本地模型处理，根本无需上云。「我们虽然还没完全跨过那个门槛，但离强大模型在本地顺畅跑通已经不远了。」Rebecca 补充：Nikhil 和她这周末刚看了一家在手机端跑本地模型的团队，「我们其实已经到了这个时代节点」。</p>
+
+<h4>加密资产：点错一个链接就没了</h4>
+<p>Fred 自述：持有加密资产 15 年，<strong>自己被黑客黑过 4 次，但依然保住了 99% 的加密资产</strong>。他至今仍担任 Coinbase 董事，而安全正是 Coinbase 业务里很大的一块：高规格离线冷存储、延迟提现保护机制、双因素认证，竭尽一切工程手段保护用户资产。本质是<strong>用系统工程来保护用户免受自身愚蠢与冲动的伤害</strong>——「这种蠢事我自己也干过」。</p>
+<p>Mignano：在许多维度上，<strong>Coinbase 本质是一家安全公司</strong>。</p>
+<p>Rebecca 把它上升为 AI 的范本：当年大家都想拥抱加密货币，但遍地是钓鱼黑客和隐私陷阱、门槛极高；Coinbase 走上前台对大众说「把资产交给我们托管，底层的脏活险活我们全包，绝对安全」。在 AI 领域，用户面对复杂的模型权限和数据风险同样心存疑虑——<em>谁能打造出那个让大众可以彻底卸下防备的「最值得信赖的品牌」，谁就是我们要找的公司。</em></p>
+
+<h3 id="s312">1.10　不赌万亿神话：在非共识的边缘市场赚大钱</h3>
+<p>被问「是否相信这期基金投的每一家都有机会成长为万亿美元巨头」，Rebecca 回答得干脆：<strong>当然不可能，也不需要。</strong></p>
+<p>如果一个风投要求每个项目都必须奔着万亿美元去算账，那说明他根本没有承担足够的风险；风险投资的核心机制永远是押注极度倾斜的<strong>离群值（Outlier）</strong>。USV 最擅长的事，是在某些市场还完全不存在时就敢于重注它的未来——当年投资 Coinbase 时的加密生态、早期的在线教育、现在的能源赛道都是如此。</p>
+<p>如果按当年投资 Coinbase 那一刻流入加密领域的资金规模去推算 TAM，得出的估值结论绝对不足以支撑那笔投资；<strong>必须敢于对未来的增量市场做前瞻性判断和下注（write forward）</strong>。两个例子：今天看物理 AI、机器人、密集传感器网络带来的边缘数据，市面上跑的产品体量看起来微不足道，但放到 2030、2040 年，难道不会催生万亿美元级市场吗？投资 Radiant 时，商业微型核能的市场规模近乎为零，但确信它会成为 AI 时代最核心的能源骨干。</p>
+<p>同时，市场结构已经变了：过去第三、第四甚至第五名玩家或许还能分得不少残羹冷炙；<strong>今天市场价值向龙头集中的速度远超以往，资本对长尾玩家已经提不起兴趣</strong>。结论是——不再对细分赛道的三四名抱有任何幻想。</p>
+
+<h4>Fred 的基金数学</h4>
+<p>过去认为一家被投企业做到 5 亿美元市值就很不错，后来门槛提高到 10 亿。但即便今天，只要最终赢家能成长到<strong>数十亿乃至百亿美元体量</strong>，凭借 USV 相对克制的基金规模和足够高的持股比例，就能为 LP 创造极其惊人、名列前茅的绝对超额回报。历史上确实出过 500 亿甚至千亿美元市值的项目，但 <strong>USV 很多最大的赢家，都是最终价值在 100 亿美元左右的顶级中坚公司</strong>。</p>
+
+<h4>关于挤泡沫</h4>
+<p>被问及零利率时代估值被炒到 110 亿、150 亿，随后被减记到 10 亿、20 亿再卖给 Bending Spoons 这类整合机构的下行周期，Fred 认为这种挤泡沫的过程在商业史上永远在重复上演：某些公司在一时狂热中被抬到远远脱离真实商业价值的畸形高度，最终必然重重跌回地表。除开少数真正一飞冲天的火箭级企业，<strong>很多曾经风光无限的独角兽终究会回归平庸</strong>——而这恰恰是 Bending Spoons 这类机构的用武之地：等风投这段旅程走完再接手，用另一种资本结构把业务继续做大。</p>
+
+<h3 id="s313">1.11　周期赢家的共性：把想法做对，也要融到钱</h3>
+<p>Fred：最核心的是<strong>「把想法做对」（Getting the idea right）</strong>。全行业现在都知道人人都会拥有个人智能体，但把市面上现存智能体挨个试一遍，它们在使用体感、交互机制上千差万别。所谓「把想法做对」，就是把最恰当的功能特性以最合理的方式组装起来，并匹配上正确的商业模式；与此同时，团队还要拥有极强的资本号召力与组织规模化能力，一旦业务起火，能立刻融到海量弹药吃下整个市场。</p>
+<p>两端缺一不可：光擅长融资毫无意义——多的是融资能力极强但做不出能打产品的团队；反过来，也有人能做出极好的产品，但融不到钱、聚不拢人才，最终被对手碾压。<strong>唯有两端兼备的团队才能真正活到最后。</strong></p>
+<p>被问「十年前识别创始人的融资能力也这么重要吗」，Fred 说：有时如果一个产品真的彻底火了，哪怕创始团队还不匹配，资本也会疯抢着塞钱进来。遇到这种情况，创始团队和董事会必须手忙脚乱地到处灭火，拼命重组团队、修补短板，让组织能力跟上势能。<strong>推特经历过这个阶段，Etsy 当年也是如此。好产品并不总是一开始就诞生在各项机能都健全的成熟团队手中。</strong></p>
+
+<h4>最让 USV 信服的创始人：Stedi 的 Zach Kanter</h4>
+<p>Rebecca 讲了一个完整的十年故事：Zach 在这家公司上死磕了整整十年；过去三年业务开始疯狂飞轮运转，但在此之前，<strong>他在暗无天日的泥淖中独自煎熬抗争了整整七年</strong>。这七年里市场根本不在他这一边，但他始终维持对团队招募的极高标准，把产品磨砺到极致。当外部技术风向与市场成熟度终于在某一刻与他的产品严丝合缝对齐时，他瞬间抓住机会，彻底引爆业务。</p>
+<blockquote><p>在顺风顺水时保持狂热并不稀奇；能在逆风扑面、无人问津的漫长岁月里，依然把整支队伍的战斗张力拉满，这种耐力是我在创业者身上见过最迷人的特质。</p></blockquote>
+<p>Fred 收尾：说到底，让我们保持灵感的就是创始人。每一天都有人推门走进来，用完全不同的方式思考一件事，改变你对它的看法。这就是做风险投资最迷人的地方。</p>
+
+<h2 id="views"><span class="num">02</span>观点全清单</h2>
+<p class="sub">把散落在对话里的判断抽出来，逐条编号，确保没有遗漏。这也是后续投资映射的「原料表」。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:40px" class="c">#</th><th style="width:150px">议题</th><th>观点（保留原意与关键表述）</th></tr></thead>
+<tbody>
+<tr><td class="c">1</td><td>应用层范式</td><td>核心是「彻底颠覆，而非自动化」。过去十年 SaaS 顺着既有流程提效；AI 是让个人以极低成本获得被机构垄断的智能，重构产业结构。</td></tr>
+<tr><td class="c">2</td><td>时代坐标</td><td>今天的 AI 极像 2003 年的互联网：底层基建（谷歌、亚马逊、雅虎、eBay）已立住，定义时代的应用（Facebook、推特、YouTube、iPhone）尚未出现。</td></tr>
+<tr><td class="c">3</td><td>巨头防御</td><td>传统巨头无法自我防御，因为商业模式建立在「人」身上；按人头/工时计费者不可能把收费业务做成免费。</td></tr>
+<tr><td class="c">4</td><td>颠覆时机</td><td>押注对手失灵的最佳时刻，就是当你的颠覆动作直接威胁到他当前既得利益之时；成熟大厂极难壮士断腕。</td></tr>
+<tr><td class="c">5</td><td>开源栈</td><td>「起义军同盟」由开源模型、开放权重、harness、记忆、路由构成；开发者怕被闭源模型厂商下场碾碎。</td></tr>
+<tr><td class="c">6</td><td>平台主权</td><td>人人都会想要一个代表自己的智能体；亚马逊封杀 Muse 只是开始，最终会出现跨平台标准协议。</td></tr>
+<tr><td class="c">7</td><td>ARR</td><td>ARR 是假指标；订阅制允许在用户判断喜好之前收满一年钱，真实使用留存才是核心。</td></tr>
+<tr><td class="c">8</td><td>市场温度</td><td>试用行为处于历史最高峰，日常黏性处于历史最低谷；绝大多数产品无法融入日常生活。</td></tr>
+<tr><td class="c">9</td><td>UI</td><td>图形界面绝不会死；智能体处理「不想做的事」，人类要亲自体验「想做的事」（Netflix、YouTube、Instagram）。</td></tr>
+<tr><td class="c">10</td><td>网络效应</td><td>网络效应没有消失，但需要前所未见的方式重新达成；关键是能否把单人行为改造成多人协同（Single-player → Multiplayer），全行业尚无解。</td></tr>
+<tr><td class="c">11</td><td>规模与留存</td><td>当年推特/脸书是「先规模、后网络效应」；今天很多 AI 产品留存差，正是因为缺乏网络效应。</td></tr>
+<tr><td class="c">12</td><td>推理成本</td><td>推理与算力开销是高速扩张型应用必须长期咽下的补贴；初创不可能对竞争对手免费送的能力收费。</td></tr>
+<tr><td class="c">13</td><td>资本需求</td><td>做产品门槛极低，但运营与规模化极贵；资金主要花在「突围」——营销、品牌、叙事，尤其消费端。</td></tr>
+<tr><td class="c">14</td><td>基金规模</td><td>9 亿美元是自下而上推导的结果，不是虚荣指标；规模克制才容易进 Carry、才敢挑剔、激励才不变形。</td></tr>
+<tr><td class="c">15</td><td>投资阶段</td><td>阶段前移：30–40 家、种子 + A 轮混合；A 轮支票 1000–3000 万美元；种子新形态（纯创始人下注、孵化、专有种子）将占 1/3–1/2。</td></tr>
+<tr><td class="c">16</td><td>尽调标准</td><td>合伙人必须有人真心为产品兴奋；产品直觉与同期群数据交叉印证，是尽调核心。</td></tr>
+<tr><td class="c">17</td><td>团队权重</td><td>团队重要性高于以往：顶级人才争夺达到历史峰值；资本极早期「指定赢家」，创始人的叙事与破局能力权重空前。</td></tr>
+<tr><td class="c">18</td><td>护城河</td><td>当写代码变得极快，护城河回到网络效应、迭代速度、团队质量、产品直觉，以及物理 AI/边缘数据/能源等难被软件复刻的资产。</td></tr>
+<tr><td class="c">19</td><td>AI 法律</td><td>USV 内部 20–30% 法律工作已无人类律师；Term Sheet 早就不需要律师；内部模型一键生成；关键不是绝对水准而是进步斜率。</td></tr>
+<tr><td class="c">20</td><td>AI 医疗</td><td>Doctronic 在犹他州已可合规开处方（不含管制药）；若人人可零门槛连医生，医疗体系将被重塑。</td></tr>
+<tr><td class="c">21</td><td>谷歌</td><td>谷歌值得钦佩：明知 Gemini 蚕食搜索仍自我革命，因为手握 YouTube、Waymo、安卓、Gmail；只有搜索业务的公司会很危险。</td></tr>
+<tr><td class="c">22</td><td>多产品协同</td><td>Abridge 从「单腿椅子」变「三脚凳」：买一个被绑定、买两个黏性加倍、买三个离不开；这是百倍潜质的形态。</td></tr>
+<tr><td class="c">23</td><td>成长路径</td><td>伟大公司不是直线：Coinbase 反复横盘多年才飞跃；推特 CEO 走马灯；每期基金只有 2–3 家伟大公司。</td></tr>
+<tr><td class="c">24</td><td>下注对象</td><td>早期投资真正买的不是商业构想，而是团队、产品直觉、前瞻方向；Abridge 最初连「谁想录问诊」都搞错了。</td></tr>
+<tr><td class="c">25</td><td>失败模式</td><td>看走眼五种：想法太多内耗、招不到/留不住人、微观管理、性格缺陷、不敢壮士断腕。</td></tr>
+<tr><td class="c">26</td><td>主题驱动</td><td>好处是敢下注边缘赛道、对话从假设对齐开始；风险是选错人或主题从一开始就错。</td></tr>
+<tr><td class="c">27</td><td>Agent 安全</td><td>「密码重置」机制将失效；智能体接管主邮箱＝接管全部账户；解法是安全沙盒（Common Fabric）与端侧本地模型。</td></tr>
+<tr><td class="c">28</td><td>信任生意</td><td>Coinbase 本质是安全公司；AI 时代谁能让大众彻底卸下防备，谁就是目标公司；但隐私生意有赚有赔（DuckDuckGo 成了，多数没成）。</td></tr>
+<tr><td class="c">29</td><td>端侧 AI</td><td>强大模型在 iPhone 本地跑通已不远；敏感数据无需上云；「我们其实已经到了这个时代节点」。</td></tr>
+<tr><td class="c">30</td><td>不赌万亿</td><td>不需要每个项目都奔万亿；只要规模与持股合适，几十亿到百亿级赢家即可带来顶级回报；很多最大赢家终值约 100 亿美元。</td></tr>
+<tr><td class="c">31</td><td>市场结构</td><td>价值向龙头集中速度远超以往，资本对长尾失去兴趣；不再对三四名抱幻想。</td></tr>
+<tr><td class="c">32</td><td>挤泡沫</td><td>狂热中抬到畸形高度的公司必然跌回地表；多数独角兽回归平庸，这正是 Bending Spoons 这类整合者的机会。</td></tr>
+<tr><td class="c">33</td><td>成功公式</td><td>「把想法做对」+ 资本号召力与组织规模化能力，两端兼备才能活到最后。</td></tr>
+<tr><td class="c">34</td><td>组织补课</td><td>产品先火、团队不匹配时，董事会必须紧急重组团队补短板；推特、Etsy 都经历过。</td></tr>
+<tr><td class="c">35</td><td>创始人耐力</td><td>最迷人的特质是逆风七年仍把队伍战斗张力拉满（Stedi 的 Zach Kanter）。</td></tr>
+<tr><td class="c">36</td><td>能源</td><td>押注 AI 杠杆最高的一张牌；可编程、便宜、充沛的电力是所有上层建筑的硬通货；占组合 20–30%。</td></tr>
+<tr><td class="c">37</td><td>金融主权</td><td>Supertake：普通人不懂选股也应能投资自己的信念；Agent 通过 Robinhood/Coinbase 账户建仓、播报、追踪、自动再平衡。</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="data"><span class="num">03</span>数据速查表</h2>
+<div class="tw">
+<table>
+<thead><tr><th style="width:230px">类别</th><th>数据</th></tr></thead>
+<tbody>
+<tr><td>新基金规模</td><td><strong>9 亿美元</strong>（USV 历史最大；上一期 <strong>2.75 亿美元</strong>）</td></tr>
+<tr><td>不做 10 亿的理由</td><td>自下而上严格推导，不把规模当虚荣指标</td></tr>
+<tr><td>计划投资数量</td><td><strong>30–40 家</strong>，种子轮 + A 轮混合，种子轮显著增多</td></tr>
+<tr><td>A 轮支票</td><td><strong>1000 万–3000 万美元</strong>；A 轮起步门槛已达 1000 万美元；USV 最初为 300 万美元</td></tr>
+<tr><td>市场极端 A 轮</td><td>有 1 亿甚至 10 亿美元的轮次（不在 USV 射程）</td></tr>
+<tr><td>种子新形态占比</td><td>未来种子投资中可能占 <strong>1/3 – 1/2</strong></td></tr>
+<tr><td>能源占组合</td><td><strong>20%–30%</strong></td></tr>
+<tr><td>内部 AI 法律工作</td><td><strong>20%–30%</strong> 无外部人类律师介入</td></tr>
+<tr><td>推特融资史</td><td>500 万 → 2500 万 → 1 亿美元（2007 年）；折算今天约 5000 万 / 2.5 亿 / 10 亿美元</td></tr>
+<tr><td>基金期数</td><td>约十多期早期基金，每期 2–3 家伟大公司</td></tr>
+<tr><td>非凡企业数量</td><td>二十年约 <strong>20–25 家</strong></td></tr>
+<tr><td>Indeed 体量</td><td>比 USV 退出时大 <strong>50–100 倍</strong></td></tr>
+<tr><td>典型赢家终值</td><td>很多最大赢家约 <strong>100 亿美元</strong>；也有 500 亿–1000 亿美元级</td></tr>
+<tr><td>Fred 加密经历</td><td>持有 15 年，被黑 <strong>4 次</strong>，保住 <strong>99%</strong> 资产</td></tr>
+<tr><td>播客时长</td><td>85 分钟；全文约 1.6 万字 / 阅读 26 分钟</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="map"><span class="num">04</span>对应美股与 ETF 的投资观点</h2>
+
+<div class="note note-info">
+  <span class="t">阅读前必须知道的三件事</span>
+  ① 原文是一级市场 VC 的方法论访谈，<b>除 USV 自家被投与大厂外，没有给出任何美股代码或买卖建议</b>；下文全部为基于文章逻辑的二级市场映射，并明确区分「文章直接提及」与「本文推断」。<br>
+  ② 行情数据为 2026 年 10 月中下旬公开信息，仅作定位，交易前请复核最新报价。<br>
+  ③ 文章是 5–10 年产业判断，与 6–12 个月股价可能完全相反。本文不构成投资建议。
+</div>
+
+<h3 id="m1">4.1　方法论：三条传导链</h3>
+<p>观点要落到股票上，必须经过三层翻译，否则最容易「逻辑对、标的错」。</p>
+<div class="tw">
+<table>
+<thead><tr><th style="width:130px">传导链</th><th style="width:210px">文章原话</th><th>二级市场含义</th><th style="width:220px">常见误判</th></tr></thead>
+<tbody>
+<tr><td><strong>智能平民化</strong></td><td>「不要请律师，直接用 AI 律师」</td><td>价值从按人头/工时计费的服务商，转移到拥有分发与数据的平台 + AI 原生应用</td><td>误买「给律所卖 AI 工具」的公司——文章明说这不是把 AI 卖给律师的生意</td></tr>
+<tr><td><strong>开源替代闭源</strong></td><td>「起义军同盟」</td><td>模型层定价权被削弱 → 推理成本下降 → 应用层毛利改善；受益者是开源权重方、记忆/路由/数据层、廉价算力</td><td>误以为开源会消灭算力需求——文章说算力开销「进入全新数量级」</td></tr>
+<tr><td><strong>能源硬约束</strong></td><td>「杠杆最高的一张牌是能源」</td><td>电力从公用事业变成 AI 的产能瓶颈，定价权从买方转向卖方</td><td>把「能源」等同于「核聚变概念」——USV 投的是已建/在建的微型堆与可调度电力</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note note-warn">
+  <span class="t">当前市场的关键背离（2026 年 10 月）</span>
+  市场已从「证明 AI 需求存在」进入<b>「证明 AI 投入能创造足够利润」</b>的阶段，表现为 <b>AI 硬件抗跌、AI 软件与应用杀估值</b>：9 月美联储加息后 10Y 美债从 4.79% 冲到 <b>5.29%</b>；9 月费城半导体指数涨 11.9%、英伟达涨 3.44%、台积电涨 9.84%，而 Salesforce 单月跌 10.86%。<br>
+  而 USV 这篇文章的重心恰恰在应用层——<b>产业判断与股价动量正在背离。这既是风险，也是机会的来源。</b>
+</div>
+
+<h3 id="m2">4.2　主题一：应用层颠覆——做多颠覆者，回避被颠覆者</h3>
+<p><strong>文章逻辑</strong>：按席位收费的 SaaS 正在被 Agent 直接绕过；被颠覆者的护城河是「人头」，而人头恰恰是它们不能放弃的东西。</p>
+<p><strong>市场已经验证了一半</strong>：2026 年 2 月 3 日 Anthropic 发布具备高度自主性的 <strong>Claude Cowork</strong> 后，软件板块单日蒸发约 <strong>3000 亿美元</strong>市值，交易员称之为「SaaS 末日」（SaaS-pocalypse）；标普北美软件指数 2026 年 1 月单月下跌 <strong>15%</strong>，创 2008 年金融危机以来最差月度表现；Salesforce、Intuit、Adobe、Workday 普遍回撤 <strong>20%–30%</strong>。</p>
+<p><em>关键含义：市场定价的是「被杀的一方」，而不是「受益的一方」。</em></p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:95px">标的</th><th style="width:95px" class="c">观点</th><th>与文章逻辑的对应</th><th style="width:230px">核心风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">INTU</td><td class="c"><span class="r r-down">低配</span></td><td>「AI 会计」要取代的正是报税与记账的中介层；护城河是复杂税法的「翻译费」</td><td>它同时是数据持有者，若转型为「AI 会计师本人」可反转逻辑</td></tr>
+<tr><td class="tick">HRB / TRI / RELX</td><td class="c"><span class="r r-down">低配</span></td><td>法律、税务信息与人工服务的中间商</td><td>专有数据库仍有授权价值，合规壁垒高</td></tr>
+<tr><td class="tick">TDOC</td><td class="c"><span class="r r-down">低配</span></td><td>文章用 Doctronic 说明「AI 医生直接 to C」会重塑医疗体系；远程问诊是「人+平台」的中间态</td><td>保险支付方关系仍是壁垒，AI 反可能降其成本</td></tr>
+<tr><td class="tick">CRM / WDAY / ADBE</td><td class="c"><span class="r r-mid">中性偏谨慎</span></td><td>席位制 + 流程自动化的典型代表</td><td>若成功转向「结果/工作量」计费，估值可修复</td></tr>
+<tr><td class="tick">NOW</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>多产品 land-and-expand，恰好符合 Abridge「三脚凳」模型</td><td>大单周期长，AI 增量收入尚未成规模</td></tr>
+<tr><td class="tick">DUOL</td><td class="c"><span class="r r-up">超配（分批）</span></td><td><strong>USV 被投</strong>，文章唯一点名的消费级 AI 原生应用；对应「智能平民化 + 高留存」</td><td>2026 年因「AI 免费替代语言学习」叙事大幅回撤（4 月时 YTD 约 -49%），需验证 DAU 与付费转化</td></tr>
+<tr><td class="tick">DOCS / VEEV</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>医疗专业网络的「数据+工作流」资产，比单纯问诊平台更难被 AI 绕过</td><td>DOCS 收入依赖药企营销预算，周期性明显</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>操作建议</strong>：这一主题<strong>不要用「买软件 ETF」表达</strong>。IGV、WCLD 里被颠覆者权重过高，买 ETF 等于同时买入受害者和受益者。正确做法是个股多空配对——多 DUOL/MDB/NET，空或低配 INTU/CRM 类席位制标的。</p>
+
+<h3 id="m3">4.3　主题二：「起义军同盟」的四层映射</h3>
+<p>这里有个必须点破的细节：文章把<strong>记忆层（Memory）与路由层（Routing）</strong>单列为投资层级。这两个词在二级市场对应的不是「模型公司」，而是<strong>数据与流量基础设施</strong>。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:110px">层级</th><th style="width:180px">文章表述</th><th style="width:130px">美股映射</th><th style="width:110px" class="c">观点</th><th>逻辑与风险</th></tr></thead>
+<tbody>
+<tr><td><strong>开源权重</strong></td><td>让开发者随心调整模型</td><td class="tick">META</td><td class="c"><span class="r r-up">超配</span></td><td>Llama 是唯一坚持开放权重的大厂产品，开源是它的分发武器：削弱对手模型溢价，把价值推回广告与设备层。风险是 capex 失控。</td></tr>
+<tr><td><strong>记忆层</strong></td><td>让模型具备记忆能力</td><td class="tick">MDB / SNOW</td><td class="c"><span class="r r-up">超配 MDB</span></td><td>Agent 的长期记忆必须落地为数据库。MDB 10 月 20 日约 <strong>366 美元</strong>、<strong>YTD -12.75%</strong>，是「逻辑最顺、股价最不兴奋」的错配。风险：云厂商自研替代。</td></tr>
+<tr><td><strong>路由层</strong></td><td>在不同模型间做智能分发</td><td class="tick">NET / FSLY</td><td class="c"><span class="r r-up">超配 NET</span></td><td>AI Gateway + 边缘推理 + Agent 安全沙盒三重身份叠加，是文章「Common Fabric」逻辑在公开市场的最佳代理。</td></tr>
+<tr><td><strong>执行框架</strong></td><td>开源 harness</td><td>Pi 未上市</td><td class="c"><span class="r r-mid">无法表达</span></td><td>只能通过 MDB/NET 间接受益。</td></tr>
+<tr><td><strong>闭源模型方</strong></td><td>被「起义」的对象</td><td class="tick">MSFT / GOOGL / AMZN</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>模型层定价权会被侵蚀，但云与分发仍收租。<strong>不要把「模型领先」当买入理由。</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note note-key">
+  <span class="t">反常识判断</span>
+  文章看空的是<b>闭源模型的定价权</b>，不是<b>闭源公司的股价</b>。MSFT/GOOGL/AMZN 的收入来自算力租售与分发——开源越繁荣、推理越便宜、Agent 越多，云消耗越大。所以「起义军同盟」的正确交易是：<b>多开源生态的卖铲人（MDB / NET / META），而不是空 MSFT。</b>
+</div>
+
+<h3 id="m4">4.4　主题三：算力与推理补贴——最拥挤也最危险的一环</h3>
+<p>文章说「推理和算力开销，在相当长一段时间内，都会是高速扩张型应用必须咽下的高昂补贴」。这句话的投资含义是：<strong>补贴流向谁，谁就有定价权。</strong></p>
+
+<h4>当前市场状态</h4>
+<ul>
+  <li>2026 年全球前九大云厂商资本开支预计突破 <strong>9570 亿美元，同比 +106%</strong>；2027 年有望突破 <strong>1.5 万亿美元，同比 +60%</strong>（TrendForce，10 月 14 日）。仅微软、亚马逊、Alphabet、Meta 四家今年在数据中心与芯片上的支出就约 <strong>6000 亿美元</strong>。</li>
+  <li>瑞银把 2026 全球 AI 资本开支预期上调至 <strong>9000 亿美元（+84%）</strong>。</li>
+  <li><strong>英伟达</strong>：10 月 16 日收 <strong>214.13 美元</strong>，市值 <strong>5.16 万亿美元</strong>，较 10 月 6 日的 5.76 万亿高点回撤超 <strong>12%</strong>，9 个交易日蒸发约 6000 亿美元市值。</li>
+  <li><strong>CoreWeave</strong>：2026 年 capex 指引 <strong>310–350 亿美元</strong>；27.5 亿美元无担保债价格跌破面值 80%，收益率冲上 <strong>15%+</strong>，CDS 飙升。高盛反向上调至买入，理由是市场高估融资成本、低估 GPU 收费能力（每兆瓦年收入有望从 1000 万升至 1300 万美元）。</li>
+  <li><strong>Nebius</strong>：2026 年 capex <strong>200–250 亿美元</strong>，同样高度依赖债务。</li>
+  <li><strong>Oracle</strong>：2025 年 9 月高点 328.33 → 2026 年 4 月约 138 → 反弹至 248 → 又回落至 165，典型的「订单兑现 vs 重资产压力」反复切换。</li>
+</ul>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:100px">标的</th><th style="width:130px" class="c">观点</th><th>理由</th><th style="width:230px">风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">NVDA</td><td class="c"><span class="r r-up">超配（回调分批）</span></td><td>「算力开销进入全新数量级」最硬的背书是 CSP capex +106%；回撤 12% 后估值压力部分释放</td><td>客户自研 ASIC 替代；2027 capex 增速降档则杀估值</td></tr>
+<tr><td class="tick">AVGO</td><td class="c"><span class="r r-up">超配</span></td><td>定制 ASIC + 网络，是「开源栈繁荣、推理量大增」的间接受益者</td><td>大客户集中度极高</td></tr>
+<tr><td class="tick">AMD</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>推理场景的性价比替代，符合「成本要降」的方向</td><td>软件生态仍是短板</td></tr>
+<tr><td class="tick">CRWV</td><td class="c"><span class="r r-mid">中性（小仓位）</span></td><td>每兆瓦收入提升逻辑成立，但 500 亿美元级债务 + 15% 融资成本意味着它是「利率的杠杆做多」</td><td>9 月加息后 10Y 升至 5.29%，重资产高杠杆首当其冲</td></tr>
+<tr><td class="tick">ORCL</td><td class="c"><span class="r r-mid">中性</span></td><td>订单强、估值已砍半，是「AI 云兑现」的高 beta 代理</td><td>资本开支与债务压力；单一客户依赖</td></tr>
+<tr><td class="tick">SMH / SOXX</td><td class="c"><span class="r r-up">超配（核心仓）</span></td><td>表达「算力是硬通货」最省事的方式</td><td>集中度极高，前三大权重决定命运</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>这是全篇最需要纪律的一段</strong>：文章的「能源杠杆最高」和市场的「算力最拥挤」是同一枚硬币。当所有人都知道 capex 会 +106% 时，这个数字已经不在股价里创造超额收益了。</p>
+
+<h3 id="m5">4.5　主题四：物理 AI——最远期、最主题化</h3>
+<p>文章投「自研模型并自行部署的全栈机器人公司」和「传感器网络」，并明确说「今天市面上跑的产品体量看起来微不足道，但放到 2030、2040 年难道不会催生万亿美元级市场吗」。</p>
+<p><strong>产业进展（2026 年 10 月）</strong>：特斯拉 10 月 19 日提交的股东大会文件明确表示第三代 Optimus 已为大规模量产做好准备；10 月 21 日 Q3 股东更新披露 Optimus 已在 Fremont 面向规模化生产的产线启动生产，下线机器人为首批「production-quality」机型；计划 <strong>2027 年 4 月左右搭载 AI5 芯片</strong>（算力比 AI4 高约一个数量级），<strong>2027 年底开始向外部客户出货</strong>；Fremont 与得州工厂目标年产能分别 100 万台 / 1000 万台。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:110px">标的</th><th style="width:130px" class="c">观点</th><th>理由</th><th style="width:220px">风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">TSLA</td><td class="c"><span class="r r-mid">中性偏多（事件驱动）</span></td><td>唯一同时具备「自研模型 + 自建产线 + 自有数据闭环」的全栈标的，最贴合文章的物理 AI 定义</td><td>汽车主业周期性下滑；机器人估值已部分透支；关键人风险</td></tr>
+<tr><td class="tick">SYM</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>仓储自动化的物理 AI 落地场景，订单可见度高于人形机器人</td><td>客户集中（沃尔玛系）</td></tr>
+<tr><td class="tick">OUST / HSAI</td><td class="c"><span class="r r-mid">中性（高波动）</span></td><td>对应「传感器网络」</td><td>价格战惨烈、盈利遥远；纯视觉路线替代风险</td></tr>
+<tr><td class="tick">AMBA</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>边缘视觉推理芯片，对应「线下数据采集」</td><td>市值小、客户分散</td></tr>
+<tr><td class="tick">BOTZ / ARKQ / ROBO / IRBO</td><td class="c"><span class="r r-mid">标配（小仓位）</span></td><td>主题表达工具；ARKQ 含 TSLA 权重较高，BOTZ 偏工业自动化</td><td>主题 ETF 长期跑输大盘的历史记录不佳；费率高、换手高</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>判断</strong>：这一块文章的表述比现实乐观。USV 投的是「自研模型 + 自部署」的私有公司，公开市场没有纯正标的，TSLA 是「最接近的近似解」而非「等价物」。<strong>建议 5%–10% 仓位作为期权，而非核心配置。</strong></p>
+
+<h3 id="m6">4.6　主题五：能源——文章称「杠杆最高」，但故事已讲了三轮</h3>
+<p>这是全文唯一给出明确仓位比例的方向（20%–30%），也是唯一被 USV 用真金白银押了五年的方向（2021 年投 Radiant）。但市场已经走了很远，必须区分「故事」和「现金流」。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:80px">分层</th><th style="width:180px">标的</th><th style="width:250px">当前状态（2026/10）</th><th style="width:110px" class="c">观点</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td><strong>一线<br>现金流</strong></td><td class="tick">CEG / VST / TLN / NRG</td><td>2024–2025 大涨后高位震荡；2025 年 11 月曾因「无新数据中心交易」分别从高点回撤 11%、16%；10 月 7 日谷歌与 CEG 签 <strong>890MW</strong> 核电采购协议</td><td class="c"><span class="r r-up">超配（核心）</span></td><td>文章逻辑的最优表达：已建成、可调度、能签长约的电力资产。AI 需求是「确定的量」，不是「待验证的故事」。</td></tr>
+<tr><td><strong>二线<br>设备电网</strong></td><td class="tick">GEV / ETN / PWR / VRT</td><td>GEV 10 月 20 日收 <strong>890.33 美元</strong>，<strong>YTD +36.23%</strong>，但 5 日 <strong>-11.33%</strong>、10 月 <strong>-6.33%</strong></td><td class="c"><span class="r r-up">超配（回调加仓）</span></td><td>燃机、电网设备、变压器是物理瓶颈，交付周期以年计，议价权在卖方。回调来自「AI 电力繁荣停滞」的叙事，而非订单流失。</td></tr>
+<tr><td><strong>三线<br>核燃料</strong></td><td class="tick">CCJ / LEU / BWXT</td><td>铀价与浓缩产能双紧</td><td class="c"><span class="r r-up">标配偏多</span></td><td>不押单一技术路线，是「核电复兴」的卖铲人。</td></tr>
+<tr><td><strong>四线<br>SMR 概念</strong></td><td class="tick">OKLO / SMR</td><td>OKLO 2026 年 5 月底约 <strong>67 美元</strong>、市值约 <strong>116 亿美元</strong>、过去一年 <strong>+353%</strong>，但尚无营收，2026 年共识 EPS <strong>-0.75</strong>；<strong>SMR 于 10 月 21 日被巴克莱从「持有」下调至「减持」，目标价 5 美元</strong>，理由是商业化合同迟迟未落地</td><td class="c"><span class="r r-down">低配 / 回避</span></td><td><strong>文章投的是 Radiant（私有、垂直整合、95% 管线指向数据中心），不是这两个。</strong> SMR 是「授权设计收服务费」的轻资产模式，里程碑一再推迟；OKLO 是「零收入 + 高估值 + 政策期权」，属于彩票而非配置。</td></tr>
+<tr><td><strong>ETF</strong></td><td class="tick">URA / NLR / NUCL / XLU / GRID / ICLN</td><td>—</td><td class="c"><span class="r r-mid">标配</span></td><td>URA/NLR 弹性最大但波动极高；XLU 防御性强、AI 弹性弱；GRID 最贴近「电网瓶颈」叙事；ICLN 含风光储，AI 弹性弱。</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note note-warn">
+  <span class="t">本文与文章分歧最大的地方</span>
+  文章说「能源是押注 AI 杠杆最高的牌」——这句话在 <b>2021 年</b>是对的（USV 就是那时投的 Radiant），在 <b>2024 年</b>也是对的（CEG/VST 翻倍）。但在 <b>2026 年 10 月</b>，「能源」这个故事已经被讲了三轮。<br>
+  此时的正确姿势不是买「能源概念」，而是买<b>有长约、有并网许可、有现金流</b>的产能，回避<b>只有 PPT 和管线图</b>的开发商。SMR 被下调至减持、目标价 5 美元，就是这个分层最直白的注脚。
+</div>
+
+<h3 id="m7">4.7　主题六：UI 不会死——「体验型」与「交易型」的分野</h3>
+<p>这条判断非常锐利，因为它给出了一个可操作的筛选标准：</p>
+<div class="grid g2">
+  <div class="card"><div class="n">会被 Agent 接管</div><h4>比价、下单、续费</h4><p>平台沦为「履约管道」，议价权转移到 Agent 一侧。这是 AMZN、ETSY、SHOP 的长期隐患。</p></div>
+  <div class="card"><div class="n">不会被接管</div><h4>内容消费、社交、游戏</h4><p>用户要「亲自体验」，平台保住定价权。这是 NFLX、GOOGL（YouTube）、META（Instagram）、SPOT、RBLX 的护城河。</p></div>
+</div>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:110px">标的</th><th style="width:120px" class="c">观点</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td class="tick">NFLX</td><td class="c"><span class="r r-up">超配</span></td><td>文章点名的「人类要亲自体验」的典型；Agent 无法替代「看剧」这件事本身。</td></tr>
+<tr><td class="tick">GOOGL</td><td class="c"><span class="r r-up">超配</span></td><td>文章罕见地高度赞扬谷歌「敢自我革命」：明知 Gemini 蚕食搜索仍全力推进，因为手握 YouTube/Waymo/安卓/Gmail。<strong>这是全篇唯一被正面评价的巨头。</strong></td></tr>
+<tr><td class="tick">META</td><td class="c"><span class="r r-up">超配</span></td><td>同时占三条逻辑：Instagram（体验护城河）+ Llama（开源权重）+ Muse（Agent 入口，尽管被亚马逊封杀）。</td></tr>
+<tr><td class="tick">SPOT / RBLX</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>体验型，但变现效率与 AI 成本压力需观察。</td></tr>
+<tr><td class="tick">AMZN</td><td class="c"><span class="r r-mid">中性</span></td><td>短期是 Agent 商务的最大受益者（履约基础设施），长期是被 Agent 压价的一方；它也是「禁止 Muse 访问」的封杀方，说明它清楚自己在守什么。</td></tr>
+<tr><td class="tick">ETSY / SHOP</td><td class="c"><span class="r r-mid">中性</span></td><td>USV 被投（Etsy），但文章逻辑对它们是双刃：Agent 帮它们获客，也帮用户绕开它们。</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4.8　主题七：Agent 商务与「平台主权」之争</h3>
+<p>亚马逊已明确禁止 Meta 的 Muse 访问；文章判断「这种封杀还会上演」，但最终会跑出<strong>标准协议</strong>。这是一个「协议层」命题，而协议层的赢家通常是掌握<strong>身份、支付、路由</strong>的一方。</p>
+<div class="tw">
+<table>
+<thead><tr><th style="width:120px">环节</th><th style="width:160px">标的</th><th style="width:120px" class="c">观点</th><th>逻辑</th></tr></thead>
+<tbody>
+<tr><td><strong>身份与路由</strong></td><td class="tick">NET</td><td class="c"><span class="r r-up">超配</span></td><td>AI Gateway + 身份 + 边缘，最可能成为 Agent 流量的「收费站」。</td></tr>
+<tr><td><strong>支付与结算</strong></td><td class="tick">V / MA / PYPL</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>Agent 代付需要「机器可读的支付凭证」，卡组织正在推 Agent 支付标准；但「按次微支付」可能绕开卡组织。</td></tr>
+<tr><td><strong>协议与标准</strong></td><td>无纯正上市标的</td><td class="c"><span class="r r-mid">无法表达</span></td><td>标准通常由大厂联盟主导，收益归平台而非第三方。</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>跟踪指标</strong>：如果 12 个月内出现跨平台 Agent 互操作标准，NET/V/MA 的逻辑会被显著强化。</p>
+
+<h3 id="m9">4.9　主题八：信任与安全——「Coinbase 范式」</h3>
+<p>这是全篇最容易被忽略、但投资含义最直接的一段：密码重置机制会失效 → Agent 接管主邮箱等于接管全部账户 → 需要安全沙盒（Common Fabric）→ 「Coinbase 本质是一家安全公司」→ 「谁能打造出让大众彻底卸下防备的最值得信赖的品牌，谁就是我们要找的公司」。</p>
+<p><strong>这条逻辑在 2026 年的市场里已经被验证得非常彻底</strong>：截至 10 月中旬，<strong>CRWD 年内 +123%、FTNT +141%、PANW +117%</strong>，纷纷创历史新高——在软件股整体杀估值的年份里，网络安全是唯一被 AI「做大」而非「做小」的软件子行业。Zscaler 甚至把「保护 AI 智能体运作」单独估算为 <strong>190 亿美元</strong>的未开发市场；CrowdStrike 管理层直言「AI 是网络安全迄今最大的增长机会」。</p>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:100px">标的</th><th style="width:130px" class="c">观点</th><th>理由</th><th style="width:230px">风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">PANW</td><td class="c"><span class="r r-up">超配</span></td><td>「平台化整合」在预算收紧期反而抢份额；年内 +117%，但估值相对 CRWD 更合理</td><td>整合执行风险</td></tr>
+<tr><td class="tick">CRWD</td><td class="c"><span class="r r-up">超配（等回调）</span></td><td>Agent 身份与工作负载安全的最强叙事；平台化受益</td><td>年内 +123%，估值已高</td></tr>
+<tr><td class="tick">NET</td><td class="c"><span class="r r-up">超配</span></td><td>兼具路由与 Agent 安全沙盒双重叙事</td><td>盈利兑现慢</td></tr>
+<tr><td class="tick">COIN</td><td class="c"><span class="r r-up">超配（逆向）</span></td><td>文章用整整一段论证「Coinbase 的崛起路径给 AI 提供了极好的范本」：托管 + 冷存储 + 延迟提现 + 2FA = 用系统工程保护用户免受自身愚蠢。这是「信任品牌」的原型</td><td>10 月 13 日收 <strong>181.79 美元</strong>，<strong>YTD -19.61%</strong>，<strong>52 周 -49.08%</strong>；加密周期与费率下行是硬伤。分析师分歧极大：美银 203、Citizens 280、StoneX 买入</td></tr>
+<tr><td class="tick">AAPL</td><td class="c"><span class="r r-up">超配（长期）</span></td><td>文章明确提出「强大模型在 iPhone 本地跑通、敏感数据无需上云」，Rebecca 说「我们其实已经到了这个时代节点」。<strong>端侧 AI 是苹果唯一不需要买算力就能变现的 AI 叙事</strong></td><td>端侧模型受内存与功耗约束；AI 团队执行力存疑</td></tr>
+<tr><td class="tick">CIBR / HACK</td><td class="c"><span class="r r-mid">标配</span></td><td>安全主题 ETF，避免个股估值风险</td><td>含较多传统安全公司，AI 弹性弱于 CRWD/PANW</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="m10">4.10　主题九：金融主权——Supertake 的公开市场映射</h3>
+<p>文章说 Supertake 让「对股市一无所知的普通人」用一句话表达观点，Agent 通过 <strong>Robinhood 或 Coinbase 账户</strong>自动建仓、播报、追踪、再平衡。核心判断是「过去庞大的金融服务市场，都建立在向大众兜售金融专业知识的基础上」。</p>
+<p><em>这条逻辑的直接受益者，恰恰是文章点名的两个「通道」——这是全篇最可执行的一条，因为它不需要预测技术，只需要承认「Agent 建仓必须落到券商账户」。</em></p>
+<div class="tw">
+<table>
+<thead><tr><th style="width:100px">标的</th><th style="width:120px" class="c">观点</th><th>理由</th><th style="width:230px">风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">HOOD</td><td class="c"><span class="r r-up">超配</span></td><td>Agent 建仓必须落到券商账户，HOOD 是「AI 原生一代」的默认账户层；且已从「加密赌场」转型为交易基础设施（2026Q1 加密收入近腰斩、总营收仍 +15%）</td><td>估值高；加密周期敏感；订单流付费监管</td></tr>
+<tr><td class="tick">COIN</td><td class="c"><span class="r r-up">超配</span></td><td>既是通道也是托管方，双重身份</td><td>同上</td></tr>
+<tr><td class="tick">SCHW / IBKR</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>存量客户与资产规模是护城河</td><td>Agent 化对其「顾问费」是威胁</td></tr>
+<tr><td class="tick">BLK / BEN</td><td class="c"><span class="r r-down">低配</span></td><td>文章逻辑的被颠覆方：靠「专业知识的稀缺性」收费</td><td>被动化趋势已在进行，AI 加速</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>4.11　主题十：不赌万亿，但要买第一名</h3>
+<p>文章说「不再对细分赛道的三四名抱有任何幻想」「市场价值向龙头集中的速度远超以往」。这与「不赌万亿」并不矛盾——USV 说的是<strong>一级市场</strong>不需要万亿出口，而<strong>二级市场</strong>的推论是：在每个细分赛道里只买第一名。</p>
+<div class="tw">
+<table>
+<thead><tr><th style="width:170px">表达方式</th><th style="width:120px" class="c">观点</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td class="tick">IWM / IWO（小盘）</td><td class="c"><span class="r r-down">低配</span></td><td>文章逻辑直接利空长尾：Agent 让产品同质化，分发与规模决定胜负，小公司更难突围。</td></tr>
+<tr><td class="tick">QQQ / MAGS</td><td class="c"><span class="r r-up">超配</span></td><td>与「价值向龙头集中」一致。</td></tr>
+<tr><td>主题内选龙头</td><td class="c"><span class="r r-mid">原则</span></td><td>机器人选 TSLA 而非小票；核能选 CEG/GEV 而非 SMR；数据库选 MDB 而非长尾。</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="m12">4.12　ETF 工具箱</h3>
+<div class="tw">
+<table>
+<thead><tr><th style="width:110px">主题</th><th style="width:190px">ETF</th><th>定位</th><th style="width:150px">适合</th></tr></thead>
+<tbody>
+<tr><td>算力/半导体</td><td class="tick">SMH、SOXX</td><td>最纯正的「算力硬通货」</td><td>核心仓</td></tr>
+<tr><td>软件（谨慎）</td><td class="tick">IGV、WCLD</td><td>含大量被颠覆的席位制 SaaS</td><td><strong>不建议</strong>作为 AI 应用表达</td></tr>
+<tr><td>网络安全</td><td class="tick">CIBR、HACK</td><td>AI 时代的「信任层」</td><td>核心仓</td></tr>
+<tr><td>云/数据</td><td class="tick">SKYY、CLOU</td><td>含 MDB/NET/SNOW 等</td><td>卫星仓</td></tr>
+<tr><td>机器人与物理 AI</td><td class="tick">BOTZ、ARKQ、ROBO、IRBO</td><td>人形/工业自动化/物流机器人</td><td>小仓位期权</td></tr>
+<tr><td>核能与铀</td><td class="tick">URA、NLR、NUCL</td><td>铀矿 + SMR + 公用事业混合</td><td>卫星仓（高波动）</td></tr>
+<tr><td>电网与电气化</td><td class="tick">GRID</td><td>变压器、电网设备</td><td>核心仓（配合 GEV/ETN）</td></tr>
+<tr><td>公用事业</td><td class="tick">XLU</td><td>防御性电力</td><td>防御仓</td></tr>
+<tr><td>清洁能源</td><td class="tick">ICLN</td><td>含风光储，AI 弹性弱</td><td>不推荐作为 AI 表达</td></tr>
+<tr><td>加密</td><td class="tick">IBIT</td><td>文章未直接讨论，但与 COIN 逻辑相关</td><td>可选</td></tr>
+<tr><td>大盘/龙头</td><td class="tick">QQQ、MAGS</td><td>「价值向龙头集中」</td><td>核心仓</td></tr>
+</tbody>
+</table>
+</div>
+<p class="sub">费率和持仓以基金官网为准，上表仅作定位参考。</p>
+
+<h3 id="m13">4.13　组合构建框架（风险预算式，非建议）</h3>
+<p>按文章四个方向 + 当前利率环境（10Y <strong>5.29%</strong>，9 月已加息）给出一个框架：</p>
+
+<div class="alloc">
+  <div class="row"><div class="nm">能源与电力</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="pc">25%</div></div>
+  <div class="row"><div class="nm">算力与基础设施</div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="pc">25%</div></div>
+  <div class="row"><div class="nm">应用层颠覆者</div><div class="bar"><div class="fill" style="width:15%"></div></div><div class="pc">15%</div></div>
+  <div class="row"><div class="nm">信任与安全</div><div class="bar"><div class="fill" style="width:10%"></div></div><div class="pc">10%</div></div>
+  <div class="row"><div class="nm">物理 AI（期权）</div><div class="bar"><div class="fill" style="width:5%"></div></div><div class="pc">5%</div></div>
+  <div class="row"><div class="nm">现金 / 短债</div><div class="bar"><div class="fill" style="width:20%;background:linear-gradient(90deg,#9a9384,#b8b1a2)"></div></div><div class="pc">20%</div></div>
+</div>
+
+<div class="tw">
+<table>
+<thead><tr><th style="width:170px">桶</th><th style="width:70px" class="c">权重</th><th>内容</th><th style="width:230px">对应文章</th></tr></thead>
+<tbody>
+<tr><td>能源与电力（现金流型）</td><td class="c">25%</td><td>CEG、VST、GEV、GRID</td><td>「杠杆最高的一张牌」，但只买有长约的产能</td></tr>
+<tr><td>算力与基础设施</td><td class="c">25%</td><td>SMH、NVDA、AVGO、MDB、NET</td><td>「算力开销进入全新数量级」+「记忆/路由层」</td></tr>
+<tr><td>应用层颠覆者</td><td class="c">15%</td><td>DUOL、COIN、HOOD、NFLX</td><td>「Obliterate, don't automate」+「金融主权」</td></tr>
+<tr><td>信任与安全</td><td class="c">10%</td><td>PANW、CRWD、AAPL</td><td>「Coinbase 范式」+ 端侧模型</td></tr>
+<tr><td>物理 AI（期权）</td><td class="c">5%</td><td>TSLA、BOTZ</td><td>「2030/2040 的万亿市场」</td></tr>
+<tr><td>现金/短债</td><td class="c">20%</td><td>短端美债、货币基金</td><td>5.29% 的无风险利率是「不投」的合理价格</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>三条纪律</h4>
+<ol>
+  <li><strong>不买「AI 应用」主题 ETF</strong>（IGV/WCLD），因为它同时装进了受害者和受益者；</li>
+  <li><strong>核能只买一线（CEG/GEV/CCJ），不买四线（OKLO/SMR）</strong>——文章投的是 Radiant，不是 SMR；</li>
+  <li><strong>利率是这套组合的最大公约数</strong>：10Y 若从 5.29% 继续上行，先砍 CRWV/ORCL 这类高杠杆重资产，再砍高倍数软件。</li>
+</ol>
+
+<h3>4.14　催化剂日历（未来 6–12 个月）</h3>
+<div class="tw">
+<table>
+<thead><tr><th style="width:150px">时间</th><th style="width:250px">事件</th><th style="width:200px">影响标的</th><th>观察点</th></tr></thead>
+<tbody>
+<tr><td>2026 年 10 月底–11 月</td><td>美股 Q3 财报季（CSP capex 指引）</td><td>NVDA、MSFT、GOOGL、AMZN、META</td><td><strong>2027 capex 指引是否维持 +60%</strong>——这是全篇逻辑的总闸门</td></tr>
+<tr><td>2026 年 11 月</td><td>美联储议息（9 月已加息）</td><td>全部成长股，尤其 CRWV/ORCL/SMR</td><td>10Y 是否突破 5.5%</td></tr>
+<tr><td>2027 年 1 月</td><td>CES / 端侧 AI 新品</td><td>AAPL、QCOM、META</td><td>本地模型能否在手机端跑通</td></tr>
+<tr><td>2027 年 4 月</td><td>特斯拉 Optimus 搭载 AI5</td><td>TSLA、BOTZ</td><td>量产爬坡斜率</td></tr>
+<tr><td>2027 年底</td><td>Optimus 对外出货</td><td>TSLA</td><td>首个外部客户订单</td></tr>
+<tr><td>持续</td><td>亚马逊 vs Meta Muse 封杀进展；跨平台 Agent 协议</td><td>AMZN、META、NET</td><td>是否出现「标准协议」（文章核心预测）</td></tr>
+<tr><td>持续</td><td>SMR / OKLO 商业化合同落地</td><td>SMR、OKLO</td><td>巴克莱目标价 5 美元是否被证伪</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="m15">4.15　反方观点：这篇文章哪里可能是错的</h3>
+<p class="sub">不给这一节，「完整总结」就变成了「替作者背书」。以下九条是我认为最需要打的折扣。</p>
+
+<div class="grid g2">
+  <div class="card"><div class="n">折扣 01</div><h4>「颠覆」忽略了责任与监管</h4><p>Doctronic 能在犹他州开处方，但医疗责任、执照、保险、支付方准入不是「进步斜率」能线性外推的。法律同理，「未授权执业」在各州是刑事级红线。<strong>AI 能干掉工时，干不掉责任</strong>；责任要买保险、要有人签字，这给现有机构留下收费理由。</p></div>
+  <div class="card"><div class="n">折扣 02</div><h4>「起义军」有共识、没商业模式</h4><p>开源模型公司自身极难盈利。「开发者不想被 Claude 绑架」是真实需求，但「愿为此付多少钱」是另一个问题。Coinbase 弃用 Claude 更像成本与控制权考量，不等于开源能力已追平。<strong>把情绪上的反抗当成商业上的替代，是最大的逻辑跳跃。</strong></p></div>
+  <div class="card"><div class="n">折扣 03</div><h4>能源故事已被充分定价</h4><p>USV 是 2021 年投的 Radiant，2024 年市场才开始交易「AI 电力」。到 2026 年 10 月，CEG/VST/GEV 已走完三轮，OKLO 一年 +353% 却零收入，SMR 被下调至减持、目标价 5 美元。<strong>「杠杆最高」在 2021 年意味着赔率最高，在 2026 年意味着拥挤度最高。</strong></p></div>
+  <div class="card"><div class="n">折扣 04</div><h4>「ARR 是假指标」同样适用于 AI 应用公司</h4><p>文章批评订阅制「先收一年钱」，但大量 AI 原生应用正是靠年付预付 + 免费试用转付费冲 ARR。USV 用「真实留存」筛别人，投资者也该用同一把尺子筛 USV 的被投逻辑。<strong>这个标准是双向的。</strong></p></div>
+  <div class="card"><div class="n">折扣 05</div><h4>幸存者偏差极重</h4><p>「每期 2–3 家伟大公司」听起来很美，但文章没说每期投了多少家、多少家归零。Fred 自己承认「<strong>看走眼的次数远多于看对的次数</strong>」——这句才是真正的信息量。</p></div>
+  <div class="card"><div class="n">折扣 06</div><h4>9 亿美元与小基金哲学有张力</h4><p>一边说「规模克制才能保持挑剔、激励不变形」，一边把基金从 2.75 亿扩到 9 亿（3.3 倍）。A 轮支票 1000–3000 万美元，在「动辄 1 亿–10 亿美元轮次」的市场里能否拿到目标持股，存疑。文章用「我们不需要占满整轮」轻轻带过。</p></div>
+  <div class="card"><div class="n">折扣 07</div><h4>2003 年类比可能误导</h4><p>2003 年的互联网应用是<strong>轻资产、变现路径清晰</strong>（广告、佣金）；2026 年的 AI 应用<strong>推理成本是变动成本且被免费补贴</strong>。当年「先规模后变现」能成，是因为边际成本趋零；<strong>AI 的边际成本不趋零</strong>。文章承认「补贴必须咽下去」，但没回答「什么时候能停止咽」。</p></div>
+  <div class="card"><div class="n">折扣 08</div><h4>UI 不死正确，但投资含义有限</h4><p>NFLX/GOOGL/META 的体验护城河早已被定价。这条洞察更适合做<strong>排除法</strong>（不买会被 Agent 折叠的交易型平台），而不是买入理由。</p></div>
+  <div class="card"><div class="n">折扣 09</div><h4>短期与长期完全背离</h4><p>文章是 5–10 年视角。当前市场（2026Q4）正在交易「capex 回报存疑 + 利率上行」，表现为硬件抗跌、软件杀估值。<strong>若按文章逻辑重仓应用层，未来 6–12 个月可能显著跑输</strong>——这不是文章错了，是期限错配。</p></div>
+</div>
+
+<h3 id="m16">4.16　一页速览</h3>
+<div class="tw">
+<table>
+<thead><tr><th style="width:120px">标的</th><th style="width:150px" class="c">评级</th><th>一句话逻辑</th><th style="width:220px">主要风险</th></tr></thead>
+<tbody>
+<tr><td class="tick">GOOGL</td><td class="c"><span class="r r-up">超配</span></td><td>文章唯一正面评价的巨头；Gemini 自我革命 + YouTube 体验护城河</td><td>搜索下滑快于预期</td></tr>
+<tr><td class="tick">META</td><td class="c"><span class="r r-up">超配</span></td><td>Llama 开源权重 + Instagram 体验 + Agent 入口三合一</td><td>capex 失控</td></tr>
+<tr><td class="tick">NVDA</td><td class="c"><span class="r r-up">超配（分批）</span></td><td>CSP capex +106% 的最硬背书</td><td>2027 增速降档</td></tr>
+<tr><td class="tick">AVGO</td><td class="c"><span class="r r-up">超配</span></td><td>推理量暴增的定制芯片受益者</td><td>客户集中</td></tr>
+<tr><td class="tick">MDB</td><td class="c"><span class="r r-up">超配</span></td><td>「记忆层」最纯正标的；YTD -12.75% 与逻辑错配</td><td>云厂商自研替代</td></tr>
+<tr><td class="tick">NET</td><td class="c"><span class="r r-up">超配</span></td><td>路由 + Agent 安全沙盒 + 边缘推理</td><td>盈利兑现慢</td></tr>
+<tr><td class="tick">PANW</td><td class="c"><span class="r r-up">超配</span></td><td>AI 把安全市场做大；平台化抢份额</td><td>估值已高</td></tr>
+<tr><td class="tick">CRWD</td><td class="c"><span class="r r-up">超配</span></td><td>Agent 身份安全最强叙事</td><td>年内 +123%，回撤风险</td></tr>
+<tr><td class="tick">CEG / VST</td><td class="c"><span class="r r-up">超配</span></td><td>有长约、可调度的电力产能</td><td>数据中心交易落地慢</td></tr>
+<tr><td class="tick">GEV</td><td class="c"><span class="r r-up">超配（回调加仓）</span></td><td>电网与燃机的物理瓶颈</td><td>订单确认节奏</td></tr>
+<tr><td class="tick">CCJ / LEU</td><td class="c"><span class="r r-up">标配偏多</span></td><td>核燃料卖铲人，不押技术路线</td><td>铀价波动</td></tr>
+<tr><td class="tick">DUOL</td><td class="c"><span class="r r-up">超配（分批）</span></td><td>USV 被投，AI 原生消费应用</td><td>留存被 AI 侵蚀</td></tr>
+<tr><td class="tick">COIN</td><td class="c"><span class="r r-up">超配（逆向）</span></td><td>「信任品牌」原型；52 周 -49%</td><td>加密周期、费率下行</td></tr>
+<tr><td class="tick">HOOD</td><td class="c"><span class="r r-up">超配</span></td><td>Agent 建仓的默认账户层</td><td>估值、监管</td></tr>
+<tr><td class="tick">AAPL</td><td class="c"><span class="r r-up">超配（长期）</span></td><td>端侧模型是唯一不买算力的 AI 叙事</td><td>执行与内存约束</td></tr>
+<tr><td class="tick">NFLX</td><td class="c"><span class="r r-up">超配</span></td><td>「人类要亲自体验」的典型</td><td>内容成本</td></tr>
+<tr><td class="tick">TSLA</td><td class="c"><span class="r r-mid">中性偏多</span></td><td>全栈物理 AI 的唯一公开标的</td><td>估值透支、关键人</td></tr>
+<tr><td class="tick">AMZN</td><td class="c"><span class="r r-mid">中性</span></td><td>短期履约受益、长期被 Agent 压价</td><td>Agent 绕开平台</td></tr>
+<tr><td class="tick">ORCL</td><td class="c"><span class="r r-mid">中性</span></td><td>AI 云高 beta，估值已砍半</td><td>债务与资本开支</td></tr>
+<tr><td class="tick">CRWV</td><td class="c"><span class="r r-mid">中性（小仓位）</span></td><td>每兆瓦收入提升，但 15% 融资成本</td><td>利率敏感、500 亿债务</td></tr>
+<tr><td class="tick">INTU / TRI / RELX / TDOC</td><td class="c"><span class="r r-down">低配</span></td><td>按人头/工时收费的中间层</td><td>转型成功可反转</td></tr>
+<tr><td class="tick">SMR / OKLO</td><td class="c"><span class="r r-down">低配 / 回避</span></td><td>零收入 + 里程碑推迟；巴克莱 PT 5 美元</td><td>商业化失败</td></tr>
+<tr><td class="tick">IWM / IWO</td><td class="c"><span class="r r-down">低配</span></td><td>「三四名无幻想」，长尾被挤压</td><td>风格反转</td></tr>
+</tbody>
+</table>
+</div>
+
+</main>
+
+<footer>
+  <p><strong>关于本文档</strong>　第一部分为原文内容的完整梳理（观点、案例、数字、原话均按原文顺序保留）；第二部分为基于文章逻辑的二级市场映射推断，与原文作者无关。原文标题《传奇风投 USV 合伙人深度访谈：AI 应用层要"彻底颠覆，而非自动化"》，来源 AGI 2050，2026 年 10 月 9 日。</p>
+  <p><strong>免责声明</strong>　本文档不构成任何证券投资建议或要约。所有评级均为分析框架，不代表对个股未来表现的预测。行情数据来自 2026 年 10 月中下旬公开报道，可能存在延迟或误差，交易前请以交易所与公司披露为准。投资者应自行判断并承担风险。</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alphabet 2026 Q3 财报 · 四篇报道全文精读与观点全集</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#16181d;
+    --ink-2:#3d4450;
+    --ink-3:#6b7280;
+    --line:#e4e7ec;
+    --blue:#1f5fbf;
+    --blue-soft:#eaf1fc;
+    --red:#c0392b;
+    --red-soft:#fdeeec;
+    --green:#1e7a4b;
+    --green-soft:#eaf6ef;
+    --amber:#a86400;
+    --amber-soft:#fdf3e3;
+    --purple:#5b3fa8;
+    --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;
+    line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px 90px;}
+  header.top{padding:54px 0 26px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:32px;line-height:1.3;margin:0 0 12px;letter-spacing:-.015em;font-weight:700;}
+  .sub{font-size:16.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.65;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+
+  h2{font-size:22px;margin:54px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:9px;}
+  h3{font-size:17.5px;margin:34px 0 8px;font-weight:650;}
+  h3 .ch{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--ink-2);border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px;letter-spacing:.03em;}
+  h4{font-size:14.5px;margin:22px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 26px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+  .kpi.neg .val{color:var(--red);}
+  .kpi.pos .val{color:var(--green);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:18px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--card);}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.5px;color:var(--ink-2);white-space:nowrap;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  table.tight td,table.tight th{padding:7px 10px;}
+  .up{color:var(--red);font-weight:600;}
+  .down{color:var(--green);font-weight:600;}
+  .mute{color:var(--ink-3);}
+
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 7px;line-height:1.7;white-space:nowrap;}
+  .tag.bull{background:var(--red-soft);color:var(--red);}
+  .tag.bear{background:var(--green-soft);color:var(--green);}
+  .tag.neu{background:#eef0f4;color:var(--ink-2);}
+  .tag.warn{background:var(--amber-soft);color:var(--amber);}
+  .tag.info{background:var(--blue-soft);color:var(--blue);}
+
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:18px 0;overflow:hidden;}
+  .qa .qh{background:#f0f2f5;padding:11px 18px;font-size:13px;font-weight:650;color:var(--ink-2);border-bottom:1px solid var(--line);}
+  .qa .qb{padding:14px 18px;}
+  .qa .q{font-weight:650;margin:0 0 10px;color:var(--ink);}
+  .qa .who{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--blue);border-radius:4px;padding:1px 7px;margin-right:7px;vertical-align:1px;}
+
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 14px;margin:14px 0;color:var(--ink-2);font-size:14.5px;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0;}
+  .cols .box{margin:0;}
+
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);}
+  .disclaimer{background:#f0f2f5;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-top:26px;font-size:13px;color:var(--ink-2);}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .cols{grid-template-columns:1fr;}
+    h1{font-size:26px;}
+    .wrap{padding:0 16px 60px;}
+    table{font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">ALPHABET · 2026 财年第三季度 · 财报精读</div>
+  <h1>营收 1275.77 亿美元，自由现金流 -90.65 亿美元<br>"卖铲子"很猛，"印钞机"却开始掉速</h1>
+  <p class="sub">基于四篇原始报道（腾讯科技财报解读、独立研究号会计拆解、财报电话会完整实录、海豚研究基本面研判）的全文提炼与交叉核对。覆盖财报全部数据、管理层四人陈述、七轮分析师问答、卖方与买方预期差，并标注四篇之间的口径差异与原文勘误。</p>
+  <div class="meta">
+    <span>财报发布：2026 年 10 月 28 日（美国时间）</span>
+    <span>覆盖期间：截至 2026 年 9 月 30 日</span>
+    <span>资料整理：2026 年 10 月 29 日</span>
+    <span>数据来源：四篇公开报道原文</span>
+  </div>
+</header>
+
+<h2><span class="num">00</span>核心速览</h2>
+
+<div class="tldr">
+  <div class="kpi pos">
+    <div class="lab">总营收</div>
+    <div class="val">1275.77 亿美元</div>
+    <div class="note">同比 <strong>+25%</strong>，连续第 13 个季度双位数增长；略低于预期 1282.2 亿</div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">营业利润</div>
+    <div class="val">405.76 亿美元</div>
+    <div class="note">同比 <strong>+30%</strong>，营业利润率 <strong>31.8%</strong>（去年同期 31%）</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">归属普通股净利润</div>
+    <div class="val">261.70 亿美元</div>
+    <div class="note">同比 <strong>-25%</strong>；主因权益证券公允价值变动</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">自由现金流</div>
+    <div class="val">-90.65 亿美元</div>
+    <div class="note">去年同期 <strong>+244.61 亿</strong>；同比减少 335.26 亿</div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">谷歌云营收</div>
+    <div class="val">307.09 亿美元</div>
+    <div class="note">同比 <strong>+103%</strong>，超预期 287 亿；营业利润率 36.2%</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">资本开支</div>
+    <div class="val">513.55 亿美元</div>
+    <div class="note">同比 <strong>+114%</strong>；全年指引 1950–2050 亿维持不变</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">摊薄每股收益</div>
+    <div class="val">2.12 美元</div>
+    <div class="note">剔除证券损失口径 <strong>2.67 美元</strong>，低于预期 3.02 美元</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">盘后股价</div>
+    <div class="val">293.09 美元</div>
+    <div class="note">盘后 <strong>-9.79%</strong>；后续交易时段再跌约 7%</div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>一句话结论</h4>
+  <p>这是一份<strong>"经营在加速、会计在扣分、现金在失血、基本盘在掉速"</strong>的季报。四项反差同时成立：营收 +25% 而归属普通股净利润 -25%；营业利润 +30% 而自由现金流转为 -90.65 亿；云 +103% 但其中含 TPU 系统硬件销售，无法直接等同于纯云服务增速；搜索 +12% 创五年最高查询增速，却出现环比明显放缓、且低于预期。四篇报道的共同指向是：<strong>评价谷歌现在的经营能力要看营业利润，评价 AI 投资的兑现程度要看回款而不是收入</strong>——两者不能互相替代。</p>
+</div>
+
+<div class="box red">
+  <h4>新增第四篇带来的核心分歧（海豚研究）</h4>
+  <p>前三篇的落点是"增长强、现金紧"的<strong>结构问题</strong>；第四篇把矛头指向<strong>叙事问题</strong>，给出的判断更尖锐：</p>
+  <p class="quote" style="margin:12px 0 10px;">"AI 让谷歌更像一家<strong>卖铲子的公司</strong>，却让<strong>搜索这台印钞机开始掉速</strong>。"</p>
+  <p>它进一步给出三条前三篇没有的推论：① 搜索掉速不只是"AI 侵蚀"，还可能因为<strong>Gemini 模型连续两个季度迭代落后</strong>导致产品体验受损、用户流失，而模型掉队又源于<strong>算力在内外部的调配倾斜</strong>（上半年 GCP 把算力优先给外部客户，DeepMind 内用算力不够）；② 谷歌正<strong>用资产负债表给 AI 客户加杠杆</strong>——采购承诺是刚性的，但 Backlog 里相当一部分来自 Anthropic 这类自身仍在烧钱的公司，<strong>A 社的融资能力最终会变成谷歌的现金流风险</strong>；③ 短期<strong>缺乏有力反弹驱动</strong>，情绪过度反应后可能继续向下磨底，需等空头仓位拥挤后的回补。</p>
+</div>
+
+<h2><span class="num">01</span>财报总览：三个方向同时发生</h2>
+
+<h3><span class="ch">1.1</span>利润表</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">2026 Q3</th><th class="num">2025 Q3</th><th class="num">同比</th><th>备注</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>总营收</strong></td><td class="num">1275.77 亿</td><td class="num">1023.46 亿</td><td class="num up">+25%</td><td>报告货币与固定汇率均为 +25%；预期 1282.2 亿，<span class="tag bear">略低预期</span></td></tr>
+    <tr><td>总营收成本</td><td class="num">514 亿</td><td class="num">—</td><td class="num up">+24%</td><td>含 TAC 164 亿（+10%）、其他营收成本 351 亿（+32%）</td></tr>
+    <tr><td>总运营费用</td><td class="num">356 亿</td><td class="num">—</td><td class="num up">+20%</td><td>研发 +36%、销售与营销 +22%、一般及行政 -17%</td></tr>
+    <tr><td><strong>营业利润</strong></td><td class="num">405.76 亿</td><td class="num">—</td><td class="num up">+30%</td><td>营业利润率 31.8%（另一篇写 32%）</td></tr>
+    <tr><td>其他收益与费用（OI&amp;E）</td><td class="num">-82.21 亿</td><td class="num">+127.59 亿</td><td class="num down">转负</td><td>CFO 明确：主因 <strong>SpaceX 投资</strong>股价下跌产生未实现损失</td></tr>
+    <tr><td>其中：权益证券公允价值变动</td><td class="num">-86.64 亿</td><td class="num">+107.34 亿</td><td class="num down">转负</td><td>使净利润减少约 <strong>67 亿</strong>，EPS 减少 <strong>0.55 美元</strong></td></tr>
+    <tr><td>优先股股息</td><td class="num">2.98 亿</td><td class="num">—</td><td class="num">—</td><td>集团净利润 ≠ 归属普通股净利润</td></tr>
+    <tr><td><strong>归属普通股股东净利润</strong></td><td class="num">261.70 亿</td><td class="num">349.79 亿</td><td class="num down">-25%</td><td>营收 +25% 与净利 -25% 并存</td></tr>
+    <tr><td><strong>摊薄每股收益</strong></td><td class="num">2.12 美元</td><td class="num">2.87 美元</td><td class="num down">-26%</td><td>剔除证券损失后 <strong>2.67 美元</strong>，仍低于预期 3.02 美元</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>关于"净利 -25%"最重要的一句判断</h4>
+  <p>用每股收益下降判断 AI 业务失速，<strong>容易看错原因</strong>；但把证券损失完全忽略，也会<strong>遗漏股东确实承担的资产价值波动</strong>。正确做法是先看营业利润，再把投资损益、税收与融资费用分别接回普通股收益——因为投资估值可以在短时间内大幅变化，与客户购买搜索广告、云服务的节奏并不相同。</p>
+</div>
+
+<h3><span class="ch">1.2</span>现金流与资本开支</h3>
+
+<table>
+  <thead><tr><th>项目</th><th class="num">2026 Q3</th><th class="num">对比</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>经营现金流</td><td class="num">422.9 亿</td><td class="num">TTM 1796 亿</td><td>受 TPU 系统备货导致库存增加、以及 2018 年欧盟罚款 <strong>52 亿</strong>现金支付拖累</td></tr>
+    <tr><td>资本开支</td><td class="num">513.55 亿</td><td class="num up">+114%</td><td>上年同期 239.53 亿；65% 服务器与网络设备（6 年寿命）、35% 数据中心（7–40 年寿命）</td></tr>
+    <tr><td><strong>自由现金流</strong></td><td class="num down">-90.65 亿</td><td class="num">去年 +244.61 亿</td><td>预期 -27 亿；经营现金流仅覆盖资本开支约 <strong>82%</strong></td></tr>
+    <tr><td>TTM 自由现金流</td><td class="num">197.47 亿</td><td class="num">仍为正</td><td>季度压力与长期现金创造能力可以并存</td></tr>
+    <tr><td>折旧</td><td class="num">83.69 亿</td><td class="num up">+49%</td><td>设备投产后购置支出将在使用期内逐步计入费用</td></tr>
+    <tr><td>营运资金占用</td><td class="num">—</td><td class="num">—</td><td>应收账款 39.17 亿、库存 32.2 亿、其他资产 78.07 亿</td></tr>
+    <tr><td>库存（期末）</td><td class="num">133.08 亿</td><td class="num">年初 24.39 亿</td><td>TPU 系统未售出部分计入存货</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">1.3</span>资产负债表与表外承诺</h3>
+
+<table class="tight">
+  <thead><tr><th>项目</th><th class="num">2026/9/30</th><th class="num">2025/12/31</th><th>解读</th></tr></thead>
+  <tbody>
+    <tr><td>总资产</td><td class="num">10033.12 亿</td><td class="num">5952.81 亿</td><td>突破 1 万亿美元</td></tr>
+    <tr><td>固定资产净额</td><td class="num">3728.27 亿</td><td class="num">2465.97 亿</td><td>算力资产快速堆积</td></tr>
+    <tr><td>有价证券</td><td class="num">2087.64 亿</td><td class="num">—</td><td>—</td></tr>
+    <tr><td>现金 + 等价物 + 有价证券</td><td class="num">2650.98 亿</td><td class="num">—</td><td>其中含 <strong>904 亿</strong>上市有价股本证券</td></tr>
+    <tr><td>长期债务</td><td class="num">1251.02 亿</td><td class="num">465.47 亿</td><td>增长约 <strong>2.7 倍</strong>，融资需求随 AI 基建同步上升</td></tr>
+    <tr><td>未来采购承诺</td><td class="num">9240 亿</td><td class="num">—</td><td>锁定技术基础设施与库存容量、租赁及能源供应；含可变定价与用量弹性，实际支出可能更低</td></tr>
+    <tr><td>未生效租赁及其他债务承诺</td><td class="num">1520 亿</td><td class="num">—</td><td>表外刚性支出</td></tr>
+    <tr><td>季度股息</td><td class="num">0.22 美元/股</td><td class="num">—</td><td>12 月支付</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">02</span>三大反差：这份财报真正的争议</h2>
+
+<h3><span class="ch">2.1</span>反差一｜营收 +25%，归属普通股净利润 -25%</h3>
+<p>两个结果同时成立：<strong>主营业务继续扩大，普通股股东得到的当期利润却减少</strong>。固定汇率收入同样增长 25%，说明增长主要来自业务本身，不是汇率红利。</p>
+<p>差异几乎全部出现在<strong>营业利润之后</strong>。去年同期权益证券带来 107.34 亿收益，本季产生 86.64 亿损失，一正一负合计摆动约 194 亿。这笔损失使净利润减少约 67 亿、EPS 减少 0.55 美元。CFO 在电话会上直接点名：主因是 <strong>SpaceX 投资因股价在第三季度下跌而产生的未实现损失</strong>。</p>
+<p>因此本季有三个不同的"利润"层次，混用会得出完全不同的结论：</p>
+<ul>
+  <li><strong>营业利润 405.76 亿（+30%）</strong>——衡量经营能力，最干净的口径；</li>
+  <li><strong>净利润（含优先股股息 2.98 亿）</strong>——集团口径；</li>
+  <li><strong>归属普通股净利润 261.70 亿（-25%）</strong>——股东口径，被投资损益重击。</li>
+</ul>
+
+<h3><span class="ch">2.2</span>反差二｜营业利润 +30%，自由现金流 -90.65 亿</h3>
+<p>经营现金流 422.9 亿，资本开支 513.55 亿，按公司定义（经营现金流减物业与设备购买支出）得自由现金流 -90.65 亿。<strong>经营现金流只能覆盖约 82% 的资本开支</strong>——日常业务产生的现金没有追上建设速度。</p>
+<div class="box amber">
+  <h4>三个容易被误读的点</h4>
+  <ul>
+    <li><strong>缺口扩大不是因为经营现金流环比下降</strong>。经营流入在恢复，是建设支出增加得更快。</li>
+    <li><strong>TTM 自由现金流仍为正 197.47 亿</strong>，说明季度压力与较长时间窗口下的现金创造能力可以并存；但连续两个季度为负，提示"建设与回款的时间差"不能只当作偶然波动。</li>
+    <li><strong>建设支出还有后续成本</strong>。本季折旧 83.69 亿（+49%），期末物业与设备净额 3728.27 亿。即使未来资本开支放缓，已投入资产仍会让折旧继续增加，利润率改善因此需要利用率、定价或效率提升来支撑。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">2.3</span>反差三｜云 +103%，但增长质量需要拆开看</h3>
+<p>云收入 307.09 亿，同比 +103%，超预期 287 亿。但按本期公告数据计算，<strong>集团新增收入 252.31 亿中，云贡献 155.52 亿，约占 62%</strong>——云已经取代搜索，成为增长的主要来源。</p>
+<p>关键在于这门云生意包含<strong>两种经济性质完全不同的收费方式</strong>：</p>
+<table class="tight">
+  <thead><tr><th>类型</th><th>内容</th><th>收入特征</th></tr></thead>
+  <tbody>
+    <tr><td><strong>持续服务型</strong></td><td>企业按使用量或订阅付费，覆盖计算、存储、平台工具、协作软件</td><td>经常性、可续、随用量增长</td></tr>
+    <tr><td><strong>硬件系统型</strong></td><td>销售 TPU 系统（自研 AI 加速芯片组成的完整硬件系统）</td><td>可能在交付时集中确认较大金额；后续取决于新增订单与客户是否继续使用配套服务</td></tr>
+  </tbody>
+</table>
+<p>公司<strong>没有单列本季 TPU 收入、销量和利润率</strong>，因此：</p>
+<ul>
+  <li><strong>103% 不能直接当作纯云服务增速</strong>；</li>
+  <li>也不能反过来认定全部增长来自硬件。</li>
+</ul>
+<p>不过云分部营业利润率从去年同期 <strong>23.7% 提升至 36.2%</strong>（营业利润 111.21 亿，同比翻两倍以上）。这一点很关键：单看收入翻倍，还可以怀疑增长依赖降价；<strong>利润率同时改善，使"新增业务没有经济价值"的解释缺乏支持</strong>。</p>
+<p>但 36.2% <strong>不是谷歌全部 AI 投入的回报率</strong>。集团层还有 76.55 亿未分配成本（去年 44.67 亿），主要是共享 AI 研发、通用模型开发所需基础设施与总部共同费用——云所使用的模型能力与基础设施背后，有一部分成本由集团承担。</p>
+<div class="box">
+  <h4>利润的加减关系（这是理解分部与集团差距的关键）</h4>
+  <p>谷歌服务 391.57 亿 ＋ 谷歌云 111.21 亿 － 其他业务 20.47 亿 － 集团层 76.55 亿 ≈ <strong>集团营业利润 405.76 亿</strong>。</p>
+  <p>随着云占比上升，<strong>分部利润与集团利润之间的距离同样值得观察</strong>。全公司研发支出本季 206.4 亿（+36%），已高于收入增速。若未来云利润继续上升、共享研发费用却增长得更快，集团利润改善就可能弱于分部表现。</p>
+</div>
+<p>还有一条边界必须说清：<strong>不能把所有资本开支都归到云</strong>。搜索、YouTube、Gemini 和内部训练也在使用算力。用集团全部建设支出除以云收入，无法得出云的真实投资效率；用云利润率证明集团所有 AI 投入已获得回报，也超出了现有披露范围。</p>
+
+<h2><span class="num">03</span>业务分部逐项拆解</h2>
+
+<table>
+  <thead><tr><th>分部</th><th class="num">营收</th><th class="num">同比</th><th class="num">营业利润</th><th class="num">利润率</th><th>关键点</th></tr></thead>
+  <tbody>
+    <tr><td><strong>谷歌服务</strong></td><td class="num">963.02 亿</td><td class="num up">+11%</td><td class="num">391.57 亿</td><td class="num">40.7%</td><td>营业利润 +17%；传统现金牛韧性极强</td></tr>
+    <tr><td>　搜索及其他</td><td class="num">633.50 亿</td><td class="num up">+12%</td><td class="num" colspan="2">—</td><td>低于预期 649.6 亿；零售贡献最大，其次金融</td></tr>
+    <tr><td>　YouTube 广告</td><td class="num">112.07 亿</td><td class="num up">+9%</td><td class="num" colspan="2">—</td><td>品牌广告贡献最大，客厅场景尤为强劲</td></tr>
+    <tr><td>　Google Network</td><td class="num">74.55 亿</td><td class="num up">+1%</td><td class="num" colspan="2">—</td><td>基本持平</td></tr>
+    <tr><td>　订阅、平台及设备</td><td class="num">143 亿</td><td class="num up">+11%</td><td class="num" colspan="2">—</td><td>YouTube Music / Premium ＋ Google One AI 方案驱动</td></tr>
+    <tr><td><strong>谷歌云</strong></td><td class="num">307.09 亿</td><td class="num up">+103%</td><td class="num">111.21 亿</td><td class="num">36.2%</td><td>去年利润率 23.7%；GCP 占绝大部分</td></tr>
+    <tr><td><strong>其他创新业务</strong></td><td class="num">3.72 亿</td><td class="num up">+8%</td><td class="num down">-20.47 亿</td><td class="num">—</td><td>亏损扩大（去年 -14.26 亿），主因 Waymo 扩张</td></tr>
+    <tr><td><strong>集团层未分配</strong></td><td class="num">—</td><td class="num">—</td><td class="num down">-76.55 亿</td><td class="num">—</td><td>去年 -44.67 亿；共享 AI 研发成本</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">3.1</span>搜索：管理层说"AI 没削弱搜索"，海豚研究说"侵蚀已开始兑现"</h3>
+<p>管理层称搜索查询量同比增速达到<strong>过去五年最高</strong>，商业查询也在增加。这与搜索收入 +12% 的方向一致。但公司<strong>没有给出查询绝对数量、AI 查询单价或推理成本</strong>，因而无法计算"每次新增查询赚多少钱"。</p>
+<p>这是一个需要保留的判断：查询增加可以来自更高频使用，也可能包含<strong>单次任务被拆成多次交互</strong>；收入和利润必须跟上，才能说明使用增长具有经济价值。</p>
+<p>分析师直接追问了这个"脱节"（Doug Anmuth）。Philipp 给出四个原因，其中三个是外部与基数因素，只有一个与 AI 有关：</p>
+<ol>
+  <li><strong>汇率</strong>——从 Q2 到 Q3 增速变化的最大单一驱动因素；</li>
+  <li><strong>零售垂直行业</strong>——欧盟取消微额豁免（de minimis exemption），部分亚太广告主受影响；</li>
+  <li><strong>媒体与娱乐</strong>——FIFA 世界杯推动 Q2 反常强劲（6 月场次更多、预算分配更高），7 月回归常态；</li>
+  <li><strong>AI 模式变现水平相对较低</strong>——AI 模式查询量强劲增长本身拖累了广告变现率。</li>
+</ol>
+<p>此外还有<strong>高基数</strong>：从本季开始进入 2025 年下半年搜索加速增长的高基数期，Q3 因此减少约 <strong>3 个百分点</strong>增长贡献，Q4 预计继续消化约 <strong>2 个百分点</strong>。</p>
+
+<div class="box red">
+  <h4>海豚研究的另一种解释：不只是"AI 侵蚀"，还有"模型掉队"</h4>
+  <p>Q3 搜索广告增速只有 <strong>12%</strong>，<strong>环比放缓明显</strong>。海豚君认为，在 AI 高投入期、利润与现金流削弱的预期下，<strong>当基本盘业务开始失速，对谷歌本身的逻辑是最伤的</strong>，这印证了 AI 侵蚀叙事。</p>
+  <p>但它补充了一条前三篇都没有提到的因果链：结合过去几个季度"因 AI 带来搜索份额提升"的表现对比，<strong>Q3 的拉胯可能还与 Gemini 模型掉队、从而影响产品体验导致用户流失有关</strong>。而模型掉队又与<strong>算力资源的内外部调配倾斜比例</strong>直接相关——上半年 GCP 将算力倾斜给外部客户，因此不时听到 DeepMind（负责前沿模型训练的部分）员工内用算力不够的问题。</p>
+  <p class="mute">这条推论把"搜索"和"云"两个看似独立的分部用一条内部资源分配链连了起来，也解释了为什么云增速可以打到 103% 而搜索同时掉速。</p>
+</div>
+
+<h4>搜索与 Meta 的竞争力对照（海豚研究视角）</h4>
+<ul>
+  <li><strong>增长来源不同</strong>：Meta 的广告收入持续靠<strong>广告单价上涨</strong>而增长；Google 搜索在这方面"硬实力就不多了"。进入 2026 年之后，<strong>Google 搜索的 CPC 单价增速快速放缓</strong>，表明 AI 时代可能进一步放大了"广告预算从搜索向社交平台转移"的行业发展趋势。</li>
+  <li><strong>主场景被渗透</strong>：尤其是 <strong>Muse</strong>（Meta 的 AI）在<strong>旅游、金融</strong>等 Google 搜索更擅长的主场景下渗透，Meta 因此有机会涉足以往并没有优势的线下服务领域。</li>
+  <li><strong>财报前的领先信号</strong>：第三方数据显示谷歌搜索量降速、份额下降；同时 <strong>DMA 法案</strong>导致谷歌在欧盟地区的<strong>酒旅搜索量</strong>下滑。股价连续回调已经表明了资金的担忧和预期调整，<strong>但实际表现还是更差</strong>。</li>
+  <li><strong>YouTube 同步承压</strong>：随着世界杯红利退潮，YouTube 广告在高基数压力下，增长出现明显放缓（+9%）。</li>
+</ul>
+
+<h3><span class="ch">3.2</span>YouTube：订阅增速快于广告，客厅成主战场</h3>
+<ul>
+  <li>按观看时长计，YouTube 是<strong>美国第一大流媒体平台</strong>，客厅场景持续领先；客厅端占 YouTube 广告总收入<strong>三分之一以上</strong>。</li>
+  <li>YouTube Music 与 Premium 全球订阅用户（含试用）突破 <strong>1.5 亿</strong>；订阅业务增速<strong>持续快于广告</strong>；Premium 与 Premium Lite 提供分层选择。</li>
+  <li>每日上传视频超过 <strong>2000 万</strong>个；"Made on YouTube"大会发布 <strong>30 多款</strong>产品与功能；推出 Shorts 剧集系列、顺次播放、Custom Feeds（按专题定制的首页推荐流）。</li>
+  <li>YouTube Shopping：全球超 <strong>130 万</strong>频道加入；<strong>亚马逊正式入驻</strong>，美国创作者可在长视频、Shorts、直播中直接标记亚马逊商品。</li>
+</ul>
+
+<h3><span class="ch">3.3</span>云：18 条十亿美元产品线，TPU 已成独立生意</h3>
+<div class="cols">
+  <div class="box">
+    <h4>需求侧数据</h4>
+    <ul>
+      <li>云拥有 <strong>18 条</strong>年化收入超 10 亿美元的产品线</li>
+      <li>过去 12 个月，超 <strong>2600 家</strong>客户在 Gemini Enterprise 上用量 ≥1000 亿 tokens</li>
+      <li>近 <strong>75 家</strong>客户用量 ≥10 万亿 tokens</li>
+      <li>《财富》100 强中近 <strong>90%</strong> 使用 Gemini Enterprise</li>
+      <li>2025 Q3 已使用 Gemini Enterprise 的客户，支出同比<strong>翻两番以上</strong></li>
+      <li>已售出超 <strong>1 亿</strong>个面向知识型工作的席位</li>
+      <li>积压订单 <strong>5610 亿</strong>，未来 24 个月确认略超 <strong>55%</strong></li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>TPU 系统：不只是芯片</h4>
+    <ul>
+      <li>构成：硬件 ＋ 计算 ＋ 存储 ＋ 网络 ＋ 光网络 ＋ 编译器 ＋ 系统软件，是<strong>完整系统</strong></li>
+      <li>芯片分工：<strong>8T</strong> 用于训练、<strong>8I</strong> 用于推理</li>
+      <li>性能：TPU v5p 训练性能提升至 <strong>2.7 倍</strong>；v5e 推理性价比提升 <strong>80%</strong></li>
+      <li>软件：与 Meta 合作推出 <strong>TorchTPU</strong>，PyTorch 模型可直接在 TPU 上训练与服务</li>
+      <li>已有近 <strong>100 家</strong>客户使用 TPU</li>
+    </ul>
+  </div>
+</div>
+<p><strong>客户名单（Thomas 在电话会中逐一点名）</strong>：Anthropic（直接 ＋ 通过博通）、苹果（在最新一代 TPU 上扩展基础模型预训练）、Mistral、Physical Intelligence、Citadel Securities、Jump Trading、加州理工学院（Caltech）、Cassava、Cerascale。</p>
+<p><strong>分销渠道的三层扩张</strong>：① 自有云；② 客户本地数据中心（针对数据不能上云的行业，把加速计算带到数据所在处，同时抵消自建托管设施的需求）；③ 其他云服务商——已与 <strong>甲骨文</strong>、<strong>Crux AI</strong> 合作交付 TPU 系统，并与<strong>黑石、CoreWeave</strong> 达成合资协议。</p>
+
+<h4>预期差在哪：云 +103% 依然"不及预期"（海豚研究测算）</h4>
+<p>云增速 <strong>103%</strong>、环比加速，但机构预期更高。海豚君指出：<strong>BBG 一致预期（+91%）不能完全反映 TPU 硬件销售首次确认后的预期</strong>——卖方预期约 <strong>+105%</strong>，买方预期约 <strong>+110%</strong>。也就是说，市场早已把"TPU 首季放量"打进了模型，103% 落在卖方与买方预期之间偏下的位置。</p>
+<div class="box amber">
+  <h4>用合同额还原法验证需求是否仍然景气</h4>
+  <p>Q3 积存订单（Backlog）<strong>5610 亿</strong>。加上当期已确认的收入部分，<strong>简单还原到合同额，新增约 777 亿</strong>，与 Q2 差不多、<strong>略微高了 10 亿</strong>。</p>
+  <p>结论：<strong>需求还是景气的</strong>。收入不及预期不是因为客户不买了，而是<strong>交付节奏与模型竞争力</strong>的问题。</p>
+</div>
+<p><strong>海豚研究给出两条"不及预期"的归因</strong>：</p>
+<ol>
+  <li><strong>前沿模型连续两个季度迭代落后，影响 API 收入</strong>。9 月底发布上线、10 月中旬才对公众开放的 <strong>Gemini 4 Argon</strong>，相比自己前一版本自然有很大提升；但<strong>和 SOTA 同行比起来，Coding 上还有差距、性价比也不在最优区间</strong>。财报发完后 <strong>Gemini 4 Carbon 立即发布</strong>，单看整体性能已快速跃至 SOTA 层；<strong>单任务成本仍不在最优性价比区间，但要比 Opus 5.5 低一些</strong>，可继续关注用户实测表现。</li>
+  <li><strong>TPU 出货节奏</strong>。根据调研信息，海豚君认为预期差可能与 TPU 出货节奏有关——例如 <strong>v8i 的大规模交付明确延期一个季度到年底</strong>。财报未披露云业务拆分，TPU 对增长贡献多少（财报定性表述为"有显著贡献"）、v8 延期影响多大，需关注电话会口径。</li>
+</ol>
+<p class="mute">补充一条口径细节：海豚研究指出 Q3 云收入中的 TPU 销售<strong>主要为 v7 交付</strong>。</p>
+
+<h3><span class="ch">3.4</span>地区结构</h3>
+<table class="tight">
+  <thead><tr><th>地区</th><th class="num">营收</th><th>备注</th></tr></thead>
+  <tbody>
+    <tr><td>美国</td><td class="num">676.81 亿</td><td>核心增长引擎，高于 Q2 的 608.46 亿</td></tr>
+    <tr><td>欧洲、中东和非洲（EMEA）</td><td class="num">326.95 亿</td><td>稳健</td></tr>
+    <tr><td>亚太（APAC）</td><td class="num">199.06 亿</td><td>稳健；零售广告主受欧盟微额豁免取消影响</td></tr>
+    <tr><td>其他美洲</td><td class="num">71.0 亿</td><td>稳健</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">04</span>成本结构：AI 的成本藏在三个地方</h2>
+
+<table>
+  <thead><tr><th>成本项</th><th class="num">金额</th><th class="num">同比</th><th>驱动因素</th></tr></thead>
+  <tbody>
+    <tr><td>流量获取成本（TAC）</td><td class="num">164 亿</td><td class="num up">+10%</td><td>—</td></tr>
+    <tr><td>其他营收成本</td><td class="num">351 亿</td><td class="num up">+32%</td><td>TPU 系统销售相关硬件成本、折旧、内容获取成本、技术基础设施运营成本</td></tr>
+    <tr><td>研发费用</td><td class="num">206.4 亿</td><td class="num up">+36%</td><td>AI 人才薪酬、折旧；<strong>增速高于收入增速</strong></td></tr>
+    <tr><td>销售与营销</td><td class="num">—</td><td class="num up">+22%</td><td>Gemini 投入、薪酬</td></tr>
+    <tr><td>一般及行政</td><td class="num">—</td><td class="num down">-17%</td><td>去年同期含较高法律诉讼费用（基数效应出清），部分被当期法律费用抵消</td></tr>
+    <tr><td>折旧</td><td class="num">83.69 亿</td><td class="num up">+49%</td><td>算力资产投产</td></tr>
+    <tr><td><strong>集团层未分配成本</strong></td><td class="num">76.55 亿</td><td class="num up">+71%</td><td>通用 AI 模型开发所需人员薪酬、技术基础设施使用成本、部分集团管理费用</td></tr>
+  </tbody>
+</table>
+
+<h4>环比拆解：利润率为什么走弱（海豚研究）</h4>
+<p>Q3 公司整体经营利润率<strong>环比走弱 2 个百分点</strong>，与<strong>折旧、研发费用</strong>的高增有关——这两项分别代表<strong>算力基建投入</strong>与<strong>大模型训练投入</strong>。</p>
+<p>除了"TPU 硬件销售的利润率比原集团更低"这一结构性原因外，公司还表明：由于<strong>算力供给不足，短期会扩大使用第三方算力</strong>。海豚君举了一个具体例子——<strong>从 SpaceX 短租算力</strong>，因为是即时需求，<strong>租金往往较高</strong>，也会压低利润率。</p>
+<div class="box amber">
+  <h4>分业务利润率的方向刚好相反</h4>
+  <ul>
+    <li><strong>广告等谷歌服务：利润率环比下降 1 个百分点。</strong></li>
+    <li><strong>云：利润率环比走高</strong>——这是整个财报<strong>为数不多超预期的地方</strong>。</li>
+    <li><strong>但要注意一个会计口径</strong>：云利润率里<strong>不包含模型训练支出</strong>，谷歌将部分支出计入了<strong>集团部门的研发费用</strong>上。这正是"云分部 36.2% 很好看、集团利润被 76.55 亿未分配成本拉低"的成因。</li>
+  </ul>
+</div>
+
+<div class="box red">
+  <h4>成本的三层结构，决定了未来利润率的弹性</h4>
+  <ol>
+    <li><strong>第一层：直接随收入变动</strong>——TAC、硬件成本（TPU 销售）。这部分只要定价合理就不会侵蚀利润率。</li>
+    <li><strong>第二层：资产折旧与能源</strong>——管理层明确表示，技术基础设施投资的大幅增加<strong>将继续以更高折旧费用及数据中心运营成本（如能源）的形式对损益表形成压力</strong>。这是未来 2–3 年利润率的刚性约束。</li>
+    <li><strong>第三层：集团共享 AI 研发</strong>——76.55 亿且同比 +71%，增速快于云业务利润。这是"分部好看、集团打折"的根源。</li>
+  </ol>
+</div>
+
+<h2><span class="num">05</span>现金流全景：钱去了哪里，怎么回来</h2>
+
+<h3><span class="ch">5.1</span>TPU 系统销售的现金流周期（与常规资本开支完全不同）</h3>
+<div class="box blue">
+  <p><strong>Anat 与 Thomas 反复解释的机制，按时间顺序是这样的：</strong></p>
+  <ol>
+    <li><strong>签署合同</strong> → 订单计入<strong>积压订单（backlog）</strong>；</li>
+    <li><strong>开始建立存货</strong> → 现金<strong>流出</strong>；以往存货主要由硬件产品构成，现在未售出的 TPU 系统也体现在存货中；</li>
+    <li><strong>交付并向客户开票</strong> → 现金<strong>流入</strong>，确认收入。</li>
+  </ol>
+  <p>所以 TPU 业务<strong>并不等同于传统意义上的资本开支</strong>，而是一条独立的现金流曲线：先垫资、后回收。目前已有部分系统销售确认收入，<strong>更多将在 2027 年体现</strong>。Thomas 补充一条关键约束：<strong>所有 TPU 系统库存都与已承诺的合同相对应</strong>——只有在签署合同后才会采购备货。</p>
+</div>
+
+<h3><span class="ch">5.2</span>自由现金流归零的可复算边界</h3>
+<div class="box amber">
+  <p>假设季度资本开支保持本季水平（513.55 亿），经营现金流需要增加 <strong>90.65 亿、约 21%</strong>，自由现金流才能回到零。</p>
+  <p class="mute">这是一个<strong>固定支出情景</strong>，不是对下一季结果的预测。如果建设继续提速，所需现金增量还会更大。</p>
+</div>
+
+<h3><span class="ch">5.3</span>融资与股东回报：资本配置的优先级已经很清楚</h3>
+<table class="tight">
+  <thead><tr><th>项目</th><th class="num">金额</th><th>含义</th></tr></thead>
+  <tbody>
+    <tr><td>普通股发行净收入</td><td class="num">123.71 亿</td><td>增加未来分享利润的股份</td></tr>
+    <tr><td>债务发行净收入</td><td class="num">289.96 亿</td><td>增加利息负担</td></tr>
+    <tr><td>股票回购</td><td class="num">0</td><td><strong>本期没有回购</strong></td></tr>
+    <tr><td>分红现金支付</td><td class="num">29.36 亿</td><td>季度股息 0.22 美元/股</td></tr>
+    <tr><td>利息费用</td><td class="num">9.67 亿</td><td>去年同期仅 1.43 亿，<strong>增长近 6 倍</strong></td></tr>
+    <tr><td>稀释平均股数</td><td class="num">—</td><td>有所增加</td></tr>
+  </tbody>
+</table>
+<p>这一组合表明：<strong>资本配置优先支持扩张，同时通过股债融资补充资金</strong>。现金与有价证券 2650.98 亿的缓冲仍然很厚，但长期债务已升至 1251.02 亿——<strong>充足流动性说明公司能够继续建设，不代表建设已经由自身自由现金流完全支持</strong>。分红延续也不能单独证明自由现金流已经改善；分红、融资和建设支出必须放在同一张现金账上观察。</p>
+
+<h3><span class="ch">5.4</span>资本开支强度：已占收入 40%，明年测算分歧很大</h3>
+<p>Q3 资本开支 514 亿，<strong>同比翻倍、继续加速，占当期收入比重已经达到 40%</strong>，直接导致当期自由现金流负值继续扩大到 91 亿。</p>
+<table class="tight">
+  <thead><tr><th>口径</th><th class="num">2026 年</th><th class="num">2027 年</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>公司指引</strong></td><td class="num">1950–2050 亿</td><td class="num">"显著增长"</td><td>全年指引维持不变；<strong>隐含 Q4 约 630–730 亿</strong>，继续环比加速；2027 年细节待 Q4 电话会</td></tr>
+    <tr><td><strong>市场预期（资金）</strong></td><td class="num">约 2200 亿</td><td class="num">约 3500 亿</td><td>海豚研究引用，明显高于公司 2026 指引上限</td></tr>
+    <tr><td><strong>海豚君自下而上测算</strong></td><td class="num">—</td><td class="num">约 3500 亿</td><td>新增 <strong>6–7GW</strong> 算力部署 × <strong>430 亿/GW</strong> 平均单位成本，加存量数据中心维护等支出 <strong>500–600 亿</strong></td></tr>
+  </tbody>
+</table>
+<div class="box red">
+  <h4>明年的现金流结论：大概率仍为负，量级约 -1000 亿</h4>
+  <p>按照明年的收支情况，<strong>全年现金流大概率仍然为负</strong>；海豚君按 3500 亿资本开支测算，<strong>明年预期约 1000 亿的自由现金流负值</strong>。</p>
+  <p><strong>但短期钱是够用的</strong>——不看长期债务，理论上账面现金、短期投资与剩余融资额度<strong>能基本覆盖近两年的资金缺口</strong>。</p>
+</div>
+
+<h4>850 亿融资计划的执行进度（海豚研究口径）</h4>
+<ul>
+  <li>Q3 继续执行年初制定的 <strong>850 亿融资计划</strong>：当季<strong>增发 125 亿美元股权</strong>，<strong>还剩 276 亿增发融资额度</strong>。</li>
+  <li>同时三季度还发行了 <strong>287 亿无担保票据</strong>。</li>
+  <li class="mute">与电话会口径的差异：CFO 披露的是"普通股发行<strong>净收入</strong> 123.71 亿"与"债务发行净收入 289.96 亿"，海豚研究引用的是"增发<strong>规模</strong> 125 亿"与"发行 287 亿票据"，差异来自发行费用与净额调整，方向一致。</li>
+</ul>
+
+<h3><span class="ch">5.5</span>偿付能力：刚性承诺 vs Backlog 的"两头错配"</h3>
+<p>这是海豚研究全文最值得单独拎出来的一节，也是四篇中唯一从<strong>偿付能力</strong>而非<strong>季度现金流</strong>角度切入的分析。</p>
+<div class="cols">
+  <div class="box">
+    <h4>负债端：近万亿兑付合同额</h4>
+    <ul>
+      <li>Google 还有<strong>近万亿</strong>的兑付合同额；</li>
+      <li>其中<strong>5 年内有 7000 多亿</strong>属于<strong>"半"刚性兑付</strong>——<strong>除非直接违约赔偿，否则只要执行合约就得支付的固定支出</strong>；</li>
+      <li>数据口径：为 <strong>Q2 末</strong>数据，Q3 数据待 <strong>10-Q 文件</strong>更新。</li>
+    </ul>
+    <p class="mute">对照电话会口径：未来采购承诺 9240 亿 ＋ 未生效租赁及其他债务承诺 1520 亿，合计约 1.08 万亿，与"近万亿"量级一致。</p>
+  </div>
+  <div class="box">
+    <h4>资产端：对冲来自哪里</h4>
+    <ul>
+      <li>客户已经签下的 <strong>Backlog</strong>（5610 亿）；</li>
+      <li><strong>Anthropic 对谷歌约 1145 亿的算力承诺</strong>；</li>
+      <li>若明年 TPU 按排产交付、回款，<strong>现金流有望在 2028 年前后迎来拐点</strong>。</li>
+    </ul>
+  </div>
+</div>
+<div class="box red">
+  <h4>核心风险：采购承诺是刚性的，Backlog 是"有条件的"</h4>
+  <p>海豚君把风险总结为<strong>"两头错配"</strong>：<strong>采购承诺是刚性的，而 Backlog 里有相当一部分来自 Anthropic 这类自身还在烧钱的 AI 公司。</strong></p>
+  <p>由此推出一条关键判断：<strong>"A 社的融资能力，最终会变成谷歌的现金流风险。"</strong>换言之，谷歌正在用自己的资产负债表，为 AI 客户的扩张能力加杠杆——客户融不到钱，Backlog 就回不了款，而谷歌的采购承诺不会因此减少。</p>
+</div>
+
+<h4>与 Anthropic 的捆绑：合作细节与它的非独家性</h4>
+<ul>
+  <li><strong>战略目的</strong>：Google 正在<strong>加大与 Anthropic 的合作捆绑</strong>，目的是<strong>共同御敌 ChatGPT</strong>。</li>
+  <li><strong>产品形态</strong>：将其深度绑定到 <strong>Google Workspace 生态</strong>中，实现高度集成——比如 <strong>Google Doc 中直接有 Anthropic 的按钮</strong>，体现一体化体验。</li>
+  <li><strong>C 端订阅设想</strong>：后续可能在套餐形式上做文章，比如推进<strong>"一个套餐两家模型"</strong>的方式，等于让用户在 <strong>OpenAI 与 Anthropic+Gemini</strong> 之间做选择。</li>
+  <li><strong>但并非独家</strong>：Anthropic 本身也做了 Office 集成以及 <strong>Microsoft 365 连接器</strong>，实现微软生态内的跨软件协作。这意味着谷歌的"捆绑"并未锁定排他性优势。</li>
+</ul>
+<div class="quote">海豚君的关键判断：<strong>"如果谷歌没了广告支撑，那么单靠云和 TPU，是更难完成偿付的。"</strong>因此除了期望持续保持前沿模型迭代，还希望看到谷歌推出更多 AI Agent 产品，利用原先生态渠道优势，尽快形成一个新的流量入口，而非单一依赖传统搜索。</div>
+
+<h2><span class="num">06</span>电话会 · 管理层陈述（四人分工）</h2>
+
+<h3><span class="ch">6.1</span>Sundar Pichai（CEO）：模型、搜索、智能体、长期押注</h3>
+
+<h4>模型：Gemini 4 系列的节奏已经变了</h4>
+<ul>
+  <li><strong>Argon</strong>（两周前发布）：需求和使用强劲。开发者平台首周使用量爬升速度达到 Gemini 3 的 <strong>3.5 倍</strong>，且是在<strong>存在产能限制</strong>的情况下。在金融、法律、网络安全、科学领域表现突出；被用于理清遗留代码库、加速科学研究、机器人技术、发现产品改进点、需要深度推理的领域特定任务。</li>
+  <li><strong>内部效应</strong>：过去几周 Chrome、广告和搜索团队使用 Argon，<strong>代码交付量增加 35%，错误减少 30%</strong>。Pichai 称这是"我们在软件工程领域见过的最有意义的内部生产力杠杆之一"，可直接追踪高质量代码提交、合入速度、回滚次数减少。</li>
+  <li><strong>Carbon</strong>（当日发布）：最强前沿模型，具备先进网络安全与长时程（long-horizon）能力，在最新更新的 <strong>Artificial Analysis Intelligence Index 中以 59 分排名第一</strong>。在几乎所有领域优于 Argon——全栈 Web 开发、多模态理解、复杂知识工作、科学推理。<strong>先向部分可信网络安全防御方推出</strong>，再扩大访问，<strong>正在接受美国政府测试</strong>。</li>
+  <li><strong>Genie 4</strong>（10 月 27 日）：迄今最先进的世界模型，可实时模拟安全、逼真、交互式世界，支持原生音频，是<strong>训练机器人和智能体的重要基石</strong>。</li>
+  <li><strong>递归自我改进（RSI）</strong>：已进入"AI 帮助提升训练和发布速度"的阶段，预计<strong>未来 12 个月将因 RSI 继续加速</strong>。将推出更高效模型版本，帮助开发者优化速度与成本，并部署到数十亿用户。</li>
+</ul>
+
+<h4>搜索：从"最佳体验"再到"货币化"</h4>
+<ul>
+  <li>构建从 <strong>AI 概览 → AI 模式 → 传统搜索</strong>的无缝体验，思路与十多年前向移动端转型一致：先做最佳用户体验，再变现。</li>
+  <li>查询变得<strong>更长、更个性化、更具多模态特征</strong>：AI 模式查询平均长度是传统搜索的 <strong>3 倍</strong>；全球<strong>五分之一</strong>的 AI 模式搜索使用语音、图像或文档；每月视觉搜索超 <strong>500 亿次</strong>。</li>
+  <li>下一个重点领域：帮人们完成<strong>预订、填表、预约、购物</strong>等日常事务。</li>
+</ul>
+
+<h4>智能体：作为"统一层"贯穿全部产品</h4>
+<ul>
+  <li>路径：<strong>先企业版 Gemini 智能体</strong>（安全、安保、治理门槛最高）→ 再引入<strong>搜索</strong> → 再给 <strong>Gemini 应用 10 亿用户</strong> → 再延伸到 <strong>Chrome、Android、Workspace</strong>。</li>
+  <li>用户已在使用 Gemini 应用做超出提问的事，包括复杂多步骤智能体查询；Gemini 应用新增 <strong>Tasks 标签页</strong>，用户已在其上实际输入。</li>
+  <li>信任与安全是核心差异化：数十年服务数十亿用户积累的信任，加上端到端测试、大规模实时监控、安全架构。</li>
+</ul>
+
+<h4>长期押注</h4>
+<ul>
+  <li><strong>Waymo</strong>：累计完成超 <strong>3 亿英里</strong>全自动驾驶里程；在<strong>美国 15 个主要城市</strong>运营；近期向圣安东尼奥、圣地亚哥、坦帕公众开放；计划扩展至<strong>加拿大、德国、新加坡、西班牙</strong>。</li>
+  <li><strong>Isomorphic</strong>：正用 Argon 支持药物设计研究。</li>
+  <li><strong>量子计算</strong>：首次演示<strong>魔态蒸馏与制备</strong>（另一篇写作"魔态培育"）。</li>
+  <li><strong>Project Suncatcher</strong>：将 TPU 送入太空。</li>
+</ul>
+
+<h3><span class="ch">6.2</span>Philipp Schindler（广告）：三根支柱与"智能体是纯增量"</h3>
+
+<h4>支柱一：广告质量</h4>
+<ul>
+  <li>对<strong>产品详情广告（PLA）</strong>做了十年来最大一次更新，加入新 AI 功能，<strong>满意度提升 19%，不满意度下降一半以上</strong>。</li>
+  <li>AI 模型能更好地预测点击率与转化率，带来更强效果与更深层个性化。例如通过个性化建模，2026 年为 <strong>Discover 广告带来 18% 的广告主增量价值、8% 的用户好感度提升</strong>。</li>
+</ul>
+
+<h4>支柱二：广告主工具</h4>
+<ul>
+  <li>AI Max 与效果最大化广告（Performance Max）采用率持续强劲。</li>
+  <li>新能力：允许广告主在<strong>单次 AI Max A/B 测试中跨多个搜索广告活动测试不同预算与 ROI 目标</strong>；AI 创意工具直接集成进 AI Max。</li>
+  <li>Q3 Gemini 模型帮广告主生成超 <strong>15 亿个</strong>广告系列资产，<strong>同比增长超 7 倍</strong>。</li>
+  <li>案例：澳洲电信（Telstra）用 AI Max 捕捉长尾与多语言查询，<strong>转化率 +52%，每笔订单成本 -36%</strong>。</li>
+</ul>
+
+<h4>支柱三：AI 用户体验与变现</h4>
+<ul>
+  <li>AI 模式下许多查询属于<strong>漏斗上层</strong>，能捕捉新的高价值商业意图；<strong>AI 模式下大多数查询是增量查询</strong>，随时间推移创造更多变现机会。</li>
+  <li>用户研究显示：对这些界面中的广告接受度良好、相关性高；AI 模式下<strong>赞助类与自然展示列表的点击率已十分接近</strong>。</li>
+  <li>动作：把 AI 概览与 AI 模式中的高品质广告扩展至更多用户与查询，<strong>首次推向国际市场</strong>；在美国推出<strong>多轮对话广告</strong>。推进方式"审慎而明确"——先保障用户体验与参与度，再规模化推广能带来明确 ROI 的广告形式。</li>
+</ul>
+
+<h4>智能体商业的基础设施</h4>
+<ul>
+  <li><strong>通用商业协议（UCP）</strong>：已支持<strong>数十万个品牌</strong>在谷歌平台实现直接结账，包括 Chewy、Nike、Tapestry；并与<strong>智能体支付协议（Agent Payments Protocol）</strong>结合。</li>
+  <li><strong>通用购物车（Universal Cart）</strong>：还原用户在谷歌上的真实购物行为，让零售商维系与消费者的直接关系，促成交易并避免弃单。</li>
+</ul>
+
+<h4>合作与优先级</h4>
+<ul>
+  <li>扩大与<strong>美国运通</strong>合作：联络中心现代化改造，并在搜索与数字钱包的智能体商业展开合作。</li>
+  <li><strong>Unity Software</strong> 签署扩大的多年期云协议，采用全栈 AI 技术为下一代游戏引擎提供支持。</li>
+  <li>商业优先级三条：提升广告主 ROI、系统性推进 AI 商业化效率、规模化拓展生态伙伴关系。</li>
+</ul>
+
+<h3><span class="ch">6.3</span>Thomas Kurian（云）：集成化产品组合与 TPU 三步策略</h3>
+<ul>
+  <li>增长得益于<strong>芯片、模型、数据、安全、智能体平台</strong>构成的集成化 AI 产品组合，"专为协同运作而设计"；在产品线、行业、客户群体上深度多元化。</li>
+  <li>增长由 <strong>GCP</strong> 驱动，AI 与核心 GCP 均稳健，TPU 系统销售为重要贡献；<strong>GCP 占第三季度绝大部分收入</strong>。</li>
+</ul>
+
+<h4>Gemini Enterprise 与知识型工作</h4>
+<ul>
+  <li>Gemini Enterprise 集成 <strong>Gemini Agent</strong>：通过单一智能体、单一 API、单个提示词窗口，完成调研答疑、编写并运行代码、自动化流程；提供企业级安全、成本控制与最广泛的前沿模型选择。</li>
+  <li>客户案例：<strong>法国巴黎银行</strong>向逾 6.5 万名员工部署；<strong>塔塔钢铁</strong> 9 个月内上线 <strong>300 多个</strong>专用 AI 智能体，客户服务时间<strong>缩短 50%</strong>；<strong>Ulta Beauty</strong> 的 AI 购物助手转化率比传统浏览模式<strong>高 3 倍</strong>。</li>
+</ul>
+
+<h4>数据库与分析</h4>
+<ul>
+  <li>Gemini 借助<strong>知识编目（Knowledge Catalog）</strong>寻找准确信息源与定义，提升准确性、降低 token 成本；借助<strong>湖仓一体（Lakehouse）</strong>实现零复制跨多系统访问。</li>
+  <li><strong>BigQuery 查询速度同比 +40%，查询处理成本同比 -50%</strong> 以上。</li>
+  <li>客户：<strong>德国电信</strong>跨 40 多个传统本地系统构建统一数据湖仓；<strong>Etsy</strong> 将 3PB 数据迁移至统一湖仓，BigQuery ＋ Iceberg 使关键关联分析速度提升<strong>高达 60%</strong>。</li>
+</ul>
+
+<h4>安全</h4>
+<ul>
+  <li><strong>Gemini Flash Cyber</strong>：前沿模型，可在 <strong>20 种编程语言</strong>中自动发现漏洞，<strong>修复可靠性是其他模型的 2.6 倍</strong>；Argon 与 Carbon 推出后将更强。</li>
+  <li>安全平台整合威胁情报、网络响应优先级排序、自动化扫描、代码修复与监控。</li>
+  <li>Gemini 与 Google Threat Intelligence 每天以 <strong>98% 准确率</strong>自主分析<strong>数百万起</strong>外部事件。</li>
+  <li>超 <strong>95% 的 Wiz 客户</strong>正在采用 AI 驱动功能；客户涵盖 Banorte、Jack Henry（金融）、AT&amp;T（电信）等关键基础设施。</li>
+</ul>
+
+<h4>TPU 三步策略</h4>
+<ol>
+  <li><strong>打造合适的芯片</strong>：8T 用于训练、8I 用于推理，性价比与性能大幅提升。</li>
+  <li><strong>软件深度优化</strong>：不仅为性能，还要<strong>无缝可移植性</strong>；引入 PyTorch 深度优化（TorchTPU）打开更广市场。</li>
+  <li><strong>拓宽分发渠道</strong>：从"只能在谷歌云用"扩展到客户本地数据中心，再扩展到其他云服务商。</li>
+</ol>
+<p>需求侧三类动态同时发生：① 使用 Gemini 本身带来收入增长；② 用 Gemini 时带动算力、存储、数据库、安全等组合销售（智能体要买算力执行、要存储保存记忆、要数据库提供推理上下文）；③ 新客户签约与采纳率加速。</p>
+<p>产能表态：<strong>"在任何时候，只要有充足产能，我们始终能满足多得多的需求"</strong>——但正在审慎管理参数与增长节奏。</p>
+
+<h3><span class="ch">6.4</span>Anat Ashkenazi（CFO）：财务细节与 Q4 展望</h3>
+<div class="cols">
+  <div class="box">
+    <h4>Q4 与全年展望（逐条）</h4>
+    <ul>
+      <li><strong>汇率</strong>：按当前即期汇率，Q4 对合并收入的逆风<strong>略大于 Q3</strong>，主要影响搜索与 YouTube 广告。</li>
+      <li><strong>搜索基数</strong>：继续面临 2025 年下半年搜索加速的高基数，Q3 已拖累约 3 个百分点，Q4 继续消化。</li>
+      <li><strong>云</strong>：TPU 系统销售 Q4 继续放量，<strong>2027 年实现更显著的收入爬坡</strong>。</li>
+      <li><strong>云利润率</strong>：供应受限环境下，Q3 末开始使用第三方算力，<strong>Q4 扩大使用，短期利润率面临逆风</strong>（Q3 因刚上线，负面影响有限）。</li>
+      <li><strong>资本开支</strong>：2026 全年 <strong>1950–2050 亿</strong>指引不变；2027 年<strong>大幅增加</strong>，细节在 Q4 电话会提供。</li>
+      <li><strong>费用</strong>：技术基础设施投资继续以<strong>更高折旧 ＋ 能源等数据中心运营成本</strong>压制损益表。</li>
+      <li><strong>指引缺口</strong>：10 月 28 日公告<strong>没有给出下一季度收入或全年资本开支的明确数值指引</strong>。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h4>ROIC 与自由现金流的官方表态</h4>
+    <ul>
+      <li>处于"独特优势地位"，能把 AI 投资在触达数十亿用户和企业的众多产品中变现。</li>
+      <li>搜索的 AI 投资正推动近五年最高查询增速；<strong>谷歌云今年迄今已产生数百亿美元 AI 相关收入</strong>；<strong>Google One 是增长最快的订阅产品</strong>（受 AI 方案需求推动）。</li>
+      <li>在整个投资周期中，预计创造<strong>明显高于资本成本且有吸引力的 ROIC</strong>，并产生强劲经营现金流。</li>
+      <li>但同时承认：技术基础设施的大规模投资、以及为 TPU 系统扩张建立的库存，<strong>都将对自由现金流造成压力</strong>。</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="num">07</span>电话会 · 七轮分析师问答全记录</h2>
+
+<div class="qa">
+  <div class="qh">第 1 问｜摩根大通 Doug Anmuth</div>
+  <div class="qb">
+    <p class="q">Q：你提到 2027 年可能是谷歌生产力的"黄金时代"，能否展开？另外查询量增速是五年最快，但搜索收入增长在放缓，这个脱节是因为 AI 概览/AI 模式里广告展示较少、而这部分在总查询中占比在扩大吗？</p>
+    <p><span class="who">Pichai</span>从 3.8 Flash 开始就看到了阶跃式变化。内部随着模型在长周期任务、智能体编程上变强，<strong>一旦开始部署 Argon 就出现巨大拐点</strong>——这是软件工程领域见过的最有意义的内部生产力杠杆之一，可直接追踪高质量代码提交、合入速度、回滚次数减少。更重要的是大家开始解决极其庞大复杂的问题，同时在产品和消费者体验端看到创新。<strong>而这一切只发生在大概四周前</strong>。现在正在内部部署 Carbon，相比 Argon 又是一次显著跨越。"自从我在播客中表达过这些之后，我现在甚至更加感到振奋"——<strong>未来一年将是提升生产力的黄金之年</strong>。</p>
+    <p><span class="who">Philipp</span>Q3 搜索 +12% 至 630 亿。Q2→Q3 增速变化四个原因：① <strong>汇率</strong>是最大单一驱动；② <strong>零售</strong>——欧盟取消微额豁免，部分亚太广告主受影响；③ <strong>媒体与娱乐</strong>——FIFA 世界杯推动 Q2 反常强劲（6 月场次更多、预算分配更高），7 月回归常态；④ <strong>AI 模式查询强劲增长但变现水平相对较低</strong>。他强调"对当前势头感觉非常好"，广告实验成效可观，正把 AI 概览与 AI 模式广告扩大到更多用户与查询，含国际市场与美国多轮对话广告。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 2 问｜摩根士丹利 Brian Nowak</div>
+  <div class="qb">
+    <p class="q">Q：向全体用户推出智能体产品，技术上要克服哪些关键障碍——模型效率、算力容量，还是技术尚未就绪？另外搜索的对比基数因素，进入 Q4、Q1 该怎么看？</p>
+    <p><span class="who">Pichai</span>四个基石：① <strong>模型蒸馏版本</strong>——从算力、延迟、质量三方面把模型高效部署到十亿级用户；② 稳健的<strong>评测与运行框架（harness）</strong>；③ 高度安全的<strong>运行时环境（runtime）</strong>——这正是 GCP 发挥作用的地方，为每位用户提供 7×24 小时可用的安全运行时；④ 由<strong>技能与连接器</strong>构成的生态系统。</p>
+    <p>策略上先企业后消费者：企业版 Gemini 智能体已宣布且反响极佳，本质原因是对安全性、数据治理、合规管控要求最高。<strong>今年晚些时候</strong>把同样体验带给消费者端，从 Gemini 应用 10 亿用户开始。用户使用方式正从单纯聊天转向任务型和类智能体体验；<strong>用户信任 ＋ 上下文完整保留在应用中</strong>，是极好的优势。</p>
+    <p><span class="who">Anat</span>环比有外汇逆风，Q4 按即期汇率仍有逆风。同比从本季开始进入 2025 年下半年搜索加速的高基数期，<strong>Q3 拉低约 3 个百分点增速，Q4 仍将持续</strong>。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 3 问｜高盛 Eric Sheridan</div>
+  <div class="qb">
+    <p class="q">Q：算力逐步到位后，全公司算力应用的核心优先级是什么？云内部，"自用算力满足客户"与"对外卖 TPU"之间的关系怎么演进？</p>
+    <p><span class="who">Pichai</span>算力分配是投入大量时间的领域，需要严密的前瞻性规划。感到幸运的是眼前有一系列<strong>极为难得的重大机遇</strong>：触达数十亿用户的规模化消费者业务、势头强劲的超大规模云业务，以及一系列其他重要领域。<strong>各业务板块都在非常严谨的 ROIC 框架下提交长期规划方案</strong>。他倾向把这一切视为<strong>长远规划过程，而非短期算力分配操作</strong>。AI 模型是一切业务的底层支撑（搜索、YouTube、云、Waymo），是基石，是"极高杠杆"的方式；全栈布局带来极高效率，也让公司在广泛机遇前拥有极大选择权。</p>
+    <p><span class="who">Thomas</span>客户群高度多元：数字原生企业、AI 实验室、传统企业、金融及资本市场客户。<strong>超过 100 家重要的大型 TPU 客户从谷歌云起步</strong>。TPU 是硬件、系统软件、编译器、光网络等模块组装成的完整系统。策略三步：合适芯片（8T 训练 / 8I 推理）、软件深度优化（性能 ＋ 可移植性）、<strong>拓宽分发渠道</strong>（客户本地数据中心、其他云厂商：甲骨文、黑石 ＋ CoreWeave 合资）。AI 实验室、资本市场、金融服务、企业客户需求都极旺盛。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 4 问｜巴克莱 Ross Sandler</div>
+  <div class="qb">
+    <p class="q">Q：如果 1 吉瓦完整 TPU 系统（含算力及周边组件）成本约 350 亿美元，其中多少比例确认为收入？对整体利润率结构如何传导？另外，帮 AI 实验室引入其自有第一方基础设施，对未来资本开支密集度意味着什么？</p>
+    <p><span class="who">Anat</span>不提供产品层面具体财务数据。要点：<strong>TPU 系统不只是一枚芯片</strong>，而是集成硬件、计算、存储、网络的专用系统，出售的远不止芯片、软件、训练与推理，<strong>对客户包含巨大附加值</strong>。</p>
+    <p>机制（与她回答第二部分的关联）：签合同 → 订单进入<strong>积压订单</strong> → 建立存货（<strong>现金先流出</strong>，以往存货主要由硬件产品构成，现在未售出 TPU 系统也计入）→ 交付并开票（<strong>现金流入</strong>）。<strong>这与传统资本开支不同，是截然不同的现金流生成周期</strong>。目前处于起步与规模爬坡阶段，会在现金流量表看到资金需求与存货积累。<strong>已确认部分系统销售收入，更多预计在 2027 年体现</strong>。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 5 问｜美国银行 Justin Post</div>
+  <div class="qb">
+    <p class="q">Q：随着通用购物车推出、智能体用例普及，如何管理搜索向智能体的过渡？会构成逆风吗？长期看智能体是否带来更多变现机会？另外 TPU 是否真是一门好生意？</p>
+    <p><span class="who">Philipp</span>智能体仍处早期。<strong>明确认为智能体体验是纯增量的</strong>。重点是打造用户喜爱、建立在信任与安全之上的超大规模体验，立足于智能体商业的基础构件（UCP、通用购物车、智能体支付协议）。</p>
+    <p>核心论点：购物旅程中有一部分是用户不喜欢的枯燥繁琐工作，用 AI 自动化"坦率说非常棒"；但<strong>希望增强而非取代探索发现</strong>——用户考量的事物远不止价格，还包括品牌忠诚度、客户服务等，他们喜欢拥有选择权。因此在构建智能体工作流时，<strong>特意为用户设计了探索这些选择的时间与空间</strong>。举例：智能体可以说"这是我们找到的保险产品，这里还有一个很有竞争力的选项，其中一个保费较高但免赔额可能较低，他们目前正在提供非常优惠的折扣"。<strong>鉴于决策中几乎从不会只有唯一完美选项，有信心为智能体用例提供极具吸引力且引人注目的广告模式</strong>，未来可拓展到订阅及其他支付方式。</p>
+    <p><span class="who">Pichai</span>这是<strong>业务扩张的机遇</strong>。历史上每次在搜索中融入 AI 对话用例，人们就能提出更多问题、做更多事情，这正是当前使用量体现的趋势。智能体将再次拓展为用户解决的问题类型。<strong>人们往往低估了提供这些智能体体验所需的全部技术组件</strong>——搜索表面简单，背后是知识图谱以及对现实世界的理解等长期积累。智能体是"全新的前沿领域"，将带来一套全新用例。</p>
+    <p><span class="who">Thomas</span>不单独披露产品或基础设施组件利润率。但看到诸多优势：TPU 相对竞争对手的<strong>性价比优势</strong>，加上加速计算需求增长与稀缺性，非常专注在扩规模同时<strong>持续提升利润率</strong>。两点补充：① <strong>所有 TPU 系统库存都与已承诺合同相对应</strong>（签约后才采购备货）；② 部署在第三方设施与客户本地数据中心，一方面扩大 TAM（某些行业数据存放在本地无法迁移上云），另一方面<strong>抵消了为托管这些系统而必须预先建造设施的需求</strong>。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 6 问｜联博 Mark Shmulik</div>
+  <div class="qb">
+    <p class="q">Q：早期智能体用例中，有什么让你惊讶或改变观点的？排除 TPU 系统销售后云增速多少、有多少受产能制约？Q4 第三方产能上线，假设云加速是否合理？</p>
+    <p><span class="who">Pichai</span>趋势清晰可见。Gemini 应用新增 <strong>Tasks 标签页</strong>，用户正在上面实际输入。用户在这些体验中期望获得<strong>超出预期的惊喜</strong>，门槛实际非常高。促进重复使用的关键在于能否更好处理更长链路任务并<strong>切实交付满意结果</strong>。他用了一个关键比喻：<strong>"当你做到 70% 时，它看起来像是行不通，直到你跨越了某个临界点，它才会真正迎来爆发式增长"</strong>。团队正紧密学习、发现差距、打好基础，坚信今年晚些时候到 2027 年会在各产品界面取得显著进展。</p>
+    <p>关于 TPU：<strong>半导体行业中规模经济至关重要</strong>。既能在自有数据中心部署，又能在其他机构数据中心部署，这种能力扩大产品规模，<strong>直接转化为更优越的经济效益</strong>。</p>
+    <p><span class="who">Thomas</span>Q3 创纪录，云 +103% 至 307 亿。<strong>GCP 是最大增长贡献者</strong>，AI 与核心 GCP 均强劲，GCP 占绝大部分收入；<strong>排除 TPU 系统销售后，云收入增长依然"非常非常强劲"</strong>。需求三方面：Gemini 本身收入增长；带动算力、存储、数据库、安全组合增长；新客户签约与采纳率加速。"只要有充足产能，始终能满足多得多的需求"，但审慎管理参数与增长节奏。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 7 问｜MoffettNathanson Michael Nathanson</div>
+  <div class="qb">
+    <p class="q">Q：你们愿意与一些可能被视为竞争对手的公司（模型、云）合作，这个经营哲学是什么？为什么长期看是机遇而非风险？另外消费者端智能体，安全与信任的重要性如何，你们怎么保护？</p>
+    <p><span class="who">Pichai</span>把所构建的东西分为两类：<strong>"产品"与"平台"</strong>，必须清楚界定哪一个是什么。<strong>作为平台构建时，要竭尽全力做到优秀，并确保服务每一个人</strong>。公司在运营平台上历史悠久——浏览器、操作系统、极其成功的云平台——都努力提供给所有参与者并成为优秀伙伴。已在模型层与竞争对手合作，包括在诸多领域竞争的<strong>苹果</strong>。同样把 TPU 系统视为正在构建的重要平台：要做到世界顶尖，就必须<strong>将其置于市场力量中经受检验、实战测试，去争取运行最严苛工作负载的客户</strong>——正是这一点确保团队持续保持前沿。这种方式长期看总能转化为更广阔机遇，且在极长时间跨度上取得良好成效。</p>
+    <p>关于智能体安全：当人们接触智能体体验时，<strong>安全和信任是权重极高极高的考量因素</strong>。数十年来在服务数十亿用户的消费级产品中安全可靠交付体验所积累的信任，如今正被倾注于此。从端到端构建模型与智能体、到以广泛严谨测试部署、再到大规模实时监控，<strong>所有这些最终都将成为巨大差异化竞争优势</strong>。已从用户处听到此类反馈，"随着这一前沿技术演进，用户会用脚投票"。</p>
+  </div>
+</div>
+
+<h2><span class="num">08</span>模型与产品进展一览</h2>
+
+<table>
+  <thead><tr><th>产品/事项</th><th>时间</th><th>关键指标与说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Gemini 4 · Argon</strong></td><td>发布约两周</td><td>开发者平台首周使用量爬坡速度为 Gemini 3 的 <strong>3.5 倍</strong>（产能受限下）；内部代码交付 <strong>+35%</strong>、错误 <strong>-30%</strong></td></tr>
+    <tr><td><strong>Gemini 4 · Carbon</strong></td><td>财报当日</td><td>Artificial Analysis Intelligence Index <strong>59 分第一</strong>；先进网络安全 ＋ 长时程能力；先向可信防御方开放，正接受美国政府测试</td></tr>
+    <tr><td><strong>Genie 4</strong></td><td>10 月 27 日</td><td>最先进世界模型，实时模拟安全/逼真/交互式世界，原生音频；训练机器人与智能体的基石</td></tr>
+    <tr><td><strong>第一方模型 API</strong></td><td>Q3</td><td>每分钟处理近 <strong>320 亿</strong>tokens；环比 <strong>+40%</strong>，为一年前 <strong>4 倍多</strong></td></tr>
+    <tr><td><strong>Gemini 应用</strong></td><td>Q3</td><td>用户 <strong>10 亿</strong>，谷歌史上增长最快产品；新增 Tasks 标签页</td></tr>
+    <tr><td><strong>YouTube Music / Premium</strong></td><td>Q3</td><td>全球订阅用户（含试用）超 <strong>1.5 亿</strong>；订阅增速快于广告</td></tr>
+    <tr><td><strong>Google One</strong></td><td>Q3</td><td>受 AI 方案需求推动，<strong>增长最快的订阅产品</strong></td></tr>
+    <tr><td><strong>视觉搜索</strong></td><td>Q3</td><td>每月超 <strong>500 亿次</strong></td></tr>
+    <tr><td><strong>AI 模式</strong></td><td>Q3</td><td>查询平均长度为传统搜索 <strong>3 倍</strong>；全球 <strong>1/5</strong> 使用语音/图像/文档；大多数查询为<strong>增量查询</strong></td></tr>
+    <tr><td><strong>通用商业协议（UCP）</strong></td><td>Q3</td><td>支持<strong>数十万品牌</strong>直接结账（Chewy、Nike、Tapestry 等）</td></tr>
+    <tr><td><strong>通用购物车</strong></td><td>Q3 推出</td><td>还原真实购物行为，维系零售商与消费者直接关系，避免弃单</td></tr>
+    <tr><td><strong>Waymo</strong></td><td>Q3</td><td>超 <strong>3 亿英里</strong>全自动驾驶里程；<strong>15 个</strong>美国城市；新增圣安东尼奥、圣地亚哥、坦帕；拟进入加拿大、德国、新加坡、西班牙</td></tr>
+    <tr><td><strong>Project Suncatcher</strong></td><td>Q3</td><td>将 TPU 送入太空</td></tr>
+    <tr><td><strong>量子计算</strong></td><td>Q3</td><td>首次演示魔态蒸馏与制备</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">09</span>三篇解读的核心论点</h2>
+
+<h3><span class="ch">9.1</span>腾讯科技视角：三条主线 ＋ 同业对照</h3>
+<p>该篇的主线是<strong>"资本开支狂飙、云业务爆发、核心广告稳健"</strong>三段式，落点在估值拷问：</p>
+<ul>
+  <li><strong>资本开支持续增长</strong>：主要反映 AI 算力及基础设施投入，以及<strong>扩大 TPU 系统销售所需的库存建设</strong>，二者共同对现金流形成压力。债务规模同步上升，融资需求随之上升。</li>
+  <li><strong>算力印钞机全面爆发</strong>：AI 基础设施与解决方案需求是云爆发的核心推动力；TPU 系统销售作出重要贡献，反映企业客户对 AI 算力的需求"正在加速转化为实际订单和收入"。<strong>云营收翻倍 ＋ 营业利润大增，说明 AI 巨额投入已开始通过云业务转化为可观的收入和利润</strong>，云是观察 AI 投资回报率（ROI）的重要窗口。但能否保持增速、利润增长能否持续覆盖更高的算力建设成本，仍是焦点。</li>
+  <li><strong>核心广告与搜索稳健</strong>：此前外界一直担忧生成式 AI 会分流传统搜索，但<strong>AI 投资非但没有削弱搜索，反而推动查询量创五年最高增速</strong>。</li>
+  <li><strong>总结判断</strong>：一方面，25% 营收飙升、翻倍云业务、Gemini 用户规模扩大，显示商业能力正在加强；另一方面，<strong>明显扩大的债务规模和持续攀升的资本支出，让市场神经紧绷</strong>。在这场巨头共同押注的"算力长征"中，Alphabet 展现了坚定的战略定力；面对手握半万亿年化营收的帝国，<strong>狂飙突进的 AI 基础设施能否在未来兑现超越成本的超级红利，将成为决定其下一阶段估值走向的核心考题</strong>。</li>
+</ul>
+
+<h3><span class="ch">9.2</span>独立研究号视角：把会计口径拆到最细</h3>
+<p>这一篇的方法论价值最高，它把"利润、分部、现金"三层分别拆开，并反复强调<strong>不能用一层的数据去证明另一层的结论</strong>。</p>
+
+<h4>关于盈利</h4>
+<ul>
+  <li>本季呈现"两个同时成立的结果"：主营业务继续扩大，普通股股东当期利润却减少。</li>
+  <li><strong>不能用 EPS 下降判断 AI 业务失速，也不能把证券损失完全忽略</strong>——后者会遗漏股东确实承担的资产价值波动。</li>
+  <li>评价经营能力应先看营业利润，再把投资损益、税收、融资费用分别接回普通股收益。</li>
+  <li>此前提出的"<strong>业务增长强、现金回收落后</strong>"判断本季得到进一步印证；变化在于<strong>云对新增收入的贡献更大，现金缺口也更深</strong>。<strong>对盈利的判断可以改善，对现金回报的判断仍需保留条件，不能让两者互相替代。</strong></li>
+</ul>
+
+<h4>关于搜索与 AI 的经济性</h4>
+<ul>
+  <li>AI 功能<strong>只有带来更多有价值的查询、更好的广告转化，或更低的服务成本</strong>，才会稳定增加利润。</li>
+  <li>公司未披露查询绝对数量、AI 查询单价、推理成本，<strong>因而无法计算每次新增查询赚多少钱</strong>。</li>
+  <li>查询增加可能来自更高频使用，也可能包含<strong>单次任务被拆成多次交互</strong>；收入与利润必须跟上，才能说明使用增长有经济价值。</li>
+  <li><strong>token 是模型处理信息的计量单位，调用更多意味着负载更大，却不直接等于收费收入。</strong></li>
+  <li>模型处于前沿是<strong>公司对产品进展的表述，不能替代客户付费与成本数据</strong>。</li>
+</ul>
+
+<h4>关于云增长质量</h4>
+<ul>
+  <li>设备交付与持续服务收入<strong>经济性质不同</strong>：系统销售可能在交付时集中确认较大金额，后续收入则取决于新增订单与客户是否继续使用配套服务。</li>
+  <li>因未单列 TPU 收入、销量与利润率，<strong>103% 不能直接当作纯云服务增速，也不能据此认定全部增长来自硬件</strong>。</li>
+  <li>此前 TPU 专题讨论过 2027–2028 年<strong>接近 2000 亿美元系统收入</strong>的机构模型。本季公司确认 TPU 销售对增长有重要贡献，<strong>支持商业化方向，却没有确认那套远期销量、售价与利润率假设</strong>。模型要升级为可靠盈利依据，仍需收入拆分、交付进度与现金回收。</li>
+  <li>云利润率 36.2%（去年 23.7%）说明收入扩大时确实留住了更多利润，<strong>使"新增业务没有经济价值"的解释缺乏支持</strong>；但 36.2% 不是全部 AI 投入的回报率。</li>
+</ul>
+
+<h4>关于现金流与库存</h4>
+<ul>
+  <li>营运资金也在吸收现金：应收、库存、其他资产变动分别占用 39.17 亿、32.2 亿、78.07 亿。这些是现金流量表的<strong>本季变化</strong>，不应直接用期末余额增减替代（并购等因素会影响资产负债表）。</li>
+  <li>库存 133.08 亿（年初 24.39 亿）。公司未披露全部库存的产品归属，<strong>不能把这笔增加全部算成 TPU 备货</strong>。库存随后转成收入并收到现金，才支持"为订单提前准备"的解释；<strong>若库存持续堆积、应收回收放慢，就会削弱这一判断</strong>。</li>
+  <li>折旧的滞后效应：即使未来资本开支放缓，已投入资产仍可能让折旧继续增加，<strong>利润率改善因此需要利用率、定价或效率提升来支撑</strong>。</li>
+</ul>
+
+<h4>关于估值分歧</h4>
+<div class="box purple">
+  <p><strong>乐观路径</strong>：云增长延续、搜索商业化保持稳定、营运资金逐步回收 → <strong>短期融资可以为未来更大现金流争取时间</strong>。</p>
+  <p><strong>谨慎路径</strong>：设备收入占比提高却没有形成持续服务收入，同时折旧、利息和稀释继续增加 → <strong>同样的收入规模可能对应较低的股东回报</strong>。</p>
+  <p>管理层强调 AI 需求、产品能力和使用规模，是<strong>积极的经营信号，但不足以直接上调远期利润或确定估值倍数</strong>。此前 TPU 情景中的具体参数，仍应保留为<strong>有待验证的假设</strong>。</p>
+</div>
+
+<h3><span class="ch">9.3</span>海豚研究视角：从"卖铲子"看谷歌的叙事裂缝</h3>
+<p>这一篇是四篇中<strong>唯一对搜索基本盘明确看空</strong>的，也是唯一引入"买方/卖方预期差"与"偿付能力"两条分析线的。它的标题已经把论点说完——<strong>"印钞机"鬼故事又来，砸家当卖铲子撑得住吗？</strong></p>
+
+<h4>先立框架：谷歌基本面的两条长逻辑</h4>
+<div class="cols">
+  <div class="box">
+    <h4>a. 广告：营收大头，利润主体</h4>
+    <p>广告业务作为营收大头，贡献公司主要利润。<strong>搜索广告存在中长期被信息流广告侵蚀的危机</strong>，由处于高成长的流媒体 <strong>YouTube 补位</strong>。</p>
+  </div>
+  <div class="box">
+    <h4>b. 云：当前主要成长故事</h4>
+    <p>云业务<strong>包含 TPU 硬件销售</strong>，已经成为公司当前的主要增长逻辑和成长故事，也是 <strong>AI 受益最直接的体现</strong>。</p>
+  </div>
+</div>
+<p class="mute">这套框架的价值在于：它把"广告"和"云"分别定位为<strong>利润来源</strong>与<strong>增长来源</strong>，于是本季的问题就被精确定义为——<strong>利润来源在掉速，增长来源却在消耗现金</strong>。</p>
+
+<h4>核心矛盾：AI 让谷歌更像"卖铲子的公司"，却让搜索这台"印钞机"掉速</h4>
+<p>海豚君指出，近两个季度 Google 持续调整，在 Big Tech 中<strong>空头仓位快速升高</strong>。核心原因有两层：</p>
+<ol>
+  <li><strong>AI 侵蚀搜索的影响逐步加深</strong>；</li>
+  <li>去年底被追捧的<strong>"AI 全栈逻辑"</strong>，随着<strong>大牛人才出走、前沿模型迭代明显落后</strong>，也引起了资金的质疑和分歧。</li>
+</ol>
+<p>但它并不认为技术层面无法追赶：<strong>尤其在应用端更侧重 Agent 和生态，拥有场景数据、渠道以及多模态模型优势的 Google，也能跑出一些优势。</strong></p>
+<div class="box red">
+  <p>真正的问题是：<strong>"AI 让谷歌更像一家卖铲子的公司，却让搜索这台印钞机开始掉速。"</strong></p>
+  <p>占比<strong>近 60% 以上</strong>的广告基本盘业务，<strong>已经被印证 AI 侵蚀影响</strong>，而<strong>船大难掉头</strong>——转型期间的业绩表现，<strong>是否会比想象中进一步恶化？</strong></p>
+</div>
+
+<h4>估值判断与操作含义</h4>
+<ul>
+  <li><strong>上季度判断的回顾</strong>："当下 Google 投入激进，短期会加速自身基本面的恶化（利润和现金流），随着估值和饱满预期的进一步向下调整和消化……<strong>可能会逐步迎来我们一直等待的分歧期机会</strong>。"本次盘后股价出现明显调整，<strong>也走到了此前所关注的区间</strong>。</li>
+  <li><strong>但负面消息超预期</strong>："Q3 财报释放的负面消息<strong>超出我们预期</strong>，<strong>若广告继续恶化，不排除利润还要下调的风险</strong>。"</li>
+  <li><strong>情绪面的有限缓解</strong>：Gemini Carbon 的发布可能会稍微带来一些缓解，<strong>但绝对不能完全消除</strong>。</li>
+  <li><strong>结论</strong>：长期视角公司仍具备基本面支撑，<strong>但短期缺乏有力的反弹驱动</strong>。情绪过度反应下，可能会<strong>继续向下磨底</strong>，随后出现<strong>空头仓位拥挤后回补</strong>，带来一些<strong>技术面修复</strong>。</li>
+</ul>
+<div class="box green">
+  <h4>海豚君给出的两个业务级催化（这也是它认为判断可以翻转的前提）</h4>
+  <ol>
+    <li><strong>个人 AI Agent 的推出</strong>——用来<strong>固化原先的流量入口</strong>，而不是让入口继续被对话式产品分流；</li>
+    <li><strong>TPU 拿下更多签单和大规模交付</strong>——<strong>拉长云业务的业绩放量期</strong>。</li>
+  </ol>
+</div>
+
+<h3><span class="ch">9.4</span>四篇报道的观点对照</h3>
+<table>
+  <thead><tr><th>报道</th><th>核心命题</th><th>对搜索的判断</th><th>对云的判断</th><th>落点</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>腾讯科技</strong></td>
+      <td>资本开支狂飙、云业务爆发、核心广告稳健</td>
+      <td><span class="tag bull">AI 未削弱搜索</span>查询增速五年最高</td>
+      <td><span class="tag bull">印钞机全面爆发</span>是观察 AI ROI 的窗口</td>
+      <td>估值拷问：AI 基建能否兑现超越成本的超级红利</td>
+    </tr>
+    <tr>
+      <td><strong>独立研究号</strong></td>
+      <td>增长强、现金回收落后；不能用一层数据证明另一层结论</td>
+      <td><span class="tag neu">中性待验</span>未披露单价与推理成本，无法算清单次查询盈利</td>
+      <td><span class="tag warn">质量待拆</span>含 TPU 硬件，103% ≠ 纯云服务增速</td>
+      <td>下一季看收入、利润、回款能否同向</td>
+    </tr>
+    <tr>
+      <td><strong>电话会实录</strong></td>
+      <td>管理层口径：全栈优势、智能体统一层、RSI 加速</td>
+      <td><span class="tag bull">管理层乐观</span>查询更长更多模态、广告接受度高</td>
+      <td><span class="tag bull">管理层乐观</span>GCP 占绝大部分，剔除 TPU 仍"非常非常强劲"</td>
+      <td>智能体从企业走向 10 亿用户；2027 capex 显著增加</td>
+    </tr>
+    <tr>
+      <td><strong>海豚研究</strong></td>
+      <td>AI 让谷歌更像卖铲子的公司，印钞机却在掉速</td>
+      <td><span class="tag bear">看空</span>侵蚀叙事开始兑现，CPC 增速放缓、份额下降</td>
+      <td><span class="tag warn">高预期已打入</span>需求景气但交付与模型拖累，不及买方预期</td>
+      <td>短期缺乏反弹驱动，向下磨底；2028 年前后看现金流拐点</td>
+    </tr>
+  </tbody>
+</table>
+<div class="box">
+  <h4>四篇的共识与分歧</h4>
+  <p><strong>共识（四篇都同意）</strong>：① 云是本季最强项，且利润率改善是真实的；② 资本开支强度还会上升，2027 年"显著增加"；③ 自由现金流已经转负，回收节奏是核心变量；④ TPU 已成为独立生意，但披露不足。</p>
+  <p><strong>最大分歧（搜索）</strong>：管理层与腾讯科技认为 AI 是搜索的增量；独立研究号认为数据不足、暂不下结论；<strong>海豚研究认为侵蚀已经开始兑现，且 Q3 的环比掉速连"AI 带来份额提升"都抵消不了</strong>。</p>
+  <p><strong>第二分歧（模型竞争力）</strong>：只有海豚研究把"Gemini 连续两个季度迭代落后"当作独立变量，并把它与"算力内外部调配"串成因果链；其余三篇基本按管理层口径处理（Argon 3.5 倍、Carbon 59 分第一）。</p>
+</div>
+
+<h2><span class="num">10</span>同业对照：三大巨头的投入策略已经分岔</h2>
+
+<table>
+  <thead><tr><th>公司</th><th>本期资本开支</th><th>自由现金流</th><th>策略信号</th><th>市场反应</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Alphabet</strong><br><span class="mute">10/28</span></td>
+      <td class="num">513.55 亿<br><span class="mute">全年 1950–2050 亿</span></td>
+      <td class="num down">-90.65 亿</td>
+      <td>继续加码；2027 年 capex <strong>显著增加</strong>；同时通过股债融资与 TPU 外销回收</td>
+      <td class="num down">盘后 -9.79%<br>后续再跌约 7%</td>
+    </tr>
+    <tr>
+      <td><strong>Meta</strong><br><span class="mute">10/21</span></td>
+      <td class="num">339.42 亿<br><span class="mute">含融资租赁 349.06 亿</span></td>
+      <td class="num down">-21.2 亿</td>
+      <td>广告业务增长但 AI 基建投入扩大；<strong>全年 capex 上限提高至 1450 亿</strong></td>
+      <td class="num down">次一交易日跌近 7%</td>
+    </tr>
+    <tr>
+      <td><strong>甲骨文</strong><br><span class="mute">10/28 投资者日</span></td>
+      <td class="num">—</td>
+      <td class="num">预计 2028 财年下半年转正</td>
+      <td><strong>预计 capex 未来几年见顶</strong>；2030 财年前不进行超 200 亿美元外部融资</td>
+      <td class="num up">涨超 12%</td>
+    </tr>
+  </tbody>
+</table>
+<div class="box">
+  <p><strong>这三组数字放在一起才是本季最有信息量的对照</strong>：同样是 AI 基建投入，市场对"继续加码"和"即将见顶"给出了方向完全相反的反应。焦点已经从"谁投得多"转向<strong>投资回报：持续扩大的算力投入能否带来相应业务增长，以及企业能否在扩张中维持健康现金流</strong>。</p>
+</div>
+
+<h2><span class="num">11</span>关键争议与待验证假设</h2>
+
+<table>
+  <thead><tr><th>争议点</th><th>看多一方的论据</th><th>需要保留的地方</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>云 +103% 的含金量</strong></td>
+      <td>营业利润率 23.7% → 36.2%，利润率与收入同时改善，说明不是靠降价换量；GCP 占绝大部分；剔除 TPU 后增速仍"极其强劲"</td>
+      <td>未披露 TPU 收入/销量/利润率；103% 不能直接当纯云服务增速；也未确认 2027–2028 年近 2000 亿系统收入的机构假设</td>
+    </tr>
+    <tr>
+      <td><strong>AI 对搜索是增量还是侵蚀</strong></td>
+      <td>查询量增速五年最高，商业查询增加；AI 模式大多数查询是增量查询；赞助与自然结果点击率已接近</td>
+      <td>未披露查询绝对量、AI 查询单价、推理成本；无法计算每次新增查询的盈利；AI 模式变现率低于传统搜索。<strong>海豚研究补充</strong>：CPC 单价增速 2026 年起快速放缓、第三方数据显示份额下降、DMA 导致欧盟酒旅搜索量下滑，且 Meta 的 Muse 正在旅游/金融等主场景渗透——认为<strong>侵蚀已开始兑现</strong>，并另指"Gemini 掉队致体验受损"为叠加原因</td>
+    </tr>
+    <tr>
+      <td><strong>自由现金流转负的性质</strong></td>
+      <td>TTM 仍为 +197.47 亿；缺口来自主动投资与 TPU 备货（有已承诺合同对应）；52 亿欧盟罚款是一次性</td>
+      <td>连续两个季度为负；经营现金流仅覆盖 82% 资本开支；折旧 +49%、利息近 6 倍、股数增加，三重摊薄在累积</td>
+    </tr>
+    <tr>
+      <td><strong>集团层 76.55 亿的归属</strong></td>
+      <td>反映共享 AI 研发的规模效应，未来可由更多产品分摊</td>
+      <td>同比 +71%，增速快于云利润；分部利润与集团利润的差距会随云占比上升而放大</td>
+    </tr>
+    <tr>
+      <td><strong>智能体是逆风还是机遇</strong></td>
+      <td>Philipp 明确"纯增量"；AI 历史上每次融入搜索都扩大了使用；有信心提供有吸引力的广告模式</td>
+      <td>仍处早期；Pichai 自述"做到 70% 时看起来像行不通"；模型效率、延迟、安全运行时、连接器生态四个障碍未全解</td>
+    </tr>
+    <tr>
+      <td><strong>2027 年 capex 的规模</strong></td>
+      <td>有 9240 亿采购承诺与 1520 亿租赁承诺作为可见度支撑；ROIC 框架下逐业务审批</td>
+      <td>管理层只说"显著增加"，细节留到 Q4 电话会；未给 Q4 收入或全年 capex 数值指引。<strong>海豚研究测算</strong>：2027 年约 3500 亿（6–7GW × 430 亿/GW ＋ 500–600 亿维护），对应<strong>约 1000 亿自由现金流负值</strong></td>
+    </tr>
+    <tr>
+      <td><strong>云 +103% 算不算超预期</strong></td>
+      <td>超 BBG 一致预期（+91%）；云利润率环比走高，是财报为数不多的超预期之处</td>
+      <td>海豚研究指出 BBG 预期未反映 TPU 首季确认，<strong>卖方约 +105%、买方约 +110%</strong>，103% 实际落在预期下方；另有 <strong>v8i 大规模交付延期一个季度到年底</strong>的调研信息</td>
+    </tr>
+    <tr>
+      <td><strong>偿付能力的两头错配</strong></td>
+      <td>Backlog 5610 亿 ＋ Anthropic 约 1145 亿算力承诺，若 TPU 按排产交付回款，2028 年前后现金流有望拐点</td>
+      <td>近万亿兑付合同、5 年内 7000 多亿为"半"刚性；而 Backlog 相当部分来自 Anthropic 等仍在烧钱的公司——<strong>"A 社的融资能力，最终会变成谷歌的现金流风险"</strong>；且 Anthropic 合作非独家（另有 Microsoft 365 连接器）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><span class="num">12</span>下一季用哪些公开数字检验</h2>
+
+<div class="cols">
+  <div class="box green">
+    <h4>收入与利润端（三条同时改善才算通过）</h4>
+    <ol>
+      <li><strong>搜索收入持续增长 ＋ 服务利润率保持稳定</strong> → 才支持"AI 查询增加能够覆盖服务成本"。</li>
+      <li><strong>云收入与利润率继续上升</strong> → 且<strong>披露更多 TPU 与服务的拆分</strong>，才能判断增长的持续性。</li>
+      <li><strong>集团层未分配成本增速回落至收入增速以下</strong> → 分部改善才能真正传导到集团利润。</li>
+    </ol>
+  </div>
+  <div class="box amber">
+    <h4>现金端（必须合起来看）</h4>
+    <ol>
+      <li><strong>经营现金流覆盖率回升</strong>（回到资本开支 100% 以上）。</li>
+      <li><strong>库存不再快于交付积累</strong>、应收回收周期不再拉长 → 意味着现金开始追上扩张。</li>
+      <li><strong>反例信号</strong>：云收入仍很强、现金缺口却继续扩大，并伴随融资与利息增加 → <strong>需要延后对股东现金回报的预期</strong>。</li>
+    </ol>
+  </div>
+</div>
+<div class="quote">决定判断变化的，不是任何单一指标的好转，而是<strong>收入、利润与回款能否逐步走到同一个方向</strong>。</div>
+
+<div class="box purple">
+  <h4>海豚研究额外给出的四个可验证观察点</h4>
+  <ol>
+    <li><strong>搜索 CPC 单价增速</strong>——若继续放缓，说明广告预算向社交平台迁移不是季度波动，而是趋势；这比"查询量增速"更能反映搜索的商业价值。</li>
+    <li><strong>10-Q 中的兑付合同数据</strong>——Q2 末为近万亿、5 年内 7000 多亿"半"刚性，Q3 数据待 10-Q 更新。<strong>承诺额继续上升而 Backlog 增速放缓，就是错配加剧的直接证据。</strong></li>
+    <li><strong>v8i 的实际交付节奏</strong>——调研信息指向大规模交付延期至年底；若 Q4 兑现，云增速可延续，若不兑现则 2027 年的放量期会被压缩。</li>
+    <li><strong>Anthropic 的融资进展</strong>——1145 亿算力承诺能否落地，取决于 A 社自身的融资能力。<strong>这条是 Backlog 质量的"隐形抵押品"。</strong></li>
+  </ol>
+</div>
+
+<h2><span class="num">13</span>原文数据勘误与口径说明</h2>
+<p>四篇报道在若干处存在口径差异或明显笔误。为避免误读，此处逐条标注，并说明本报告采用的口径。<strong>前三行为真实笔误，后四行为口径差异（非错误），需注意区分。</strong></p>
+
+<table>
+  <thead><tr><th>项目</th><th>原文差异</th><th>本报告采用</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>云积压订单（backlog）</td>
+      <td>解读篇：<strong>5610 亿</strong>；实录篇：<strong>610 亿</strong></td>
+      <td><strong>5610 亿</strong></td>
+      <td>解读篇同时给出"未来 24 个月确认略超 55%"，与 5610 亿量级匹配；实录篇应为语音转写漏字。若按 610 亿，则 24 个月确认约 335 亿，与云单季 307 亿的收入规模明显不匹配。</td>
+    </tr>
+    <tr>
+      <td>季度股息</td>
+      <td>解读篇：每股 <strong>0.22 美元</strong>；实录篇：每股 <strong>22 美元</strong></td>
+      <td><strong>0.22 美元</strong></td>
+      <td>按 22 美元/季计算年化股息将超过 1 万亿美元，明显不成立，实录为笔误。</td>
+    </tr>
+    <tr>
+      <td>营业利润率</td>
+      <td>解读篇：<strong>32%</strong>；另两篇：<strong>31.8%</strong></td>
+      <td><strong>31.8%</strong></td>
+      <td>405.76 / 1275.77 = 31.8%，两篇独立来源一致。</td>
+    </tr>
+    <tr>
+      <td>上年同期自由现金流</td>
+      <td>同一篇内出现 <strong>244.61 亿</strong> 与 <strong>245.51 亿</strong></td>
+      <td><strong>244.61 亿</strong></td>
+      <td>244.61 ＋ 90.65 = 335.26，与文中"同比减少 335.26 亿"自洽。</td>
+    </tr>
+    <tr>
+      <td>OI&amp;E 亏损归因</td>
+      <td>解读篇：权益证券公允价值变动；实录篇：主因 <strong>SpaceX</strong> 投资未实现损失</td>
+      <td>两者并列</td>
+      <td>SpaceX 投资属于权益证券科目，两个表述并不矛盾，实录提供了更具体的归因。</td>
+    </tr>
+    <tr>
+      <td>量子计算进展</td>
+      <td>解读篇：魔态<strong>培育</strong>；实录篇：魔态<strong>蒸馏与制备</strong></td>
+      <td><strong>蒸馏与制备</strong></td>
+      <td>以电话会实录口径为准。</td>
+    </tr>
+    <tr>
+      <td>电话会期次</td>
+      <td>实录篇开头主持人称"2026 年第二季度财报电话会"</td>
+      <td><strong>第三季度</strong></td>
+      <td>全文内容与财报均为 Q3，开头为转写错误。</td>
+    </tr>
+    <tr>
+      <td>资本开支同比基期</td>
+      <td>解读篇表述为"较截至 2025 年底的 239.53 亿增长约 114%"</td>
+      <td>239.53 亿为<strong>上年同期（2025 Q3）</strong>单季资本开支</td>
+      <td>513.55 / 239.53 = 2.14 倍，即 +114%，与"同比"口径一致。</td>
+    </tr>
+    <tr>
+      <td>2026 年资本开支</td>
+      <td>公司口径：<strong>1950–2050 亿</strong>；海豚研究引用资金预期：<strong>约 2200 亿</strong></td>
+      <td>两者并列，不冲突</td>
+      <td><span class="tag info">口径差异</span>前者是<strong>公司指引</strong>，后者是<strong>市场预期</strong>。资金预期高于指引上限，说明市场已在为"超支"定价。</td>
+    </tr>
+    <tr>
+      <td>股权融资</td>
+      <td>电话会：普通股发行<strong>净收入 123.71 亿</strong>；海豚研究：<strong>增发 125 亿美元</strong></td>
+      <td>两者并列</td>
+      <td><span class="tag info">口径差异</span>125 亿为<strong>发行规模</strong>，123.71 亿为<strong>扣除费用后的净额</strong>。</td>
+    </tr>
+    <tr>
+      <td>债务融资</td>
+      <td>电话会：债务发行<strong>净收入 289.96 亿</strong>；海豚研究：<strong>发行 287 亿无担保票据</strong></td>
+      <td>两者并列</td>
+      <td><span class="tag info">口径差异</span>287 亿为<strong>票据本金规模</strong>，289.96 亿为<strong>净收入</strong>（含溢价等调整）。</td>
+    </tr>
+    <tr>
+      <td>单季数值取整</td>
+      <td>海豚研究用 514 亿 / 91 亿 / 5610 亿；其余篇用 513.55 亿 / 90.65 亿 / 5610 亿</td>
+      <td>本报告统一用精确值</td>
+      <td><span class="tag info">四舍五入</span>无实质差异。</td>
+    </tr>
+    <tr>
+      <td>云增速的"预期"</td>
+      <td>海豚研究：BBG 一致预期 <strong>+91%</strong>、卖方 <strong>+105%</strong>、买方 <strong>+110%</strong>；腾讯科技：预期 <strong>287 亿</strong></td>
+      <td>三者并列</td>
+      <td><span class="tag info">口径差异</span>287 亿对应约 +89%（与 BBG +91% 同源）；<strong>卖方/买方预期才是 TPU 首季确认后的真实门槛</strong>，这解释了"103% 却不及预期"。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box blue">
+  <h4>关于"营收与调整后 EPS 均低于预期"的准确表述</h4>
+  <p>营收 1275.77 亿 vs 预期 1282.2 亿（<strong>小幅低于</strong>）；剔除权益证券损失后的 EPS 2.67 美元 vs 预期 3.02 美元（<strong>低于</strong>）；自由现金流 -90.65 亿 vs 预期 -27 亿（<strong>大幅低于</strong>）。三项均未达预期，加上"2027 年 capex 将显著增加"的前瞻指引，共同构成盘后 -9.79% 的直接原因。</p>
+</div>
+
+<h2><span class="num">14</span>总结一下</h2>
+
+<div class="box green">
+  <h4>六句话记住这份财报</h4>
+  <ol>
+    <li><strong>经营层面在加速</strong>：营收 +25%（连续 13 季双位数）、营业利润 +30%、云 +103% 且利润率从 23.7% 提升到 36.2%、查询量增速五年最高。</li>
+    <li><strong>股东层面被扣分</strong>：净利 -25%、EPS 2.12 美元，主因 SpaceX 等权益证券 86.64 亿公允价值损失；剔除后 2.67 美元仍低于预期。</li>
+    <li><strong>现金层面在失血</strong>：capex 513.55 亿（+114%）已占收入 40%，远超经营现金流 422.9 亿，FCF -90.65 亿，经营现金流只覆盖 82% 资本开支；靠 123.71 亿股票发行 ＋ 289.96 亿债务发行补缺口，本期零回购。</li>
+    <li><strong>增长质量需要拆</strong>：云贡献了集团新增收入的约 62%，但其中含 TPU 系统硬件销售；103% 不等于纯云服务增速，且低于卖方 +105%／买方 +110% 的真实门槛。</li>
+    <li><strong>基本盘出现裂缝</strong>：搜索 +12% 环比明显放缓、低于预期。管理层归因于汇率、零售与世界杯高基数；<strong>海豚研究认为 AI 侵蚀叙事已开始兑现，并另指 Gemini 连续两季迭代落后（源于算力内外部调配）叠加损伤体验</strong>——这是四篇中分歧最大的一点。</li>
+    <li><strong>争议的落点在回款</strong>：AI 投资已经能在云上看到收入与利润，但还没能在自由现金流上看到回收。<strong>下一季真正要看的是库存是否转为收入并收回现金、承诺额与 Backlog 的错配是否扩大，而不是云又涨了多少。</strong></li>
+  </ol>
+</div>
+
+<div class="box amber">
+  <h4>如果用一句话概括四篇的分歧</h4>
+  <p>前三篇在问<strong>"投进去的钱什么时候回来"</strong>（现金流问题）；第四篇在问<strong>"赚钱的那台机器是不是正在变慢"</strong>（叙事问题）。前者是可以用季度数据验证的会计问题，后者要靠 CPC 单价、份额与模型竞争力来验证——<strong>而这两组证据目前指向的方向并不一致，这正是分歧无法短期收敛的原因。</strong></p>
+</div>
+
+<div class="disclaimer">
+  <strong>资料说明</strong>：本报告为<strong>四篇</strong>公开报道的全文提炼与交叉核对——① 腾讯科技财报解读；② 独立研究号会计拆解；③ 财报电话会完整实录；④ 海豚研究基本面研判（2026 年 10 月 29 日 10:08 发布）。不含新增预测或估值判断。文中所有财务数据均引自原文，标注差异处已说明采用口径。<strong>第四篇中的 GW 成本假设、买方/卖方预期、v8i 交付延期、Anthropic 1145 亿算力承诺等，均属该篇作者基于调研的测算或引述，非公司披露数据，已在相应位置标注来源。</strong>电话会内容为转写文本的整理，涉及管理层表述处保留原意、未作引申。
+</div>
+
+<div class="foot">
+  <p>报告整理：2026 年 10 月 29 日（第四篇并入更新：10 月 29 日 10:14）｜覆盖期间：Alphabet 2026 财年第三季度（截至 2026 年 9 月 30 日）｜财报发布：2026 年 10 月 28 日（美国时间）</p>
+  <p>⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
+</div>
+
+</div>
+</body>
+</html>

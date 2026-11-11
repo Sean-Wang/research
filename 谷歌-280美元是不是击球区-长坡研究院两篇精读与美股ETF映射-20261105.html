@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>280 美元的谷歌，是不是李录当年的击球区？——长坡研究院两篇全文精读与美股/ETF 映射</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc;
+    --red:#c0392b; --red-soft:#fdeeec; --green:#1e7a4b; --green-soft:#eaf6ef;
+    --amber:#a86400; --amber-soft:#fdf3e3; --purple:#5b3fa8; --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px;}
+  header.top{padding:52px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:31px;line-height:1.32;margin:0 0 12px;letter-spacing:-.01em;font-weight:700;}
+  .sub{font-size:16px;color:var(--ink-2);margin:0 0 18px;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+  .meta a{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);}
+
+  h2{font-size:22px;margin:52px 0 10px;padding-top:18px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:8px;}
+  h3{font-size:17px;margin:30px 0 8px;font-weight:650;}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+  .src{font-size:12px;color:var(--ink-3);margin:6px 0 0;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:23px;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.5;}
+  .up{color:var(--red);} .down{color:var(--green);} .neutral{color:var(--ink);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child{margin-bottom:0;}
+  .box ol:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--card);}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.3px;color:var(--ink-2);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;}
+  tbody tr:hover{background:#fafbfc;}
+
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0;}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px;}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;}
+  .chart{width:100%;height:330px;}
+
+  .tag{display:inline-block;font-size:11.3px;padding:2px 8px;border-radius:20px;font-weight:600;margin-right:6px;vertical-align:1px;white-space:nowrap;}
+  .tag.buy{background:var(--red-soft);color:var(--red);}
+  .tag.hold{background:var(--amber-soft);color:var(--amber);}
+  .tag.avoid{background:var(--green-soft);color:var(--green);}
+  .tag.core{background:var(--blue-soft);color:var(--blue);}
+  .tag.gray{background:#eef0f3;color:var(--ink-3);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .quote{border-left:3px solid var(--blue);padding:4px 0 4px 16px;margin:16px 0;color:var(--ink-2);font-size:14.5px;}
+  .quote .who{display:block;font-size:12px;color:var(--ink-3);margin-top:6px;}
+
+  .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0;font-size:13px;}
+  .chain span.n{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px;}
+  .chain span.a{color:var(--ink-3);}
+
+  .disclaimer{margin-top:46px;padding:18px 20px;background:#eceff3;border-radius:var(--radius);font-size:12.5px;color:var(--ink-2);line-height:1.7;}
+  .footer{margin-top:26px;font-size:12px;color:var(--ink-3);text-align:center;}
+
+  table.qa{table-layout:fixed;}
+  table.qa th:nth-child(1),table.qa td:nth-child(1){width:34px;text-align:center;padding-left:4px;padding-right:4px;}
+  table.qa th:nth-child(2),table.qa td:nth-child(2){width:19%;}
+  table.qa th:nth-child(3),table.qa td:nth-child(3){width:22%;}
+  table.qa td{font-size:12.6px;}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .two,.three{grid-template-columns:1fr;}
+    h1{font-size:25px;}
+    table{font-size:12.3px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">深度研究 · 美股 · 互联网平台 / AI 算力</div>
+  <h1>280 美元的谷歌，是不是李录当年的击球区？</h1>
+  <p class="sub">长坡研究院两篇主文全文精读（估值账本 + 28 年商业模式）＋ 6 篇强关联文章交叉补全 ＋ 美股与 ETF 投资映射</p>
+  <div class="meta">
+    <span>主文一：<a href="https://mp.weixin.qq.com/s/BG-wniaSpyfk3dHZJSujzw" target="_blank">《老巴被套、阿段很感兴趣：大跌后谷歌进入李录当年的击球区了吗？》</a>　坡夫Leon · 2026-11-03</span>
+    <span>主文二：<a href="https://mp.weixin.qq.com/s/Oz7IZXrCuf4G_u7Wg8sLBw" target="_blank">《从"找信息"到"替你干活"：一条线看懂谷歌 28 年的商业故事与底牌》</a>　坡夫Leon · 2026-11-04</span>
+    <span>行情口径：文章披露时点 2026-10-29 至 11-04，非实时</span>
+    <span>整理日期：2026-11-05</span>
+  </div>
+</header>
+
+<!-- ================= 速览 ================= -->
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">谷歌财报后单日跌幅</div>
+    <div class="val down">−12%</div>
+    <div class="note">市值一天蒸发<strong>超 5,000 亿美元</strong>，跌至 <strong>280 美元</strong>附近</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">伯克希尔持仓成本</div>
+    <div class="val">318 美元</div>
+    <div class="note">2025Q3–2026H1 累计建仓约 <strong>310 亿美元</strong>，浮亏接近 <strong>30 亿</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">看盘软件 TTM 市盈率</div>
+    <div class="val down">14.7 倍</div>
+    <div class="note">原文判定为<strong>账面假象</strong>，含 1,296 亿非经常性股权浮盈</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">真实主业市盈率</div>
+    <div class="val up">25.7 倍</div>
+    <div class="note">剔除浮盈后核心净利 <strong>1,344 亿</strong>；再扣净现金与股权资产为 <strong>23.8 倍</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">卖方 2027 前瞻 PE</div>
+    <div class="val">18.5–19 倍</div>
+    <div class="note">原文按折旧压实后重算为 <strong>23–24 倍</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">折旧剪刀差</div>
+    <div class="val up">1,318 亿美元</div>
+    <div class="note">过去四季资本开支 <strong>1,598 亿</strong>，仅计提折旧 <strong>280 亿</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Q3 单季自由现金流</div>
+    <div class="val down">−90.7 亿美元</div>
+    <div class="note">高毛利搜索广告增速 19%→17%→<strong>12%</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">李录 2022 年底加仓成本</div>
+    <div class="val">88 美元</div>
+    <div class="note">扣现金前瞻 PE 仅 <strong>14.9 倍</strong>，营业利润率处 24% 低谷</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">李录估值锚</div>
+    <div class="val up">7.5 万亿美元</div>
+    <div class="note">3 万亿以内视为"不错的风险投资标的"；当前 3.46 万亿</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">TPU 单位推理成本优势</div>
+    <div class="val up">便宜 30%–50%</div>
+    <div class="note">博通加价约 2 倍，英伟达整机系统约 <strong>5 倍</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">AI Mode 广告效果</div>
+    <div class="val up">CTR +30%–40%</div>
+    <div class="note">点击后停留时长同步提升，变现率已追平传统搜索</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">四大云 2026 资本开支</div>
+    <div class="val up">6,500–7,500 亿</div>
+    <div class="note">同比约 <strong>+60%</strong>；市场预期 2027 后破 1 万亿</div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>一句话总览</h4>
+  <p>这两篇文章其实是一套组合拳：<strong>第一篇算"价格"，第二篇算"价值"</strong>。第一篇用三笔算术把市场最爱的"14.7 倍便宜货"拆成<strong>25.7 倍的真实主业 PE</strong>、再把"18 倍前瞻"拆成<strong>23–24 倍的折旧压实后 PE</strong>，最后用李录 2022 年底"利润率见底 + 资本开支踩刹车"的 14.9 倍作对照，得出一个克制的结论——<strong>280 美元的谷歌只是"相对便宜"，还站在半山腰，没到极端击球区</strong>。这正好解释了段永平为什么一边说"有点相对便宜了"、一边卖 Put、一边劝普通人"最好再等一等"。</p>
+  <p>第二篇则回答"这家公司到底值不值得等"：谷歌 28 年干的从来不是搜索，而是<strong>用概率模型理解人类意图，再把 AI 能力立刻接进印钞机</strong>；今天它正试图从<strong>"信息分发"跨到"行动分发"</strong>（UCP 协议 + Native Checkout），而支撑这次跨越的，是 13 年前就动手、如今第 7 代的自研 TPU——<strong>算力世界的 Kirkland 白牌</strong>，让它的单位 Token 推理成本比同行低 30%–50%，从而撑起一个"降本→免费→需求→规模→降价→外溢"的六步飞轮。</p>
+  <p>把两篇合起来看，结论不是"买"或"不买"，而是三句话：<strong>生意在变好（从卖点击到收交易）、护城河在变宽（成本 + 入口 + 索引）、但价格还没到无脑下手的位置（自由现金流为负、折旧尚未入表、资本开支还在踩油门）。</strong>对应的操作语言是：<strong>不追、分批、用卖 Put 换折扣、或用纳指 100/标普 500 把整块蛋糕端走。</strong></p>
+</div>
+
+<!-- ================= 01 ================= -->
+<h2><span class="num">01</span>两篇文章的分工：一篇算价格，一篇算价值</h2>
+
+<p>两篇是同一作者（长坡研究院 · 坡夫Leon）在 11 月 3 日、11 月 4 日连发的姊妹篇，写作动机非常明确：<strong>谷歌三季报后单日暴跌 12%，市场同时出现两种声音——"AI 杀死搜索"和"巴菲特也看走眼了"</strong>。第一篇处理"跌下来的价格贵不贵"，第二篇处理"跌下来的生意好不好"。</p>
+
+<div class="chain">
+  <span class="n">三季报暴跌 12%</span><span class="a">→</span>
+  <span class="n">第一篇：三笔算术 · 买点判断</span><span class="a">→</span>
+  <span class="n">第二篇：28 年主线 · 护城河判断</span><span class="a">→</span>
+  <span class="n">关联 6 篇：李录 / 巴菲特 / AI 泡沫 / 五层蛋糕 / 估值差 / 美元红利</span><span class="a">→</span>
+  <span class="n">配置结论：守 + 攻 + 期权</span>
+</div>
+
+<table>
+  <thead><tr><th style="width:16%">维度</th><th style="width:42%">第一篇（11-03）</th><th style="width:42%">第二篇（11-04）</th></tr></thead>
+  <tbody>
+    <tr><td><strong>核心问题</strong></td><td>大跌之后，谷歌进入李录当年的击球区了吗？</td><td>生成式 AI 冲击下，谷歌的商业模式在变好还是变坏？</td></tr>
+    <tr><td><strong>分析工具</strong></td><td>三笔算术：静态 PE、前瞻 PE、历史买点对照</td><td>28 年商业史主线 + 成本结构 + 生态入口</td></tr>
+    <tr><td><strong>关键结论</strong></td><td>真实 PE 25.7 倍、2027 真实前瞻 23–24 倍；<strong>半山腰，不是击球区</strong></td><td>从信息分发走向行动分发；<strong>TPU 成本优势构成清场能力</strong></td></tr>
+    <tr><td><strong>情绪落点</strong></td><td>克制：<strong>"最好再等一等"</strong></td><td>偏乐观：<strong>"基本面底牌三句话"</strong></td></tr>
+    <tr><td><strong>对投资的直接含义</strong></td><td>不追高；卖 Put 等折扣；或用指数端走</td><td>值得长期持有，但要等资本开支拐点</td></tr>
+    <tr><td><strong>遗留问题</strong></td><td>资本开支何时见顶？折旧何时压实？</td><td>企业文化、反定位护城河、五大分部十年终局估值（作者预告第二、三篇）</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>读法提示：为什么这两篇必须一起读</h4>
+  <p>只读第一篇，容易得出"谷歌太贵、别碰"的结论；只读第二篇，容易得出"护城河无敌、闭眼买"的结论。<strong>作者的完整观点是：生意端在变好，估值端还没到位。</strong>两者不矛盾——好公司也需要好价格，而好价格往往出现在"资本开支见顶、折旧压实、自由现金流转正"这三个条件同时兑现之前的那一段。这也正是文章反复强调"等"的原因。</p>
+</div>
+
+<!-- ================= 02 ================= -->
+<h2><span class="num">02</span>第一篇 A：事实层——12% 的跌幅、30 亿的浮亏、段永平的三句话</h2>
+
+<h3>2.1 事情的起点：一次港股回调引出的美股暴跌</h3>
+<ul>
+  <li>文章由港股回调起笔：腾讯股价回到 <strong>400 港元</strong>附近，有读者调侃"之前你说 470 块的腾讯掉地上用桶接，现在跌到 400 块，买腾讯的人全亏了吧"。</li>
+  <li>紧接着是真正的新闻：上周四（10 月 29 日）美股三季报放榜，<strong>谷歌单日一度大跌 12%，市值一天蒸发超 5,000 亿美元</strong>。</li>
+  <li>媒体顺手算伯克希尔的账：巴菲特从<strong>去年三季度到今年上半年累计建仓约 310 亿美元</strong>谷歌，<strong>综合成本均价约 318 美元</strong>；这一波跌到 <strong>280 美元</strong>附近，账面浮亏接近 <strong>30 亿美元</strong>。</li>
+  <li>舆论迅速两极：一派说"<strong>AI 正在杀死谷歌搜索</strong>"，一派说"<strong>巴菲特这次也看走眼了</strong>"。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">从 318 到 280：伯克希尔成本线与市场现价的距离</div>
+  <div class="cs">单位：美元/股｜口径：文章披露的均价与跌后价位，非实时行情</div>
+  <div id="chart-cost" class="chart"></div>
+</div>
+
+<h3>2.2 段永平的四次回复：一组关于"择时"的完整态度</h3>
+
+<p>文章最有价值的部分，不是复述跌幅，而是把段永平在雪球上几天内的几条回复串成了一条完整逻辑链。作者认为这比任何估值模型都更能解释"为什么现在不该急着买"。</p>
+
+<table>
+  <thead><tr><th style="width:14%">时间</th><th style="width:30%">情境</th><th style="width:56%">段永平原话</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>10 月 31 日</td>
+      <td>网友讨论泡泡玛特时感叹"毕竟巴菲特也不是每次都投资成功的"</td>
+      <td>"<strong>好过每次都不成功的吧？没人每次都成功的，巴菲特 Google 上亏的钱更多（短期），你会因此觉得你现在很行了吗？</strong>"</td>
+    </tr>
+    <tr>
+      <td>10 月 31 日</td>
+      <td>争论"为什么不等更低点再买"</td>
+      <td>"他肯定也想问巴菲特为什么不再等一等的（Google）。他对投资其实没啥概念，希望能慢慢进步吧……<strong>很多人等茅台就是从 120 等起的，等苹果也是。最怕的是在这个等的过程中掉到别的坑里了。以为自己懂时机的人多数一直都很难赚到钱的。</strong>"</td>
+    </tr>
+    <tr>
+      <td>10 月 29 日</td>
+      <td>财报大跌当天，网友说"谷歌搜索业务确实不太行了"</td>
+      <td>"嗯嗯，<strong>明天卖点 Google 的 put（看跌期权）</strong>。"</td>
+    </tr>
+    <tr>
+      <td>两天后</td>
+      <td>谈自己对谷歌的看法</td>
+      <td>"我对 Google 一直都很感兴趣，包括现在。<strong>搞懂 Google 不容易，而且价钱一直都不便宜。感觉现在有点相对便宜了。</strong>"</td>
+    </tr>
+    <tr>
+      <td>半小时后</td>
+      <td>网友问"可以理解成现在可以买 Google 了吗"</td>
+      <td>"<strong>最好再等一等……</strong>"</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">来源：长坡研究院整理自雪球公开回复，2026-10-29 至 10-31。</p>
+
+<div class="box purple">
+  <h4>这组对话里的三层意思（作者没有明说，但逻辑是完整的）</h4>
+  <ol>
+    <li><strong>不能用短期涨跌评判长期决策。</strong>买入后跌 15%，哪怕买的是腾讯、谷歌、哪怕买的人是巴菲特，也不代表这笔投资错了；反之连涨三天也不代表看对了。作者的原话是"习惯拿三五天的股价涨跌，去评判一笔五到十年的投资"。</li>
+    <li><strong>"等更低点"本身是一个陷阱。</strong>等茅台的人从 120 等到更高，等苹果的人也一样；真正的风险不是买贵了一点，而是<strong>在等待的过程中把钱投到了别的地方</strong>。</li>
+    <li><strong>"相对便宜"与"可以买"是两个判断。</strong>前者是估值判断（vs 历史区间、vs 机会成本），后者是赔率判断（是否有足够安全边际）。段永平认为自己可以卖 Put，是因为他有能力在更低价接货；普通投资者没有这个工具和心态，所以"最好再等一等"。</li>
+  </ol>
+</div>
+
+<h3>2.3 巴菲特的原话：他买的是"内生回报率"，不是"AI 故事"</h3>
+
+<p>文章引用了巴菲特今年 7 月在 CNBC 访谈中的正面回应。这段话是理解整个"巴菲特买谷歌"事件的钥匙：</p>
+
+<div class="quote">
+  "我在华尔街很难找到一份能真正深入探讨企业实际内生投资回报率（IRR）的报告。Alphabet 已经建立了难以置信的竞争优势和现金流创造能力……<strong>根据他们过往的记录，成为赢家的可能性比华尔街推销的 90% 或 95% 的东西都要高。</strong>"
+  <span class="who">—— 沃伦·巴菲特，CNBC 访谈，2026 年 7 月</span>
+</div>
+
+<p>作者据此提炼出自己的理解：<strong>看懂企业长期的内生回报率，在价格合理时分批买入；至于买完后短期跌 12% 还是涨 15%，本来就不在巴菲特的考虑范围内。</strong>换句话说，市场在讨论"这一季跌了多少"，巴菲特在讨论"十年能赚多少"——两者根本不在同一个时间尺度上。</p>
+
+<!-- ================= 03 ================= -->
+<h2><span class="num">03</span>第一篇 B：三笔算术——全文最硬的部分</h2>
+
+<p>作者说得很直白："我把谷歌三季报拆开，算三笔简单的算术，尝试理解段永平的思路。"这三笔账分别拆掉了三个市场共识：<strong>14.7 倍很便宜、18 倍前瞻不贵、跌了 12% 就是机会</strong>。</p>
+
+<h3>3.1 第一笔账：14.7 倍是账面假象，真实主业是 25.7 倍</h3>
+
+<ul>
+  <li><strong>表象</strong>：不少看盘软件显示谷歌滚动市盈率（TTM PE）只有 <strong>14.7 倍</strong>。</li>
+  <li><strong>真相在附注里</strong>：三季报<strong>第 7 号附注</strong>显示，过去四个季度 <strong>2,353 亿美元</strong>的账面净利润中，包含了 <strong>1,296 亿美元</strong>（税后约 <strong>1,009 亿美元</strong>）的<strong>非经常性股权浮盈</strong>，主要来自 <strong>SpaceX 和 Anthropic 在一级市场的估值重估</strong>。</li>
+  <li><strong>关键约束</strong>：这笔纸面浮盈<strong>既不能分红，也不能回购</strong>——它是会计上的重估收益，不是可分配现金。</li>
+  <li><strong>剔除后</strong>：过去一年靠主业赚到的核心净利润是 <strong>1,344 亿美元</strong>；对应当前 <strong>3.46 万亿美元</strong>市值，<strong>真实的静态主业市盈率是 25.7 倍</strong>。</li>
+  <li><strong>再保守一点</strong>：把账上 <strong>1,400 亿美元净现金</strong>和<strong>千亿美元股权资产</strong>从市值里扣掉，自营主业的市盈率仍在 <strong>23.8 倍</strong>左右。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">同一家公司，五种市盈率口径：从 14.7 倍到 25.7 倍</div>
+  <div class="cs">单位：倍｜口径：文章披露，静态 TTM 与 2027 年前瞻并列</div>
+  <div id="chart-pe" class="chart"></div>
+</div>
+
+<div class="box red">
+  <h4>这一笔账的真正杀伤力</h4>
+  <p>市场把<strong>一次性的、不可分配的、来自一级市场估值重估的浮盈</strong>，当成了可持续的盈利能力，于是得出了"14.7 倍、比标普还便宜"的结论。原文的判断是：<strong>这 1,296 亿浮盈是"账面假象"</strong>。剔除之后，谷歌并不是一只 15 倍的便宜货，而是一只 <strong>25 倍上下的优质成长股</strong>——估值定性完全改变。</p>
+  <p>更值得注意的是浮盈的来源：<strong>SpaceX 与 Anthropic</strong>。这两笔资产的估值本身高度依赖一级市场情绪，一旦私募估值回调，这部分"利润"不仅不会再来，还可能反向计提。<strong>换言之，14.7 倍这个数字，本身带着顺周期的水分。</strong></p>
+</div>
+
+<h3>3.2 第二笔账：华尔街的"前瞻 18 倍"低估了算力折旧的压力</h3>
+
+<p>卖方一致预期给出 2027 年前瞻市盈率约 <strong>18.5–19 倍</strong>，前提是假设谷歌明年利润还能再涨 <strong>28%</strong>。作者的质疑集中在三点：</p>
+
+<h4>（1）折旧剪刀差：1,318 亿美元还没进利润表</h4>
+<ul>
+  <li>过去四个季度谷歌资本开支高达 <strong>1,598 亿美元</strong>；</li>
+  <li>当期利润表只计提了 <strong>280 亿美元</strong>折旧；</li>
+  <li>中间有 <strong>1,318 亿美元的"折旧剪刀差"</strong>尚未进入利润表；</li>
+  <li>三季度单季自由现金流已经扩大到 <strong>负 90.7 亿美元</strong>。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">资本开支与折旧的剪刀差：1,598 亿花出去，280 亿进了利润表</div>
+  <div class="cs">单位：亿美元｜口径：过去四个季度合计，文章披露</div>
+  <div id="chart-capex" class="chart"></div>
+</div>
+
+<h4>（2）收入结构：高毛利引擎在减速，云的"翻倍"含水分</h4>
+<ul>
+  <li><strong>搜索广告增速</strong>从一季度的 <strong>19%</strong>、二季度的 <strong>17%</strong>，放缓到三季度的 <strong>12%</strong>。段永平回复广告主时的原话是"谷歌广告收入还在双位数的上升，我不意外啊"——<strong>作者据此判断基本盘依然稳固，只是增速放缓</strong>，并没有出现"搜索被 AI 杀死"的断崖。</li>
+  <li><strong>谷歌云营收同比翻倍</strong>，但其中混入了<strong>今年二季度起计入的 TPU 硬件外售收入</strong>——这是一次性的、低毛利的硬件收入，会稀释云的利润率质量。</li>
+  <li><strong>集团层面的 AI 共享研发单季亏损 76.5 亿美元</strong>，加上创新业务亏损，<strong>基本抵消了谷歌云的营业利润</strong>。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">搜索广告增速的三连降：19% → 17% → 12%</div>
+  <div class="cs">单位：%（同比）｜口径：2026 年 Q1–Q3，文章披露</div>
+  <div id="chart-search" class="chart"></div>
+</div>
+
+<h4>（3）重算结果：2027 年更真实的买方前瞻 PE 是 23–24 倍</h4>
+<p>把未来两年新增的<strong>两百多亿美元折旧</strong>压实进模型后，作者给出的结论是：<strong>谷歌 2027 年更真实的买方前瞻市盈率在 23 到 24 倍之间</strong>，而不是卖方嘴里的 18.5–19 倍。</p>
+
+<div class="box amber">
+  <h4>为什么这个差别重要</h4>
+  <p>18 倍 vs 23.5 倍，看似只差 5 个多点，但对应到"合理估值"的判断上是两回事：<strong>18 倍可以被解释成"成长股里的价值股"，23.5 倍只能被解释成"优质成长股的合理价"</strong>。前者意味着"跌下来就是错杀"，后者意味着"跌下来只是回归合理"。<strong>这就是作者不敢说"击球区到了"的算术基础。</strong></p>
+</div>
+
+<h3>3.3 第三笔账：对比李录与巴菲特的买点，看清所处的资本开支周期</h3>
+
+<p>这是全文最精彩的一段——作者把"估值"问题转化成了"周期位置"问题：<strong>不看绝对 PE，看你在资本开支周期的哪一段。</strong></p>
+
+<table>
+  <thead><tr><th style="width:18%">时点</th><th style="width:14%">价格</th><th style="width:30%">经营状态</th><th style="width:20%">扣现金前瞻 PE</th><th style="width:18%">资本开支状态</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>2015 年初</td>
+      <td>—</td>
+      <td>乱投新业务被市场惩罚</td>
+      <td><strong>13.5 倍</strong></td>
+      <td>请来 CFO Ruth Porat 严控开支，半年估值修复到 24 倍以上</td>
+    </tr>
+    <tr>
+      <td>2022 年底（李录加仓）</td>
+      <td><strong>88 美元</strong></td>
+      <td>营业利润率刚跌到 <strong>24% 低谷</strong></td>
+      <td><strong>14.9 倍</strong></td>
+      <td>2023 年初踩刹车 + 裁员 1.2 万人，FCF 重回 700 亿美元</td>
+    </tr>
+    <tr>
+      <td>2026 年上半年（巴菲特建仓）</td>
+      <td><strong>318 美元</strong></td>
+      <td>反垄断落槌、风险明牌</td>
+      <td>—</td>
+      <td>已开始猛踩油门</td>
+    </tr>
+    <tr>
+      <td>2026 年 10 月底（当前）</td>
+      <td><strong>280 美元</strong></td>
+      <td>服务分部利润率仍在 <strong>42% 高位</strong></td>
+      <td>真实前瞻 <strong>23–24 倍</strong></td>
+      <td><strong>还在猛踩油门扩建算力，FCF 为负</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box blue">
+  <h4>作者的判断：280 美元站在"半山腰"</h4>
+  <p>原文的表述非常精准：今天 280 美元的谷歌，"虽然比巴菲特今年上半年 318 美元的持仓成本便宜了一截（所以段永平说'现在有点相对便宜了'），但它仍处在<strong>'服务分部利润率还在 42% 高位 + 管理层还在猛踩油门扩建算力、自由现金流为负'的半山腰</strong>，还没到 2022 年底李录买入时那种<strong>'利润率见底 + 资本开支踩刹车'的极端击球区</strong>。"</p>
+  <p><strong>这就是全文的核心结论，也是"最好再等一等"的完整解释：不是嫌它贵，是嫌它还没疼。</strong></p>
+</div>
+
+<div class="box green">
+  <h4>一个容易被忽略的推论：击球区的形成机制</h4>
+  <p>把三次历史买点排在一起，会发现一个共同的<strong>触发条件组合</strong>：<strong>①利润率见底（坏消息已经体现在报表上）＋ ②资本开支转向收缩（现金流的漏点被堵住）＋ ③估值被砸到扣现金 14–15 倍</strong>。三者同时出现时，才是"极端击球区"。</p>
+  <p>反过来看，今天的谷歌是<strong>①利润率在高位（还有下行空间）＋ ②资本开支在扩张（现金流还在漏）＋ ③估值 23–24 倍（还有压缩空间）</strong>——三个条件全部反向。<strong>这不是说谷歌会跌，而是说"赔率还不够"。</strong>对长期投资者，这是"可以开始分批"，对追求击球区的人，这是"再等等"。</p>
+</div>
+
+<!-- ================= 04 ================= -->
+<h2><span class="num">04</span>第一篇 C：既然还没到铁底，段永平为什么选择卖 Put？</h2>
+
+<p>这是文章标题里"阿段很感兴趣"的真正落点。作者指出，段永平的选择不是"空手观望"，而是<strong>卖 Put</strong>，甚至表示"也许我会用苹果换点 Google，那要看苹果能涨到那里和 Google 能低多久了"。</p>
+
+<h3>4.1 核心答案：每个人的机会成本不一样</h3>
+
+<ul>
+  <li>段永平的美元仓位主要在<strong>苹果、BRKB、拼多多</strong>。</li>
+  <li>苹果<strong>不烧 AI 算力、专注回购</strong>，市盈率已经涨到 <strong>30 倍以上</strong>。</li>
+  <li>拿一部分 30 多倍的苹果，通过卖 Put 去布局回落到 <strong>20 倍左右</strong>的谷歌，在他的机会成本账本上是划算的。</li>
+</ul>
+
+<h3>4.2 卖 Put 的三重好处（作者的拆解）</h3>
+<ol>
+  <li><strong>不需要猜底</strong>：如果市场继续恐慌，把谷歌砸到更低的行权价（比如对应 <strong>3 万亿美元市值的 240–250 美元区间</strong>），就按折扣价接下正股；</li>
+  <li><strong>跌不下去就收权利金</strong>：时间价值归零，稳收期权费；</li>
+  <li><strong>用高估值资产换低估值资产</strong>：把 30 倍的苹果仓位，逐步置换到 20 倍左右的谷歌，是一次"同质量、低价格"的换仓。</li>
+</ol>
+
+<div class="box amber">
+  <h4>必须提醒：卖 Put 不是"低风险捡钱"</h4>
+  <p>卖 Put 的本质是<strong>用有限的权利金收入，承担无限的下跌风险</strong>（严格说是承担"行权价以下全部跌幅"）。它的成立前提有三条：<strong>①你真的愿意在这个价位长期持有正股；②你有足够的现金或保证金接货；③你能承受浮亏期间的心理压力。</strong>段永平能这么做，是因为他既有能力看懂生意，也有能力在更低价接货——<strong>普通投资者如果只是照搬"卖 Put"这个动作，很容易在暴跌中被动加杠杆。</strong></p>
+</div>
+
+<h3>4.3 顺手给出的对照：400 港元腾讯的账本</h3>
+
+<p>文章用同一把尺子量了腾讯，这段是"机会成本"最好的注脚，也是理解作者配置思路的关键：</p>
+
+<ul>
+  <li>400 港元的腾讯，总市值约 <strong>3.1 万亿人民币</strong>；</li>
+  <li>账上握有 <strong>9,333 亿人民币</strong>的净现金与对外投资股权；</li>
+  <li>若严格把这笔资产与分母里 <strong>265 亿联营分占利润</strong>同步剔除，<strong>腾讯自营核心业务的真实市盈率只有 8.8 倍</strong>；</li>
+  <li>若仅扣除上市投资与净现金，约为 <strong>10.9 倍</strong>；</li>
+  <li>过去一年实打实创造 <strong>1,354 亿人民币</strong>自由现金流；</li>
+  <li>每年拿上千亿港币做<strong>注销式回购</strong>；</li>
+  <li><strong>完全没有美股云巨头的算力折旧包袱。</strong></li>
+</ul>
+
+<div class="box purple">
+  <h4>这个对照想说明什么</h4>
+  <p>同样被市场担心"AI 冲击"，腾讯是<strong>8.8 倍自营 PE + 1,354 亿自由现金流 + 千亿回购 + 零算力折旧</strong>；谷歌是<strong>25.7 倍真实 PE + 负 90.7 亿自由现金流 + 1,318 亿折旧剪刀差</strong>。作者没有说"腾讯比谷歌好"，而是说：<strong>在同一个"AI 焦虑"叙事下，两者的赔率结构完全不同。</strong>这也是他反复强调"每个人的机会成本不一样"的实证基础。</p>
+</div>
+
+<!-- ================= 05 ================= -->
+<h2><span class="num">05</span>第一篇 D：作者给出的配置答案——"守"与"攻"两端</h2>
+
+<p>文章最后没有给"买/不买"的单一结论，而是给了一个<strong>杠铃式</strong>的配置框架。这是全文对投资者最可直接引用的部分：</p>
+
+<div class="two">
+  <div class="box green">
+    <h4>"守"的一端：底仓压舱石</h4>
+    <p><strong>人民币端：</strong></p>
+    <ul>
+      <li>近 <strong>5% 股息率</strong>的红利低波指数；</li>
+      <li>垄断型央企龙头；</li>
+      <li>茅台；</li>
+      <li><strong>8.8 倍自营市盈率的腾讯</strong>。</li>
+    </ul>
+    <p><strong>美元端：</strong></p>
+    <ul>
+      <li>"类保险"美元红利资产（详见关联文章）；</li>
+      <li><strong>伯克希尔</strong>。</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <h4>"攻"的一端：长期闲钱长跑</h4>
+    <ul>
+      <li><strong>不想猜哪家巨头被算力折旧拖累</strong>的普通人，直接通过<strong>纳指 100 和标普 500</strong> 把 AI 五层蛋糕连盘端走；</li>
+      <li>熟悉期权工具的，可以在好公司回调时<strong>卖 Put</strong> 耐心等击球区；</li>
+      <li>核心纪律：<strong>"做简单的事"</strong>——不预测、不猜底、不押注单一技术路线。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>这个框架的隐含判断（很重要）</h4>
+  <p>作者把谷歌放在"攻"的一端，而不是"守"的一端，说明他认为：<strong>谷歌是长期闲钱才适合碰的资产，不是压舱石。</strong>原因就是前面三笔账——负自由现金流、未压实的折旧、23–24 倍前瞻估值，都决定了它<strong>波动会很大、且短期没有现金流保护</strong>。而"守"的一端，必须是<strong>能持续吐现金、且没有重资产折旧包袱</strong>的资产。</p>
+  <p><strong>这个区分比"买不买谷歌"更有价值：它回答的是"用什么钱买"。</strong></p>
+</div>
+
+<!-- ================= 06 ================= -->
+<h2><span class="num">06</span>第二篇 A：题眼——马斯克的电费，与谷歌的免费</h2>
+
+<p>第二篇开篇不讲财报，讲了一个发生在 <strong>11 月 2 日</strong>的细节。世界首富马斯克在和网友聊 AI 机器人时说了一句话：</p>
+
+<div class="quote">
+  "与收入相比，运营 Grok Bot（他的 AI 机器人）的成本高得难以维持。"
+  <span class="who">—— 埃隆·马斯克，2026 年 11 月 2 日</span>
+</div>
+
+<p>作者把这个细节提炼成了全文的核心矛盾：</p>
+
+<ul>
+  <li><strong>一边</strong>：华尔街因为谷歌三季度搜索广告增速从 <strong>17% 放缓到 12%</strong>，担心聊天机器人和 AI 代理（Agent）会抢走谷歌的搜索饭碗；</li>
+  <li><strong>另一边</strong>：真正下场做大模型的马斯克，却在发愁自己<strong>连 AI 机器人的电费和算力账单都快付不起了</strong>。</li>
+</ul>
+
+<div class="box amber">
+  <h4>全文要回答的问题</h4>
+  <p><strong>"为什么大模型创业公司用的人越多、亏得越狠，而谷歌却敢把 AI 塞进全球 50 亿人的搜索框里免费用？"</strong></p>
+  <p>作者说："把这个问题想明白，你就摸到了谷歌 28 年商业模式最底层的脉络。"<strong>这句话是理解第二篇的钥匙——它把"AI 会不会杀死谷歌"这个叙事问题，转换成了"谁的单位推理成本最低"这个工程与财务问题。</strong></p>
+</div>
+
+<!-- ================= 07 ================= -->
+<h2><span class="num">07</span>第二篇 B：1998 年的底牌——谷歌从第一天起就是一家 AI 公司</h2>
+
+<p>市场的主流叙事是：谷歌是一家"传统搜索广告公司"，2022 年底被 ChatGPT 打了个措手不及，才仓促转型 AI。作者用凯文·凯利的回忆录直接否定了这个叙事。</p>
+
+<h3>7.1 佩奇的两句话</h3>
+
+<div class="quote">
+  "我不明白，免费搜索的未来在哪里？你们到底靠什么赚钱？"<br>
+  ——"<strong>我们对搜索其实没那么感兴趣，我们正在创造人工智能。</strong>"
+  <span class="who">—— 凯文·凯利（《连线》创始主编）与 25 岁的拉里·佩奇，1998 年，斯坦福车库</span>
+</div>
+
+<p>两年后，佩奇在一段采访中说得更直白："<strong>人工智能将是谷歌的终极版本。如果我们拥有了终极搜索引擎，它会理解网络上的一切，准确理解你想要什么，并直接给你正确的结果。</strong>"</p>
+
+<p>凯文·凯利后来的总结是全文的主线定义：<strong>"谷歌的使命从来不是用人工智能去改进搜索，而是借着搜索这个场景去创造人工智能。"</strong></p>
+
+<div class="box blue">
+  <h4>作者提炼的"底层同一件事"</h4>
+  <p>顺着这条线看 28 年，谷歌表面上在卖广告，底下干的始终是同一件事——<strong>用概率模型去理解人类意图，再把研究出来的 AI 能力立刻接进印钞机里。</strong></p>
+</div>
+
+<h3>7.2 四个历史节点：每一步都是"AI 能力 → 现金流"的闭环</h3>
+
+<h4>（1）1998 年：PageRank 与"最快赶走用户"的反定位</h4>
+<ul>
+  <li><strong>对手的做法</strong>：当时的搜索霸主 <strong>AltaVista</strong> 只看网页里关键词出现的次数，谁在网页底下偷偷塞满几百个"免费"，谁就能排第一；<strong>雅虎</strong>等门户网站则把页面塞满新闻链接，<strong>恨不得用户停留的时间越长越好</strong>。</li>
+  <li><strong>佩奇的做法</strong>：发明 <strong>PageRank（网页级别）</strong>，模仿学术论文引用，用<strong>概率图模型</strong>给全网网页算"权威度"；并且把主页做得只剩一个搜索框。</li>
+  <li><strong>目标反常识</strong>：<strong>让用户在谷歌停留的时间越短越好，一秒钟找到信息立刻离开。</strong></li>
+  <li><strong>结果</strong>：这个让同行完全没法抄的"<strong>反定位</strong>"，让谷歌<strong>没花一分钱营销费就横扫了硅谷</strong>。</li>
+</ul>
+
+<h4>（2）2001–2003 年：PHIL 语言模型与 AdSense 印钞机</h4>
+<ul>
+  <li><strong>2001 年</strong>，天才工程师 <strong>诺姆·沙泽尔（Noam Shazeer，后来 Transformer 的核心作者）</strong>开发了早期大语言模型 <strong>PHIL</strong>，用来猜用户打错的字（"您是不是要找……"）。</li>
+  <li><strong>杰夫·迪恩（Jeff Dean）</strong>看了一眼，直接拿 PHIL 去扫描《纽约时报》和个人博客的网页内容，<strong>自动理解文章主题并匹配广告</strong>——这就是一年躺赚数百亿美元的<strong>谷歌广告联盟（AdSense）</strong>。</li>
+  <li><strong>作者的判断</strong>：早在 ChatGPT 诞生前 20 年，谷歌就已经跑通了"<strong>语言模型理解文本 → 转化成广告现金流</strong>"的闭环。</li>
+</ul>
+
+<h4>（3）2002 年：用 AI 预测点击率改写拍卖规则</h4>
+<ul>
+  <li><strong>旧规则</strong>：付费搜索鼻祖 <strong>Overture</strong> 搞的是"谁出价高谁排第一"，结果出价高的劣质广告没人点，平台和用户双输。</li>
+  <li><strong>新规则</strong>：谷歌引入<strong>次高价拍卖</strong>，并塞进核心变量——<strong>AI 预估点击率</strong>。哪怕广告主出价再高，只要算法算出来用户不想点你，你就排不上去。</li>
+  <li><strong>内部测算</strong>：哪怕 AI 对点击率预测的准确率只提升 <strong>0.1%</strong>，每年都能直接多赚<strong>几亿美元纯利润</strong>。</li>
+  <li><strong>结果</strong>：<strong>2002 年谷歌营收暴增 4 倍多</strong>，搜索广告毛利率长期维持在 <strong>85% 以上</strong>。</li>
+</ul>
+
+<h4>（4）2012–2014 年："猫咪论文"改造 YouTube 与截胡 DeepMind</h4>
+<ul>
+  <li><strong>2012 年</strong>，杰夫·迪恩和吴恩达用 <strong>1.6 万颗 CPU</strong> 从 YouTube 视频里无监督识别出了"猫"；紧接着把这套深度神经网络塞进 YouTube 推荐算法，<strong>把一个视频搜索工具变成了日均观看超 10 亿小时的超级平台</strong>。</li>
+  <li><strong>2014 年初</strong>，DeepMind 创始人哈萨比斯来加州找买家。扎克伯格开出了<strong>比谷歌更高的收购价</strong>，并在帕洛阿尔托的家里设宴款待。晚宴上哈萨比斯故意聊起 VR 等热门概念，发现扎克伯格<strong>什么都想掺和</strong>；而白天跟他吃午饭的拉里·佩奇，<strong>满脑子想的都是怎么用通用人工智能解决人类科学难题</strong>。</li>
+  <li>晚宴一结束，哈萨比斯立刻给佩奇回电话："<strong>Facebook 给的钱更多，但我需要一个真正明白 AI 为什么比其他所有事都重要的人。咱们继续吧。</strong>"</li>
+  <li><strong>后续价值</strong>：2015 年用 DeepMind 把自家数据中心<strong>冷却能耗砍掉 40%</strong>；2017 年谷歌大脑发表《Attention Is All You Need》，<strong>发明了今天所有大模型的底座 Transformer</strong>。</li>
+</ul>
+
+<div class="box purple">
+  <h4>这一节想证明的事</h4>
+  <p>谷歌在过去四分之一个世纪里，是<strong>全球唯一一家把"前沿 AI 研究 → 超大规模工程落地 → 广告现金流回血"完整跑通了无数遍的公司</strong>。这不是"转型成功"，而是"一直如此"。<strong>如果这条主线成立，那么"AI 会杀死谷歌"这个命题的前提就站不住了——杀死谷歌的技术，恰恰是谷歌自己发明的。</strong></p>
+</div>
+
+<!-- ================= 08 ================= -->
+<h2><span class="num">08</span>第二篇 C：从"信息分发"到"行动分发"——最大的增量在哪</h2>
+
+<p>既然 AI 家底这么厚，为什么市场每隔一阵子还是会恐慌"AI 会杀死谷歌搜索"？作者的回答是从<strong>需求的第一性原理</strong>出发的。</p>
+
+<h3>8.1 人类搜索，目的从来不是"信息"，而是"行动"</h3>
+
+<div class="box blue">
+  <h4>原文的四个例子</h4>
+  <ul>
+    <li>你搜索"最好的静音跑步机"，是为了<strong>下单买一台回家</strong>；</li>
+    <li>你搜索"京都五日游攻略"，是为了<strong>订机票和酒店</strong>；</li>
+    <li>你搜索"附近评价好的牙医"，是为了<strong>周末去补牙</strong>；</li>
+    <li>你搜索某家公司的财报数据，是为了<strong>做投资决策</strong>。</li>
+  </ul>
+  <p><strong>结论：绝大多数时候，人类获取信息本身根本不是目的，行动才是目的。</strong></p>
+</div>
+
+<h3>8.2 传统搜索只走完了前半程</h3>
+<ul>
+  <li>在过去 25 年的传统搜索时代，谷歌只帮人类走完了<strong>前半程——信息分发</strong>。</li>
+  <li>不管算法多聪明，谷歌最后交付给你的只是"<strong>十条蓝色链接</strong>"。点开链接之后，自己去十几个网页里挨个比价、看评论、注册账号、填写收货地址、输入信用卡号完成付款——<strong>这整个繁琐的"后半程行动"，谷歌帮不上忙</strong>。</li>
+</ul>
+
+<h4>这个痛点的量化：50%–70% 的搜索根本不赚钱</h4>
+<ul>
+  <li>谷歌内部数据：全部搜索量里有 <strong>50%–70% 是纯信息查询</strong>（比如搜"1836 年的美国总统是谁"）；</li>
+  <li>在这些查询里，<strong>80% 的搜索结果页谷歌根本不放任何广告</strong>，一分钱不赚，纯粹用来养用户的信任和习惯；</li>
+  <li>谷歌每年<strong>近两千亿美元的搜索广告收入，几乎全靠那 20% 带有明确商业与行动意图的搜索词</strong>（买车险、订机票、找律师、买衣服）。</li>
+</ul>
+
+<h4>被截走的收银台：亚马逊拿走了 60% 以上</h4>
+<ul>
+  <li>正因为传统搜索在"找信息"和"掏钱包"之间隔着好几次网页跳转，<strong>1999 年申请了"一键下单（1-Click Shopping）"专利、手里又握着 FBA 仓库和快递车队的亚马逊</strong>，硬生生从谷歌手里<strong>截走了美国 60% 以上的商品搜索入口</strong>。</li>
+  <li>原文的观察很传神：当美国人想买双跑鞋时，他们<strong>不再先打开谷歌看测评链接，而是直接打开亚马逊搜索</strong>，因为点一下就能明天送到家。</li>
+</ul>
+
+<h3>8.3 生成式 AI 的最大变化：第一次有能力跨入"行动分发"</h3>
+
+<p>作者指出一个被大家忽视的事实：<strong>AI 给谷歌带来的最大变化，是让它第一次有能力可能从"信息分发"跨入"行动分发"，把当年被电商和垂直平台截走的收银台重新接管过来。</strong></p>
+
+<div class="box green">
+  <h4>标志性事件：2026 年 1 月 NRF 大会的 UCP 协议</h4>
+  <ul>
+    <li>谷歌正式推出基于 <strong>Gemini 大模型的 UCP 通用商业协议</strong>；</li>
+    <li>联合 <strong>沃尔玛、Target</strong> 以及 <strong>Shopify 上的数百万独立品牌商</strong>；</li>
+    <li>在谷歌搜索和 Gemini 对话框里上线 <strong>"直接结账（Native Checkout）"</strong>。</li>
+  </ul>
+  <p><strong>使用场景的变化：</strong>以前你在谷歌搜完跑鞋，得跳转到商家网站重新注册、填地址、绑卡；现在你直接在谷歌 AI Mode 或 Gemini 里说一句"<strong>帮我挑一双适合大体重慢跑、预算 150 美元以内的跑鞋并下单</strong>"，AI 直接调取你谷歌账号里存好的<strong>尺码偏好、收货地址和 Google Pay 支付信息</strong>，在对话框里一步完成结账。</p>
+</div>
+
+<h4>为什么商家愿意接入：谷歌没有自营货盘</h4>
+<ul>
+  <li>很多商家<strong>不愿意向亚马逊交高额抽成</strong>，又<strong>怕被亚马逊自营白牌（Amazon Basics）抄袭</strong>；</li>
+  <li>谷歌<strong>没有自营货盘，不抢商家生意</strong>，只负责把带着明确购买意愿的消费者直接送到收银台；</li>
+  <li>这是一个典型的"<strong>中立渠道</strong>"定位——和亚马逊的"既做裁判又做运动员"形成结构性差异。</li>
+</ul>
+
+<h4>商业模式的质变：从"点击过路费"到"交易佣金"</h4>
+<div class="quote">
+  "<strong>消费者待完成的任务是因，广告是果。</strong>以前谷歌只是个在路口发传单、给你指路的向导，只能收一笔'点击过路费'；当 AI 把谷歌升级成一个懂你所有邮件、日历、地图轨迹和消费偏好的'私人买手与行动管家'，直接替你完成比价、筛选、预约和结账时，<strong>它帮用户省下的决策精力越多，广告主愿意分给它的营销预算和交易佣金比例反而越高。</strong>"
+  <span class="who">—— 原文，第二篇第二节</span>
+</div>
+
+<h4>已有数据验证：CTR 与停留时长提升 30%–40%</h4>
+<ul>
+  <li>谷歌最新的内部测试数据：在搜索的 <strong>AI Mode</strong> 里插入相关性更高的辅助决策广告后，<strong>用户的点击率（CTR）和点击后停留时长，比传统搜索广告提升了 30% 到 40%</strong>。</li>
+  <li>关联文章（李录篇）补充了另一个口径：<strong>谷歌自己的 AI Mode，每查询的变现率已经追平传统搜索，单位转化率还提升了 175%–230%</strong>。</li>
+</ul>
+
+<div class="box amber">
+  <h4>这里是全文最重要的"预期差"</h4>
+  <p>市场担心的是"<strong>AI 让搜索的广告位变少，变现率下降</strong>"；而谷歌内部数据指向的是"<strong>AI 让每次查询的转化率上升，变现率不降反升</strong>"。这两条判断如果后者成立，那么当前 23–24 倍的前瞻估值就<strong>不是"贵"，而是"还没被重新定价"</strong>。</p>
+  <p><strong>但请注意：这是"可能"，不是"已经"。</strong>作者用的词是"第一次有能力可能从……跨入"，三个限定词说明他自己也没有把它当成既成事实。这也是全文在乐观中保留克制的关键。</p>
+</div>
+
+<!-- ================= 09 ================= -->
+<h2><span class="num">09</span>第二篇 D：TPU——算力界的"好市多 Kirkland 白牌"</h2>
+
+<p>讲到这里，作者提出那个最尖锐的问题：<strong>既然从"信息分发"走向"行动分发"这么诱人，为什么 OpenAI、Perplexity 或者马斯克的 Grok 不能直接把这块蛋糕抢走，非得是谷歌？</strong></p>
+
+<p>答案回到马斯克那句苦水："与收入相比，运营 Grok Bot 的成本高得难以维持。"</p>
+
+<h3>9.1 成本墙：传统检索近乎零成本，AI 推理贵十倍</h3>
+<ul>
+  <li><strong>传统搜索</strong>返回十条蓝色链接，调用的是早就建好的索引，<strong>单次检索的边际成本只有零点几美分，近乎于零</strong>；</li>
+  <li><strong>AI 大模型</strong>要实时阅读几十个网页、做逻辑推理、再调用工具替你完成行动，<strong>每一次交互消耗的推理算力是传统检索的十倍以上</strong>；</li>
+  <li>在成熟的 AI 生命周期里，<strong>80% 以上的算力成本都花在日复一日的"推理"上</strong>。</li>
+</ul>
+
+<h3>9.2 英伟达的"品牌溢价"：每赚 1 美元，先交 2 美元算力税</h3>
+
+<div class="box red">
+  <h4>原文的供应链加价拆解</h4>
+  <ul>
+    <li>英伟达<strong>不单卖裸芯片</strong>，而是捆绑整套 GPU 服务器系统出售，<strong>毛利率高达 75%–80%，在成本基础上收了约 5 倍的加价</strong>；</li>
+    <li>如果一家独立大模型公司全靠外购英伟达 GPU 或租用第三方云算力来服务免费用户，<strong>相当于每赚 1 美元收入，可能要先交 2 美元的"英伟达算力税"</strong>；</li>
+    <li>结果就是：<strong>用户聊得越起劲，公司现金流死得越快。</strong></li>
+  </ul>
+</div>
+
+<h3>9.3 谷歌的答案：13 年前就造出了"Kirkland 白牌"</h3>
+
+<p>作者用零售史做了一个极精准的类比：好市多（Costco）之所以厉害，是因为它搞出了占销售额近三分之一的<strong>自研白牌 Kirkland</strong>，直接找顶尖工厂按物料成本定制，砍掉中间所有品牌溢价，做到"同行卖 100 块、我卖 60 块还能赚钱"。</p>
+
+<p><strong>在 AI 算力牌桌上，谷歌的 TPU 就是这个 Kirkland。</strong></p>
+
+<h4>起点：2013 年杰夫·迪恩的一笔账</h4>
+<ul>
+  <li>杰夫·迪恩算过一笔让管理层倒吸一口凉气的账：<strong>如果当时全球的安卓手机用户，每人每天只用 3 分钟谷歌语音识别，谷歌全球所有的 CPU 数据中心就得立刻翻一倍。</strong></li>
+  <li>靠买外面的通用芯片，谷歌自己的现金牛迟早会被算力成本吃垮。</li>
+  <li>于是拉里·佩奇拍板：集中最顶尖的芯片架构师，<strong>把通用 GPU 里所有用来做游戏画面渲染、光线追踪的冗余晶体管统统砍掉，只保留 AI 最核心的矩阵乘法运算器</strong>。</li>
+  <li><strong>仅用 15 个月就秘密造出了第一代自研 ASIC 芯片 TPU</strong>，并在 <strong>2015 年大规模装进自家机房</strong>。</li>
+</ul>
+
+<h4>今天：12 年、7 代、Ironwood</h4>
+<ul>
+  <li>谷歌的 TPU 已经迭代了整整 <strong>12 年</strong>，走到了<strong>第 7 代（Ironwood）</strong>；</li>
+  <li>谷歌找<strong>博通（Broadcom）联合研发</strong>定制 TPU，博通收取的加价<strong>大约只有 2 倍</strong>（远低于英伟达整机系统的 5 倍）；</li>
+  <li>加上谷歌<strong>自研的液冷机房、光交换网络和软件栈</strong>，<strong>谷歌生产每一个 Token 的单位推理总成本（TCO），比依赖外部 GPU 方案的同行直接便宜了 30% 到 50%</strong>。</li>
+</ul>
+
+<table>
+  <thead><tr><th style="width:26%">对比项</th><th style="width:24%">英伟达 GPU 方案</th><th style="width:24%">谷歌 TPU 方案</th><th style="width:26%">含义</th></tr></thead>
+  <tbody>
+    <tr><td>销售形态</td><td>整机系统捆绑</td><td>自研 ASIC + 博通联合定制</td><td>TPU 主要自用，少量外售</td></tr>
+    <tr><td>成本加价倍数</td><td><strong>约 5 倍</strong></td><td><strong>约 2 倍</strong>（博通）</td><td>结构性成本差</td></tr>
+    <tr><td>毛利率</td><td>75%–80%</td><td>内部结算，不外显</td><td>省下的就是利润</td></tr>
+    <tr><td>单位 Token TCO</td><td>基准</td><td><strong>低 30%–50%</strong></td><td>免费策略的底气</td></tr>
+    <tr><td>软件栈</td><td>CUDA 生态成熟</td><td>XLA / JAX 自有栈</td><td>TPU 的长期短板</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">口径：文章披露的加价倍数与 TCO 区间；"软件栈"一行是本文补充的行业常识，原文未展开。</p>
+
+<h3>9.4 六步自强化飞轮：为什么谷歌敢免费，别人不敢</h3>
+
+<ol>
+  <li><strong>第一环（内生降本）</strong>：更便宜的 TPU 算力，大幅压低了谷歌搜索 AI Mode、YouTube 视频推荐和 Gemini 的日常推理成本，<strong>保住了核心主业的利润率底线</strong>；</li>
+  <li><strong>第二环（免费普惠）</strong>：因为生产 Token 的成本全球最低，别人家大模型还得靠每月收 20 美元订阅费回血，谷歌却敢直接把 AI 功能<strong>免费铺满旗下 9 款用户超 10 亿的超级产品</strong>（50 亿搜索、30 亿安卓、26 亿 YouTube、20 亿 Chrome、Gmail、谷歌地图等）；</li>
+  <li><strong>第三环（需求反哺）</strong>：数十亿人在真实场景里高频调用 AI，反过来催生出更复杂的 Agent 应用，推动谷歌云用量暴增（<strong>三季度营收同比翻倍增长 103%</strong>）；</li>
+  <li><strong>第四环（规模摊薄）</strong>：庞大的内外部需求让 TPU 出货量冲上<strong>百万颗级别</strong>，进一步摊薄了单颗芯片的研发与流片成本；</li>
+  <li><strong>第五环（降价清场）</strong>：靠着更厚的成本安全垫，谷歌在 API 定价和企业云竞标中<strong>敢于主动降价，把行业利润率压到纯烧钱初创公司无法生存的水位</strong>；</li>
+  <li><strong>第六环（外溢变现）</strong>：连竞争对手都不得不来买谷歌的算力——从去年底到今年初，谷歌打破了"TPU 不出自家机房"的惯例，<strong>Anthropic 一口气订购了近 100 万颗第 7 代 TPU</strong>，连<strong>Meta 也开始与谷歌谈判采购数十亿美元的 TPU 芯片</strong>。外部大客户的涌入，再次拉满了谷歌 TPU 集群的利用率。</li>
+</ol>
+
+<div class="box purple">
+  <h4>这个飞轮的真正含义：这是一场"成本战"，不是"技术战"</h4>
+  <p>绝大多数关于 AI 的讨论都停留在"谁的模型更聪明"。而这篇文的视角是：<strong>当模型能力趋同（黄仁勋自己说美国顶尖模型的领先窗口可能只有 6 个月），决定胜负的就是单位成本和现金流。</strong></p>
+  <p>李录篇里有一句更狠的表述："<strong>当模型水平趋同，决定胜负的就是单位成本和现金流。</strong>"OpenAI 每年亏 200 亿美金、融资 600 亿美金；谷歌自由现金流 700 亿美金/年、现金储备 950 亿美金。<strong>这不是同一场比赛。</strong></p>
+</div>
+
+<!-- ================= 10 ================= -->
+<h2><span class="num">10</span>第二篇 E：清场剧本重演，与三句话底牌</h2>
+
+<h3>10.1 1998–2002 的剧本：几十家搜索引擎如何全军覆没</h3>
+
+<p>作者把 2021 年至今的大模型混战，跟 1998 到 2002 年的搜索引擎大战放在一起对比，认为"历史押韵得简直一模一样"。</p>
+
+<ul>
+  <li><strong>1998 年的局面</strong>：市面上有 <strong>AltaVista、Excite、Inktomi、Lycos</strong> 等几十家搜索引擎，所有人都觉得"写个爬虫建个搜索框门槛不高"，谷歌这样一个后来者凭什么赢？</li>
+  <li><strong>2002 年的结局</strong>：那几十家搜索引擎<strong>几乎全军覆没</strong>。</li>
+</ul>
+
+<h4>两个核心原因</h4>
+<ol>
+  <li><strong>成本扛不住</strong>：网页数量指数级爆炸后，对手们买昂贵的企业级服务器扛不住抓取和检索成本，而谷歌用<strong>廉价商用电脑加上自研的分布式文件系统（GFS）</strong>把成本压到了极致；</li>
+  <li><strong>变现跑不通</strong>：对手们跑不通变现飞轮，而谷歌靠着点击率竞价拍卖赚到了高额利润，转身在 <strong>2002 年 5 月给当时最大的门户美国在线（AOL）开出了"85% 广告分成 + 1 亿美元保底"的激进条件</strong>，一举从对手 Overture 手里夺下了全美最大的流量入口，树立了行业寡头格局。</li>
+</ol>
+
+<div class="box blue">
+  <h4>这个类比的精妙之处</h4>
+  <p>1998 年的"服务器成本"对应今天的"算力成本"；1998 年的"点击率竞价拍卖"对应今天的"AI Mode 变现率"；1998 年的"AOL 入口"对应今天的"iPhone Siri / 安卓系统级入口"。<strong>三个变量一一对应，而谷歌在三项上都不是劣势方。</strong></p>
+</div>
+
+<h3>10.2 二十多年后的反转：苹果开始给谷歌付钱</h3>
+
+<div class="box green">
+  <h4>角色互换（全文最有冲击力的一段）</h4>
+  <ul>
+    <li><strong>过去</strong>：谷歌每年要花 <strong>200 亿美元</strong>给苹果交"买路钱"，让谷歌搜索留在 iPhone 的 Safari 浏览器默认入口上；</li>
+    <li><strong>今年</strong>：角色反过来了——当苹果需要为全球 20 亿部 iPhone 的 Siri 寻找底层 AI 推理引擎时，面对高昂的算力成本，苹果看中了谷歌处理十亿级并发请求时的低成本与高稳定性，<strong>反过来每年向谷歌支付约 10 亿美元，把 Gemini 定为 Apple Intelligence 的核心底座</strong>；</li>
+    <li>加上谷歌自己手里握着的 <strong>30 亿台安卓手机操作系统（Android OS）底层权限</strong>，<strong>全球超过 50 亿部智能手机的系统级 AI 入口，实际上已经落在了谷歌的算力底座之上</strong>。</li>
+  </ul>
+</div>
+
+<h4>为什么"入口"在 Agent 时代更值钱</h4>
+<div class="quote">
+  "真正的个人通用 Agent 必须长在操作系统（OS）层，因为它需要随时读取屏幕上下文、调用你的日历、邮件、相册和支付接口；<strong>没有操作系统权限的独立 App，在苹果 iOS 和谷歌安卓的沙盒限制下，永远只能算一个聊天软件，很难真正替你跨应用干活。</strong>"
+  <span class="who">—— 原文，第二篇第四节</span>
+</div>
+
+<p>这段话回答了一个关键问题：<strong>为什么 OpenAI 做出了更好的模型，却不一定能做出更好的 Agent？</strong>因为 Agent 的护城河不在模型，在<strong>系统权限 + 支付凭证 + 用户数据</strong>。而这三样，谷歌全都有。</p>
+
+<h3>10.3 三句话底牌</h3>
+
+<table>
+  <thead><tr><th style="width:14%">维度</th><th style="width:86%">原文表述</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>需求侧<br>的跃迁</strong></td>
+      <td>它正在从过去 25 年给你十条链接的"<strong>信息分发商</strong>"，努力升级为直接替你比价、订票、结账的"<strong>行动分发商</strong>"，<strong>交易闭环的商业空间并没有缩小，反而比单纯卖点击广告更大</strong>。</td>
+    </tr>
+    <tr>
+      <td><strong>供给侧<br>的壁垒</strong></td>
+      <td>从"给链接"变成"替你行动"会让算力消耗暴增十倍，当同行被 <strong>80% 毛利率的"英伟达税"</strong>压得喘不过气时，谷歌凭着提前 12 年布局的自研 TPU 芯片，<strong>握有全球最低的 Token 生产成本</strong>。</td>
+    </tr>
+    <tr>
+      <td><strong>生态侧<br>的锁死</strong></td>
+      <td>一手握着全球最低的推理成本，一手握着 <strong>30 亿安卓系统、20 亿 Chrome 浏览器和 20 亿 iPhone 底层 Siri 入口</strong>，它<strong>完全耗得起这场重资产军备竞赛，直到把纯烧钱的对手熬出牌桌</strong>。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>10.4 第二篇留下的两个"未完成"</h3>
+<ul>
+  <li>作者明确说：除了全栈算力和商业入口，谷歌还有一个让段永平和黄峥都反复提及的隐形护城河——写进招股书的"<strong>不作恶（Don't be evil）</strong>"企业文化与"<strong>70-20-10</strong>"组织孵化机制，能解释为什么一家年赚上千亿美元的巨头能连续孵化出 YouTube、安卓、谷歌云和 Waymo。<strong>这部分留到"基本面第二篇"。</strong></li>
+  <li>作者还预告"<strong>基本面第三篇</strong>"会做五大业务分部的十年终局估值。<strong>截至目前这两篇尚未发布，本报告无法纳入。</strong></li>
+</ul>
+
+<div class="box amber">
+  <h4>请注意这个"未完成"的含义</h4>
+  <p>第二篇是<strong>定性篇</strong>（商业模式、护城河、成本结构），第一篇是<strong>定量篇</strong>（三笔算术）。<strong>真正把两者缝合起来的"分部估值"，作者自己还没写完。</strong>这意味着：目前所有关于"谷歌值多少钱"的结论，都还建立在"7.5 万亿估值锚"这个 2026 年 5 月的旧框架上（见第 11 节）。<strong>这是本次研究最大的信息缺口。</strong></p>
+</div>
+
+<!-- ================= 11 ================= -->
+<h2><span class="num">11</span>关联文章补全：六篇强相关文章的核心论点</h2>
+
+<p>用户要求把文章中"强相关的关联链接文章"一并纳入。两篇主文共引用了十余条内部链接，我筛选出<strong>对本次分析有实质增量</strong>的六篇，逐篇提炼。其余链接在 11.7 中列明并说明取舍理由。</p>
+
+<table>
+  <thead><tr><th style="width:30%">文章</th><th style="width:12%">日期</th><th style="width:58%">对本次分析的增量价值</th></tr></thead>
+  <tbody>
+    <tr><td><strong>《6 年浮盈 4 倍：李录投资谷歌全复盘》</strong></td><td>2026-05-10</td><td>提供完整 13F 时间线、五重护城河拆解、<strong>7.5 万亿估值锚</strong>、三次考验时刻——是"击球区"概念的原始出处</td></tr>
+    <tr><td><strong>《巴菲特买谷歌，和李录买谷歌，有什么不同？》</strong></td><td>2026-07-16</td><td>解释两种确定性偏好："雾里买"vs"雾散后买"，以及巴菲特对重资产化的真实态度</td></tr>
+    <tr><td><strong>《"AI 到底是不是泡沫"：对 a16z 九十页报告的反思》</strong></td><td>2026-10-12</td><td>提供<strong>折旧剪刀差、债务接棒、ROIC 逻辑漏洞</strong>的完整论证——是主文一"第二笔账"的理论来源</td></tr>
+    <tr><td><strong>《段永平重仓英伟达，巴菲特重仓谷歌，我重仓腾讯——AI 五层蛋糕（一）》</strong></td><td>2026-05-24</td><td>提供五层蛋糕框架、四大云 capex 数据、伯里折旧指控、贝恩/MIT 的泡沫论证据</td></tr>
+    <tr><td><strong>《同样一块钱利润凭什么美股值两倍》</strong></td><td>2026-07-06</td><td>提供"估值差三层论"与<strong>谷歌反垄断救济的完整时间线</strong>——是"监管确定性"的定价依据</td></tr>
+    <tr><td><strong>《红利｜"类保险"美元存钱思考》</strong></td><td>2026-02-28</td><td>提供"守"的一端的<strong>具体 ETF 工具</strong>：BRK.B / SCHD / DIA / DVY</td></tr>
+  </tbody>
+</table>
+
+<h3>11.1 李录全复盘：一笔"古典价值投资 × 科技平台"的标准样本</h3>
+
+<h4>（1）起点：芒格 2017 年的认错</h4>
+<div class="quote">
+  "没买谷歌，是伯克希尔最大的失误之一。"<br>
+  "<strong>我们就那样坐在那儿，吮着自己的大拇指（we just sat there sucking our thumbs）。</strong>"
+  <span class="who">—— 查理·芒格，伯克希尔股东大会，2017 年 5 月</span>
+</div>
+<p>三年后，<strong>2020 年 8 月 17 日</strong>，喜马拉雅资本向 SEC 提交 13F，<strong>谷歌第一次出现在李录的持仓清单上</strong>。那一年，谷歌刚经历了<strong>上市以来第一次单季度营收下滑</strong>，市场担心广告业要重演 2008 年。</p>
+
+<h4>（2）完整操作时间线：3 次买入、1 次小幅减仓、1 次类股互换</h4>
+
+<table>
+  <thead><tr><th style="width:12%">时点</th><th style="width:12%">价格</th><th style="width:34%">动作与规模</th><th style="width:42%">当时的市场叙事</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>2020 Q2</strong></td>
+      <td><strong>约 67 美元</strong></td>
+      <td>建仓约 <strong>172 万股</strong>谷歌 C 类股（拆股后口径），对应 PE <strong>25 倍</strong>、市值刚过 <strong>1 万亿美元</strong></td>
+      <td>新冠后最分裂的时刻：一派说广告要崩，另一派说云计算要起</td>
+    </tr>
+    <tr>
+      <td><strong>2022 Q2</strong></td>
+      <td><strong>109 美元</strong></td>
+      <td>C 类股<strong>加仓 77%</strong>，同时新建 <strong>948,000 股</strong>投票权 A 类股</td>
+      <td>拆股后第一波回调</td>
+    </tr>
+    <tr>
+      <td><strong>2022 Q4</strong></td>
+      <td><strong>88 美元</strong></td>
+      <td>A 类股<strong>再加 168%</strong>，加了 <strong>159 万股</strong></td>
+      <td><strong>ChatGPT 发布的第 33 天</strong>，谷歌内部宣布"红色警报"（Code Red），市场说"搜索要死了"；股价从 145 跌到 88</td>
+    </tr>
+    <tr>
+      <td><strong>2025 Q1</strong></td>
+      <td><strong>184 美元</strong></td>
+      <td>减持 C 类股约 <strong>59 万股</strong>，幅度 <strong>19.5%</strong>，仓位仍占组合 <strong>40% 以上</strong></td>
+      <td>距离反垄断判决最坏时刻已过去半年；市场普遍解读为<strong>再平衡</strong>，不是看法转变</td>
+    </tr>
+    <tr>
+      <td><strong>2025-12-31</strong></td>
+      <td>—</td>
+      <td>谷歌（A 类 + C 类合计）占喜马拉雅 13F 组合的 <strong>43.86%</strong></td>
+      <td>集中投资的"至高荣誉"</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="chart-card">
+  <div class="ct">李录的四次操作与对应股价：越跌越买，涨了才小幅减</div>
+  <div class="cs">单位：美元/股｜口径：文章披露的建仓/加仓时点价格，拆股后调整</div>
+  <div id="chart-lirui" class="chart"></div>
+</div>
+
+<p><strong>结果</strong>：6 年累计浮盈约 <strong>4 倍</strong>，年化 <strong>30% 以上</strong>。文章的评价是："这是一个<strong>古典派价值投资者怎么把巴菲特、芒格的框架用在科技股上</strong>的标准样本。"</p>
+
+<h4>（3）他为什么敢买：四层逻辑</h4>
+
+<p><strong>第一层："这是一门好生意"——好到刺眼。</strong></p>
+<ul>
+  <li>谷歌从<strong>一个美国用户身上每年赚约 400 美元广告费</strong>，Meta 是 <strong>300</strong>；</li>
+  <li>每年广告业务带来<strong>近 2,000 亿美元收入、近 1,000 亿美元净利润</strong>；</li>
+  <li><strong>搜索广告毛利率约 98%</strong>，云业务的边际成本因为 TPU 自研已经被打到全行业最低；</li>
+  <li>芒格用自家 GEICO 举例："<strong>我们在搜索上每点击付 Google 10 到 11 美元，而 Google 几乎零成本——那是一门好生意。</strong>"</li>
+</ul>
+
+<p><strong>第二层：五重护城河，每一重都看得见摸得着。</strong></p>
+<table>
+  <thead><tr><th style="width:16%">护城河</th><th style="width:84%">原文证据</th></tr></thead>
+  <tbody>
+    <tr><td><strong>网络效应</strong></td><td>用户搜索 → 更多点击数据 → 算法更懂你 → 更精准结果 → 更多用户。每天 <strong>130 亿次搜索</strong>喂的飞轮；<strong>微软 Bing 想拿到 Google 核心排序模型在 13 个月内能拿到的点击数据，需要 17.5 年</strong></td></tr>
+    <tr><td><strong>规模效应</strong></td><td>苹果若想从零复制谷歌搜索基础设施，谷歌 2020 年内部估算的重建资本开支是 <strong>200 亿美元</strong>，加上每年 <strong>60 亿美元</strong>运营开支</td></tr>
+    <tr><td><strong>转换成本</strong></td><td>除搜索外，Gmail、Android、Chrome、Play、YouTube、Maps——<strong>六个 20 亿 MAU 的超级账户体系</strong>；换搜索引擎容易，换掉整套生活账号难</td></tr>
+    <tr><td><strong>品牌</strong></td><td>"<strong>Google it</strong>"已经是一个动词</td></tr>
+    <tr><td><strong>反定位</strong></td><td>一直在做对手做不了的"赔本买卖"——免费的 Gmail、免费的 Android、免费的 Workspace；每次都用主业现金流补贴，对手跟就是慢性自杀</td></tr>
+  </tbody>
+</table>
+<p>李录 2021 年与 Bruce Greenwald 对谈时说过：他要找的是"<strong>竞争结构清晰到可以预测十年后状态</strong>"的生意。谷歌就是。</p>
+
+<p><strong>第三层：AI 不是颠覆，是放大器。</strong></p>
+<p>这是 2022 年底市场最害怕的问题，李录的答卷是<strong>加仓 168%</strong>。他的判断可以拆成五条：</p>
+<ol>
+  <li><strong>事实核查</strong>：AI 给的是答案，搜索给的是证据。医疗、金融、法律这种高风险场景，<strong>没人敢只信一个对话框</strong>；</li>
+  <li><strong>货架展示</strong>：买衬衫、找餐厅、订机票，AI 能给 shortlist，搜索给"<strong>一堆候选 + 评分 + 实拍图</strong>"；</li>
+  <li><strong>导航跳转</strong>：你输入"Netflix"是想直接跳过去，不是想听 AI 解释什么是 Netflix；</li>
+  <li><strong>变现率</strong>：谷歌 AI Mode 每查询的变现率<strong>已经追平传统搜索</strong>，单位转化率还<strong>提升了 175%–230%</strong>；</li>
+  <li><strong>RAG 的刚性依赖</strong>：LLM 消除幻觉的方法叫"<strong>检索增强生成</strong>"，本质上需要接入一个高质量的搜索索引才能回答准。<strong>全世界最高质量的索引在哪？在谷歌。AI 越发达，谷歌的索引就越值钱。</strong></li>
+</ol>
+
+<p><strong>第四层：资本配置者，是 CEO 的第一身份。</strong></p>
+<p>谷歌 CFO 的一句话被作者反复引用："<strong>上市公司的问题在于它们只关注未来 90 天的业绩，但有些基础设施建设需要 10 年时间。</strong>"对应的资本配置动作：</p>
+<ul>
+  <li>把 <strong>2026 年资本开支指引上调到 1,800–1,900 亿美元</strong>（2024 年才 525 亿），全部砸 AI 基础设施；</li>
+  <li>2024 年<strong>回购 620 亿美元</strong>股票，并新增 <strong>700 亿美元</strong>回购授权；</li>
+  <li><strong>Waymo</strong> 2025 年周订单 <strong>25 万单</strong>，已经接近运营盈利点；</li>
+  <li><strong>DeepMind 旗下 Isomorphic Labs</strong> 拿到礼来、诺华<strong>近 30 亿美元</strong>的合作合同；</li>
+  <li><strong>TPU 2025 年开始外卖</strong>，Anthropic 下了<strong>近 100 万颗 v7</strong> 的订单；</li>
+  <li><strong>Gemini 每月活跃用户 7.5 亿</strong>；</li>
+  <li><strong>谷歌云 2025 Q4 收入增速 48%</strong>，年化 700 亿美元，<strong>运营利润率从 17.5% 涨到 30.1%</strong>。</li>
+</ul>
+<p>作者对此的评价是："这是一家把'<strong>长期主义</strong>'刻到资产负债表里的公司。"而<strong>双重股权结构</strong>（A 股一股一票、B 股一股十票、C 股无投票权）让创始人能顶住季度财报压力，持续做 10 年期的赌注——"<strong>对一个相信复利的价值投资者来说，这种治理结构是溢价，不是折价。</strong>"</p>
+
+<h4>（4）三次考验时刻：价值投资最难的不是买入，是持有</h4>
+<table>
+  <thead><tr><th style="width:18%">时点</th><th style="width:32%">事件</th><th style="width:22%">股价</th><th style="width:28%">李录的动作</th></tr></thead>
+  <tbody>
+    <tr><td><strong>2022 年 12 月</strong></td><td>"红色警报"，ChatGPT 发布两个月，内部宣布生存级威胁</td><td>145 → <strong>88</strong></td><td><strong>加仓 168%</strong></td></tr>
+    <tr><td><strong>2024 年 8 月</strong></td><td>反垄断败诉，法官 Mehta 裁定搜索违反《谢尔曼法》，当天跌 4.5%，市场怕 Chrome/Android 被拆</td><td>—</td><td><strong>一股没卖</strong></td></tr>
+    <tr><td><strong>2025 年 4 月</strong></td><td>广告技术案再败 + 关税冲击</td><td>探至 <strong>152</strong> 美元 52 周低点</td><td><strong>只减 19.5%</strong>，剩 80% 继续持有</td></tr>
+  </tbody>
+</table>
+<p>同一时点，伯克希尔（文章判断应为 Todd Combs 决策）在 Q3 新建谷歌头寸 <strong>1,785 万股，价值 43 亿美元</strong>——"补的就是芒格 8 年前那个'horse's ass'"。</p>
+<div class="quote">
+  "如果你看不懂一家公司，下跌就是噩梦；如果你看懂了，下跌是机会。"
+  <span class="who">—— 段永平，转引自李录篇</span>
+</div>
+
+<h4>（5）估值锚：60% 的确定性 + 安全边际</h4>
+
+<p>这是"击球区"概念的原始出处，也是本报告最重要的定量框架：</p>
+
+<table>
+  <thead><tr><th style="width:22%">分部</th><th style="width:26%">假设</th><th style="width:26%">估值方法</th><th style="width:26%">对应价值</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>核心业务</strong><br>（搜索 + 云）</td>
+      <td>确定性按 <strong>60%</strong> 给；10 年后搜索净利润 <strong>3,000 亿</strong>、云 <strong>500 亿</strong>，合计 <strong>3,500 亿</strong></td>
+      <td><strong>20 倍</strong>市盈率</td>
+      <td><strong>7 万亿美元</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Other Bets</strong><br>（当作期权）</td>
+      <td>TPU 200 亿、眼镜 200 亿、自动驾驶 100 亿（当前估值已达 1,200 亿）、医药 100 亿，合计 <strong>600 亿</strong>利润</td>
+      <td><strong>10 倍</strong>市盈率</td>
+      <td><strong>0.5 万亿美元</strong></td>
+    </tr>
+    <tr style="background:var(--blue-soft);">
+      <td><strong>总估值锚</strong></td>
+      <td colspan="2">核心 + 期权</td>
+      <td><strong>约 7.5 万亿美元</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>安全边际规则</strong>：<strong>3 万亿美元以内是不错的风险投资标的</strong>；</li>
+  <li><strong>建仓成本</strong>：2020 Q2 建仓时市值约 <strong>1 万亿</strong>；2022 Q4 加仓时跌到 <strong>1.15 万亿</strong>——<strong>离 7.5 万亿的估值锚差 6–7 倍</strong>，预留了极高安全边际；</li>
+  <li><strong>文章发布时（2026 年 5 月）</strong>：市值约 <strong>4.81 万亿美元</strong>，"到了<strong>还能持有但不算便宜</strong>的位置"；</li>
+  <li><strong>当前（2026 年 10 月底）</strong>：市值 <strong>3.46 万亿美元</strong>，较 5 月回落约 <strong>28%</strong>，重新回到 3 万亿安全边际线的上方一点。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">从 1 万亿到 7.5 万亿：谷歌市值在李录框架中的位置</div>
+  <div class="cs">单位：万亿美元｜口径：文章披露的历史市值 + 估值锚，非实时</div>
+  <div id="chart-anchor" class="chart"></div>
+</div>
+
+<div class="box blue">
+  <h4>换算成每股：把估值锚翻译成价格</h4>
+  <ul>
+    <li>当前 <strong>3.46 万亿</strong>对应 <strong>280 美元</strong>，即每 1 万亿美元市值约对应 <strong>80.9 美元</strong>；</li>
+    <li><strong>3 万亿</strong>安全边际线 → 约 <strong>243 美元</strong>（与段永平卖 Put 的 240–250 区间吻合）；</li>
+    <li><strong>7.5 万亿</strong>估值锚 → 约 <strong>607 美元</strong>；</li>
+    <li>从 280 到 607，隐含约 <strong>117%</strong> 的空间，但这是"10 年终局"的锚，<strong>不是 12 个月目标价</strong>。</li>
+  </ul>
+  <p class="src">计算方式：按文章披露的市值与股价线性换算，未考虑回购/股本变动，仅供框架参照。</p>
+</div>
+
+<h4>（6）三点启示</h4>
+<ol>
+  <li><strong>能力圈可以扩展，但要按方法扩展。</strong>李录早期能力圈是中国 + 净流动资产型深度价值，跟着芒格扩到消费品（BYD、可口可乐式），最后才扩到平台型护城河（谷歌）。每一步都在"真正看懂"的前提下走——<strong>李录建仓谷歌花了 2 年时间，先把生意吃透，再下重手</strong>；</li>
+  <li><strong>"叙事最坏"等于"估值最便宜"。</strong>2020 Q2 的疫情、2022 Q4 的 Code Red、2024 Q3 的反垄断败诉——这是三次买入的时点。"那些让人最怕的新闻头条，往往是给真正看懂的人留的"；</li>
+  <li><strong>集中度是价值放大器。</strong>喜马拉雅长期只持 <strong>6–9 只</strong>股票，谷歌一只就敢做到 <strong>43.86%</strong>。"这不是赌徒，是因为前 1000 小时的研究做透了。<strong>少做、做对、做大。</strong>"</li>
+</ol>
+
+<h3>11.2 巴菲特 vs 李录：两种"确定性偏好"</h3>
+
+<p>这篇是理解"为什么巴菲特买在 318 美元还敢拿"的关键，也是对主文一最好的补充。</p>
+
+<table>
+  <thead><tr><th style="width:16%">维度</th><th style="width:42%">李录</th><th style="width:42%">巴菲特</th></tr></thead>
+  <tbody>
+    <tr><td><strong>买入时机</strong></td><td><strong>2020 年疫情最恐慌时</strong>建仓；2022 年 ChatGPT 出来、全世界喊"搜索要死了"时逆势加仓 168%；2024 年反垄断一审败诉当天一股没卖</td><td><strong>2025 年三季度</strong>建仓</td></tr>
+    <tr><td><strong>当时的背景</strong></td><td>雾最浓的时候：主业有风险，叙事最坏</td><td>反垄断案九月落槌，<strong>法院没拆 Chrome、没拆安卓</strong>，市场悬了一年的心落地；股价当季冲上历史新高，<strong>市值突破三万亿美金</strong>；还派了<strong>上市以来第一次股息</strong></td></tr>
+    <tr><td><strong>确定性来源</strong></td><td><strong>雾里下手</strong>：赌两件事——下行风险可控、十年后的竞争结构大致看得清；因此<strong>需要更低的价格和安全边际</strong></td><td><strong>雾散后下手</strong>：确定性落地、外部风险明牌之后，再用真金白银去确认</td></tr>
+    <tr><td><strong>代价</strong></td><td>要承受漫长的浮亏与"看错了"的质疑</td><td>买不到最便宜的价，但买到了最高的确定性</td></tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>巴菲特那句"这是真钱"，是全文最重的判断</h4>
+  <p>老巴原话："谷歌和它所有对手现在都在砸几千亿美金搞 AI，<strong>这是真钱，做电脑软件的年代可不玩这个</strong>。"</p>
+  <p>作者的翻译是：<strong>这一代科技巨头的竞争，已经从当年微软那种轻资产、高毛利的软件生意，变成了重资产、拼资本开支的硬仗。</strong>谷歌今年光资本开支就指引到 <strong>1,800 亿美金</strong>。</p>
+  <p>所以巴菲特的真实态度是：<strong>他更喜欢能"守得住现金流"的生意，而不是必须年年砸几千亿才能不掉队的生意。所以他买了，但也诚实地说不是最爱</strong>——"这只股票我没有另外四五家我们持有的公司那么喜欢"。</p>
+</div>
+
+<p><strong>两种买法都对，但对应两种人。</strong>看得懂十年竞争结构的人，可以在雾里买；看重资产负债表确定性的人，可以在雾散后买。<strong>关键不是谁抄得快，而是你到底看懂的是哪一层。看不懂？不碰就是了。</strong></p>
+
+<h3>11.3 a16z 九十页报告的反思：三件不同的事</h3>
+
+<p>这篇是主文一"第二笔账"的理论来源，也是全组文章里<strong>对多头最有力的反驳</strong>。</p>
+
+<h4>（1）a16z 的核心论据：利润是真的</h4>
+<ul>
+  <li>报告第 10 页："<strong>Hard to call it a bubble</strong>"（很难叫它泡沫）；</li>
+  <li>美股一再创新高，但<strong>推着它走的是利润，不是估值</strong>；</li>
+  <li>标普 500 的盈利增长里<strong>约 76% 来自科技公司</strong>；</li>
+  <li>科技板块今年涨了 20% 多，<strong>估值倍数却比五年均值低了约 20%</strong>；</li>
+  <li>对比 2000 年：那一轮是"股价飞上天、利润在地上"，<strong>这一轮利润是真的</strong>。</li>
+</ul>
+
+<h4>（2）作者的质疑：利润、资本开支、股东回报是三件事</h4>
+<div class="box red">
+  <h4>核心反驳</h4>
+  <p>"<strong>利润在增长、资本开支在增长、股东最终拿到合理回报——这是三件不同的事。</strong>报告把前两件讲得很充分，第三件，解释得有点牵强。"</p>
+</div>
+
+<ul>
+  <li><strong>自由现金流被吞噬</strong>：超大规模云厂商资本开支今年奔着 <strong>8,000 亿美元</strong>去，2027 年后可能超过 <strong>1 万亿</strong>；代价是自由现金流大幅下滑，<strong>a16z 自己预计这种状态会持续到 2028 年前后</strong>；</li>
+  <li><strong>谷歌的具体例子</strong>：2026 年上半年经营现金流约 <strong>850 亿美元</strong>，买服务器建机房花了约 <strong>806 亿美元</strong>，一减，<strong>自由现金流只剩四十多亿</strong>；</li>
+  <li><strong>债务接棒</strong>：今年大型云厂商和英伟达新增的投资级债务与表外 SPV 融资<strong>超过 3,000 亿美元</strong>，而过去十年多数年份这个数字<strong>不到 500 亿</strong>；英格兰银行 9 月金融政策委员会纪要引用摩根士丹利预测：<strong>2026–2028 年，数据中心建设中约有 7,000 亿美元可能要靠私人信贷融资</strong>。</li>
+</ul>
+
+<h4>（3）最值得较真的一页：第 19 页的 ROIC 论证</h4>
+<p>a16z 的逻辑是：债务确实抬高风险，但<strong>巨头 ROIC 远高于借钱成本</strong>，历史上一直很赚钱、过去几乎不借钱，现在借钱投向能产生稳定现金流的硬资产——这是放贷人最喜欢的组合。</p>
+<p><strong>作者的反驳（全文最锋利的一段）：</strong></p>
+<div class="quote">
+  "巨头过去的高回报，来自搜索广告、应用商店、办公软件、云计算——<strong>那是轻资产时代的生意</strong>。拿它们的历史整体回报率，去证明新增的几千亿 AI 投资也能赚钱，<strong>中间缺了一环</strong>。<br><br>
+  打个比方：一家很赚钱的老字号餐厅要贷款开十家新店。银行看老店利润率高，放心放贷。但<strong>老店赚钱，不代表新店也赚钱</strong>；新店得拿新店自己的账来算。"
+  <span class="who">—— 原文，第三节</span>
+</div>
+
+<h4>（4）巴菲特的织布机：防守性资本开支</h4>
+<div class="box amber">
+  <h4>这个故事值得完整记住</h4>
+  <p>当年伯克希尔还在做纺织，厂里每隔几年就要换更先进的织布机。管理层说<strong>必须买，不买就会被同行甩下</strong>。巴菲特同意了。但他后来复盘发现：<strong>同行也都买了，效率提升的好处最终以更低的布价让给了客户，股东并没有多赚到钱。</strong></p>
+  <p>这就是两种资本开支的区别：<strong>一种是为了多赚钱的扩张性投入，一种是为了不掉队而不得不花的防守性投入。后者花得再多，也未必变成股东的回报。</strong></p>
+  <p>原文的追问是：<strong>"今天巨头们的 AI 投入里，有多少属于前者、多少属于后者？我不知道，恐怕它们的管理层也说不清。"</strong></p>
+</div>
+
+<h4>（5）用量 ≠ 价值：四组"看起来很好但经不起追问"的数据</h4>
+<table>
+  <thead><tr><th style="width:26%">数据</th><th style="width:36%">表面含义</th><th style="width:38%">作者的追问</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Agent 消耗的 token <strong>一年增长 14 倍</strong></td>
+      <td>需求爆发</td>
+      <td><strong>token 用量涨了 14 倍，不代表付费收入涨了 14 倍，更不代表客户得到的价值涨了 14 倍</strong>；其中<strong>超过 85% 来自缓存提示词</strong>（同一段材料被反复读取）</td>
+    </tr>
+    <tr>
+      <td>AI 个人付费订阅比例 <strong>2.1% → 4.5%</strong></td>
+      <td>翻了一倍多</td>
+      <td><strong>绝对值依然很低</strong>；付费用户月支出中位数约 <strong>25 美元</strong>，18 个月基本没动；<strong>支出最高的 1% 用户月均 903 美元，贡献样本近两成 AI 消费</strong></td>
+    </tr>
+    <tr>
+      <td>标普 500 中 <strong>69%</strong> 已部署 AI</td>
+      <td>渗透率高</td>
+      <td><strong>29% 说能量化效果，但公开披露持续追踪具体指标的只有 2%</strong>——企业用 AI 的速度，明显快于外部投资者能验证回报的速度</td>
+    </tr>
+    <tr>
+      <td>A100 租金依然坚挺</td>
+      <td>旧卡没快速贬值</td>
+      <td>这是好消息，但<strong>能不能持续，取决于需求是否一直跑在供给前面</strong>；一张 GPU 稳定用五六年是常态，<strong>两三年就被新一代淘汰是另一回事</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>（6）"验证成本"：为什么程序员先爆发，普通人还在观望</h4>
+<ul>
+  <li><strong>被替代的时间值钱</strong>：资深工程师时薪一两百美元，AI 帮他省下一成时间，一个月就值好几千美元，付 900 美元很划算；普通文职时薪低得多，省下的时间值不了那么多；</li>
+  <li><strong>验证成本不一样</strong>：代码对不对，可以交给编译器和自动化测试跑一遍；但一份市场分析、一份法律摘要、一篇对外稿件，<strong>没有现成的"编译器"</strong>，数据和推理靠不靠谱还得人一句一句核；</li>
+  <li><strong>组织摩擦</strong>：AI 给的建议出了错谁来担责？员工用 AI 省下的时间敢不敢告诉老板？打通财务、销售、生产的数据，各部门愿不愿意？<strong>这些问题不是买几张芯片就能解决的。</strong></li>
+</ul>
+
+<h4>（7）对巴菲特/李录买谷歌的解读：他们没为 AI 付溢价</h4>
+<div class="box blue">
+  <h4>作者最重要的一句判断</h4>
+  <p>"所以，拿'巴菲特也买了'来证明 AI 投资一定划算，恐怕是<strong>读反了</strong>。<strong>他们并没有为 AI 支付估值溢价。</strong>"</p>
+  <p>理由：李录加仓时，AI 被看作谷歌的<strong>威胁</strong>，而不是加分项；伯克希尔建仓前后，司法部诉谷歌案的救济裁决刚落、法院没要求拆分，同时市场正担心资本开支吞噬现金流。<strong>从这个角度看，他们更像是在为一个依然强大的搜索和广告生态付钱，而不是为 AI 的远大前景付溢价。</strong></p>
+</div>
+
+<h4>（8）作者的操作纪律</h4>
+<ul>
+  <li>不看空 AI："利润是真的，需求是真的，技术进步也是真的"；</li>
+  <li>但坚持："<strong>历史回报率不等于新项目的回报率，使用量增长也不等于客户价值同步增长</strong>"；</li>
+  <li><strong>下调担忧的触发条件</strong>：单个任务成本持续下降 + 企业扣掉验证成本后收益扩大 + 巨头自由现金流回升 + 对债务融资依赖减轻；</li>
+  <li><strong>上调担忧的触发条件</strong>：资本开支继续加速 + 现金流迟迟不回升 + 融资越来越依赖表外和私人信贷 + 终端收入跟不上；</li>
+  <li>结论："<strong>即使前瞻市盈率看起来只有 20 倍，也很难把它看成有很高的安全边际。</strong>"</li>
+</ul>
+
+<h3>11.4 AI 五层蛋糕：哪一层的钱赚得最确定</h3>
+
+<p>这篇提供了产业框架和大量 capex 数据，是理解"谷歌为什么是少数能通吃多层的玩家"的背景。</p>
+
+<h4>（1）框架：黄仁勋的五层蛋糕</h4>
+<div class="chain">
+  <span class="n">能源</span><span class="a">→</span>
+  <span class="n">芯片</span><span class="a">→</span>
+  <span class="n">基础设施</span><span class="a">→</span>
+  <span class="n">模型</span><span class="a">→</span>
+  <span class="n">应用</span>
+</div>
+<ul>
+  <li>黄仁勋 2026 年 3 月发表个人署名长文，核心判断：<strong>AI 不是一个聪明的 App，也不是某一个模型，它是像电力、像互联网一样，要从头建起来的基础设施</strong>；</li>
+  <li>每一个成功的应用，都会往下拉动它脚下的每一层，"<strong>一直拉到发电厂</strong>"；</li>
+  <li><strong>这一轮 AI 是人类历史上规模最大的一次基建</strong>：数千亿美元已经砸下去，后面还有数万亿。</li>
+</ul>
+
+<h4>（2）价值投资者的问法与工程师不同</h4>
+<div class="box blue">
+  <p>工程师问：<strong>哪一层技术最难？</strong><br>
+  价值投资者问：<strong>哪一层的钱，赚得最确定？</strong></p>
+  <p>"这两个问题的答案，往往不在同一层。"<strong>反直觉的规律是：越往上越性感、但厚积薄发；越往下越确定。</strong></p>
+</div>
+
+<h4>（3）三层的具体判断（原文只写了三层，芯片与能源层留待后续）</h4>
+<table>
+  <thead><tr><th style="width:14%">层级</th><th style="width:44%">原文判断</th><th style="width:42%">对谷歌的含义</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>第五层<br>应用</strong></td>
+      <td>黄仁勋眼里"最具经济价值的地方"，但<strong>真正的 AI 超级应用还没出现</strong>；聊天机器人是"很糟糕的商业模式——烧钱、难收费、用户用完即走"；杀手级形态是 Agent</td>
+      <td>谷歌的 AI Mode / Gemini + UCP 结账，正是从"聊天"往"干活"走；<strong>但这一层还没被验证</strong></td>
+    </tr>
+    <tr>
+      <td><strong>第四层<br>模型</strong></td>
+      <td>变化太快，<strong>黄仁勋自己都挑不出赢家</strong>，美国顶尖模型的领先窗口可能只有 <strong>6 个月</strong></td>
+      <td>谷歌是"少有的、一口气通吃好几层"的巨无霸：自研 TPU（芯片层）+ 自训 Gemini（模型层）+ 搜索/安卓/YouTube/Cloud（应用入口）。<strong>单独评价 Gemini 强不强意义不大</strong></td>
+    </tr>
+    <tr>
+      <td><strong>第三层<br>基础设施</strong></td>
+      <td>"<strong>这就是未来真正的商业地产</strong>"——美国数据中心建设投入<strong>历史上第一次超过普通写字楼</strong>；写字楼给人坐，AI 工厂给芯片住</td>
+      <td><strong>这一层是当下军备竞赛最惨烈的地方，也是市场担忧的核心</strong>；作者明确说"<strong>我不直接买那些资本开支最猛、负债最重的纯算力公司。太险。</strong>"</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>（4）泡沫论的三组硬数据（原文引用）</h4>
+<ul>
+  <li><strong>四大云 capex</strong>：亚马逊、谷歌、微软、Meta 2026 年资本开支加起来要冲到 <strong>6,500 亿到 7,500 亿美元</strong>，同比增长约 <strong>六成</strong>；亚马逊一家计划砸约 <strong>2,000 亿美元</strong>，砸到自由现金流可能转负，华尔街算出的现金流缺口"有人说 170 亿美元，有人说 280 亿美元"；</li>
+  <li><strong>伯里的折旧指控</strong>：这些巨头把 AI 服务器的折旧年限，<strong>从四五年悄悄拉长到五六年</strong>，账面利润因此被垫高，他估算 <strong>2026 到 2028 年累计虚增了上千亿美元</strong>；</li>
+  <li><strong>贝恩的缺口账</strong>：到 2030 年，整个 AI 行业需要<strong>每年 2 万亿美元的新增收入</strong>才能回本，但缺口大约有 <strong>8,000 亿美元</strong>；</li>
+  <li><strong>MIT 的报告</strong>：<strong>95% 的企业 AI 试点，到现在没产生可衡量的回报</strong>。</li>
+</ul>
+
+<h4>（5）一个被低估的多头证据：Cloud backlog</h4>
+<div class="box green">
+  <p>"目前算力完全属于供不应求的状态——<strong>Google Cloud 的在手订单（backlog）一个季度就从 2,400 亿美元干到 4,600 多亿美元</strong>——这说明企业是真金白银在排队买它的 AI 算力。"</p>
+  <p><strong>这条数据是"需求端真实性"最硬的证据，比 token 用量可靠得多</strong>，因为 backlog 是已签约的合同义务。</p>
+</div>
+
+<h3>11.5 同样一块钱利润凭什么美股值两倍：估值差的三层论</h3>
+
+<p>这篇提供了"为什么谷歌能拿 25 倍、腾讯只有十几倍"的完整解释框架，也是理解反垄断风险定价的关键。</p>
+
+<h4>（1）第一层：钱还不还你（股东回报意愿）</h4>
+<ul>
+  <li><strong>可口可乐</strong>：几十年如一日，把净利润几乎百分之百通过分红加回购还给股东，股息率长期稳在 3% 左右，甚至不惜借低息债回购；</li>
+  <li><strong>茅台</strong>：生意体质更好（毛利率九成以上、净利率五成以上、提价权碾压可乐、几乎没有有息负债），但<strong>账上常年趴着数百亿现金收近乎为零的活期利息</strong>，回购"刚刚象征性起了个头"；</li>
+  <li><strong>作者的尺子</strong>："一家公司账上的钱，如果达不到 10% 的 ROIC，基本就是在糟蹋股东的钱。"</li>
+  <li><strong>结论</strong>：市场会为"还给你"的那一块钱标更高的价。<strong>这是最容易修复的一层。</strong></li>
+</ul>
+
+<h4>（2）第二层：监管怎么看你（监管确定性）</h4>
+<p>这一层直接关系到谷歌，必须完整记录反垄断案的时间线：</p>
+<table>
+  <thead><tr><th style="width:16%">时点</th><th style="width:84%">事件</th></tr></thead>
+  <tbody>
+    <tr><td><strong>2024 年 8 月</strong></td><td>美国联邦法官<strong>梅塔（Mehta）</strong>判定谷歌在搜索市场构成<strong>非法垄断</strong>——"一家占了公司大半利润的核心业务被判违法"</td></tr>
+    <tr><td><strong>2025 年 9 月</strong></td><td>救济方案出炉，<strong>法院驳回司法部最激进的诉求</strong>：<strong>没有拆分 Chrome、没有拆分安卓</strong>；只是<strong>禁止独家默认协议、向合格竞争对手分享部分搜索数据，为期六年</strong>；法官甚至直接写道，司法部"<strong>要求过度了</strong>"</td></tr>
+    <tr><td>消息公布后</td><td>谷歌（以及躺着收谷歌默认搜索费的苹果）<strong>股价不跌反涨</strong></td></tr>
+    <tr><td><strong>2027–2028</strong></td><td>谷歌还能上诉，<strong>一路打到最高法院</strong>，整个流程要走完</td></tr>
+  </tbody>
+</table>
+
+<div class="box blue">
+  <h4>为什么这是"确定性"而不是"风险"</h4>
+  <p>原文的表述："不是因为谷歌不会被监管，而是因为美国给的是一条<strong>可预期的协调路径</strong>：你违法，我判你，但<strong>救济要与过错相称、要经过完整的对抗式庭审、还能层层上诉</strong>。<strong>哪怕是最坏的结果，也是可知的、可定价的、有边界的。</strong>"</p>
+  <p>对照组是 2021 年的"双减"：一张 A4 下来，线下学科培训几乎全面关停，<strong>新东方市值掉了九成、好未来掉了九成五</strong>，好未来总收入从 45 亿美元砍到 10 亿——"<strong>没有协商、没有预期、没有任何救济余地</strong>"。</p>
+  <p><strong>"同样是监管风险，一个是能大致算得出来的账，一个是算不出来的悬念。资本会为前者的确定性付溢价，会对后者的不确定性打折扣。"</strong></p>
+</div>
+
+<h4>（3）第三层：宏观系统——美股的四个齿轮</h4>
+<ol>
+  <li><strong>全球化公司</strong>：标普 500 大约<strong>四成收入来自美国以外</strong>，某一个国家衰退对它们只是"摊薄"；而绝大多数中概公司营收几乎 100% 绑定中国宏观周期；</li>
+  <li><strong>成熟的外部约束</strong>：严格信息披露、集体诉讼、做空机制、机构投资者、分析师体系、真能落地的退市惩罚——"<strong>一个市场最重要的功能，从来不是让所有公司都涨，而是持续地把好公司和坏公司分开</strong>"；</li>
+  <li><strong>美元的"重力"与被动资金</strong>：各国央行、主权基金、养老金天生要配置美元资产；加上 401k、个人养老金每月定投，形成刚性被动买盘——"<strong>这是美股'慢牛、低波'最容易被忽略的资金地基</strong>"；</li>
+  <li><strong>指数的新陈代谢</strong>："很多人以为买纳指是买一百家固定的公司，其实是买'<strong>美国最强一百家的动态集合</strong>'……<strong>你买的从来不是一百家公司，是'持续优胜劣汰'这个机制本身。</strong>"</li>
+</ol>
+
+<h4>（4）一盆冷水：美股也当过弃儿</h4>
+<ul>
+  <li><strong>1979 年 8 月 13 日</strong>，《商业周刊》封面标题：《<strong>股票之死：通胀如何摧毁股市</strong>》；</li>
+  <li><strong>1966–1982</strong> 这十七年，标普 500 扣除通胀后的真实回报<strong>接近于零，甚至是负的</strong>；</li>
+  <li>道琼斯 1973 年创下 1051 点高点后不涨反跌，按购买力算<strong>缩水了差不多一半</strong>；</li>
+  <li>从 1968 年起算，股票年化只涨 <strong>3.1%</strong>，而同期通胀高达 <strong>6.5%</strong>——<strong>股票跑不赢通胀</strong>；</li>
+  <li><strong>1970 年以来，七百多万散户用脚投票离开了股市</strong>；黄金在 1971 年之后<strong>涨了七倍多</strong>；</li>
+  <li><strong>1982 年低点起算，标普 500 含股息再投资的总回报是接近七十倍</strong>。</li>
+</ul>
+<div class="quote">
+  "没有一个市场的溢价是天上掉下来的、也没有一个市场的溢价是永恒的。把'美股永远涨'当信仰，和当年把'股票已死'当信仰，是同一种病。"
+  <span class="who">—— 原文</span>
+</div>
+
+<h3>11.6 美元红利"类保险"：把"守"的一端落到工具上</h3>
+
+<p>这篇是主文一"守的一端"的具体执行方案，也是本次投资映射中最可直接落地的部分。</p>
+
+<div class="box amber">
+  <h4>核心目标（原文定义）</h4>
+  <p>"做这个美元存钱，追求的不是收益翻倍的刺激。要的是：<strong>不管外面是通胀还是降息，这笔钱都能像咱们买的高品质年金险一样，稳稳地护住本金，并且每个月、每个季度准时给我'吐'出现金。</strong>"</p>
+</div>
+
+<table>
+  <thead><tr><th style="width:14%">标的</th><th style="width:12%">角色</th><th style="width:74%">原文关键论点与数据</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>BRK.B<br>伯克希尔</strong></td>
+      <td>终极灾难险</td>
+      <td>市值结构"太绝了"：<strong>三分之一是创纪录的 3,800 多亿美金现金</strong>（光吃利息就很爽）、<strong>三分之一是铁路/能源这种永远不会消失的实体基建</strong>、<strong>三分之一是苹果/可口可乐这些大蓝筹</strong>。阿段说 BRK 是"躲避牛市的好地方"；虽然巴菲特离任，但"低调务实去中心化、低成本与关注资本配置的文化保留了下来"。<strong>它不发股息，但那几千亿美金就是留着在别人恐慌暴跌时去捡漏的</strong>——"拿着它，你不仅晚上睡得安稳，甚至还会隐隐期盼市场大跌"</td>
+    </tr>
+    <tr>
+      <td><strong>SCHD<br>嘉信美国红利</strong></td>
+      <td>抗通胀的<br>"增额终身寿"</td>
+      <td>选股有"严重的洁癖"：<strong>要求连续 10 年分红，还要查负债率，不健康的直接踢掉</strong>。股息率约 <strong>3.5%</strong>，但<strong>过去五年股息复合增长率仍有年化 9% 左右</strong>，<strong>ROE 高达 24%</strong>。长期预期回报高于人民币红利低波（后者 ROE 已下行到只有 10%）。<strong>管理费只有 0.06%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>DIA<br>道指 ETF</strong></td>
+      <td>月月发工资的<br>"养老金"</td>
+      <td>"现在的标普 500 其实已经被几家科技巨头绑架了，一旦科技股回调，波动很大。而 DIA 里只有 <strong>30 家百年老店</strong>（高盛、麦当劳、家得宝）。"把它纳入存钱计划最重要的原因，是它是<strong>极少见的"按月派息"基金</strong></td>
+    </tr>
+    <tr>
+      <td><strong>DVY<br>iShares 精选红利</strong></td>
+      <td>阶段性高息<br>理财（战术包）</td>
+      <td>专挑高息股，<strong>极度重仓公用事业（电力）和传统银行</strong>。"以前大家觉得公用事业是慢吞吞的老古董，但今年风向变了，<strong>AI 数据中心成了吃电狂魔，这些电力公司摇身一变成了'AI 算力底座'</strong>，最近涨得非常猛"</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>组合逻辑</strong>：用伯克希尔做免死金牌，用 SCHD 做股息成长的发动机，用 DIA 提供每月的现金流情绪价值，再辅以 DVY 拉高当期收益。</p>
+
+<div class="box purple">
+  <h4>这篇对本次谷歌分析的意义</h4>
+  <p>它把"守"的一端从抽象变成具体：<strong>如果你认同"谷歌是好公司但价格没到位"，那么等待期间的钱该放哪？</strong>答案不是现金，而是<strong>能持续吐现金、且与 AI 算力折旧无关的资产</strong>。这也解释了为什么作者把谷歌归入"攻"而不是"守"——<strong>谷歌的现金流正在被资本开支吞噬，它此刻不具备"类保险"属性。</strong></p>
+</div>
+
+<h3>11.7 其余提及链接：取舍说明</h3>
+
+<table>
+  <thead><tr><th style="width:34%">文章</th><th style="width:22%">是否纳入</th><th style="width:44%">理由</th></tr></thead>
+  <tbody>
+    <tr><td>《纳指 10 年年化复利 18%，为何靠它发财者寥寥？》</td><td><span class="tag gray">未抓取</span></td><td>页面反爬拦截，无法取得正文。仅保留两篇主文中的转述：<strong>纳指十年四倍、年化约 18%</strong>，以及"指数新陈代谢"的机制解释</td></tr>
+    <tr><td>《复盘腾讯二季报，砸下千亿投 AI：真正的对手，还是自己的回购？》</td><td><span class="tag gray">间接引用</span></td><td>与谷歌对照的核心数据已在主文一中完整给出（8.8 倍自营 PE、1,354 亿 FCF、千亿回购），无需重复抓取</td></tr>
+    <tr><td>《钱掉地上用桶接：写在腾讯跌破 470》</td><td><span class="tag gray">间接引用</span></td><td>提供 400 港元腾讯的讨论背景，数据已在主文一披露</td></tr>
+    <tr><td>《零售简史：从一间杂货铺，到一台比价机器》</td><td><span class="tag gray">背景</span></td><td>为好市多 Kirkland 白牌类比提供零售史背景，属方法论铺垫，不构成新论点</td></tr>
+    <tr><td>《茅台真正的护城河，可能不是品牌》</td><td><span class="tag gray">背景</span></td><td>"守"的一端的具体标的讨论，与谷歌估值无直接关系</td></tr>
+    <tr><td>《做简单的事》</td><td><span class="tag gray">背景</span></td><td>投资纪律类文章，已在配置结论中引用其精神</td></tr>
+    <tr><td>《10 场演讲后，让我发现 AI 远不仅是工具》</td><td><span class="tag gray">背景</span></td><td>企业 AI 落地的组织摩擦，核心结论已被 a16z 反思篇引用</td></tr>
+    <tr><td>《腾讯一季报闭门会的 5 个反共识》</td><td><span class="tag gray">背景</span></td><td>提供"聊天机器人是糟糕商业模式"的判断，已在五层蛋糕篇中体现</td></tr>
+    <tr><td>《寒王提示高估风险，为何英伟达前瞻 PE 才 20 倍，还要准备拿 50% 利润回购？》</td><td><span class="tag gray">背景</span></td><td>股东回报意愿的案例，已被"一块钱利润"篇的框架覆盖</td></tr>
+  </tbody>
+</table>
+
+<!-- ================= 12 ================= -->
+<h2><span class="num">12</span>观点地图：谁看多、谁看空、分歧到底在哪</h2>
+
+<h3>12.1 三方立场对照</h3>
+
+<table>
+  <thead><tr><th style="width:14%">立场</th><th style="width:22%">代表</th><th style="width:64%">核心论点</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><span class="tag buy">看多</span></td>
+      <td><strong>巴菲特</strong></td>
+      <td>"Alphabet 已经建立了难以置信的竞争优势和现金流创造能力……<strong>成为赢家的可能性比华尔街推销的 90% 或 95% 的东西都要高</strong>"；这笔投资是他本人发起</td>
+    </tr>
+    <tr>
+      <td><span class="tag buy">看多</span></td>
+      <td><strong>李录</strong></td>
+      <td>五重护城河全占 + AI 是放大器 + RAG 依赖高质量索引 + TPU 成本 1/4；<strong>仓位 43.86%</strong>；估值锚 7.5 万亿</td>
+    </tr>
+    <tr>
+      <td><span class="tag buy">偏多</span></td>
+      <td><strong>段永平</strong></td>
+      <td>"感觉现在有点<strong>相对便宜</strong>了"；卖 Put；"也许我会用苹果换点 Google"——但<strong>劝普通人"最好再等一等"</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag buy">偏多</span></td>
+      <td><strong>第二篇作者</strong></td>
+      <td>从信息分发到行动分发，交易闭环空间更大；TPU 是全球最低 Token 成本；<strong>生态锁死，耗得起军备竞赛</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag hold">谨慎</span></td>
+      <td><strong>第一篇作者</strong></td>
+      <td>真实 PE 25.7 倍、2027 真实前瞻 23–24 倍；<strong>利润率在 42% 高位、capex 猛踩油门、FCF 为负 → 半山腰，不是击球区</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag hold">谨慎</span></td>
+      <td><strong>a16z 反思篇作者</strong></td>
+      <td>历史 ROIC ≠ 新项目回报；capex 可能只是"防守性投入"（巴菲特织布机）；<strong>即使 20 倍 PE 也难说有高安全边际</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag avoid">看空</span></td>
+      <td><strong>迈克尔·伯里</strong></td>
+      <td>折旧年限从 4–5 年拉长到 5–6 年，<strong>2026–2028 累计虚增上千亿美元利润</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag avoid">看空</span></td>
+      <td><strong>贝恩 / MIT</strong></td>
+      <td>2030 年行业需每年 2 万亿美元新增收入才回本，<strong>缺口约 8,000 亿</strong>；<strong>95% 的企业 AI 试点无可衡量回报</strong></td>
+    </tr>
+    <tr>
+      <td><span class="tag avoid">看空</span></td>
+      <td><strong>市场叙事</strong></td>
+      <td>"<strong>AI 正在杀死谷歌搜索</strong>"——搜索广告增速从 19% 降到 12% 被视为证据</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>12.2 六个关键分歧</h3>
+
+<div class="box amber">
+  <h4>分歧一：市盈率到底是 14.7 倍还是 25.7 倍？</h4>
+  <p><strong>本质是"非经常性股权浮盈算不算利润"。</strong>市场用 GAAP 净利算出 14.7 倍；作者用"剔除浮盈后的核心净利"算出 25.7 倍。前者是"财报口径"，后者是"可分配现金口径"。<strong>这个分歧直接决定了"谷歌是便宜货还是优质成长股"的定性。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>分歧二：前瞻 PE 是 18 倍还是 23–24 倍？</h4>
+  <p><strong>本质是"折旧何时压实"。</strong>卖方假设 2027 年利润 +28%、给 18.5–19 倍；作者认为未来两年新增两百多亿美元折旧会吃掉一部分利润，重算为 23–24 倍。<strong>这个分歧决定了"跌下来是错杀还是回归"。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>分歧三：capex 是"扩张性"还是"防守性"？</h4>
+  <p>这是<strong>整组文章最深刻的分歧</strong>。a16z 认为巨头 ROIC 高于借贷成本、投向能产生现金流的硬资产；作者用巴菲特织布机的故事反问：<strong>如果同行都在买，效率提升的好处最终会以更低价格让给客户，股东并不会多赚。</strong></p>
+  <p><strong>判断标准</strong>：AI 投入如果带来的是"谷歌云 backlog 从 2,400 亿到 4,600 亿"这样的<strong>增量收入</strong>，就是扩张性；如果只是"搜索广告不被抢走"的<strong>防守成本</strong>，就是防守性。<strong>目前两种证据都存在，这正是分歧无法收敛的原因。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>分歧四：AI 是"放大器"还是"替代者"？</h4>
+  <p>李录方：事实核查、货架展示、导航跳转三种需求 AI 替代不了，且 RAG 必须依赖高质量索引；AI Mode 变现率已追平、转化率 +175%–230%。</p>
+  <p>空头方：搜索广告增速三连降（19→17→12）就是替代正在发生的证据；聊天机器人会吃掉信息类查询。</p>
+  <p><strong>关键裁决点</strong>：那 50%–70% 的纯信息查询本来就不放广告（80% 无广告），所以即使被 AI 吃掉，<strong>对收入的直接冲击远小于对"流量"的冲击</strong>。真正的风险在"20% 商业意图词"是否会被 Agent 绕过——<strong>这恰恰是 UCP + Native Checkout 要防守的阵地。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>分歧五：现在是不是击球区？</h4>
+  <p>段永平："有点相对便宜了"（vs 318 的巴菲特成本、vs 30 倍的苹果）——这是<strong>相对估值</strong>判断。</p>
+  <p>作者：还没到"利润率见底 + capex 踩刹车"的极端击球区——这是<strong>周期位置</strong>判断。</p>
+  <p><strong>两者不矛盾：便宜是相对的，击球区是绝对的。</strong>280 美元相对 318 便宜，但相对"扣现金 14.9 倍"的历史极端还差得远。</p>
+</div>
+
+<div class="box amber">
+  <h4>分歧六："巴菲特也买了"能否证明 AI 投资划算？</h4>
+  <p>作者明确回答：<strong>"读反了"</strong>。李录加仓时 AI 被看作威胁；伯克希尔建仓时市场正担心 capex 吞噬现金流。<strong>他们买的是"依然强大的搜索和广告生态"，不是"AI 的远大前景"；他们没有为 AI 支付估值溢价。</strong></p>
+</div>
+
+<!-- ================= 13 ================= -->
+<h2><span class="num">13</span>投资映射：美股个股</h2>
+
+<p>以下把两篇主文 + 六篇关联文章里出现的所有标的，按"在文章论证中扮演的角色"整理。<strong>标签是文章观点的映射，不是买卖建议。</strong></p>
+
+<table>
+  <thead><tr><th style="width:12%">代码</th><th style="width:16%">公司</th><th style="width:22%">文章中的角色</th><th style="width:50%">文章观点与关键数据</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>GOOGL<br>GOOG</strong></td>
+      <td>Alphabet</td>
+      <td><strong>核心标的</strong><br><span class="tag core">全篇主角</span></td>
+      <td>280 美元、3.46 万亿市值；<strong>真实主业 PE 25.7 倍</strong>、扣净现金 23.8 倍、2027 真实前瞻 23–24 倍；Q3 FCF <strong>−90.7 亿</strong>；搜索广告增速 <strong>12%</strong>；云营收 <strong>+103%</strong>；Cloud backlog <strong>2,400→4,600 亿</strong>；TPU TCO 低 <strong>30%–50%</strong>；李录估值锚 <strong>7.5 万亿</strong>、安全边际线 <strong>3 万亿</strong></td>
+    </tr>
+    <tr>
+      <td><strong>BRK.B</strong></td>
+      <td>伯克希尔</td>
+      <td>持仓方 / 压舱石<br><span class="tag core">守的一端</span></td>
+      <td>2025Q3–2026H1 建仓约 <strong>310 亿美元</strong>、均价 <strong>318 美元</strong>；2026Q2 末持 <strong>1.06 亿股 / 378 亿美元</strong>，第三大持仓；<strong>3,800 亿现金 + 铁路能源 + 蓝筹</strong>三段结构；"躲避牛市的好地方"</td>
+    </tr>
+    <tr>
+      <td><strong>AAPL</strong></td>
+      <td>苹果</td>
+      <td>换仓来源 / 反向付费方</td>
+      <td>PE <strong>30 倍以上</strong>、不烧 AI 算力、专注回购；<strong>每年向谷歌支付约 10 亿美元</strong>把 Gemini 定为 Apple Intelligence 底座（过去是谷歌每年付苹果 200 亿）；反垄断救济后仍"躺着收谷歌默认搜索费"</td>
+    </tr>
+    <tr>
+      <td><strong>AMZN</strong></td>
+      <td>亚马逊</td>
+      <td>被抢入口的对手 / 反面对照</td>
+      <td>靠 <strong>1-Click 专利 + FBA</strong> 截走美国 <strong>60%+</strong> 商品搜索入口；2026 年计划 capex 约 <strong>2,000 亿美元</strong>，FCF 可能转负，缺口"有人说 170 亿，有人说 280 亿"；自营白牌 Amazon Basics 是商家出走的动因</td>
+    </tr>
+    <tr>
+      <td><strong>META</strong></td>
+      <td>Meta</td>
+      <td>估值对照</td>
+      <td>单用户广告收入 <strong>300 美元</strong>（谷歌 400）；<strong>一块钱利润市场给 20 倍出头</strong>，腾讯只有十几倍；已开始与谷歌谈判采购<strong>数十亿美元 TPU</strong></td>
+    </tr>
+    <tr>
+      <td><strong>NVDA</strong></td>
+      <td>英伟达</td>
+      <td>"算力税"收取方</td>
+      <td>整机系统捆绑销售、<strong>毛利率 75%–80%、约 5 倍加价</strong>；独立模型公司"每赚 1 美元先交 2 美元算力税"；黄仁勋自己<strong>挑不出模型层赢家</strong>，领先窗口可能只有 6 个月；<strong>A100 租金依然坚挺</strong>（旧卡未快速贬值）</td>
+    </tr>
+    <tr>
+      <td><strong>AVGO</strong></td>
+      <td>博通</td>
+      <td>TPU 联合研发方</td>
+      <td>与谷歌联合研发定制 TPU，<strong>加价约 2 倍</strong>（远低于英伟达 5 倍）；是"TPU 成本优势"这一论点的关键受益方</td>
+    </tr>
+    <tr>
+      <td><strong>MSFT</strong></td>
+      <td>微软</td>
+      <td>历史对照</td>
+      <td>"当年微软那种<strong>轻资产、高毛利</strong>的软件生意"——用来对比这一代巨头的<strong>重资产化</strong>；Bing 想追上谷歌的点击数据需要 <strong>17.5 年</strong></td>
+    </tr>
+    <tr>
+      <td><strong>0700.HK<br>TCEHY</strong></td>
+      <td>腾讯</td>
+      <td>机会成本对照 / 作者重仓</td>
+      <td>400 港元对应 <strong>3.1 万亿人民币</strong>市值；<strong>9,333 亿净现金与股权</strong>；剔除后<strong>自营 PE 仅 8.8 倍</strong>（仅扣上市投资与净现金为 10.9 倍）；过去一年 FCF <strong>1,354 亿</strong>；千亿港币注销式回购；<strong>无算力折旧包袱</strong></td>
+    </tr>
+    <tr>
+      <td><strong>PDD</strong></td>
+      <td>拼多多</td>
+      <td>段永平持仓之一</td>
+      <td>作为"美元仓位主要在苹果、BRKB、拼多多"的组成部分出现；"叙事最坏时再看一遍公司"的案例之一</td>
+    </tr>
+    <tr>
+      <td><span class="tag gray">未上市</span></td>
+      <td>Anthropic</td>
+      <td>浮盈来源 / TPU 大客户</td>
+      <td>一级市场估值重估贡献了谷歌 <strong>1,296 亿税前浮盈</strong>的一部分；订购<strong>近 100 万颗</strong>谷歌第 7 代 TPU</td>
+    </tr>
+    <tr>
+      <td><span class="tag gray">未上市</span></td>
+      <td>SpaceX</td>
+      <td>浮盈来源</td>
+      <td>同上，是"非经常性股权浮盈"的另一主要来源</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box red">
+  <h4>一个必须点明的风险：浮盈的顺周期性</h4>
+  <p>谷歌账上 1,296 亿美元的非经常性浮盈，主要来自 <strong>SpaceX 和 Anthropic 的一级市场估值重估</strong>。这意味着：<strong>如果私募市场情绪转冷，这部分"利润"不仅不会再来，还可能反向计提减值。</strong>换句话说，<strong>14.7 倍的 PE 里，藏着一个与 AI 一级市场估值高度相关的顺周期变量。</strong>这是原文没有展开、但逻辑上必然成立的推论。</p>
+</div>
+
+<!-- ================= 14 ================= -->
+<h2><span class="num">14</span>投资映射：ETF 与工具层</h2>
+
+<h3>14.1 文章直接提到的 ETF</h3>
+
+<table>
+  <thead><tr><th style="width:12%">代码</th><th style="width:20%">名称</th><th style="width:14%">在文章中的定位</th><th style="width:54%">关键数据与逻辑</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>QQQ</strong><br>（或同类纳指 100）</td>
+      <td>Invesco QQQ</td>
+      <td><span class="tag buy">攻的一端</span></td>
+      <td>"普通人不想猜哪家巨头被算力折旧拖累，<strong>直接通过纳指 100 和标普 500 把 AI 五层蛋糕连盘端走</strong>"；<strong>纳指十年四倍、年化约 18%</strong>；核心优势是<strong>指数新陈代谢</strong>——"你买的不是一百家公司，是持续优胜劣汰这个机制本身"</td>
+    </tr>
+    <tr>
+      <td><strong>VOO<br>SPY</strong></td>
+      <td>标普 500 ETF</td>
+      <td><span class="tag buy">攻的一端</span></td>
+      <td>同上；补充论据：<strong>标普 500 约四成收入来自美国以外</strong>，单一国家衰退只是"摊薄"；<strong>76% 的盈利增长来自科技公司</strong>，但估值倍数比五年均值<strong>低约 20%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>SCHD</strong></td>
+      <td>嘉信美国红利</td>
+      <td><span class="tag core">守的一端</span></td>
+      <td>连续 10 年分红 + 负债率筛选；股息率 <strong>3.5%</strong>；<strong>5 年股息 CAGR 约 9%</strong>；<strong>ROE 24%</strong>；费率 <strong>0.06%</strong>；"增额终身寿"</td>
+    </tr>
+    <tr>
+      <td><strong>DIA</strong></td>
+      <td>道指 ETF</td>
+      <td><span class="tag core">守的一端</span></td>
+      <td><strong>30 家百年老店</strong>，科技集中度低于标普；<strong>极少见的按月派息</strong>；"提供每月的现金流情绪价值"</td>
+    </tr>
+    <tr>
+      <td><strong>DVY</strong></td>
+      <td>iShares 精选红利</td>
+      <td><span class="tag hold">战术增强</span></td>
+      <td>重仓<strong>公用事业（电力）+ 传统银行</strong>；逻辑是"<strong>AI 数据中心成了吃电狂魔，电力公司摇身一变成了 AI 算力底座</strong>"；拉高当期股息率 + 吃传统行业反转</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>14.2 由文章逻辑推导的补充工具（原文未直接提及，供框架参照）</h3>
+
+<table>
+  <thead><tr><th style="width:12%">代码</th><th style="width:24%">名称</th><th style="width:64%">与文章逻辑的对应关系</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>XLC</strong></td>
+      <td>通信服务板块 ETF</td>
+      <td>Alphabet 与 Meta 是该指数权重最高的两只成分股。<strong>若想"只买谷歌所在的板块"而不押注单一公司，这是最直接的载体</strong>；但也意味着同时承担 Meta 的资本开支风险</td>
+    </tr>
+    <tr>
+      <td><strong>XLK</strong></td>
+      <td>科技板块 ETF</td>
+      <td>覆盖 NVDA / MSFT / AAPL / AVGO 等"算力税"与"全栈玩家"，<strong>对应五层蛋糕的芯片 + 模型 + 基础设施三层</strong>；集中度高于标普</td>
+    </tr>
+    <tr>
+      <td><strong>SMH</strong></td>
+      <td>半导体 ETF</td>
+      <td>对应"<strong>芯片层</strong>"。文章的核心判断是"<strong>卖铲子的已经先赚翻了</strong>"，但也明确说"<strong>我不直接买那些资本开支最猛、负债最重的纯算力公司。太险</strong>"——<strong>这两句需要一起读</strong></td>
+    </tr>
+    <tr>
+      <td><strong>GRID<br>PAVE</strong></td>
+      <td>电网基建 / 美国基建 ETF</td>
+      <td>对应"<strong>能源层</strong>"与"<strong>基础设施层</strong>"。文章提到"美国数据中心建设投入历史上第一次超过普通写字楼"、"AI 工厂是给芯片住的商业地产"；<strong>能源层是作者预告但尚未发布的第五层，此处仅作框架补位</strong></td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">14.2 为基于文章逻辑的延伸映射，非原文推荐。ETF 具体持仓与权重会随时间变化，使用前需核对最新招募说明书。</p>
+
+<h3>14.3 期权工具：卖 Put 的正确用法与误用</h3>
+
+<div class="two">
+  <div class="box green">
+    <h4>文章中的用法（段永平）</h4>
+    <ul>
+      <li>标的：<strong>自己真正愿意长期持有的好公司</strong>；</li>
+      <li>行权价：<strong>对应 3 万亿市值的 240–250 美元</strong>（比现价低 11%–14%）；</li>
+      <li>心态：跌下去就按折扣价接正股，跌不下去就收权利金；</li>
+      <li>前提：<strong>有现金接货、有耐心、有能力看懂生意</strong>。</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <h4>常见的误用</h4>
+    <ul>
+      <li>把它当成"低风险收租"，忽视<strong>行权价以下的全部下跌风险</strong>；</li>
+      <li>在保证金账户里卖超出承受能力的量，暴跌时被<strong>强制平仓</strong>；</li>
+      <li>对不懂的公司卖 Put——<strong>下跌时会从"收权利金"变成"被迫成为股东"</strong>；</li>
+      <li>忽略<strong>波动率定价</strong>：财报前后 IV 高，权利金看起来厚，但正是风险最大的时候。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= 15 ================= -->
+<h2><span class="num">15</span>操作框架：三档情景与观察清单</h2>
+
+<p>把两篇文章的定量结论（25.7 倍真实 PE、23–24 倍前瞻、3 万亿安全边际线、7.5 万亿估值锚）拼成一个可执行的情景表。<strong>以下为文章框架的推演，不是预测。</strong></p>
+
+<table>
+  <thead><tr><th style="width:10%">情景</th><th style="width:18%">对应市值/股价</th><th style="width:36%">触发条件</th><th style="width:36%">文章框架下的含义</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>悲观</strong></td>
+      <td>2.6–3.0 万亿<br>约 <strong>210–243 美元</strong></td>
+      <td>capex 继续加速 + FCF 持续为负 + 搜索广告增速跌破 10% + 一级市场估值回调导致浮盈反转</td>
+      <td>进入<strong>李录"3 万亿以内"的安全边际区</strong>，也接近段永平卖 Put 的 240–250 行权价；<strong>但需确认"利润率是否见底"</strong></td>
+    </tr>
+    <tr style="background:var(--amber-soft);">
+      <td><strong>中性</strong><br>（当前）</td>
+      <td>3.2–3.9 万亿<br>约 <strong>259–315 美元</strong></td>
+      <td>capex 高位持平 + FCF 在零附近波动 + 搜索广告 10%–13% + 云维持高增</td>
+      <td><strong>"半山腰"</strong>：真实前瞻 23–24 倍，<strong>合理但无厚安全边际</strong>；适合分批、不适合重仓一次性买入</td>
+    </tr>
+    <tr>
+      <td><strong>乐观</strong></td>
+      <td>4.5–5.5 万亿<br>约 <strong>364–445 美元</strong></td>
+      <td>capex 指引见顶 + 折旧压实完成 + FCF 转正 + AI Mode 变现率超传统搜索 + UCP 交易佣金放量</td>
+      <td>估值可望向 <strong>28–30 倍</strong>扩张；这也是<strong>巴菲特 318 美元成本被证明"买对了"的路径</strong></td>
+    </tr>
+    <tr>
+      <td><strong>终局</strong></td>
+      <td><strong>7.5 万亿</strong><br>约 <strong>607 美元</strong></td>
+      <td>李录估值锚：10 年后搜索净利 3,000 亿 + 云 500 亿，20 倍 PE；Other Bets 600 亿利润，10 倍 PE</td>
+      <td><strong>10 年维度的锚，不是 12 个月目标价</strong>；从 280 到 607 隐含约 <strong>117%</strong> 空间</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">股价换算：按 3.46 万亿对应 280 美元线性折算（每 1 万亿美元约 80.9 美元），未考虑回购与股本变动。</p>
+
+<h3>15.1 季度观察清单：八个必须盯的指标</h3>
+
+<table>
+  <thead><tr><th style="width:5%">#</th><th style="width:22%">指标</th><th style="width:18%">当前值</th><th style="width:55%">为什么重要 / 好转信号</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>资本开支指引</strong></td><td>2026 年 1,800–1,900 亿</td><td><strong>最关键</strong>。指引见顶 = 现金流漏点被堵住；继续上调 = 击球区继续后移</td></tr>
+    <tr><td>2</td><td><strong>折旧计提额</strong></td><td>过去四季 280 亿</td><td>折旧开始追赶 capex（剪刀差 1,318 亿收窄）= 利润"洗干净"；反之账面利润仍有水分</td></tr>
+    <tr><td>3</td><td><strong>自由现金流</strong></td><td>Q3 <strong>−90.7 亿</strong></td><td>转正是"防守性 capex 变成扩张性 capex"的分水岭</td></tr>
+    <tr><td>4</td><td><strong>搜索广告增速</strong></td><td><strong>12%</strong>（19→17→12）</td><td>稳住双位数 = "AI 杀死搜索"叙事被证伪；跌破 10% = 空头证据增强</td></tr>
+    <tr><td>5</td><td><strong>AI Mode 变现率</strong></td><td>已追平传统搜索</td><td>能否<strong>持续高于</strong>传统搜索，决定"行动分发"是否真的更赚钱</td></tr>
+    <tr><td>6</td><td><strong>Cloud backlog</strong></td><td><strong>4,600 亿</strong>（上季 2,400 亿）</td><td>已签约合同义务，是需求真实性最硬的证据；增速放缓是警报</td></tr>
+    <tr><td>7</td><td><strong>TPU 外售进展</strong></td><td>Anthropic 近 100 万颗；Meta 谈判中</td><td>验证"第六环外溢变现"；也验证"TPU 成本优势"是否被外部认可</td></tr>
+    <tr><td>8</td><td><strong>反垄断上诉</strong></td><td>可上诉至最高法院，2027–2028 走完</td><td>救济方案已"与过错相称"，但上诉期仍是估值压制项</td></tr>
+  </tbody>
+</table>
+
+<h3>15.2 三种投资者的适配路径</h3>
+
+<div class="three">
+  <div class="box blue">
+    <h4>长期闲钱 · 能承受波动</h4>
+    <p>把谷歌归入"<strong>攻</strong>"的一端。<strong>分批建仓、不追高</strong>；用 <strong>240–250 美元</strong>区间作为加码参考；核心跟踪第 1、3 项指标（capex 指引、FCF）。</p>
+  </div>
+  <div class="box green">
+    <h4>要现金流 · 不想承担重资产风险</h4>
+    <p>不直接买谷歌，用<strong>纳指 100 / 标普 500</strong> 间接持有（权重被摊薄、波动更小）；"守"的一端用 <strong>SCHD / DIA / DVY / BRK.B</strong>。</p>
+  </div>
+  <div class="box amber">
+    <h4>会用期权 · 有接货能力</h4>
+    <p>参考段永平：<strong>卖 240–250 美元的 Put</strong>，跌到就接、跌不到就收权利金。<strong>前提是现金充足、愿意长期持有、能承受浮亏。</strong></p>
+  </div>
+</div>
+
+<!-- ================= 16 ================= -->
+<h2><span class="num">16</span>事实核对与口径提示</h2>
+
+<p>为保证可追溯，这里列出阅读时发现的数字口径差异。<strong>不影响主结论，但引用时需注意。</strong></p>
+
+<table class="qa">
+  <thead><tr><th>#</th><th>项目</th><th>原文表述</th><th>核对与说明</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td><td>巴菲特浮亏金额</td><td>"浮亏接近 30 亿美元"</td><td>按 310 亿 / 318 美元 ≈ 0.975 亿股，跌至 280 美元，账面浮亏约 <strong>37 亿美元</strong>（−11.9%）。原文"接近 30 亿"可能按不同时点或含期权/其他账户口径，<strong>量级一致</strong></td>
+    </tr>
+    <tr>
+      <td>2</td><td>市值与跌幅的自洽性</td><td>"单日跌 12%、蒸发超 5,000 亿"、"当前 3.46 万亿"</td><td>3.46 / 0.88 ≈ <strong>3.93 万亿</strong>，蒸发约 <strong>4,700 亿</strong>，与"超 5,000 亿"量级一致，<strong>自洽</strong></td>
+    </tr>
+    <tr>
+      <td>3</td><td>市值的时间差</td><td>李录篇（2026-05）"今天市值约 4.81 万亿"；主文一"当前 3.46 万亿"</td><td>半年内回落约 <strong>28%</strong>。引用"7.5 万亿估值锚"时需注意它是 <strong>2026 年 5 月</strong>的框架，未随股价调整</td>
+    </tr>
+    <tr>
+      <td>4</td><td>伯克希尔建仓的决策人</td><td>主文一："巴菲特明确表示这是他自己发起的"；李录篇："（应该是 Todd Combs 决策）"</td><td>两说并存。巴菲特在 CNBC 亲口说是自己发起，<strong>以巴菲特本人表述为准</strong>；李录篇的括号是作者推测</td>
+    </tr>
+    <tr>
+      <td>5</td><td>谷歌云增速</td><td>第二篇："三季度营收同比翻倍增长 103%"；李录篇："2025 Q4 增速 48%"</td><td><strong>不同季度，不矛盾</strong>。103% 含 TPU 硬件外售收入，需注意质量差异</td>
+    </tr>
+    <tr>
+      <td>6</td><td>搜索广告毛利率</td><td>李录篇："约 98%"；第二篇："2002 年长期维持 85% 以上"</td><td><strong>口径不同</strong>：98% 是当前搜索广告业务毛利率；85% 是 2002 年公司整体搜索广告毛利率的历史表述</td>
+    </tr>
+    <tr>
+      <td>7</td><td>a16z 报告页数</td><td>"90 页《State of Markets II》"</td><td>引用页码为第 10、17、18、19、27、35 页，<strong>内部一致</strong></td>
+    </tr>
+    <tr>
+      <td>8</td><td>2026 年 capex 指引</td><td>李录篇："1,800–1,900 亿"；巴菲特篇："1,800 亿"</td><td>区间与单点表述，<strong>不矛盾</strong></td>
+    </tr>
+    <tr>
+      <td>9</td><td>李录减持时点</td><td>"2025 Q1，股价站上 184 美元，距离反垄断判决最坏时刻已过去半年"</td><td>反垄断一审为 2024 年 8 月，2025 Q1 约半年后，<strong>时间线自洽</strong></td>
+    </tr>
+    <tr>
+      <td>10</td><td>未发布内容</td><td>第二篇预告"基本面第二篇、第三篇"（企业文化、五大分部十年终局估值）</td><td><strong>截至目前尚未发布</strong>，本报告无法纳入。<strong>这是最大的信息缺口</strong>——"分部估值"正是把定性护城河与定量 PE 缝合起来的关键一环</td>
+    </tr>
+    <tr>
+      <td>11</td><td>纳指文章</td><td>《纳指 10 年年化复利 18%…》</td><td>页面反爬拦截，<strong>未取得正文</strong>。仅使用两篇主文中的转述（十年四倍、年化约 18%）</td>
+    </tr>
+    <tr>
+      <td>12</td><td>行情时效</td><td>280 美元 / 3.46 万亿</td><td>为<strong>文章披露时点（2026-10-29 至 11-04）</strong>的数据，非实时报价。本次整理时金融数据服务无可用凭证，未能更新</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================= 17 ================= -->
+<h2><span class="num">17</span>总结一下</h2>
+
+<div class="box blue">
+  <h4>一、这两篇文章真正的贡献，是把"AI 会不会杀死谷歌"换成了两个可算的问题</h4>
+  <p>第一个问题：<strong>这一块钱利润，有多少是真的？</strong>答案：2,353 亿账面净利里，1,296 亿是 SpaceX 与 Anthropic 的一级市场浮盈，不能分红不能回购；剔掉之后，真实主业 PE 是 <strong>25.7 倍</strong>，不是 14.7 倍。</p>
+  <p>第二个问题：<strong>这一块钱利润，未来两年会被折旧吃掉多少？</strong>答案：过去四季 capex <strong>1,598 亿</strong>、折旧只计提 <strong>280 亿</strong>，中间压着 <strong>1,318 亿</strong>的剪刀差；压实之后，2027 年前瞻 PE 是 <strong>23–24 倍</strong>，不是 18 倍。</p>
+  <p><strong>两个问题一问，估值定性就从"便宜货"变成了"优质成长股的合理价"。</strong></p>
+</div>
+
+<div class="box green">
+  <h4>二、而第二篇文章证明了：这家公司确实值得等</h4>
+  <p>28 年里谷歌干的从来不是搜索，而是"<strong>用概率模型理解意图，再把 AI 接进印钞机</strong>"——1998 年的 PageRank、2001 年的 PHIL 与 AdSense、2002 年的 AI 预估点击率、2012 年的猫咪论文、2014 年的 DeepMind、2017 年的 Transformer，每一步都是同一个动作。</p>
+  <p>今天它试图做的是<strong>从"信息分发"跨到"行动分发"</strong>：UCP 协议 + Native Checkout 把当年被亚马逊截走的 60% 商品搜索入口，用"AI 直接结账"抢回来；而支撑这次跨越的，是 13 年前动手、如今第 7 代的自研 TPU——<strong>算力世界的 Kirkland 白牌，单位 Token 成本比同行低 30%–50%</strong>。</p>
+  <p><strong>一句话：需求侧在扩张（交易闭环比点击广告更大）、供给侧有成本壁垒（TPU）、生态侧有入口锁死（30 亿安卓 + 20 亿 Chrome + 20 亿 iPhone）。</strong></p>
+</div>
+
+<div class="box amber">
+  <h4>三、但价格还没到"无脑下手"的位置，这是全文最克制的部分</h4>
+  <p>李录的三次历史买点有一个共同结构：<strong>利润率见底 + 资本开支踩刹车 + 扣现金 14–15 倍</strong>。今天的谷歌是<strong>利润率 42% 高位 + capex 猛踩油门 + 23–24 倍</strong>——<strong>三个条件全部反向</strong>。</p>
+  <p>这就是"半山腰"的准确含义，也是段永平"有点相对便宜"和"最好再等一等"能同时成立的原因：<strong>便宜是相对的（vs 318 的巴菲特成本、vs 30 倍的苹果），击球区是绝对的（vs 14.9 倍的历史极端）。</strong></p>
+</div>
+
+<div class="box purple">
+  <h4>四、投资映射：三层结构</h4>
+  <ul>
+    <li><strong>直接持有（攻）</strong>：<strong>GOOGL</strong>。分批、不追高、跟踪 capex 指引与 FCF；240–250 美元是文章框架下的加码参考区间；7.5 万亿估值锚对应约 <strong>607 美元</strong>，但那是十年维度的锚。</li>
+    <li><strong>间接持有（攻）</strong>：<strong>QQQ / VOO / SPY</strong>——"不想猜哪家巨头被折旧拖累，就把五层蛋糕连盘端走"；想更贴近谷歌可用 <strong>XLC</strong>（但会同时承担 Meta 的 capex 风险）。</li>
+    <li><strong>压舱石（守）</strong>：<strong>BRK.B</strong>（3,800 亿现金 + 实体基建 + 蓝筹）、<strong>SCHD</strong>（3.5% 股息率、9% 股息 CAGR、ROE 24%、费率 0.06%）、<strong>DIA</strong>（按月派息）、<strong>DVY</strong>（电力 = AI 算力底座）。</li>
+    <li><strong>工具层</strong>：卖出 <strong>240–250 美元行权价</strong>的 Put，把"等待"变成"收租"——<strong>前提是有现金接货、愿意长期持有</strong>。</li>
+  </ul>
+</div>
+
+<div class="box red">
+  <h4>五、三个必须自己回答的问题（文章没有替你回答）</h4>
+  <ol>
+    <li><strong>capex 是扩张性还是防守性？</strong>如果是后者，那 1,800 亿只是"跑步机"，花得再多也不会变成股东回报（巴菲特的织布机）。判断标准是：Cloud backlog 和 AI Mode 变现率能否持续上行。</li>
+    <li><strong>折旧何时压实？</strong>1,318 亿的剪刀差迟早要进利润表。在那之前，所有"18 倍""20 倍"的前瞻 PE 都偏乐观。</li>
+    <li><strong>你买的是"搜索广告生态"还是"AI 前景"？</strong>文章的判断很明确：<strong>巴菲特和李录买的是前者，而且没有为后者付溢价。</strong>如果你的买入理由是后者，那你付的价格比他们贵。</li>
+  </ol>
+</div>
+
+<p><strong>最后一句话</strong>：这两篇文章合起来给出的，不是"买"或"不买"的答案，而是一把尺子——<strong>先看这一块钱利润有多少是真的、有多少会被折旧吃掉，再看这家公司有没有能力把"替你找信息"升级成"替你干活"。</strong>前者决定你该付多少倍，后者决定你该不该等。<strong>尺子有了，答案要自己量。</strong></p>
+
+<div class="disclaimer">
+  <strong>数据与口径说明</strong>：本报告全部内容整理自长坡研究院（坡夫Leon）2026 年 11 月 3 日、11 月 4 日两篇公众号文章，以及文中链接的 6 篇强关联文章（李录复盘、巴菲特对比、a16z 反思、AI 五层蛋糕、估值差三层论、美元红利）。所有财务与行情数字均为上述文章披露时点（2026-05 至 2026-11-04）的口径，未经独立审计，亦未更新至最新报价。文中"每 1 万亿美元市值约 80.9 美元""607 美元""243 美元"等换算为按文章市值与股价线性折算，未考虑回购与股本变动，仅供框架参照。部分文章（纳指十年、腾讯二季报等）因页面反爬或为背景性材料未取得全文，已在 11.7 中列明取舍。
+  <br><br>
+  ⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。
+</div>
+
+<div class="footer">整理于 2026-11-05 · 全文约 1.9 万字 · 数据来源：长坡研究院公众号原文及关联文章</div>
+
+</div>
+
+<script>
+(function(){
+  var ink='#3d4450', ink3='#6b7280', line='#e4e7ec', blue='#1f5fbf', red='#c0392b', green='#1e7a4b', amber='#a86400', purple='#5b3fa8';
+  var charts=[];
+  function init(id, opt){
+    var el=document.getElementById(id); if(!el) return;
+    var c=echarts.init(el); c.setOption(opt); charts.push(c);
+  }
+  var base={
+    textStyle:{fontFamily:'-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif', color:ink},
+    grid:{left:8,right:26,top:34,bottom:8,containLabel:true},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},backgroundColor:'#fff',borderColor:line,textStyle:{color:ink,fontSize:12}}
+  };
+
+  // 1. 成本线
+  init('chart-cost', {
+    ...base,
+    grid:{left:8,right:40,top:30,bottom:8,containLabel:true},
+    xAxis:{type:'value',min:250,max:330,axisLine:{lineStyle:{color:line}},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value}'}},
+    yAxis:{type:'category',data:['跌后现价','伯克希尔均价'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:12}},
+    series:[{
+      type:'bar', barWidth:26,
+      data:[
+        {value:280, itemStyle:{color:green}},
+        {value:318, itemStyle:{color:blue}}
+      ],
+      label:{show:true,position:'right',formatter:'{c} 美元',color:ink,fontSize:12,fontWeight:600},
+      markLine:{silent:true,symbol:'none',lineStyle:{color:amber,type:'dashed',width:1.5},
+        data:[{xAxis:243,label:{formatter:'3 万亿\n243 美元',position:'insideEndTop',color:amber,fontSize:10.5}}]}
+    }]
+  });
+
+  // 2. PE 口径
+  init('chart-pe', {
+    ...base,
+    grid:{left:8,right:56,top:26,bottom:8,containLabel:true},
+    xAxis:{type:'value',max:30,axisLine:{lineStyle:{color:line}},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value}x'}},
+    yAxis:{type:'category',data:['看盘软件 TTM','真实主业 TTM','扣净现金主业','卖方 2027 前瞻','折旧压实后 2027'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:11.5}},
+    series:[{
+      type:'bar', barWidth:20,
+      data:[
+        {value:14.7, itemStyle:{color:'#9aa4b2'}},
+        {value:25.7, itemStyle:{color:red}},
+        {value:23.8, itemStyle:{color:'#d4695c'}},
+        {value:18.75, itemStyle:{color:'#9aa4b2'}},
+        {value:23.5, itemStyle:{color:red}}
+      ],
+      label:{show:true,position:'right',formatter:'{c}x',color:ink,fontSize:11.5,fontWeight:600}
+    }]
+  });
+
+  // 3. capex 剪刀差
+  init('chart-capex', {
+    ...base,
+    xAxis:{type:'category',data:['过去四季资本开支','同期计入折旧','未入表的剪刀差'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:11.5,interval:0}},
+    yAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value}'}},
+    series:[{
+      type:'bar', barWidth:56,
+      data:[
+        {value:1598, itemStyle:{color:amber}},
+        {value:280, itemStyle:{color:blue}},
+        {value:1318, itemStyle:{color:red}}
+      ],
+      label:{show:true,position:'top',formatter:'{c} 亿',color:ink,fontSize:12,fontWeight:600}
+    }]
+  });
+
+  // 4. 搜索广告增速
+  init('chart-search', {
+    ...base,
+    xAxis:{type:'category',boundaryGap:false,data:['2026 Q1','2026 Q2','2026 Q3'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:11.5}},
+    yAxis:{type:'value',min:0,max:22,axisLine:{show:false},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value}%'}},
+    series:[{
+      type:'line', smooth:false, symbolSize:9,
+      lineStyle:{color:blue,width:2.5}, itemStyle:{color:blue},
+      areaStyle:{color:'rgba(31,95,191,0.08)'},
+      data:[19,17,12],
+      label:{show:true,position:'top',formatter:'{c}%',color:ink,fontSize:12,fontWeight:600}
+    }]
+  });
+
+  // 5. 李录操作
+  init('chart-lirui', {
+    ...base,
+    xAxis:{type:'category',data:['2020Q2 建仓','2022Q2 加仓77%','2022Q4 加仓168%','2025Q1 减持19.5%'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:11,interval:0}},
+    yAxis:{type:'value',min:0,max:210,axisLine:{show:false},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value}'}},
+    series:[{
+      type:'bar', barWidth:48,
+      data:[
+        {value:67, itemStyle:{color:red}},
+        {value:109, itemStyle:{color:'#d4695c'}},
+        {value:88, itemStyle:{color:red}},
+        {value:184, itemStyle:{color:green}}
+      ],
+      label:{show:true,position:'top',formatter:'{c} 美元',color:ink,fontSize:11.5,fontWeight:600}
+    }]
+  });
+
+  // 6. 市值锚
+  init('chart-anchor', {
+    ...base,
+    grid:{left:8,right:56,top:26,bottom:8,containLabel:true},
+    xAxis:{type:'value',max:8,axisLine:{lineStyle:{color:line}},splitLine:{lineStyle:{color:'#f0f2f5'}},axisLabel:{color:ink3,fontSize:11,formatter:'{value} 万亿'}},
+    yAxis:{type:'category',data:['李录建仓 2020Q2','李录加仓 2022Q4','安全边际线 3 万亿','当前 3.46 万亿','2026年5月高点区','李录估值锚'],axisLine:{lineStyle:{color:line}},axisTick:{show:false},axisLabel:{color:ink,fontSize:11}},
+    series:[{
+      type:'bar', barWidth:19,
+      data:[
+        {value:1.0, itemStyle:{color:'#c9d3e3'}},
+        {value:1.15, itemStyle:{color:'#c9d3e3'}},
+        {value:3.0, itemStyle:{color:amber}},
+        {value:3.46, itemStyle:{color:blue}},
+        {value:4.81, itemStyle:{color:'#d4695c'}},
+        {value:7.5, itemStyle:{color:red}}
+      ],
+      label:{show:true,position:'right',formatter:'{c} 万亿',color:ink,fontSize:11,fontWeight:600}
+    }]
+  });
+
+  window.addEventListener('resize', function(){ charts.forEach(function(c){ c.resize(); }); });
+})();
+</script>
+</body>
+</html>

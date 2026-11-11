@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coherent FY1Q27：创收、赚钱两不误 —— 全文精读与美股/ETF 映射</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc;
+    --red:#c0392b; --red-soft:#fdeeec; --green:#1e7a4b; --green-soft:#eaf6ef;
+    --amber:#a86400; --amber-soft:#fdf3e3; --purple:#5b3fa8; --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px;}
+  header.top{padding:52px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:31px;line-height:1.32;margin:0 0 12px;letter-spacing:-.01em;font-weight:700;}
+  .sub{font-size:16px;color:var(--ink-2);margin:0 0 18px;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+  .meta a{color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);}
+
+  h2{font-size:22px;margin:52px 0 10px;padding-top:18px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:8px;}
+  h3{font-size:17px;margin:30px 0 8px;font-weight:650;}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+  .src{font-size:12px;color:var(--ink-3);margin:6px 0 0;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:23px;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.5;}
+  .up{color:var(--red);} .down{color:var(--green);} .neutral{color:var(--ink);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--card);}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.3px;color:var(--ink-2);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;}
+  tbody tr:hover{background:#fafbfc;}
+
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0;}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px;}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;}
+  .chart{width:100%;height:320px;}
+
+  .tag{display:inline-block;font-size:11.3px;padding:2px 8px;border-radius:20px;font-weight:600;margin-right:6px;vertical-align:1px;white-space:nowrap;}
+  .tag.buy{background:var(--red-soft);color:var(--red);}
+  .tag.hold{background:var(--amber-soft);color:var(--amber);}
+  .tag.avoid{background:var(--green-soft);color:var(--green);}
+  .tag.core{background:var(--blue-soft);color:var(--blue);}
+  .tag.gray{background:#eef0f3;color:var(--ink-3);}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .quote{border-left:3px solid var(--blue);padding:4px 0 4px 16px;margin:16px 0;color:var(--ink-2);font-size:14.5px;}
+  .quote .who{display:block;font-size:12px;color:var(--ink-3);margin-top:6px;}
+
+  .chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0;font-size:13px;}
+  .chain span.n{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:7px 11px;}
+  .chain span.a{color:var(--ink-3);}
+
+  .disclaimer{margin-top:46px;padding:18px 20px;background:#eceff3;border-radius:var(--radius);font-size:12.5px;color:var(--ink-2);line-height:1.7;}
+  .footer{margin-top:26px;font-size:12px;color:var(--ink-3);text-align:center;}
+
+  table.qa{table-layout:fixed;}
+  table.qa th:nth-child(1),table.qa td:nth-child(1){width:34px;text-align:center;padding-left:4px;padding-right:4px;}
+  table.qa th:nth-child(2),table.qa td:nth-child(2){width:17%;}
+  table.qa th:nth-child(3),table.qa td:nth-child(3){width:20%;}
+  table.qa td{font-size:12.6px;}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .two,.three{grid-template-columns:1fr;}
+    h1{font-size:25px;}
+    table{font-size:12.3px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">财报精读 · 美股 · AI 光通信 / InP 光芯片</div>
+  <h1>创收、赚钱两不误：Coherent FY1Q27 全文精读与美股 / ETF 映射</h1>
+  <p class="sub">原文《Coherent：创收、赚钱两不误，继续向光飞奔？》｜海豚研究 · 海豚君｜2026-11-05　<b>＋</b>　FY1Q27 业绩电话会实录（CEO Jim Anderson / CFO Sherri Luther，2026-11-04 美东）</p>
+  <div class="meta">
+    <span>财报原文：<a href="https://mp.weixin.qq.com/s/UW-eiUBecOfPaShyoy4yzg" target="_blank">mp.weixin.qq.com/s/UW-eiUBecOfPaShyoy4yzg</a></span>
+    <span>电话会：<a href="https://mp.weixin.qq.com/s/-PtDWU6CP9_PY3uAt-HRLQ" target="_blank">mp.weixin.qq.com/s/-PtDWU6CP9_PY3uAt-HRLQ</a></span>
+    <span>财报口径：FY2027 Q1（截至 2026 年 9 月季度），美元，Non-GAAP 为主</span>
+    <span>发布时点：2026-11-05 美股盘后</span>
+  </div>
+</header>
+
+<!-- ========== 一页速览 ========== -->
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">FY1Q27 总收入</div>
+    <div class="val up">23.7 亿美元</div>
+    <div class="note">同比 <strong>+50%</strong>、环比 <strong>+16%</strong>，落在指引上半区（高于中值 3.1%）</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">数据中心与通信</div>
+    <div class="val up">19.5 亿美元</div>
+    <div class="note">同比 <strong>+79%</strong>，超一致预期 4.1%，占比升至 <strong>82%</strong>（上季 79%）</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">毛利率</div>
+    <div class="val up">40.6%</div>
+    <div class="note">同比 <strong>+1.8pct</strong>、环比 <strong>+0.4pct</strong>；1.6T 爬坡未拖累毛利</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">长期毛利率目标</div>
+    <div class="val up">42% → 45%</div>
+    <div class="note">2028 年底前单季达到，管理层主动上调</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Non-GAAP 经营利润率</div>
+    <div class="val">23.2%</div>
+    <div class="note">费用率 17.4%（同比降近 2pct），已低于 18% 长期目标</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">自由现金流</div>
+    <div class="val down">−8.68 亿美元</div>
+    <div class="note">经营 −0.93 亿、资本开支 7.76 亿，扩产吞现金</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">订单能见度</div>
+    <div class="val">排到 CY28</div>
+    <div class="note">CY27 覆盖充足，长协签到 2030 年前后</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">股价反应 / 位置</div>
+    <div class="val up">盘后 +8%</div>
+    <div class="note">但半年内市值自高点蒸发<strong>超 50%</strong></div>
+  </div>
+  <div class="kpi">
+    <div class="lab">Non-GAAP EPS</div>
+    <div class="val up">2.09 美元</div>
+    <div class="note">同比 <strong>+80%</strong>、环比 <strong>+20%</strong>，利润增速快于收入</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">FY2Q27 收入指引</div>
+    <div class="val up">25.5–27.5 亿</div>
+    <div class="note">中值环比 <strong>+11.8%</strong>；毛利率指引 40–42%</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">PhotonLink（3 月季度）</div>
+    <div class="val up">&gt;1 亿美元</div>
+    <div class="note">CY27 底单季 <strong>&gt;2.5 亿</strong>；长期数十亿美元产品线</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">现金 / 债务杠杆</div>
+    <div class="val">23.4 亿 / 1.1x</div>
+    <div class="note">2Q 资本开支<strong>继续环比上升</strong></div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>一句话总览</h4>
+  <p>Coherent 这份 FY1Q27 的关键不是"收入又超预期"——23.7 亿美元、同比 +50%、高于指引中值仅 3.1%，属于<strong>预期内的好</strong>；真正让资金买账的是<strong>毛利率 40.6% 且把长期目标从 42% 上调到 45%</strong>，在 1.6T 新品切换期没有出现"增收不增利"。原文的判断链条是：<strong>订单已排到 CY28、合同负债暴增 5.3 倍、PhotonLink 签下 200 亿美元五年长协 → 收入确定性极高；6 英寸 InP 自产红利尚未兑现 → 毛利率上行还有 4 个多点空间；但 InP 供需拐点、模块环节壁垒、DSP 产能、巨额资本开支四大变量未解 → 估值倍数暂时难以扩张。</strong>结论是"基本面过关、估值在历史区间下沿、但本次财报对倍数的提振有限"，<strong>等估值靠近悲观情形再分批布局，留足安全垫</strong>。</p>
+  <p>而电话会进一步把这个判断"量化"了：管理层给出 <strong>FY2027 结束前单季 30 亿美元、FY2028 内单季 40 亿美元</strong>的里程碑，PhotonLink 从"平台概念"变成 <strong>2030 年约 300 亿美元 TAM、单颗 100Tbps 芯片约 1.5 万美元配套价值、3 月季度收入 &gt;1 亿美元</strong>的可测算生意，并确认 <strong>400mW CW 激光器本季已开始为英伟达出货</strong>；同时 <strong>LTA 普遍含客户预付款/NRE</strong>，把"扩产烧钱"的风险从股东独担变成与客户共担。<strong>换句话说：财报证明了"现在很赚钱"，电话会试图证明"未来三年还能继续赚钱"——前者已兑现，后者仍待季度数据打分。</strong></p>
+</div>
+
+<!-- ========== 01 ========== -->
+<h2><span class="num">01</span>文章的问题意识：一份"好财报"为何救不了"腰斩的股价"</h2>
+
+<p>原文开篇先把矛盾摆在台面上：</p>
+
+<ul>
+  <li><strong>时点</strong>：Coherent 于北京时间 11 月 5 日早（美股盘后）发布 <strong>FY1Q27</strong> 业绩。</li>
+  <li><strong>作者观感</strong>：海豚君"整体观感不错"，认为公司<strong>延续了稳健经营</strong>；<strong>长期毛利率指引的上调提振了资金信心</strong>，盘后股价<strong>上涨 8%</strong>。</li>
+  <li><strong>反差</strong>：公司<strong>半年内市值已从高点蒸发超 50%</strong>。</li>
+  <li><strong>核心追问</strong>：结合基本面，<strong>这份财报能让资金买账吗？</strong></li>
+</ul>
+
+<div class="box amber">
+  <h4>读法提示：全文的"题眼"在哪</h4>
+  <p>标题"创收、赚钱两不误"对应两件事——<strong>创收</strong>指收入连续落在指引上半区、订单排到 CY28；<strong>赚钱</strong>指毛利率在 1.6T 爬坡期逆势提升、并把长期目标抬到 45%。而"继续向光飞奔"的"光"，指的是 <strong>InP（磷化铟）激光器芯片 → 光模块 → DCI/Scale-Across → OCS/CPO</strong> 这条全栈光链路。原文所有论证，最终都收敛到一个问题：<strong>Coherent 手里最值钱的资产是"光源"，而光源的定价权取决于 InP 供需。</strong></p>
+</div>
+
+<!-- ========== 02 ========== -->
+<h2><span class="num">02</span>收入：预期内的不错，结构加速向数据中心倾斜</h2>
+
+<p>原文对收入的定性是"<strong>预期内的不错</strong>"——不是惊喜，但足够扎实。</p>
+
+<h3>2.1 总量与指引位置</h3>
+<ul>
+  <li>总收入 <strong>23.7 亿美元</strong>，<strong>同比增长近 50%</strong>，<strong>环比增长约 16%</strong>。</li>
+  <li>"<strong>一如既往</strong>"落在公司指引的<strong>上半区</strong>，比指引中值<strong>高 3.1%</strong>。</li>
+  <li>收入结构"<strong>加速向数据中心与通信倾斜</strong>"。</li>
+</ul>
+
+<h3>2.2 数据中心与通信：19.5 亿，占比 82%</h3>
+<ul>
+  <li>板块收入 <strong>19.5 亿美元</strong>，<strong>同比增长 79%</strong>，<strong>比一致预期高 4.1%</strong>。</li>
+  <li>占总收入比重升至 <strong>82%</strong>（上季 <strong>79%</strong>）。</li>
+  <li><strong>数据中心</strong>：同比 <strong>+85%</strong>，<strong>兑现了管理层此前给出的"80% 以上"目标</strong>。</li>
+  <li><strong>光模块</strong>：<strong>1.6T 已在多家客户放量</strong>；下季光模块收入将由 <strong>1.6T 与 800G 共同驱动</strong>强劲增长。</li>
+  <li><strong>通信业务</strong>：同比 <strong>+84%</strong>，主要来自 <strong>数据中心互联（DCI）/ Scale-Across</strong>，<strong>传统电信也在增长</strong>（不是纯靠 AI 单腿走路）。</li>
+</ul>
+
+<div class="box green">
+  <h4>Scale-Across / DCI：本季最锋利的一条增长线</h4>
+  <ul>
+    <li>本季收入<strong>超过 2 亿美元</strong>，<strong>同比约 4 倍</strong>，<strong>年化约 10 亿美元</strong>。</li>
+    <li>公司预计<strong>到 CY27 年底，该业务季度收入比本季（Q1）再翻一倍</strong>。</li>
+    <li>原文测算：这隐含<strong>此后五个季度平均环比约 15%</strong>（1.15⁵ ≈ 2 倍，与"翻一倍"吻合）。</li>
+  </ul>
+</div>
+
+<h3>2.3 指引与需求能见度：三层"锁定"</h3>
+<ol>
+  <li><strong>短期指引</strong>：公司指引需求仍然强劲，<strong>2Q 数据中心和通信业务都会环比、同比继续强劲增长</strong>。</li>
+  <li><strong>中期订单</strong>：<strong>CY27 订单覆盖充足，订单已排到 CY28</strong>，长协一般<strong>签到 2030 年前后</strong>。</li>
+  <li><strong>财务印证</strong>：<strong>合同负债增至上季的 5.3 倍</strong>，其中<strong>一年以上才确认收入的部分从 0.15 亿美元升至 1.61 亿美元</strong>——这是"钱已经收了、货还没交"的硬证据。</li>
+</ol>
+
+<div class="box purple">
+  <h4>更长周期的能见度：PhotonLink 平台</h4>
+  <p>本季公司<strong>新签一份五年期、约 200 亿美元的长协</strong>，对手方是<strong>英伟达之外的第二个锚定客户</strong>（一家<strong>头部 AI 公司</strong>），将于 <strong>CY28 初开始贡献收入</strong>。原文把 PhotonLink 定义为"<strong>器件散卖平台</strong>"——即公司不只卖模块，还把光源/器件作为标准品对外供货，这意味着 Coherent 在 CPO/NPO 时代保留了"卖铲子的铲子"这条独立变现路径。</p>
+</div>
+
+<div class="chart-card">
+  <div class="ct">FY1Q27 各口径同比增速对比</div>
+  <div class="cs">单位：%（同比）｜数据来源：原文披露，海豚研究</div>
+  <div id="chart-growth" class="chart"></div>
+</div>
+
+<!-- ========== 03 ========== -->
+<h2><span class="num">03</span>毛利率：结果最"硬核"，也是全文最满意的部分</h2>
+
+<p>原文明确表态：由于<strong>订单早已排满</strong>，海豚君更关注的是<strong>订单交付质量</strong>——即"<strong>收入放量过程中毛利率的拉升速度</strong>"。在这个视角下，<strong>毛利率是让作者真正满意的地方</strong>。</p>
+
+<h3>3.1 本季数据与驱动</h3>
+<ul>
+  <li>毛利率 <strong>40.6%</strong>，<strong>同比提升 1.8pct</strong>、<strong>环比提升 0.4pct</strong>。</li>
+  <li>提升三大来源：<strong>提价</strong>、<strong>产品投入成本下降</strong>、<strong>制造良率提升</strong>。</li>
+  <li>其中<strong>提价集中在数据中心与通信</strong>业务——即高景气环节具备真实定价权。</li>
+  <li>原文强调：这一点在 <strong>1.6T 爬坡期尤为关键</strong>，<strong>新品切换没有拖累毛利率</strong>，<strong>缓解了市场此前对"产品结构升级期利润率被稀释"的担忧</strong>。</li>
+</ul>
+
+<h3>3.2 指引上调：42% → 45%</h3>
+<ul>
+  <li>公司把<strong>长期毛利率目标从 42% 上调到 45%</strong>，时间点是 <strong>2028 年底前单季达到</strong>。</li>
+  <li>管理层给出的实现路径，<strong>按贡献从大到小</strong>依次是：
+    <ol>
+      <li><strong>高毛利新品放量 + 6 英寸磷化铟（InP）满产带来的规模效应</strong>；</li>
+      <li><strong>提价</strong>；</li>
+      <li><strong>降本</strong>。</li>
+    </ol>
+  </li>
+</ul>
+
+<h3>3.3 关键细节：6 英寸红利"还没开始兑现"</h3>
+<div class="box red">
+  <h4>这是全文最重要的一条"未兑现期权"</h4>
+  <ul>
+    <li>公司 <strong>InP 器件的自产与外采比例和一年前基本相同</strong>——也就是说，过去一年毛利率的提升<strong>并非来自垂直整合</strong>。</li>
+    <li><strong>自有产能虽然翻倍，但全被光模块的增长吃掉了</strong>（自产全部自用，仍不够）。</li>
+    <li>随着 <strong>CY27 年底前产能再翻一倍以上</strong>，未来几个季度将<strong>逐步转向自产</strong>。</li>
+    <li><strong>6 英寸线的良率已高于 3 英寸</strong>，<strong>同一台外延炉每炉产出是 3 英寸的 2.5 倍</strong>——自产激光器后续具备明确成本优势。</li>
+  </ul>
+  <p>换句话说：<strong>45% 的毛利率目标里，最大的一块成本红利（6 英寸满产 + 自产替代外采）尚未进入损益表</strong>。这是"指引可信度"的物理基础，也是原文认为"实现可能性不小"的原因。</p>
+</div>
+
+<!-- ========== 04 ========== -->
+<h2><span class="num">04</span>费用与盈利：经营杠杆已经跑在目标前面</h2>
+<ul>
+  <li><strong>Non-GAAP 营业费用 4.12 亿美元</strong>，<strong>基本与一致预期持平</strong>。</li>
+  <li><strong>费用率 17.4%</strong>，<strong>同比下滑接近 2 个百分点</strong>，<strong>已经低于长期目标 18%</strong>——即费用纪律提前达标。</li>
+  <li><strong>研发的增量投向</strong>：<strong>光模块</strong>、<strong>PhotonLink（器件散卖平台）</strong>、<strong>OCS</strong>、<strong>multi-rail（多轨传输平台）</strong>。这四项恰好对应"从模块商升级为光系统平台商"的四条新曲线。</li>
+  <li>最终 <strong>经营利润率 23.2%</strong>，<strong>比一致预期稍高 0.3 个百分点</strong>。</li>
+</ul>
+<p class="src">口径提示：毛利率 40.6% − 费用率 17.4% ≈ 经营利润率 23.2%，三者自洽，均为 Non-GAAP 口径。</p>
+
+<!-- ========== 05 ========== -->
+<h2><span class="num">05</span>现金流：回款买库存，负现金流"不是问题"但要验证</h2>
+
+<p>原文的定性很清楚：<strong>本季经营现金流转负，主要是为支撑收入增长而主动堆库存，因此"负现金流不是问题"</strong>——但同时也把它列为需要持续验证的变量。</p>
+
+<table>
+  <thead><tr><th>项目</th><th class="num">本季</th><th class="num">上季 / 去年同期</th><th>原文解读</th></tr></thead>
+  <tbody>
+    <tr><td>经营现金流</td><td class="num down">−0.93 亿美元</td><td class="num">去年同期 +0.46 亿</td><td>为支撑收入增长大幅增加库存</td></tr>
+    <tr><td>存货</td><td class="num up">33.4 亿美元</td><td class="num">环比 +7.6 亿</td><td>其中<strong>半成品增加 4.5 亿</strong>，隐含后续增长还会持续拉高</td></tr>
+    <tr><td>资本开支</td><td class="num up">7.76 亿美元</td><td class="num">上季 5.56 亿</td><td>管理层称 <strong>2Q 还会环比上升</strong>，短期很难降下来</td></tr>
+    <tr><td>自由现金流</td><td class="num down">−8.68 亿美元</td><td class="num">—</td><td>扩产周期的必然结果</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>原文没有直说、但值得记一笔的"领先指标"</h4>
+  <p><strong>半成品存货 +4.5 亿</strong>与<strong>合同负债 5.3 倍</strong>是一对镜像：前者是"为交付而备料"，后者是"客户已付款待交付"。两者同时跳升，通常意味着<strong>未来 1–2 个季度的收入已经被"物理锁定"</strong>——这比任何管理层口径都更硬。反过来，如果某季<strong>合同负债不再增长、存货却继续堆</strong>，那就是需求转弱的第一个警报。</p>
+</div>
+
+<!-- ========== 06 ========== -->
+<h2><span class="num">06</span>业绩概览：把原文数字收进一张表</h2>
+
+<table>
+  <thead><tr><th>维度</th><th class="num">FY1Q27</th><th class="num">同比</th><th class="num">环比</th><th>备注</th></tr></thead>
+  <tbody>
+    <tr><td><strong>总收入</strong></td><td class="num">23.7 亿美元</td><td class="num up">+50%</td><td class="num up">+16%</td><td>指引上半区，高于中值 3.1%</td></tr>
+    <tr><td>数据中心与通信</td><td class="num">19.5 亿美元</td><td class="num up">+79%</td><td class="num">—</td><td>超一致预期 4.1%，占比 82%</td></tr>
+    <tr><td>— 数据中心</td><td class="num">—</td><td class="num up">+85%</td><td class="num">—</td><td>兑现"80% 以上"目标；1.6T 多客户放量</td></tr>
+    <tr><td>— 通信</td><td class="num">—</td><td class="num up">+84%</td><td class="num">—</td><td>DCI/Scale-Across 为主，传统电信亦增长</td></tr>
+    <tr><td>— 其中 Scale-Across/DCI</td><td class="num">&gt;2 亿美元</td><td class="num up">约 4 倍</td><td class="num">—</td><td>年化约 10 亿美元</td></tr>
+    <tr><td><strong>毛利率</strong></td><td class="num">40.6%</td><td class="num up">+1.8pct</td><td class="num up">+0.4pct</td><td>提价 + 降本 + 良率；长期目标上调至 45%</td></tr>
+    <tr><td>Non-GAAP 营业费用</td><td class="num">4.12 亿美元</td><td class="num">—</td><td class="num">—</td><td>与一致预期基本持平</td></tr>
+    <tr><td>费用率</td><td class="num down">17.4%</td><td class="num down">−近 2pct</td><td class="num">—</td><td>已低于 18% 长期目标</td></tr>
+    <tr><td><strong>经营利润率</strong></td><td class="num">23.2%</td><td class="num">—</td><td class="num">—</td><td>高于一致预期 0.3pct</td></tr>
+    <tr><td><strong>Non-GAAP EPS</strong></td><td class="num">2.09 美元</td><td class="num up">+80%</td><td class="num up">+20%</td><td>利润增速显著快于收入（电话会）</td></tr>
+    <tr><td>经营现金流</td><td class="num down">−0.93 亿美元</td><td class="num down">转负</td><td class="num">—</td><td>去年同期 +0.46 亿</td></tr>
+    <tr><td>资本开支</td><td class="num up">7.76 亿美元</td><td class="num">—</td><td class="num up">+2.20 亿</td><td>2Q 继续环比上升</td></tr>
+    <tr><td><strong>自由现金流</strong></td><td class="num down">−8.68 亿美元</td><td class="num">—</td><td class="num">—</td><td>扩产期特征</td></tr>
+    <tr><td>合同负债</td><td class="num up">上季的 5.3 倍</td><td class="num">—</td><td class="num up">大幅</td><td>一年以上部分 0.15 → 1.61 亿美元</td></tr>
+    <tr><td>股价反应</td><td class="num up">盘后 +8%</td><td class="num">—</td><td class="num">—</td><td>半年内市值自高点蒸发超 50%</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">说明：原文未逐项披露同比/环比数值的单元格以"—"表示；"资本开支环比 +2.20 亿"由原文 7.76 亿与上季 5.56 亿相减得到。数据来源：原文披露，海豚研究。</p>
+
+<!-- ========== 07 ========== -->
+<h2><span class="num">07</span>海豚研究四条观点：逐条拆开讲</h2>
+
+<h3>观点一：毛利率指引上调是本季最直接的利好</h3>
+<div class="box blue">
+  <ul>
+    <li><strong>量化路径</strong>：从本季 <strong>40.6%</strong> 到 <strong>2028 年底前单季超过 45%</strong>，相当于<strong>未来约 9 个季度每季提升约 0.5 个百分点</strong>。</li>
+    <li><strong>节奏校验</strong>：这与<strong>本季环比 0.4 个百分点</strong>的实际节奏"<strong>基本吻合</strong>"——即指引不是拍脑袋，而是延续既有斜率。</li>
+    <li><strong>信号意义</strong>：这样的指引说明<strong>管理层对 InP 紧俏周期中的经营相当有信心</strong>。</li>
+    <li><strong>可行性</strong>：考虑到 <strong>6 英寸产线放量与垂直整合</strong>，<strong>毛利率实现可能性不小</strong>。</li>
+  </ul>
+</div>
+
+<div class="chart-card">
+  <div class="ct">毛利率路径推演：40.6% → 45%（按原文"每季约 +0.5pct、约 9 个季度"外推）</div>
+  <div class="cs">单位：%｜实点为已披露值，虚点为按管理层指引斜率的机械外推（非公司指引）</div>
+  <div id="chart-gm" class="chart"></div>
+</div>
+
+<h3>观点二：核心看点仍是 InP 的供需拐点，而市场对此"比较纠结"</h3>
+<p>原文点出市场的<strong>双向担忧</strong>：</p>
+<div class="two">
+  <div class="box red">
+    <h4>担忧 A：紧缺限制出货</h4>
+    <p><strong>InP 紧缺会限制模块厂出货</strong>，进而<strong>影响收入兑现</strong>——即"有订单也交不出货"。</p>
+  </div>
+  <div class="box red">
+    <h4>担忧 B：扩产导致过剩</h4>
+    <p>行业（<strong>尤其中国激光器厂商</strong>）扩产后出现 <strong>EML 过剩</strong>，<strong>引发价格战</strong>——即"能交货但价格崩"。</p>
+  </div>
+</div>
+
+<p>公司给出的<strong>五点回应</strong>：</p>
+<ol>
+  <li><strong>自有 InP 激光器产出同比翻倍</strong>，且<strong>比计划提前一个季度</strong>；<strong>CY27 年底前再翻一倍以上</strong>，<strong>所需衬底已锁定（供应商超过 5 家）</strong>。</li>
+  <li><strong>自产 InP 目前全部自用</strong>做光模块，<strong>仍满足不了自身需求</strong>，<strong>不对外销售激光器</strong>——即短期不会自己制造供给过剩。</li>
+  <li><strong>CY28 前看不到 EML 过剩的风险</strong>。</li>
+  <li><strong>CPO 用的 400mW 超高功率 CW 激光器，只看到一家竞争对手（Lumentum）</strong>，<strong>未见中国厂商</strong>——最高端环节竞争格局最好。</li>
+  <li><strong>供给偏紧格局下，全栈能力保障供应</strong>：<strong>得州 Sherman 与瑞典持续扩充 InP 产能</strong>，<strong>苏黎世的 6 英寸线将于 CY27 上半年投产</strong>。</li>
+</ol>
+<p>原文的结论：<strong>"这是公司增长叙事延续的基础。"</strong></p>
+
+<h3>观点三：四个风险点，第一个是"最核心的风险"</h3>
+
+<h4>a. 定价取决于 InP 供需 —— 最核心的风险</h4>
+<p>原文的逻辑是：<strong>需求侧的强劲已是共识</strong>，但<strong>全行业 InP 产能分歧巨大</strong>，<strong>供需拐点难以判断</strong>。而<strong>几股力量正在缓解光源紧缺</strong>：</p>
+<ul>
+  <li><strong>InP 大幅扩产</strong>；</li>
+  <li><strong>CW 硅光方案</strong>：一颗激光器供多个通道，<strong>单模块 InP 用量更低</strong>；</li>
+  <li><strong>VCSEL 等不依赖 InP 的方案</strong>在<strong>分流部分需求</strong>；</li>
+  <li><strong>源杰科技、光迅科技等国产 EML、CW 激光器正在放量</strong>。</li>
+</ul>
+<p><strong>结论（原文原话的意思）</strong>：<strong>一旦供需由紧转松，模块与光芯片的盈利能力将明显回落。</strong></p>
+
+<h4>b. 模块环节壁垒有限</h4>
+<ul>
+  <li><strong>组装制造门槛不高</strong>，<strong>议价能力主要来自上下游</strong>（不是自身工艺）。</li>
+  <li>在 <strong>CPO 架构</strong>下，<strong>核心环节（光学耦合）向半导体封测厂转移</strong>；一旦封测厂掌握这一工艺，<strong>便可凭借产能向模块厂发起竞争</strong>。</li>
+  <li>同时 <strong>CPO 的设计环节基本交还给交换芯片厂</strong>，而后者<strong>又是可插拔模块的主要下游</strong>。</li>
+  <li>因此 <strong>Fabrinet 式的纯代工模式或许也有机会</strong>。</li>
+</ul>
+
+<h4>c. DSP 的产能约束</h4>
+<p><strong>DSP 受台积电先进制程产能约束</strong>，是<strong>供给端的另一重不确定性</strong>——即使光源充足，DSP 卡住同样交不出货。</p>
+
+<h4>d. 持续大额资本开支，是另一个需要验证的变量</h4>
+<ul>
+  <li>扩产线、升级设备让<strong>短期现金流明显恶化</strong>，且<strong>短期内看不到投入放缓的迹象</strong>。</li>
+  <li>尽管背后有<strong>确定的采购订单和多年供货协议</strong>，公司能否在<strong>不牺牲利润率、不引发营运资本紧张、不出现客户认证延迟</strong>的前提下，完成这轮"<strong>快速且资本密集的爬坡</strong>"，<strong>仍有待后续财报验证</strong>。</li>
+</ul>
+
+<h3>观点四：怎么给 Coherent 估值</h3>
+
+<div class="box purple">
+  <h4>第一步：什么资产最值钱？</h4>
+  <p>原文认为，在从传统通信转向 AI 光通信的产业升级中，Coherent 相较传统模块厂商<strong>最值钱的资产就是激光器芯片及其 InP 产能</strong>；<strong>Marvell 溢价收购 Lumentum 的动机印证了这一点</strong>。这一资产在 <strong>NPO/CPO 中被进一步放大</strong>：在<strong>外部环境 / 技术 / 需求都在快速切换</strong>的进程里，<strong>光源是最为确定的资产</strong>。Coherent 作为<strong>市场第二大的光源厂商</strong>，<strong>或该享受溢价</strong>。</p>
+</div>
+
+<div class="box blue">
+  <h4>第二步：倍数在历史区间的什么位置？</h4>
+  <ul>
+    <li>自 <strong>2023 年 AI 爆发以来</strong>，公司估值倍数大致处于 <strong>15–30 倍 P/E</strong> 区间。</li>
+    <li><strong>目前估值倍数已接近历史区间的下沿</strong>。</li>
+    <li>原文判断：<strong>中性预期下对 Top-Line 的估值已经相对谨慎</strong>。</li>
+  </ul>
+</div>
+
+<div class="box red">
+  <h4>第三步：悲观情形假设了什么？</h4>
+  <p>原文设定：<strong>悲观预期下假定 2028E 毛利率为 41%</strong>。这个假设隐含三件事：</p>
+  <ol>
+    <li><strong>InP 产能紧缺提前缓解、行业竞争加剧，带来价格恶化</strong>；</li>
+    <li><strong>垂直整合的资本开支持续压制现金流，却没有转化为毛利率改善</strong>；</li>
+    <li><strong>产品结构升级、产能良率爬坡不及预期</strong>。</li>
+  </ol>
+</div>
+
+<div class="box amber">
+  <h4>第四步：结论与操作</h4>
+  <ul>
+    <li><strong>本次财报对估值倍数的提振影响有限</strong>——注意，这与"盘后涨 8%"并不矛盾：涨的是情绪与指引，不是倍数体系。</li>
+    <li><strong>毛利率上调是最核心利好</strong>，但<strong>兑现能否成功依赖行业 beta</strong>（不是公司自己能完全决定的）。</li>
+    <li><strong>操作建议（原文）</strong>：<strong>建议在估值接近悲观情形时再考虑分批布局，为自己留足安全垫。</strong></li>
+    <li>更详细的估值（DCF / 分部估值）作者留到<strong>财报季之后的深度分析</strong>再呈现。</li>
+  </ul>
+</div>
+
+<!-- ========== 08 ========== -->
+<h2><span class="num">08</span>备注里的"业务口径"：理解收入结构的钥匙</h2>
+
+<p>原文末尾用一段备注交代了口径，这段很容易被忽略，但对读懂数字很关键。</p>
+
+<ul>
+  <li><strong>成长路径</strong>：与 Lumentum 类似，Coherent 成长为当下的通信巨头<strong>依赖兼并收购</strong>。</li>
+  <li><strong>口径重划</strong>：其业务口径在 <strong>FY2026</strong> 由原来的<strong>网络连接、工业材料、激光器</strong>三部分，<strong>重新划分为两块</strong>：
+    <ul>
+      <li><strong>a. 数据中心和通信</strong>；</li>
+      <li><strong>b. 工业</strong>。</li>
+    </ul>
+  </li>
+  <li><strong>新口径下</strong>数据中心和通信成为<strong>主要收入来源</strong>，<strong>FY27Q1 占比约 82%</strong>。</li>
+  <li><strong>产品结构（海豚君预估，非公司披露）</strong>：该业务核心产品收入占比<strong>由大到小</strong>依次为——
+    <ol>
+      <li><strong>光模块</strong>；</li>
+      <li><strong>通信 / DCI 相关（ROADM / WSS / 可调谐模块等）</strong>；</li>
+      <li><strong>OCS 交换机</strong>；</li>
+      <li><strong>CPO</strong>（CPO 相关可参考技术原理、产业链）。</li>
+    </ol>
+  </li>
+  <li><strong>工业业务</strong>：公司正在<strong>剥离低 ROI 资产</strong>，<strong>预期占比逐步下降，不作为重点</strong>。</li>
+</ul>
+
+<div class="box green">
+  <h4>这段备注隐含的三个判断</h4>
+  <ol>
+    <li><strong>Coherent 已经不是"激光器公司"，而是一家 AI 光通信公司</strong>——82% 的收入来自数据中心与通信，估值框架应对标光通信/半导体，而非传统工业激光。</li>
+    <li><strong>收入结构是"模块为主、器件为辅"</strong>：光模块排第一，但真正支撑估值溢价的是排在其后的 <strong>InP 光源</strong>与 <strong>OCS/CPO</strong> 这些"卖铲子"的环节。</li>
+    <li><strong>工业业务剥离 = 估值纯度提升</strong>：低 ROI 资产出表后，剩余业务的增速与毛利率都会更"干净"，但也意味着收入基数会缩水。</li>
+  </ol>
+</div>
+
+<!-- ========== 09 ========== -->
+<h2><span class="num">09</span>电话会实录：管理层把"能见度"讲成了可数的数字</h2>
+
+<p>2026 年 11 月 4 日（美东）盘后电话会，出席者为 <strong>CEO Jim Anderson</strong>、<strong>CFO Sherri Luther</strong>、<strong>IR 高级副总裁 Paul Silverstein</strong>。与财报点评文章相比，电话会最大的增量是：<strong>把"订单能见度"从形容词变成了三个具体数字</strong>——<strong>单季 30 亿美元、单季 40 亿美元、PhotonLink 单季 2.5 亿美元</strong>；同时首次系统披露了 <strong>PhotonLink 的 TAM、单芯片价值量与放量时间表</strong>。</p>
+
+<h3>9.1 三个"首次"目标：把增长写成里程碑</h3>
+
+<table>
+  <thead><tr><th>目标</th><th>时点</th><th>口径</th><th>隐含要求（测算）</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>首个单季 30 亿美元营收</strong></td>
+      <td><strong>FY2027 结束前</strong>（2027 年 6 月）</td>
+      <td>公司明确"仍按计划推进"</td>
+      <td>从 23.7 亿起，3 个季度需累计 +27%，<strong>隐含 Q2–Q4 平均环比约 8%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>首个单季 40 亿美元营收</strong></td>
+      <td><strong>FY2028 内</strong>（2028 年 6 月前）</td>
+      <td>"已清晰看到路径"</td>
+      <td>从 30 亿起，4 个季度需 +33%，<strong>隐含平均环比约 7.5%</strong></td>
+    </tr>
+    <tr>
+      <td><strong>全年备考营收增速 &gt;60%</strong></td>
+      <td>FY2027 全年</td>
+      <td>备考口径（剔除已剥离业务）</td>
+      <td>为 <strong>FY2026 备考增速的两倍以上</strong></td>
+    </tr>
+    <tr>
+      <td><strong>非 GAAP EPS 同比 +80%</strong></td>
+      <td>FY1Q27 已实现</td>
+      <td>实际值 <strong>2.09 美元</strong></td>
+      <td>利润增速<strong>显著快于收入增速</strong>，靠毛利率 + 经营杠杆</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">"隐含要求"为本报告测算，非公司指引；30 亿/40 亿为公司电话会明确表述。</p>
+
+<div class="box blue">
+  <h4>为什么这三个数字重要</h4>
+  <p>原文（财报点评）能证明的是"订单排到 CY28"；电话会进一步把它翻译成<strong>可被逐季打分的里程碑</strong>：<strong>2027 年 6 月前单季 30 亿、2028 年 6 月前单季 40 亿</strong>。这意味着今后每个季度只有两种结果——<strong>要么在通往 30 亿的斜线上，要么不在</strong>。对投资者而言，这比任何"需求强劲"的措辞都更有约束力：<strong>目标一旦给出，达不到就是估值杀。</strong></p>
+</div>
+
+<h3>9.2 备考口径：为什么电话会说 +56%，文章说 +50%</h3>
+<ul>
+  <li><strong>备考（pro forma）口径</strong>：剔除<strong>均于 2026 年剥离的航空航天与国防业务</strong>，以及<strong>德国慕尼黑产品部门</strong>的财务影响。</li>
+  <li>备考口径下：<strong>环比 +16%、同比 +56%</strong>；报表口径：<strong>同比 +50%</strong>。</li>
+  <li><strong>两个口径的差异（6pct）全部来自剥离业务</strong>，不是内生加速——这一点必须分清，否则会高估增长斜率。</li>
+  <li>但有一个<strong>真实的加速信号</strong>：<strong>数据中心与通信板块的环比、同比增速均连续第四个季度加快</strong>（Q1 环比 +21%、同比 +79%）。</li>
+</ul>
+
+<h3>9.3 三大增长引擎的最新刻度</h3>
+
+<table>
+  <thead><tr><th>引擎</th><th>FY1Q27 数据</th><th>管理层给出的下一步节奏</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>数据中心</strong><br><span class="src">光模块为主</span></td>
+      <td>同比 <strong>+85%</strong>、环比 <strong>+17%</strong>，<strong>连续第四个季度两位数环比</strong></td>
+      <td>1.6T 多客户放量 + 800G <strong>整个 CY2027 持续增长</strong>；ECOC 展出 <strong>3.2T OSFP</strong>（400G EML + 光电二极管）；可插拔仍是 scale-out 主流，同时推 <strong>XPO / USFP</strong> 新形态</td>
+    </tr>
+    <tr>
+      <td><strong>通信 / DCI</strong><br><span class="src">Scale-Across</span></td>
+      <td>同比 <strong>+84%</strong>、环比 <strong>+34%</strong>；DCI 单季 <strong>&gt;2 亿</strong>、环比 <strong>+53%</strong>、同比约 4 倍、<strong>年化近 10 亿</strong></td>
+      <td>到 <strong>CY2027 年底季度收入较 Q1 再翻一倍</strong>；<strong>Multi-Rail 在截至 3 月的季度开始放量</strong>（此前增长尚未含它）；已迅速成为通信业务<strong>最大收入来源</strong></td>
+    </tr>
+    <tr>
+      <td><strong>PhotonLink</strong><br><span class="src">集成光学平台</span></td>
+      <td>本季<strong>少量收入</strong>起步</td>
+      <td>截至 3 月季度 <strong>&gt;1 亿美元</strong> → CY2027 结束前<strong>单季 &gt;2.5 亿美元</strong> → 长期<strong>"数十亿美元产品线"</strong></td>
+    </tr>
+    <tr>
+      <td><strong>OCS 光路交换</strong></td>
+      <td>320×320 已出货，向更高密度延伸</td>
+      <td>两个基地同步扩产；<strong>液晶（非机械）技术 vs MEMS，能效更高、可靠性更好</strong>；<strong>2030 年 TAM 至少 40 亿美元</strong>，"实际可能更大"</td>
+    </tr>
+    <tr>
+      <td><strong>工业</strong></td>
+      <td>备考口径<strong>环比、同比均持平</strong></td>
+      <td>半导体资本设备订单明显回升，本季恢复增长；AI 服务器 PCB 钻孔（CO2 激光器 + ZnSe 光学）；聚变（PLD 系统产高温超导带材）；<strong>Thermadite 已向数家战略客户交付原型，2027H2 起放量</strong>；量子供激光器与材料</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box green">
+  <h4>DCI 的客户与产品结构（原文未展开，电话会讲清了）</h4>
+  <ul>
+    <li><strong>需求来源</strong>：大型 AI 工作负载<strong>横跨多个数据中心运行</strong>，推动数据中心之间的高带宽光连接。</li>
+    <li><strong>客户两类</strong>：<strong>设备制造商</strong>（向其供货，设备再用于跨数据中心扩展）+ <strong>直接卖给超大规模云厂商</strong>。</li>
+    <li><strong>价值链多层级销售</strong>：元器件（<strong>泵浦激光器</strong>）→ 模块 / 线卡 / 放大器 / <strong>ROADM</strong>（含 ZR、ZR+ 模块）→ 部分场景<strong>整机方案</strong>。原文所说"议价能力来自上下游"，在电话会里被解释为"<strong>覆盖价值链多个层级，所以能吃满这段增长</strong>"。</li>
+  </ul>
+</div>
+
+<h3>9.4 PhotonLink：把"光源稀缺"翻译成 TAM 与单机价值</h3>
+
+<p>原文只说 PhotonLink 是"器件散卖平台"，电话会把它讲成了一个<strong>可测算的市场</strong>：</p>
+
+<table>
+  <thead><tr><th>维度</th><th>电话会披露</th><th>含义</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>平台范围</strong></td>
+      <td>端到端覆盖<strong>光的产生 → 整形 → 传输 → 探测 → 转电</strong>；含<strong>激光器、激光模块、复杂光纤组件、光学元件、连接器、隔离器、TEC</strong>；同时支持 <strong>InP CW 激光器</strong>与 <strong>VCSEL</strong></td>
+      <td>卖的不是单颗激光器，而是"<strong>整条光链路的配套</strong>"</td>
+    </tr>
+    <tr>
+      <td><strong>市场空间</strong></td>
+      <td>到 <strong>2030 年</strong>，<strong>CPO + NPO + 芯片间光互联 ≈ 300 亿美元</strong>；使数据中心与通信整体 TAM 达 <strong>≈ 900 亿美元</strong></td>
+      <td>相当于在现有可插拔市场之外，<strong>再造一个三分之一体量的新市场</strong></td>
+    </tr>
+    <tr>
+      <td><strong>单机价值</strong></td>
+      <td>一颗 <strong>100 Tbps</strong> 的 XPU 或交换芯片，若采用完整 PhotonLink 组合，<strong>每颗芯片约 15,000 美元</strong>配套价值</td>
+      <td>价值量锚点：<strong>越往 scale-up / 芯片间走，单芯片配套金额越高</strong></td>
+    </tr>
+    <tr>
+      <td><strong>客户与合作</strong></td>
+      <td><strong>英伟达</strong>（2026 年 3 月已披露 LTA）+ 本季新增<strong>五年约 200 亿美元 LTA</strong>（"领先 AI 数据中心客户，名字大家都认识"）；<strong>CPO &gt;20 项、NPO &gt;10 项、芯片间 &gt;5 项</strong>合作</td>
+      <td>已从"单一锚定客户"变成"<strong>双锚 + 长尾</strong>"结构</td>
+    </tr>
+    <tr>
+      <td><strong>200 亿 LTA 的内容</strong></td>
+      <td><strong>核心是 400mW 连续波（CW）激光器</strong>，但"卖的<strong>不只是这款激光器</strong>，而是更高层级的解决方案"</td>
+      <td>与原文"400mW CW 只有 Lumentum 一个对手"形成闭环：<strong>最贵的那颗器件，Coherent 已进英伟达供应链</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>需要留意的一处口径差异</h4>
+  <p>管理层在<strong>准备好的发言</strong>里说"<strong>超过 10 项 CPO 客户合作、超过 10 项 NPO、超过 5 项芯片间</strong>"；而在<strong>问答环节</strong>回答摩根大通提问时说的是"<strong>CPO 超过 20 个、NPO 超过 10 个、芯片间超过 5 个</strong>"。<strong>CPO 一项从 10 变成 20</strong>，可能是口误、也可能是把"项目"与"客户"混用。<strong>建议以正式披露的 10 项为准</strong>，把 20 项当作上限参考——这类细节不影响结论，但影响你对"合作广度"的想象。</p>
+</div>
+
+<h3>9.5 PhotonLink 放量时间表：一条清晰的产品路线</h3>
+
+<table>
+  <thead><tr><th>时点</th><th>事件</th><th>技术形态</th></tr></thead>
+  <tbody>
+    <tr><td><strong>FY1Q27（本季）</strong></td><td>PhotonLink 开始有<strong>少量收入</strong>；<strong>400mW CW 激光器本季开始为英伟达出货</strong></td><td>CPO，<strong>scale-out</strong></td></tr>
+    <tr><td><strong>截至 3 月的季度</strong></td><td>PhotonLink 单季营收 <strong>&gt;1 亿美元</strong>；Multi-Rail 开始放量</td><td>CPO，scale-out</td></tr>
+    <tr><td><strong>CY2027 下半年</strong></td><td>开始交付用于 <strong>CPO 与 NPO 的 scale-up</strong> 应用产品</td><td>CPO / NPO，<strong>scale-up</strong></td></tr>
+    <tr><td><strong>CY2027 年底</strong></td><td>PhotonLink 单季 <strong>&gt;2.5 亿美元</strong>；InP 内部产能<strong>再翻倍以上</strong>；DCI 季度收入较 Q1 <strong>翻倍</strong></td><td>—</td></tr>
+    <tr><td><strong>CY2028 年初</strong></td><td>200 亿 LTA <strong>开始贡献收入</strong>；<strong>VCSEL 进入 NPO</strong> 应用；scale-up 的 CPO/NPO 部署落地</td><td>VCSEL 首次规模上车</td></tr>
+    <tr><td><strong>2029–2030</strong></td><td>PhotonLink 用于 <strong>scale-in 芯片间互联</strong></td><td>芯片间光互联</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">时间表依据电话会 CEO 表述整理；"CY"为自然年，"FY"为财年（Coherent 财年 6 月底结束）。</p>
+
+<h3>9.6 InP 产能：良率、衬底、内外供比例</h3>
+<ul>
+  <li><strong>产能</strong>：Q1 内部 InP 产出能力<strong>同比翻倍</strong>，<strong>比原计划提前一个季度</strong>；<strong>CY2027 年底再翻一倍以上</strong>；已<strong>落实衬底与其他关键投入品</strong>；并已在规划 <strong>2027 年之后的进一步扩产</strong>。</li>
+  <li><strong>产量</strong>：Q1 是 <strong>EML 产量创历史新高的季度</strong>（含 <strong>100G 与 200G</strong> 器件）。</li>
+  <li><strong>良率</strong>：得州与瑞典 <strong>6 英寸线</strong>生产 EML、CW 激光器、高速光电二极管，<strong>良率持续高于 3 英寸线</strong>；<strong>苏黎世 6 英寸线按计划 CY2027 上半年启动</strong>。</li>
+  <li><strong>衬底</strong>：<strong>供应商超过 5 家</strong>，已与<strong>其中多家签署长期协议</strong>；仍采购 3 英寸、保有 3 英寸产线，但<strong>未来扩产主要集中在 6 英寸</strong>。</li>
+  <li><strong>内外供比例</strong>：<strong>未披露具体数字</strong>，但"<strong>过去一年没有太大变化</strong>"；原因是<strong>光模块增速≈InP 产能增速（约滞后一个季度：这季产激光器、下季交模块）</strong>，产能翻倍被模块增长同步吃掉；<strong>未来几个季度将开始更多转向内部供应</strong>，但"<strong>总会有一部分来自外部</strong>"。</li>
+  <li><strong>不外销</strong>：目前<strong>生产的全部 InP 都用于自家产品</strong>，产量甚至<strong>不足以满足自身所有产品需求</strong>——这是回应"2028 年供过于求"的核心论据。</li>
+</ul>
+
+<h3>9.7 45% 毛利率：CFO 给出了明确排序，并称"不是终点"</h3>
+
+<div class="box purple">
+  <h4>CFO Sherri Luther 的贡献排序（按大小）</h4>
+  <ol>
+    <li><strong>新产品放量 + 充分释放 6 英寸 InP 产能的经营杠杆</strong>（最大）；</li>
+    <li><strong>定价优化</strong>；</li>
+    <li><strong>降低成本</strong>。</li>
+  </ol>
+  <p>她同时说明：<strong>不同因素发挥作用的时间点不同</strong>；<strong>从外部采购转向内部生产"将为毛利率带来显著提升空间"</strong>；<strong>定价优化在数据中心通信与工业业务都存在机会</strong>。</p>
+</div>
+
+<ul>
+  <li><strong>本季毛利率 40.6%</strong>：<strong>环比 +37 个基点、同比 +184 个基点</strong>（与文章"+0.4pct / +1.8pct"一致）。</li>
+  <li><strong>目标的来历</strong>：约 <strong>18 个月前</strong>的投资者日提出"<strong>超过 42%</strong>"，当时给的期限是 <strong>3–4 年</strong>，结果<strong>仅用 18 个月就实现</strong>，因此现在把目标上调到"<strong>2028 年底前单季超过 45%</strong>"。</li>
+  <li><strong>"不是终点"</strong>：CEO 明确"<strong>看不到任何结构性障碍</strong>"阻止毛利率继续超过 45%；45% 与当年的 42% 一样，只是<strong>前进过程中的阶段性目标</strong>；接近后会<strong>重新评估下一档目标</strong>。</li>
+  <li><strong>不靠"限产"</strong>：被问到是否要限制光模块供给来保毛利率时，CEO 明确"<strong>没有假设人为限制光模块业务</strong>"，光模块按"合理、可预期的速度"增长。</li>
+  <li><strong>另一个杠杆是费用</strong>：CEO 强调"<strong>同样重视经营杠杆</strong>"，opex 占收入比将继续改善（本季 17.4%，上季 18.4%，去年 19.2%）。</li>
+</ul>
+
+<h3>9.8 FY2Q27 指引：把"加速"写进了数字</h3>
+
+<table>
+  <thead><tr><th>项目</th><th class="num">2Q27 指引</th><th class="num">中值</th><th>相对本季</th></tr></thead>
+  <tbody>
+    <tr><td><strong>营收</strong></td><td class="num">25.5 – 27.5 亿美元</td><td class="num">26.5 亿</td><td>环比 <strong>+11.8%</strong></td></tr>
+    <tr><td><strong>Non-GAAP 毛利率</strong></td><td class="num">40% – 42%</td><td class="num">41.0%</td><td>环比 <strong>+0.4pct</strong></td></tr>
+    <tr><td>Non-GAAP 运营费用</td><td class="num">4.3 – 4.5 亿美元</td><td class="num">4.4 亿</td><td>费用率降至 <strong>≈16.6%</strong></td></tr>
+    <tr><td>Non-GAAP 税率</td><td class="num">18% – 20%</td><td class="num">19%</td><td>—</td></tr>
+    <tr><td><strong>Non-GAAP 摊薄 EPS</strong></td><td class="num">2.28 – 2.48 美元</td><td class="num">2.38 美元</td><td>环比 <strong>+13.9%</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="box green">
+  <h4>从指引里能算出来的两件事（测算）</h4>
+  <ul>
+    <li><strong>经营利润率继续走高</strong>：中值 <strong>41.0% − 16.6% ≈ 24.4%</strong>，较本季 23.2% <strong>再升约 1.2pct</strong>。也就是说，<strong>毛利率环比只升 0.4pct，但费用率降得更多，利润率升幅更大</strong>——经营杠杆在加速。</li>
+    <li><strong>EPS 增速继续快于收入</strong>：EPS 中值环比 +13.9% &gt; 收入中值环比 +11.8%，<strong>"利润增速&gt;收入增速"的剪刀差还在扩大</strong>。这正是管理层所说"盈利增长有望快于营收增长"的算术基础。</li>
+  </ul>
+</div>
+
+<h3>9.9 资产负债表与资本开支：这次"烧钱"有合同兜底</h3>
+<ul>
+  <li><strong>现金 23.4 亿美元</strong>（上季 25.9 亿、去年同期 15.5 亿）。</li>
+  <li><strong>债务杠杆率 1.1 倍</strong>，管理层称"高度稳健且灵活"。</li>
+  <li><strong>资本开支 7.76 亿美元</strong>（上季 5.56 亿、去年同期 1.04 亿），<strong>2Q 将再次环比增长</strong>；理由是"<strong>客户需求可见度极高 + 已承诺采购订单充足 + 多年期供应协议</strong>"。</li>
+  <li><strong>产能通用性强</strong>："基础设施可以高效调整用途，支持多条产品线"——即资本开支不是单产品专用，降低了押错技术路线的风险。</li>
+  <li><strong>最关键的增量信息（原文没有）</strong>：被 BNP 问到"是否让客户为新增激光器产能预付"时，CEO 回答"<strong>当然考虑过，而且几乎每一份 LTA 都遵循这一模式</strong>"——<strong>客户以预付款或 NRE（非经常性工程费用）支付前期款项</strong>，公司<strong>用这笔钱支付为该客户建产能的资本开支</strong>。目的有二：<strong>①让客户也投入真金白银、承担责任；②降低自身资本投入风险</strong>。</li>
+</ul>
+
+<div class="box amber">
+  <h4>这一条足以改变对"负现金流"的定性</h4>
+  <p>原文对 FCF −8.68 亿的定性是"<strong>回款买库存，不是问题</strong>"，但把它列为需验证变量。电话会补上了最关键的一环：<strong>资本开支的一部分由客户预付款/NRE 出资</strong>。这意味着 <strong>capex 的风险不是全由股东承担</strong>，而是<strong>与订单绑定、由客户共担</strong>。当然，这仍不等于现金流安全——预付款只覆盖"为该客户专用"的产能，通用产能与营运资本仍要自己扛；但<strong>"扩产即烧钱、烧钱即风险"的线性推论，被这条信息削弱了</strong>。</p>
+</div>
+
+<h3>9.10 问答 17 问速览：把分析师的质疑逐条对上</h3>
+
+<table class="qa">
+  <thead><tr><th>#</th><th>提问人 / 机构</th><th>主题</th><th>管理层回答要点</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Joseph Cardoso / 摩根大通</td><td>PhotonLink 放量节奏</td><td>势头很好；本季少量收入 → 3 月季度 &gt;1 亿 → CY27 底 &gt;2.5 亿；200 亿 LTA 自 2028 初起量，但 PhotonLink 放量<strong>早于</strong>该时点；长期"数十亿美元产品线"</td></tr>
+    <tr><td>2</td><td>摩根大通（追问）</td><td>DCI 翻倍的客户与产品支撑</td><td>客户=设备商 + 超大规模；产品跨<strong>泵浦激光器 → ZR/ZR+ 模块、线卡、放大器、ROADM → 整机方案</strong>；Q1 &gt;2 亿、环比 +53%、年化近 10 亿；CY27 底再翻倍；<strong>尚未含 Multi-Rail</strong></td></tr>
+    <tr><td>3</td><td>Simon Leopold / Raymond James</td><td>OCS 进展</td><td>320×320 已出货 + 更高密度（更多用于 scale-up）；两个基地扩产；<strong>液晶非机械 vs MEMS：能效更高、可靠性更好</strong>；<strong>2030 TAM ≥40 亿美元</strong></td></tr>
+    <tr><td>4</td><td>Simon Leopold / Raymond James</td><td><strong>Lumentum 与 Marvell 拟议整合的影响</strong></td><td>①证明<strong>光学/光子已成为数据中心架构的关键</strong>，铜转光是确定趋势；②凸显 Coherent <strong>技术组合最广最深</strong>；③<strong>"独立供应商"身份是优势</strong>——无竞争利益冲突，可同时服务超大规模与半导体客户</td></tr>
+    <tr><td>5</td><td>Thomas O'Malley / 巴克莱</td><td>为何现在给长期指引、供应是否有保障</td><td>可见性异常高：<strong>CY27 产能基本订满，客户已在预订 CY28</strong>；LTA 含高质量长期预测；<strong>30 亿/40 亿均有供应协议支撑</strong>，垂直整合 + 自产扩产是关键</td></tr>
+    <tr><td>6</td><td>巴克莱（追问）</td><td>200 亿 LTA 的客户与内容</td><td>"领先 AI 数据中心客户，名字大家都认识"；<strong>核心是 400mW CW 激光器，但卖更高层级方案</strong>；2028 初起量后逐季放量；<strong>预计还会签更多 PhotonLink LTA</strong></td></tr>
+    <tr><td>7</td><td>George Notter / Wolfe</td><td>45% 是否假设限制光模块</td><td><strong>不假设人为限制</strong>；光模块按合理速度增长；PhotonLink、DCI 新品、OCS 放量 + 降本 + InP 爬坡共同支撑</td></tr>
+    <tr><td>8</td><td>Wolfe（追问）</td><td>毛利率能否超过 45%</td><td><strong>看不到结构性障碍</strong>；45% 只是阶段目标（如同当年 42%）；<strong>经营杠杆也会继续改善</strong></td></tr>
+    <tr><td>9</td><td>Gianmarco Conti / 德意志银行</td><td>VCSEL 与 scale-in 机会</td><td>多芯 VCSEL + 多芯光纤；过去一年向数据中心交付 <strong>&gt;7 亿颗 VCSEL</strong>；<strong>能效 1 pJ/bit 行业领先</strong>；VCSEL 先用于 scale-up 的 NPO（2028 初），<strong>scale-in 要到 2029–2030</strong></td></tr>
+    <tr><td>10</td><td>Lee Xu / Bernstein</td><td>scale-up 用 CPO 还是 NPO、用什么光源</td><td><strong>CPO 确定先来</strong>，NPO 紧随；时点 <strong>2027 年底或 2028 年初</strong>；<strong>初期用 InP 高功率 CW</strong>，VCSEL 约 2028 初进入 NPO</td></tr>
+    <tr><td>11</td><td>Jeff（代 Ryan）/ Needham</td><td>内部 vs 外部 InP 比例</td><td><strong>未披露</strong>；<strong>与一年前大致相同</strong>；光模块增速≈InP 产能增速（滞后一季）；<strong>未来几季转向内部</strong>，但永远会保留部分外采</td></tr>
+    <tr><td>12</td><td>Papa Sylla / 花旗</td><td>15,000 美元能拿到多少</td><td>取决于客户与项目；<strong>有的拿绝大部分、有的只拿一部分，两种情况都会并存</strong>；对 Coherent <strong>全是新增</strong>（铜转光），尤其未来由 scale-up 驱动</td></tr>
+    <tr><td>13</td><td>Cody Acree / StoneX</td><td>45% 各因素贡献排序</td><td><strong>新产品放量 + 6 英寸杠杆 &gt; 定价优化 &gt; 降本</strong>；定价优化在数据中心通信与工业都有空间</td></tr>
+    <tr><td>14</td><td>Karl Ackerman / 法巴</td><td>客户是否为产能预付</td><td><strong>是，几乎每份 LTA 都这样</strong>：预付款或 NRE，用于<strong>资助为该客户建产能的 capex</strong>；客户"非常愿意"，<strong>降低自身资本风险</strong></td></tr>
+    <tr><td>15</td><td>Meta Marshall / 摩根士丹利</td><td>6 英寸与 3 英寸衬底供应</td><td><strong>供应商 &gt;5 家、多家签 LTA</strong>；<strong>CY27 底翻倍所需衬底已锁定</strong>；2027 之后扩产的衬底也在落实</td></tr>
+    <tr><td>16</td><td>Sean O'Loughlin / TD Cowen</td><td>InP 与 GaAs 设备通用性</td><td>有一定通用性但<strong>不易切换</strong>；<strong>GaAs 产能巨大，年产 &gt;10 亿颗 VCSEL</strong>；若 VCSEL 快速放量，"<strong>行业内恐怕没有公司比 Coherent 更有能力供应</strong>"</td></tr>
+    <tr><td>17</td><td>Ananda Baruah / Loop Capital</td><td><strong>2028 年是否供过于求</strong></td><td><strong>看不到风险</strong>：需求来自<strong>可插拔 + DCI + 集成光学</strong>三重叠加；且<strong>自产 InP 全部自用、不对外销售</strong>，外部过剩对自身影响有限</td></tr>
+  </tbody>
+</table>
+
+<h3>9.11 电话会相对文章的七个增量（以及两处要留意的口径）</h3>
+
+<div class="box blue">
+  <ol>
+    <li><strong>英伟达订单落地到"本季出货"</strong>：400mW CW 激光器<strong>本季开始为英伟达贡献收入</strong>。原文只说"CPO 400mW 只看到 Lumentum 一个对手"，电话会补上了"<strong>已经卖进去了</strong>"。</li>
+    <li><strong>PhotonLink 从"平台"变成"有 TAM、有单价、有时间表"</strong>：2030 年 CPO+NPO+芯片间 <strong>≈300 亿美元</strong>、整体 <strong>≈900 亿美元</strong>、单颗 100Tbps 芯片 <strong>≈1.5 万美元</strong>、单季 &gt;1 亿 → &gt;2.5 亿 → 数十亿。</li>
+    <li><strong>多了一个"首个 30 亿 / 40 亿单季"的硬目标</strong>：这是原文完全没有的，也是今后<strong>最好用的打分标尺</strong>。</li>
+    <li><strong>LTA 的"预付款/NRE"机制</strong>：客户共担资本开支，<strong>直接削弱了原文对"capex 压制现金流"的担忧强度</strong>。</li>
+    <li><strong>45% 只是阶段目标</strong>：管理层称<strong>看不到结构性障碍</strong>阻止继续上行，且 42% 目标曾<strong>提前 18 个月以上完成</strong>——这提高了 45% 指引的可信度。</li>
+    <li><strong>"2028 供过于求"被正面否认</strong>：理由不是"需求好"，而是<strong>结构性</strong>的——自产全自用、不外销，且需求有三重来源。</li>
+    <li><strong>VCSEL 是隐藏的第二张牌</strong>：年产 <strong>&gt;10 亿颗</strong>、过去一年交付 <strong>&gt;7 亿颗</strong>、能效 <strong>1 pJ/bit</strong>；若行业从 InP CW 部分转向 VCSEL，<strong>Coherent 是产能最大的受益者</strong>——这是原文风险清单里"VCSEL 分流需求"的<strong>反向解读</strong>。</li>
+  </ol>
+</div>
+
+<div class="box red">
+  <h4>两处口径差异，别被数字带跑</h4>
+  <ul>
+    <li><strong>CPO 合作数量</strong>：发言稿"&gt;10 项"，问答"&gt;20 项"。建议以 <strong>10 项</strong>为基准。</li>
+    <li><strong>毛利率目标时点</strong>：CFO 说"<strong>2028 年底之前</strong>"，CEO 在问答中说"<strong>2028 自然年年底之前</strong>"。两者一致，但注意是<strong>自然年</strong>而非财年——比 FY2028（2028 年 6 月）<strong>晚约半年</strong>。</li>
+  </ul>
+</div>
+
+<!-- ========== 10 ========== -->
+<h2><span class="num">10</span>投资映射：从原文观点到美股 / ETF 的可执行表达</h2>
+
+<div class="box blue">
+  <h4>先划清界限</h4>
+  <p>本节分三类内容，请务必区分：<strong>【原文】</strong>= 海豚君在财报点评中的明确判断；<strong>【电话会】</strong>= 管理层在 2026-11-04 电话会上的口径（属公司自述，需打折看）；<strong>【映射】</strong>= 我基于前两者做的产业链推演，<strong>不是原文观点，也不构成推荐</strong>。原文<strong>没有给出目标价、没有给出当前股价</strong>，只给了 <strong>15–30 倍 P/E 历史区间</strong>与"<strong>市值距高点回撤超 50%</strong>"两个坐标，因此下面的"操作"全部用<strong>估值倍数 / 情景 / 事件</strong>表达，不用价位表达。</p>
+</div>
+
+<h3>10.1 三档情景：把原文估值框架与电话会目标对齐</h3>
+
+<table>
+  <thead><tr><th>情景</th><th>核心假设（原文 + 电话会）</th><th>对应估值含义</th><th>态度</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>中性</strong></td>
+      <td>收入按指引兑现：<strong>2Q 25.5–27.5 亿</strong>、FY27 内单季 <strong>30 亿</strong>、FY28 内 <strong>40 亿</strong>；毛利率沿每季 +0.5pct 爬向 45%（<strong>2Q 指引中值 41%</strong>）</td>
+      <td>当前倍数（历史 15–30x 下沿）<strong>对 Top-Line 已相对谨慎</strong></td>
+      <td>可以看，但<strong>不必追</strong></td>
+    </tr>
+    <tr>
+      <td><strong>乐观</strong></td>
+      <td>6 英寸满产 + 自产替代 + 提价三击，<strong>2028 年底（自然年）单季毛利率 &gt;45%</strong>；<strong>PhotonLink 3 月季度 &gt;1 亿、CY27 底 &gt;2.5 亿</strong>，200 亿 LTA 自 CY28 初起量；<strong>2030 年 300 亿 TAM 逐步兑现</strong></td>
+      <td>光源稀缺性给溢价，倍数有望回到区间中上部</td>
+      <td>属于"<strong>或该享受溢价</strong>"的那一档，但<strong>依赖行业 beta</strong></td>
+    </tr>
+    <tr>
+      <td><strong>悲观</strong></td>
+      <td><strong>2028E 毛利率仅 41%</strong>：InP 紧缺提前缓解 + 价格战 + capex 压制现金流未转化毛利 + 良率爬坡不及预期；<strong>30 亿/40 亿里程碑落空</strong></td>
+      <td>盈利与倍数双杀</td>
+      <td><strong>把这一档当作买入参考点</strong>——"<strong>估值接近悲观情形时再分批布局</strong>"</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="src">数据来源：原文"如何给 Coherent 估值"一节 + FY1Q27 电话会管理层表述。情景假设为原文设定与电话会指引的组合，非本报告预测。</p>
+
+<h3>10.2 直接标的：Coherent（COHR）</h3>
+
+<div class="box purple">
+  <p><span class="tag hold">原文立场：中性偏积极</span><span class="tag gray">不追高</span><span class="tag core">等悲观情形分批</span></p>
+  <ul>
+    <li><strong>多头逻辑（原文）</strong>：订单排到 CY28 + 合同负债 5.3 倍 = 收入确定性；毛利率 40.6% 且指引上调至 45% = 盈利质量改善；6 英寸 InP 红利未兑现 = 还有 4 个多点的成本空间；第二大光源厂 = 稀缺资产应享溢价。</li>
+    <li><strong>多头逻辑（电话会增量）</strong>：<strong>FY27 内单季 30 亿、FY28 内单季 40 亿</strong>的硬目标；<strong>PhotonLink 3 月季度 &gt;1 亿美元</strong>且 2030 年 TAM ≈300 亿；<strong>400mW CW 本季起为英伟达出货</strong>；<strong>LTA 含客户预付款/NRE</strong>，capex 由客户共担；EPS 同比 <strong>+80%</strong>，利润增速快于收入。</li>
+    <li><strong>空头逻辑（原文 + 电话会）</strong>：InP 供需拐点难判、模块壁垒有限、DSP 受台积电约束、capex 吞噬现金流；<strong>本次财报对倍数提振有限</strong>；电话会的"2028 不过剩"属<strong>利益相关方判断</strong>，需外部价格验证。</li>
+    <li><strong>可执行的做法（原文口径）</strong>：<strong>不在财报后追 8% 的盘后涨幅</strong>，而是<strong>等估值回到"2028E 毛利率 41%"的悲观定价附近，分批建仓</strong>。这与"市值已从高点腰斩、P/E 处历史区间下沿"的位置是自洽的——即<strong>下行空间被估值压缩，但上行需要行业 beta 配合</strong>。</li>
+    <li><strong>仓位思路（映射，非原文）</strong>：作为<strong>卫星仓</strong>而非核心仓，单一标的控制在组合的 <strong>3%–5%</strong>，分 <strong>3 批</strong>：<strong>首批</strong>在悲观情形估值附近（或当前倍数下沿小仓试错）；<strong>二批</strong>等 <strong>PhotonLink 单季破 1 亿美元 + 毛利率连续两季 ≥+0.4pct</strong>；<strong>三批</strong>等 <strong>FCF 转正或资本开支见顶</strong>。任一批的触发条件被证伪，则停止加仓而非摊薄。</li>
+  </ul>
+</div>
+
+<h3>10.3 产业链相关美股：谁被原文"点名"</h3>
+
+<table>
+  <thead><tr><th>标的</th><th>产业链位置</th><th>原文如何提及</th><th>映射观点（非原文）</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>COHR</strong><br><span class="src">Coherent</span></td>
+      <td>InP 光源 + 光模块 + OCS/CPO 全栈</td>
+      <td>全文主角；"市场第二大光源厂商，或该享受溢价"</td>
+      <td><span class="tag hold">中性偏积极</span>基本面过关、估值下沿，<strong>等悲观情形分批</strong></td>
+    </tr>
+    <tr>
+      <td><strong>LITE</strong><br><span class="src">Lumentum</span></td>
+      <td>光源 / CW 激光器；CPO 400mW 唯一对手</td>
+      <td>"<strong>CPO 用的 400mW 超高功率 CW 激光器只看到一家竞争对手（Lumentum）</strong>"；"<strong>Marvell 溢价收购 Lumentum</strong>"；电话会被<span class="tag gray">直接问及</span>"Lumentum 与 Marvell <strong>拟议中的整合</strong>"</td>
+      <td><span class="tag hold">观察</span>若并购交易推进，<strong>定价逻辑会从成长股切到并购套利</strong>（价差 + 交割风险），不宜按成长框架追高；若交易失败，则回到"光源稀缺"独立定价。<strong>"拟议中"意味着交易尚未落定，二元风险高</strong></td>
+    </tr>
+    <tr>
+      <td><strong>MRVL</strong><br><span class="src">Marvell</span></td>
+      <td>DSP / 定制芯片；通过收购补光源</td>
+      <td>"Marvell <strong>溢价收购 Lumentum 的动机</strong>印证了激光器芯片及 InP 产能最值钱"</td>
+      <td><span class="tag hold">中性</span>垂直整合方向正确，但<strong>溢价、整合、稀释</strong>是短期压力；本质是"用现金买确定性"</td>
+    </tr>
+    <tr>
+      <td><strong>FN</strong><br><span class="src">Fabrinet</span></td>
+      <td>光模块纯代工</td>
+      <td>"<strong>Fabrinet 式的纯代工模式或许也有机会</strong>"（因 CPO 设计交还交换芯片厂）</td>
+      <td><span class="tag hold">观察</span>代工是"壁垒低但确定性高"的生意，<strong>弹性小于光源，稳定性好于模块</strong></td>
+    </tr>
+    <tr>
+      <td><strong>AVGO</strong><br><span class="src">Broadcom</span></td>
+      <td>交换芯片 / DSP / CPO 设计主导方</td>
+      <td>原文称"<strong>CPO 的设计环节基本交还给交换芯片厂</strong>，而后者又是可插拔模块的主要下游"</td>
+      <td><span class="tag buy">逻辑受益</span>CPO 化把价值量往交换芯片侧搬，<strong>是"模块壁垒下降"的另一面赢家</strong></td>
+    </tr>
+    <tr>
+      <td><strong>NVDA</strong><br><span class="src">NVIDIA</span></td>
+      <td>需求锚 / <strong>首个 PhotonLink 锚定客户（已确认）</strong></td>
+      <td>原文："对手方是<strong>英伟达之外的第二个锚定客户</strong>"；电话会确认：<strong>2026 年 3 月已与英伟达签 LTA</strong>，且 <strong>400mW CW 激光器本季开始为英伟达出货</strong></td>
+      <td><span class="tag core">需求源</span>不做弹性判断，作为<strong>光通信链条的 beta 来源</strong>；但"英伟达 CPO 路线一旦推迟"就是整条链的最大单点风险</td>
+    </tr>
+    <tr>
+      <td><strong>TSM</strong><br><span class="src">台积电</span></td>
+      <td>DSP 先进制程代工</td>
+      <td>"<strong>DSP 受台积电先进制程产能约束</strong>，是供给端的另一重不确定性"</td>
+      <td><span class="tag core">瓶颈方</span>约束方=议价方，<strong>光通信越紧、它越受益</strong></td>
+    </tr>
+    <tr>
+      <td><strong>AMKR / ASX</strong><br><span class="src">Amkor / 日月光</span></td>
+      <td>半导体封测（CPO 光学耦合承接方）</td>
+      <td>"<strong>核心环节（光学耦合）向半导体封测厂转移</strong>"</td>
+      <td><span class="tag hold">主题观察</span>方向明确但<strong>兑现节奏最不确定</strong>，属"故事早期"</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">说明：原文明确点名的只有 COHR、Lumentum、Marvell、Fabrinet、英伟达（隐含）、台积电（DSP 约束）、源杰科技/光迅科技（国产竞争）。AMKR/ASX、AVGO 的"受益"判断为本报告基于原文逻辑的推演，非原文观点。</p>
+
+<div class="box red">
+  <h4>被原文当作"风险"而非"机会"的两家中国公司</h4>
+  <p>原文把 <strong>源杰科技、光迅科技</strong> 的 <strong>EML / CW 激光器放量</strong>，列为"<strong>缓解光源紧缺</strong>"的力量之一，也就是 <strong>Coherent 定价权的对手盘</strong>。映射到美股：<strong>这两家 A 股公司的扩产进度，是 COHR/LITE 估值最直接的下行催化</strong>。做多光源稀缺性的人，必须同时跟踪这条"对手盘"的产能曲线。</p>
+</div>
+
+<h3>10.4 ETF 映射：没有"纯光通信"ETF，只能分层表达</h3>
+
+<p>原文没有提任何 ETF。以下为映射推演，按"暴露纯度"从高到低排：</p>
+
+<table>
+  <thead><tr><th>ETF</th><th>类型</th><th>与本文的关联</th><th>适用场景</th><th>注意事项</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>IGN</strong><br><span class="src">iShares 北美科技-多媒体网络</span></td>
+      <td>行业（网络设备/光网络）</td>
+      <td>最贴近"光通信 + 交换/路由"的公开工具，成分含光模块、网络设备公司</td>
+      <td>想表达<strong>"AI 网络建设"</strong>而非单押 COHR</td>
+      <td>规模与流动性一般，<strong>权重需查最新披露</strong>；不等于纯光模块</td>
+    </tr>
+    <tr>
+      <td><strong>XTL</strong><br><span class="src">SPDR S&amp;P 电信</span></td>
+      <td>行业（电信服务+设备）</td>
+      <td>含光通信设备类标的，与原文"传统电信也在增长"一条对应</td>
+      <td>表达<strong>"电信+光网络"</strong>混合暴露</td>
+      <td>电信服务权重高，<strong>会稀释光通信弹性</strong></td>
+    </tr>
+    <tr>
+      <td><strong>SMH</strong><br><span class="src">VanEck 半导体</span></td>
+      <td>半导体宽基</td>
+      <td>覆盖 NVDA/AVGO/TSM 等原文点名标的，是"AI 算力+网络"最主流 beta</td>
+      <td><strong>核心仓</strong>：拿行业 beta，不赌单一公司</td>
+      <td>COHR 权重极小，<strong>无法替代个股表达</strong></td>
+    </tr>
+    <tr>
+      <td><strong>SOXX</strong><br><span class="src">iShares 半导体</span></td>
+      <td>半导体宽基</td>
+      <td>同类，成分更均衡、集中度略低</td>
+      <td>核心仓替代方案</td>
+      <td>与 SMH 高度重叠，<strong>二选一即可</strong></td>
+    </tr>
+    <tr>
+      <td><strong>AIQ</strong><br><span class="src">Global X 人工智能与科技</span></td>
+      <td>AI 主题</td>
+      <td>覆盖 AI 基础设施与应用，含光通信/AI 基建链条</td>
+      <td>表达<strong>"AI 基建"</strong>主题而非光通信单环节</td>
+      <td>主题 ETF 成分调整频繁，<strong>易掺入非相关标的</strong></td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">说明：ETF 成分与权重随基金调仓变化，上表只给"暴露逻辑"，不给权重结论；投资前请核对基金最新持仓与费率。数据来源：本报告整理。</p>
+
+<div class="box amber">
+  <h4>ETF 映射的核心结论</h4>
+  <p><strong>光通信是"没有纯 ETF 的赛道"。</strong>想要原文那种"押注光源稀缺性"的暴露，<strong>只能用个股（COHR/LITE）表达</strong>；用 SMH/SOXX 只能拿到 AI 算力的宽基 beta，<strong>与本文论点几乎无关</strong>；用 IGN/XTL 能贴近一些，但要接受<strong>规模小、流动性弱、成分不纯</strong>三个折扣。<strong>换句话说：这篇研报的可执行部分，天然是个股研究，不是 ETF 配置。</strong></p>
+</div>
+
+<h3>10.5 三种风险偏好的组合思路（映射，非原文）</h3>
+
+<div class="three">
+  <div class="box green">
+    <h4>稳健型</h4>
+    <ul>
+      <li>核心：<strong>SMH / SOXX</strong> 打底</li>
+      <li>卫星：<strong>COHR ≤3%</strong></li>
+      <li>方式：只在"悲观情形估值"附近建首仓</li>
+      <li>逻辑：<strong>要 beta，不要个股风险</strong></li>
+    </ul>
+  </div>
+  <div class="box blue">
+    <h4>平衡型</h4>
+    <ul>
+      <li>核心：<strong>SMH</strong> + <strong>AVGO</strong></li>
+      <li>卫星：<strong>COHR 3%–5%</strong>，分 3 批</li>
+      <li>观察：<strong>LITE</strong>（并购进展）</li>
+      <li>逻辑：<strong>光源 + 交换芯片双押</strong>，对冲"模块壁垒下降"</li>
+    </ul>
+  </div>
+  <div class="box red">
+    <h4>进取型</h4>
+    <ul>
+      <li>主仓：<strong>COHR 5%–8%</strong> 分批</li>
+      <li>搭配：<strong>FN / LITE</strong> 小仓位</li>
+      <li>触发：毛利率连续两季 ≥+0.4pct、自产比例上升</li>
+      <li>逻辑：<strong>赌 6 英寸红利兑现 + 45% 毛利率</strong>，接受高波动</li>
+    </ul>
+  </div>
+</div>
+
+<h3>10.6 跟踪清单：验证这份财报与电话会的"14 个观察点"</h3>
+
+<table>
+  <thead><tr><th>#</th><th>观察点</th><th>基准（文章 / 电话会）</th><th>看什么信号</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>季度毛利率斜率</strong></td><td>本季 40.6%（环比 +37bp）；目标每季约 +0.5pct；2Q 指引中值 41%</td><td>连续两季低于 +0.3pct → 45% 指引可信度下降</td></tr>
+    <tr><td>2</td><td><strong>InP 自产 / 外采比例</strong></td><td>未披露，且"与一年前大致相同"；未来几季开始转向内部</td><td>比例上移 = 6 英寸红利进入损益表（<strong>最关键的一条</strong>）</td></tr>
+    <tr><td>3</td><td><strong>合同负债与 1 年以上递延</strong></td><td>5.3 倍于上季；&gt;1 年部分 0.15 → 1.61 亿</td><td>停止增长 = 订单能见度见顶</td></tr>
+    <tr><td>4</td><td><strong>资本开支</strong></td><td>7.76 亿；<strong>2Q 明确继续环比增长</strong></td><td>环比见顶 = 现金流转正的先行信号</td></tr>
+    <tr><td>5</td><td><strong>自由现金流</strong></td><td>−8.68 亿；部分 capex 由客户预付款/NRE 出资</td><td>转正时点 = 估值可以给倍数的时点</td></tr>
+    <tr><td>6</td><td><strong>单季 30 亿美元里程碑</strong></td><td>FY2027 结束前（2027 年 6 月）</td><td>2Q 需 ≥26 亿、Q3 需 ≥28 亿；<strong>连续两季不达标 = 目标失信</strong></td></tr>
+    <tr><td>7</td><td><strong>单季 40 亿美元里程碑</strong></td><td>FY2028 内（2028 年 6 月前）</td><td>从 30 亿到 40 亿需 4 个季度、平均环比约 7.5%</td></tr>
+    <tr><td>8</td><td><strong>PhotonLink 收入</strong></td><td>3 月季度 &gt;1 亿；CY27 底单季 &gt;2.5 亿</td><td>低于 1 亿 = 新曲线推迟，直接影响溢价叙事</td></tr>
+    <tr><td>9</td><td><strong>PhotonLink 200 亿 LTA</strong></td><td>CY28 初开始贡献收入</td><td>提前/延后 = 第二增长曲线节奏</td></tr>
+    <tr><td>10</td><td><strong>苏黎世 6 英寸线</strong></td><td>CY2027 上半年启动</td><td>投产即"规模效应"开始兑现</td></tr>
+    <tr><td>11</td><td><strong>Multi-Rail 放量</strong></td><td>截至 3 月的季度开始放量</td><td>DCI 翻倍逻辑里"尚未计入"的那部分增量</td></tr>
+    <tr><td>12</td><td><strong>OCS 产能与收入贡献</strong></td><td>两个基地扩产；2030 TAM ≥40 亿</td><td>OCS 单独披露收入 = 估值可分部化的信号</td></tr>
+    <tr><td>13</td><td><strong>国产 EML / CW 扩产</strong></td><td>源杰科技、光迅科技正在放量</td><td>放量加速 = 光源定价权削弱</td></tr>
+    <tr><td>14</td><td><strong>DSP 供给 / 2028 供需</strong></td><td>DSP 受台积电约束；CEO 称 2028 前看不到过剩</td><td>行业 EML 现货价、交期，是"由紧转松"的领先指标</td></tr>
+  </tbody>
+</table>
+
+<h3>10.7 一句话把"原文观点"和"映射动作"对上</h3>
+
+<div class="chain">
+  <span class="n">收入确定（订单到 CY28）</span><span class="a">→</span>
+  <span class="n">里程碑：30 亿 → 40 亿 / 季</span><span class="a">→</span>
+  <span class="n">毛利率上行（40.6%→45%）</span><span class="a">→</span>
+  <span class="n">但倍数不扩张（beta 依赖）</span><span class="a">→</span>
+  <span class="n">等悲观情形（28E GM 41%）</span><span class="a">→</span>
+  <span class="n">分批建仓，留安全垫</span>
+</div>
+
+<!-- ========== 11 ========== -->
+<h2><span class="num">11</span>风险清单：原文四点 + 电话会的三条对冲 + 三条"容易漏掉"的</h2>
+
+<h3>11.1 原文明确的四个风险</h3>
+<table>
+  <thead><tr><th>风险</th><th>传导路径</th><th>严重度（原文权重）</th></tr></thead>
+  <tbody>
+    <tr><td><strong>InP 供需由紧转松</strong></td><td>价格下行 → 模块与光芯片盈利能力"明显回落"</td><td><strong>最核心</strong></td></tr>
+    <tr><td><strong>模块环节壁垒有限</strong></td><td>封测厂掌握光学耦合 → 凭产能抢单；CPO 设计回归交换芯片厂 → 模块厂被"上下夹击"</td><td>高</td></tr>
+    <tr><td><strong>DSP 产能约束</strong></td><td>台积电先进制程卡口 → 即使光源足也交不出货</td><td>中高</td></tr>
+    <tr><td><strong>持续大额资本开支</strong></td><td>现金流恶化；若不能转化为毛利率改善，则"投入越多、回报越薄"</td><td>高（需逐季验证）</td></tr>
+  </tbody>
+</table>
+
+<h3>11.2 读这份财报时容易漏掉的三点</h3>
+<div class="box red">
+  <ol>
+    <li><strong>超预期幅度其实很小</strong>：收入高于指引中值 3.1%、板块超一致预期 4.1%、经营利润率超 0.3pct——<strong>都是"小幅超"</strong>。真正驱动盘后 +8% 的是<strong>毛利率指引上调</strong>，说明<strong>市场对 Coherent 的定价焦点已从"增速"切换到"盈利质量"</strong>。这既是好消息（叙事升级），也是风险（一旦毛利率斜率失速，杀的是倍数而不是增速）。</li>
+    <li><strong>毛利率改善的三个来源里，有两个不可持续</strong>：<strong>提价</strong>依赖供需紧张，<strong>良率提升</strong>有天花板；只有<strong>6 英寸自产</strong>是结构性、可持续的。所以真正要盯的是第 2 条观察点（自产比例），不是单季毛利率数字。</li>
+    <li><strong>合同负债 5.3 倍是"双刃剑"</strong>：它证明订单真实，但也意味着<strong>未来几个季度的收入已被"预定"</strong>——如果某个季度收入超预期，可能只是"交付节奏前移"，而非需求加速；反之亦然。</li>
+  </ol>
+</div>
+
+<h3>11.3 电话会的三条对冲：哪些风险被"部分证伪"了</h3>
+
+<table>
+  <thead><tr><th>原文风险</th><th>电话会给出的对冲证据</th><th>削弱程度</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>资本开支压制现金流</strong></td>
+      <td><strong>LTA 普遍含客户预付款或 NRE</strong>，用于资助为该客户建产能的 capex；客户"非常愿意"，公司称这"<strong>降低自身资本投入的风险</strong>"</td>
+      <td><strong>显著削弱</strong>（风险从股东独担变成与客户共担）</td>
+    </tr>
+    <tr>
+      <td><strong>2028 年 EML / InP 过剩</strong></td>
+      <td>CEO 明确"<strong>看不到风险</strong>"：需求来自<strong>可插拔 + DCI + 集成光学</strong>三重叠加；且<strong>自产 InP 全部自用、不对外销售</strong>，产量甚至不够自用</td>
+      <td><strong>部分削弱</strong>（但这是利益相关方判断，需外部价格验证）</td>
+    </tr>
+    <tr>
+      <td><strong>45% 毛利率目标不可信</strong></td>
+      <td>42% 目标曾<strong>提前约 18 个月以上完成</strong>；6 英寸良率已高于 3 英寸；<strong>45% 只是阶段目标</strong>，"看不到结构性障碍"</td>
+      <td><strong>部分削弱</strong>（执行力有前例，但依赖行业 beta）</td>
+    </tr>
+    <tr>
+      <td><strong>VCSEL 分流 InP 需求</strong></td>
+      <td>被重新定义为<strong>机会</strong>：GaAs 年产 <strong>&gt;10 亿颗</strong>、过去一年交付 <strong>&gt;7 亿颗</strong>、能效 <strong>1 pJ/bit</strong>；若路线切换，Coherent 是产能最大受益者</td>
+      <td><strong>转为中性偏正面</strong>（技术路线风险被产能优势对冲）</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>但对冲不等于消除</h4>
+  <p>电话会所有回应都来自<strong>利益相关方</strong>：CEO 说"看不到 2028 过剩"，同时也在卖 2028 的产能；说"客户愿意预付"，同时也在用这笔钱扩产。<strong>可验证的只有三件事</strong>：①<strong>3 月季度</strong> PhotonLink 是否真做到 &gt;1 亿美元；②毛利率是否真按 +0.4pct/季 走；③FCF 是否在 capex 见顶后转正。<strong>其余都算"管理层叙事"，只能给折价，不能给溢价。</strong></p>
+</div>
+
+<!-- ========== 12 ========== -->
+<h2><span class="num">12</span>总结一下</h2>
+
+<div class="box blue">
+  <p><strong>第一，这份财报是"质量优于速度"。</strong>23.7 亿美元收入、同比 +50%、环比 +16%，只比指引中值高 3.1%，属于"预期内的不错"；真正超预期的是<strong>毛利率 40.6%（同比 +1.8pct、环比 +0.4pct）</strong>，以及在 1.6T 新品爬坡期<strong>没有出现"增收不增利"</strong>。</p>
+  <p><strong>第二，确定性的三层锁。</strong>短期看 2Q 指引（数据中心与通信继续环增、同增强劲）；中期看<strong>订单排到 CY28、长协签到 2030 前后</strong>；财务上看<strong>合同负债 5.3 倍、一年以上递延从 0.15 亿跳到 1.61 亿</strong>；再加 <strong>PhotonLink 五年 200 亿美元长协（第二个锚定客户，CY28 初起量）</strong>——收入端的能见度是这份财报里最不需要担心的事。</p>
+  <p><strong>第三，毛利率的"未兑现期权"是 6 英寸 InP。</strong>长期目标从 42% 上调到 45%（2028 年底前单季），路径按贡献排序是<strong>高毛利新品 + 6 英寸满产规模效应 &gt; 提价 &gt; 降本</strong>；而目前<strong>自产/外采比例与一年前相同</strong>、<strong>自有产能翻倍却全被模块增长吃掉</strong>——红利还没进报表。6 英寸良率已高于 3 英寸、单炉产出 2.5 倍，一旦 CY27 年底产能再翻倍并转向自产，成本优势是结构性的。</p>
+  <p><strong>第四，核心矛盾是 InP 供需拐点。</strong>市场一边怕紧缺限制出货，一边怕中国厂商扩产导致 EML 过剩打价格战。公司五点回应（自产翻倍且提前一季、衬底锁定 5 家以上、自产全自用不外销、CY28 前看不到过剩、400mW CW 只有 Lumentum 一个对手）指向"供给仍紧"，但<strong>InP 扩产、CW 硅光降低单模块用量、VCSEL 分流、源杰/光迅放量</strong>这四股力量正在悄悄改变格局——<strong>一旦由紧转松，模块与光芯片盈利能力将明显回落</strong>。</p>
+  <p><strong>第五，现金流是"主动的负"，但要验证。</strong>经营 −0.93 亿、存货环比 +7.6 亿（半成品 +4.5 亿）、资本开支 7.76 亿且 2Q 继续升、FCF −8.68 亿。有订单和长协托底，但"不牺牲利润率、不引发营运资本紧张、不出现认证延迟"这三件事仍需逐季验证。</p>
+  <p><strong>第六，估值：便宜在区间下沿，但缺乏扩张催化。</strong>2023 年以来 P/E 大致 <strong>15–30 倍</strong>，当前接近<strong>下沿</strong>；中性假设下 Top-Line 估值已相对谨慎；<strong>悲观假设 2028E 毛利率 41%</strong>（隐含 InP 提前缓解、价格恶化、capex 未转化毛利、良率不及预期）。作者结论是<strong>本次财报对倍数提振有限，毛利率上调最核心但兑现依赖行业 beta，建议在估值接近悲观情形时分批布局、留足安全垫</strong>。</p>
+  <p><strong>第七，电话会补上了三块拼图。</strong>①<strong>把能见度变成里程碑</strong>：FY2027 结束前<strong>单季 30 亿美元</strong>、FY2028 内<strong>单季 40 亿美元</strong>、全年备考增速 <strong>&gt;60%</strong>——今后每季都能直接打分；②<strong>把 PhotonLink 变成可测算的市场</strong>：2030 年 CPO+NPO+芯片间 <strong>≈300 亿美元</strong>、数据中心与通信整体 <strong>≈900 亿美元</strong>、单颗 100Tbps 芯片 <strong>≈1.5 万美元</strong>、收入节奏 <strong>3 月季度 &gt;1 亿 → CY27 底 &gt;2.5 亿 → 数十亿</strong>，且<strong>400mW CW 激光器本季已开始为英伟达出货</strong>；③<strong>把 capex 风险变成客户共担</strong>：LTA 普遍含<strong>预付款 / NRE</strong>，用于资助专用产能建设。</p>
+  <p><strong>第八，落到投资上。</strong>原文没有目标价，只有"倍数区间 + 情景"。映射成动作就是：<strong>COHR 作为卫星仓（3%–5%），不追盘后 8% 的涨幅，等悲观情形估值附近分三批</strong>——首批可在当前"倍数下沿"小仓试错，二批等<strong>PhotonLink 单季破 1 亿 + 毛利率连续两季 ≥+0.4pct</strong>，三批等 <strong>FCF 转正或 capex 见顶</strong>；用 SMH/SOXX 拿 AI 算力 beta，用 AVGO 对冲"模块壁垒下降"，把 LITE 当<strong>并购事件</strong>而非成长股，把源杰/光迅的扩产当作风向标。光通信没有纯 ETF，这个赛道的观点只能用个股表达。</p>
+</div>
+
+<div class="disclaimer">
+  <strong>数据与口径说明</strong>：本报告财务与经营数据来自两份公开材料——①《Coherent：创收、赚钱两不误，继续向光飞奔？》（海豚研究 · 海豚君，2026-11-05）；② Coherent FY2027 Q1 业绩电话会实录（2026-11-04 美东，CEO Jim Anderson / CFO Sherri Luther / IR Paul Silverstein，转写稿经第三方公众号整理）。两份材料未引入第三方行情数据；原文与电话会均未披露具体股价与目标价，因此本报告不含价位判断。凡标注"测算""隐含"的数字（如 30 亿/40 亿目标的季度环比要求、2Q 经营利润率 24.4%）均为本报告基于披露数据的推算，非公司指引；标注【映射】的产业链与 ETF 部分为基于原文与电话会逻辑的推演，不属公司或作者观点。电话会转写稿可能存在个别口误或名称错漏（如提问人姓名、CPO 合作数量 10 项/20 项不一致），引用时已尽量标注。<br><br>
+  ⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。
+</div>
+
+<div class="footer">财报精读 + 电话会实录 · Coherent（COHR）FY1Q27 · 2026-11-05</div>
+
+</div>
+
+<script>
+(function(){
+  var g = echarts.init(document.getElementById('chart-growth'));
+  g.setOption({
+    grid:{left:52,right:24,top:28,bottom:34},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return v+'%';}},
+    xAxis:{type:'category',data:['总收入','数据中心与通信','数据中心','通信'],axisLabel:{color:'#3d4450',fontSize:12},axisLine:{lineStyle:{color:'#e4e7ec'}}},
+    yAxis:{type:'value',axisLabel:{formatter:'{value}%',color:'#6b7280'},splitLine:{lineStyle:{color:'#eef0f3'}}},
+    series:[{
+      type:'bar',barWidth:'46%',
+      data:[
+        {value:50,itemStyle:{color:'#d98a7f'}},
+        {value:79,itemStyle:{color:'#c0392b'}},
+        {value:85,itemStyle:{color:'#a8322a'}},
+        {value:84,itemStyle:{color:'#c0392b'}}
+      ],
+      label:{show:true,position:'top',formatter:'{c}%',color:'#16181d',fontWeight:600,fontSize:12}
+    }]
+  });
+
+  var m = echarts.init(document.getElementById('chart-gm'));
+  var labels=['1Q27','2Q27E','3Q27E','4Q27E','1Q28E','2Q28E','3Q28E','4Q28E','1Q29E','目标'];
+  var vals=[40.6,41.1,41.6,42.1,42.6,43.1,43.6,44.1,44.6,45.0];
+  m.setOption({
+    grid:{left:52,right:24,top:28,bottom:34},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return v+'%';}},
+    xAxis:{type:'category',data:labels,axisLabel:{color:'#3d4450',fontSize:11},axisLine:{lineStyle:{color:'#e4e7ec'}}},
+    yAxis:{type:'value',min:39,max:46,axisLabel:{formatter:'{value}%',color:'#6b7280'},splitLine:{lineStyle:{color:'#eef0f3'}}},
+    series:[{
+      type:'line',smooth:false,
+      data:[{value:40.6,itemStyle:{color:'#c0392b'}}].concat(vals.slice(1).map(function(v){return {value:v,itemStyle:{color:'#c9a6a0'}};})),
+      lineStyle:{color:'#c0392b',width:2.5},
+      symbolSize:7,
+      areaStyle:{color:'rgba(192,57,43,0.06)'},
+      markLine:{silent:true,symbol:'none',data:[{yAxis:45,label:{formatter:'45% 长期目标',position:'insideEndTop',color:'#a86400',fontSize:11},lineStyle:{color:'#a86400',type:'dashed'}}]}
+    }]
+  });
+
+  window.addEventListener('resize',function(){g.resize();m.resize();});
+})();
+</script>
+</body>
+</html>

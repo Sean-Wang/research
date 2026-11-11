@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大摩半导体购物清单：中位股跌 53%，英伟达仍是首选，内存转为进攻方向（双源全文精读 + 2028 延后量化 + 美股/ETF 映射）</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc;
+    --red:#c0392b; --red-soft:#fdeeec; --green:#1e7a4b; --green-soft:#eaf6ef;
+    --amber:#a86400; --amber-soft:#fdf3e3; --purple:#5b3fa8; --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px;}
+  header.top{padding:52px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:30px;line-height:1.34;margin:0 0 12px;letter-spacing:-.01em;font-weight:700;}
+  .sub{font-size:16px;color:var(--ink-2);margin:0 0 18px;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+
+  h2{font-size:22px;margin:52px 0 10px;padding-top:18px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:8px;}
+  h3{font-size:17px;margin:30px 0 8px;font-weight:650;}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+  .src{font-size:12px;color:var(--ink-3);margin:6px 0 0;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.5;}
+  .up{color:var(--red);} .down{color:var(--green);} .neutral{color:var(--ink);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child,.box ol:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--card);}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.3px;color:var(--ink-2);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;}
+  tbody tr:hover{background:#fafbfc;}
+
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0;}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px;}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;}
+  .chart{width:100%;height:330px;}
+
+  .tag{display:inline-block;font-size:11.3px;padding:2px 8px;border-radius:20px;font-weight:600;white-space:nowrap;}
+  .t-bull{background:var(--red-soft);color:var(--red);}
+  .t-bear{background:var(--green-soft);color:var(--green);}
+  .t-mid{background:#eef0f3;color:var(--ink-2);}
+  .t-blue{background:var(--blue-soft);color:var(--blue);}
+  .t-amber{background:var(--amber-soft);color:var(--amber);}
+  .t-purple{background:var(--purple-soft);color:var(--purple);}
+
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 16px;margin:14px 0;color:var(--ink-2);font-style:italic;}
+
+  .rank{display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:wrap;}
+  .rank .n{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-size:12.5px;
+    display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 auto;}
+  .rank .n.g{background:#8a939f;}
+  .rank .t{font-weight:650;min-width:88px;}
+  .rank .d{font-size:13px;color:var(--ink-3);flex:1;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;}
+  .card h4{margin-top:0;}
+  .card p{font-size:13.5px;margin:6px 0;}
+  .card ul{font-size:13.5px;}
+
+  .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);}
+  @media (max-width:820px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .grid2{grid-template-columns:1fr;}
+    h1{font-size:24px;}
+    table{font-size:12.4px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">全文精读 · 双源整合 · 卖方研报解读 · 美股/ETF 映射</div>
+  <h1>大摩半导体购物清单：中位股较高点跌 53%，英伟达仍是首选，内存转为进攻方向</h1>
+  <p class="sub">摩根士丹利北美半导体团队 2026 年 11 月 9 日行业报告《半导体：近期回调后的买入清单》完整拆解——区间框架、<strong>2028 年 5GW 延后的量化影响</strong>、六档强制排序、英伟达首选逻辑、内存进攻逻辑，以及对应的美股与 ETF 载体。合并两个独立中文来源，互补缺口。</p>
+  <div class="meta">
+    <span>原文来源 ①：微信公众号「404K Semi-AI」（原创）2026-11-09 12:27</span>
+    <span>原文来源 ②：富途牛牛圈《半导体跌出机会？大摩最新买入清单出炉，六大赛道谁最值得关注？》2026-11-10 16:10</span>
+    <span>解读对象：Morgan Stanley 北美半导体团队（Joseph Moore 等）2026-11-09 行业观点</span>
+    <span>行情数据基准：2026-11-06 收盘（FactSet）</span>
+    <span>本报告整合：2026-11-11</span>
+  </div>
+</header>
+
+<div class="box blue">
+  <h4>本次整合说明：两个来源各自补了什么</h4>
+  <p>本文基于<strong>两篇独立解读</strong>同一份大摩研报的中文文章合并整理，两篇的信息并不重合，互补关系明显：</p>
+  <table style="margin-top:10px">
+    <thead>
+      <tr><th style="width:150px">来源</th><th>独有信息</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>① 404K Semi-AI</strong></td>
+        <td>26 只股票跌幅明细表（12 家）、六档排序完整表与理由、英伟达三条理由、内存回购测算（闪迪可回购超一半股本）、设备回购授权表（泛林约 11%）、MKS 约 10% 的 2027 年 FCF 收益率、token 与租赁价的原始图表、对"一切都看 2028 年"质疑的正面回应、瓶颈转移风险、算力预付款转负债的提示</td>
+      </tr>
+      <tr>
+        <td><strong>② 富途牛牛圈</strong></td>
+        <td><strong>2028 年 5GW 项目延后至 2029 年（约占 2028 年原定新增项目的 20%）、2028 年新增容量同比 -4%、2029 年反弹 +38%、2027 年不受明显影响的原因、大摩维持 Hyperscalers 资本开支预测、延后的三条正面影响与负面后果、不主张无差别抄底、模拟芯片的需求来源拆分、CPU 排名最后的原因、超额收益向软件与 AI 应用扩散的判断、三个后续跟踪指标</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="src" style="margin-top:10px">两篇对大摩研报的转述若出现方向差异，本报告在第 04.2 节单独说明并给出解释，<strong>不做单边取舍</strong>。</p>
+</div>
+
+<div class="box amber">
+  <h4>先说明四个阅读前提（原文自己交代的，容易被二次传播扭曲）</h4>
+  <ol>
+    <li><strong>这份报告没有给出任何个股目标价</strong>。原文明确写了这一点，所以本文所有价位推演都不是大摩的官方目标价。</li>
+    <li><strong>报告没有提到任何与黄仁勋相关的事件</strong>。原始传播链里"黄仁勋事件后"的字样<strong>不是报告原文内容</strong>，属于转发环节的附加标签，不应作为分析依据。</li>
+    <li><strong>公众号公开版只覆盖到第六节</strong>。原文末尾注明"剩余 30% 章节可以加入知识星球查看"。<strong>本次合并的第二个来源（富途）部分补上了这个缺口</strong>——包括 2028 年 5GW 延后的量化数据、处理器档排名靠后的完整原因、模拟芯片的需求拆分、以及全文结论段。但<strong>26 只股票的完整评级表仍然只有 12 家公开</strong>，缺口在第九节单独标注。</li>
+    <li><strong>大摩同期发的是两篇研报，不是一篇</strong>。富途提到"大摩近期接连发出两篇研报，均认为近期市场对 AI 产业的悲观反应可能过度"。本文聚焦的是 11 月 9 日这篇半导体行业报告，另一篇的内容未在本文覆盖范围内，<strong>不做推测</strong>。</li>
+  </ol>
+</div>
+
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">覆盖 26 只股票较 52 周高点<br>跌幅中位数</div>
+    <div class="val down">-53%</div>
+    <div class="note">平均跌幅 -48%，区间 -11% 至 -77%</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">英伟达跌幅<br>（比中位数少跌 30 个百分点）</div>
+    <div class="val down">-23%</div>
+    <div class="note">对应"偏防御"定位，跌得最少之一</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">子行业强制排序首位<br>（六档中的第 1 档）</div>
+    <div class="val neutral">算力</div>
+    <div class="note">英伟达、博通；内存第 2 档</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">英伟达与博通估值<br>（报告口径）</div>
+    <div class="val neutral">约 9 倍</div>
+    <div class="note">2028 年市盈率；但市值压制倍数</div>
+  </div>
+</div>
+
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">2028 年延后至 2029 年的<br>数据中心新增项目</div>
+    <div class="val down">5 GW</div>
+    <div class="note">约占 2028 年原定新增项目的 20%</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">美国数据中心新增容量<br>2028 年同比</div>
+    <div class="val down">-4%</div>
+    <div class="note">交付量负增长，是"LPS 上限"的具体形态</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">美国数据中心新增容量<br>2029 年同比</div>
+    <div class="val up">+38%</div>
+    <div class="note">延后项目并未取消，只是平移释放</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">2027 年建设规模<br>（政策影响）</div>
+    <div class="val neutral">不受明显影响</div>
+    <div class="note">已开工项目不太可能被大规模中断</div>
+  </div>
+</div>
+
+<h2><span class="num">01</span>一句话结论与全文骨架</h2>
+
+<div class="box blue">
+  <p><strong>报告的核心判断可以压成一句话：业务没坏，跌的是资本市场的信心；所以这是区间底部而非周期顶部，但底部不等于立刻上涨——用英伟达守住下行，用内存去打上行。</strong></p>
+</div>
+
+<p>摩根士丹利北美半导体团队维持北美半导体行业评级 <strong>"具吸引力"（Attractive）</strong>。整篇报告的论证起点不是估值模型，而是一组回撤数据：按 11 月 6 日收盘，其覆盖范围内股票较 52 周高点的<strong>中位数跌幅 53%、平均跌幅 48%</strong>。从这个"已经跌了很多"的事实出发，报告做了三层递进判断：</p>
+
+<table>
+  <thead>
+    <tr><th style="width:104px">层次</th><th style="width:150px">问题</th><th>报告的答案</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>第一层</strong></td>
+      <td>风险到底来自哪里？</td>
+      <td>一部分来自<strong>中期选举</strong>，但更多来自<strong>股价下跌本身的负反馈</strong>以及对<strong>金融传染</strong>的担忧，<strong>而不是业务基本面</strong>。报告原话：<strong>"我们最大的恐惧是恐惧本身。"</strong></td>
+    </tr>
+    <tr>
+      <td><strong>第二层</strong></td>
+      <td>股价接下来怎么走？</td>
+      <td>大概率<strong>区间震荡</strong>。上限由<strong>资本市场热度</strong>和<strong>LPS（土地 Land、电力 Power、厂房 Shell）约束</strong>压制；下限由<strong>近期业务订单</strong>和<strong>长期增长理由</strong>托住。当前<strong>更接近区间底部</strong>，离底部比离顶部更近。<br><span class="src">（补充来源把 LPS 约束量化了：2028 年美国数据中心新增容量同比约 <strong>-4%</strong>，2029 年反弹约 <strong>+38%</strong>，见第 04 节）</span></td>
+    </tr>
+    <tr>
+      <td><strong>第三层</strong></td>
+      <td>那买什么？</td>
+      <td>子行业<strong>强制排序</strong>：算力 → 内存 → 设备 → 模拟 → 网络 → 处理器。英伟达仍是<strong>首选</strong>，但报告明确要求<strong>"打进攻"</strong>，进攻方向是<strong>闪迪（SNDK）和美光（MU）</strong>。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>区间框架：为什么"底部"和"进攻"能同时成立</h3>
+
+<p>这是全文最有价值、也最容易被忽略的结构。报告把影响股价的变量拆成两组，一组<strong>不由半导体公司自己掌控</strong>，一组<strong>正掌握在它们手里且都在走强</strong>：</p>
+
+<div class="grid2">
+  <div class="card">
+    <h4>区间上限（压制项，公司管不了）</h4>
+    <ul>
+      <li><strong>资本市场热度</strong>：资本开支靠股市融资，股市不欢迎，开支意愿就会受影响</li>
+      <li><strong>LPS 约束</strong>：土地、电力、厂房——中期选举后确实出现了新的障碍</li>
+    </ul>
+    <p class="src">这两项决定了股票<strong>涨不上去多高</strong>，而不是会不会跌。</p>
+  </div>
+  <div class="card">
+    <h4>区间下限（支撑项，正在走强）</h4>
+    <ul>
+      <li><strong>近期订单</strong>：积压订单已满额分配，每天仍有大额新订单落进来</li>
+      <li><strong>长期增长理由</strong>：2027 年未满足需求外推到 2028 年</li>
+    </ul>
+    <p class="src">这两项决定了股票<strong>跌不下去多深</strong>，是"底部"判断的实体依据。</p>
+  </div>
+</div>
+
+<div class="box red">
+  <h4>报告自己写明的反方情形（必须保留）</h4>
+  <p>如果市场<strong>不是区间震荡，而是处于见顶的早期</strong>，那么现在这些"跌了很多"的股票就会变成<strong>价值陷阱</strong>。报告之所以仍然坚持区间判断，理由是<strong>大量产业信息显示需求的持续性</strong>——也就是说，这个结论建立在产业调研上，而不是建立在"跌多了就该反弹"的均值回归上。</p>
+</div>
+
+<h2><span class="num">02</span>跌了多少：中位数 53%，英伟达只跌 23%</h2>
+
+<p>报告附图 2 列出了覆盖范围内 <strong>26 只股票</strong>较 52 周高点的跌幅。公开版表格摘取了排序里点名的 12 家公司。这张表承载两个关键信息：<strong>跌幅分化极大</strong>（最少的 Skyworks 只跌 11%，最多的 Cerebras 跌 77%）；<strong>跌幅本身直接对应报告的操作定位</strong>——英伟达跌得少，所以是防御；闪迪跌得多，所以是弹性。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>公司</th>
+      <th class="num">较 52 周高点跌幅</th>
+      <th>摩根士丹利评级</th>
+      <th>在排序中的位置</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>亚德诺（ADI）</td><td class="num down">-18%</td><td>增持</td><td>第 4 档 模拟</td></tr>
+    <tr><td><strong>英伟达（NVDA）</strong></td><td class="num down"><strong>-23%</strong></td><td><strong>增持（首选）</strong></td><td><strong>第 1 档 算力</strong></td></tr>
+    <tr><td>恩智浦（NXPI）</td><td class="num down">-27%</td><td>增持</td><td>第 4 档 模拟</td></tr>
+    <tr><td>AMD</td><td class="num down">-32%</td><td>中性</td><td>第 6 档 处理器</td></tr>
+    <tr><td>博通（AVGO）</td><td class="num down">-41%</td><td>增持</td><td>第 1 档 算力</td></tr>
+    <tr><td>美光（MU）</td><td class="num down">-45%</td><td>增持</td><td>第 2 档 内存</td></tr>
+    <tr><td>Semtech（SMTC）</td><td class="num down">-49%</td><td>中性</td><td>第 5 档 网络</td></tr>
+    <tr><td>SiTime（SITM）</td><td class="num down">-54%</td><td>增持</td><td>第 5 档 网络</td></tr>
+    <tr><td>迈威尔（MRVL）</td><td class="num down">-57%</td><td>中性</td><td>第 5 档 网络</td></tr>
+    <tr><td>英特尔（INTC）</td><td class="num down">-60%</td><td>中性</td><td>第 6 档 处理器</td></tr>
+    <tr><td>Astera Labs（ALAB）</td><td class="num down">-62%</td><td>增持</td><td>第 5 档 网络</td></tr>
+    <tr><td><strong>闪迪（SNDK）</strong></td><td class="num down"><strong>-65%</strong></td><td><strong>增持</strong></td><td><strong>第 2 档 内存</strong></td></tr>
+    <tr><td><strong>覆盖范围中位数</strong></td><td class="num"><strong>-53%</strong></td><td>—</td><td>—</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：摩根士丹利 2026-11-09 报告图 2（FactSet，2026-11-06 收盘）及报告末尾评级表；括号内代码为本报告补注。</p>
+
+<div class="chart-card">
+  <div class="ct">主要覆盖股较 52 周高点跌幅（报告点名个股）</div>
+  <div class="cs">跌幅越靠右越深；红色标注为报告明确给出的"防御端"与"进攻端"两端</div>
+  <div id="c1" class="chart"></div>
+</div>
+
+<div class="box purple">
+  <h4>这张表真正的用法：跌幅就是仓位语言</h4>
+  <ul>
+    <li><strong>英伟达 -23%</strong>，比中位数少跌 <strong>30 个百分点</strong>（按两数直接相减）。这个"跌得少"不是缺点，而是报告把它定位为<strong>偏防御</strong>的直接证据——市值太大、倍数被压住，跌不动也涨不快。</li>
+    <li><strong>闪迪 -65%</strong>，跌幅位于覆盖范围<strong>后段</strong>。报告正是把这个深度回撤当作"内存风险回报开始变得有利"的<strong>起点</strong>——同样的基本面，起点低 42 个百分点，反弹时的价格弹性完全不同。</li>
+    <li><strong>美光 -45%</strong>，处在中位数附近，弹性介于两者之间。</li>
+    <li>报告对闪迪和美光的偏好表述为<strong>"大致相同"</strong>，并没有做二选一。</li>
+  </ul>
+</div>
+
+<h2><span class="num">03</span>为什么说接近底部：华尔街和硅谷的分歧</h2>
+
+<p>报告<strong>承认自己无法判断绝对底部，也不打算判断</strong>。它的论据是"业务和股价之间的反差"——分需求端、约束端、资本端三块展开，另外专门回应了"一切都看 2028 年了"这个流行质疑。</p>
+
+<h3>3.1 需求端：不只是维持，而且在加速</h3>
+<ul>
+  <li>与半导体客户交流下来，<strong>业务异常强劲，并且大概率持续</strong>。</li>
+  <li><strong>资本充足的公司愿意连续多年支出</strong>——不是一年一议，而是多年承诺。</li>
+  <li>就连<strong>承担高额无担保利率的新兴云厂商</strong>，也<strong>难以把所需算力装进已有的机房空间</strong>——需求溢出不是钱的问题，是物理空间的问题。</li>
+  <li><strong>2027 年目前未被满足的需求会推到 2028 年</strong>，使 2028 年的前景<strong>"在这么早的时间点上看起来已经尽可能好"</strong>。</li>
+  <li>业务基调<strong>不只是在维持，而且在加速</strong>：<strong>每天都有大额新订单落在已经满额分配的积压订单上</strong>。这一条最硬——订单簿已经排满，还在往上加。</li>
+</ul>
+
+<h3>3.2 约束端：LPS 是新障碍，但不是 2027 年的最大挑战</h3>
+<p>这是全文对空头最正面的一次回应。报告没有否认 LPS 问题，而是重新定义了它的性质：</p>
+<ul>
+  <li><strong>确实出现了新障碍</strong>：中期选举之后，<strong>俄亥俄、得克萨斯等州</strong>的计划部署<strong>有放缓威胁</strong>，可能<strong>扰乱单个项目</strong>。<span class="src">（第二个来源补上了规模：约 5GW 由 2028 年延后至 2029 年，占原定 2028 年新增项目约 20%，详见第 04 节）</span></li>
+  <li><strong>但行业正在快速适应</strong>：很快转向<strong>美国以外、或美国境内更开放的州</strong>去寻找 LPS。</li>
+  <li><strong>买方的真实感受</strong>：LPS <strong>仍不是 2027 年最大的挑战</strong>，因为<strong>没有足够的半导体去填满已经获得许可的空间</strong>——地有了、电有了、厂房许可有了，缺的是芯片。</li>
+  <li><strong>拥有供需模型的买方</strong>仍认为，<strong>直到 2028 年都会受半导体供给约束</strong>。</li>
+</ul>
+<div class="quote">报告的落脚点很反直觉：<strong>瓶颈不是空头所说的威胁，恰恰是增长一直持续、稳定的原因。</strong></div>
+
+<h3>3.3 资本端：真正的风险在资本市场，不在订单簿</h3>
+<ul>
+  <li>资本开支<strong>由资本市场融资</strong>，因此<strong>跨资产类别的传染值得关注</strong>。</li>
+  <li>如果<strong>股市不再欢迎资本开支的增加</strong>，可能<strong>开始影响支出意愿</strong>——这是从股价到基本面的传导链。</li>
+  <li>报告指出，这个风险在<strong>解放日之后、中东冲突期间都是最大的风险，现在仍然是</strong>。</li>
+</ul>
+<p class="src">换句话说：报告担心的从来不是"AI 需求是不是假的"，而是"融资窗口会不会关上"。这两件事的性质完全不同。</p>
+
+<h3>3.4 专门回应"一切都看 2028 年了"</h3>
+<p>这个质疑的意思是：近端已经充分定价，所有故事都在 2028 年，太远了。报告认为<strong>这个说法合理，但并不致命</strong>，理由是一个交易行为学观察：</p>
+<ul>
+  <li><strong>半导体交货周期最多 12 个月</strong>。所以投资者一旦对未来 12 个月放心，就必然<strong>转而争论第 13 到 24 个月</strong>——这是结构性焦虑，不是这轮独有。</li>
+  <li><strong>历史类比</strong>：2023 年底投资者对 2024 年放心之后，股票也曾因为"一切都看 2025 年"而下跌。</li>
+  <li>报告同时承认：<strong>总有一年，这种焦虑会是对的。</strong>（这句话很关键——它没有把风险一笔抹掉。）</li>
+</ul>
+
+<h3>3.5 华尔街 vs 硅谷：落差是"见过最大的"</h3>
+<div class="quote"><strong>"华尔街的担忧和硅谷的乐观之间的落差，是我们见过最大的。"</strong></div>
+<p>报告用三组高频数据支撑这个判断：</p>
+<ul>
+  <li><strong>总 token 用量周度指数持续陡峭上升</strong>——从 2025 年初的基准 0 附近，一路加速到 2026 年 10 月约 <strong>167</strong>（指数化口径）。</li>
+  <li><strong>总 token 支出近几个月加速，并回到历史高点。</strong></li>
+  <li><strong>B300、B200、H100 的租赁中位价格在过去一年整体上行</strong>——其中 B300 的租赁中位价从约 <strong>5000 美元/小时</strong> 抬升到 <strong>9000 美元/小时以上</strong>（报告图表口径）。</li>
+</ul>
+
+<div class="chart-card">
+  <div class="ct">总 token 用量周度指数（指数化）</div>
+  <div class="cs">据报告附图读取的近似月度值，仅示趋势形态，非逐周精确数据</div>
+  <div id="c2" class="chart"></div>
+</div>
+
+<div class="chart-card">
+  <div class="ct">NVIDIA B300 租赁中位价（美元/小时）</div>
+  <div class="cs">据报告附图读取的近似月度值，用于展示方向与台阶式抬升，非逐日精确报价</div>
+  <div id="c3" class="chart"></div>
+</div>
+
+<div class="box amber">
+  <h4>由此推出的交易观点（原文明确写了，很值得记住）</h4>
+  <p>如果把<strong>资本市场的乐观情绪当作看多的核心依据</strong>，并以它为指引，结果会是<strong>在热情最高时买入、在情绪最低时卖出</strong>——<strong>这不是能产生超额收益的策略</strong>。</p>
+  <p>这句话其实是整篇报告的方法论声明：<strong>用产业数据（token、租赁价、订单簿）判断方向，用资本市场情绪判断位置</strong>。而当前的位置是——情绪在低位，产业在高位。</p>
+</div>
+
+<h2><span class="num">04</span>2028 年延后 5GW：把"建设放缓"从担忧变成数字</h2>
+
+<p>404K 的公开版只讲了"俄亥俄、得州计划部署有放缓威胁，可能扰乱单个项目"，<strong>没有给规模</strong>。富途这篇补充了大摩的量化口径——这是本次合并中最重要的一块增量，因为它把"放缓"从一个模糊的担忧变成了<strong>可以定价的数字</strong>。</p>
+
+<h3>4.1 三个时间点的分工：2027 不受影响，2028 才是真变化</h3>
+
+<table>
+  <thead>
+    <tr><th style="width:96px">时间</th><th style="width:230px">大摩判断</th><th>依据</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>2027</strong></td>
+      <td><strong>建设规模预计不会受到明显影响</strong></td>
+      <td>新上任的州长<strong>不太可能大规模中断已经开工的项目</strong>。政策风险打在"未开工"的增量上，打不到"已开工"的存量上</td>
+    </tr>
+    <tr>
+      <td><strong>2028</strong></td>
+      <td>约 <strong>5GW</strong> 新增项目由 2028 <strong>延后至 2029</strong>，约占原定 2028 年美国新增项目的 <strong>20%</strong>；美国数据中心新增容量<strong>同比下降约 4%</strong></td>
+      <td>德州、俄亥俄等州的审批与政策变化，影响集中在 2028 年交付的增量项目</td>
+    </tr>
+    <tr>
+      <td><strong>2029</strong></td>
+      <td>新增容量<strong>反弹约 38%</strong></td>
+      <td>延后的 5GW 并未消失，只是<strong>平移</strong>到 2029 年释放</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：富途牛牛圈 2026-11-10 文章转述的摩根士丹利 2026-11-09 研报预测（原文标注"来源：摩根士丹利"）。</p>
+
+<div class="chart-card">
+  <div class="ct">美国数据中心新增容量同比变化（大摩预测）</div>
+  <div class="cs">2027 年"不受明显影响"未给具体增速，故不画柱；核心是 2028 的 -4% 与 2029 的 +38% 形成的"深坑后反弹"</div>
+  <div id="c4" class="chart"></div>
+</div>
+
+<div class="box blue">
+  <h4>这组数字为什么关键：它同时解释了"上限"和"下限"</h4>
+  <ul>
+    <li><strong>2028 年 -4% 就是"区间上限"的具体形态</strong>。404K 版说上限由"资本市场热度 + LPS 约束"压制，富途这组数据把"LPS 约束"翻译成了一个产能数字——<strong>新增容量负增长</strong>。这不是情绪，是物理交付量。</li>
+    <li><strong>2029 年 +38% 就是"区间下限"的来源</strong>。需求没有消失，只是被推迟。这也是大摩<strong>维持超大规模云厂商（Hyperscalers）资本开支预测不变</strong>的原因——钱还在预算里，只是花出去的时点后移。</li>
+    <li><strong>结论：不是 AI 投资周期提前结束，而是资本开支周期被拉长。</strong>这是两个完全不同的投资含义——周期结束要减仓，周期拉长只是把估值的时间轴拉长。</li>
+  </ul>
+</div>
+
+<h3>4.2 延后有正面影响——而且其中一条正好印证了 B300 租赁价</h3>
+
+<table>
+  <thead>
+    <tr><th style="width:190px">正面影响</th><th>传导逻辑</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>改善供应链供需平衡</strong></td>
+      <td>交付节奏放缓 → 上游不至于被"一次性拉爆"，短缺的持续时间被延长而不是被缩短</td>
+    </tr>
+    <tr>
+      <td><strong>减轻短期融资压力</strong></td>
+      <td>资本开支的现金流出被摊平，对靠资本市场融资的云厂商是缓释——这正好对冲了 404K 版里"真正的风险在资本市场"那一条</td>
+    </tr>
+    <tr>
+      <td><strong>提高现有算力资产的租赁价值</strong></td>
+      <td>新机房交付变慢 → <strong>存量算力更稀缺</strong> → 租金上行。这与 404K 版给出的"B300 租赁中位价从约 5000 美元/小时升到 9000 美元/小时以上"是<strong>同一件事的两面</strong>：不是需求突然爆发，而是新增供给被卡住了</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box green">
+  <h4>把两个来源拼起来，会得到一个原文都没明说的推论</h4>
+  <p>404K 版说：<strong>2027 年未被满足的需求会推到 2028 年，使 2028 年的前景"在这么早的时间点上看起来已经尽可能好"</strong>。<br>
+  富途版说：<strong>2028 年有 5GW 延后到 2029 年，美国新增容量同比 -4%</strong>。</p>
+  <p>这两句话方向相反，但可以同时成立——因为它们说的不是同一件事：<strong>前者说的是芯片需求（订单簿），后者说的是机房容量（交付量）</strong>。拼起来的图景是：<strong>2028 年可能出现"芯片到货了、机房还没好"的错配</strong>。</p>
+  <p>如果这个错配真的发生，直接后果就是<strong>存量算力租金继续上行</strong>（对应正面影响第三条），而<strong>上游设备与零部件的订单会在 2028 年出现真空</strong>（对应负面影响）。这恰好解释了报告为什么把设备排在算力之后、却仍然给增持——<strong>设备要熬过一个订单空窗期，所以它需要靠回购来支撑股价</strong>。这条推论是本报告基于两个来源的推断，不是大摩原文。</p>
+</div>
+
+<h3>4.3 负面影响：为什么大摩不主张"无差别抄底"</h3>
+<ul>
+  <li><strong>2028 年部分上游供应商</strong>会面临：<strong>订单增长放缓、库存累积、定价能力下降</strong>。</li>
+  <li>因此大摩明确<strong>不主张无差别抄底 AI 股</strong>，而是强调选择<strong>具备规模优势、资金实力及估值吸引力</strong>的企业。</li>
+</ul>
+<p>这条"不主张无差别抄底"非常重要——它把整份报告从"跌多了就买"的均值回归逻辑，拉回到<strong>结构性选股</strong>逻辑。这也解释了为什么同样是跌 60%，英特尔是中性、闪迪是增持：<strong>跌得多不构成买入理由，跌得多 + 有回购 + 瓶颈未转移才构成</strong>。</p>
+
+<h2><span class="num">05</span>六档强制排序：不是比谁业务好，是比谁"业务与估值的差距"大</h2>
+
+<p>报告说<strong>所有子行业都有吸引力</strong>，但既然要做选择，就必须排序。排序依据只有两条，而且都很"反景气投资"：</p>
+
+<div class="grid2">
+  <div class="card">
+    <h4>依据一：瓶颈交易（Bottleneck Trade）</h4>
+    <p>把<strong>凭自身处于供给瓶颈而获得超额盈利</strong>的品种归为一类。这类公司的超额利润<strong>最受 LPS 影响</strong>——因为 LPS 一旦成为真瓶颈，利润就会从半导体环节转移到土地/电力/厂房环节。</p>
+  </div>
+  <div class="card">
+    <h4>依据二：估值与预期的计入程度</h4>
+    <p>各子行业<strong>已经计入的估值和预期差异很大</strong>。同样强的基本面，谁的价格里装的乐观更少，谁就排在前面。</p>
+  </div>
+</div>
+
+<div class="quote">报告的原话逻辑是：<strong>这份排序不是在比谁的业务更好，而是在比谁的业务和估值之间的差距更大。</strong></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:44px" class="num">排序</th>
+      <th style="width:116px">子行业</th>
+      <th style="width:190px">点名公司</th>
+      <th>报告给出的核心理由</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="num"><strong>1</strong></td>
+      <td><strong>GPU/XPU 算力</strong></td>
+      <td>英伟达、博通</td>
+      <td>需求很强；<strong>无晶圆厂模式在需求转弱时限制利润率压缩</strong>；两家均约 <strong>9 倍 2028 年市盈率</strong></td>
+    </tr>
+    <tr>
+      <td class="num"><strong>2</strong></td>
+      <td><strong>内存</strong></td>
+      <td>闪迪、美光</td>
+      <td><strong>倍数压缩后风险回报转为有利</strong>；自由现金流主要用于<strong>大额回购</strong></td>
+    </tr>
+    <tr>
+      <td class="num"><strong>3</strong></td>
+      <td>半导体设备</td>
+      <td>泛林、MKS、先进能源</td>
+      <td>2027 年主题是<strong>股东回报</strong>，资产负债表改善或大比例回购</td>
+    </tr>
+    <tr>
+      <td class="num"><strong>4</strong></td>
+      <td>模拟</td>
+      <td>亚德诺、恩智浦</td>
+      <td>周期在走强，但<strong>倍数扩张空间有限</strong></td>
+    </tr>
+    <tr>
+      <td class="num"><strong>5</strong></td>
+      <td>网络</td>
+      <td>SiTime、Astera Labs、Semtech、迈威尔</td>
+      <td><strong>不看空</strong>，景气很强，但<strong>估值更高、更拥挤</strong></td>
+    </tr>
+    <tr>
+      <td class="num"><strong>6</strong></td>
+      <td>处理器</td>
+      <td>AMD 优于英特尔</td>
+      <td>近期基本面极好，但<strong>短缺会比内存更早缓解</strong>，股票拥挤</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：摩根士丹利 2026-11-09 报告第 3–5 页（表 2）。</p>
+
+<h3>5.1 "瓶颈交易"这条线，解释了整张排序表</h3>
+<p>报告把<strong>靠供给瓶颈赚超额利润</strong>的公司归为一类，成员和它们的瓶颈来源分别是：</p>
+<ul>
+  <li><strong>内存</strong>——最明显的瓶颈交易。</li>
+  <li><strong>英特尔</strong>——也在其中，但报告认为其<strong>盈利能力主要来自服务器 CPU 短缺，而不是产品路线的竞争力</strong>。这个判断相当尖锐：它把英特尔的盈利质量定义为"周期性短缺租金"，而非结构性竞争力。</li>
+  <li><strong>设备公司</strong>——自己不涨价，但它们的<strong>订单是用瓶颈环节的利润支付的</strong>（内存/算力赚到的钱转手买了设备）。</li>
+</ul>
+<p>这类品种有一个<strong>共同风险：瓶颈转移</strong>。两种转移路径——</p>
+<ol>
+  <li><strong>从半导体转到非半导体</strong>（土地、电力、厂房）；</li>
+  <li><strong>从一个半导体环节转到另一个环节</strong>。</li>
+</ol>
+<p>无论哪种，<strong>最先受损的就是瓶颈交易者</strong>。这也解释了表里一个看似矛盾的地方：<strong>同样是瓶颈交易，内存排第 2，CPU 却排最后</strong>——因为报告对<strong>内存短缺的持续时间更有信心</strong>，而对 CPU 则认为<strong>供给很快会追上</strong>。</p>
+
+<h3>5.2 估值这条线：为什么网络排在模拟之后</h3>
+<p>网络的景气度<strong>不比算力差</strong>，但估值<strong>高出不少</strong>，所以在同样强的基本面里，报告优先选算力。第 5 档不是看空，而是"<strong>好公司，但价格里装的乐观太多</strong>"。报告自己也承认，这个排序<strong>"可能会冒犯某些人"</strong>。</p>
+
+<h3>5.3 报告对内存的精确态度：是"估值敏感"，不是"看空"</h3>
+<div class="box blue">
+  <ul>
+    <li>它<strong>不想为接近峰值的盈利支付倍数</strong>——这是估值的纪律，不是对需求的怀疑。</li>
+    <li>它希望<strong>本轮周期累计的盈利能占市值的大部分</strong>，并认为<strong>按当前股价已经如此</strong>——除非判断出错、条件恶化。</li>
+    <li>同时提示一个<strong>跨子行业风险</strong>：<strong>算力公司手里有大额预付款，如果内存周期回落，这些预付款会变成负债。</strong>（这条很容易被忽略：预付款在算力公司报表上是"锁定产能"的资产，在内存下行周期里会翻转成减值/负债压力。）</li>
+  </ul>
+</div>
+
+<h2><span class="num">06</span>英伟达为什么仍是首选：三条理由都指向"吉瓦受限"</h2>
+
+<p>报告给英伟达的三条理由，<strong>都围绕同一个前提情形展开：2028 年的吉瓦建设低于计划</strong>。也就是说，这些理由不是"AI 需求很好"这种泛泛之谈，而是"<strong>在装机量受限的世界里，英伟达凭什么还能增长</strong>"的答案。</p>
+
+<h3>理由一：客户基础更广，能"追着电跑"</h3>
+<ul>
+  <li>相比 <strong>AMD</strong> 和<strong>定制芯片（ASIC）</strong>，英伟达<strong>可以更灵活地去有电力的地方</strong>——通用 GPU 的部署地点约束更小。</li>
+  <li>报告特别提到<strong>主权 AI</strong>：一些国家希望用<strong>本国的土地、电力和厂房</strong>建立自己的 AI 业务，而<strong>不是交给美国云厂商使用</strong>。</li>
+  <li>主权 AI 还额外带来<strong>收入分成协议、软件和服务收入</strong>的机会——不只是卖卡。</li>
+</ul>
+
+<h3>理由二：每吉瓦收入在系统性提高</h3>
+<table>
+  <thead>
+    <tr><th>平台</th><th class="num">每吉瓦收入</th><th>含义</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Rubin</strong></td><td class="num">约 400 亿美元</td><td>当前一代的基准</td></tr>
+    <tr><td><strong>Feynman</strong>（下一代）</td><td class="num">&gt; 500 亿美元</td><td>每吉瓦收入<strong>提高 25% 以上</strong>（按两数计算）</td></tr>
+  </tbody>
+</table>
+<p>这条的威力在于<strong>环境假设</strong>：<strong>在吉瓦数量受限的环境里，单吉瓦收入的提升本身就构成增长</strong>。即使装机总量被封顶，收入仍能靠"每吉瓦更贵"往上走。这是报告整个"吉瓦受限"论证的核心支点。</p>
+
+<h3>理由三：每瓦 token 的重要性上升，英伟达领先</h3>
+<p>当电力成为约束时，竞争维度从"每美元算力"切换到"<strong>每瓦能产出多少 token</strong>"，而英伟达在这个维度上领先。这一条与理由二互为表里：<strong>能效领先 → 单吉瓦产出更高 → 客户愿意为每吉瓦付更多</strong>。</p>
+
+<h3>估值与局限：一份非常诚实的"防御股"定性</h3>
+<div class="grid2">
+  <div class="card">
+    <h4>估值锚</h4>
+    <p><strong>英伟达和博通都约为 9 倍 2028 年市盈率。</strong>这是报告给出的唯一估值数字，也是判断"贵不贵"的唯一锚点。</p>
+    <p class="src">注意：9 倍 2028 年 PE 意味着市场已经把 2028 年的高盈利提前折现，同时也意味着<strong>一旦 2028 年预期下调，估值支撑会同步消失</strong>。</p>
+  </div>
+  <div class="card">
+    <h4>局限（报告主动写的）</h4>
+    <ul>
+      <li><strong>市值太大，倍数往往被压住</strong></li>
+      <li>表现<strong>很像防御股</strong></li>
+      <li>如果<strong>瓶颈从半导体转向土地/电力/厂房</strong>，对英伟达<strong>非常有利</strong></li>
+      <li>但如果<strong>板块反弹，内存的回报可能更好</strong></li>
+    </ul>
+  </div>
+</div>
+
+<p>这与表 1 的回撤数据完全对得上：<strong>英伟达 -23%，闪迪 -65%、美光 -45%</strong>——<strong>反弹时两者的弹性起点不同</strong>。同一份报告里，英伟达是"跌得少所以抗跌"，内存是"跌得多所以弹性大"，这是一个<strong>互补关系而非替代关系</strong>。</p>
+
+<h3>一条容易被忽略的加分项：无晶圆厂模式</h3>
+<p>算力排第 1，除了需求，还有一条<strong>结构性理由</strong>：<strong>无晶圆厂（fabless）模式</strong>。报告写明——<strong>需求一旦转弱，无晶圆厂模式会限制利润率的压缩</strong>。因为固定资产在代工厂账上，英伟达不必承担产能利用率的折旧冲击。</p>
+
+<div class="box green">
+  <h4>报告对英伟达的最终定位（这句话是全篇的操作核心）</h4>
+  <p><strong>下行有保护、上行受市值约束。</strong></p>
+  <p>并且在这一段的<strong>落脚点</strong>是：<strong>"打进攻很重要"，进攻的方向是内存。</strong>——也就是说，英伟达是<strong>底仓/防守</strong>，不是<strong>弹性来源</strong>。把英伟达当进攻工具，是对这份报告最常见的误读。</p>
+</div>
+
+<h2><span class="num">07</span>内存为什么是进攻方向：回购 + 估值，而不是涨价</h2>
+
+<p>这是全文最有"非共识"味道的一节。报告看多内存的<strong>核心逻辑不是"内存涨价"，而是"回购 + 估值"</strong>——这个论证路径和市场的普遍叙事完全不同。</p>
+
+<h3>7.1 逻辑链条</h3>
+<div class="rank"><div class="n">1</div><div class="t">倍数压缩</div><div class="d">经过这轮下跌，内存股的估值倍数已经被压到低位</div></div>
+<div class="rank"><div class="n">2</div><div class="t">风险回报转正</div><div class="d">倍数压缩之后，<strong>内存股的风险回报越来越有利</strong></div></div>
+<div class="rank"><div class="n">3</div><div class="t">FCF 用于回购</div><div class="d">上行周期赚到的<strong>自由现金流主要用来回购</strong></div></div>
+<div class="rank"><div class="n">4</div><div class="t">跌得越多，增厚越大</div><div class="d"><strong>股价越跌，同样金额的回购对每股收益的增厚越大</strong>——形成下跌保护与反向正反馈</div></div>
+
+<div class="box purple">
+  <h4>闪迪（SNDK）的量化案例</h4>
+  <p>报告以闪迪为例：<strong>按报告所用股价、回购规模约为收入的 50% 测算，闪迪在"现在到 2028 年底"之间可以回购超过一半的公司股本。</strong></p>
+  <p>这个测算的含义是：在股价已经跌 65% 的位置上，<strong>公司自己就是最大的买方</strong>，而且回购的 EPS 增厚效应被低股价放大了。这不是"等需求反转"的逻辑，是"<strong>股价自己会修复自己</strong>"的逻辑。</p>
+</div>
+
+<h3>7.2 需求侧的旁证：买方愿意为"几年以后的内存"付定金</h3>
+<p>报告提到，<strong>买方仍愿意为几年以后的内存支付大额定金</strong>。这个行为的含义很明确：<strong>买方至少相信这轮需求是持续的</strong>。注意这与"现货涨价"是两种不同的证据——定金锁定的是<strong>远期产能</strong>，说明客户在做多年规划，而不是在抢现货。</p>
+
+<h3>7.3 闪迪 vs 美光：偏好"大致相同"</h3>
+<ul>
+  <li>报告对两者的偏好表述为<strong>"大致相同"</strong>，没有分出高下。</li>
+  <li><strong>LPS 是内存最大的变量</strong>：如果 LPS 变成足够重要的瓶颈，<strong>瓶颈交易首当其冲</strong>——内存作为最典型的瓶颈交易，会第一个受影响。</li>
+  <li>但报告的判断是：<strong>行业足够有办法适应</strong>（呼应第 3.2 节"转向美国以外或更开放的州"）。</li>
+</ul>
+
+<div class="box red">
+  <h4>进攻方向的另一面：这是全篇唯一带"双刃"的推荐</h4>
+  <p>第二个来源把风险说得很直白：<strong>由于存储行业具有较强周期性，若数据中心建设放缓导致供需关系提前逆转，仍可能对产品价格及企业盈利造成压力。</strong></p>
+  <p>这句话和 2028 年 -4% 的新增容量预测必须放在一起读：<strong>内存的进攻逻辑（回购 + 估值）成立的前提是"需求延续到 2029 年"</strong>。如果 5GW 的延后进一步扩大、或者云厂商把 2029 年的预算也往后推，那么"跌得越多回购越划算"就会变成"跌得越多、盈利下修越快"——<strong>回购只能改变每股收益的分母，改变不了周期方向</strong>。</p>
+  <p>这也是为什么第 12 节的三档配置里，内存仓位都设了上限并建议单独止损：<strong>它是弹性工具，不是底仓。</strong></p>
+</div>
+
+<h2><span class="num">08</span>设备、模拟、网络：各有理由，各有天花板</h2>
+
+<h3>8.1 设备：主题是"股东回报"，不是"资本开支"</h3>
+<p>报告对设备的判断非常"现金流导向"：<strong>只要 2027 年晶圆制造设备（WFE）预测不下调，设备公司年底要么资产负债表明显改善，要么已回购大量股份。</strong>换句话说，设备股的 2027 年故事不是"卖更多机器"，而是"把赚到的钱还给股东"。</p>
+
+<table>
+  <thead>
+    <tr><th>公司</th><th class="num">回购授权占市值</th><th>摩根士丹利评级</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>泛林（LRCX）</strong></td><td class="num"><strong>约 11%</strong>（新增 250 亿美元，合计约 280 亿美元）</td><td>增持</td></tr>
+    <tr><td>应用材料（AMAT）</td><td class="num">约 5%</td><td>中性</td></tr>
+    <tr><td>科磊（KLAC）</td><td class="num">约 5%</td><td>增持</td></tr>
+    <tr><td>先进能源（AEIS）、MKS、Nova</td><td class="num">约 2% 至 4%</td><td>增持、增持、中性</td></tr>
+    <tr><td>泰瑞达（TER）、Onto（ONTO）</td><td class="num">低于 2%</td><td>中性、增持</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据来源：摩根士丹利 2026-11-09 报告第 4 页（表 3）；<strong>泛林为 9 月末余额加新授权</strong>。括号内代码为本报告补注。</p>
+
+<p>另外报告提到：<strong>MKS 资产负债表将明显改善，股价对应约 10% 的 2027 年自由现金流收益率。</strong>这是全篇唯一一个明确的"现金回报率"数字，也是最接近"便宜"的量化证据。</p>
+
+<h3>8.2 模拟：本轮最抗跌，但风险回报不如算力和内存</h3>
+<p>模拟股在这轮下跌中<strong>最抗跌</strong>（亚德诺 -18%、恩智浦 -27%）。大摩认为<strong>行业复苏周期仍在延续</strong>，但随着<strong>成熟制程晶圆代工产能利用率接近 90%</strong>，部分模拟芯片市场可能<strong>在未来一年逐步出现供应紧张</strong>。不过报告仍认为它的<strong>风险回报不如算力和内存</strong>，理由有三条：</p>
+<ul>
+  <li><strong>情绪改善时倍数扩张空间有限</strong>——已经跌得少，修复空间也小；</li>
+  <li><strong>供给约束开始限制增长</strong>；</li>
+  <li><strong>经营杠杆更多来自 AI</strong>（也就是说，模拟的周期弹性被 AI 结构稀释了）。</li>
+</ul>
+<p>报告给出的<strong>周期信号</strong>很具体：</p>
+<ul>
+  <li><strong>代工成熟制程利用率接近 90%</strong>——这是模拟需求回暖的产能侧证据；</li>
+  <li><strong>数据中心目前不到模拟需求的 15%</strong>，但<strong>已经强到可以预期约 12 个月后出现真实短缺</strong>。</li>
+</ul>
+<p>个股逻辑的分工也很清晰，第二个来源把需求来源拆得更细：</p>
+<ul>
+  <li><strong>亚德诺（ADI）</strong>——与 AI 建设关联更直接，且具有<strong>多重需求来源</strong>：<strong>AI 数据中心、光通信、通信基础设施、工业测试设备</strong>。四条腿站地，比纯 AI 标的更抗单一需求波动。</li>
+  <li><strong>恩智浦（NXPI）</strong>——被看重的原因是<strong>提供实体经济敞口、估值有折价、市场持仓偏负面</strong>；更具体地说是<strong>更多受益于汽车及实体经济复苏</strong>，估值相对具有吸引力。典型的"逆向 + 低预期"标的。</li>
+</ul>
+
+<h3>8.3 网络：景气非常强，但计入的乐观最多</h3>
+<ul>
+  <li>网络的<strong>景气非常强</strong>，但报告认为它<strong>计入的乐观最多</strong>。</li>
+  <li><strong>从"来电量"（投资者关注度）看更拥挤</strong>——这是一个情绪侧指标，不是基本面指标。</li>
+  <li><strong>迈威尔（MRVL）和 Semtech（SMTC）都已经给出 2030 年盈利指引</strong>，报告认为<strong>这种背景通常对半导体股票不利</strong>——把故事讲到 2030 年，往往意味着近端预期已经打满。</li>
+  <li>报告同时说明：排序<strong>"可能会冒犯某些人"</strong>，但<strong>网络的风险回报仍然是正的</strong>——第 5 档是"相对排序靠后"，<strong>不是看空</strong>。</li>
+</ul>
+
+<h2><span class="num">09</span>信息缺口：哪些拿到了，哪些仍然没有</h2>
+
+<p>404K 的公开版在第六节结束后注明：<strong>"剩余 30% 章节可以加入知识星球查看。"</strong>本次合并的第二个来源（富途）<strong>补上了一部分</strong>，但并非全部。逐项核对如下：</p>
+
+<table>
+  <thead>
+    <tr><th style="width:250px">缺口项</th><th style="width:96px">是否补齐</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>2027/2028 行业总量预测数字</strong></td>
+      <td><span class="tag t-bull">已补齐</span></td>
+      <td>2028 年 5GW 延后、新增容量 -4%、2029 年 +38%、约占原定 2028 项目 20%（见第 04 节）</td>
+    </tr>
+    <tr>
+      <td><strong>处理器档排名最后的完整原因</strong></td>
+      <td><span class="tag t-bull">已补齐</span></td>
+      <td>CPU 的供应瓶颈<strong>可能比存储更早缓解</strong>；档内偏好 AMD 而非英特尔</td>
+    </tr>
+    <tr>
+      <td><strong>模拟芯片的需求来源拆分</strong></td>
+      <td><span class="tag t-bull">已补齐</span></td>
+      <td>ADI 四条需求腿（AI 数据中心、光通信、通信基础设施、工业测试设备）；NXPI 偏汽车与实体经济复苏</td>
+    </tr>
+    <tr>
+      <td><strong>报告的结论段与后市判断</strong></td>
+      <td><span class="tag t-bull">已补齐</span></td>
+      <td>倾向在震荡区间低位寻找机会；超额收益可能从半导体与基础设施<strong>向软件及 AI 应用扩散</strong>（见第 14 节）</td>
+    </tr>
+    <tr>
+      <td><strong>26 只股票的完整评级表</strong></td>
+      <td><span class="tag t-mid">仍缺</span></td>
+      <td>两篇都只公开了 12 家，<strong>另外 14 家的评级与排序位置仍未知</strong></td>
+    </tr>
+    <tr>
+      <td><strong>另一篇研报的内容</strong></td>
+      <td><span class="tag t-mid">仍缺</span></td>
+      <td>大摩同期发了<strong>两篇</strong>研报，两篇都认为市场对 AI 的悲观反应过度；本文只覆盖 11 月 9 日这篇半导体行业报告</td>
+    </tr>
+    <tr>
+      <td><strong>个股目标价</strong></td>
+      <td><span class="tag t-bear">本来就没有</span></td>
+      <td>报告<strong>未给出任何个股目标价</strong>，不是信息缺失，而是报告本身没有这一项</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <p><strong>处理原则不变：缺口就是缺口，不用常识去填。</strong>对于两篇转述出现方向差异的地方（如"2028 年前景尽可能好"与"2028 年容量 -4%"），本报告在第 04.2 节并列呈现并给出解释，而不是择一采信。</p>
+  <p class="src">另外提醒：两篇都是<strong>对同一份卖方研报的二手转述</strong>，不是研报原文。转述过程中的口径简化（例如"每吉瓦收入"、"租赁中位价"的具体定义）无法从公开内容核实。</p>
+</div>
+
+<h2><span class="num">10</span>美股个股映射：报告定位 → 操作含义</h2>
+
+<p>先把逻辑说清楚：这份报告<strong>没有目标价、没有买卖时点</strong>，它给的是一张<strong>相对排序表</strong>。所以映射的正确方式不是"抄作业买什么"，而是<strong>把"排序位置 + 跌幅 + 评级 + 报告给出的理由"翻译成组合里的角色分工</strong>。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:104px">公司（代码）</th>
+      <th style="width:78px" class="num">跌幅</th>
+      <th style="width:96px">排序/评级</th>
+      <th>报告给出的定位</th>
+      <th style="width:132px">组合角色（映射）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>英伟达</strong><br><span class="src">NVDA</span></td>
+      <td class="num">-23%</td>
+      <td><span class="tag t-bull">第 1 档</span><br><span class="tag t-blue">增持·首选</span></td>
+      <td>下行有保护、上行受市值约束；9 倍 2028 PE；fabless 限制利润率压缩；主权 AI 带来分成/软件收入</td>
+      <td><strong>核心底仓</strong>。进攻性最弱、确定性最高</td>
+    </tr>
+    <tr>
+      <td><strong>博通</strong><br><span class="src">AVGO</span></td>
+      <td class="num">-41%</td>
+      <td><span class="tag t-bull">第 1 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>与英伟达同列算力第 1 档，同为约 9 倍 2028 PE；跌幅比英伟达深 18 个百分点</td>
+      <td><strong>算力第二腿</strong>。同档但弹性略高</td>
+    </tr>
+    <tr>
+      <td><strong>闪迪</strong><br><span class="src">SNDK</span></td>
+      <td class="num">-65%</td>
+      <td><span class="tag t-bull">第 2 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>报告明确点名的<strong>进攻方向</strong>；回购可覆盖超一半股本；跌幅最深、弹性起点最低</td>
+      <td><strong>进攻主力</strong>。仓位应小于底仓</td>
+    </tr>
+    <tr>
+      <td><strong>美光</strong><br><span class="src">MU</span></td>
+      <td class="num">-45%</td>
+      <td><span class="tag t-bull">第 2 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>与闪迪<strong>"偏好大致相同"</strong>；HBM/DRAM 主业的周期弹性载体</td>
+      <td><strong>进攻主力</strong>。与闪迪可二选一或并配</td>
+    </tr>
+    <tr>
+      <td><strong>泛林</strong><br><span class="src">LRCX</span></td>
+      <td class="num">—</td>
+      <td><span class="tag t-bull">第 3 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>回购授权<strong>约占市值 11%</strong>（新增 250 亿美元、合计约 280 亿美元），全表最高</td>
+      <td><strong>现金流型持仓</strong>。下跌有回购托底</td>
+    </tr>
+    <tr>
+      <td><strong>科磊</strong><br><span class="src">KLAC</span></td>
+      <td class="num">—</td>
+      <td><span class="tag t-bull">第 3 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>回购授权约 5% 市值；检测量测环节，与先进制程绑定</td>
+      <td>设备档<strong>次选</strong></td>
+    </tr>
+    <tr>
+      <td><strong>MKS</strong><br><span class="src">MKSI</span></td>
+      <td class="num">—</td>
+      <td><span class="tag t-bull">第 3 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>资产负债表将明显改善；股价对应<strong>约 10% 的 2027 年 FCF 收益率</strong></td>
+      <td><strong>估值最便宜的一档</strong>，小仓位</td>
+    </tr>
+    <tr>
+      <td>先进能源<br><span class="src">AEIS</span></td>
+      <td class="num">—</td>
+      <td><span class="tag t-bull">第 3 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>回购授权约 2%–4%</td>
+      <td>设备档<strong>边缘</strong></td>
+    </tr>
+    <tr>
+      <td>应用材料<br><span class="src">AMAT</span></td>
+      <td class="num">—</td>
+      <td><span class="tag t-mid">第 3 档</span><br><span class="tag t-mid">中性</span></td>
+      <td>回购授权约 5%，但评级为<strong>中性</strong></td>
+      <td>同档中<strong>唯一中性</strong>，优先度低</td>
+    </tr>
+    <tr>
+      <td><strong>亚德诺</strong><br><span class="src">ADI</span></td>
+      <td class="num">-18%</td>
+      <td><span class="tag t-amber">第 4 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>与 AI 建设关联更直接，且需求来源有四条腿：<strong>AI 数据中心、光通信、通信基础设施、工业测试设备</strong>；跌得最少（-18%）；倍数扩张空间有限</td>
+      <td><strong>低波动配置</strong>，修复空间小</td>
+    </tr>
+    <tr>
+      <td>恩智浦<br><span class="src">NXPI</span></td>
+      <td class="num">-27%</td>
+      <td><span class="tag t-amber">第 4 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>提供实体经济敞口、<strong>估值折价</strong>、<strong>持仓偏负面</strong>；更具体是<strong>受益于汽车及实体经济复苏</strong>——逆向标的</td>
+      <td><strong>逆向小仓位</strong>，非 AI 主线</td>
+    </tr>
+    <tr>
+      <td>SiTime<br><span class="src">SITM</span></td>
+      <td class="num">-54%</td>
+      <td><span class="tag t-mid">第 5 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>网络档中评级最高（增持），跌幅已达中位数</td>
+      <td>网络档<strong>内优先</strong>，但整档靠后</td>
+    </tr>
+    <tr>
+      <td>Astera Labs<br><span class="src">ALAB</span></td>
+      <td class="num">-62%</td>
+      <td><span class="tag t-mid">第 5 档</span><br><span class="tag t-blue">增持</span></td>
+      <td>跌幅深、评级增持，但属"估值更高、更拥挤"的一档</td>
+      <td><strong>高波动</strong>，整档靠后</td>
+    </tr>
+    <tr>
+      <td>迈威尔<br><span class="src">MRVL</span></td>
+      <td class="num">-57%</td>
+      <td><span class="tag t-mid">第 5 档</span><br><span class="tag t-mid">中性</span></td>
+      <td>已给出 <strong>2030 年盈利指引</strong>——报告认为这种背景通常不利</td>
+      <td><strong>回避/低配</strong></td>
+    </tr>
+    <tr>
+      <td>Semtech<br><span class="src">SMTC</span></td>
+      <td class="num">-49%</td>
+      <td><span class="tag t-mid">第 5 档</span><br><span class="tag t-mid">中性</span></td>
+      <td>同样已给出 2030 年指引；中性评级</td>
+      <td><strong>回避/低配</strong></td>
+    </tr>
+    <tr>
+      <td><strong>AMD</strong><br><span class="src">AMD</span></td>
+      <td class="num">-32%</td>
+      <td><span class="tag t-bear">第 6 档</span><br><span class="tag t-mid">中性</span></td>
+      <td><strong>处理器档内优于英特尔</strong>；但短缺会比内存更早缓解，股票拥挤</td>
+      <td><strong>档内首选，但整档最后</strong></td>
+    </tr>
+    <tr>
+      <td>英特尔<br><span class="src">INTC</span></td>
+      <td class="num">-60%</td>
+      <td><span class="tag t-bear">第 6 档</span><br><span class="tag t-mid">中性</span></td>
+      <td>盈利主要来自<strong>服务器 CPU 短缺</strong>，而非产品路线竞争力；供给很快追上</td>
+      <td><strong>不参与</strong>。盈利质量被质疑</td>
+    </tr>
+    <tr>
+      <td>Cerebras<br><span class="src">CBRS（未上市/待定）</span></td>
+      <td class="num">-77%</td>
+      <td>—</td>
+      <td>覆盖范围内跌幅最大</td>
+      <td>仅作情绪参照，<strong>无公开载体</strong></td>
+    </tr>
+    <tr>
+      <td>Skyworks<br><span class="src">SWKS</span></td>
+      <td class="num">-11%</td>
+      <td>—</td>
+      <td>覆盖范围内跌幅最小</td>
+      <td>抗跌但<strong>不在排序点名名单</strong></td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">"跌幅"为报告图 2 口径（较 52 周高点，2026-11-06 收盘）；"排序/评级"来自报告表 1、表 2 与末尾评级表。"组合角色"为本报告基于报告逻辑的映射推断，<strong>非报告原文观点</strong>。Cerebras、Skyworks 只出现在跌幅数据中，报告未在排序中点名。</p>
+
+<div class="box red">
+  <h4>个股映射里最容易踩的三个坑</h4>
+  <ol>
+    <li><strong>把英伟达当进攻工具</strong>。报告自己说了它是"防御股"、"上行受市值约束"，并且明确把进攻指向内存。用英伟达追弹性，是拿错了工具。</li>
+    <li><strong>把"第 5 档/第 6 档"读成"看空"</strong>。报告明说所有子行业都有吸引力、网络风险回报仍为正。第 5、6 档是<strong>相对排序靠后</strong>，不是负面评级。</li>
+    <li><strong>忽略 AMD/英特尔的评级是"中性"</strong>。表 1 显示这两家都是中性，而第 6 档的"AMD 优于英特尔"只是档内比较，不代表推荐。</li>
+  </ol>
+</div>
+
+<h2><span class="num">11</span>ETF 映射：把六档排序装进可交易载体</h2>
+
+<p>关键约束：<strong>这份报告的排序是子行业级的，而市场上几乎没有对应的纯子行业 ETF</strong>。内存、设备都没有纯 ETF。所以 ETF 只能解决"整体 beta + 风格倾斜"，<strong>子行业排序必须靠个股表达</strong>。这是映射的第一个现实限制。</p>
+
+<h3>11.1 宽基半导体 ETF：beta 层</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width:78px">代码</th>
+      <th style="width:200px">名称</th>
+      <th>结构特征</th>
+      <th style="width:210px">与本报告排序的匹配度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SMH</strong></td>
+      <td>VanEck Semiconductor ETF</td>
+      <td>持仓集中（约 25 只），<strong>英伟达、台积电、博通权重最大</strong>，头部集中度很高</td>
+      <td>天然偏向<strong>第 1 档算力</strong>。想表达"算力优先"，它是最直接的载体；但内存/设备的权重被头部稀释</td>
+    </tr>
+    <tr>
+      <td><strong>SOXX</strong></td>
+      <td>iShares Semiconductor ETF</td>
+      <td>约 30 只，<strong>市值加权但有单票上限</strong>，比 SMH 均衡</td>
+      <td>兼顾<strong>算力 + 设备 + 内存</strong>三档，更接近"整张排序表"的平均表达</td>
+    </tr>
+    <tr>
+      <td><strong>SOXQ</strong></td>
+      <td>Invesco PHLX Semiconductor ETF</td>
+      <td>跟踪 PHLX 半导体指数，费率低于 SMH/SOXX</td>
+      <td>与 SOXX 高度重叠，作为<strong>低成本替代</strong></td>
+    </tr>
+    <tr>
+      <td><strong>XSD</strong></td>
+      <td>SPDR S&amp;P Semiconductor ETF</td>
+      <td><strong>等权</strong>，中小市值成分更多，单票权重约 3% 上下</td>
+      <td>等权意味着<strong>内存、模拟、网络的中小票权重被放大</strong>——如果认同"第 2 档内存弹性更好"，XSD 的结构比 SMH 更贴合</td>
+    </tr>
+    <tr>
+      <td>PSI</td>
+      <td>Invesco Dynamic Semiconductors</td>
+      <td>动态/因子选股，持仓与主流指数差异较大</td>
+      <td>偏离度大，<strong>不推荐用来表达这张排序表</strong></td>
+    </tr>
+    <tr>
+      <td>FTXL</td>
+      <td>First Trust Nasdaq Semiconductor</td>
+      <td>纳斯达克半导体指数，覆盖较全</td>
+      <td>可作为 SOXX 的替代，流动性弱于前两者</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">ETF 持仓与权重会随指数调整变化，此处只描述结构特征，<strong>不引用具体权重百分比</strong>以避免时点误差。</p>
+
+<div class="box blue">
+  <h4>一个不太直觉但很重要的推论</h4>
+  <p>报告的排序逻辑是<strong>"业务与估值的差距"</strong>，而不是"景气度高低"。这意味着<strong>买的是估值修复，不是景气追逐</strong>。而估值修复行情里，<strong>集中度越高的 ETF 越难受益</strong>——因为权重最大的那几只（英伟达）恰恰是报告认定"上行受市值约束"的品种。</p>
+  <p>所以如果要用 ETF 表达这份报告，<strong>SOXX / XSD 的结构匹配度高于 SMH</strong>；SMH 更适合用来表达"我只要算力 beta"这一种更简单的判断。</p>
+</div>
+
+<h3>11.2 主题与外围 ETF：把"LPS 约束"和"AI 支出"两条线分开</h3>
+<table>
+  <thead>
+    <tr>
+      <th style="width:78px">代码</th>
+      <th style="width:210px">名称</th>
+      <th>映射的是报告里的哪条逻辑</th>
+      <th style="width:150px">使用建议</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DTCR</strong></td>
+      <td>Global X Data Center &amp; Digital Infrastructure</td>
+      <td>直接对应 <strong>LPS 里的"厂房/数据中心"</strong>。报告说瓶颈若从半导体转向 LPS，对算力芯片有利、对瓶颈交易不利——这条线的受益方是数据中心资产本身</td>
+      <td>作为<strong>瓶颈转移的对冲腿</strong>，小仓位</td>
+    </tr>
+    <tr>
+      <td><strong>XLU</strong></td>
+      <td>Utilities Select Sector SPDR</td>
+      <td>对应 <strong>LPS 里的"电力"</strong>。报告反复强调电力是硬约束、算力要"追着电跑"</td>
+      <td>防御型对冲，波动低</td>
+    </tr>
+    <tr>
+      <td><strong>GRID</strong></td>
+      <td>First Trust Clean Edge Smart Grid Infrastructure</td>
+      <td>电网设备——电力约束的<strong>解法</strong>，而非电力本身</td>
+      <td>比 XLU 更"成长"，弹性更大</td>
+    </tr>
+    <tr>
+      <td><strong>PAVE</strong></td>
+      <td>Global X U.S. Infrastructure Development</td>
+      <td>对应<strong>厂房/基建</strong>侧；美国本土制造与数据中心建设</td>
+      <td>与 DTCR 部分重叠，择一即可</td>
+    </tr>
+    <tr>
+      <td><strong>AIQ</strong></td>
+      <td>Global X Artificial Intelligence &amp; Technology</td>
+      <td>对应报告的<strong>"token 用量与 token 支出"</strong>这条需求证据链——AI 应用与算力消费侧</td>
+      <td>表达"硅谷比华尔街乐观"的<strong>需求端</strong></td>
+    </tr>
+    <tr>
+      <td><strong>BOTZ</strong></td>
+      <td>Global X Robotics &amp; Artificial Intelligence</td>
+      <td>AI 应用与自动化，与 token 需求同源但更偏工业</td>
+      <td>与 AIQ 择一，BOTZ 更偏工业 beta</td>
+    </tr>
+    <tr>
+      <td><strong>IGV</strong></td>
+      <td>iShares Expanded Tech-Software</td>
+      <td>对应两个点：英伟达"<strong>软件和服务收入</strong>"与主权 AI 的分成模式；更重要的是大摩判断<strong>超额收益机会可能从半导体与基础设施向软件及 AI 应用扩散</strong></td>
+      <td><strong>下一阶段卫星仓</strong>。不是本期主线，但报告已明确点名这个方向（见 11.4）</td>
+    </tr>
+    <tr>
+      <td><strong>SOXL</strong></td>
+      <td>Direxion Daily Semiconductor Bull 3X</td>
+      <td>三倍做多半导体</td>
+      <td><strong>明确不建议</strong>：报告判断是<strong>区间震荡</strong>，杠杆产品在震荡市有<strong>波动损耗</strong>，与"区间"判断直接冲突</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>11.3 没有 ETF 可以解决的部分</h3>
+<div class="box amber">
+  <ul>
+    <li><strong>内存（第 2 档，报告的进攻方向）</strong>——<strong>没有纯内存/存储 ETF</strong>。要表达这一档，只能买 <strong>MU / SNDK</strong> 个股，或依赖 SMH/SOXX/XSD 里被稀释的内存权重（效果差很多）。这是这份报告"最难用 ETF 执行"的一档，而它恰恰是报告最想让你买的一档。</li>
+    <li><strong>半导体设备（第 3 档）</strong>——<strong>没有纯设备 ETF</strong>。LRCX / KLAC / AMAT / MKSI 需个股表达；ETF 里这些票的权重被算力股挤压。</li>
+    <li><strong>模拟（第 4 档）</strong>——ADI / NXPI 在宽基半导体 ETF 中权重不高，需个股。</li>
+  </ul>
+  <p><strong>结论：这份报告的排序，本质上是一张个股清单，不是一张 ETF 清单。</strong>ETF 只能承担 beta 与风格，子行业排序必须靠个股。</p>
+</div>
+
+<h3>11.4 第二个来源新增的一条线索：机会可能向软件与 AI 应用扩散</h3>
+
+<div class="box purple">
+  <p>富途这篇补上了大摩的后市判断，其中一句不在 404K 的公开版里：<strong>"随着 AI 商业化逐步深入，未来市场的超额收益机会可能从半导体与基础设施，进一步向软件及 AI 应用企业扩散。"</strong></p>
+  <p>这句话对 ETF 映射的意义很实际——它意味着<strong>半导体不是这轮 AI 行情的终点，而是当前阶段的载体</strong>。如果这个判断成立，那么在半导体仓位之外留一部分<strong>软件/AI 应用</strong>的敞口，是对"下一阶段"的提前布局，而不是分散注意力。</p>
+</div>
+
+<table>
+  <thead>
+    <tr><th style="width:78px">代码</th><th style="width:200px">名称</th><th>与"向软件/AI 应用扩散"的关系</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>IGV</strong></td>
+      <td>iShares Expanded Tech-Software</td>
+      <td>最直接。覆盖美国软件龙头，是"AI 应用层"最宽的载体；但成分里纯 AI 标的占比不高</td>
+    </tr>
+    <tr>
+      <td><strong>AIQ</strong></td>
+      <td>Global X Artificial Intelligence &amp; Technology</td>
+      <td>AI 主题敞口，同时覆盖算力与应用两侧，属于"过渡型"载体</td>
+    </tr>
+    <tr>
+      <td><strong>BOTZ</strong></td>
+      <td>Global X Robotics &amp; Artificial Intelligence</td>
+      <td>偏工业自动化，与"AI 商业化落地"相关，但不在纯软件层</td>
+    </tr>
+    <tr>
+      <td><strong>WCLD</strong></td>
+      <td>WisdomTree Cloud Computing</td>
+      <td>云软件，是 AI 应用最可能的收费层（订阅制），但成分偏中小盘、波动大</td>
+    </tr>
+    <tr>
+      <td><strong>IGPT</strong></td>
+      <td>Invesco AI and Next Gen Software</td>
+      <td>主题更聚焦 AI 软件，规模与流动性弱于 IGV，需注意买卖价差</td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">"向软件扩散"是大摩对<strong>未来阶段</strong>的判断，不是对当期半导体排序的修改。所以这类仓位在结构上应定位为<strong>卫星</strong>，而不是替换半导体底仓。</p>
+
+<h2><span class="num">12</span>三档配置方案：把"防御底仓 + 进攻弹性"落地</h2>
+
+<p>基于报告的"下行有保护 / 上行受市值约束"与"打进攻"这两句话，可以搭出三种风险偏好的结构。<strong>以下为映射推演，非报告原文建议，也不构成投资建议。</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:110px">方案</th>
+      <th style="width:280px">结构</th>
+      <th>对应的报告逻辑</th>
+      <th style="width:150px">适合谁</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A · 防御优先</strong></td>
+      <td><strong>NVDA 40% + SMH/SOXX 40% + 现金 20%</strong></td>
+      <td>只吃"区间底部 + 首选"这一段，完全放弃弹性。对应报告"下行有保护"的定性</td>
+      <td>不想承受二次回撤、但要参与修复</td>
+    </tr>
+    <tr>
+      <td><strong>B · 攻守平衡<br><span class="tag t-blue">最贴合报告</span></strong></td>
+      <td><strong>NVDA 25% + MU/SNDK 20% + LRCX 15% + SOXX 25% + 现金 15%</strong></td>
+      <td>完整复刻"英伟达守底 + 内存进攻 + 设备吃回购"的三段结构，正好对应第 1/2/3 档</td>
+      <td>认同"区间震荡、离底更近"的核心判断</td>
+    </tr>
+    <tr>
+      <td><strong>C · 进攻优先</strong></td>
+      <td><strong>SNDK 20% + MU 20% + XSD 30% + LRCX 15% + 现金 15%</strong></td>
+      <td>押注"板块反弹时内存回报更好"这句话；用等权 XSD 放大中小票弹性</td>
+      <td>相信底部已现、愿承担更大波动</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box red">
+  <h4>大摩自己的约束条件：不主张"无差别抄底"</h4>
+  <p>第二个来源明确写了：大摩<strong>并不主张无差别抄底 AI 股</strong>，而是强调选择<strong>具备规模优势、资金实力及估值吸引力</strong>的企业。</p>
+  <p>这句话决定了上面三档方案的共同前提——<strong>它们是"选股后的仓位结构"，不是"买入整个板块"</strong>。如果只想买一个半导体 ETF 然后等反弹，那恰恰是大摩明确不推荐的做法。</p>
+</div>
+
+<div class="box purple">
+  <h4>可选加挂：5%–10% 的软件/AI 应用卫星</h4>
+  <p>如果认同"超额收益可能从半导体与基础设施向软件及 AI 应用扩散"这一判断，可以在三档方案之上<strong>统一加挂 5%–10% 的 IGV / AIQ / WCLD</strong>，相应压缩现金比例。</p>
+  <p><strong>但要注意时点区别</strong>：半导体这一档是"当下就在区间底部"的机会，软件扩散是"下一阶段"的机会。前者有明确的价格参照（跌 53% 中位数），后者没有——所以卫星仓应该是<strong>逐步建立</strong>，而不是现在就一次性配满。</p>
+</div>
+
+<h3>12.1 执行上必须补的四个动作</h3>
+<ol>
+  <li><strong>分批，不一次性</strong>。报告说的是"更接近底部"，不是"底部已到"，且明确承认无法判断绝对底部。分批建仓是这句话的直接执行方式。</li>
+  <li><strong>给内存单独设止损纪律</strong>。内存是瓶颈交易，报告说得很清楚：<strong>如果 LPS 变成足够重要的瓶颈，瓶颈交易首当其冲</strong>。这一档的风险不是"需求没了"，而是"利润被土地电力厂房拿走"，属于结构性风险，不适合长期扛。</li>
+  <li><strong>把"预付款变负债"作为算力股的监控项</strong>。报告提示：算力公司手里有大额预付款，若内存周期回落，这些预付款会变成负债。这是<strong>跨子行业的传导链</strong>——内存下行会反噬算力报表，两者不是完全独立的仓位。</li>
+  <li><strong>把 2028 年当成"验证年"而不是"持有年"</strong>。这是合并第二个来源后新增的一条：2028 年美国数据中心新增容量预计同比 <strong>-4%</strong>，意味着<strong>2028 年上游会经历订单真空、库存累积、定价能力下降</strong>。合理的节奏是——<strong>2026 年底到 2027 年吃估值修复，2028 年验证订单，2029 年吃 +38% 的反弹</strong>。把 2028 年当成"买入后就不用管"的持有期，是最容易受伤的做法。</li>
+</ol>
+
+<h2><span class="num">13</span>观点提炼：这份报告真正在说什么</h2>
+
+<h3>13.1 五条可以直接拿走的判断</h3>
+<table>
+  <thead>
+    <tr><th style="width:34px" class="num">#</th><th style="width:250px">判断</th><th>为什么重要</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td><strong>跌的是信心，不是业务</strong></td><td>报告把风险归因于"股价反应本身 + 金融传染"，而不是订单或需求。这决定了应对方式是<strong>持有/加仓</strong>而非<strong>撤退</strong>——但前提是区间判断成立</td></tr>
+    <tr><td class="num">2</td><td><strong>上限不在公司手里，下限在</strong></td><td>资本市场热度与 LPS 决定天花板，订单簿与长期逻辑决定地板。这个不对称结构是全文最可复用的分析框架</td></tr>
+    <tr><td class="num">3</td><td><strong>瓶颈是增长的原因，不是威胁</strong></td><td>这是对空头最有力的反驳：因为没有足够半导体填满已获许可的空间，所以供给约束会持续到 2028</td></tr>
+    <tr><td class="num">4</td><td><strong>排序比的是"业务与估值的差距"</strong></td><td>不是比景气度。所以买的是<strong>估值修复</strong>，不是<strong>景气追高</strong>——这直接决定了该买跌得多的还是跌得少的</td></tr>
+    <tr><td class="num">5</td><td><strong>防御用英伟达，进攻用内存</strong></td><td>这是全文唯一的操作性结论，也是最多人读错的地方。英伟达"上行受市值约束"，不是弹性工具</td></tr>
+    <tr><td class="num">6</td><td><strong>周期被拉长，不是周期结束</strong></td><td>5GW 从 2028 延到 2029、Hyperscalers 资本开支预测维持不变——需求没消失，只是花出去的时点后移。这个区别决定了是"减仓"还是"拉长持有期"</td></tr>
+    <tr><td class="num">7</td><td><strong>超额收益会从半导体向软件与 AI 应用扩散</strong></td><td>大摩对下一阶段的判断。含义是半导体是<strong>当前阶段的载体</strong>而非终点，但时点上晚于当下这轮估值修复</td></tr>
+    <tr><td class="num">8</td><td><strong>跌得多不是买入理由</strong></td><td>"不主张无差别抄底"这句话把逻辑拉回结构性选股：跌得多 + 有回购 + 瓶颈未转移，才构成买入；缺一条就不成立</td></tr>
+  </tbody>
+</table>
+
+<h3>13.2 报告内部的四处张力（值得自己判断）</h3>
+<div class="box purple">
+  <ol>
+    <li><strong>"瓶颈是好事"与"瓶颈交易最危险"并存</strong>。报告一方面说供给瓶颈是增长持续的原因，另一方面说瓶颈转移会最先打击瓶颈交易者。这两句并不矛盾——<strong>对行业是好事，对靠瓶颈赚钱的公司是风险</strong>。但它意味着：买内存，本质是在赌"瓶颈留在内存环节"。</li>
+    <li><strong>"不要用资本市场情绪做判断"与"上限由资本市场热度决定"并存</strong>。报告既批评追情绪，又把情绪列为区间上限的决定因素。实操含义是：<strong>情绪用来定仓位，产业用来定方向</strong>，两者不可互换。</li>
+    <li><strong>"9 倍 2028 PE 很便宜"与"市值太大倍数被压住"并存</strong>。前者是买入理由，后者是它涨不动的解释。报告没有解决这个矛盾，只是把它转成了"所以要去买内存"。<strong>这是全文最需要读者自己下判断的地方。</strong></li>
+    <li><strong>"2028 年前景尽可能好"与"2028 年新增容量 -4%"并存</strong>。<span class="tag t-amber">两个来源交叉出现</span>404K 转述的是"2027 年未满足需求推到 2028 年，使 2028 年前景在这么早的时间点上看起来已经尽可能好"；富途转述的是"5GW 由 2028 延后至 2029，2028 年新增容量同比 -4%"。<strong>字面上方向相反</strong>。本报告在第 04.2 节给出的解释是——前者指<strong>芯片需求（订单簿）</strong>，后者指<strong>机房容量（交付量）</strong>，两者可以同时成立并形成"芯片到货、机房未好"的错配。<strong>但这个解释本身是推断，需要后续数据验证。</strong></li>
+  </ol>
+</div>
+
+<h3>13.3 可以验证报告对错的观察指标</h3>
+<table>
+  <thead>
+    <tr><th style="width:250px">观察项</th><th>报告判断成立</th><th>报告判断被推翻</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>token 用量与支出</strong></td><td>继续陡峭上行、支出维持历史高位</td><td>增速掉头 → "硅谷乐观"这条支柱失效</td></tr>
+    <tr><td><strong>B300/B200/H100 租赁中位价</strong></td><td>维持上行或高位横盘</td><td>明显下行 → 算力供需反转的先行信号</td></tr>
+    <tr><td><strong>积压订单与新订单</strong></td><td>继续"满额分配 + 每天新增"</td><td>出现订单推迟/取消 → 下限失守</td></tr>
+    <tr><td><strong>2027 年 WFE 预测</strong></td><td>不下调（设备档的明确前提）</td><td>下调 → 设备档"股东回报"逻辑失效</td></tr>
+    <tr><td><strong>俄亥俄/得州项目进度</strong></td><td>转向其他州或海外，总量不受影响</td><td>多个项目实质性停摆 → LPS 成真瓶颈</td></tr>
+    <tr><td><strong>半导体公司资本开支融资</strong></td><td>融资窗口保持开放</td><td>股市拒绝为资本开支融资 → 报告认定的"真正风险"兑现</td></tr>
+    <tr><td><strong>内存回购执行</strong></td><td>闪迪等按计划大额回购</td><td>回购缩水 → 进攻逻辑的核心假设被破坏</td></tr>
+    <tr><td><strong>Hyperscalers 资本开支指引</strong></td><td>维持不变或上调（大摩已维持预测）</td><td>下调 → "周期拉长"变成"周期缩短"</td></tr>
+    <tr><td><strong>5GW 延后规模是否扩大</strong></td><td>稳定在 5GW 附近，2029 年如约 +38%</td><td>延后规模扩大或继续往后推 → 2029 反弹证伪</td></tr>
+    <tr><td><strong>2028 年上游订单/库存</strong></td><td>出现温和的订单真空与库存累积，但不失控</td><td>库存大幅堆积 + 定价能力崩塌 → 负面情形兑现</td></tr>
+    <tr><td><strong>软件与 AI 应用收入增速</strong></td><td>加速 → 超额收益开始扩散，卫星仓逻辑成立</td><td>停滞 → "向软件扩散"只是叙事，半导体仍是唯一载体</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">14</span>总结一下</h2>
+
+<div class="box blue">
+  <p><strong>这是一份"用产业数据对抗市场情绪"的报告。</strong>它的论证链条非常干净：覆盖范围内股票中位跌幅 53% → 但客户交流显示业务异常强劲、订单簿满额还在加单、2027 年未满足需求外推到 2028 年 → 所以跌的不是业务，是信心；报告原话"我们最大的恐惧是恐惧本身"。</p>
+
+  <p><strong>它同时给了这个乐观一个严格的边界。</strong>股价大概率区间震荡：上限被资本市场热度和 LPS（土地、电力、厂房）压住，这两样半导体公司管不了；下限被订单和长期增长逻辑托住，这两样正在走强。当前<strong>离底部比离顶部更近</strong>，但报告也承认，如果这不是区间而是见顶早期，这些股票会变成<strong>价值陷阱</strong>。</p>
+
+  <p><strong>这个边界后来被量化了——这是第二个来源最大的贡献。</strong>中期选举后的审批变化<strong>打不到 2027 年</strong>（新州长不太可能大规模中断已开工项目），真正的变化在 2028 年：约 <strong>5GW</strong> 新增项目由 2028 延后至 2029，占原定 2028 年新增项目的约 <strong>20%</strong>，使美国数据中心新增容量<strong>2028 年同比 -4%</strong>、<strong>2029 年反弹 +38%</strong>。而大摩<strong>维持 Hyperscalers 资本开支预测不变</strong>。所以结论不是"AI 投资周期结束"，而是<strong>"资本开支周期被拉长"</strong>——需求没消失，只是花出去的时点后移。延后甚至带来三个正面影响：改善供需平衡、减轻短期融资压力、<strong>提高现有算力资产的租赁价值</strong>（后者正好解释了 B300 租赁价从约 5000 美元/小时升到 9000 美元/小时以上）。</p>
+
+  <p><strong>选股上，它做的不是景气排序，而是"业务与估值差距"的排序</strong>：算力 &gt; 内存 &gt; 设备 &gt; 模拟 &gt; 网络 &gt; 处理器。英伟达仍是首选，理由全部围绕"2028 年吉瓦建设低于计划"这一情形——客户基础更广（含主权 AI）、每吉瓦收入从 Rubin 的约 400 亿美元升到 Feynman 的 500 亿美元以上（提升 25%+）、每瓦 token 领先；加上 fabless 模式限制需求转弱时的利润率压缩，以及约 9 倍 2028 年 PE 的估值锚。</p>
+
+  <p><strong>但它对英伟达的定性是"防御股"——下行有保护、上行受市值约束。</strong>所以报告在这一段的落脚点是一句非常明确的话：<strong>"打进攻很重要"，进攻方向是内存</strong>。内存的逻辑不是涨价，是<strong>回购 + 估值</strong>：倍数压缩后风险回报转正，上行周期自由现金流主要用来回购，股价越跌回购对 EPS 的增厚越大。闪迪的量化案例是——按报告所用股价和"回购规模约为收入 50%"测算，现在到 2028 年底可回购<strong>超过一半股本</strong>。闪迪跌 65%、美光跌 45%，英伟达只跌 23%，这正是"防御起点"与"进攻起点"的差别。但这一档有双刃：<strong>存储周期性强，若数据中心建设放缓导致供需提前逆转，价格与盈利会同时承压</strong>。</p>
+
+  <p><strong>而且大摩明确不主张"无差别抄底"</strong>，强调要选<strong>规模优势、资金实力、估值吸引力</strong>三者兼备的公司。这句话把整份报告从"跌多了就买"的均值回归，拉回到结构性选股——<strong>跌得多不构成买入理由，跌得多 + 有回购 + 瓶颈未转移才构成</strong>。这也解释了为什么同样跌 60%，英特尔是中性而闪迪是增持。</p>
+
+  <p><strong>落到交易载体上有一个现实难题：这份排序几乎无法用 ETF 完整表达。</strong>内存和设备都没有纯 ETF，而它们恰好是报告最看重的第 2、3 档；宽基里 SMH 偏算力（头部集中、恰恰是"上行受市值约束"的品种），SOXX 更均衡，XSD 等权更能放大中小票与内存弹性。所以合理的做法是<strong>ETF 承担 beta、个股承担排序</strong>，并用 DTCR / XLU / GRID 这类 LPS 载体做瓶颈转移的对冲腿。至于三倍杠杆的 SOXL，与"区间震荡"的判断直接冲突——震荡市里的波动损耗会吃掉判断正确带来的收益。</p>
+
+  <p><strong>最后，这份报告还给了一条时间上的线索。</strong>大摩认为随着 AI 商业化深入，<strong>超额收益机会可能从半导体与基础设施，进一步向软件及 AI 应用企业扩散</strong>。这意味着半导体是<strong>当前阶段的载体，不是终点</strong>。配合 2028 年 -4% 的交付量，一个合理的节奏是：<strong>2026 年底到 2027 年吃估值修复，2028 年验证订单，2029 年吃 +38% 的反弹，同时用 5%–10% 的软件/AI 应用卫星仓布局下一阶段</strong>。</p>
+
+  <p><strong>最后提醒三个阅读陷阱：</strong>这份报告<strong>没有给任何个股目标价</strong>；传播链里"黄仁勋事件后"的字样<strong>不是报告原文</strong>；两篇中文解读<strong>都是二手转述</strong>，且在两处出现方向差异（"2028 年前景尽可能好"vs"2028 年 -4%"，已在第 04.2 节并列说明）。此外，<strong>26 只股票的完整评级表至今只公开了 12 只</strong>，这是任何解读都无法补上的缺口。</p>
+</div>
+
+<div class="foot">
+  <p><strong>数据与来源说明</strong>：本报告为<strong>两篇中文解读的合并整理</strong>，均指向同一份原始研报——摩根士丹利北美半导体团队（Joseph Moore 等）2026-11-09 行业报告《半导体：近期回调后的买入清单》。</p>
+  <p>来源 ①：微信公众号「404K Semi-AI」2026-11-09《大摩半导体购物清单：中位股较高点跌 53%，英伟达仍是首选，内存转为进攻方向》——提供跌幅表、六档排序、英伟达与内存论证、设备回购授权表、token 与租赁价图表。<br>
+  来源 ②：富途牛牛圈 2026-11-10《半导体跌出机会？大摩最新买入清单出炉，六大赛道谁最值得关注？》——提供 2028 年 5GW 延后、新增容量 -4% / +38%、Hyperscalers 资本开支预测、延后的正负面影响、模拟芯片需求拆分、软件扩散判断。</p>
+  <p>跌幅数据口径为 FactSet、2026-11-06 收盘。文中三张趋势图为按原文附图读取的<strong>近似值</strong>，仅示形态；第 04 节的容量变化图基于文字转述的预测数字（-4% / +38%）。ETF 持仓结构描述为定性说明，未引用具体权重。第 10 至 12 节的"组合角色"与配置方案为<strong>本报告基于报告逻辑的映射推演</strong>，非报告原文观点。两处来源方向差异已在第 04.2 节与 13.2 节并列呈现。</p>
+  <p style="margin-top:14px">⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var drawdowns = [
+    ['Skyworks',11],['亚德诺 ADI',18],['英伟达 NVDA',23],['恩智浦 NXPI',27],
+    ['AMD',32],['博通 AVGO',41],['美光 MU',45],['Semtech',49],
+    ['SiTime',54],['迈威尔 MRVL',57],['英特尔 INTC',60],['Astera Labs',62],
+    ['闪迪 SNDK',65],['Cerebras',77]
+  ];
+  var c1 = echarts.init(document.getElementById('c1'));
+  c1.setOption({
+    grid:{left:8,right:56,top:16,bottom:8,containLabel:true},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},valueFormatter:function(v){return '-'+v+'%';}},
+    xAxis:{type:'value',max:80,axisLabel:{formatter:'{value}%',color:'#6b7280',fontSize:11},
+      splitLine:{lineStyle:{color:'#eef0f3'}},axisLine:{show:false},axisTick:{show:false}},
+    yAxis:{type:'category',data:drawdowns.map(function(d){return d[0];}).reverse(),
+      axisLabel:{color:'#3d4450',fontSize:11.5},axisLine:{show:false},axisTick:{show:false}},
+    series:[{
+      type:'bar',barWidth:'62%',
+      data:drawdowns.map(function(d){return d[1];}).reverse(),
+      itemStyle:{color:function(p){
+        var v=p.value;
+        if(v===23) return '#1f5fbf';
+        if(v>=62) return '#c0392b';
+        return '#9aa4b2';
+      },borderRadius:[0,3,3,0]},
+      label:{show:true,position:'right',formatter:'-{c}%',color:'#3d4450',fontSize:11.5,fontWeight:600}
+    }],
+    markLine:{silent:true}
+  });
+  c1.setOption({series:[{markLine:{silent:true,symbol:'none',lineStyle:{color:'#a86400',type:'dashed',width:1.4},
+    data:[{xAxis:53,label:{formatter:'中位数 53%',color:'#a86400',fontSize:11,position:'insideEndTop',rotate:0}}]}}]});
+
+  var months = ['25/01','25/02','25/03','25/04','25/05','25/06','25/07','25/08','25/09','25/10','25/11','25/12',
+                '26/01','26/02','26/03','26/04','26/05','26/06','26/07','26/08','26/09','26/10'];
+  var token = [1,1,2,3,4,5,6,7,9,11,13,14,16,22,28,30,33,42,55,62,95,167];
+  var c2 = echarts.init(document.getElementById('c2'));
+  c2.setOption({
+    grid:{left:8,right:24,top:20,bottom:8,containLabel:true},
+    tooltip:{trigger:'axis'},
+    xAxis:{type:'category',data:months,axisLabel:{color:'#6b7280',fontSize:10.5,interval:4},
+      axisLine:{lineStyle:{color:'#e4e7ec'}},axisTick:{show:false}},
+    yAxis:{type:'value',axisLabel:{color:'#6b7280',fontSize:11},
+      splitLine:{lineStyle:{color:'#eef0f3'}},axisLine:{show:false},axisTick:{show:false}},
+    series:[{type:'bar',data:token,barWidth:'58%',
+      itemStyle:{color:'#2f6fc4',borderRadius:[2,2,0,0]}}]
+  });
+
+  var b300 = [5000,5800,5650,5600,6900,6950,6950,7450,8300,7900,7900,9050];
+  var blabel = ['25/11','25/12','26/01','26/02','26/03','26/04','26/05','26/06','26/07','26/08','26/09','26/10'];
+  var c3 = echarts.init(document.getElementById('c3'));
+  c3.setOption({
+    grid:{left:8,right:30,top:20,bottom:8,containLabel:true},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return '$'+v;}},
+    xAxis:{type:'category',data:blabel,axisLabel:{color:'#6b7280',fontSize:10.5,interval:1},
+      axisLine:{lineStyle:{color:'#e4e7ec'}},axisTick:{show:false}},
+    yAxis:{type:'value',min:4000,max:10000,axisLabel:{formatter:function(v){return '$'+(v/1000)+'k';},color:'#6b7280',fontSize:11},
+      splitLine:{lineStyle:{color:'#eef0f3'}},axisLine:{show:false},axisTick:{show:false}},
+    series:[{type:'line',data:b300,smooth:false,symbol:'none',
+      lineStyle:{color:'#1f5fbf',width:2.2},
+      areaStyle:{color:'rgba(31,95,191,0.07)'}}]
+  });
+
+  var c4 = echarts.init(document.getElementById('c4'));
+  c4.setOption({
+    grid:{left:8,right:30,top:34,bottom:8,containLabel:true},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},
+      formatter:function(p){return p[0].name+' 同比 '+(p[0].value>0?'+':'')+p[0].value+'%';}},
+    xAxis:{type:'category',data:['2028E','2029E'],
+      axisLabel:{color:'#3d4450',fontSize:12.5,fontWeight:600},
+      axisLine:{lineStyle:{color:'#e4e7ec'}},axisTick:{show:false}},
+    yAxis:{type:'value',min:-10,max:45,
+      axisLabel:{formatter:'{value}%',color:'#6b7280',fontSize:11},
+      splitLine:{lineStyle:{color:'#eef0f3'}},axisLine:{show:false},axisTick:{show:false}},
+    series:[{
+      type:'bar',barWidth:'34%',
+      data:[
+        {value:-4,itemStyle:{color:'#1e7a4b'}},
+        {value:38,itemStyle:{color:'#c0392b'}}
+      ],
+      itemStyle:{borderRadius:[3,3,0,0]},
+      label:{show:true,position:'top',color:'#3d4450',fontSize:13,fontWeight:700,
+        formatter:function(p){return (p.value>0?'+':'')+p.value+'%';}},
+      markLine:{silent:true,symbol:'none',label:{show:false},
+        data:[{yAxis:0,lineStyle:{color:'#9aa4b2',width:1}}]}
+    }],
+    graphic:[{
+      type:'text',left:'center',top:2,
+      style:{text:'2027 年：不受明显影响（原文未给具体增速）',fill:'#6b7280',fontSize:11.5}
+    }]
+  });
+
+  window.addEventListener('resize',function(){c1.resize();c2.resize();c3.resize();c4.resize();});
+})();
+</script>
+</body>
+</html>

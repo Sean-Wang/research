@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亚马逊 2026 Q3 财报 · 三篇报道全文精读与观点全集</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#16181d;
+    --ink-2:#3d4450;
+    --ink-3:#6b7280;
+    --line:#e4e7ec;
+    --blue:#1f5fbf;
+    --blue-soft:#eaf1fc;
+    --red:#c0392b;
+    --red-soft:#fdeeec;
+    --green:#1e7a4b;
+    --green-soft:#eaf6ef;
+    --amber:#a86400;
+    --amber-soft:#fdf3e3;
+    --purple:#5b3fa8;
+    --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;
+    line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px 90px;}
+  header.top{padding:54px 0 26px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:32px;line-height:1.3;margin:0 0 12px;letter-spacing:-.015em;font-weight:700;}
+  .sub{font-size:16.5px;color:var(--ink-2);margin:0 0 18px;line-height:1.65;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+
+  h2{font-size:22px;margin:54px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:9px;}
+  h3{font-size:17.5px;margin:34px 0 8px;font-weight:650;}
+  h3 .ch{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--ink-2);border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px;letter-spacing:.03em;}
+  h4{font-size:14.5px;margin:22px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 26px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+  .kpi.neg .val{color:var(--red);}
+  .kpi.pos .val{color:var(--green);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:18px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--card);}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.5px;color:var(--ink-2);white-space:nowrap;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  table.tight td,table.tight th{padding:7px 10px;}
+  .up{color:var(--red);font-weight:600;}
+  .down{color:var(--green);font-weight:600;}
+  .mute{color:var(--ink-3);}
+
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 7px;line-height:1.7;white-space:nowrap;}
+  .tag.bull{background:var(--red-soft);color:var(--red);}
+  .tag.bear{background:var(--green-soft);color:var(--green);}
+  .tag.neu{background:#eef0f4;color:var(--ink-2);}
+  .tag.warn{background:var(--amber-soft);color:var(--amber);}
+  .tag.info{background:var(--blue-soft);color:var(--blue);}
+
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;margin:18px 0;overflow:hidden;}
+  .qa .qh{background:#f0f2f5;padding:11px 18px;font-size:13px;font-weight:650;color:var(--ink-2);border-bottom:1px solid var(--line);}
+  .qa .qb{padding:14px 18px;}
+  .qa .q{font-weight:650;margin:0 0 10px;color:var(--ink);}
+  .qa .who{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--blue);border-radius:4px;padding:1px 7px;margin-right:7px;vertical-align:1px;}
+
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 14px;margin:14px 0;color:var(--ink-2);font-size:14.5px;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0;}
+  .cols .box{margin:0;}
+
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);}
+  .disclaimer{background:#f0f2f5;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-top:26px;font-size:13px;color:var(--ink-2);}
+
+  @media (max-width:860px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .cols{grid-template-columns:1fr;}
+    h1{font-size:26px;}
+    .wrap{padding:0 16px 60px;}
+    table{font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">AMAZON · 2026 财年第三季度 · 财报精读</div>
+  <h1>营收 2019.44 亿美元，营业利润率 13.9% 创纪录<br>AWS 加速到 39.3%，自由现金流却转成 -423.57 亿</h1>
+  <p class="sub">基于三篇原始报道的全文提炼与交叉核对：① 独立研究号的会计与现金流拆解《亚马逊财报后暴跌10%》；② 财报电话会完整实录（Andy Jassy + Brian Olsavsky，六轮分析师问答）；③ 腾讯科技苏扬的财报解读《终于，亚马逊也把自由现金流"烧穿了"》。覆盖财报全部数据、管理层陈述全部要点、六轮问答全部内容，并标注三篇之间的口径差异与原文勘误。</p>
+  <div class="meta">
+    <span>财报发布：2026 年 10 月 29 日（美国时间）</span>
+    <span>覆盖期间：截至 2026 年 9 月 30 日</span>
+    <span>资料整理：2026 年 10 月 30 日</span>
+    <span>数据来源：三篇公开报道原文</span>
+  </div>
+</header>
+
+<h2><span class="num">00</span>核心速览</h2>
+
+<div class="tldr">
+  <div class="kpi pos">
+    <div class="lab">总营收</div>
+    <div class="val">2019.44 亿美元</div>
+    <div class="note">同比 <strong>+12.1%</strong>（固定汇率 +13%）；低于市场预期约 2022 亿</div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">营业利润</div>
+    <div class="val">280.76 亿美元</div>
+    <div class="note">同比 <strong>+61.2%</strong>；营业利润率 <strong>13.9%</strong>，历史最高</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">净利润</div>
+    <div class="val">206.85 亿美元</div>
+    <div class="note">同比 <strong>-2%</strong>；主因去年同期 95 亿 Anthropic 投资收益高基数</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">摊薄每股收益</div>
+    <div class="val">1.89 美元</div>
+    <div class="note">上年同期 1.95 美元；市场预期约 1.97 美元，<span class="tag bear">未达预期</span></div>
+  </div>
+  <div class="kpi pos">
+    <div class="lab">AWS 营收</div>
+    <div class="val">459.84 亿美元</div>
+    <div class="note">同比 <strong>+39.3%</strong>，连续第 6 季加速；ARR 约 1840 亿</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">AWS 营业利润率</div>
+    <div class="val">38.7%</div>
+    <div class="note">去年同期 34.6%，<strong>上季 39.4%</strong>，环比回落 0.7pp</div>
+  </div>
+  <div class="kpi neg">
+    <div class="lab">过去 12 个月自由现金流</div>
+    <div class="val">-423.57 亿美元</div>
+    <div class="note">去年同期 <strong>+147.88 亿</strong>；单季推算约 -334.56 亿</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">AWS 在手订单 Backlog</div>
+    <div class="val">5780 亿美元</div>
+    <div class="note">同比三位数增长；上季末 4960 亿，单季 +820 亿</div>
+  </div>
+</div>
+
+<div class="box blue">
+  <h4>一句话结论</h4>
+  <p>这是一份<strong>"需求已经变成收入，现金回收还没跟上"</strong>的季报。三篇报道从三个角度指向同一个结构：<strong>营业利润 280.76 亿创纪录、利润率 13.9% 创新高</strong>，但同期<strong>自由现金流滚动 12 个月 -423.57 亿</strong>；<strong>AWS 增速 39.3% 创近五年最快</strong>，但<strong>AWS 利润率环比从 39.4% 回落到 38.7%</strong>；管理层把 2027、2028 年增速指引到 <strong>40% 以上</strong>、把 5–10 年目标设到<strong>年营收 1 万亿美元</strong>，市场却因为<strong>第四季度收入指引中值 2435 亿略低于预期的 2445 亿</strong>而把股价打到盘后 -7% 以上。</p>
+  <p>分歧不在"业务好不好"，而在<strong>"多久能变成股东口袋里的现金"</strong>。三篇报道的共同方法论是：评价当期经营看<strong>营业利润</strong>，评价 AI 投资兑现看<strong>回款节奏</strong>，两者不能互相替代。</p>
+</div>
+
+<h3><span class="ch">0.1</span>三篇报道的定位与不可替代信息</h3>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>来源 / 作者</th><th>体裁</th><th>核心落点</th><th>只有它提供的信息</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>①</td>
+      <td>独立研究号（署名 "s s 404K"）<br><span class="mute">《亚马逊财报后暴跌10%：云业务增长如何穿过资本开支，走到利润与现金流》</span></td>
+      <td>会计拆解 + 现金流推演</td>
+      <td>增长是真的，但 61% 的营业利润增速里有基数与费用项的算术贡献；现金缺口已传导到债务和利息</td>
+      <td>其它营业费用净额贡献约 26% 的利润增量；单季 FCF 推算过程（424.22−772.59+13.81=−334.56）；长期债务 1731.25 亿、单季利息 16.91 亿；Q4 隐含利润率 12.7%；下一季三组检验数字</td>
+    </tr>
+    <tr>
+      <td>②</td>
+      <td>财报电话会完整实录<br><span class="mute">《亚马逊三季报电话会全文：AWS 增速 39% 创六年新高，算力装多少卖多少，2027 资本开支还要大幅上调》</span></td>
+      <td>一手管理层原话</td>
+      <td>信息密度最高：全部战略叙事、芯片账、模型账、零售账都由管理层自己给出</td>
+      <td>Backlog 5780 亿；每 14 秒部署一台 AI 加速器；85% IT 仍在本地；DuckDB 收购；AWS Continuum；未来 2–3 年 6–8 个水平相当模型；neocloud 利润率低 3500bp；安全可能吃掉 20% token；1GW 容量块需提前预订、2029 年部分需求已可见；Leo 成本资本化推迟到 2027Q1；FBA 燃油附加费</td>
+    </tr>
+    <tr>
+      <td>③</td>
+      <td>腾讯科技（文｜苏扬，编辑｜徐青阳）<br><span class="mute">《终于，亚马逊也把自由现金流"烧穿了"》</span></td>
+      <td>新闻式解读</td>
+      <td>把财报放进市场预期框架里看：哪些超了、哪些没超、卖方在担心什么</td>
+      <td>Q2 末 Backlog 4960 亿；卖方预期（营收 2022 亿 / 调整后 EPS 1.97 / AWS 37–38% / Q4 2445 亿）；30 万季节性用工；自研芯片 ARR 已超 250 亿；Project Rainier 超 50 万颗 Trainium2；与 Meta、英伟达、OpenAI、Salesforce、甲骨文、高通、Verizon、Stripe 的新协议；Bedrock Managed Agents 与 Strands Harness 降本 32%；路透与《华尔街日报》的归因</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><span class="num">01</span>财报数据全景</h2>
+
+<h3><span class="ch">1.1</span>利润表：三个方向同时发生</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">2026 Q3</th><th class="num">同比 / 对比</th><th>备注</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>总营收</strong></td><td class="num">2019.44 亿</td><td class="num up">+12.1%</td><td>固定汇率 +13%；CFO 口径 "2019 亿、+12%"；市场预期约 2022 亿，<span class="tag bear">略低预期</span></td></tr>
+    <tr><td><strong>营业利润</strong></td><td class="num">280.76 亿</td><td class="num up">+61.2%</td><td>CFO 口径 "281 亿"；营业利润率 <strong>13.9%</strong>，公司历史最高</td></tr>
+    <tr><td>其它营业费用净额</td><td class="num">1.34 亿</td><td class="num">去年 28.75 亿</td><td>差额 <strong>27.41 亿</strong>，约等于集团新增营业利润的 <strong>26%</strong>（详见 1.6）</td></tr>
+    <tr><td>营业外损益合计</td><td class="num down">-12.07 亿</td><td class="num">去年为正</td><td>去年同期含 <strong>95 亿</strong> Anthropic 投资税前收益</td></tr>
+    <tr><td><strong>净利润</strong></td><td class="num">206.85 亿</td><td class="num down">-2%</td><td>投资估值变化影响净利，但不产生同额经营现金流</td></tr>
+    <tr><td><strong>摊薄每股收益</strong></td><td class="num">1.89 美元</td><td class="num down">去年 1.95 美元</td><td>市场预期约 1.97 美元，<span class="tag bear">未达预期</span></td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>净利下降 ≠ 主业转弱：这是三篇报道里最容易看错的一处</h4>
+  <p>去年第三季度包含 <strong>95 亿美元 Anthropic 投资税前收益</strong>，本季营业外损益合计为 <strong>-12.07 亿美元</strong>。第一篇给出的判断最直接：<strong>"投资估值变化会影响净利润，却不等于客户多买了多少云服务，更不产生同额经营现金流。用净利润的小幅下滑判断主营业务转弱，会错过本季分部利润的改善。"</strong></p>
+  <p>反过来也成立：把投资损益完全忽略，会遗漏股东确实承担的资产价值波动。正确顺序是<strong>先看营业利润，再把投资损益、税收与融资费用分别接回普通股收益</strong>。</p>
+</div>
+
+<h3><span class="ch">1.2</span>分部：AWS 用 23% 的收入贡献 63% 的利润</h3>
+
+<table>
+  <thead>
+    <tr><th>分部</th><th class="num">营收</th><th class="num">同比</th><th class="num">营业利润</th><th class="num">利润率</th><th>关键说明</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>北美</strong></td><td class="num">1128.52 亿</td><td class="num up">+6%</td><td class="num">87 亿</td><td class="num">7.7%</td>
+      <td>CFO 口径 1129 亿；利润率同比改善，但低于上一季</td>
+    </tr>
+    <tr>
+      <td><strong>国际</strong></td><td class="num">431.08 亿</td><td class="num up">+5%</td><td class="num">16 亿</td><td class="num">3.7%</td>
+      <td>剔除汇率影响 <strong>+8%</strong>；利润率同比改善，但低于上一季</td>
+    </tr>
+    <tr>
+      <td><strong>AWS</strong></td><td class="num">459.84 亿</td><td class="num up">+39.3%</td><td class="num">177.73 亿</td><td class="num">38.7%</td>
+      <td>CFO 口径 460 亿 / 178 亿；同比 +约 55%；环比增 38 亿</td>
+    </tr>
+    <tr style="background:#f7f8fa;">
+      <td><strong>合计</strong></td><td class="num">2019.44 亿</td><td class="num up">+12.1%</td><td class="num">280.76 亿</td><td class="num">13.9%</td>
+      <td>三者相加与集团营收完全对上</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box">
+  <h4>结构集中度：这是理解这份财报的钥匙</h4>
+  <ul>
+    <li>AWS 占集团收入约 <strong>23%</strong>，却贡献约 <strong>63%</strong> 的营业利润。</li>
+    <li>AWS 贡献的同比新增营业利润，约占集团增量的 <strong>60%</strong>。</li>
+    <li>含义：即使零售销售受活动日历影响，云业务仍能明显改变集团利润；但反过来，<strong>集团盈利也更依赖 AWS 能否在扩建基础设施时守住收费能力和成本效率</strong>。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">1.3</span>现金流与资本开支：利润表与现金流表走向两个方向</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">数值</th><th class="num">对比</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>过去 12 个月经营现金流</td><td class="num">1683 亿</td><td class="num up">+29%</td><td>业务仍在创造现金；同比增加 376 亿</td></tr>
+    <tr><td>过去 12 个月净设备支出</td><td class="num">—</td><td class="num up">+82%</td><td>同比增加 <strong>948 亿</strong>，超过经营现金流的增量</td></tr>
+    <tr><td><strong>过去 12 个月自由现金流</strong></td><td class="num down">-423.57 亿</td><td class="num">去年 +147.88 亿</td><td>同比转负幅度约 571 亿</td></tr>
+    <tr><td>Q3 购置物业设备现金支出（总额）</td><td class="num">772.59 亿</td><td class="num">去年 350.95 亿</td><td>同比翻倍以上</td></tr>
+    <tr><td>Q3 净设备支出</td><td class="num">758.78 亿</td><td class="num">CFO 口径 "759 亿"</td><td>扣除资产出售收入与激励回款 13.81 亿</td></tr>
+    <tr><td><strong>Q3 单季自由现金流（按公司公式推算）</strong></td><td class="num down">-334.56 亿</td><td class="num">上季末滚动 -76.04 亿</td><td>424.22 − 772.59 + 13.81 = −334.56</td></tr>
+    <tr><td>前九个月购置设备现金支出</td><td class="num">1756.70 亿</td><td class="num">—</td><td>用于观察付款进度，不能与全年指引直接相减</td></tr>
+    <tr><td>全年现金资本开支指引</td><td class="num">约 2200 亿</td><td class="num">维持，未上调</td><td>管理层明确：2027 年将<strong>显著增加</strong></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="box red">
+  <h4>公司自由现金流的定义，必须记住这一条</h4>
+  <p>亚马逊定义的 FCF = <strong>经营现金流 − 设备购置现金支出 + 资产出售与激励回款</strong>。所以它<strong>没有</strong>扣除全部并购、非上市投资或偿债支出，也<strong>不等于</strong>可以任意分配的剩余现金。第一篇特别提示两个常见误用：</p>
+  <ul>
+    <li>不能把滚动 12 个月的负值当成"第三季度亏空"——它是多个季度累加。</li>
+    <li>不能把全年 2200 亿指引与滚动 12 个月净支出直接相减，得出"第四季度只剩某个数"——两者统计区间不同，且一个含资产出售与激励回款、一个不含。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">1.4</span>资产负债表：现金缺口已经传导到债务和利息</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">2026 年 9 月末</th><th class="num">2025 年末</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>长期债务</strong></td><td class="num">1731.25 亿</td><td class="num">656.48 亿</td><td>九个月增加约 <strong>1075 亿</strong>；不含租赁在内的全部负担</td></tr>
+    <tr><td><strong>单季利息支出</strong></td><td class="num">16.91 亿</td><td class="num">去年同期 5.38 亿</td><td>同比约 <strong>3.1 倍</strong>，是"现金缺口传导"最直接的证据</td></tr>
+    <tr><td>现金及等价物 + 可交易证券</td><td class="num">1142.26 亿</td><td class="num">—</td><td>仍提供流动性缓冲，但不能消除持续投资与偿债需求</td></tr>
+    <tr><td><strong>财产设备净额</strong></td><td class="num">5088.62 亿</td><td class="num">3570.25 亿</td><td>建设期现金先流出，投产后折旧分期进成本</td></tr>
+  </tbody>
+</table>
+
+<p>第一篇在这里给出一句关键的机制描述：<strong>"建设期现金先流出，资产投入使用后折旧再分期进入成本；如果客户使用跟不上新增容量，现金回收推迟还可能逐渐压低利润率。"</strong> 这句话把资本开支、折旧、利润率三件事连成了一条因果链——也是理解 AWS 利润率环比回落的前提。</p>
+
+<h3><span class="ch">1.5</span>第四季度指引：隐含利润率 12.7%，纪录不是底线</h3>
+
+<table>
+  <thead>
+    <tr><th>项目</th><th class="num">Q4 指引</th><th class="num">去年同期</th><th>说明</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>净销售额</td><td class="num">2400–2470 亿</td><td class="num">—</td><td>同比 +12% 至 +16%；汇率逆风约 <strong>60bp</strong></td></tr>
+    <tr><td>营业利润</td><td class="num">285–335 亿</td><td class="num">约 250 亿</td><td>中值 310 亿</td></tr>
+    <tr><td><strong>隐含营业利润率（中值相除）</strong></td><td class="num">约 12.7%</td><td class="num">—</td><td>算术情景，<strong>不是</strong>公司给出的利润率指引</td></tr>
+    <tr><td>市场预期（营收）</td><td class="num">约 2445 亿</td><td class="num">—</td><td>指引中值 2435 亿，<span class="tag bear">略低于预期</span></td></tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>Q4 指引里藏着一个"成本前置"因素：Amazon Leo</h4>
+  <p>CFO 明确提示：Amazon Leo（低轨卫星通信）商业服务按计划今年启动初期服务，但公司<strong>预计要到明年第一季度才开始对某些成本进行资本化</strong>（包括生产与发射成本）——<strong>这比他此前在电话会上的预测要晚</strong>。因此第四季度<strong>仍将把 Leo 相关的大部分成本直接计入费用</strong>。</p>
+  <p>这是三篇报道里唯一一条"指引内生的利润拖累"，第一篇与第三篇都没有展开，只有电话会原文给出。</p>
+</div>
+
+<h3><span class="ch">1.6</span>61% 的营业利润增速，有多少是"算术"贡献</h3>
+
+<p>第一篇做了这份财报里最锋利的一处拆解：其它营业费用净额由去年同期 <strong>28.75 亿美元降至 1.34 亿美元</strong>，差额 <strong>27.41 亿美元</strong>，约相当于集团新增营业利润的 <strong>26%</strong>。</p>
+
+<p>原文对这一点的表述非常克制，值得逐字保留：<strong>"这只是该费用项目对同比变动的算术贡献，不是剔除全部特殊因素后的利润。因此，61% 的增长不能全部解释为效率提升，分部表现和环比利润率更能约束乐观程度。"</strong></p>
+
+<p>换句话说：利润改善是<strong>真实的</strong>（分部利润率同比确实在升），但增速的<strong>幅度</strong>被费用项的低基数放大了。要判断经营效率，看<strong>分部环比利润率</strong>比看集团同比增速更可靠——而分部环比恰恰是回落的方向（AWS 39.4%→38.7%，北美与国际利润率也都低于上一季）。</p>
+
+<h2><span class="num">02</span>AWS：39.3% 的加速，与利润率的第一道裂缝</h2>
+
+<h3><span class="ch">2.1</span>增长的六个来源（管理层自述，逐条保留）</h3>
+
+<p>Andy Jassy 在问答第一轮被问到"环比增速为何放缓、客户或 token 成本是否有异常"时，给出的不是一个原因，而是<strong>六条并行的增长来源</strong>。这段回答是理解 AWS 加速的核心：</p>
+
+<table class="tight">
+  <thead><tr><th>#</th><th>来源</th><th>管理层原话要点</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>全栈 AI 能力</td><td>想自建模型用 <strong>SageMaker AI</strong>（最便捷路径）；想用前沿模型用 <strong>Bedrock</strong>（高安全 + 极高性价比）；想自建智能体用 <strong>Strands / AgentCore</strong>；想开箱即用有 <strong>Q Developer、Connect、Transform、Amazon Q</strong></td></tr>
+    <tr><td>2</td><td>容量持续投放</td><td>每季度增加大量容量，但<strong>各季度并不均等</strong>；已能看到未来约 <strong>8–10 个季度</strong>的规划，后续还有大量容量上线</td></tr>
+    <tr><td>3</td><td>推理迁移到生产</td><td>客户（尤其规模化使用 AI 的企业）正把更多<strong>推理</strong>负载搬进生产环境，并极度渴望优化性价比</td></tr>
+    <tr><td>4</td><td>Trainium 性价比</td><td>相比替代方案有显著性价比优势；用量扩大又反推<strong>强化学习、post-training、工具调用</strong>等核心能力</td></tr>
+    <tr><td>5</td><td>Graviton</td><td>性价比比 x86 提供商高约 <strong>30%–40%</strong></td></tr>
+    <tr><td>6</td><td>基数与体量</td><td>在 <strong>1840 亿</strong> ARR 上实现 39.3% "相当不同寻常"；连续六季加速，近五年最快</td></tr>
+  </tbody>
+</table>
+
+<div class="box blue">
+  <h4>飞轮：为什么它"不是租 GPU 的生意"</h4>
+  <p>Jassy 借 Jim Collins《从优秀到卓越》的飞轮定义，完整讲了一遍逻辑链：</p>
+  <p class="quote">领先的功能、安全性与运维性能 → 客户把应用与数据放在 AWS → 推动 AWS AI 需求（客户更愿意把<strong>生产推理</strong>部署在靠近其余数据和应用的位置）→ 反过来拉动核心业务（AI 需要核心算力做强化学习、后训练、工具调用）→ 再投资回更广泛的 AWS 功能。</p>
+  <p>他给出的定性判断：<strong>"这与主要托管 GPU 或出租短期数据中心容量的模式截然不同。这是一项长期的平台战略……无论供应是否稀缺，它都能为我们带来极具吸引力的长期经济效益。"</strong></p>
+</div>
+
+<h3><span class="ch">2.2</span>Backlog 5780 亿：下一阶段收入的地基，但不是已确认收入</h3>
+
+<table class="tight">
+  <thead><tr><th>指标</th><th class="num">数值</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>AWS Backlog（在手订单）</td><td class="num">5780 亿美元</td><td>同比<strong>三位数</strong>增长，结构高度多元化</td></tr>
+    <tr><td>上季末对比</td><td class="num">4960 亿美元</td><td>单季增加 <strong>820 亿</strong>（腾讯科技提供）</td></tr>
+    <tr><td>性质</td><td class="num">—</td><td>已签约、<strong>尚未确认</strong>为收入的合同金额；实际收入取决于<strong>资源交付与客户使用</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Jassy 补充了一个物理约束，用来解释"为什么能见度这么高"：客户拿的是<strong>大块容量</strong>——数百兆瓦、有时高达 <strong>1 吉瓦</strong>——"你不可能让 1 吉瓦的容量闲置在那儿"，所以这些大块容量必须提前很久预订。因此公司对 <strong>2027、2028 年乃至 2029 年部分需求</strong>都有很好的能见度，同时始终为 EC2 与 Bedrock 的按需使用保留相当多的容量。</p>
+
+<h3><span class="ch">2.3</span>利润率 38.7%：为什么环比回落，管理层怎么解释</h3>
+
+<div class="cols">
+  <div class="box green">
+    <h4>支撑项（Brian Olsavsky）</h4>
+    <ul>
+      <li>本季 38.7% <strong>"绝非偶然"</strong>：严格自律、效率提升、容量优化、严控固定成本</li>
+      <li>自研定制芯片随时间越来越多地进入成本结构</li>
+      <li>自研芯片、定制网络、软件与流程优化，帮助优化容量、构建更低成本的基础设施</li>
+      <li>AI 业务利润率<strong>领先于核心业务在类似发展阶段的水平</strong></li>
+    </ul>
+  </div>
+  <div class="box red">
+    <h4>压力项（Brian Olsavsky）</h4>
+    <ul>
+      <li>AI 业务超常规增长<strong>拉低整体利润率</strong>，因为 AI 利润率相对更低 → <strong>mix 问题</strong></li>
+      <li>零部件定价逆风（Jassy 在开场提到<strong>存储等组件成本上升</strong>）</li>
+      <li>资本开支带来的<strong>巨额折旧</strong></li>
+      <li>新产品起步、推出、达到规模化阶段的投资与利润率问题</li>
+      <li>不提供 AWS 利润率指引，明确"会随投资节奏波动"</li>
+    </ul>
+  </div>
+</div>
+
+<div class="box amber">
+  <h4>第一篇的独立判断：不要把下降归因于单一因素</h4>
+  <p><strong>"收入加速与利润率环比回落同时出现，说明新增需求并不自动带来更高利润率。业务组合、设备折旧和上线节奏都可能影响结果，公司尚未给出完整拆分，不能把下降单独归因于某一类 AI 客户。"</strong></p>
+  <p>这句话约束了两种过度解读：既不能说"AI 客户不赚钱"，也不能说"只是会计噪音"。真正的答案是<strong>公司没给拆分</strong>，所以只能等下一季的数字。</p>
+</div>
+
+<h3><span class="ch">2.4</span>AI 收入结构：推理已占 AWS AI 收入一半以上</h3>
+
+<ul>
+  <li><strong>推理占 AWS AI 收入的一半以上，且比例还在提升</strong>（Jassy 原话）。</li>
+  <li>同时仍有<strong>大量训练收入</strong>——不是"只靠推理"的单腿结构。</li>
+  <li>AI 营收同比<strong>三位数增长</strong>（CFO 口径）。</li>
+  <li>管理层强调 AI 支出与核心服务营收之间存在<strong>强烈协同</strong>：客户在 AI 上投入越多，核心服务消耗也相应增长；随着更多 AI 工作负载进入生产、带动计算/存储/网络额外需求，这种联动会进一步增强。</li>
+</ul>
+
+<h3><span class="ch">2.5</span>Bedrock 与智能体：从"租算力"走向"卖平台"</h3>
+
+<table>
+  <thead><tr><th>指标 / 产品</th><th class="num">数据</th><th>含义与边界</th></tr></thead>
+  <tbody>
+    <tr><td>财富 500 强在 Bedrock 上的支出</td><td class="num up">同比近 7 倍</td><td>客户范围窄、基数低，不能直接外推全平台</td></tr>
+    <tr><td>Bedrock 总 Token 调用量</td><td class="num up">同比近 17 倍</td><td>Token 是模型处理信息的计量单位；<strong>不能按同比例推算收入</strong>——客户范围不同、模型价格与任务结构会变化</td></tr>
+    <tr><td>Bedrock 地位</td><td class="num">—</td><td>AWS 历史上<strong>增长最快的数十亿美元规模服务</strong></td></tr>
+    <tr><td>模型货架</td><td class="num">—</td><td>新增 <strong>OpenAI</strong> 模型（用量增长迅猛）、<strong>Kimi、GLM、xAI</strong>；为 OpenAI 模型增加<strong>内置网页搜索</strong>；闭源（Anthropic、OpenAI）+ 开源（Kimi、GLM）并存</td></tr>
+    <tr><td>AgentCore</td><td class="num up">本季部署量 = 前三季合计的 2 倍</td><td>数万家客户使用；帮助企业把 AI 代理接入权限、安全与运行管理</td></tr>
+    <tr><td>Bedrock Managed Agents</td><td class="num">公开预览</td><td>帮企业构建并部署生产环境智能体</td></tr>
+    <tr><td>Strands Harness</td><td class="num up">任务成本降 32%</td><td>在<strong>相同前沿模型</strong>下提高 token 使用效率，保持相当或更高准确率（腾讯科技提供）</td></tr>
+    <tr><td>开箱即用智能体</td><td class="num">—</td><td>Q（编程）、Amazon Connect（联络中心）、Amazon Q（迁移/办公）；Amazon Q 客户含亿滋、EchoStar、西南航空、DXC</td></tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>必须保留的边界条件</h4>
+  <p>第一篇：<strong>"公司没有披露这些服务的独立利润，不能据采用数量认定高回报已经实现。"</strong> 腾讯科技：<strong>"亚马逊尚未单独披露 Bedrock 和智能体业务的收入，平台调用量增长不能直接等同于收入增长。"</strong> 两篇在这一点上完全一致——这是本季 AI 叙事里<strong>最大的信息缺口</strong>。</p>
+</div>
+
+<h3><span class="ch">2.6</span>自研芯片：Trainium、Graviton 与外售时点</h3>
+
+<table>
+  <thead><tr><th>维度</th><th>管理层给出的信息</th></tr></thead>
+  <tbody>
+    <tr><td>整体增速</td><td>芯片业务同比<strong>三位数百分比</strong>增长</td></tr>
+    <tr><td>订单承诺</td><td>Graviton 与 Trainium 的<strong>营收承诺同比均增长 20 倍以上</strong></td></tr>
+    <tr><td>客户省钱</td><td>仅第三季度，使用自研芯片的客户节省<strong>超过 20 亿美元</strong></td></tr>
+    <tr><td>Torch Neuron</td><td>已<strong>开源</strong>，开发者无需重写代码即可在 Trainium 上运行现有 PyTorch 代码——降低迁移成本</td></tr>
+    <tr><td>前代芯片需求</td><td>Graviton5 推出后，前代 Graviton 实例<strong>积压订单环比增长一倍多</strong>；前代 Trainium 短期容量<strong>以溢价售出</strong>（对比今年上半年）</td></tr>
+    <tr><td>外售计划</td><td>客户持续鼓励在 AWS 之外提供 Trainium，公司计划<strong>2027 年末</strong>实施</td></tr>
+    <tr><td>自研芯片 ARR</td><td>此前已披露<strong>年化收入运行率超 250 亿美元</strong>（腾讯科技）</td></tr>
+    <tr><td>外部验证</td><td>Anthropic 已用 Trainium 2 建设 <strong>Project Rainier</strong>，部署规模<strong>超 50 万颗</strong>芯片（腾讯科技）</td></tr>
+    <tr><td>Graviton 定位</td><td>服务 EC2；提高性能与能效，同时降低对外部处理器供应商的依赖</td></tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>外售 vs 自用：Jassy 把权衡讲得极清楚（高盛 Eric Sheridan 提问）</h4>
+  <p>核心约束：<strong>所有公司都向同一家供应商采购先进制程芯片，该供应商每年能提供的数量有限，各家分到配额。拿到配额后必须决定多少外售、多少留在云端自用。</strong></p>
+  <ul>
+    <li><strong>外售</strong>：芯片出库即可确认收入，<strong>短期营收更多</strong>。</li>
+    <li><strong>自用</strong>：以 EC2 实例或 Bedrock 形式提供服务，芯片可用 <strong>5–6 年</strong>，最终获得的<strong>绝对营收与自由现金流更高</strong>。</li>
+  </ul>
+  <p>他明确说："截至目前，与另一家同样在进行此类权衡的厂商相比，我认为我们在芯片使用方式上采取了<strong>不同的策略</strong>。" 并给出两条判断：外售"将成为一项非常可观的业务"；"打造兼具高性价比与可扩展性芯片的能力，在规模化层面将成为极其显著的战略优势"——既优化自身成本结构，又能形成独立业务。他同时提醒：<strong>"外售芯片与云基础设施业务确实是非常不同的业务形态。"</strong></p>
+</div>
+
+<h3><span class="ch">2.7</span>成本结构：为什么 AWS 能守住 38%（巴克莱 Ross Sandler 提问）</h3>
+
+<p>这是全篇技术含量最高的一段回答。Ross Sandler 的问题是：Bedrock 大部分负载跑在 Trainium 上，当 AWS 从"卖裸金属"转向"卖推理即服务（Inference-as-a-Service）"，对营收增长、尤其利润率有什么影响？</p>
+
+<p>Jassy 确认"<strong>Bedrock 绝大部分工作负载确实都运行在 Trainium 之上</strong>"，理由是性价比——既能给客户维持低价，又能保住利润空间。然后他给出了一张<strong>云利润率的结构化拆解</strong>：</p>
+
+<table>
+  <thead><tr><th>层级</th><th>关键变量</th><th>对营业利润率的影响</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>数据中心层</strong></td>
+      <td>自有/长期租赁 vs 机房托管（colo）vs 新兴云（neocloud）</td>
+      <td><strong>新兴云的营业利润率比长期租赁低约 3500 个基点</strong></td>
+    </tr>
+    <tr>
+      <td><strong>硬件层</strong></td>
+      <td>是否与所有人用同样的硬件</td>
+      <td>用一样的东西 = 成本结构趋同；<strong>有能力用不一样的硬件 = 竞争优势</strong></td>
+    </tr>
+    <tr>
+      <td><strong>AWS 的位置</strong></td>
+      <td>大部分算力<strong>自建自有或长期租赁</strong>，且<strong>依托自研芯片</strong></td>
+      <td>"这赋予了我们<strong>结构性的成本优势</strong>"，回馈客户的同时"极大改善了 AWS 整体的商业经济模型"</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">2.8</span>"1 万亿美元"是怎么推出来的（摩根士丹利 Brian Nowak 追问）</h3>
+
+<p>Brian Nowak 直接问：这是自上而下的测算，还是自下而上的推导？Jassy 的回答其实是<strong>三条腿</strong>：</p>
+
+<ol>
+  <li><strong>能见度</strong>：大块容量（数百兆瓦至 1GW）必须提前很久预订，因此对 2027、2028 乃至 2029 年部分需求看得很清楚。</li>
+  <li><strong>外推</strong>："按照这种增长率，如果你根据我们现有的收入和收入运行率去推算，很快就会得出不断攀升的庞大数字。"</li>
+  <li><strong>渗透率仍极低</strong>：企业生产环境全面普及推理"仍处于非常早期的阶段"。</li>
+</ol>
+
+<p>他把"早期"拆成两个具体瓶颈，这段是三篇里唯一的<strong>需求侧自我约束</strong>：</p>
+
+<div class="box blue">
+  <ul>
+    <li><strong>人才瓶颈</strong>：企业里懂 AI、能针对合适应用做模型后训练与微调的人还不够多。</li>
+    <li><strong>推理成本瓶颈</strong>："如果我们大家都希望企业能够像我们坚信的那样去使用推理，我们就必须持续致力于<strong>降低推理成本</strong>。这是 AWS 的一项重大使命"——也是自研芯片与 Trainium 的重要理由。过去几年推理成本已大幅下降，<strong>还会进一步显著下降</strong>。</li>
+  </ul>
+  <p>然后是他给出的三个"早期重大用例"：</p>
+  <ul>
+    <li><strong>安全</strong>：模型已能发现人类未曾察觉的漏洞。"有些人认为，未来一两年内使用的 Token 总量中，有 <strong>20%</strong>（或相当大一部分）最终可能仅仅用于安全领域。"</li>
+    <li><strong>编程</strong>：持续增长。</li>
+    <li><strong>AI 助手</strong>：消费者端与办公场景（如 Amazon Q）。</li>
+  </ul>
+  <p>再叠加上面一层："我相信<strong>几乎所有现代企业的生产应用都将被重写，以具备智能体能力（agentically capable）</strong>，因为如果你想快速行动，或者想以正确的方式防范某些安全风险，你就必须以这种方式来部署。"</p>
+</div>
+
+<p>最后是他对确定性的自我限定，这句必须原文保留：<strong>"面对这样的增长率，五到十年后的情况谁也无法做出绝对确定的预测。但对我们而言，想象它成为一项规模超过 1 万亿美元的业务，绝非夸大其词。"</strong></p>
+
+<div class="box red">
+  <h4>第一篇对"40% 指引"的冷静处理</h4>
+  <p><strong>"这比确认本季度增长更进一步，也提高了未来需要达到的经营要求。不过，本次披露没有提供足以复算该预测的客户合同金额、容量上线计划和收入确认表。高增长展望可以帮助理解投资意图，不能替代已经收到的现金。"</strong></p>
+  <p>把这句话和 5780 亿 Backlog 放在一起看，本季的信息结构就清楚了：<strong>能见度是真的（合同已签），但可复算的细节没给（交付节奏、确认口径）。</strong></p>
+</div>
+
+<h2><span class="num">03</span>零售与广告：促销日历错期下的"真实增速"</h2>
+
+<h3><span class="ch">3.1</span>先拆促销日历，再谈零售快慢</h3>
+
+<p>表面数字：北美 +6%、国际 +5%（固定汇率 +8%），明显慢于二季度。但今年<strong>多数大市场的 Prime Day 移到了第二季度</strong>，去年活动则<strong>全部在第三季度</strong>。亚马逊估算，排除这一错期，<strong>集团第三季度收入同比增幅会高约 4 个百分点</strong>。</p>
+
+<div class="box amber">
+  <h4>这个 4 个百分点的三条使用边界</h4>
+  <ul>
+    <li>它是<strong>公司对集团</strong>的估计，<strong>不能</strong>直接加到每一个零售分部上。</li>
+    <li>更<strong>不能</strong>拿来调整 AWS 增速（AWS 不受 Prime Day 影响）。</li>
+    <li>它是"如果没发生错期"的反事实，不是可验证的实际值。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">3.2</span>广告：850bp 的环比影响与三个因素</h3>
+
+<table>
+  <thead><tr><th>口径</th><th class="num">数值</th><th>来源</th></tr></thead>
+  <tbody>
+    <tr><td>广告收入</td><td class="num">196.37 亿美元</td><td>第一篇；CFO 口径 "196 亿"</td></tr>
+    <tr><td>同比（报告口径）</td><td class="num up">+11%</td><td>第一篇</td></tr>
+    <tr><td>同比（固定汇率）</td><td class="num up">+12%</td><td>第一篇 / CFO / 腾讯科技</td></tr>
+    <tr><td>Prime Day 错期对广告增速的影响</td><td class="num down">约 850bp 环比影响</td><td>Jassy 原话（仅电话会有）</td></tr>
+    <tr><td>Q4 指引</td><td class="num up">回升至 15%–20% 高位区间</td><td>Jassy；第一篇表述为"百分之十几的高段"</td></tr>
+  </tbody>
+</table>
+
+<p>Jassy 主动列了<strong>三个</strong>影响广告增速的因素，这比第一篇的"主要归于 Prime Day 及其它时间因素"更细：</p>
+
+<ol>
+  <li><strong>Prime Day 错期</strong>：多数国家移到 Q2，把 2025 年 Q3 的相当一部分销售额与广告收入挪到了 2026 年 Q2，推高 Q2、拖累 Q3。</li>
+  <li><strong>NBA 赛事错期</strong>：2026 年 Q2 含 Prime 转播 NBA 的首个赛季，去年 Q2 没有；Q3 不含任何 NBA 赛事，赛事在 Q4。这是纯时间错位。</li>
+  <li><strong>搜索营销计划调整的高基数</strong>：2025 年 Q3 把更多流量导向亚马逊站内搜索页——体验更好、变现率更高，推动了从一年前开始的广告加速；<strong>今年 Q3 开始面对这个高基数</strong>。</li>
+</ol>
+
+<div class="box blue">
+  <h4>Jassy 主动回答了一个没人问但所有人都想问的问题</h4>
+  <p><strong>"来自外部通用 Agent 的 Agent 购物是否对亚马逊广告产生了实质影响。答案是否定的。"</strong> 理由：目前几乎没有客户通过这种方式大量购物，"因为这种体验依然不够出色，也不比直接前往零售商平台调研或一键下单来得方便"。</p>
+  <p>这是对"AI 购物代理颠覆电商广告"叙事的一次正面回应，也是本季唯一一处管理层<strong>直接否定外部威胁</strong>的表述。</p>
+</div>
+
+<h4>广告产品进展：Amazon Ads Agent</h4>
+<ul>
+  <li>把<strong>全部广告产品整合进一个 AI 优先的统一平台</strong>。</li>
+  <li>底层是<strong>数万亿条</strong>购物、浏览、流媒体信号。</li>
+  <li>能力：在各环节给广告主洞察与解答，并能<strong>代表广告主执行优化操作</strong>。</li>
+  <li>推出<strong>全链路营销活动</strong>：把商品推广、展示、视频、流媒体电视广告整合进单一活动；广告主只给初始参数（预算、投放周期），亚马逊 AI 负责规划、执行、持续优化。</li>
+</ul>
+
+<h3><span class="ch">3.3</span>履约与机器人：单件成本连续第四年下降</h3>
+
+<table>
+  <thead><tr><th>指标</th><th class="num">数值</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>全球付费件数</td><td class="num up">+12%</td><td>—</td></tr>
+    <tr><td>运输成本</td><td class="num up">+11%</td><td>剔除燃油与干线运输通胀后 <strong>+8%</strong>，比件数增速慢约 <strong>400bp</strong></td></tr>
+    <tr><td>Q3 当日达/次晨达件数</td><td class="num">超 15 亿件</td><td>史上最快第三季度；仅面向 Prime 会员</td></tr>
+    <tr><td>单件服务成本</td><td class="num up">有望连续第四年下降</td><td>靠库存布局、缩短配送距离、包裹合并</td></tr>
+    <tr><td>履约网络机器人</td><td class="num">超 100 万台</td><td>2026 年 Cardinal、Sparrow 等机械臂部署规模<strong>翻倍</strong></td></tr>
+  </tbody>
+</table>
+
+<p>第一篇对"件数 +12% vs 运输成本 +11%"给了一个精确的限定：<strong>"销量增长略快于运输成本，方向上有利于摊薄每件配送成本，但运输成本不是全部履约费用，商品重量、距离与地区组合也会改变这个关系。"</strong> 并补了一句方向判断：北美与国际利润率同比改善可以支持盈利韧性；两者利润率<strong>均低于上一季</strong>，则提醒不要把单季改善外推为直线上升。</p>
+
+<div class="box green">
+  <h4>机器人：Jassy 给的判断标准，比"炫技"更值得记</h4>
+  <ul>
+    <li>现状：超 100 万台机器人；履约网络安全数据处于<strong>全球历史最佳水平</strong>；"过去四到五年我们取得了巨大进展，机器人技术在其中发挥了重要作用"。</li>
+    <li>但："无论是从我们已经构建和部署的技术，还是正在研发的技术来看，我们<strong>依然处于非常早期的阶段</strong>"。</li>
+    <li>判断标准（原话）：<strong>"它能否带来相当或更优的生产力、安全性、成本结构以及交付时效？当我们认可这种经济效益组合时，就会在履约网络中进行规模化部署。"</strong></li>
+    <li>方向：多种形态机器人；"最后 100 码"送货辅助；正在开发<strong>机器人基础模型</strong>以实现更快编程、执行更复杂物理任务；新履约设计（含当日达设施扩建）中机器人比重很高。</li>
+    <li>人力：运营中心"始终会有大量的团队成员"，但许多重复性工作将由机器人承担。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">3.4</span>生鲜与日用品：这是零售里最重要的结构变化</h3>
+
+<table>
+  <thead><tr><th>指标</th><th class="num">数值</th><th>含义</th></tr></thead>
+  <tbody>
+    <tr><td>生鲜杂货 + 日用品 TTM 销售额</td><td class="num">近 2500 亿美元</td><td>规模已相当于 AWS ARR 的 1.36 倍</td></tr>
+    <tr><td>Q3 增速</td><td class="num up">约为其它店铺品类的 3 倍</td><td>占售出商品总量约 <strong>一半</strong></td></tr>
+    <tr><td>用当日达买生鲜的客户</td><td class="num up">日用品购买件数 ≈ 未使用者的 7 倍</td><td>生鲜是"拉动器"，不是独立品类</td></tr>
+    <tr><td>活跃生鲜客户</td><td class="num up">非生鲜品类购买频次 ≈ 4 倍，支出 >2 倍</td><td>家居、服饰等</td></tr>
+    <tr><td>Prime 会员每月当日达生鲜订单</td><td class="num up">过去一年增长两倍以上</td><td>CFO 口径</td></tr>
+  </tbody>
+</table>
+
+<p>Jassy 把生鲜的意义讲成一道"钱包份额"算术：<strong>"当我们对比消费者在我们能够为其提供服务的品类上的总支出，与他们在亚马逊上的实际支出之间的差距时，最大的差距就在于食品杂货。"</strong> 他的结论是找到了突破口——<strong>用当日达配送站点配送生鲜</strong>。</p>
+
+<div class="box amber">
+  <h4>第一篇的反向提醒（三篇里唯一提到成本侧的）</h4>
+  <p><strong>"高频消费可能提高客户复购与配送密度，也可能增加低客单价订单的成本。随着公司提高美国运营员工起薪、为假日季补充人员，订单密度能否抵消工资和时效投入，将比单看送货速度更接近利润问题。"</strong></p>
+</div>
+
+<h3><span class="ch">3.5</span>其它零售与内容资产（逐项，不遗漏）</h3>
+
+<table>
+  <thead><tr><th>业务</th><th>本季披露</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Amazon Now</strong></td><td>已覆盖<strong>超 450 个城镇与城市</strong>；通过该服务订购的商品数量<strong>同比增长 10 倍</strong></td></tr>
+    <tr><td><strong>Amazon Pharmacy</strong></td><td>客户数同比 <strong>+60%</strong>，且 2026 年各季度增长都在提速；复购客户同比 <strong>+50%</strong>；J.D. Power 连续第三年评为最佳邮购药房；已在<strong>超 350 个城市</strong>提供 3 小时处方药配送</td></tr>
+    <tr><td><strong>Alexa 购物</strong></td><td>超 <strong>4 亿</strong>客户用过 Alexa 购物；过去 12 个月 Agent 购物助手交互次数同比 <strong>+570%</strong>；美国使用 Alexa 购物的客户<strong>平均每单支出高 50%</strong></td></tr>
+    <tr><td><strong>Prime Video</strong></td><td>年化营收运行率<strong>达数百亿美元</strong>，<strong>已实现独立盈利</strong>；剧集含《凶灵》《我变美的那夏天》《黑袍纠察队》《校园之外》《侠探杰克》《辐射》，电影《挽救计划》；体育含周四橄榄球之夜（2026 最佳开局）、Prime NBA、NASCAR、美国大师赛、欧冠</td></tr>
+    <tr><td><strong>设备</strong></td><td>史上最强阵容，Echo / Kindle / Alexa 平板 / Fire TV / Ring / Blink <strong>共 34 款新品</strong>；"开局非常强劲"</td></tr>
+    <tr><td><strong>Amazon Leo</strong></td><td>按计划<strong>今年启动初期服务</strong>；但成本资本化推迟到 <strong>2027 年 Q1</strong>，Q4 仍将大部分 Leo 成本直接计入费用</td></tr>
+    <tr><td><strong>DuckDB / Duck Labs</strong></td><td>完成对 Duck Labs 的收购；<strong>DuckDB 将成为 AWS 存储与分析业务的通用 SQL 方言</strong>，客户写一次 SQL 即可在任意 AWS 分析服务执行，"分析领域首次实现各查询引擎之间<strong>零迁移、零移植成本</strong>"；同时帮助智能体高效查询</td></tr>
+    <tr><td><strong>AWS Continuum</strong></td><td>以机器速度发现、排序、验证并修复代码漏洞；客户含 <strong>Capital One、IBM、Infor、Luminate、Robinhood</strong>；Q3 宣布集成进 <strong>Anthropic Claude Code、OpenAI Codex、AWS CURA</strong>；"客户兴趣超越了我们此前见过的任何新安全服务"</td></tr>
+    <tr><td><strong>零售体量</strong></td><td>年初至今商品销量同比<strong>近 +15%</strong>（去年基数 >300 亿件）；过去 12 个月商品销售总额<strong>增加超 900 亿美元</strong>；每季度新增销售总额约为<strong>美国第二大竞争对手的 2 倍</strong>；北美与国际分部各自在近几年把营业利润率<strong>提升近 10 个百分点</strong></td></tr>
+    <tr><td><strong>渠道结构</strong></td><td>第三方卖家贡献 <strong>61%</strong> 的付费商品件数；线上商店收入仅 <strong>+2%</strong>——理解亚马逊不能只看这一行</td></tr>
+    <tr><td><strong>线下渗透</strong></td><td>全球 <strong>约 85%</strong> 的 IT 支出仍在本地部署；零售<strong>近 80%</strong> 仍发生在线下</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">04</span>电话会 · 管理层陈述（Andy Jassy / Brian Olsavsky）</h2>
+
+<div class="box">
+  <h4>会议信息与免责声明（Dave Fildes，投资者关系副总裁）</h4>
+  <p>出席：CEO <strong>Andy Jassy</strong>、CFO <strong>Brian Olsavsky</strong>。除另有说明，所有对比均为 <strong>2025 年同期</strong>；评论与回答仅代表管理层截至 <strong>2026 年 10 月 29 日</strong>的观点，包含前瞻性陈述。</p>
+  <p>指引的假设前提与风险因素（原文列举，逐项保留）：外汇汇率与能源价格波动、全球经济和地缘政治局势、关税与贸易政策、<strong>资源及供应波动（包括存储芯片）</strong>、客户需求与支出（含衰退担忧）、通胀、利率、区域劳动力市场限制、国际事件、互联网增长率、在线商务、云服务与新兴技术发展；指引假设<strong>不会达成任何额外的业务收购、重组或法律和解</strong>。"准确预测我们商品和服务的需求是不可能的。"</p>
+</div>
+
+<h3><span class="ch">4.1</span>Andy Jassy：32 个要点，逐条不遗漏</h3>
+
+<table>
+  <thead><tr><th>#</th><th>主题</th><th>陈述内容</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>本季总体</td><td>营收 2019 亿（+12%），营业利润 281 亿（+61%）；"第三季度对亚马逊而言又是强劲的一个季度"</td></tr>
+    <tr><td>2</td><td>AWS 增速</td><td>+39.3%，<strong>连续第六个季度加速</strong>，创<strong>近五年</strong>最快增速——尽管去年同期基数很高、且当时增加了大量容量</td></tr>
+    <tr><td>3</td><td>Backlog</td><td><strong>5780 亿美元</strong>，同比<strong>三位数</strong>增长，<strong>结构高度多元化</strong></td></tr>
+    <tr><td>4</td><td>容量部署速度</td><td><strong>大约每 14 秒部署一台 AI 加速器</strong>；"几乎就在我们刚完成容量部署的同时，客户就将其消耗一空"</td></tr>
+    <tr><td>5</td><td>核心业务</td><td>核心计算与存储营收增速达<strong>数年来最高</strong>；核心业务营业利润率长期强劲</td></tr>
+    <tr><td>6</td><td>AI 利润率</td><td>AI 利润率<strong>迅速提升</strong>，甚至<strong>远快于核心业务在发展历程中同阶段的表现</strong>——尽管面临存储等组件成本上升与巨额折旧</td></tr>
+    <tr><td>7</td><td>投资回收</td><td>正在<strong>持续缩短资本开支投资回收期</strong>；比以往更有信心：AWS 投资带来的业务规模（营收与自由现金流）将<strong>远超几年前想象</strong>，同时实现强劲 ROIC</td></tr>
+    <tr><td>8</td><td>飞轮</td><td>功能/安全/运维 → 客户上云 → AI 需求（生产推理靠近数据）→ 拉动核心业务（RL、后训练、工具调用）→ 再投资回功能。与"托管 GPU / 出租短期容量"截然不同</td></tr>
+    <tr><td>9</td><td>核心业务空间</td><td>全球<strong>约 85% 的 IT 支出仍在本地部署</strong>；处于<strong>10 到 20 年</strong>的迁移周期；大型机、SAN 这类"永远不上云"的负载也在迁移</td></tr>
+    <tr><td>10</td><td>DuckDB</td><td>收购 Duck Labs；DuckDB 成为 AWS 存储与分析的<strong>通用 SQL 方言</strong>；写一次 SQL 跑遍所有 AWS 分析服务；<strong>分析领域首次零迁移/零移植成本</strong>；同样帮助智能体高效查询</td></tr>
+    <tr><td>11</td><td>Bedrock</td><td>财富 500 强支出<strong>近 7 倍</strong>、总 Token 量<strong>近 17 倍</strong>；AWS 历史上<strong>增长最快的数十亿美元服务</strong>；新增 OpenAI 模型，刚上线 Kimi、GLM、xAI 托管版本</td></tr>
+    <tr><td>12</td><td>Bedrock 安全</td><td>输入输出<strong>绝不与模型提供方共享、不用于训练基础模型</strong>；微调时创建<strong>专有副本</strong>；传输与静态均加密</td></tr>
+    <tr><td>13</td><td>AWS Continuum</td><td>机器速度发现/排序/验证/修复漏洞；客户含 Capital One、IBM、Infor、Luminate、Robinhood；集成进 Claude Code、OpenAI Codex、AWS CURA；<strong>客户兴趣超越此前任何新安全服务</strong></td></tr>
+    <tr><td>14</td><td>智能体</td><td>数万家客户用 AgentCore；Q3 部署量 = <strong>前三季合计的 2 倍</strong>；开箱即用：Q（编程）、Connect（联络中心）、Q（迁移/办公）；Amazon Q 客户含亿滋、EchoStar、西南航空、DXC</td></tr>
+    <tr><td>15</td><td>芯片</td><td>芯片业务<strong>同比三位数</strong>增长；Graviton 与 Trainium 营收承诺<strong>同比均 +20 倍以上</strong>；Q3 客户<strong>节省超 20 亿美元</strong>；开源 Torch Neuron；Graviton5 后前代积压<strong>环比翻倍多</strong>；前代 Trainium 短期容量<strong>溢价售出</strong>；计划 <strong>2027 年末</strong>外售</td></tr>
+    <tr><td>16</td><td>需求阶段</td><td>企业大规模应用推理<strong>仍处极早期</strong>；<strong>推理已占 AWS AI 收入一半以上</strong>且比例仍在提升；同时拥有<strong>大量训练收入</strong></td></tr>
+    <tr><td>17</td><td>资本开支</td><td>2026 年现金资本开支约 <strong>2200 亿美元</strong>，大部分用于 AWS；由于能明确预见可观财务回报，<strong>2027 年支出将显著增加</strong></td></tr>
+    <tr><td>18</td><td>长期目标</td><td>AWS 在 <strong>2027、2028 年增速均可超 40%</strong>；未来 <strong>5 到 10 年</strong>发展为<strong>年营收 1 万亿美元</strong>的业务；"我们正处于这一转折点的最初期"</td></tr>
+    <tr><td>19</td><td>零售被低估</td><td>"有些人略微忽视了这项业务在过去几年中所取得的巨大进展以及它所成长达到的规模"；没有任何其他零售业务能在数千亿美元收入规模上保持<strong>含广告的两位数营业利润率</strong>并如此增长</td></tr>
+    <tr><td>20</td><td>零售数据</td><td>年初至今销量<strong>近 +15%</strong>（去年 >300 亿件基数）；过去 12 个月<strong>商品销售总额增加超 900 亿美元</strong>；每季新增销售额约为<strong>美国第二大竞争对手的 2 倍</strong>；持续获取份额</td></tr>
+    <tr><td>21</td><td>零售利润率</td><td>北美与国际分部各自在近几年把营业利润率<strong>提升近 10 个百分点</strong>，"这使我们有能力进行再投资"；"这依然处于早期阶段"（近 80% 零售仍在线下）</td></tr>
+    <tr><td>22</td><td>履约</td><td>全球<strong>史上最快第三季度</strong>；Q3 为 Prime 会员当日达/次晨达<strong>超 15 亿件</strong>；有望<strong>连续第四年</strong>降低单件服务成本</td></tr>
+    <tr><td>23</td><td>Amazon Now</td><td>覆盖<strong>超 450 个城镇与城市</strong>；订单量<strong>同比 +10 倍</strong></td></tr>
+    <tr><td>24</td><td>生鲜杂货</td><td>TTM 销售额<strong>近 2500 亿美元</strong>；Q3 增速约为其它店铺品类<strong>3 倍</strong>、占售出件数<strong>约一半</strong>；当日达买生鲜者日用品件数<strong>约 7 倍</strong>；生鲜客户非生鲜购买频次<strong>约 4 倍</strong>、支出<strong>超 2 倍</strong></td></tr>
+    <tr><td>25</td><td>药房</td><td>客户数 <strong>+60%</strong> 且逐季提速；复购 <strong>+50%</strong>；J.D. Power 三连冠；<strong>350+ 城市</strong> 3 小时送达</td></tr>
+    <tr><td>26</td><td>Alexa</td><td><strong>4 亿+</strong>客户用过 Alexa 购物；12 个月 Agent 购物交互 <strong>+570%</strong>；美国 Alexa 购物者<strong>客单价高 50%</strong>；能做调研、比价、查一年价格走势、个性化送礼推荐、追踪降价；"相信 Alexa 购物将成为客户在亚马逊购物时使用的主要购物 Agent"</td></tr>
+    <tr><td>27</td><td>广告</td><td>196 亿（+12%）；三个影响因素：Prime Day 错期（<strong>850bp</strong>）、NBA 错期、2025Q3 搜索营销调整的高基数；<strong>Q4 回升至 15%–20% 高位</strong></td></tr>
+    <tr><td>28</td><td>外部 Agent 冲击</td><td><strong>"答案是否定的"</strong>——几乎没有客户通过外部通用 Agent 大量购物；体验不够出色，也不比直接去零售商平台调研或一键下单更方便</td></tr>
+    <tr><td>29</td><td>Ads Agent</td><td>全部广告产品整合进一个 AI 优先平台；<strong>数万亿条</strong>购物/浏览/流媒体信号；能洞察、能代广告主执行；全链路营销活动整合商品推广、展示、视频、流媒体电视</td></tr>
+    <tr><td>30</td><td>Prime Video</td><td>年化营收运行率<strong>数百亿美元</strong>，<strong>已独立盈利</strong></td></tr>
+    <tr><td>31</td><td>设备 / Leo</td><td><strong>34 款新品</strong>跨六大产品线；Amazon Leo <strong>今年启动初期服务</strong></td></tr>
+    <tr><td>32</td><td>万亿美元愿景</td><td>"历史上从未有过年收入达到 1 万亿美元的企业，而亚马逊正走在让 <strong>AWS 和零售业务各自实现 1 万亿美元年收入</strong>的道路上"</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">4.2</span>Brian Olsavsky：CFO 陈述的九段结构</h3>
+
+<table>
+  <thead><tr><th>#</th><th>主题</th><th>陈述内容</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>集团</td><td>营收 2019 亿（+12%，固定汇率 +13%）；营业利润 281 亿，利润率 <strong>13.9%，历史最高</strong></td></tr>
+    <tr><td>2</td><td>Prime Day 错期</td><td>多数主要国家（含美国）促销在 Q2，2025 年完全在 Q3；剔除该影响，Q3 同比增速<strong>高约 400bp</strong></td></tr>
+    <tr><td>3</td><td>分部</td><td>北美 1129 亿（+6%）；国际 431 亿（固定汇率 +8%）；全球付费件数 <strong>+12%</strong>；Prime 会员每月当日达生鲜订单<strong>增长两倍以上</strong></td></tr>
+    <tr><td>4</td><td>分部利润</td><td>北美营业利润 87 亿、利润率 <strong>7.7%</strong>；国际 16 亿、利润率 <strong>3.7%</strong></td></tr>
+    <tr><td>5</td><td>履约成本</td><td>克服燃油通胀带来的运输成本上涨与更高干线费率；靠<strong>更合理的库存布局、缩短配送距离、包裹合并</strong>降低整体服务成本；配送成本 +11% vs 件数 +12%；剔燃油与干线通胀后 +8%，比件数慢约 400bp</td></tr>
+    <tr><td>6</td><td>机器人</td><td>机器人技术与 AI 带来<strong>切实可见的成效、生产力提升与员工安全保障</strong>，预计未来产生<strong>复合效应</strong>；2026 年 Cardinal、Sparrow 等机械臂部署规模<strong>翻倍</strong>；正在开发<strong>机器人基础模型</strong>以实现更快编程、执行更复杂物理任务；目标是有实用价值的规模化部署</td></tr>
+    <tr><td>7</td><td>AWS</td><td>营收 460 亿（+39.3%），环比 <strong>+38 亿</strong>；ARR <strong>1840 亿</strong>；核心与 AI 共同驱动；<strong>AI 支出与核心服务营收增长存在强烈协同</strong>；营业利润 178 亿、利润率 <strong>38.7%</strong>；自研芯片/定制网络/软件流程优化帮助优化容量、构建更低成本基础设施；<strong>利润率会因投资节奏而波动</strong></td></tr>
+    <tr><td>8</td><td>AI 与资本开支</td><td>AI 营收<strong>同比三位数增长</strong>；Bedrock 是强劲增长引擎；Q3 现金资本开支 <strong>759 亿</strong>，主要用于 AWS 与 AI</td></tr>
+    <tr><td>9</td><td>Q4 指引</td><td>净销售额 2400–2470 亿；汇率逆风约 <strong>60bp</strong>；营业利润 285–335 亿；<strong>Leo 成本资本化推迟至 2027Q1</strong>，Q4 仍将大部分 Leo 成本直接计入费用</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">05</span>电话会 · 六轮分析师问答全记录</h2>
+
+<p class="mute">顺序与原文一致，每位提问者一个问题（主持人要求）。回答内容按原文要点完整还原，不删观点。</p>
+
+<div class="qa">
+  <div class="qh">第 1 轮 · 美银证券（BofA Securities）· Justin Post</div>
+  <div class="qb">
+    <p class="q">云业务在加速很亮眼，但季度环比增速有所放缓，客户方面、Token 成本或其它因素是否有值得注意的？如何看待第四季度的容量扩充？燃油成本对第四季度指引有什么影响？</p>
+    <p><span class="who">Jassy</span>"我们对这一增长非常满意。"在 <strong>1840 亿 ARR</strong> 上实现 39.3% "相当不同寻常"，是约五年最快、连续六季加速，且同时在大幅扩容量。</p>
+    <p>增长动力是多项因素共同促成：① AI 全栈能力（SageMaker AI 自建模型 / Bedrock 前沿模型 / Strands 与 AgentCore 自建智能体 / Q Developer、Connect、Transform、Q 开箱即用）；② 每季增加大量容量，但<strong>各季规模不均等</strong>，从今年已投放到未来约 <strong>8–10 个季度</strong>的规划看，后续还有大量容量上线；③ 客户尤其企业客户正把更多<strong>推理</strong>搬进生产，极度渴望优化性价比，Trainium 优势显著；④ 用量扩大又推动强化学习、post-training、工具调用；⑤ Graviton 性价比比 x86 高 <strong>30%–40%</strong>。</p>
+    <p>"在如此庞大的体量下，预计 2027 年和 2028 年每年都能实现超过 40% 的同比增长，这是非常惊人的。"并重申 5–10 年万亿美元营收规模的可能。</p>
+    <p><span class="who">Olsavsky</span>燃油与干线通胀：<strong>没有确切数字，但第四季度影响确实比第三季度更大</strong>。年初已针对 FBA 卖家推出<strong>燃油附加费</strong>，弥补了部分（非全部）燃油成本；其余体现在<strong>自营零售的入库和出库货件</strong>中。这些成本已包含在指引内，<strong>比第三季度略高</strong>。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 2 轮 · 摩根士丹利（Morgan Stanley）· Brian Nowak</div>
+  <div class="qb">
+    <p class="q">如何推导出 1 万亿美元目标——自上而下还是自下而上？什么让你有信心？另外，2027 年零售机器人技术的关键里程碑是什么？</p>
+    <p><span class="who">Jassy</span>（AWS）三条腿：① <strong>看增长率与运行率外推</strong>；② <strong>能见度</strong>——客户拿的是数百兆瓦甚至 <strong>1 吉瓦</strong>的大块容量，"你不可能让 1 吉瓦的容量闲置在那儿"，所以必须提前很久预订，公司对 <strong>2027、2028 乃至 2029 年部分需求</strong>都有很好能见度，同时始终为 EC2/Bedrock 按需使用保留大量容量；③ <strong>渗透率极低</strong>——企业生产环境普及推理仍非常早期。</p>
+    <p>两个瓶颈：<strong>人才</strong>（懂 AI、能做后训练与微调的人不够）与<strong>推理成本</strong>（"必须持续致力于降低推理成本，这是 AWS 的一项重大使命"，也是自研芯片与 Trainium 的重要理由；过去几年已大幅下降，还会进一步显著下降）。</p>
+    <p>三个早期重大用例：<strong>安全</strong>（模型已能发现人类未察觉的漏洞；"有些人认为未来一两年内使用的 Token 总量中，有 20% 或相当大一部分最终可能仅仅用于安全领域"）、<strong>编程</strong>、<strong>AI 助手</strong>。再叠加"几乎所有现代企业的生产应用都将被重写，以具备智能体能力"。</p>
+    <p>自我限定："五到十年后的情况谁也无法做出绝对确定的预测。但对我们而言，想象它成为一项规模超过 1 万亿美元的业务，绝非夸大其词。"</p>
+    <p>（机器人）履约网络<strong>超 100 万台</strong>机器人，对成本结构、生产力、安全影响非常重大；安全数据处于<strong>全球历史最佳水平</strong>；但仍处<strong>非常早期</strong>。运营中心"始终会有大量的团队成员"，但许多重复性工作将由机器人承担；正投资<strong>各种不同形态</strong>的机器人；有机会在"<strong>最后 100 码</strong>"提供辅助；还有大量技术在研。判断标准是"能否带来相当或更优的生产力、安全性、成本结构以及交付时效"，经济效益成立就规模化部署。新履约设计（含当日达设施扩建）<strong>机器人比重非常高</strong>。"与未来五年的前景相比，现在的成效还只是<strong>冰山一角</strong>。"</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 3 轮 · Evercore ISI · Mark Mahaney</div>
+  <div class="qb">
+    <p class="q">未来两年 AWS 利润率结构是否相对稳定？能否大致维持在 30% 后期到 40% 左右？另外生鲜结算的覆盖率有多大（多少 Prime 家庭）、单户支出能提升多少（20%/50%/100%）？</p>
+    <p><span class="who">Olsavsky</span>（利润率）<strong>不提供任何具体指引</strong>，只给背景：本季 38.7% "绝非偶然"，是<strong>严格自律、效率提升、容量优化、严控固定成本</strong>的结果；自研芯片随时间更多进入成本结构。<strong>但存在其他波动因素</strong>：① AI 业务超常规增长<strong>给整体利润率带来压力，因为 AI 利润率相对较低</strong>；② 核心与 AI 的利润率进展都满意，<strong>AI 利润率领先于核心业务类似阶段，但目前依然更低</strong>，因此存在 <strong>mix 问题</strong>；③ 零部件定价逆风（"无法准确预测，但总是会有多重因素交织"）。公司正在成本端与效率端全力以赴，并妥善应对新产品起步、推出、规模化阶段的投资与利润率问题。</p>
+    <p><span class="who">Jassy</span>（生鲜）杂货业务此前主要集中在<strong>实体超市中间货架</strong>品类（快消、罐头、医药、美妆）；<strong>全食超市</strong>在营收与净利润上增速都快于杂货板块其他部分，并在城市推出新业态与 <strong>Daily Shop</strong>，"这套模式运行得非常好，计划在未来几年逐步推广"。</p>
+    <p>关键洞察：<strong>"当我们对比消费者在我们能够为其提供服务的品类上的总支出，与他们在亚马逊上的实际支出之间的差距时，最大的差距就在于食品杂货。"</strong> 且"很多人的采购、以及大量的食品杂货购物都是从生鲜开始的"。</p>
+    <p>突破口：<strong>用当日达配送站点配送生鲜</strong>。日用品增速约商城其他品类 3 倍、约占售出件数一半；当日达买生鲜者日用品件数约 <strong>7 倍</strong>；生鲜客户买家居/服装频次约 <strong>4 倍</strong>、支出约 <strong>2 倍</strong>。"这些都是非常显著的差距。"（注意：<strong>未给出</strong>覆盖率百分比与单户支出提升幅度的量化回答——这是提问明确要求但管理层回避的两项。）</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 4 轮 · 高盛（Goldman Sachs）· Eric Sheridan</div>
+  <div class="qb">
+    <p class="q">关于 Bedrock 的市场机会，你们有哪些关键认知，未来几年如何拓展规模？关于外售 Trainium，如何权衡外部市场机会与自身算力需求？</p>
+    <p><span class="who">Jassy</span>（Bedrock）"<strong>从来没有一种工具能够统治世界</strong>"——数据库不是，数据分析不是；AI 初期大家说只有 TensorFlow，结果 PyTorch 现在大得多；模型领域同样不会一家独占。</p>
+    <p>核心判断：<strong>"接下来的两到三年内，将会出现 6 到 8 个水平相当的模型，或者说至少足以胜任 95% 以上的工作负载。"</strong> 有的更擅长推理、有的编程、有的视觉、有的延迟更低、有的成本更低；<strong>大多数客户会使用多种模型，许多客户甚至会在同一个生成式 AI 应用中同时使用多种模型</strong>。</p>
+    <p>客户真正需要的是：极广的前沿模型选择 + 极佳性价比 + 极强的安全与访问控制，并能自主决定模型组合、随模型相互超越灵活切换。Bedrock 同时提供闭源（Anthropic、OpenAI）与开源（Kimi、GLM）；"我认为<strong>西方世界对更多的西方开源模型非常渴望</strong>，我相信随着时间推移这也将会实现"。</p>
+    <p>规模判断：<strong>"Bedrock 蕴含的市场机会极其巨大，它完全有可能成长为一项规模媲美 EC2 的服务。"</strong></p>
+    <p>（外售芯片）仍在持续评估。前提条件：<strong>同时拥有可观云业务且芯片实力足够对外销售的公司，实际上只有两家</strong>。约束：所有公司都向同一家供应商采购先进制程芯片，年度供给有限、各家分得配额，必须决定外售与自用比例。权衡：<strong>外售短期营收更多（出库即确认）；自用则因芯片可用 5–6 年，最终绝对营收与自由现金流更高</strong>。"截至目前，与另一家同样在进行此类权衡的厂商相比，我认为我们在芯片使用方式上采取了不同的策略。"<strong>2027 年底启动外售</strong>；"大概每年都会对这种平衡进行深入考量"；两者都将具有重要意义；"外售芯片与云基础设施业务确实是非常不同的业务形态"。</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 5 轮 · 摩根大通（J.P. Morgan）· Doug Anmuth</div>
+  <div class="qb">
+    <p class="q">考虑到未来两年 AWS 每年 40% 以上的增长，需要多少资本开支？关于服务器、网络设备、数据中心的回报周期，思考是否有更新？</p>
+    <p><span class="who">Jassy</span>（倒序回答）<strong>基础设施盈亏平衡点正在持续向左推移，回收周期在缩短</strong>；核心基础设施与 AI 略有不同、融资方式也有差异，<strong>具体取决于讨论哪一类资产</strong>；回顾 AWS 历史，"我们一直非常擅长寻找延长资产使用寿命并更快实现盈亏平衡的方法"。</p>
+    <p>资本开支：<strong>"其规模确实相当可观"</strong>。定性判断："这是一个<strong>千载难逢的机遇</strong>……我们在 AI 领域所见证的，是<strong>我们这代人所经历的最重大的变革</strong>。"如果目标是以 1840 亿运行率实现 39% 增长、未来两年每年再增 40%、最终成为超万亿美元业务，"那么我们就会坚决投资，以持续保持行业领先地位"。</p>
+    <p>他主动回应了"为什么不摊薄"的质疑：<strong>"如果这种加速和机遇是分散在 25 年内发生，而你可以把资本支出摊薄到 25 年里，那样会不会更从容便利？或许会更便利，但我们生活的世界并非如此，机遇也并非如此，而且我们完全有能力为这一规划提供资金。"</strong></p>
+    <p>结论："这将彻底改变亚马逊的体量，将彻底改变我们的营收规模，也将彻底改变我们的自由现金流。"</p>
+  </div>
+</div>
+
+<div class="qa">
+  <div class="qh">第 6 轮 · 巴克莱（Barclays）· Ross Sandler</div>
+  <div class="qb">
+    <p class="q">Bedrock 的 Token 市场似乎是 AI 领域最热门的服务之一，据我们了解绝大部分工作负载跑在 Trainium 上。当你们从卖裸金属转向提供更多推理即服务，对 AWS 营收增长尤其利润率会有什么影响？</p>
+    <p><span class="who">Jassy</span>确认："<strong>目前 Bedrock 的绝大部分工作负载确实都运行在 Trainium 之上</strong>"，很大程度上因为认可其性价比——既能尽可能为客户维持优惠价格，也看好利润空间。</p>
+    <p>然后把云利润率拆成两层：</p>
+    <ul>
+      <li><strong>数据中心层</strong>：实际购买或长期租赁多少、采用机房托管（colo）或新兴云（neocloud）多少——<strong>"新兴云在营业利润率上要比长期租赁低大约 3500 个基点"</strong>。</li>
+      <li><strong>硬件层</strong>："如果你使用的硬件和其他所有人完全一样，那么你的成本结构就会与大家大同小异；而如果你有能力使用与众不同的硬件，你就会拥有竞争优势。"</li>
+    </ul>
+    <p>AWS 的位置：大部分算力<strong>自建自有或长期租赁</strong>，营业利润率<strong>远高于</strong>主要或大量依赖托管/新兴云的厂商；依托<strong>自研芯片</strong>，既有领先性价比，又因完全自主可控而更具成本效益。"这赋予了我们<strong>结构性的成本优势</strong>，当我们把这些优势回馈给客户时，将对客户大有裨益，同时也极大改善了 AWS 整体的商业经济模型。"</p>
+  </div>
+</div>
+
+<div class="box">
+  <h4>投资者关系收尾（Dave Fildes）</h4>
+  <p>电话会重播将在投资者关系网站保留<strong>至少三个月</strong>。</p>
+</div>
+
+<div class="box amber">
+  <h4>六轮问答的结构性观察</h4>
+  <ul>
+    <li><strong>六问里四问关于 AWS</strong>（增长、利润率、Bedrock、芯片、资本开支），<strong>一问关于零售机器人</strong>，<strong>一问关于生鲜</strong>。没有一位分析师问到自由现金流为负、债务激增或利息支出——<strong>这三项是报道层面（第一篇、第三篇）的核心关切，却没有进入电话会的提问清单</strong>。这个错位本身值得记录。</li>
+    <li>管理层<strong>没有回答</strong>的两项量化问题：生鲜结算的 Prime 家庭覆盖率、单户支出提升幅度。</li>
+    <li>管理层<strong>主动给出</strong>而未被追问的三项：Q4 广告增速 15%–20%、外部 Agent 对广告无实质影响、Leo 资本化推迟。</li>
+  </ul>
+</div>
+
+<h2><span class="num">06</span>三篇报道观点全集（逐篇，不遗漏）</h2>
+
+<h3><span class="ch">6.1</span>第一篇 · 独立研究号：把"增长"和"回款"分开算</h3>
+
+<div class="box">
+  <h4>它的五段论证链</h4>
+  <ol>
+    <li><strong>利润表拆两层</strong>：商品、云、广告带来的经营利润在增加，投资损益却让净利润不可直接比较；61% 的营业利润增速里，其它营业费用净额贡献约 26% 是算术贡献。</li>
+    <li><strong>AWS 加速但利润率接受考验</strong>：39.3% 与 38.7% 同时出现，说明新增需求不自动带来更高利润率；业务组合、折旧、上线节奏都可能影响，公司未给完整拆分，<strong>不能单独归因于某一类 AI 客户</strong>。</li>
+    <li><strong>零售要先拆促销日历</strong>：Prime Day 错期贡献约 4 个百分点；广告放缓有日历原因，但<strong>需要下一季数字支持</strong>——"如果促销错期过去后增速仍低，就需要重新评估广告需求、客户预算或竞争，而不能继续沿用日历原因"。</li>
+    <li><strong>现金消耗已传导到债务和利息</strong>：滚动 FCF 从 -76.04 亿扩大到 -423.57 亿；长期债务从 656.48 亿升到 1731.25 亿；单季利息从 5.38 亿升到 16.91 亿。问题已从"刚转负"变成"<strong>投入速度能持续多久</strong>"。</li>
+    <li><strong>Q4 指引留下检验条件</strong>：隐含利润率 12.7% 说明 13.9% 的纪录不能当作下一季底线；2027/2028 超 40% 的展望缺可复算细节。</li>
+  </ol>
+</div>
+
+<h4>它独有的四个"口径警告"</h4>
+<ul>
+  <li><strong>年化数 ≠ 锁定收入</strong>：AWS 1840 亿是"当季收入乘四"，不是未来一年已锁定的收入。</li>
+  <li><strong>Token ≠ 收入</strong>：两项指标客户范围不同，模型价格与任务结构也会变化，不能按相同比例推算。</li>
+  <li><strong>采用量 ≠ 高回报</strong>：Bedrock/AgentCore/自研芯片都没有独立利润披露，无法算出"每一美元投资的回报"。</li>
+  <li><strong>FCF ≠ 可分配现金</strong>：未扣除全部并购、非上市投资、偿债支出；且集团全部现金缺口不能都归给云业务——"亚马逊只披露 AI 是设备支出增量的主要原因，<strong>没有给出 AWS 独立资本开支</strong>"。</li>
+</ul>
+
+<h4>它的估值结论（原文要点）</h4>
+<p class="quote">"AWS 更快增长有助于提高未来经营利润预期；资本回收后移、债务和利息增加，则会减少这些利润转成股东现金的速度。前者支持更强的盈利能力，后者要求更长的等待及更高的不确定性补偿。<strong>缺少独立 AI 回报和可靠长期现金预测时，单凭 39.3% 的增速无法推出合理估值倍数。</strong>"</p>
+
+<h3><span class="ch">6.2</span>第二篇 · 电话会实录：管理层自己给出的"账本"</h3>
+
+<p>这篇的信息价值不在结论，而在<strong>它把三张账本同时摊开了</strong>：</p>
+
+<table>
+  <thead><tr><th>账本</th><th>核心数字</th><th>管理层要证明的命题</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>需求账</strong></td>
+      <td>Backlog 5780 亿（+三位数）、每 14 秒一台加速器、1GW 容量块需提前预订、2029 年部分需求可见</td>
+      <td>"算力装多少卖多少"——需求不是问题，供给与交付才是</td>
+    </tr>
+    <tr>
+      <td><strong>成本账</strong></td>
+      <td>自研芯片（Graviton 便宜 30–40%、Trainium 性价比领先）、自建/长租数据中心（vs neocloud 高 3500bp）、DuckDB 零移植、Torch Neuron 零改写</td>
+      <td>AWS 的 38% 利润率是<strong>结构性</strong>的，不是周期性的</td>
+    </tr>
+    <tr>
+      <td><strong>回报账</strong></td>
+      <td>芯片可用 5–6 年、回收期持续缩短、2027 年开支显著增加、5–10 年 1 万亿</td>
+      <td>外售是短期收入，自用是长期现金流——选了后者</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box purple">
+  <h4>这篇里最"反共识"的三句话</h4>
+  <ul>
+    <li><strong>"从来没有一种工具能够统治世界"</strong>——直接否定了"某个模型会赢家通吃"的叙事，并给出 2–3 年出现 <strong>6–8 个水平相当模型</strong>的判断。这对"押注单一模型公司"的投资框架是一个约束。</li>
+    <li><strong>"外部通用 Agent 对亚马逊广告没有实质影响"</strong>——管理层主动否定了一个市场普遍担心的颠覆路径，理由是体验还不够好。</li>
+    <li><strong>"如果机遇分散在 25 年，摊薄资本开支会更从容；但我们生活的世界并非如此"</strong>——这是对"烧钱太快"质疑最直接的回答：不是不能慢，是慢了就丢领先地位。</li>
+  </ul>
+</div>
+
+<h4>这篇提供的、其他两篇完全没有的量化锚点</h4>
+<ul>
+  <li>Backlog <strong>5780 亿</strong>（另两篇：第一篇未提，第三篇给 5780 亿 + 上季 4960 亿）</li>
+  <li><strong>每 14 秒</strong>一台 AI 加速器</li>
+  <li>Q3 客户用自研芯片<strong>节省超 20 亿美元</strong></li>
+  <li>Graviton 性价比高 <strong>30%–40%</strong>；neocloud 利润率低 <strong>3500bp</strong></li>
+  <li>广告受 Prime Day 错期影响 <strong>850bp</strong></li>
+  <li>履约网络<strong>超 100 万台</strong>机器人；Cardinal/Sparrow 部署<strong>翻倍</strong></li>
+  <li>生鲜杂货 TTM <strong>近 2500 亿美元</strong>；生鲜客户日用品件数 <strong>7 倍</strong>、非生鲜频次 <strong>4 倍</strong>、支出 <strong>2 倍</strong></li>
+  <li>Alexa 购物客户<strong>客单价高 50%</strong>、交互 <strong>+570%</strong>、<strong>4 亿</strong>客户用过</li>
+  <li>Amazon Now <strong>450+ 城市</strong>、订单 <strong>+10 倍</strong></li>
+  <li>药房客户 <strong>+60%</strong>、复购 <strong>+50%</strong>、<strong>350+ 城市</strong> 3 小时达</li>
+  <li>Q4 广告指引 <strong>15%–20%</strong>；Q4 汇率逆风 <strong>60bp</strong></li>
+  <li>Leo 成本资本化推迟至 <strong>2027Q1</strong></li>
+  <li>FBA <strong>燃油附加费</strong>已推出，Q4 燃油影响<strong>大于 Q3</strong></li>
+</ul>
+
+<h3><span class="ch">6.3</span>第三篇 · 腾讯科技：把财报放回市场预期里</h3>
+
+<h4>它的核心叙事</h4>
+<p>标题就是论点：<strong>"终于，亚马逊也把自由现金流'烧穿了'"</strong>。正文把它展开成一句机制描述：<strong>"AI 基础设施投入正在推高云业务收入，也在迅速增加资金需求。"</strong></p>
+
+<h4>它给出的"预期差"清单（三篇里唯一）</h4>
+
+<table>
+  <thead><tr><th>指标</th><th class="num">市场预期</th><th class="num">实际</th><th>结论</th></tr></thead>
+  <tbody>
+    <tr><td>Q3 营收</td><td class="num">约 2022 亿</td><td class="num">2019.44 亿</td><td><span class="tag bear">未达</span></td></tr>
+    <tr><td>Q3 调整后 EPS</td><td class="num">约 1.97 美元</td><td class="num">1.89 美元</td><td><span class="tag bear">未达</span></td></tr>
+    <tr><td>Q3 AWS 增速</td><td class="num">约 37%–38%</td><td class="num">39.3%</td><td><span class="tag bull">超预期</span></td></tr>
+    <tr><td>Q4 营收</td><td class="num">约 2445 亿</td><td class="num">指引中值 2435 亿</td><td><span class="tag bear">略低</span></td></tr>
+  </tbody>
+</table>
+
+<p>它的归因也最直接：<strong>"财报公布后，路透社和《华尔街日报》均将股价下跌与收入展望、资本开支和自由现金流压力联系起来。"</strong></p>
+
+<h4>它提出的三个"待回答的问题"</h4>
+<div class="box red">
+  <p><strong>"AWS 能否持续消化新增算力，AI 收入能否覆盖基础设施投入，以及零售业务能否在年底购物季提供足够的现金流。"</strong></p>
+  <p>结尾的判断同样克制：<strong>"AWS 增长提速，说明企业云计算和 AI 算力需求仍在扩大。但亚马逊的基础设施投入也在快速增加，过去 12 个月自由现金流已经转负。第四季度收入指引低于市场预期，意味着投资者还需要看到更多证据，确认新增算力能够持续转化为业务收入和利润。"</strong></p>
+</div>
+
+<h4>它的独有信息</h4>
+<ul>
+  <li>Q2 末 Backlog <strong>4960 亿</strong> → Q3 末 5780 亿，单季 <strong>+820 亿</strong>。</li>
+  <li>Q3 与 <strong>Meta、英伟达、OpenAI、Salesforce、甲骨文、高通、Verizon、Stripe</strong> 签署新 AWS 协议；但<strong>未逐一公布芯片型号、算力规模、采购金额</strong>。</li>
+  <li>自研芯片业务<strong>年化收入运行率已超 250 亿美元</strong>（此前披露）。</li>
+  <li>Anthropic 用 Trainium 2 建 <strong>Project Rainier</strong>，部署<strong>超 50 万颗</strong>芯片。</li>
+  <li>Trainium 外售将"增加新的销售渠道，但也要求亚马逊进一步完善<strong>软件生态、供应链和客户支持</strong>"。</li>
+  <li>Q4 计划在美招聘约 <strong>30 万</strong>名季节性员工。</li>
+  <li>过去 12 个月经营现金流增加 <strong>376 亿</strong>，但净资本开支增加 <strong>948 亿</strong>，超过经营现金流增量——这是 FCF 转负的直接原因。</li>
+  <li>股价<strong>盘后跌幅一度超过 7%</strong>（注意与第一篇标题"暴跌10%"的差异，见 07）。</li>
+</ul>
+
+<h2><span class="num">07</span>数据交叉核对与原文勘误</h2>
+
+<h3><span class="ch">7.1</span>三篇一致、可直接采信的数字</h3>
+
+<table class="tight">
+  <thead><tr><th>项目</th><th class="num">数值</th><th>三篇口径</th></tr></thead>
+  <tbody>
+    <tr><td>营收</td><td class="num">2019.44 亿 / +12%</td><td>完全一致（管理层口语作"2019 亿"）</td></tr>
+    <tr><td>营业利润</td><td class="num">280.76 亿 / +61%</td><td>完全一致（管理层口语作"281 亿"）</td></tr>
+    <tr><td>营业利润率</td><td class="num">13.9%</td><td>完全一致，历史最高</td></tr>
+    <tr><td>净利润</td><td class="num">206.85 亿 / -2%</td><td>完全一致</td></tr>
+    <tr><td>摊薄 EPS</td><td class="num">1.89 美元（去年 1.95）</td><td>完全一致</td></tr>
+    <tr><td>AWS 营收</td><td class="num">459.84 亿 / +39.3%</td><td>一致（CFO 作"460 亿"）</td></tr>
+    <tr><td>AWS 营业利润</td><td class="num">177.73 亿 / 38.7%</td><td>一致（CFO 作"178 亿"）</td></tr>
+    <tr><td>北美</td><td class="num">1128.52 亿 / +6% / 7.7%</td><td>一致（CFO 作"1129 亿 / 87 亿"）</td></tr>
+    <tr><td>国际</td><td class="num">431.08 亿 / +5%（固定汇率 +8%）/ 3.7%</td><td>一致（CFO 作"431 亿 / 16 亿"）</td></tr>
+    <tr><td>Q4 营收指引</td><td class="num">2400–2470 亿</td><td>完全一致</td></tr>
+    <tr><td>Q4 营业利润指引</td><td class="num">285–335 亿</td><td>完全一致（去年约 250 亿）</td></tr>
+    <tr><td>2026 现金资本开支</td><td class="num">约 2200 亿</td><td>完全一致</td></tr>
+    <tr><td>TTM 自由现金流</td><td class="num">-423.57 亿（去年 +147.88 亿）</td><td>一致（第三篇作"-424 亿 / +148 亿"）</td></tr>
+    <tr><td>Bedrock：财富 500 强支出 / Token 量</td><td class="num">近 7 倍 / 近 17 倍</td><td>完全一致</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">7.2</span>六处需要标注的差异与勘误</h3>
+
+<table>
+  <thead><tr><th>#</th><th>问题</th><th>三篇的表述</th><th>判断</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>广告收入是否单独披露</strong></td>
+      <td>第一篇：<strong>196.37 亿</strong>，+11%（固定汇率 +12%）；CFO 陈述："<strong>196 亿</strong>，+12%"；腾讯科技："亚马逊<strong>没有</strong>在本次财报中单独披露广告业务的具体收入金额"</td>
+      <td><span class="tag warn">第三篇此句不成立</span> CFO 在电话会开场明确给出 196 亿，第一篇也给出 196.37 亿。<strong>更可能的原意是"新闻稿分部表中未单列广告"，而非"未披露金额"。</strong>采信 196.37 亿。</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>广告增速 11% 还是 12%</strong></td>
+      <td>第一篇同时给出"同比 +11%"与"不变汇率 +12%"；CFO 与第三篇均说 12%</td>
+      <td><span class="tag info">口径差异</span> 11% 为报告口径，12% 为固定汇率口径。两个都对，引用时必须带口径。</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>"近五年最快" vs "六年新高"</strong></td>
+      <td>Jassy 原话："创下<strong>近五年</strong>来的最快增速"，且"连续第六个季度加速"；第二篇标题写"创<strong>六年</strong>新高"</td>
+      <td><span class="tag warn">标题与原话不一致</span> "连续六季加速"是节奏，"近五年最快"是增速。标题把两个概念合并成"六年新高"，<strong>严格说无出处</strong>。采信"近五年最快 + 连续六季加速"。</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>盘后跌幅</strong></td>
+      <td>第一篇标题："财报后<strong>暴跌 10%</strong>"；第三篇："盘后跌幅<strong>一度超过 7%</strong>"</td>
+      <td><span class="tag warn">取交集</span> 盘后一度跌超 7% 有明确表述；"10%"仅出现在标题、正文无对应数据。<strong>采信"盘后跌超 7%"，"10%"视为标题夸张或后续交易时段累计。</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Bedrock 上的"SpaceX 模型"</strong></td>
+      <td>第二篇："刚上线由 Bedrock 托管的 Kimi、GLM 和 <strong>SpaceX</strong> 模型版本"；第三篇：新增"OpenAI、Anthropic、月之暗面、<strong>xAI</strong> 和智谱"</td>
+      <td><span class="tag warn">语音转写讹误</span> 应为 <strong>xAI</strong>（Grok）。"SpaceX"与模型服务无关。采信 xAI。</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>原文残留的乱码与人名</strong></td>
+      <td>第二篇出现"像亿滋（Mondelez）、EchoStar、<strong>300万</strong>、西南航空……"；"没有任何其他零售业务能够在达到 <strong>亚马逊 Inc.</strong> 数千亿美元收入规模"；第一篇署名"s s 404K"</td>
+      <td><span class="tag neu">原文讹误</span> "300万"疑为企业名转写失败；"亚马逊 Inc."为"Amazon Inc."混排。均不影响论点，引用时避开。</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="box amber">
+  <h4>另外三处"看起来矛盾、实际不矛盾"的数字（易被误判）</h4>
+  <ul>
+    <li><strong>Q3 资本开支 759 亿 / 772.59 亿 / 758.78 亿</strong>：759 亿是 CFO 口语的<strong>净额</strong>，772.59 亿是<strong>购置总额</strong>，758.78 亿是扣除资产出售与激励回款后的<strong>净额</strong>。三者不冲突，但引用必须说明是总额还是净额。</li>
+    <li><strong>自由现金流 -423.57 亿 vs 单季 -334.56 亿</strong>：前者是<strong>滚动 12 个月</strong>，后者是<strong>单季按同一公式推算</strong>。第一篇明确警告不能把滚动值当单季亏空。</li>
+    <li><strong>全年 2200 亿指引 vs 前三季 1756.7 亿</strong>：若直接相减，Q4 只剩约 443 亿，远低于 Q3 单季 759 亿——<strong>这个落差本身就说明两个口径不可直接相减</strong>（一个是全年现金资本开支指引，一个是购置设备现金支出，且指引可能未随季度实际投放同步更新）。第一篇对此的警告是："不能把全年指引与过去十二个月净支出直接相减，声称第四季度剩余预算只有某个数。"</li>
+  </ul>
+</div>
+
+<h2><span class="num">08</span>关键争议、待验证假设与下一季检验清单</h2>
+
+<h3><span class="ch">8.1</span>三篇共同指向的四个真问题</h3>
+
+<table>
+  <thead><tr><th>#</th><th>争议</th><th>多头论据</th><th>空头论据</th><th>谁能证伪</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>AWS 增速能否持续</strong></td>
+      <td>Backlog 5780 亿、单季 +820 亿；1GW 容量块需提前预订；2029 年部分需求已可见；推理渗透仍极早期</td>
+      <td>环比增速已放缓；Q4 容量投放不均等；40% 指引无可复算的合同与交付明细</td>
+      <td>Q4 与 2027Q1 的 AWS 增速、Backlog 环比增量、容量上线节奏</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>利润率会不会被 AI 结构拖下去</strong></td>
+      <td>AI 利润率"领先核心业务同阶段"；自研芯片 + 自建数据中心的结构性成本优势（vs neocloud 3500bp）</td>
+      <td>AI 利润率绝对水平仍低于核心；mix 恶化；存储等组件涨价；折旧规模随 PP&E 从 3570 亿升到 5089 亿而放大</td>
+      <td>AWS 利润率能否守住 38% 附近；折旧占 AWS 收入比重的变化</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>自由现金流何时转正</strong></td>
+      <td>经营现金流 +29%（1683 亿）仍在增长；回收期"持续缩短"</td>
+      <td>净设备支出 +82%（增 948 亿）快于经营现金流增量（376 亿）；2027 年开支还要"显著增加"；长期债务九个月增 1075 亿、利息从 5.38 亿升到 16.91 亿</td>
+      <td>经营现金流与净设备付款的<strong>缺口是否收窄</strong>——这是第一篇给出的第一个可检验指标</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>零售与广告的真实动能</strong></td>
+      <td>剔除日历错期集团增速高约 4pp；日用品占件数一半、增速 3 倍；单件服务成本连续第四年下降</td>
+      <td>北美 +6%、国际 +5%（报告口径）；广告 +11%（报告）；两者利润率均低于上一季；假日季要加 30 万人、起薪上调、燃油与干线通胀高于 Q3</td>
+      <td>Q4 广告能否回到 15%–20%；北美利润率能否扛住假日季成本</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3><span class="ch">8.2</span>下一季（2026 Q4）用哪些公开数字检验</h3>
+
+<div class="box blue">
+  <h4>第一篇给出的三组"可直接检验"的数字</h4>
+  <ol>
+    <li><strong>AWS 增长与利润率是否继续背离</strong>——若收入依旧快速增加而利润率持续下降，就应下调对资本回收速度的预期，<strong>"即使需求本身仍然强劲"</strong>。</li>
+    <li><strong>广告增速能否回到管理层预计的高十位数区间</strong>，同时北美利润率能否承受住假日季成本。</li>
+    <li><strong>经营现金流与净设备付款的差距是否收窄</strong>。</li>
+  </ol>
+</div>
+
+<div class="box">
+  <h4>我在此基础上补四项（来自三篇原文的交叉点）</h4>
+  <ul>
+    <li><strong>长期债务与利息支出的环比变化</strong>：九个月增 1075 亿是异常值，Q4 是否继续以此速度加杠杆，决定"利息侵蚀利润"会不会成为 2027 年的主线之一。</li>
+    <li><strong>Q4 隐含利润率能否达到 12.7%</strong>：若显著低于此，说明 13.9% 的纪录含较多一次性因素（费用项低基数）；若高于，则说明经营效率改善更扎实。</li>
+    <li><strong>Leo 费用化的实际金额</strong>：CFO 明确 Q4 仍将大部分 Leo 成本直接计入费用，这是可单独观察的利润拖累项。</li>
+    <li><strong>Backlog 的环比增量</strong>：Q3 单季 +820 亿是极强的数字，若 Q4 增量明显收窄，则"能见度"叙事需要打折。</li>
+  </ul>
+</div>
+
+<h3><span class="ch">8.3</span>三篇都没有回答的问题（信息缺口清单）</h3>
+<ul>
+  <li><strong>AWS 独立资本开支</strong>：公司只披露"AI 是设备支出增量的主要原因"，没有拆分 AWS 与零售/物流。因此"每 1 美元 AWS 投资回报多少"<strong>无法计算</strong>。</li>
+  <li><strong>Bedrock 与智能体的独立收入与利润</strong>：只有 Token 量与客户数，没有金额与毛利。</li>
+  <li><strong>AI 业务利润率的绝对水平</strong>：只有"低于核心、但领先核心同阶段"的定性比较。</li>
+  <li><strong>自研芯片的对外销售定价与毛利率</strong>：只有"2027 年末启动"与时点。</li>
+  <li><strong>生鲜结算的 Prime 家庭覆盖率与单户支出提升幅度</strong>：提问明确要求，管理层用"7 倍/4 倍/2 倍"的相对倍数替代了绝对量化。</li>
+  <li><strong>Q4 收入指引低于预期的具体原因</strong>：管理层未解释，只给了区间与 60bp 汇率逆风。</li>
+</ul>
+
+<h2><span class="num">09</span>投资视角（延伸，非原文观点）</h2>
+
+<div class="box amber">
+  <p class="mute" style="margin-top:0;">本节为基于三篇原文的结构化延伸，<strong>不属于三篇报道的原始观点</strong>，仅用于把上面的财务事实转成可跟踪的框架。</p>
+</div>
+
+<h3><span class="ch">9.1</span>这份财报的"三张表"分别说了什么</h3>
+
+<table>
+  <thead><tr><th>报表</th><th>信号</th><th>方向</th></tr></thead>
+  <tbody>
+    <tr><td>利润表</td><td>营业利润 +61%、利润率 13.9% 创纪录；AWS 贡献 63% 利润</td><td><span class="tag bull">强</span> 但含约 26% 的费用项算术贡献</td></tr>
+    <tr><td>现金流量表</td><td>经营现金流 +29%，净设备支出 +82%，FCF -423.57 亿</td><td><span class="tag bear">紧</span> 且 2027 年还要加码</td></tr>
+    <tr><td>资产负债表</td><td>长期债务 656 亿→1731 亿，单季利息 5.38 亿→16.91 亿，PP&amp;E 3570 亿→5089 亿</td><td><span class="tag warn">转向</span> 从"自我融资"转向"部分靠债务融资"</td></tr>
+  </tbody>
+</table>
+
+<p>三张表放在一起，得到的是一个<strong>典型的"重资产转型期"财务画像</strong>：盈利能力在改善、现金在净流出、杠杆在上升。这个组合在历史上既可能对应"投入期后的高回报"，也可能对应"回报不及预期的资本沉没"——区分二者的唯一变量是<strong>新增容量的利用率与定价</strong>，也就是第一篇反复强调的"客户使用能不能跟上新增容量"。</p>
+
+<h3><span class="ch">9.2</span>可跟踪的标的与工具（仅供框架参考）</h3>
+
+<table class="tight">
+  <thead><tr><th>层级</th><th>暴露方向</th><th>与本文的关联</th></tr></thead>
+  <tbody>
+    <tr><td>公司本体</td><td>AMZN</td><td>三篇报道的直接对象；核心变量是 AWS 利润率与 FCF 拐点</td></tr>
+    <tr><td>自研芯片产业链</td><td>先进制程代工、先进封装、HBM/存储</td><td>Jassy 明确提到"存储等组件成本上升"是利润率逆风；芯片配额是外售与自用的共同约束</td></tr>
+    <tr><td>算力与数据中心</td><td>数据中心 REITs、电力与冷却、光模块</td><td>2200 亿现金资本开支 + 2027 年"显著增加"的直接受益方</td></tr>
+    <tr><td>云与 AI 软件同业</td><td>MSFT / GOOGL / ORCL 等</td><td>Jassy 的"6–8 个水平相当模型"判断与 neocloud 3500bp 差距，是横向比较的标尺</td></tr>
+    <tr><td>宽基与科技 ETF</td><td>QQQ / 纳指 100、SMH（半导体）</td><td>作为"AI 资本开支周期"的整体暴露，用于对冲个股判断误差</td></tr>
+  </tbody>
+</table>
+
+<p class="mute">以上仅为把报道内容映射到可观察变量的框架，不构成任何投资建议；具体标的、权重与买卖时点需自行判断。</p>
+
+<h3><span class="ch">9.3</span>三个"反常识"的观察</h3>
+<ol>
+  <li><strong>股价跌的理由不是业绩差，是"预期管理"差</strong>：AWS 超预期（39.3% vs 37–38%），但营收、EPS、Q4 指引三项未达。市场在给"超预期的地方"打折，在给"未达预期的地方"全额计价。</li>
+  <li><strong>电话会里没人问现金流</strong>：六轮提问中零次涉及 FCF、债务、利息。这说明<strong>卖方当前的注意力完全在增长侧</strong>——而两篇报道的核心关切恰好在这一侧之外。这种错位往往意味着风险尚未被充分定价。</li>
+  <li><strong>"1 万亿"是防御性表述，不是进攻性表述</strong>：Jassy 在被追问资本开支回报时反复使用"千载难逢""这代人最重大的变革""完全有能力为这一规划提供资金"。这套语言的真实功能是<strong>为 2027 年继续加码资本开支预先取得授权</strong>。</li>
+</ol>
+
+<h2><span class="num">10</span>一页纸总结</h2>
+
+<div class="box green">
+  <h4>如果只记五件事</h4>
+  <ol>
+    <li><strong>经营层面确实在变好</strong>：营业利润 280.76 亿（+61%）、利润率 13.9% 创历史最高；AWS 用 23% 的收入贡献 63% 的利润；北美 7.7%、国际 3.7% 的利润率同比都在改善。</li>
+    <li><strong>但利润增速的"含金量"要打折</strong>：其它营业费用净额从 28.75 亿降到 1.34 亿，27.41 亿的差额约等于新增营业利润的 26%；同时 AWS、北美、国际三个分部的利润率<strong>环比全部回落</strong>。</li>
+    <li><strong>AWS 是本季唯一"全面超预期"的部分</strong>：+39.3%（市场预期 37–38%）、连续六季加速、Backlog 5780 亿（单季 +820 亿）、推理已占 AI 收入一半以上、每 14 秒部署一台加速器。但 38.7% 的利润率低于上季 39.4%，且公司拒绝给利润率指引。</li>
+    <li><strong>现金是这份财报真正的软肋</strong>：TTM 经营现金流 1683 亿（+29%），净设备支出却增 948 亿（+82%），FCF 转成 -423.57 亿；长期债务九个月从 656 亿升到 1731 亿，单季利息从 5.38 亿升到 16.91 亿。这不是"一个季度的亏空"，是<strong>投入速度能否持续</strong>的问题。</li>
+    <li><strong>管理层把赌注押到了 2027–2028</strong>：2026 年 2200 亿资本开支维持、2027 年"显著增加"、AWS 2027/2028 增速均超 40%、5–10 年做到 1 万亿美元营收。这些数字<strong>没有可复算的合同与交付明细</strong>，只能靠下一季的 Backlog、利润率、现金流缺口三组数字逐步验证。</li>
+  </ol>
+</div>
+
+<div class="box red">
+  <h4>一句话记住这份财报</h4>
+  <p style="font-size:16px;"><strong>需求已经变成收入，收入正在变成利润，但利润还没有变成现金。</strong></p>
+  <p>三篇报道的分工恰好对应这三段：电话会实录证明"需求→收入"（Backlog、14 秒、1GW）；第一篇证明"收入→利润"里有多少是算术（26% 的费用项贡献、分部利润率环比回落）；第三篇证明"利润→现金"断在哪（经营现金流增 376 亿 vs 净资本开支增 948 亿）。</p>
+</div>
+
+<div class="disclaimer">
+  <strong>说明</strong>：本文为三篇公开报道（独立研究号《亚马逊财报后暴跌10%》、亚马逊 2026Q3 财报电话会完整实录、腾讯科技《终于，亚马逊也把自由现金流"烧穿了"》）的全文提炼与交叉核对。所有财务数字均来自上述三篇原文，标注为"推算"的数值为按原文公式的算术复算，未引入外部数据。原文之间的口径差异与勘误已在第 07 节逐项标注。本文不构成投资建议。
+</div>
+
+<div class="foot">
+  <p>整理：2026 年 10 月 30 日 · 覆盖财报期间：2026 年 7 月 1 日–9 月 30 日 · 电话会日期：2026 年 10 月 29 日</p>
+  <p>结构：00 核心速览 · 01 财报数据全景 · 02 AWS · 03 零售与广告 · 04 管理层陈述 · 05 六轮问答 · 06 三篇观点全集 · 07 交叉核对与勘误 · 08 争议与检验清单 · 09 投资视角 · 10 一页纸总结</p>
+</div>
+
+</div>
+</body>
+</html>
