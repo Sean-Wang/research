@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic 上市路演全文精读 · 五项优势与算力乘数</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root{
+  --bg:#f5f6f8; --card:#ffffff; --line:#e4e7ed; --line2:#eef0f4;
+  --text:#15181d; --text2:#3c434e; --muted:#6b7480;
+  --blue:#1f6feb; --blue-bg:#eef4ff;
+  --teal:#0e9f8a; --teal-bg:#e7f7f4;
+  --amber:#b8730a; --amber-bg:#fdf5e7;
+  --red:#d92b2b; --red-bg:#fdeeee;
+  --purple:#6d4aff; --purple-bg:#f1eeff;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  font-size:15px; line-height:1.85; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px}
+
+/* ---------- header ---------- */
+header{padding:64px 0 40px;border-bottom:1px solid var(--line);margin-bottom:44px}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);background:var(--blue-bg);
+  padding:6px 12px;border-radius:999px;margin-bottom:20px;
+}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+h1{font-size:34px;line-height:1.35;font-weight:800;letter-spacing:-.01em;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--blue)}
+.sub{font-size:16.5px;color:var(--text2);line-height:1.8;max-width:880px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{
+  font-size:12.5px;color:var(--muted);background:var(--card);
+  border:1px solid var(--line);border-radius:8px;padding:5px 11px;
+}
+.chip b{color:var(--text);font-weight:600}
+
+/* ---------- kpi ---------- */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:34px 0 44px}
+.kpi{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:18px 20px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.kpi::after{content:"";position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue)}
+.kpi.t::after{background:var(--teal)} .kpi.a::after{background:var(--amber)}
+.kpi.r::after{background:var(--red)} .kpi.p::after{background:var(--purple)}
+.kpi .l{font-size:12px;color:var(--muted);letter-spacing:.02em;margin-bottom:6px}
+.kpi .v{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.kpi .v small{font-size:13px;font-weight:600;color:var(--muted);margin-left:3px}
+.kpi .n{font-size:12px;color:var(--text2);margin-top:5px}
+.kpi .n b{color:var(--blue)} .kpi.t .n b{color:var(--teal)}
+.kpi.a .n b{color:var(--amber)} .kpi.r .n b{color:var(--red)}
+
+/* ---------- toc ---------- */
+.toc{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:24px 26px;margin-bottom:52px;box-shadow:var(--shadow);
+}
+.toc h3{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:14px}
+.toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:2px 32px;counter-reset:t}
+.toc li{counter-increment:t;font-size:14px}
+.toc li a{color:var(--text2);text-decoration:none;display:flex;gap:9px;padding:5px 0;border-bottom:1px dashed transparent}
+.toc li a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.toc li a::before{
+  content:counter(t,decimal-leading-zero);font-size:11px;font-weight:700;
+  color:var(--blue);font-variant-numeric:tabular-nums;padding-top:3px;min-width:20px;
+}
+
+/* ---------- section ---------- */
+section{margin-bottom:56px;scroll-margin-top:24px}
+h2{
+  font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.5;
+  margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line);
+  display:flex;align-items:baseline;gap:12px;
+}
+h2 .num{
+  font-size:12px;font-weight:800;color:#fff;background:var(--text);
+  border-radius:6px;padding:3px 8px;letter-spacing:.04em;flex:0 0 auto;
+  font-variant-numeric:tabular-nums;transform:translateY(-2px);
+}
+h3{font-size:16px;font-weight:700;margin:26px 0 12px;color:var(--text)}
+h4{font-size:14.5px;font-weight:700;margin:20px 0 8px;color:var(--text2)}
+p{margin-bottom:12px;color:var(--text2)}
+p strong,li strong{color:var(--text);font-weight:700}
+.lead{font-size:16px;color:var(--text);line-height:1.85}
+ul,ol{margin:10px 0 16px 22px;color:var(--text2)}
+li{margin-bottom:7px}
+li::marker{color:var(--blue)}
+
+/* ---------- speaker ---------- */
+.spk{
+  display:flex;align-items:center;gap:10px;margin:26px 0 10px;
+  font-size:13px;font-weight:800;color:var(--text);
+}
+.spk .av{
+  width:26px;height:26px;border-radius:8px;background:var(--text);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;
+  flex:0 0 auto;
+}
+.spk .role{font-weight:600;color:var(--muted);font-size:12px}
+.spk.t .av{background:var(--teal)} .spk.a .av{background:var(--amber)}
+.spk.p .av{background:var(--purple)} .spk.r .av{background:var(--red)}
+
+/* ---------- callout ---------- */
+.call{
+  border-radius:12px;padding:16px 20px;margin:18px 0;
+  border-left:3px solid var(--blue);background:var(--blue-bg);
+}
+.call.t{border-left-color:var(--teal);background:var(--teal-bg)}
+.call.a{border-left-color:var(--amber);background:var(--amber-bg)}
+.call.r{border-left-color:var(--red);background:var(--red-bg)}
+.call.p{border-left-color:var(--purple);background:var(--purple-bg)}
+.call .h{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:7px}
+.call.t .h{color:var(--teal)} .call.a .h{color:var(--amber)}
+.call.r .h{color:var(--red)} .call.p .h{color:var(--purple)}
+.call p{margin:0;color:var(--text);font-size:14.5px;line-height:1.8}
+.call p+p{margin-top:8px}
+.call ul{margin:6px 0 0 18px;color:var(--text);font-size:14.5px}
+
+/* ---------- quote ---------- */
+blockquote{
+  margin:16px 0;padding:14px 20px;background:var(--card);
+  border:1px solid var(--line);border-left:3px solid var(--purple);border-radius:10px;
+  font-size:14.5px;color:var(--text);line-height:1.8;
+}
+blockquote cite{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:normal}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line2);vertical-align:top}
+th{
+  background:#f9fafb;font-weight:700;color:var(--text);font-size:12px;
+  letter-spacing:.02em;position:sticky;top:0;z-index:2;white-space:nowrap;
+}
+th:first-child,td:first-child{
+  text-align:left;position:sticky;left:0;background:var(--card);z-index:1;
+  font-weight:600;color:var(--text);border-right:1px solid var(--line2);
+}
+th:first-child{background:#f9fafb;z-index:3}
+tbody tr:hover td{background:#fafbfc}
+tbody tr:hover td:first-child{background:#fafbfc}
+tr.hi td{background:var(--blue-bg)!important;font-weight:700}
+tr.sec td{background:#f4f6f9!important;font-weight:800;font-size:12px;letter-spacing:.06em;color:var(--text);padding:7px 12px}
+td.neg{color:var(--teal)} td.pos{color:var(--red)}
+.unit{font-size:12px;color:var(--muted);margin:-8px 0 10px}
+td.l{text-align:left;white-space:normal}
+
+/* ---------- chart ---------- */
+.chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 12px 8px;margin:20px 0;box-shadow:var(--shadow)}
+.chart .ct{font-size:13px;font-weight:700;color:var(--text);padding:0 8px 6px}
+.chart .cs{font-size:11.5px;color:var(--muted);padding:0 8px 10px}
+.cv{width:100%;height:320px}
+
+/* ---------- cards ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow)}
+.card .ct{font-size:13px;font-weight:800;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.card .ct::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);flex:0 0 auto}
+.card.t .ct::before{background:var(--teal)} .card.a .ct::before{background:var(--amber)}
+.card.r .ct::before{background:var(--red)} .card.p .ct::before{background:var(--purple)}
+.card p{font-size:13.5px;margin:0;line-height:1.75}
+.card p+p{margin-top:7px}
+.card ul{margin:0 0 0 18px;font-size:13.5px}
+.card .big{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:4px}
+.card .big small{font-size:12px;color:var(--muted);font-weight:600;margin-left:3px}
+
+/* ---------- timeline ---------- */
+.tl{margin:20px 0;padding-left:22px;border-left:2px solid var(--line)}
+.tl .ti{position:relative;padding:0 0 18px 18px}
+.tl .ti::before{
+  content:"";position:absolute;left:-29px;top:6px;width:10px;height:10px;border-radius:50%;
+  background:var(--card);border:2.5px solid var(--blue);
+}
+.tl .ti.t::before{border-color:var(--teal)} .tl .ti.a::before{border-color:var(--amber)}
+.tl .ti.r::before{border-color:var(--red)} .tl .ti.p::before{border-color:var(--purple)}
+.tl .y{font-size:12.5px;font-weight:800;color:var(--blue);letter-spacing:.04em;margin-bottom:3px}
+.tl .ti.t .y{color:var(--teal)} .tl .ti.a .y{color:var(--amber)}
+.tl .ti.r .y{color:var(--red)} .tl .ti.p .y{color:var(--purple)}
+.tl .d{font-size:13.5px;color:var(--text2);line-height:1.75}
+.tl .d b{color:var(--text)}
+
+/* ---------- disclaimer ---------- */
+.disc{
+  background:#fbfbfc;border:1px solid var(--line);border-radius:14px;
+  padding:22px 24px;margin-top:60px;
+}
+.disc h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.disc p{font-size:12.5px;color:var(--muted);line-height:1.8;margin-bottom:8px}
+footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:860px){
+  h1{font-size:26px} .kpis{grid-template-columns:1fr 1fr}
+  .toc ol{grid-template-columns:1fr} .grid2,.grid3{grid-template-columns:1fr}
+  .wrap{padding:0 16px 60px} header{padding:40px 0 28px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">IPO Roadshow Full Read · ANT · 2026-11-10</div>
+  <h1>Anthropic 上市路演全文精读<br><em>把"算力乘数"讲成护城河的那份文件</em></h1>
+  <p class="sub">2026 年 11 月 10 日，Anthropic 正式启动上市路演，随初步招股书同步放出完整路演视频。AGI 2050 于 11 月 11 日刊出全程汉化译文（约 1.6 万字）。本页按发言人与议题逐段还原全部内容——达里奥与达妮埃拉的双人开场、产品/研究/算力/商务四条业务线的负责人陈述、三位客户 CEO 的证言、CFO 的五支柱财务模型与 35% 利润率拆解、以及三段插入的能力里程碑短片。<strong>原文中的每一个数字、每一个判断、每一处定性表述均已保留，无删减、无观点遗漏。</strong></p>
+  <div class="meta">
+    <span class="chip">来源 <b>AGI 2050（微信公众号）</b></span>
+    <span class="chip">原文发布 <b>2026-11-11 10:04</b></span>
+    <span class="chip">路演启动 <b>2026-11-10</b></span>
+    <span class="chip">上市地 <b>纳斯达克 · 代码 ANT</b></span>
+    <span class="chip">原文体量 <b>约 1.6 万字 / 8 位发言人</b></span>
+  </div>
+</header>
+
+<div class="kpis">
+  <div class="kpi">
+    <div class="l">3Q26 营收</div>
+    <div class="v">170<small>亿美元</small></div>
+    <div class="n">去年同期 14 亿 · <b>同比 +12 倍</b></div>
+  </div>
+  <div class="kpi t">
+    <div class="l">年化营收（截至 10 月底）</div>
+    <div class="v">810<small>亿美元</small></div>
+    <div class="n">路演文件披露口径</div>
+  </div>
+  <div class="kpi">
+    <div class="l">调整后营业利润率</div>
+    <div class="v">15<small>%</small></div>
+    <div class="n">去年同期 <b>-93%</b> · GAAP 口径 -3%</div>
+  </div>
+  <div class="kpi a">
+    <div class="l">前三季度毛利率</div>
+    <div class="v">85<small>%+</small></div>
+    <div class="n">去年同期 <b>29%</b> · 算力利润率 43%</div>
+  </div>
+  <div class="kpi p">
+    <div class="l">净收入留存率 NRR</div>
+    <div class="v">约 900<small>%</small></div>
+    <div class="n">企业客户 <b>11,900+ 家</b> · 较年初近 8 倍</div>
+  </div>
+  <div class="kpi r">
+    <div class="l">发行方案</div>
+    <div class="v">8.25<small>亿股 @ 70–78 美元</small></div>
+    <div class="n">战投同步认购 <b>260 亿美元</b></div>
+  </div>
+</div>
+
+<nav class="toc">
+  <h3>目录</h3>
+  <ol>
+    <li><a href="#s01">这份文件的坐标：一份"招股书的口头版"</a></li>
+    <li><a href="#s02">财务全景：一组必须记住的数字</a></li>
+    <li><a href="#s03">发行结构与治理：F 类股与长期利益信托</a></li>
+    <li><a href="#s04">达里奥开场：治愈癌症，与生物武器</a></li>
+    <li><a href="#s05">达妮埃拉：五项核心优势的总纲</a></li>
+    <li><a href="#s06">产品：为"明天的模型"做产品</a></li>
+    <li><a href="#s07">研究：能力、效率、安全三维同推</a></li>
+    <li><a href="#s08">算力：多芯片统一池与"算力乘数"</a></li>
+    <li><a href="#s09">企业战略：越过阈值，整类工作重写</a></li>
+    <li><a href="#s10">客户证言：BMS、埃森哲、AIG 三家</a></li>
+    <li><a href="#s11">三段短片：能力里程碑的时间轴</a></li>
+    <li><a href="#s12">CFO 财务：五大支柱与 35% 目标拆解</a></li>
+    <li><a href="#s13">结语：把风险处理好的人拿到经营许可</a></li>
+    <li><a href="#s14">原文关键句摘录</a></li>
+    <li><a href="#s15">编者延伸：三处值得追问，与产业链映射</a></li>
+    <li><a href="#s16">资料来源与免责声明</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 01 ============ -->
+<section id="s01">
+  <h2><span class="num">01</span>这份文件的坐标：一份"招股书的口头版"</h2>
+
+  <p class="lead">这不是一篇评论文章，而是一份<strong>路演材料的完整翻译</strong>——AGI 2050 编辑部把 Anthropic 官方路演视频逐句译出，配图是路演幻灯片，汉化重排后成文。原文明确标注："本文为路演材料编译，不构成投资建议。"</p>
+
+  <p>理解它的价值，需要先看清它的性质：路演视频是<strong>管理层对招股书的口头解释</strong>，因此它同时承担两个任务——把 S-1 里的数字讲成一个连贯故事，以及把"为什么是我们"这件事讲给认购方听。整份文件的叙事骨架非常清晰，是一条单向递进的链：</p>
+
+  <div class="steps" style="counter-reset:s">
+    <div class="step"><div class="st">使命立论</div><p>AI 是史上最具希望的技术，同时也是最危险的技术。做不对风险，就没有成功可言。</p></div>
+    <div class="step"><div class="st">五项优势</div><p>使命与专注、人才与文化、前沿研究与安全、算力策略、企业战略——总裁给出的总纲。</p></div>
+    <div class="step"><div class="st">四条业务线展开</div><p>产品（沃拉）、研究（卡普兰）、算力（布朗）、商务（史密斯）各讲一段，每条线都配一个客户证言。</p></div>
+    <div class="step"><div class="st">财务收口</div><p>CFO 用五大支柱把前面所有叙事折算成利润率路径，落到"调整后营业利润率 &gt;35%"。</p></div>
+    <div class="step"><div class="st">回到使命</div><p>达里奥收尾：十年内让癌症、阿尔茨海默、心脏病、精神疾病成为历史遗迹。</p></div>
+  </div>
+
+  <div class="call">
+    <div class="h">原文的三处结构性提示</div>
+    <p><strong>一、八位发言人全部是内部人</strong>：达里奥·阿莫代（CEO）、达妮埃拉·阿莫代（总裁）、阿米·沃拉（CPO）、贾里德·卡普兰（CSO）、汤姆·布朗（首席算力官）、保罗·史密斯（CCO）、克里希纳·拉奥（CFO）、萨姆·麦坎德利什（首席架构师）。</p>
+    <p><strong>二、三位客户全部是自家大客户的高管</strong>：百时美施贵宝（BMS）首席数字与技术官格雷格·迈耶斯、埃森哲 CEO 朱莉·斯威特、AIG 总裁兼 CEO 埃里克·安德森。</p>
+    <p><strong>三、三段短片是"能力证据"的独立插叙</strong>：分别插在算力段之前、商务段之后、以及商务段结尾，用具体事件（OpenBSD 27 年漏洞、毅力号 400 米、19 亿蛋白质簇）替代抽象表述。</p>
+  </div>
+
+  <p>还有一个必须点出的细节：原文编者按把关键财务数据前置成一段"摘要"，而正文里 CFO 的口径与之存在<strong>细微但重要的差异</strong>——例如编者按说"过去 12 个月贡献营收超 10 万美元的客户超 11,900 家"，CFO 说的是"截至 2026 年第三季度拥有超过 11,900 家企业客户"。前者是消费口径（过去 12 个月付费额），后者是存量客户数口径。本页两个口径都保留，不做合并。</p>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="s02">
+  <h2><span class="num">02</span>财务全景：一组必须记住的数字</h2>
+
+  <p>原文编者按与 CFO 陈述合并后的完整数据面板。所有数字均为原文口径，未做换算或推算。</p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>指标</th><th>2026 年 3Q / 前三季度</th><th>去年同期</th><th>变化</th></tr>
+      </thead>
+      <tbody>
+        <tr class="sec"><td colspan="4">损益表（3Q26）</td></tr>
+        <tr class="hi"><td>营收</td><td>170 亿美元</td><td>14 亿美元</td><td class="pos">+12 倍以上</td></tr>
+        <tr><td>调整后营业利润</td><td>25 亿美元</td><td>—</td><td>—</td></tr>
+        <tr><td>调整后营业利润率</td><td>15%</td><td>-93%</td><td class="pos">+108 个百分点</td></tr>
+        <tr><td>GAAP 营业利润率</td><td>-3%</td><td>-224%</td><td class="pos">+221 个百分点</td></tr>
+        <tr><td>净亏损</td><td>233 亿美元</td><td>—</td><td>—</td></tr>
+        <tr><td class="l">其中：非现金费用（估值上升导致）</td><td>219 亿美元</td><td>—</td><td class="l">来自可转换票据、衍生负债、SAFE 的公允价值变动</td></tr>
+        <tr class="sec"><td colspan="4">年初至今（前三个季度）</td></tr>
+        <tr><td>毛利率</td><td>85% 以上</td><td>29%</td><td class="pos">+56 个百分点</td></tr>
+        <tr><td>算力利润率</td><td>43%</td><td>—</td><td class="l">CFO 口径，独立于毛利率</td></tr>
+        <tr><td>调整后营业利润率</td><td>12%</td><td>—</td><td>—</td></tr>
+        <tr><td>自由现金流</td><td>约 36 亿美元</td><td>—</td><td class="l">FCF 利润率 11%</td></tr>
+        <tr class="sec"><td colspan="4">规模与效率（六个季度跨度）</td></tr>
+        <tr><td>营收增长</td><td>45 倍以上</td><td>—</td><td class="pos">起点 2025Q1 的 3.76 亿美元</td></tr>
+        <tr><td>算力与基础设施成本增长</td><td>10 倍</td><td>—</td><td class="l">每美元算力产出效率提升 4 倍以上</td></tr>
+        <tr><td>年化营收（截至 10 月底）</td><td>约 810 亿美元</td><td>—</td><td>—</td></tr>
+        <tr class="sec"><td colspan="4">资产负债表与客户</td></tr>
+        <tr><td>累计融资</td><td>1,411 亿美元</td><td>—</td><td class="l">截至 9 月底</td></tr>
+        <tr><td>现金及现金等价物</td><td>956 亿美元</td><td>—</td><td>—</td></tr>
+        <tr><td>短期投资</td><td>363 亿美元</td><td>—</td><td>—</td></tr>
+        <tr class="hi"><td>净收入留存率（NRR）</td><td>约 900%</td><td>—</td><td class="l">"前所未有的"</td></tr>
+        <tr><td class="l">年付费 &gt;10 万美元客户（编者按口径）</td><td>11,900 家以上</td><td>—</td><td class="l">过去 12 个月贡献营收</td></tr>
+        <tr><td class="l">企业客户数（CFO 口径）</td><td>11,900 家以上</td><td>年初约 1,500 家</td><td class="pos">较年初增长近 8 倍</td></tr>
+        <tr class="sec"><td colspan="4">长期目标</td></tr>
+        <tr><td>调整后营业利润率</td><td>35% 以上</td><td>—</td><td class="l">长期目标，附三项成本率拆解</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="unit">注：去年同期"年初客户数"由 CFO"相比今年年初增长了近 8 倍"反推，原文未直接给出基数。</p>
+
+  <div class="chart">
+    <div class="ct">季度营收的两个披露锚点</div>
+    <div class="cs">原文仅给出 2025Q1 与 2026Q3 两个明确季度值，中间季度未披露，不做插值</div>
+    <div class="cv" id="c1"></div>
+  </div>
+
+  <div class="chart">
+    <div class="ct">过去六个季度：营收增长 vs 算力基础设施成本增长</div>
+    <div class="cs">原文表述为"营收增长超过 45 倍，算力与基础设施成本只增长了 10 倍"</div>
+    <div class="cv" id="c2" style="height:200px"></div>
+  </div>
+
+  <div class="call a">
+    <div class="h">这套数字里最反常识的一条</div>
+    <p><strong>净亏损 233 亿美元，但其中 219 亿是非现金。</strong>原文明确指出这来自"公司估值上升带来的非现金费用，来自可转换票据、衍生负债和 SAFE 的公允价值变动"。这是私有公司估值抬升在会计上的必然产物——估值越高，可转换工具的公允价值变动损失越大。换句话说，这一项亏损在上市后随估值锚定而消失，但它同时意味着：<strong>IPO 定价越高，历史报表上的账面亏损就越难看</strong>。GAAP 营业利润率 -3% 与调整后 15% 之间 18 个百分点的差，主要来自股权激励等非现金项。</p>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="s03">
+  <h2><span class="num">03</span>发行结构与治理：F 类股与长期利益信托</h2>
+
+  <p>原文编者按给出的发行方案，是整份材料里最"硬"的部分，因为它直接决定认购方拿到的是什么：</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ct">发行条款</div>
+      <div class="big">8.25 亿股 <small>@ 70–78 美元</small></div>
+      <p>上市地纳斯达克，代码 <strong>ANT</strong>。按区间上下沿计，募资规模约 <strong>578 亿至 644 亿美元</strong>（8.25 亿 × 70 / 78，本页推算）。</p>
+      <p>原文未披露发行后总股本，因此不推算市值与估值倍数。</p>
+    </div>
+    <div class="card t">
+      <div class="ct">战略投资者同步认购</div>
+      <div class="big">260 亿美元</div>
+      <p>认购方名单：<strong>AMD、博通、谷歌、美光、微软、英伟达、台积电</strong>，七家全部以发行价认购。</p>
+      <p>这份名单本身就是一份供应链地图——两家芯片设计（AMD、博通）、一家存储（美光）、一家代工（台积电）、两家超大客户兼股东（谷歌、微软）、一家 GPU 独家之外的算力核心（英伟达）。</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card p">
+      <div class="ct">治理：长期利益信托</div>
+      <p><strong>长期利益信托（Long-Term Benefit Trust）有权选出董事会多数席位。</strong>原文对它的定义是："一个独立的、无财务利益诉求的机构"。其职责是"协助 Anthropic 随着规模扩张来规划并践行我们的公益使命"。</p>
+      <p>注意措辞的精确性：不是"一票否决权"，而是<strong>董事会的多数席位提名/选举权</strong>。这构成了对公众股东治理权的实质性约束。</p>
+    </div>
+    <div class="card r">
+      <div class="ct">治理：F 类股</div>
+      <p><strong>七位联合创始人共同持有的一股 F 类股，在股东表决的一般事项上拥有 50.1% 的投票权。</strong></p>
+      <p>结构极其罕见：不是"每股 20 票"这类超级投票权，而是<strong>单独设一个类别、只发一股、附着一半以上的表决权</strong>，且由七人共同持有（意味着任何一人无法单独处分）。这是把创始人集体对公司的控制权写进了股权结构本身。</p>
+    </div>
+  </div>
+
+  <div class="call p">
+    <div class="h">这一节对认购方的含义</div>
+    <p>三重约束叠加：长期利益信托控制董事会多数 → 使命优先于股东回报被制度化；F 类股锁定 50.1% 一般事项表决权 → 重大事项上公众股东无法形成多数；七家战略投资者以发行价入股 → 产业资本与财务投资者的成本线一致，且锁定了算力与供应链关系。原文在正文中并未展开讨论这三者对估值的折价影响，仅做事实陈述。</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="s04">
+  <h2><span class="num">04</span>达里奥开场：治愈癌症，与生物武器</h2>
+
+  <div class="spk"><span class="av">DA</span>达里奥·阿莫代<span class="role">联合创始人、CEO</span></div>
+
+  <p>开场没有讲生意，讲的是双刃剑。原文的四层推进：</p>
+
+  <ol>
+    <li><strong>定性："这将是人类历史上最具希望的技术。"</strong>理由是"AI 正在捕获认知的本质"。</li>
+    <li><strong>能力演进的三段式</strong>：2024 与 2025 年，代码编写成为可能；现在，知识工作其他领域"能够端到端完成任务的 Agent"也成为可能；更近的时间里，生物学、数学、物理学等领域的<strong>基础性科学发现</strong>正在成为可能。</li>
+    <li><strong>风险的对称性</strong>："如果人类能够利用 AI 治愈癌症，那么心怀恶意的人同样可以利用 AI 制造生物武器或发动网络攻击。"</li>
+    <li><strong>结论："如果我们不解决这些风险，我们就无法取得成功。"</strong>并补了一句动机自陈——"这就是我，也是在 Anthropic 工作的许多人，投身于这项技术的原因"。</li>
+  </ol>
+
+  <blockquote>
+    "我们决心把这件事情做对。因为这就是我，也是在 Anthropic 工作的许多人，投身于这项技术的原因。"
+    <cite>达里奥·阿莫代，路演开场</cite>
+  </blockquote>
+
+  <p>这段话在路演语境下的功能不是抒情，而是<strong>为后文所有"安全投入"预设正当性</strong>——CFO 后面会把安全列为三大投资方向之一，如果没有这一段，那笔开支在财务上就是纯粹的成本。</p>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="s05">
+  <h2><span class="num">05</span>达妮埃拉：五项核心优势的总纲</h2>
+
+  <div class="spk t"><span class="av">DA</span>达妮埃拉·阿莫代<span class="role">联合创始人、总裁</span></div>
+
+  <p>这是全场唯一一段"总纲式"陈述，后面四条业务线都是它的展开。原文的逻辑起点是一句判断：</p>
+
+  <blockquote>
+    "智能现在已经成为人类可以亲手建造的东西。这背后的影响是深远的。我们相信它将让每个人的能力大幅提升，拓展全世界从事认知工作的容量，重塑每一个行业与学科。"
+  </blockquote>
+
+  <h3>能力演进的三级台阶</h3>
+  <div class="tl">
+    <div class="ti">
+      <div class="y">2024</div>
+      <div class="d">Claude 可以<b>回答问题、检索信息或总结文档</b>。</div>
+    </div>
+    <div class="ti t">
+      <div class="y">2025 年底</div>
+      <div class="d">Claude 已能进行<b>深度研究</b>，并执行多步骤项目，比如重构一整个代码库——这种任务过去需要耗费人类数小时甚至数天。</div>
+    </div>
+    <div class="ti a">
+      <div class="y">当下</div>
+      <div class="d">Claude 能接手<b>复杂的开放式项目</b>，将过去需要许多人耗时数月乃至数年的研究、分析和执行，在<b>短短几天内</b>完成。</div>
+    </div>
+    <div class="ti p">
+      <div class="y">不久的将来</div>
+      <div class="d">前沿 AI 有潜力推动<b>人类历史上一部分最伟大的突破</b>，并开辟全新的市场。</div>
+    </div>
+  </div>
+
+  <h3>五项优势的完整定义</h3>
+  <p>原文明确列为："我们的使命与专注、人才与文化、前沿研究与安全工作、我们的算力策略，以及我们的企业战略。"每一项她都给了展开：</p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="ct">① 使命与专注</div>
+      <p>使命是"负责任地开发和维护先进的 AI，造福人类的长期利益"。</p>
+      <p>它的<strong>管理功能</strong>被讲得很具体："我们管理着一个有限的资源体系：算力、人才和研究能力。使命让我们为团队确立清晰的方向，并将这些资源配置以发挥最大效能。在面临需要艰难抉择的挑战时刻，使命磨砺了我们的决策能力。"</p>
+      <p>两个例证：把 <strong>Mythos</strong> 专门部署给网络安全防御者；承诺 <strong>Claude 绝对不含广告</strong>。</p>
+    </div>
+    <div class="card t">
+      <div class="ct">② 人才与文化</div>
+      <p>"七位联合创始人中，包含了多项如今构成整个 AI 行业基石的思想的首创者。"</p>
+      <p>"这种顶尖人才的高密度延伸到了组织的各个层级，我们在吸引和留住该领域最聪明的头脑方面领跑整个行业。"</p>
+    </div>
+    <div class="card a">
+      <div class="ct">③ 前沿研究与安全</div>
+      <p>核心命题是一句反直觉的话："<strong>我们为了让模型安全可靠所做的工作，与让模型变得更强大的工作是完全同一套工作。</strong>"</p>
+      <p>衡量标准是"有用的智能"——模型处理现实世界任务的实际效果，以及为客户创造的价值。她们内部只问一个问题："Claude 能为我做到哪些其他模型做不到的事？"</p>
+    </div>
+    <div class="card p">
+      <div class="ct">④ 算力策略</div>
+      <p>"算力是支撑这项工作的关键基础设施。"差异化"不仅体现在我们如何构建算力容量，更体现在我们如何通过<strong>发现算力乘数</strong>来把这些容量的效用发挥到极致"。</p>
+      <p>（这一段是布朗整节的伏笔。）</p>
+    </div>
+    <div class="card r">
+      <div class="ct">⑤ 企业战略</div>
+      <p>"我们是从成立第一天起就专注于面向企业进行构建的领先 AI 实验室。"</p>
+      <p>客户横跨金融服务、科技、制药、医疗健康、政府、制造业。</p>
+      <p>她给的理由是价值对齐："企业对前沿技术是否安全、值得信赖和切实好用的在乎程度，与我们完全一样。"</p>
+    </div>
+    <div class="card">
+      <div class="ct">治理与公共政策</div>
+      <p>除执行管理层和董事会外，接受<strong>长期利益信托</strong>指导，该机构"负责选派我们董事会的多数席位"。</p>
+      <p>"我们相信，AI 的未来应该由民主社会来塑造和引领。"通过政策团队与<strong>Anthropic 研究院</strong>对外分享前沿 AI 如何重塑日常生活的研究。</p>
+    </div>
+  </div>
+
+  <h3>员工群像：原文完整保留的六段自述</h3>
+  <p>路演片中插入了一段员工访谈蒙太奇，原文逐句译出。这六段话的情绪分布很值得注意——不是"技术很酷"，而是"我必须在这里"：</p>
+
+  <div class="call t">
+    <div class="h">"我为什么在 Anthropic 工作？"</div>
+    <ul>
+      <li>"因为我是个乐观主义者。"</li>
+      <li>"我希望为我的家人和人类创造一个更安全、更美好的世界。"</li>
+      <li>"三年前，我哥哥因脑肿瘤去世，年仅 42 岁，正好是我现在的年龄，我深信通过我们的使命和这项技术，未来一定可以做到让像我哥哥这样的人不必失去生命。"</li>
+      <li>"总得有人承担起把这件事做对的重任，我真的不想袖手旁观。"</li>
+      <li>"这里的人在问'我们能不能做到'之前，会先问'这样做对不对'。"</li>
+      <li>"这是一群极其罕见的团队组合，他们既极其在乎让 AI 走上正轨，又极其在乎专业能力、逻辑一致性与正直诚信，这些品质正是让一个组织真正高效运转的关键。"</li>
+      <li>"正是这种利益与风险并存、光明与阴影同在的现实，构成了我选择来到 Anthropic 工作的确切原因。"</li>
+    </ul>
+  </div>
+
+  <p>达妮埃拉自己的收尾落在时间尺度上："在我们看来，这仍是现代人类体验史上最大变革的早期阶段，这不仅关乎深远的经济潜力，更关乎我们所坚信的 AI 能够帮助人类走向繁荣的所有路径——从治愈疾病到加速增长，再到帮助人们过上更充实、更丰盈的生活。"</p>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="s06">
+  <h2><span class="num">06</span>产品：为"明天的模型"做产品</h2>
+
+  <div class="spk a"><span class="av">AV</span>阿米·沃拉<span class="role">首席产品官</span></div>
+
+  <p>产品段的核心不是功能罗列，而是<strong>一个方法论</strong>：模型能力在指数增长，但用户的工作方式不会同步变快，两者之间的落差就是产品的战场。</p>
+
+  <h3>模型矩阵：从 Mythos/Fable 到高性价比端</h3>
+  <p>"它的设计初衷是在你可能设定的所有目标中交付价值，无论你是在针对<strong>成本、速度还是智能水平</strong>进行优化。"</p>
+  <ul>
+    <li><strong>最高端</strong>：Mythos 和 Fable "持续向前推高前沿边界"。客户用它"加固网络基础设施或做出新的科学发现"。</li>
+    <li><strong>另一端</strong>：能力极强且具备极高成本效益的模型，"企业可以在规模化场景中依靠它们执行定义明确的日常任务"。</li>
+  </ul>
+
+  <h3>三大产品原则</h3>
+
+  <div class="steps" style="counter-reset:s">
+    <div class="step">
+      <div class="st">原则一：贴近客户现有工作场景</div>
+      <p>三条触达路径并列：自有应用（<strong>Claude Code</strong>、桌面端与移动端 App）；嵌入企业级软件（<strong>Word、Excel</strong>）；垂直行业套件。原文举例："如果你是一名律师，我们提供了 <strong>Claude 法律套件</strong>，能够直接接入你日常所需的工具链。"并明确"我们在医疗健康、金融服务、生命科学等领域都推出了相应的行业套件"。</p>
+    </div>
+    <div class="step">
+      <div class="st">原则二：模型研发与产品构建并驾齐驱——为明天的模型做产品</div>
+      <p>"我们开发产品是面向明天的模型，而不只是针对今天的模型。"<strong>Claude Code 是这条原则的原始案例</strong>：几年前内部预发布模型在理解代码上的表现正在变好，"当时它还无法搞定一切，但我们看清了趋势线"。围绕预判打磨产品形态，几个月后 Claude Code 正式推向市场。</p>
+      <p>飞轮的完整描述："模型变得更强，我们利用这些底层进步开发新功能；接着我们进一步训练模型，让它更擅长处理人们试图解决的任务，从而反哺强化整个系统。"——"我们在编码以及更广泛的领域都在贯彻这一点。"</p>
+    </div>
+    <div class="step">
+      <div class="st">原则三：缩小前沿技术与客户日常生活之间的代沟</div>
+      <p>现状判断很直接："大多数人仍然将自己的 AI 工具仅仅视为搜索的替代品或者简易的问答工具……但这严重低估了人们凭借这种智能真正能完成的事业。"</p>
+      <p>推论："<strong>没有强大的产品，不断增长的智能与用户实际所在的位置之间的差距只会持续复利扩大。</strong>"这就是"产品成为极具意义的竞争分水岭"的原因。</p>
+    </div>
+  </div>
+
+  <h3>"赋予人们超能力"的三层定义</h3>
+  <p>这是原文里少见的、把产品价值分层的表述，值得完整保留：</p>
+  <div class="grid3">
+    <div class="card"><div class="ct">第一层</div><p>Claude 最初是帮你把<strong>本就该做的事情做得更好、更快</strong>。</p></div>
+    <div class="card t"><div class="ct">第二层</div><p>接着，它会接手那些你<strong>过去因为觉得太难而从未尝试过</strong>的事情。</p></div>
+    <div class="card p"><div class="ct">第三层</div><p>而在未来，这意味着我们<strong>所有人都能做到曾经不可能做到的事</strong>，从而让大家都能过上更美好、更充实的生活。</p></div>
+  </div>
+  <p>她对终局的描述是交互形态的："未来需要让 Claude 的体验尽可能简单、自然，让世界各地的人都能<strong>像对待一位人类同事那样对待 Claude</strong>，并且每次都能获得高质量的产出。"</p>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="s07">
+  <h2><span class="num">07</span>研究：能力、效率、安全三维同推</h2>
+
+  <div class="spk"><span class="av">JK</span>贾里德·卡普兰<span class="role">联合创始人、首席科学官</span></div>
+
+  <p>开篇是公司起源的复述，但落点在一句判断上："当年我们在 AI 领域发现缩放定律时，就意识到 AI 能力可以提升得极其迅速。正因如此，我们创立了 Anthropic，以确保如果 AI 演变成为一项颠覆性技术，它能够是安全且有益的。"</p>
+
+  <blockquote>
+    "我们的底层赌注在于：AI 将在这十年内取得巨大进展。正是因为这些颠覆性的能力，科学研究与安全保障必须同步推进。这是我们实现这项技术全部红利的唯一途径。"
+  </blockquote>
+
+  <h3>三个评估维度</h3>
+  <p>"我们从三个维度评估模型：<strong>能力、效率与安全</strong>。我们对模型进行优化，使其能够在长达<strong>数小时甚至数天</strong>的时间跨度内，精确地规划并完成复杂的工作。"</p>
+
+  <div class="call">
+    <div class="h">能力证据：Opus 5.5 与 68 万行代码</div>
+    <p>"我们的一位用户在<strong>不到一天</strong>的时间内完成了一次涉及 <strong>68 万行代码</strong>的代码迁移。在短短几年前，这需要一个工程团队耗费<strong>数周</strong>时间。"</p>
+    <p>由此得出的定位判断："我们相信，在<strong>极其看重准确率的长周期任务处理</strong>上，我们的模型是最优秀的。"注意这句话的限定语——不是"所有任务最强"，而是"长周期 + 高准确率要求"这个切片。</p>
+  </div>
+
+  <h3>训练流程的两个阶段</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="ct">① 预训练</div>
+      <p>"模型从<strong>人类知识的总和</strong>中学习——文本、图像、科学论文、代码。在这个阶段，它开始理解人类的基本概念和思想。"</p>
+    </div>
+    <div class="card t">
+      <div class="ct">② 强化学习</div>
+      <p>"这是 Claude 学会做到<strong>有帮助、诚实且无害</strong>的关键步骤。正是在这里，我们激发出其在编码、知识工作和科学领域的实用能力。"</p>
+      <p>"随着模型从对话助手迈向自主 Agent，强化学习已经演进为我们<strong>最大的研发投入领域之一</strong>，也是对我们客户真正至关重要的领域。"</p>
+    </div>
+  </div>
+
+  <p>最后是一段自我验证的轶事，也是整份材料里少见的"预测—兑现"闭环："在 2021 年，我曾写过一份内部备忘录，概述了我们最有可能落地的产品或许会是一个<strong>对齐良好的人工智能程序员</strong>。当时我也写了许多其他想法，但事实证明这一条预测相当准确。"</p>
+
+  <p>他的收尾把训练与使命绑在一起："Claude 的训练过程与 Anthropic 的使命紧密相连。我们需要理解如何训练前沿智能，以及如何让它保持安全。这就是我们交付 AI 红利的方式。"</p>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="s08">
+  <h2><span class="num">08</span>算力：多芯片统一池与"算力乘数"</h2>
+
+  <div class="spk p"><span class="av">TB</span>汤姆·布朗<span class="role">联合创始人、首席算力官</span></div>
+
+  <p class="lead">这是整份路演文件里<strong>信息密度最高、也最具差异化</strong>的一节。它回答的是一个投资人必然要问的问题：在算力被卡脖子的行业里，你凭什么比别人的单位算力更值钱？布朗给了两个答案——多芯片战略，和算力乘数。</p>
+
+  <h3>起点：两句从缩放定律推导出的原则</h3>
+  <p>"我们发现，只要配方正确，更多的算力可以<strong>可靠且可预测</strong>地换来更强的智能。随后我们发现，随着时间推移不断改良这个配方是完全可行的，从而可以用<strong>相同体量的物理算力获得更高的智能水平</strong>。"</p>
+  <p>于是 2021 年创立时明确了两件事：</p>
+  <ol>
+    <li>算力是整个业务的基石；</li>
+    <li>榨干每一单位算力的全部潜力，是制造出日益强大智能模型的关键。</li>
+  </ol>
+  <p>由此得出全场最锋利的一句自我定位：<strong>"在 Anthropic 花费的 1 美元算力，比在其他任何前沿实验室都走得更远。"</strong></p>
+
+  <h3>优势来源一：多芯片战略</h3>
+  <p>"如今我们已经在<strong>全部四种主要芯片家族</strong>上训练并提供 Claude 服务。"这来自一个早期"非传统的技术押注"——坚决推行多芯片战略。原文交代了当时的主流反对意见："在那时，许多人认为在不同芯片上运行 AI 模型得不偿失。每种芯片都需要专属定制的软件栈与推理栈，构建难度极高且成本极其高昂。如今我们已经深耕了多年，并变得不可思议地擅长此道。"</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="ct">优势一：供应端的议价权</div>
+      <p>"在算力供应受限的市场中，我们的多芯片战略使我们能够<strong>专注于最具性价比的选择，而不受制于单一供应商</strong>。"</p>
+    </div>
+    <div class="card t">
+      <div class="ct">优势二：按特长分工</div>
+      <p>"我们能够根据芯片的特长做最匹配的工作，<strong>有些芯片更擅长训练，有些则在推理上更胜一筹</strong>。"</p>
+    </div>
+  </div>
+
+  <p>结果是一个统一池："我们的多芯片战略意味着我们可以将<strong>跨供应商、跨架构、跨地域的所有芯片，视作一个可完全互换的统一算力池</strong>。"</p>
+
+  <div class="call a">
+    <div class="h">最值得单独记住的一个案例：AMD 三天移植</div>
+    <p>"今年我们首次开始使用 AMD GPU。过去，引入一个新的芯片平台需要<strong>几十名工程师耗费数月</strong>的心血；这一次，我们让 <strong>Mythos 亲自上手尝试</strong>，在基本无需人工干预的情况下，仅仅用了<strong>三天</strong>时间就在 AMD 上成功运行了 Claude。整个过程中，<strong>几乎 100% 的底层内核都是由 Claude 独立移植或编写的</strong>。"</p>
+    <p>这个案例同时证明了 compatibility 能力与"递归自我改进"的现实性——用 AI 降低接入新硬件的边际成本，等于把供应链弹性变成了可复制的软件能力。</p>
+  </div>
+
+  <h3>数据中心：从"买云"到"租芯片"——Anthropic Direct</h3>
+  <p>"过去，我们一直以云服务的形式采购算力；现在我们增加了第二种模式：我们<strong>直接租赁芯片，并将它们运行在专为我们定制构建的数据中心里</strong>。我们称之为 <strong>Anthropic Direct</strong>。"</p>
+  <p>它带来两大好处：</p>
+  <ul>
+    <li>有助于降低算力的<strong>整体拥有成本</strong>；</li>
+    <li>允许将对<strong>数据中心的承诺与对芯片本身的承诺拆分开来</strong>（即期限结构可以解耦，不必为芯片锁定一个超长期的数据中心租约）。</li>
+  </ul>
+
+  <h3>优势来源二：算力乘数（Compute Multipliers）</h3>
+  <p>这是整份文件最核心的概念创新。原文的定义是：</p>
+  <blockquote>
+    "我们关注的是<strong>总有效算力</strong>，它是<strong>物理算力容量</strong>与我们所发现的<strong>算力乘数</strong>的乘积。我们发现的每一个算力乘数，都会让我们总有效算力的池子变得更大。"
+  </blockquote>
+
+  <div class="call p">
+    <div class="h">原文给出的完整算例（100 单位 / 4 倍）</div>
+    <p>"假设你需要 <strong>100 个单位的算力</strong>来训练一个具备某种智能水平的模型。一个 <strong>4 倍的算力乘数</strong>意味着你可以仅仅使用 <strong>25 个单位</strong>的算力就训练出完全相同的模型；或者，你也可以继续使用那 100 个物理单位的算力，去训练一个如果放在过去需要 <strong>400 个单位</strong>算力才能达到的更强大的模型。"</p>
+    <p>也就是说，乘数有两种兑现方式：<strong>降本</strong>（同样智能、四分之一成本）或<strong>提能力</strong>（同样成本、四倍等效算力）。选择哪一种，是 CFO 后面讲的"可自由支配配置的战略资本"。</p>
+  </div>
+
+  <p>关于乘数的三条性质，原文说得很明确：</p>
+  <ol>
+    <li><strong>难以复制</strong>："算力乘数为我们构筑了难以复制的竞争优势。"</li>
+    <li><strong>相互叠加、彼此复利</strong>："它们是相互叠加的。我们发现的每一个新乘数，都会对先前的乘数产生正向放大效应，彼此产生复利累加。"</li>
+    <li><strong>可能自我加速</strong>："我们相信，随着我们逐步逼近<strong>递归式自我改进</strong>，这一进程还可能进一步提速：Claude 将能够<strong>完全自主地去发现算力乘数</strong>，从而让算力乘数的数量以越来越快的速度增长。"</li>
+  </ol>
+
+  <p>他的总结句把三件事并列："我们相信，<strong>前瞻性的明智投资、突破性的科学研究以及 Claude 自身不断提升的能力</strong>，这三者的结合已经让 Anthropic 在所有前沿实验室中确立了领先地位。"</p>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="s09">
+  <h2><span class="num">09</span>企业战略：越过阈值，整类工作重写</h2>
+
+  <div class="spk r"><span class="av">PS</span>保罗·史密斯<span class="role">首席商务官</span></div>
+
+  <p>商务段的立论是一句判断加一个机制：</p>
+
+  <blockquote>
+    "AI 能力的提升不是平缓渐进的。当模型跨过某个临界阈值时，就会发生一次<strong>阶跃式的突变</strong>，随之一整类工作都将以完全不同的方式被重新定义。"
+  </blockquote>
+
+  <p>前置判断是："智能是企业能够从 AI 中获得的<strong>最高价值资产</strong>……前沿智能能够解决最棘手的难题，并正因如此，它能带来最深远的影响。"</p>
+
+  <h3>阶跃的传导顺序：编码 → 网络安全 → 知识工作</h3>
+  <div class="tl">
+    <div class="ti">
+      <div class="y">第一波 · 编码</div>
+      <div class="d">"仅仅一年时间，我们就从<b>几行代码的自动补全</b>，演进到了<b>全天候运转的 Agent 机队</b>。"客户案例：乐天（Rakuten）"推出新功能的速度比竞争对手快了 <b>4 到 5 倍</b>"。</div>
+    </div>
+    <div class="ti t">
+      <div class="y">第二波 · 网络安全</div>
+      <div class="d">"借助 <b>Mythos</b> 和 <b>Project Glasswing</b>，Claude 已经协助网络防御者在全社会的宏观尺度上识别并修补漏洞。"客户案例：Mozilla"过去每次版本发布通常能修复 <b>20 多个</b>安全漏洞，而借助 Mythos Preview，他们识别并修复了 <b>271 个</b>安全漏洞"。</div>
+    </div>
+    <div class="ti a">
+      <div class="y">第三波 · 知识工作</div>
+      <div class="d">"科学研究、投资分析、保险核保，这些都是我们在各行各业所见证的鲜活例证。"客户案例：AIG"将出具报价所需的时间缩短了 <b>55%</b>"。</div>
+    </div>
+    <div class="ti p">
+      <div class="y">传导规律</div>
+      <div class="d">"在每一个垂直领域，我们都会先看到<b>微小的改良</b>，接着迎来<b>阶跃式突变</b>，随后整个工作类别便开始以惊人的速度发生重塑。"</div>
+    </div>
+  </div>
+
+  <h3>客户渗透的四组数据</h3>
+  <div class="grid2">
+    <div class="card">
+      <div class="ct">覆盖度</div>
+      <p>"我们在《财富》500 强企业中广泛建立了深度合作，《财富》<strong>前 10 强更是全部覆盖</strong>。"</p>
+      <p>"超过 <strong>50%</strong> 的《财富》500 强企业在我们这里的支出超过 10 万美元；在全球 2000 强企业中，这一比例也超过了 <strong>30%</strong>。"</p>
+    </div>
+    <div class="card r">
+      <div class="ct">渗透深度（这是最关键的伏笔）</div>
+      <p>"平均而言，这些《财富》500 强客户在我们身上的支出<strong>还不到其总费用的 0.1%</strong>；即便在排名前十的企业中，这一数字也依然<strong>不到其总支出账单的 1%</strong>。"</p>
+      <p>这段话的作用是把"已经很高的增长"重新定义为"还极早"——与 CFO 后面 40 万亿美元 TAM 的表述互为呼应。</p>
+    </div>
+  </div>
+
+  <h3>一个典型客户的五段成长路径</h3>
+  <p>原文用一条清晰的时间线描述扩张机制，这是解释 900% NRR 的核心：</p>
+  <div class="steps" style="counter-reset:s">
+    <div class="step"><div class="st">单点切入</div><p>"通常始于单一的使用场景，往往是面向开发人员与工程师团队的 <strong>Claude Code</strong>。"</p></div>
+    <div class="step"><div class="st">职能扩散</div><p>"很快，它就会渗透到<strong>相邻的业务职能</strong>中。"</p></div>
+    <div class="step"><div class="st">高价值工作流</div><p>"知识工作者开始在他们<strong>最高价值的工作流</strong>中使用 Claude。"</p></div>
+    <div class="step"><div class="st">流程自动化</div><p>"各团队开始将更多的业务流程自动化，并将 AI <strong>植入核心基础设施深处</strong>。"</p></div>
+    <div class="step"><div class="st">产品内嵌</div><p>"最终，他们将 Claude <strong>深度内嵌到全新的产品与服务</strong>中。"</p></div>
+  </div>
+  <p>"这一演进发生得极其迅猛，正因如此，我们展现出了前所未有的、约 <strong>900%</strong> 的净收入留存率。"</p>
+
+  <p>他的收尾是预期管理："让我感到振奋的是，<strong>最有趣、最颠覆的用例仍在前方</strong>。我们在编码和网络安全领域所见证的一切，现在正开始在几乎每一个职能、每一家企业和每一个行业中重演。"以及一句对客户心理的归纳——"客户希望与 Anthropic 结盟，因为他们相信我们能帮助他们<strong>最早看清未来</strong>"。</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="num">10</span>客户证言：BMS、埃森哲、AIG 三家</h2>
+
+  <p>三位客户分别对应"制药 / 专业服务 / 保险"三个行业，且每一位都给出了具体的量化收益。原文全部保留。</p>
+
+  <h3>百时美施贵宝（BMS）：把临床试验压缩 20–30%</h3>
+  <div class="spk t"><span class="av">GM</span>格雷格·迈耶斯<span class="role">BMS 执行副总裁、首席数字与技术官</span></div>
+  <ul>
+    <li><strong>价值判断</strong>："AI 将帮助我们把进行一项临床试验所需的时间缩短 <strong>20% 到 30%</strong>。如果你能让一款新药<strong>提前两到三年</strong>进入市场，那么对于目前尚无有效解决方案的患者来说，这就意味着他们可以更早获得治愈方法或治疗方案。"</li>
+    <li><strong>为什么选 Anthropic</strong>：<strong>企业级能力最成熟</strong>。原文对"成熟"给了非常具体的定义——"可以使用聊天机器人是一回事；将它真正置于一个可以访问公司最机密信息的环境中，同时能够进行<strong>可观测性监控、管理安全权限，并能精细控制向用户开放的内容</strong>，这完全是另一回事。这里面包含着 IT 组织非常重视的企业级管控体系。"</li>
+    <li><strong>推广规模</strong>：全部 <strong>30,000 名员工</strong>。"这是我们推出过的所有工具中，<strong>推广速度最快、采用率最高</strong>的 AI 工具。"</li>
+    <li><strong>效率对比</strong>："现在你可以抛出一个极其复杂的问题，它会判断究竟可以去查询哪一个或哪几个数据库——因为它实际上可以<strong>跨越这些数据库</strong>——然后生成一份已经将流行病学背景信息直接编织在内的分析报告。这让过去通常需要<strong>一到两个月</strong>才能得到解答的一个简单问题，缩短到现在<strong>四到五分钟</strong>内就能拿到结果。"</li>
+    <li><strong>行业级判断</strong>："无论是在高通量计算还是在大语言模型层面，我们终于来到了这样一个阶段：你能够将计算与分析的规模放大，去<strong>真正匹配生物学更宏大的尺度</strong>，从而帮助了解并改变现有的标准治疗方案。"</li>
+  </ul>
+
+  <h3>埃森哲：数万工程师，安全扫描从几天到一小时</h3>
+  <div class="spk a"><span class="av">JS</span>朱莉·斯威特<span class="role">埃森哲 CEO</span></div>
+  <ul>
+    <li><strong>前提判断</strong>："AI 是一项突破性的创新，但企业唯有<strong>通过全面重塑自身业务</strong>，才能真正拿到 AI 所许诺的价值。在埃森哲，我们的职责就是充当技术与客户实际商业成果之间的桥梁。"</li>
+    <li><strong>使用规模</strong>："事实上我们<strong>每天有数万名工程师</strong>在使用它。"应用于软件开发全生命周期。</li>
+    <li><strong>对工程师的影响（组织层面的观察）</strong>："它释放了时间，加快了我们的交付速度，并让我们的工程师可以将更多的时间花在<strong>为客户攻克核心难题、主导决策制定以及设计战略路径</strong>上。"</li>
+    <li><strong>安全场景组合</strong>：将 <strong>Claude Code + Claude Agent SDK</strong> 与自家安全平台 <strong>Cyber.AI</strong> 结合。"我们现在可以<strong>在一小时内</strong>完成过去需要<strong>几天</strong>才能搞定的安全扫描。"</li>
+    <li><strong>合作理念</strong>："我们专注于客户的成功与安全……得益于双方的合作，我们的客户能够更快地兑现价值。"</li>
+  </ul>
+
+  <h3>AIG：让核保专家"被更频繁地使用"</h3>
+  <div class="spk r"><span class="av">EA</span>埃里克·安德森<span class="role">AIG 总裁兼 CEO</span></div>
+  <ul>
+    <li><strong>融入速度</strong>："很难想象 Anthropic 融入 AIG 内部的速度有多快。"</li>
+    <li><strong>机制（这段是全场最精细的业务描述）</strong>："它帮助我们打造了<strong>更优秀的核保人员</strong>。我们能够<strong>更频繁地发挥核保专家的专业技能</strong>，因为我们现在能够快速拉取投保提交的信息，并将其整理为他们可以直接用于核保决策的格式。"</li>
+    <li><strong>结果</strong>："他们在做出决策的速度上有了显著的飞跃，这切切实实意味着我们能够以<strong>更加一致的标准处理更多的投保需求</strong>。而对于客户而言，我们能够做出<strong>更迅速的响应</strong>。"（原文在商务段另给了一个数字：报价时间缩短 <strong>55%</strong>。）</li>
+    <li><strong>价值契合</strong>："Anthropic 和 Claude 共同秉持的价值主张，与我们在<strong>安全性、韧性和技术能力</strong>方面努力追求的目标非常一致。"</li>
+    <li><strong>监管维度（唯一一次被明确提及）</strong>："我们与监管机构保持着极其紧密的沟通，就我们如何使用 AI、如何融入人的要素进行了汇报——对我们和监管机构来说，<strong>人类的把关监督</strong>显然至关重要，并且这一环节已经深度嵌入到了整个业务流程之中。"</li>
+  </ul>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="num">11</span>三段短片：能力里程碑的时间轴</h2>
+
+  <p>原文在正文中插入三段短片旁白，作用是用具体事件替代抽象表述。这些事件按时间排列，构成了一条独立的能力曲线。</p>
+
+  <h3>短片一：那条被反复翻倍的曲线</h3>
+  <blockquote>
+    "拿一个数字，将它翻倍，再翻倍，然后再翻倍。这条曲线切切实实处于我们在 Anthropic 所做一切的核心位置。"
+  </blockquote>
+  <p>"我们很早就注意到，模型性能似乎随着算力规模的扩大呈现出<strong>非常平滑的增长</strong>。我们的预判是：既然网络上存在着一整个互联网规模的上下文信息，那么，如果<strong>模型尺寸的限制因素不复存在</strong>，世界会变成什么样？"</p>
+
+  <div class="tl">
+    <div class="ti">
+      <div class="y">2022–2023</div>
+      <div class="d">"我们面对的还是<b>初级聊天机器人</b>。你可以向它们打听武士的历史，它会回赠给你一篇短文。"</div>
+    </div>
+    <div class="ti">
+      <div class="y">2024</div>
+      <div class="d">"编程开始成为可能，但 Claude 在面对<b>真正的难题</b>时依然举步维艰。"</div>
+    </div>
+    <div class="ti t">
+      <div class="y">2025</div>
+      <div class="d">"模型开始展现出令人惊讶的能力。编程能力大幅提升；Claude 甚至能打一些电子游戏，<b>尽管玩得还很烂</b>。就在同一年，它在 <b>OpenBSD</b> 系统中找到了一个已经<b>潜伏了 27 年未被发现</b>的缺陷。"</div>
+    </div>
+    <div class="ti a">
+      <div class="y">2025（同一年）</div>
+      <div class="d">"突然之间，它能够处理<b>多步骤的长链条流程</b>，能够处理复杂的知识工作。它为一家量子计算公司构建了一套<b>激光锁控制器</b>——这项任务过去需要一个<b>博士团队耗费一周</b>的时间，而它在<b>没有任何人工干预</b>的情况下，<b>一夜之间</b>独立搞定。"</div>
+    </div>
+    <div class="ti p">
+      <div class="y">之后</div>
+      <div class="d">"我们开始看到 Claude 在<b>数学领域做出基础性发现</b>，在<b>生命科学的前沿阵地</b>开展探索。"</div>
+    </div>
+  </div>
+  <p>旁白的语气控制得很克制："这种加速度可能会让人有些眩晕甚至失去方向感，但在我们心中，依然有一种强烈的感受：<strong>我们才刚刚启程</strong>。那条指数曲线正笔直地向我们前方延伸，而一切才刚刚开始。"</p>
+
+  <h3>短片二：三件"走出了这个世界"的事</h3>
+  <p>这段插在商务段结尾，主题是"当 Claude 解锁的科学发现真正走进现实世界，甚至超越这个世界时"。原文给了三个案例，一个比一个具体：</p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="ct">2025 年 12 月 · 火星</div>
+      <p>"Claude 协助规划了<strong>毅力号</strong>火星漫游车在火星表面的行进路线。它<strong>直接用漫游车自有的标记语言编写了控制代码</strong>。在指令正式发射之前，工程师们核对了一切细节。行驶 <strong>400 米</strong>，任务圆满完成。"</p>
+    </div>
+    <div class="card t">
+      <div class="ct">2026 年夏 · 生命科学</div>
+      <p>"大约 <strong>950 个 Claude Agent</strong> 连续工作了 <strong>21 个小时</strong>，筛选了 <strong>19 亿个蛋白质簇</strong>。其中一个 Agent 捕捉到了一个不寻常的微观模式：一个带有<strong>类 CRISPR 重复序列阵列</strong>的全新系统。我们的科学家在实验室中核验了 Claude 的这一发现。这个新阵列<strong>此前从未在任何文献中发表过</strong>——这是一次货真价实的科学发现。"</p>
+    </div>
+    <div class="card a">
+      <div class="ct">2026 年 9 月 · 公共卫生</div>
+      <p>"在<strong>刚果东部</strong>应对<strong>埃博拉</strong>疫情的医疗团队，能够在<strong>不到一小时</strong>内处理完各个地区每日提交的疫情报告，从而勾勒出更精准的疫情全景图，为一线患者护理抢救出了宝贵的时间。"</p>
+    </div>
+  </div>
+
+  <p>紧接着是一段把"能力"与"安全"直接挂钩的论述，逻辑非常紧：</p>
+  <div class="call r">
+    <div class="h">为什么越强越要管住</div>
+    <p>"影响现实世界的威力，让安全变得空前重要。这正是为什么 <strong>Claude 最完整的生物学能力仅面向通过我们严格验证的机构开放</strong>；也是为什么 Claude 拥有一部<strong>宪法</strong>——它赋予了模型在面对从未遇到过的复杂情境时做出判断的能力；这同样也是我们在<strong>可解释性与对齐研究</strong>上倾注如此多心血的原因。"</p>
+    <p>然后是本段最重要的一句反向论证："<strong>我们发现，安全并没有阻碍我们的脚步。恰恰相反，正是因为我们能够信任 Claude 的产出，我们才敢于将它的前沿发现大胆应用到真实世界中，去造福每一个人。</strong>"</p>
+  </div>
+
+  <h3>短片三（研究段内）：把"闭环"讲成方法论</h3>
+  <p>严格说这是萨姆·麦坎德利什（联合创始人、首席架构师）的陈述段，与短片交织。他讲了三件事：</p>
+  <ol>
+    <li><strong>为什么必须极致省算力</strong>："在研发和模型训练流程的每一个阶段，我们都在消耗算力；我们依靠算力为客户提供模型服务，也依靠算力在内部大规模使用 Claude。通过训练我们所认为的最具效率优势的模型，我们可以用<strong>同等体量的算力做更多以上所有的事情</strong>。这也是我们压低成本的方式，既降低了客户的使用成本，也降低了我们底层的自有成本。"</li>
+    <li><strong>安全的三重功能</strong>："卓越的安全表现是<strong>管理组织风险与系统性风险的核心手段</strong>，是让你在编程和医药等领域<strong>安全解锁前沿能力的前提</strong>，并且深受我们客户的重视，给予了他们将 AI 引入重要核心工作所需的<strong>信任基础</strong>。"</li>
+    <li><strong>"闭环"（全场最重要的内部机制表述）</strong>："我们越来越多地将前沿模型反哺用于改进我们自身的流程。我们称之为'<strong>闭环</strong>'，它正在全力推动我们所有三大研究优先事项的前进。在这方面，Claude 正日益成为我们<strong>平等的合作伙伴</strong>。"</li>
+  </ol>
+  <p>闭环的六个产出，原文逐项列出："它提升了我们的<strong>安全性</strong>；它让<strong>训练与推理变得更高效</strong>；它驱动着<strong>安全研究工作</strong>；它帮助我们<strong>更快速地尝试更多研究构想</strong>；它让<strong>整个组织变得更加高效</strong>。"</p>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="num">12</span>CFO 财务：五大支柱与 35% 目标拆解</h2>
+
+  <div class="spk"><span class="av">KR</span>克里希纳·拉奥<span class="role">首席财务官</span></div>
+
+  <p class="lead">这是整份路演里<strong>唯一直接面向估值模型</strong>的部分。它由三层构成：一句宏观判断、五个差异化支柱、一条可拆解的利润率路径。</p>
+
+  <h3>开场判断</h3>
+  <blockquote>
+    "我们相信，AI 对全球经济的重塑是人类商业史上最大的经济机遇。Anthropic 拥有独特的优势来捕获这一机遇。"
+  </blockquote>
+  <p>三条支撑：在前沿保持领先（"我们预计<strong>商业价值将在这里差异化地聚集</strong>"）；商业模式强韧（"在不断推进前沿的同时，为客户交付更多价值，并为股东创造卓越的回报"）；以及一个关键的姿态声明——</p>
+  <div class="call a">
+    <div class="h">"尽管盈利表现稳健，但依然处于激进投资模式"</div>
+    <p>"这些成果源自我们的前沿领导力，并赋予了我们进行<strong>重度再投资</strong>以扩大这种领先优势的能力。因此，尽管我们目前的盈利表现十分稳健，但我们依然处于<strong>激进的投资模式</strong>中，全力专注于构建这项业务的长期价值。"</p>
+    <p>这句话的作用是提前化解"为什么赚了钱还要融资"的质疑：融资不是因为缺钱，而是因为回报率足够高。</p>
+  </div>
+
+  <h3>五大差异化支柱（原文完整）</h3>
+
+  <h4>支柱一：模型驱动型增长（Model-driven growth）</h4>
+  <ul>
+    <li>机制："随着我们持续向前推进技术前沿，我们的客户为 Claude 找到了越来越多高价值的工作场景，我们的营收增长紧随其后。"</li>
+    <li>证据："季度营收从 <strong>2025 年第一季度的 3.76 亿美元</strong>暴增至 <strong>2026 年第三季度的接近 170 亿美元</strong>。这直接对应了我们的模型在编码工作流和复杂现实世界任务中能力的大幅跃升。"</li>
+    <li><strong>帕累托优势</strong>（原文概念）："身处前沿不仅解锁了全新的用例和能力，它还推动我们在大多数客户工作负载中迈向<strong>帕累托优势</strong>，使我们能够在给定的成本水平下提供最强大的模型。这是因为<strong>越聪明的模型在执行层面实际上越高效：它们能够以更低的努力程度完成任务，消耗更少的 Token</strong>。"</li>
+    <li><strong>能力级联</strong>："我们还会将大模型沉淀的前沿智能<strong>级联渗透到小型模型中</strong>，从而全面覆盖成本、能力与速度的多样化诉求。"</li>
+    <li>最新例证："我们近期发布的 <strong>Claude 5.5 系列</strong>模型，相比仅仅几个月前推出的 Claude 5 系列，在能力上实现了显著飞跃；与此同时，<strong>按单次任务成本计算，它还要便宜得多</strong>。这就是在前沿进行构建的威力。"</li>
+    <li>结论："我们相信我们能够以<strong>最低的成本交付最高价值的智能</strong>，这意味着我们可以极其高效地服务整个市场。"</li>
+  </ul>
+
+  <h4>支柱二：领先的平台与产品（把前沿智能变得触手可及）</h4>
+  <ul>
+    <li>"我们的平台解决方案是业务的基石，客户在我们的 <strong>API 与 SDK</strong> 之上构建新产品并重塑核心业务流程，蕴含着极其巨大的商业空间。"</li>
+    <li>"与此同时，我们自研的产品形态已经成为推动技术扩散的核心引擎。"</li>
+    <li><strong>Claude Code 的定位</strong>："本质上是我们对<strong>模型性能呈指数级演进的一个战略押注</strong>。尽早将其交到客户手中，使我们在 Agent 编码能力大幅跃升的时刻占尽了先机。"</li>
+    <li><strong>Claude Cowork</strong>："我们在 Claude Cowork 上复用了完全相同的策略打法，在去年发布研究预览版后，其<strong>同期的采用量甚至超越了当年的 Claude Code</strong>。"</li>
+    <li><strong>双剑合璧的渗透数据</strong>："今天，<strong>多数企业客户既使用我们的底层平台，又至少同时使用我们的一款终端产品</strong>，这一比例在 <strong>2025 年第四季度仅为 30%</strong>。"</li>
+    <li><strong>内部生产力</strong>："目前，平均每位工程师<strong>每日贡献的代码量相比 2024 年的平均水平提升了 45 倍</strong>"；"在 2026 年的前九个月里，我们共计交付了 <strong>250 款</strong>模型、产品和功能特性"；"从 2026 年 1 月到 9 月，全公司员工对 Claude 的使用量激增了<strong>超过 250 倍</strong>"。</li>
+    <li><strong>人均创收</strong>："从 2025 年第三季度的 <strong>140 万美元</strong>，跃升至 2026 年第三季度的<strong>超过 660 万美元</strong>"——"4.5 倍以上的飞跃"。</li>
+  </ul>
+
+  <h4>支柱三：极致的算力利用效率</h4>
+  <ul>
+    <li>机制："我们把所有算力视作<strong>一个完全互通的池子</strong>，同时用于服务外部客户、训练前沿模型以及驱动内部对 Claude 的使用。"</li>
+    <li>双引擎："第一是我们的<strong>多芯片战略</strong>，它使我们能够采购性价比最高的硬件并作为统一池子运转；第二是<strong>复利累加的算力乘数</strong>，它使得我们总有效算力的增速远远超越了物理容量的扩张速度。"</li>
+    <li>财务证据："过去六个季度，我们的营收实现了超过 <strong>45 倍</strong>的增长，而同期算力基础设施成本仅增长了 <strong>10 倍</strong>，这意味着<strong>每一美元算力所创造的营收产出效率提升了 4 倍以上</strong>。"</li>
+    <li>毛利证据："今年年初至今，我们的毛利率已经从 2025 年同期的 <strong>29%</strong> 飞跃至<strong>超过 85%</strong>。"</li>
+    <li><strong>最关键的一句资本配置逻辑</strong>："我们将这些效率收益视为<strong>可自由支配配置的战略资本</strong>。在某些情况下，我们通过<strong>主动降低价格</strong>将红利让渡给客户，从而加速 Claude 在其组织内部的渗透与扩散；在其他情况下，我们<strong>保留这部分利润率并重新投资于采购更多算力</strong>，正是这一点让我们的优势形成复利累加。"</li>
+  </ul>
+
+  <h4>支柱四：毫不动摇地为企业客户构建</h4>
+  <ul>
+    <li>判断："我们早在初期就洞察到，<strong>企业将是 AI 规模最大、最具价值的买家</strong>。自 <strong>2023 年第一季度</strong>正式进行商业化发布以来，我们便全力服务于这个市场。"</li>
+    <li>规模："截至 2026 年第三季度，我们拥有超过 <strong>11,900 家企业客户</strong>，相比今年年初增长了<strong>近 8 倍</strong>。"</li>
+    <li>渠道："作为<strong>第一家同时入驻全部三大主流云服务商</strong>的前沿实验室，我们允许企业在他们现有的 IT 环境中无缝部署 Claude，同时<strong>牢牢保持着与终端客户的直接商业关系，包括对定价的掌控</strong>。"</li>
+    <li><strong>效率对比（全场最锋利的一句成本表述）</strong>："我们包括销售、营销人员及其他运营开支在内的<strong>全部非算力费用基数，在营收中的占比，比企业软件行业中位数公司仅仅花在销售和营销单项上的费用占比还要低</strong>。"</li>
+    <li>后续投入："我们预计将继续对市场开拓进行有意义的重点投入以支撑扩张，同时在向客户销售与共同成长的过程中保持极高的运作效率。"</li>
+  </ul>
+
+  <h4>支柱五：不断扩大的潜在市场</h4>
+  <ul>
+    <li>"我们相信，各行各业的每一家企业都将被强大的 AI 深度重塑。这一浪潮发端于编程，并正在向更为广阔的知识工作全面蔓延——这是一个规模达 <strong>40 万亿美元</strong>的超级市场，而我们才刚刚开始切入。"</li>
+    <li>客户结构："超过 <strong>50%</strong> 的《财富》500 强和超过 <strong>30%</strong> 的全球 2000 强"。</li>
+    <li>渗透空间："这些《财富》500 强客户花在 Claude 上的支出，<strong>还不到其总体开销账单的 0.1%</strong>。"</li>
+    <li><strong>新主线的预判</strong>："随着 AI 前沿边界的推进，我们预计它将催生全新的业务主线。这一幕已经在<strong>网络安全</strong>领域上演，我们预计未来几年会延伸至<strong>生命科学与机器人</strong>领域。"</li>
+  </ul>
+
+  <h3>三大投资方向</h3>
+  <div class="grid3">
+    <div class="card">
+      <div class="ct">① 算力</div>
+      <p>"鉴于极具吸引力的回报率，我们计划在未来几年对算力进行<strong>规模可观的持续投资</strong>。这既涵盖<strong>短期与多年期的云算力协议</strong>，也包括我们直接租赁的数据中心和芯片——即 Anthropic Direct。"</p>
+      <p>"我们预计在未来几年内，<strong>Anthropic Direct 将在我们的整个算力底座中占据越来越大的份额</strong>。"</p>
+    </div>
+    <div class="card t">
+      <div class="ct">② 客户价值</div>
+      <p>"我们<strong>近乎偏执地</strong>确保客户能够从他们在 Claude 上的每一分投入中获得最强的回报率。"</p>
+      <p>例证："我们在 9 月份推出的 <strong>Opus 5.5</strong> 模型，在实现模型能力大幅飞跃的同时，为客户<strong>降低了 40% 的成本</strong>。这一降价对我们的自身利润率是<strong>中性的</strong>，因为 Opus 5.5 的底层服务成本要显著便宜得多。"</p>
+      <p>机制："虽然在我们下调客户资费时会在短期内牺牲部分营收，但根据过往经验，<strong>更低廉的智能成本会迅速激发更大规模的调用量</strong>并加速 Claude 的普及扩散，从而在极短时间内为营收带来强劲的助推反弹。"</p>
+    </div>
+    <div class="card p">
+      <div class="ct">③ 安全与对齐</div>
+      <p>"安全是 Anthropic 运转逻辑的核心底色，自公司成立第一天起我们就在此持续投入。随着模型能力快速突进，我们正在调动更多的<strong>人才、流程与算力储备</strong>来强力支撑安全与对齐工作。"</p>
+      <p>"我们预计对安全的专注将长期保持一项<strong>商业优势</strong>，因为企业客户与开发者天然需要他们能够信赖的模型与产品。"</p>
+    </div>
+  </div>
+
+  <h3>35% 调整后营业利润率：原文的三项拆解</h3>
+  <p>这是全份文件里唯一给出成本率结构指引的地方，也是最容易被忽略的一页。原文表述："随着<strong>算力利用效率的持续提升、Anthropic Direct 容量占比的提高，以及越来越多的算力向推理端倾斜</strong>，Anthropic 有能力实现超过 35% 的调整后营业利润率。"</p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>成本项</th><th>目标占营收比</th><th>原文附带的驱动因素</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>算力及基础设施支出</td><td>约 45%–50%</td><td class="l">算力利用效率提升 · Anthropic Direct 占比提高 · 算力向推理端倾斜</td></tr>
+        <tr><td>销售、营销及合作伙伴成本</td><td>约 7%–10%</td><td class="l">"随着业务规模的放大，渠道合作伙伴分成在营收中的比重逐步摊薄"</td></tr>
+        <tr><td>人事及其他一般运营开支</td><td>约 7%–10%</td><td class="l">"得益于 Claude 极大提升了内部团队的生产力，让我们能够极其高效地控制人员规模增长"</td></tr>
+        <tr class="hi"><td>隐含的调整后营业利润率</td><td>约 30%–41%（中值 35.5%）</td><td class="l">本页按 100% 减去三项中值推算，原文只给"超过 35%"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart">
+    <div class="ct">100% 营收的成本结构：从当前到 35%+ 目标的拆解</div>
+    <div class="cs">按原文区间中值绘制（算力 47.5%、S&M 8.5%、人事及 G&amp;A 8.5%），余量即调整后营业利润率</div>
+    <div class="cv" id="c3" style="height:190px"></div>
+  </div>
+
+  <p>他的收尾是一句定调："我们坚信我们拥有全行业最卓越的财务模型：处于领跑地位的<strong>算力效率</strong>、极高密度的<strong>人才集中度</strong>，以及一套让我们始终专注于为企业创造最大真实价值的<strong>组织文化</strong>。"以及"AI 对全球经济的重塑有潜力成为整个人类商业史上最具规模的财富与经济机遇，而我们今天仅仅站在它的<strong>山脚下</strong>"。</p>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="num">13</span>结语：把风险处理好的人拿到经营许可</h2>
+
+  <div class="spk"><span class="av">DA</span>达里奥·阿莫代<span class="role">联合创始人、CEO</span></div>
+
+  <p>收尾回到开场的问题，但给了一个更激进的时间表和更明确的交换条件。</p>
+
+  <blockquote>
+    "如果我们审视当下的世界，癌症、阿尔茨海默病、心脏病、精神疾病等沉重负担，我认为在<strong>不到十年的时间里</strong>，都将彻底变成<strong>历史的遗迹</strong>。"
+  </blockquote>
+
+  <p>然后是整份文件的核心交换逻辑，也是它最值得记住的一句：</p>
+
+  <div class="call">
+    <div class="h">社会经营许可（Social License to Operate）</div>
+    <p>"我坚信，<strong>哪一家公司能够把风险真正处理好，哪一家公司就将获得全社会的信任与社会经营许可</strong>，让社会确信它能够以正确的方式构建起这项技术的红利。"</p>
+    <p>这句话把"安全投入"从成本项重新定义为<strong>准入资格</strong>——不是"我们做了安全所以估值该有溢价"，而是"不做安全就没有资格做这门生意"。</p>
+  </div>
+
+  <p>最后是三个必须同时成立的条件的并列，措辞非常讲究：</p>
+  <ol>
+    <li>"在为人类释放这项技术<strong>巨大红利</strong>的同时"</li>
+    <li>"以最审慎的态度<strong>严密化解这项技术所有的风险和可能出错的地方</strong>"</li>
+    <li>"并在这一过程中同时<strong>保持一门能够持续运转的生意</strong>"</li>
+  </ol>
+  <p>收尾一句："在此，我诚挚邀请各位加入我们下一阶段的征程。"</p>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="num">14</span>原文关键句摘录</h2>
+  <p>按主题归类，便于回溯。全部为原文直引，未改写。</p>
+
+  <h4>关于定位</h4>
+  <blockquote>"在 Anthropic 花费的 1 美元算力，比在其他任何前沿实验室都走得更远。"<cite>汤姆·布朗</cite></blockquote>
+  <blockquote>"我们为了让模型安全可靠所做的工作，与让模型变得更强大的工作是完全同一套工作。"<cite>达妮埃拉·阿莫代</cite></blockquote>
+  <blockquote>"我们是从成立第一天起就专注于面向企业进行构建的领先 AI 实验室。"<cite>达妮埃拉·阿莫代</cite></blockquote>
+
+  <h4>关于产品与模型</h4>
+  <blockquote>"我们开发产品是面向明天的模型，而不只是针对今天的模型。"<cite>阿米·沃拉</cite></blockquote>
+  <blockquote>"没有强大的产品，不断增长的智能与用户实际所在的位置之间的差距只会持续复利扩大。"<cite>阿米·沃拉</cite></blockquote>
+  <blockquote>"越聪明的模型在执行层面实际上越高效：它们能够以更低的努力程度完成任务，消耗更少的 Token。"<cite>克里希纳·拉奥</cite></blockquote>
+
+  <h4>关于算力</h4>
+  <blockquote>"我们发现的每一个算力乘数，都会让我们总有效算力的池子变得更大。"<cite>汤姆·布朗</cite></blockquote>
+  <blockquote>"它们是相互叠加的。我们发现的每一个新乘数，都会对先前的乘数产生正向放大效应，彼此产生复利累加。"<cite>汤姆·布朗</cite></blockquote>
+  <blockquote>"Claude 将能够完全自主地去发现算力乘数，从而让算力乘数的数量以越来越快的速度增长。"<cite>汤姆·布朗，论递归式自我改进</cite></blockquote>
+
+  <h4>关于商业</h4>
+  <blockquote>"当模型跨过某个临界阈值时，就会发生一次阶跃式的突变，随之一整类工作都将以完全不同的方式被重新定义。"<cite>保罗·史密斯</cite></blockquote>
+  <blockquote>"平均而言，这些《财富》500 强客户在我们身上的支出还不到其总费用的 0.1%。"<cite>保罗·史密斯</cite></blockquote>
+  <blockquote>"我们包括销售、营销人员及其他运营开支在内的全部非算力费用基数，在营收中的占比，比企业软件行业中位数公司仅仅花在销售和营销单项上的费用占比还要低。"<cite>克里希纳·拉奥</cite></blockquote>
+
+  <h4>关于安全与风险</h4>
+  <blockquote>"如果人类能够利用 AI 治愈癌症，那么心怀恶意的人同样可以利用 AI 制造生物武器或发动网络攻击。"<cite>达里奥·阿莫代</cite></blockquote>
+  <blockquote>"安全并没有阻碍我们的脚步。恰恰相反，正是因为我们能够信任 Claude 的产出，我们才敢于将它的前沿发现大胆应用到真实世界中。"<cite>短片旁白</cite></blockquote>
+  <blockquote>"哪一家公司能够把风险真正处理好，哪一家公司就将获得全社会的信任与社会经营许可。"<cite>达里奥·阿莫代</cite></blockquote>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="s15">
+  <h2><span class="num">15</span>编者延伸：三处值得追问，与产业链映射</h2>
+
+  <div class="call a">
+    <div class="h">以下为编者延伸，非原文观点</div>
+    <p>本节及下方的产业链映射，是本页在整理原文之外补充的分析视角，<strong>不属于 AGI 2050 原文内容</strong>，请与上文严格区分。</p>
+  </div>
+
+  <h3>追问一：45 倍 vs 10 倍，能延续多久？</h3>
+  <p>原文把"营收增长 45 倍、算力基础设施成本只增长 10 倍"作为算力效率的核心证据。但这个比率的<strong>分母基期极低</strong>——2025Q1 营收仅 3.76 亿美元。当营收基数抬到 170 亿美元/季、年化 810 亿美元时，同样比例的效率改进需要绝对额层面的乘数支撑（即布朗说的"算力乘数必须复利叠加"）。CFO 给出的长期算力成本率是 <strong>45%–50%</strong>，意味着从现在到成熟期，算力成本占营收比要收敛到接近一半——这与"效率极高"的叙事并不矛盾，但说明<strong>长期看算力仍是最大的单一成本项</strong>，而不是被效率消灭掉。</p>
+
+  <h3>追问二：900% NRR 的可持续性</h3>
+  <p>900% 的净收入留存率在软件史上没有先例（SaaS 优秀水平约 120%–130%）。原文给出的解释是五段式扩张路径 + 客户支出占其总费用不足 0.1%。这个解释在逻辑上成立，但有两个隐含前提：<strong>一是客户预算的持续释放节奏</strong>（0.1% → 1% → 更高，需要企业把 AI 从"工具预算"移入"人力/外包预算"）；<strong>二是模型降价不会侵蚀存量收入</strong>。CFO 自己承认降价"会在短期内牺牲部分营收"，只是相信"调用量会迅速反弹"。这是一个需要按季度验证的假设，而不是已成立的事实。</p>
+
+  <h3>追问三：净亏损 233 亿的性质</h3>
+  <p>219 亿美元来自可转换票据、衍生负债与 SAFE 的公允价值变动——这是<strong>估值上升的会计镜像</strong>。它在上市后不应重复出现，但也不代表"真实盈利 233 亿被一次性冲掉"。真正的检验指标是：GAAP 营业利润率 -3% 与调整后 15% 之间的 18 个百分点差额（主要是股权激励）在上市后会不会收窄。如果长期维持在两位数百分点，则"调整后 35%"的目标与 GAAP 盈利之间仍有一道沟。</p>
+
+  <h3>产业链与 ETF 映射（延伸视角）</h3>
+  <p>按原文披露的战略认购名单与业务依赖关系，可梳理出四条映射链。此处仅列公开可交易的 ETF 与标的类别，<strong>不构成推荐</strong>。</p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>映射链</th><th>原文依据</th><th>相关标的（类别）</th><th>可参考 ETF</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="l">算力硬件 / 半导体</td>
+          <td class="l">七家战投中 AMD、博通、美光、英伟达、台积电五家为芯片与代工；"全部四种主要芯片家族"</td>
+          <td class="l">GPU、定制 ASIC、HBM 存储、先进代工</td>
+          <td class="l">SMH、SOXX、XSD</td>
+        </tr>
+        <tr>
+          <td class="l">超大规模云与分发</td>
+          <td class="l">"第一家同时入驻全部三大主流云服务商"；谷歌、微软为战投</td>
+          <td class="l">三大云厂商</td>
+          <td class="l">XLK、VGT、WCLD、CLOU</td>
+        </tr>
+        <tr>
+          <td class="l">数据中心与电力</td>
+          <td class="l">Anthropic Direct 自建定制数据中心；算力向推理端倾斜</td>
+          <td class="l">数据中心 REIT、发电与电网设备、液冷</td>
+          <td class="l">DTCR、XLU、GRID</td>
+        </tr>
+        <tr>
+          <td class="l">AI 应用与软件</td>
+          <td class="l">法律/医疗/金融/生命科学行业套件；Claude Code、Cowork 对 SaaS 的替代压力</td>
+          <td class="l">企业软件、垂直 SaaS（双向：受益与受冲击）</td>
+          <td class="l">IGV、BOTZ、AIQ</td>
+        </tr>
+        <tr>
+          <td class="l">一级市场影子标的</td>
+          <td class="l">ANT 上市后，同类未上市 AI 实验室的估值锚被重置</td>
+          <td class="l">持有 AI 实验室股权的上市平台</td>
+          <td class="l">无直接 ETF，需个案甄别</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="unit">ETF 代码仅为分类参照，不代表对其成分、费率或流动性的评价。ANT 上市初期通常不满足主要指数的纳入条件，指数型基金的间接暴露存在时滞。</p>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="s16">
+  <div class="disc">
+    <h4>资料来源</h4>
+    <p>原文：《Anthropic 完整版上市路演文件（含路演视频）》，AGI 2050，2026 年 11 月 11 日 10:04 发布于微信公众号（<a href="https://mp.weixin.qq.com/s/j9SuQYlZ-frHZUHaAQkrYQ" style="color:var(--blue)">原文链接</a>）。全文约 1.6 万字。</p>
+    <p>原始信源：Anthropic 官方上市路演视频，2026 年 11 月 10 日随初步招股书发布，https://ipo.anthropic.com/us/ 。原文注明"本文由 AGI 2050 编辑部根据上述公开资料编译整理，事实信息以原始信源为准。文中观点属于受访者或原作者本人，不代表 AGI 2050 立场，仅供行业交流参考，不构成投资建议。"</p>
+    <p>本页处理方式：按发言人与议题逐段还原，保留全部数字与定性表述。第 15 节为编者延伸分析，已在节内明确标注，不属于原文内容。募资规模、客户数基数、35% 利润率隐含区间三处为本页推算，均已在对应位置注明。</p>
+
+    <h4 style="margin-top:16px">免责声明</h4>
+    <p>本文为对 AGI 2050 编译稿的完整内容提炼与结构化整理，<strong>观点与数据均归原作者、原始发言人与原始出处</strong>，仅作信息记录与学习参考，不构成任何投资建议。原文版权归 AGI 2050 所有。</p>
+    <p>⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
+  </div>
+  <footer>
+    <span>Anthropic IPO 路演全文精读 · 五项优势与算力乘数</span>
+    <span>整理日期 2026-11-11</span>
+  </footer>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var blue='#1f6feb', teal='#0e9f8a', amber='#b8730a', purple='#6d4aff', muted='#6b7480', line='#e4e7ed';
+
+  // c1 季度营收
+  var c1=echarts.init(document.getElementById('c1'));
+  c1.setOption({
+    grid:{left:64,right:36,top:34,bottom:38},
+    tooltip:{trigger:'axis',valueFormatter:function(v){return v+' 亿美元';}},
+    xAxis:{type:'category',data:['2025 Q1','2026 Q3'],axisLine:{lineStyle:{color:line}},axisLabel:{color:muted,fontSize:12},axisTick:{show:false}},
+    yAxis:{type:'value',name:'亿美元',nameTextStyle:{color:muted,fontSize:11},splitLine:{lineStyle:{color:line}},axisLabel:{color:muted,fontSize:11}},
+    series:[{
+      type:'bar', barWidth:'34%',
+      data:[
+        {value:3.76,itemStyle:{color:'#c9d6ea'}},
+        {value:170,itemStyle:{color:blue}}
+      ],
+      label:{show:true,position:'top',color:'#15181d',fontWeight:700,fontSize:13,formatter:function(p){return p.value+' 亿';}},
+      itemStyle:{borderRadius:[6,6,0,0]}
+    }]
+  });
+
+  // c2 45x vs 10x
+  var c2=echarts.init(document.getElementById('c2'));
+  c2.setOption({
+    grid:{left:130,right:80,top:16,bottom:26},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'},valueFormatter:function(v){return v+' 倍';}},
+    xAxis:{type:'value',splitLine:{lineStyle:{color:line}},axisLabel:{color:muted,fontSize:11,formatter:'{value}x'}},
+    yAxis:{type:'category',data:['算力与基础设施成本','营收'],axisLine:{show:false},axisTick:{show:false},axisLabel:{color:'#15181d',fontSize:12,fontWeight:600}},
+    series:[{
+      type:'bar', barWidth:'46%',
+      data:[
+        {value:10,itemStyle:{color:'#d8c8a8'}},
+        {value:45,itemStyle:{color:teal}}
+      ],
+      label:{show:true,position:'right',color:'#15181d',fontWeight:700,fontSize:13,formatter:'{c}x'},
+      itemStyle:{borderRadius:[0,6,6,0]}
+    }]
+  });
+
+  // c3 100% 成本结构
+  var c3=echarts.init(document.getElementById('c3'));
+  c3.setOption({
+    grid:{left:12,right:12,top:44,bottom:24},
+    tooltip:{trigger:'item',valueFormatter:function(v){return v+'%';}},
+    legend:{top:0,left:0,itemWidth:10,itemHeight:10,textStyle:{color:muted,fontSize:11.5}},
+    xAxis:{type:'value',max:100,splitLine:{show:false},axisLabel:{color:muted,fontSize:11,formatter:'{value}%'}},
+    yAxis:{type:'category',data:['占营收比'],axisLine:{show:false},axisTick:{show:false},axisLabel:{show:false}},
+    series:[
+      {name:'算力及基础设施 47.5%',type:'bar',stack:'t',barWidth:52,data:[47.5],itemStyle:{color:blue},label:{show:true,color:'#fff',fontWeight:700,fontSize:11,formatter:'算力 47.5%'}},
+      {name:'销售营销及合作伙伴 8.5%',type:'bar',stack:'t',barWidth:52,data:[8.5],itemStyle:{color:amber},label:{show:true,color:'#fff',fontWeight:700,fontSize:10,formatter:'S&M 8.5%'}},
+      {name:'人事及 G&A 8.5%',type:'bar',stack:'t',barWidth:52,data:[8.5],itemStyle:{color:'#8a93a0'},label:{show:true,color:'#fff',fontWeight:700,fontSize:10,formatter:'人员 8.5%'}},
+      {name:'调整后营业利润率 35.5%',type:'bar',stack:'t',barWidth:52,data:[35.5],itemStyle:{color:teal},label:{show:true,color:'#fff',fontWeight:800,fontSize:12,formatter:'35.5%'}}
+    ]
+  });
+
+  window.addEventListener('resize',function(){c1.resize();c2.resize();c3.resize();});
+})();
+</script>
+</body>
+</html>
