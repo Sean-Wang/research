@@ -1,0 +1,48 @@
+name: 更新研究书架并发布
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: 研究书架发布
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 生成书架目录
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取仓库文件
+        uses: actions/checkout@v6
+      - name: 准备目录生成环境
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: 配置网站发布
+        uses: actions/configure-pages@v5
+      - name: 扫描报告并生成书架
+        run: python scripts/build_catalog.py
+      - name: 保存网站发布文件
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: 发布研究书架
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 发布到网站
+        id: deployment
+        uses: actions/deploy-pages@v4
