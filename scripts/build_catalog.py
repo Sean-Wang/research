@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""从仓库根目录及 reports 生成报告目录与 GitHub Pages 发布文件。仅使用标准库。"""
+"""从 reports 生成报告目录与 GitHub Pages 发布文件。仅使用标准库。"""
 from __future__ import annotations
 
 import argparse
-import html
 import json
 import re
 import shutil
@@ -14,8 +13,6 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 CATEGORIES = {"财报解读", "公司研究", "人物访谈", "行业专题", "生活与训练", "未分类"}
-ROOT_ASSET_DIRS = {"assets", "images", "img", "fonts", "css", "js", "public"}
-ROOT_ASSET_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".ico", ".pdf", ".css", ".js", ".mjs", ".woff", ".woff2", ".ttf", ".otf", ".mp3", ".mp4", ".webmanifest"}
 
 
 class ReportMetadata(HTMLParser):
@@ -106,11 +103,13 @@ def build(root, output):
     # 防止输出清理误删输入资料；输出必须是仓库内的专用 _site 目录。
     if output != root / "_site":
         raise ValueError("发布输出必须使用报告仓库内的 _site 目录")
-    overrides_path = root / "catalog-overrides.json"
+    overrides_path = root / "config/catalog-overrides.json"
     overrides = json.loads(overrides_path.read_text(encoding="utf-8"))
     if not isinstance(overrides, dict):
         raise ValueError("人工目录配置必须是对象")
-    paths = [path for path in root.iterdir() if path.is_file() and path.suffix.lower() in {".html", ".htm"} and path.name.lower() != "index.html"]
+    if any(path.is_file() and path.suffix.lower() in {".html", ".htm"} for path in root.iterdir()):
+        raise ValueError("请将根目录中的网页移入 reports 对应分类；首页请编辑 templates/index.html")
+    paths = []
     report_root = root / "reports"
     if report_root.exists():
         paths += [path for path in report_root.rglob("*") if path.is_file() and path.suffix.lower() in {".html", ".htm"} and not any(part.startswith(".") for part in path.relative_to(report_root).parts)]
@@ -126,16 +125,9 @@ def build(root, output):
     if output.exists():
         shutil.rmtree(output)
     output.mkdir()
-    for entry in root.iterdir():
-        if entry.name.startswith("."):
-            continue
-        if entry.is_symlink():
-            raise ValueError(f"仓库根目录不接受符号链接：{entry.name}")
-        if entry.is_file() and (entry.suffix.lower() in ROOT_ASSET_EXTENSIONS or entry in paths):
-            shutil.copy2(entry, output / entry.name)
-        elif entry.is_dir() and entry.name in ROOT_ASSET_DIRS | {"reports"}:
-            (output / entry.name).mkdir()
-            copy_public(entry, output / entry.name)
+    if report_root.exists():
+        (output / "reports").mkdir()
+        copy_public(report_root, output / "reports")
     (output / "index.html").write_text(homepage, encoding="utf-8")
     (output / ".nojekyll").write_text("", encoding="utf-8")
     for report in reports:
