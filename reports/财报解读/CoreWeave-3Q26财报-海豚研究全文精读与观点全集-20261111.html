@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CoreWeave 3Q26 财报全文精读 · 海豚研究观点全集</title>
+<title>CoreWeave 3Q26 财报 + 电话会纪要 · 全文精读与观点全集</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
 :root{
@@ -141,6 +141,24 @@ table.kv td,table.kv th{text-align:left;white-space:normal}
 table.kv td:first-child,table.kv th:first-child{width:196px;min-width:196px}
 table.kv td+td{padding-left:16px}
 .unit{font-size:12px;color:var(--muted);margin:-8px 0 10px}
+table.wrap td,table.wrap th{white-space:normal}
+table.wrap th{text-align:left}
+table.wrap td{text-align:left;vertical-align:top;line-height:1.7}
+table.wrap td:first-child,table.wrap th:first-child{width:172px;min-width:172px}
+
+/* ---------- part divider ---------- */
+.part{margin:76px 0 44px;padding:26px 28px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);border-top:3px solid var(--text)}
+.part .pk{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--text);border-radius:999px;padding:4px 11px;margin-bottom:14px}
+.part h2{border:none;padding:0;margin:0 0 10px;font-size:25px;line-height:1.4}
+.part p{margin:0;font-size:14px;color:var(--text2);line-height:1.8}
+
+/* ---------- qa ---------- */
+.qa{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:10px;box-shadow:var(--shadow)}
+.qa .q{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:9px;padding-left:27px;position:relative;line-height:1.7}
+.qa .q::before{content:"Q";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:5px;background:var(--purple-bg);color:var(--purple);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.qa .a{font-size:13.5px;color:var(--text2);padding-left:27px;position:relative;line-height:1.8}
+.qa .a::before{content:"A";position:absolute;left:0;top:2px;width:19px;height:19px;border-radius:5px;background:var(--teal-bg);color:var(--teal);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.qa .a strong{color:var(--text);font-weight:700}
 
 /* ---------- chart ---------- */
 .chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 12px 8px;margin:20px 0;box-shadow:var(--shadow)}
@@ -192,14 +210,15 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
 <div class="wrap">
 
 <header>
-  <div class="kicker">Earnings Deep Read · CRWV.US · 3Q26</div>
+  <div class="kicker">Earnings Deep Read + Call · CRWV.US · 3Q26</div>
   <h1>CoreWeave：“牛气”答卷，硬抗“妖气”股价<br><em>英伟达“干儿子”真能抬头吗？</em></h1>
-  <p class="sub">海豚研究对 CoreWeave 2026 年第三季度财报的完整解读。单季业务确实亮眼——收入与订单双加速、利润率提前一季站上两位数、指引全面上调；但支撑这份成绩的代价同步抬升：负债一季再增 120 亿美元、利息仍覆盖不了、Capex 冲到 145 亿而自由现金流深度为负。本文完整保留原文全部数据与观点，无删减。</p>
+  <p class="sub">海豚研究对 CoreWeave 2026 年第三季度财报的完整解读，并合并长桥证券发布的<b>财报电话会纪要全文</b>（含高管陈述与 11 组问答）。单季业务确实亮眼——收入与订单双加速、利润率提前一季站上两位数、指引全面上调；但支撑这份成绩的代价同步抬升：负债一季再增 120 亿美元、利息仍覆盖不了、Capex 冲到 145 亿而自由现金流深度为负。本文完整保留两篇原文全部数据与观点，无删减。</p>
   <div class="meta">
     <span class="chip">作者 <b>海豚君 / 海豚研究</b></span>
     <span class="chip">发布 <b>2026-11-11 12:53</b></span>
     <span class="chip">财报发布 <b>美东 11-10 盘后</b></span>
     <span class="chip">标的 <b>CoreWeave（CRWV.US）</b></span>
+    <span class="chip">纪要 <b>长桥证券 · 电话会全文</b></span>
     <span class="chip">数据 <b>公司财报 · 电话会 · Bloomberg 一致预期</b></span>
   </div>
 </header>
@@ -233,7 +252,7 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
   <div class="kpi r">
     <div class="l">净利息 vs 调整后经营利润</div>
     <div class="v">8.46<small>vs 3.79 亿</small></div>
-    <div class="n"><b>利息仍覆盖不了</b> · 平均利率 8.2%</div>
+    <div class="n"><b>利息仍覆盖不了</b> · 季内隐含 8.2% / 季末 7.9%</div>
   </div>
 </div>
 
@@ -256,10 +275,19 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
     <li><a href="#s14">预测调整与核心假设</a></li>
     <li><a href="#s15">估值：EV 口径下的三档情形</a></li>
     <li><a href="#s16">投资逻辑与最终结论</a></li>
-    <li><a href="#s17">关键数字速查</a></li>
-    <li><a href="#s18">原文隐含的验证清单</a></li>
-    <li><a href="#s19">原文关键句摘录</a></li>
-    <li><a href="#s20">免责声明与资料来源</a></li>
+    <li><a href="#s17">纪要速览：文章之外的 12 个新数字</a></li>
+    <li><a href="#s18">全年指引与盈利时间表</a></li>
+    <li><a href="#s19">融资结构：DDTL 把 Capex 变成合同抵押品</a></li>
+    <li><a href="#s20">预付款 90 亿美元与「自我融资闭环」</a></li>
+    <li><a href="#s21">定价权：涨价阶梯与「10 倍需求」</a></li>
+    <li><a href="#s22">旧卡重签：13 万张 GPU 的第二生命周期</a></li>
+    <li><a href="#s23">产能、国际化与客户结构</a></li>
+    <li><a href="#s24">Q&amp;A 十一问全记录</a></li>
+    <li><a href="#s25">纪要如何强化或修正文章结论</a></li>
+    <li><a href="#s26">关键数字速查</a></li>
+    <li><a href="#s27">原文隐含的验证清单</a></li>
+    <li><a href="#s28">原文关键句摘录</a></li>
+    <li><a href="#s29">免责声明与资料来源</a></li>
   </ol>
 </nav>
 
@@ -695,9 +723,316 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
   </div>
 </section>
 
+<div class="part">
+  <div class="pk">Part II</div>
+  <h2>电话会纪要：管理层把「涨价」讲成了「结构性定价权」</h2>
+  <p>以下 9 节来自长桥证券 2026 年 11 月 11 日发布的《CoreWeave（纪要）：涨价叠加旧卡重签，利润率提前破 10%》。纪要覆盖<strong>财报核心信息回顾、高管陈述与 11 组问答</strong>，补上了海豚研究正文没有展开的三块内容：<strong>全年指引的完整口径、融资工具（DDTL）的具体结构、以及管理层对「供给过剩」质疑的正面回应</strong>。所有数字与表述均按原文保留，涉及与正文口径差异的地方单独标注。</p>
+</div>
+
 <!-- 17 -->
 <section id="s17">
-  <h2><span class="num">17</span>关键数字速查</h2>
+  <h2><span class="num">17</span>纪要速览：文章之外的 12 个新数字</h2>
+  <p class="lead">纪要最有价值的部分不是重复财报，而是把<strong>「钱从哪来、成本多少、还能借多少」</strong>讲清楚了。下面 12 个数字，是海豚研究正文没有给出、但对判断这家公司质地最关键的增量信息。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>项目</th><th>数字</th><th>为什么重要</th></tr></thead>
+      <tbody>
+        <tr><td>2026 全年收入指引</td><td>130 亿 – 133 亿美元</td><td>与 1Q–3Q 实际 + 4Q 指引中值（约 131.5 亿）基本吻合，说明 4Q 指引不是「画大饼」</td></tr>
+        <tr><td>2026 全年调整后经营利润</td><td>12.75 亿 – 13.75 亿美元（中值上调 26%）</td><td>上调幅度远大于收入上调幅度，利润率的改善是结构性的而非一次性的</td></tr>
+        <tr><td>2026 全年 CapEx</td><td>370 亿 – 390 亿美元（下限自 350 亿上调）</td><td>上限未动、下限抬高，说明超支是「执行提前」而非「预算失控」</td></tr>
+        <tr><td>加权平均债务成本</td><td>7.9%，同比下降 250bp</td><td>与正文「平均利率 8.2%」口径不同（见下方提示），但方向一致：存量债务成本在往下走</td></tr>
+        <tr><td>调整后 EBITDA</td><td>23 亿美元 · 同比 +169% · 环比 +49% · 利润率 62%</td><td>62% 是近 5 个季度最高，说明涨价几乎全额落到边际利润上</td></tr>
+        <tr><td>经营现金流 / 现金储备</td><td>单季约 20 亿美元 / 季末 65 亿美元（含受限现金与有价证券）</td><td>正文只说「自由现金流深度为负」，纪要补上了「经营端是正的」这一半</td></tr>
+        <tr><td>在建工程</td><td>119 亿 → 93 亿美元</td><td>单季下降 26 亿，印证「把部分 4Q 交付提前到 3Q」的说法</td></tr>
+        <tr><td>在线电力</td><td>&gt;1.7GW（年初至今 +850MW），年末 &gt;1.85GW</td><td>正文只讲「+200MW」，纪要给的是全年节奏——上线速度其实在加快</td></tr>
+        <tr><td>合同电力</td><td>4.6GW，其中 &gt;1.3GW 在美国以外</td><td>首次给出海外占比（约 28%），是「客户与地域分散化」的硬证据</td></tr>
+        <tr><td>2027 / 2028 到期 GPU</td><td>&gt;13 万张 / 约 17 万张</td><td>旧卡重签收入的「物理基础」，也是短约产能的储备池</td></tr>
+        <tr><td>托管推理（managed inference）ARR</td><td>&gt;2.5 亿美元</td><td>新业务刚推出即有此规模，且增长受「分配产能」而非「需求」约束</td></tr>
+        <tr><td>未来三个月预付款与押金</td><td>约 90 亿美元，其中 &gt;30 亿来自已还清存量设施的重签</td><td>把「融资难题缓解」从定性变成了可验证的现金流</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call a">
+    <div class="h">口径提示（三处数字不一致，均非矛盾）</div>
+    <p>① <strong>债务成本</strong>：正文「平均利率 8.5% → 8.2%」是按当季净利息除以平均债务规模反算的<strong>期间隐含成本</strong>；纪要「7.9%」是<strong>季末加权平均债务成本</strong>，统计时点不同，且季内新增大额低息 DDTL 会拉低季末存量口径。<br>② <strong>收入</strong>：正文 36.6 亿 vs 纪要 37 亿，四舍五入。<br>③ <strong>在手订单</strong>：正文 1,323 亿 vs 纪要「约 1,330 亿」，同为四舍五入，且纪要用的是「backlog」而非严格的 RPO 定义。</p>
+  </div>
+</section>
+
+<!-- 18 -->
+<section id="s18">
+  <h2><span class="num">18</span>全年指引与盈利时间表</h2>
+  <p>正文只给了 4Q 单季指引，纪要把<strong>全年框架</strong>和<strong>盈利转正的时间表</strong>一起补齐了。这两件事决定了市场愿不愿意为「2028 年」这个故事付钱。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>指引项目</th><th>最新指引</th><th>对照 / 变化</th></tr></thead>
+      <tbody>
+        <tr><td>2026 全年收入</td><td>130 – 133 亿美元</td><td>上调</td></tr>
+        <tr><td>2026 调整后经营利润</td><td>12.75 – 13.75 亿美元</td><td><b>中值提高 26%</b></td></tr>
+        <tr><td>2026 全年 CapEx</td><td>370 – 390 亿美元</td><td>下限自 350 亿上调</td></tr>
+        <tr><td>4Q26 利息支出</td><td>10.5 – 11.5 亿美元</td><td>环比约 +30%</td></tr>
+        <tr><td>2026 末年化收入运行率（ARR）</td><td>200 – 210 亿美元</td><td>原 185 – 195 亿，上调</td></tr>
+        <tr class="hi"><td>调整后净亏损</td><td>2027 年显著收窄</td><td>—</td></tr>
+        <tr class="hi"><td>调整后净利润</td><td>2028 年上半年及全年转正</td><td>公司首次给出明确的转正时点</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>利润率的三个季度爬坡</h3>
+  <p>调整后经营利润率从一季度 <strong>1%</strong>、二季度 <strong>5%</strong> 升至三季度 <strong>10%</strong>，<strong>比年初计划提前一个季度</strong>；同期调整后 EBITDA 利润率 <strong>62%</strong>，为近 5 个季度最高。</p>
+  <p>更关键的是<strong>经营杠杆的方向</strong>：三季度调整后经营利润环比接近 3 倍（1.29 亿 → 3.79 亿美元），而利息支出只增约三分之一（6.44 亿 → 8.46 亿美元）。管理层对此的原话是——<strong>「这就是通向盈利的路径」</strong>。</p>
+  <div class="chart">
+    <div class="ct">调整后经营利润 vs 净利息：4Q26 仍未交叉</div>
+    <div class="cs">单位：百万美元 · 1Q/2Q26 由利润率与利息占收入比重反算，4Q26 取指引中值</div>
+    <div class="cv" id="c7"></div>
+  </div>
+  <div class="call r">
+    <div class="h">但 4Q 的算术仍不成立</div>
+    <p>4Q26 收入中值约 48.4 亿 × 16.5% ≈ <strong>8.0 亿美元</strong>经营利润，对应利息中值 <strong>11.0 亿</strong>，缺口约 <strong>3.0 亿</strong>——比 3Q 的 4.7 亿明显收窄，<strong>但仍未转正</strong>。真正的交叉点要等 2027 年：一边是收入继续放大带来的经营利润，另一边是「2027 年底前不再发行母公司无担保债」压住利息增速。这也解释了为什么公司敢给 2028 年转正的指引，却不敢给 2027 年。</p>
+  </div>
+</section>
+
+<!-- 19 -->
+<section id="s19">
+  <h2><span class="num">19</span>融资结构：DDTL 把 Capex 变成合同抵押品</h2>
+  <p>正文说「融资转向客户预付款 + DDTL」，纪要给出了 DDTL 的<strong>具体条款</strong>。这是理解 CoreWeave 资产负债表如何继续扩张的钥匙。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>项目</th><th>具体条款</th></tr></thead>
+      <tbody>
+        <tr><td>覆盖比例</td><td>剩余 CapEx 主要由与合同挂钩的 DDTL 融资，<strong>可覆盖 70% – 100% 的 CapEx</strong></td></tr>
+        <tr><td>定价</td><td>利差 <strong>SOFR + 225 – 550 个基点</strong>；按当前利率，即使落在高端<strong>也低于 10%</strong></td></tr>
+        <tr><td>下一笔</td><td>未来几周发行，预计<strong>高投资级评级</strong>、收益率 <strong>7% – 7.5%</strong>、可融资<strong>超 90%</strong> 的对应 CapEx</td></tr>
+        <tr><td>已偿还</td><td>已借 DDTL 偿还债务<strong>超 40 亿美元</strong>；<strong>前两笔最贵的 DDTL 已还近一半</strong></td></tr>
+        <tr><td>未提额度</td><td>近 <strong>50 亿美元</strong> DDTL 尚未提取</td></tr>
+        <tr><td>客户结构约束</td><td>到 2027 年，<strong>超 75% 的已承诺 CapEx 对应投资级与企业客户</strong>，其余对应头部 AI 实验室与 AI 原生公司</td></tr>
+        <tr><td>偿债覆盖</td><td>现有合同现金流<strong>足以偿还现有及为交付合同将新增的全部债务</strong>（含母公司无担保债），且<strong>尚未计入续约</strong></td></tr>
+        <tr><td>母公司融资</td><td>按当前收益率，<strong>2027 年底前不再发行母公司无担保负债</strong>；到 2027 年底母公司层面增量融资<strong>少于 50 亿美元</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call p">
+    <div class="h">与正文的对话：所谓「代价」第一次有了价格标签</div>
+    <p>正文判断「融资难题大解，代价是议价权与自主性下降」。纪要给出了这个代价的三层定价：<strong>①</strong> 利差 SOFR + 225–550bp，高于母公司无担保债的基准，多出来的部分是「抵押换来的」；<strong>②</strong> 抵押品不是设备，而是<strong>合同现金流本身</strong>——一旦客户违约，损失直接传导；<strong>③</strong> 更隐蔽的一层：<strong>2027 年超 75% 的已承诺 CapEx 必须对应投资级与企业客户</strong>，意味着融资结构在反向塑造客户结构，公司主动放弃了部分「AI 实验室长尾」的扩张自由。</p>
+  </div>
+  <p>一个容易被忽略的细节：纪要强调「现有合同现金流足以覆盖全部债务，<strong>尚未计入续约</strong>」。这句话的分量在于——如果 2027 年那 13 万张 GPU 的重签收入真能兑现，偿债安全垫会比账面更厚；但如果重签价格不及预期，这句话的兜底能力就会迅速下降。<strong>偿债覆盖率对重签收入的依赖，是纪要里最值得警惕的隐含杠杆。</strong></p>
+</section>
+
+<!-- 20 -->
+<section id="s20">
+  <h2><span class="num">20</span>预付款 90 亿美元与「自我融资闭环」</h2>
+  <p>预付款在正文里只是一个比例（70% 的交易、个别 100%），纪要把它拆成了<strong>金额、来源与时间表</strong>。</p>
+  <ul>
+    <li>公司<strong>按经济性对待预付款</strong>，权衡其对定价的影响与融资成本；<strong>过去公司选择发行无担保债，当前环境下选择预付款更划算</strong>。</li>
+    <li>今年 <strong>70% 的交易收取预付款</strong>，<strong>部分客户预付高达合同额的 100%</strong>。</li>
+    <li><strong>未来三个月将收取约 90 亿美元预付款与押金</strong>，其中<strong>超 30 亿美元来自已还清存量设施的重签</strong>，价格明显高于原合同价，<strong>2027 年预计继续增长</strong>。</li>
+    <li>内生现金流：<strong>剔除预付款的 EBITDA 减利息，预计 2027 年翻倍以上</strong>。</li>
+    <li>2027 年 CapEx：<strong>若只交付已签约积压订单，CapEx 与 2026 年持平，而收入、EBITDA 显著增长</strong>；超出部分<strong>只在需求、融资与回报均达标时投入</strong>。</li>
+    <li>现有弹药：近 <strong>50 亿美元</strong> DDTL 未提额度、超 <strong>90 亿美元</strong>在建设施待投入服务。</li>
+  </ul>
+  <div class="call t">
+    <div class="h">三个数字构成一个可检验的闭环</div>
+    <p><strong>90 亿预付款 + 50 亿未提 DDTL + 90 亿在建工程</strong>——如果 2027 年 CapEx 真的与 2026 年持平，那么 2027 年理论上<strong>不需要新的股权融资，也不需要新的母公司无担保债</strong>。这正是正文「核心问题二」想要的答案。</p>
+    <p>但这个闭环有一个致命的前提：<strong>它只在「只交付已签 backlog」的情形下成立</strong>。一旦公司选择继续扩张（把 4.6GW 合同电力全部转成在线产能、或去抢 2028 年的新需求），闭环立刻失效，融资缺口会重新打开。所以「2027 年 CapEx 是否真的持平」不是一句保守指引，而是<strong>整套融资故事能否自洽的开关</strong>。</p>
+  </div>
+</section>
+
+<!-- 21 -->
+<section id="s21">
+  <h2><span class="num">21</span>定价权：涨价阶梯与「10 倍需求」</h2>
+  <p>正文从「单 MW 年化收入 824 万 → 915 万美元」侧面验证了涨价。纪要则直接给出了<strong>四条产品线的报价</strong>，把定价权量化了。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>合同类型</th><th>单价（每兆瓦 / 年）</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td>短约</td><td>&gt;4,000 万美元</td><td>供不应求下的现货价；6–18 个月回收 CapEx</td></tr>
+        <tr><td>4–5 年长约（新建设施）</td><td>2,000 万 – 2,500 万美元</td><td>按现价 1–2 年回收硬件投入；提供规模与稳定性</td></tr>
+        <tr><td>旧卡重签（Ampere / Hopper）</td><td>环比 +30% – 50%</td><td>高于原合同价，且<strong>无需新增 CapEx</strong></td></tr>
+        <tr><td>提价节奏</td><td>7 月全 SKU +25% · 季内再 +10% · 4Q 继续涨</td><td>涨幅<strong>超过成本上涨</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>需求侧：管理层给出的三个倍数</h3>
+  <ul>
+    <li>到 <strong>2027 年底，合格需求为可用产能的 10 倍</strong>；</li>
+    <li><strong>2028 年需求在尚未正式推向市场前，已是可用产能的数倍</strong>；</li>
+    <li><strong>2027 年基本售罄</strong>，已投放产能<strong>均已售出</strong>。</li>
+  </ul>
+  <p>管理层的表述是：公司<strong>本可把现有产能全部卖给排队客户，但选择耐心等待、在设施更临近交付时再推向市场</strong>，以获得更好的回报。这等于承认了一件事——<strong>当前的定价权部分来自「主动不出售」的供给管理</strong>，而不完全是需求自然溢出。</p>
+  <h3>成本侧：签约即锁定</h3>
+  <p>针对「从签约到上线期间成本上涨怎么办」，管理层的回答是<strong>签约同时下采购订单锁定设备价格</strong>；签约时承载合同的数据中心已确定，其建设与运营成本已充分掌握，从而<strong>确保签约到部署期间经济性基本锁定</strong>。这直接回应了正文「单位建设成本涨了约 1/5~1/4」的担忧——<strong>成本确实在涨，但涨的部分大多发生在签约之前，签约之后由合同价差吸收</strong>。</p>
+  <div class="call p">
+    <div class="h">这是纪要与正文最大的分歧点</div>
+    <p>正文的核心担忧是：<strong>「续约更值钱」建立在供不应求的前提上，而新供给正集中投产</strong>。管理层的回应是：<strong>「供给快于需求」的观点已流行多年，但实际看到的是 AI 在经济中的扩散快于基础设施交付，每份新增合同的利润率也在扩张</strong>。</p>
+    <p>关键在于<strong>口径</strong>：管理层说的「合格需求（qualified demand）是产能的 10 倍」，分子是<strong>有支付能力、有合同意向的需求折算成的算力</strong>，分母是<strong>CoreWeave 自己的可用产能</strong>；而正文担心的「新供给集中投产」，分母是<strong>全行业在建产能</strong>。两个分母完全不同。<strong>「10 倍」这个数字不能直接用来反驳供给过剩的担忧，但它确实说明：至少在 CoreWeave 自己的客户池里，需求还远未被满足。</strong></p>
+  </div>
+</section>
+
+<!-- 22 -->
+<section id="s22">
+  <h2><span class="num">22</span>旧卡重签：13 万张 GPU 的第二生命周期</h2>
+  <p>这是整场电话会<strong>信息密度最高</strong>的一段，也是正文「核心问题一」最关键的一块拼图。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>项目</th><th>数字 / 状态</th></tr></thead>
+      <tbody>
+        <tr><td>2027 年到期</td><td><b>&gt;13 万张 GPU</b></td></tr>
+        <tr><td>2028 年到期</td><td><b>约 17 万张 GPU</b></td></tr>
+        <tr><td>2027 年续约增量 ARR</td><td>接近 <b>40 亿美元</b></td></tr>
+        <tr><td>2028 年叠加增量 ARR</td><td>接近 <b>100 亿美元</b></td></tr>
+        <tr><td>新增 CapEx</td><td><b>0</b> —— 均为已部署设施</td></tr>
+        <tr><td>是否计入 backlog</td><td><b>否</b> —— 是按现价重签「可产生的 ARR 机会」，非已签约</td></tr>
+        <tr><td>偿债状态</td><td>首份合同结束时已按 <b>DDTL 结构全部还清</b></td></tr>
+        <tr><td>需求侧</td><td>已有客户<b>排队竞争</b>这批到期产能</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>为什么重签的利润率更高</h3>
+  <ul>
+    <li>新签多年期合同的<strong>期限超过 GPU 折旧年限</strong>，后期折旧消退，而价格与运营成本固定 → <strong>利润率逐年后移放大</strong>。</li>
+    <li>这些设备在首份合同结束时<strong>已按 DDTL 结构全部还清</strong>，重签收入几乎<strong>不承担偿债负担</strong>。</li>
+    <li>管理层明确：这 13 万 / 17 万张 GPU <strong>将是「转投短约」的重要机会</strong>，对现金流贡献显著。</li>
+    <li>若行业建设放缓，<strong>已还清的存量设备价值更高</strong>——但公司表示<strong>不以此情景做规划</strong>（这句话本身就是一种态度）。</li>
+  </ul>
+  <div class="call a">
+    <div class="h">最容易被误读的一组数字</div>
+    <p>40 亿 / 100 亿<strong>不是订单，也不在 1,323 亿 backlog 里</strong>，而是「已部署、已还清、按现价重签」的<strong>期权</strong>。它的价值取决于两件事：<strong>①</strong> 2027–2028 年市场价是否还在当前水平；<strong>②</strong> 客户是否愿意为旧卡支付溢价。</p>
+    <p>纪要确认了最关键的一个属性——<strong>零 CapEx</strong>。也就是说，即使价格回落，这部分收入的边际成本仍然极低。<strong>正文把它当作「供不应求前提」的证据，纪要则补充了一个更重要的信息：它同时是「价格下跌时的缓冲垫」。</strong>这让「续约更值钱」这个判断从单向赌注变成了带下限的期权。</p>
+  </div>
+</section>
+
+<!-- 23 -->
+<section id="s23">
+  <h2><span class="num">23</span>产能、国际化与客户结构</h2>
+  <h3>电力：在线 1.7GW，合同 4.6GW，2030 规划 8GW</h3>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>指标</th><th>数字</th></tr></thead>
+      <tbody>
+        <tr><td>在线电力（3Q 末）</td><td>&gt;1.7GW</td></tr>
+        <tr><td>年初至今新增</td><td>&gt;850MW</td></tr>
+        <tr><td>年末目标</td><td>&gt;1.85GW</td></tr>
+        <tr><td>合同电力</td><td>4.6GW</td></tr>
+        <tr><td>其中美国以外</td><td>&gt;1.3GW（加拿大、欧洲、亚洲）</td></tr>
+        <tr><td>3Q 新进入市场</td><td>印尼、印度；扩大丹麦、西班牙布局</td></tr>
+        <tr><td>2030 长期规划</td><td>约 8GW</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="chart">
+    <div class="ct">电力阶梯：在线 → 合同 → 长期规划</div>
+    <div class="cs">单位：GW · 3Q26 末口径，2030 规划为公司长期目标</div>
+    <div class="cv" id="c8"></div>
+  </div>
+  <p>管理层称，公司<strong>在已获全部许可的场地持续施工</strong>，<strong>2027 年交付无重大风险</strong>。针对得州政治环境，纪要补充：<strong>得州绝大部分电力已上线，或已获全部许可并在建</strong>，预计不影响积压订单交付（未量化得州敞口）。公司已致函得州新任州长当选人，意在表明<strong>无党派立场、是负责任的运营者</strong>。</p>
+  <h3>客户结构：从「卖算力」到「卖平台」</h3>
+  <div class="grid2">
+    <div class="card p">
+      <div class="ct">Forge（9 月推出）</div>
+      <p>整合 AI 开发能力。三季度<strong>新增云客户中 70% 原本就是 Forge 客户</strong>——意味着平台是获客漏斗而非附加功能。</p>
+    </div>
+    <div class="card t">
+      <div class="ct">托管推理 / 类 MaaS</div>
+      <p>推出不久，<strong>已签 ARR 超 2.5 亿美元</strong>；增长<strong>主要受「分配产能」约束</strong>，而不是需求不足。</p>
+    </div>
+    <div class="card a">
+      <div class="ct">Omni</div>
+      <p>把平台延伸到<strong>第三方自有基础设施</strong>，无需自购资产即可变现增量需求，<strong>已签下首个客户</strong>。</p>
+    </div>
+    <div class="card">
+      <div class="ct">客户分散度</div>
+      <p>今年<strong>过半新客户来自 AI 实验室与科技行业以外</strong>；<strong>财富 500 强中 10% 已是客户</strong>；承诺超 1 亿美元的客户数<strong>同比 +2.5 倍</strong>；backlog <strong>10% 来自金融服务</strong>。</p>
+    </div>
+  </div>
+  <p>纪要点名的客户案例：<strong>Wayve、陈-扎克伯格基金会、Hippocratic AI、日产、Masterclass</strong>。</p>
+  <h3>硬件代际：首家上线 Vera Rubin</h3>
+  <ul>
+    <li>公司是<strong>首家上线 Vera Rubin 的云厂商</strong>，已交付 <strong>Cognition</strong> 投产——后者是全球首个在生产环境使用 Vera Rubin 的客户。</li>
+    <li>也将<strong>独立部署 Vera CPU</strong>，管理层称其是<strong>未来数年建设的重点</strong>。</li>
+    <li>但<strong>没有单独量化 Vera Rubin 对指引的贡献</strong>；四季度指引上调仍归因于三项：合同电力快速转化为在线产能、需求与定价环境走强、平台在跨行业客户中更广泛采用。</li>
+  </ul>
+</section>
+
+<!-- 24 -->
+<section id="s24">
+  <h2><span class="num">24</span>Q&amp;A 十一问全记录</h2>
+  <div class="call">
+    <div class="h">阅读说明</div>
+    <p>以下按纪要原文顺序完整保留 11 组问答。<strong>「A」后加粗的句子是管理层给出的直接结论</strong>，其后为细节与限定条件。凡管理层回避或未量化的地方，均如实标注「未给出 / 未量化」。</p>
+  </div>
+  <div class="qa">
+    <div class="q">若行业未来 1–2 年新增供给集中释放、供需转向正常化甚至过剩，对 CoreWeave 的模式意味着什么？</div>
+    <div class="a"><strong>算力需求增速仍快于基础设施交付能力，2027 年基本售罄。</strong> 管理层称「供给快于需求」的观点已流行多年，但实际看到的是 AI 在经济中的扩散快于基础设施交付，每份新增合同的利润率也在扩张。2028 年尚未正式推向市场，但<strong>已投放的产能均已售出</strong>。需求正转化为定价权：4–5 年期长约每兆瓦 2,000 万–2,500 万美元，短约最高每兆瓦 4,000 万美元。公司本可把现有产能全部卖给排队客户，但选择耐心等待、在设施更临近交付时再推向市场，以获得更好的回报。</div>
+  </div>
+  <div class="qa">
+    <div class="q">已签合同锁定了每兆瓦变现价格，如何管理签约到上线期间成本端波动或上涨的风险？</div>
+    <div class="a"><strong>签约同时下采购订单锁定设备价格。</strong> 签约时承载合同的数据中心已确定，其建设与运营成本已充分掌握，从而确保签约到部署期间经济性基本锁定。</div>
+  </div>
+  <div class="qa">
+    <div class="q">近期信贷市场的担忧，是否影响公司对 2027 年之后新增产能的签约方式（电力到位时间、客户类型、合同期限与融资安排）？</div>
+    <div class="a"><strong>2028 年产能尚未推向市场，在等待需求进一步成熟。</strong> 公司用多种手段让电力储备与需求信号保持同步，<strong>不在锁定电力上走得过远</strong>，力求产能路线图与客户路线图协同。分散的客户群（AI 实验室、机器人、标普 500 企业等）提供了准确的需求信息流——谁、何时、需要多少算力，公司据此决定未来的电力合同。</div>
+  </div>
+  <div class="qa">
+    <div class="q">一些成立较晚的 AI 云厂商陷入经营困境，是否在客户选择、行业整合或定价权上给公司带来机会？</div>
+    <div class="a"><strong>仅定性表示规模优势让公司可以更挑剔地选择客户。</strong> 管理层称 AI 云由软件层和基础设施两部分构成，公司自认软件层做得最好，基础设施则是规模游戏；两者兼备，使公司能在市场波动中有选择地决定合作客户。（<strong>未给出行业整合或定价权的量化影响</strong>）</div>
+  </div>
+  <div class="qa">
+    <div class="q">三季度利润率超预期中，短约与执行（产能提前上线）各贡献多少？四季度指引又如何拆分？</div>
+    <div class="a"><strong>未给出短约与执行各自的贡献</strong>，仅称执行、需求定价环境与溢价产品三者共同推动，预计近期延续。长约提供稳定性、短约贡献利润率增量、managed inference 提供服务化交付，三者都在快速增长。短约与 managed inference 的放量建立在<strong>长约支撑的规模</strong>之上，公司将持续在三者间分配产能。</div>
+  </div>
+  <div class="qa">
+    <div class="q">美国大选后监管环境变化，对公司 2030 年约 8GW 的长期规划有何影响？国际扩张扮演什么角色？</div>
+    <div class="a"><strong>预计监管剧变不会产生影响，积压订单对应数据中心的许可与建设状态稳妥。</strong> 管理层认为这次变化指向「负责任地建设」，而公司一贯提前进入社区、与所在社区合作，可借此在新的政治现实下继续扩张。国际化已是优先事项：<strong>美国以外已新增 1.3GW</strong>，进入印尼、启动印度，并布局西班牙、丹麦与加拿大。</div>
+  </div>
+  <div class="qa">
+    <div class="q">头部 AI 实验室表示要自行租赁并搭建算力，公司计划以何种节奏把新增产能转向企业客户？三季度积压订单增量的客户构成如何？</div>
+    <div class="a"><strong>积压订单的 10% 来自金融服务，今年过半新客户来自 AI 领域以外。</strong> 财富 500 强中 10% 已是公司客户。管理层称会与 AI 实验室、超大规模云厂商、社交媒体公司保持长期关系，同时把拓展企业长尾客户作为全公司优先事项；<strong>但没有给出产能分配的目标节奏，也没有拆分本季积压订单增量的客户构成</strong>。Forge 是切入企业市场的抓手——三季度新增云客户中 70% 原本就是 Forge 客户。</div>
+  </div>
+  <div class="qa">
+    <div class="q">公司已致函得州新任州长当选人，沟通情况如何？公司在得州的敞口有多大，为何确信不会延误？</div>
+    <div class="a"><strong>得州绝大部分电力已上线或已获全部许可并在建，预计不影响积压订单交付。</strong> <strong>没有量化得州敞口。</strong> 致函是为了与新任监管者建立关系，表明公司无党派立场、是负责任的运营者，愿与其及设施所在社区合作。</div>
+  </div>
+  <div class="qa">
+    <div class="q">Vera Rubin 及 Vera CPU 机架是否已到货并爬坡？对近期指引上调乃至明年 ARR 有多重要？</div>
+    <div class="a"><strong>首家上线 Vera Rubin 的云厂商，已交付 Cognition 投产。</strong> Cognition 是全球首个在生产环境使用 Vera Rubin 的客户；公司也将独立部署 Vera CPU，称其是未来数年建设的重点。<strong>没有单独量化 Vera Rubin 对指引的贡献</strong>，四季度指引上调仍归因于三项因素：合同电力快速转化为在线产能、需求与定价环境走强、平台在跨行业客户中更广泛采用。</div>
+  </div>
+  <div class="qa">
+    <div class="q">短约每兆瓦 4,000 万美元与长约 2,000 万–2,500 万美元相比，扣除融资成本后的回报差异如何？公司愿意把多大比例产能放在短约上？</div>
+    <div class="a"><strong>短约 6–18 个月回收 CapEx，长约按现价 1–2 年回收硬件投入。</strong> <strong>没有给出短约产能占比上限。</strong> 公司按长约、managed inference 等溢价产品、短约三个维度，逐单评估回报、融资成本与需求环境来分配产能。2027 年到期的超 13 万张、2028 年到期的约 17 万张 GPU 将是转投短约的重要机会；这些设备在首份合同结束时已按 DDTL 结构全部还清，对现金流贡献显著。</div>
+  </div>
+  <div class="qa">
+    <div class="q">此前提到的 2027 年约 40 亿美元、叠加 2028 年约 100 亿美元重签收入，是总收入还是增量？是已续签还是预期？</div>
+    <div class="a"><strong>这部分不在当前积压订单内，是按现价重签可产生的 ARR 机会。</strong> 积压订单只覆盖当前已签约产能；这些是已部署设施，无需新增 CapEx。管理层补充：<strong>未来三个月约 90 亿美元预付款与押金中，超 30 亿美元对应已全额还清的存量设施</strong>，无需任何偿债，是设施跑完首份合同与 DDTL 周期后的回报。</div>
+  </div>
+</section>
+
+<!-- 25 -->
+<section id="s25">
+  <h2><span class="num">25</span>纪要如何强化或修正文章结论</h2>
+  <p>把两份材料对齐后可以看到：纪要几乎<strong>全部强化</strong>了正文的判断，唯一实质性的修正在「利息占收入比重」这一项上。下表逐条对照。</p>
+  <div class="tw">
+    <table class="wrap">
+      <thead><tr><th>正文判断</th><th>纪要新增证据</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td>增长主要来自涨价，不是数量</td><td>短约 &gt;4,000 万/MW、长约 2,000–2,500 万/MW；7 月 +25%、季内 +10%；旧卡 +30–50%</td><td class="pos">强化</td></tr>
+        <tr><td>订单增长由 2 年以上长单驱动</td><td>新签多年期合同<strong>期限超过 GPU 折旧年限</strong>，后期折旧消退而价格固定</td><td class="pos">强化</td></tr>
+        <tr><td>融资难题大解，代价是议价权与自主性下降</td><td>DDTL 覆盖 70–100% CapEx、SOFR+225–550bp、下一笔 7–7.5%；<strong>2027 年 &gt;75% CapEx 须对应 IG 与企业客户</strong></td><td class="pos">强化，且第一次给出「代价」的价格</td></tr>
+        <tr><td>单位建设成本上涨约 1/5~1/4</td><td>签约同时锁采购价、签约时数据中心成本已掌握</td><td>部分对冲：涨在签约前，签约后由合同价差吸收</td></tr>
+        <tr><td>2027 年保留「Capex 持平」的放缓选项</td><td>只交付已签 backlog 时 CapEx 持平而收入/EBITDA 显著增长；近 50 亿 DDTL 未提、&gt;90 亿在建</td><td class="pos">强化，且证明选项真实存在</td></tr>
+        <tr><td>供需反转是最大风险</td><td>管理层：2027 年合格需求为产能 10 倍、2027 基本售罄、2028 已投放产能售罄</td><td>未解决：分母是自家产能，非全行业在建产能</td></tr>
+        <tr><td>利息吃掉收入的比例没降</td><td>利息/收入：1Q26 26% → 2Q26 25% → 3Q26 23%；4Q 指引利息环比 +30% 与收入增速相当</td><td class="neg">部分修正：比例在小幅下降，但绝对缺口仍在扩大</td></tr>
+        <tr><td>2028 年转正是估值核心</td><td>公司明确：2027 调整后净亏损显著收窄，<strong>2028 上半年及全年调整后净利润转正</strong></td><td class="pos">强化，公司口径与作者预测方向一致</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call">
+    <div class="h">一句话总结两份材料的关系</div>
+    <p>纪要补上了正文的<strong>「机制层」</strong>——DDTL 怎么定价、预付款怎么收、旧卡怎么重签、电力怎么排期；但<strong>没有补上正文的「前提层」</strong>——这些机制全部建立在「2027 年供不应求持续」之上。</p>
+    <p>更重要的是，纪要揭示了这家公司正在发生的<strong>商业模式位移</strong>：从「重资产 + 高杠杆买卡出租」转向<strong>「合同抵押 + 客户预付 + 旧卡再定价」</strong>。这套结构在需求旺盛时极其高效——几乎不需要母公司掏钱就能扩张；但在需求转弱时，它把所有风险<strong>集中到「合同是否履约」这一个点上</strong>。正文担心的「高杠杆放大下行」，在纪要里换了一个形态：<strong>杠杆没有消失，只是从资产负债表移到了合同条款里。</strong></p>
+  </div>
+</section>
+
+<!-- 26 -->
+<section id="s26">
+  <h2><span class="num">26</span>关键数字速查</h2>
   <div class="tw">
     <table class="kv">
       <thead><tr><th>维度</th><th>数字</th></tr></thead>
@@ -724,14 +1059,28 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
         <tr><td>2028 年预测</td><td>调整后经营利润约 65 亿美元（较调整前 +13%，较一致预期 -16%）</td></tr>
         <tr><td>估值</td><td>2028 税后经营利润 6.1x（现价）· EV 约 14x（当期净债务）/ 约 20x（2028 末净债务）</td></tr>
         <tr><td>保守情形</td><td>16x EV − 700 亿净债务 → 股权约 127 亿美元、每股约 23 美元 · 倍数每 ±1x 每股 ±9 美元</td></tr>
+        <tr class="sec"><td colspan="2">以下为电话会纪要补充（长桥证券 2026-11-11）</td></tr>
+        <tr><td>2026 全年收入指引</td><td>130~133 亿美元（上调）</td></tr>
+        <tr><td>2026 全年调整后经营利润</td><td>12.75~13.75 亿美元 · 中值提高 26%</td></tr>
+        <tr><td>2026 全年 CapEx 指引</td><td>370~390 亿美元 · 下限自 350 亿上调</td></tr>
+        <tr><td>调整后 EBITDA</td><td>23 亿美元 · 同比 +169% · 环比 +49% · 利润率 62%（近 5 季最高）</td></tr>
+        <tr><td>经营现金流 / 现金储备</td><td>单季约 20 亿美元 / 季末 65 亿美元（含受限现金与有价证券）</td></tr>
+        <tr><td>在建工程</td><td>119 亿 → 93 亿美元（部分 4Q 交付前置）</td></tr>
+        <tr><td>加权平均债务成本</td><td>7.9% · 同比下降 250bp · 2027 年底前不发母公司无担保债</td></tr>
+        <tr><td>DDTL 条款</td><td>覆盖 70%~100% CapEx · 利差 SOFR+225~550bp · 下一笔 7%~7.5%、覆盖 &gt;90% CapEx</td></tr>
+        <tr><td>未来三个月预付款</td><td>约 90 亿美元 · 其中 &gt;30 亿来自已还清存量设施重签</td></tr>
+        <tr><td>2027 / 2028 到期 GPU</td><td>&gt;13 万张 / 约 17 万张 · 重签可带来 40 亿 / 100 亿美元增量 ARR</td></tr>
+        <tr><td>电力</td><td>在线 &gt;1.7GW（YTD +850MW）· 合同 4.6GW（海外 &gt;1.3GW）· 2030 规划约 8GW</td></tr>
+        <tr><td>新业务 ARR</td><td>托管推理 &gt;2.5 亿美元 · 新增云客户 70% 来自 Forge</td></tr>
+        <tr><td>需求倍数</td><td>2027 年合格需求为可用产能 10 倍 · 2027 基本售罄</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- 18 -->
-<section id="s18">
-  <h2><span class="num">18</span>原文隐含的验证清单</h2>
+<!-- 27 -->
+<section id="s27">
+  <h2><span class="num">27</span>原文隐含的验证清单</h2>
   <div class="call">
     <div class="h">阅读说明</div>
     <p>以下 8 条为从原文逻辑中提炼的可跟踪抓手，<strong>用于后续季度验证作者判断</strong>，<strong>不代表作者新增观点</strong>。</p>
@@ -746,32 +1095,52 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
     <div class="step"><div class="st">利息覆盖率</div><p>调整后经营利润何时能覆盖净利息 —— 当前尚不能，这是股权价值的生死线。</p></div>
     <div class="step"><div class="st">大客户集中度</div><p>微软收缩新云合作、不与甲骨文续签这类信号，是否扩散到 CoreWeave 自身订单。</p></div>
   </div>
+  <div class="call t">
+    <div class="h">电话会纪要新增的 6 个验证抓手</div>
+    <p>以下 6 条<strong>全部来自管理层在电话会上的具体承诺或明确指引</strong>，比正文的推断更容易被证伪——<strong>未来 1–3 个季度就能看到结果</strong>。</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="st">下一笔 DDTL 的定价</div><p>是否真的按「高投资级评级、7%~7.5% 收益率、覆盖 &gt;90% CapEx」落地。若利差走阔，整套融资故事立刻失效。</p></div>
+    <div class="step"><div class="st">90 亿美元预付款是否到账</div><p>未来三个月内可验证。其中 &gt;30 亿来自已还清存量设施的重签，<strong>这部分的价格涨幅是关键</strong>——它直接检验「旧卡更值钱」的假设。</p></div>
+    <div class="step"><div class="st">2027 年 CapEx 是否真的持平</div><p>这是「2027 年不需要新股权、也不需要新母公司债」这个闭环的开关。一旦公司改口要加速扩张，融资缺口会重新打开。</p></div>
+    <div class="step"><div class="st">13 万张 GPU 的重签价格</div><p>40 亿美元 ARR 是「按现价重签」的期权，不是订单。实际重签价与当前报价的差距，决定这块收入是缓冲垫还是幻觉。</p></div>
+    <div class="step"><div class="st">「合格需求 10 倍」的口径</div><p>管理层是否披露「合格需求」的定义与客户构成。若始终不披露，这个数字只能当作方向性表述，不能用来反驳供给过剩。</p></div>
+    <div class="step"><div class="st">利息/收入比能否延续下行</div><p>26% → 25% → 23%，是纪要唯一对正文形成修正的指标。4Q 指引利息环比 +30% 与收入增速相当，若 2027 年收入增速回落，这个比例会重新抬头。</p></div>
+  </div>
 </section>
 
-<!-- 19 -->
-<section id="s19">
-  <h2><span class="num">19</span>原文关键句摘录</h2>
+<!-- 28 -->
+<section id="s28">
+  <h2><span class="num">28</span>原文关键句摘录</h2>
   <blockquote>“从后视镜来看，算力需求确实强劲且供不应求。”</blockquote>
   <blockquote>“虽然本季营收强劲，算力建设的速度并不算快。”</blockquote>
   <blockquote>“目前调整后经营利润仍覆盖不了利息，赚的钱仍不够还负债的资金成本。”</blockquote>
   <blockquote>“过去市场最担心的融资问题，由此在很大程度上被解除，代价是公司的议价权和自主性进一步下降。”</blockquote>
   <blockquote>“公司的投入和建设高峰，以及对应的现金流、总债务和利息偿还压力的高峰期才刚到爬升的早期阶段。”</blockquote>
   <blockquote>“当下的业绩看似歌舞升平，但供需格局一旦反转，叠加高杠杆的放大作用，股权面临的下行风险极大。”</blockquote>
+  <h3>电话会管理层原话（纪要）</h3>
+  <blockquote>“调整后经营利润环比近 3 倍，利息支出仅增约三分之一——<strong>这就是通向盈利的路径</strong>。”</blockquote>
+  <blockquote>“<strong>‘供给快于需求’的观点已流行多年</strong>，但实际看到的是 AI 在经济中的扩散快于基础设施交付，每份新增合同的利润率也在扩张。”</blockquote>
+  <blockquote>“公司<strong>本可把现有产能全部卖给排队客户，但选择耐心等待</strong>、在设施更临近交付时再推向市场，以获得更好的回报。”</blockquote>
+  <blockquote>“<strong>2027 年基本售罄</strong>；2028 年尚未正式推向市场，但已投放的产能均已售出。”</blockquote>
+  <blockquote>“公司用多种手段让电力储备与需求信号保持同步，<strong>不在锁定电力上走得过远</strong>。”</blockquote>
+  <blockquote>“现有合同现金流<strong>足以偿还现有及为交付合同将新增的全部债务</strong>，且尚未计入续约。”</blockquote>
 </section>
 
-<!-- 20 -->
-<section id="s20">
-  <h2><span class="num">20</span>免责声明与资料来源</h2>
+<!-- 29 -->
+<section id="s29">
+  <h2><span class="num">29</span>免责声明与资料来源</h2>
   <div class="disc">
     <h4>资料来源</h4>
-    <p>原文：《CoreWeave：“牛气”答卷，硬抗“妖气”股价，英伟达“干儿子”真能抬头吗？》，作者海豚君，海豚研究，2026 年 11 月 11 日 12:53 发布于微信公众号。</p>
-    <p>底层数据：CoreWeave（CRWV.US）2026 年第三季度财报、财报电话会、Bloomberg 一致预期、Dolphin Research 模型。文中「核心指标总表」原为图片，本页已逐格转录。</p>
+    <p>原文一（Part I，01–16 章）：《CoreWeave：“牛气”答卷，硬抗“妖气”股价，英伟达“干儿子”真能抬头吗？》，作者海豚君，海豚研究，2026 年 11 月 11 日 12:53 发布于微信公众号。</p>
+    <p>原文二（Part II，17–25 章）：《CoreWeave（纪要）：涨价叠加旧卡重签，利润率提前破 10%》，长桥证券，2026 年 11 月 11 日发布。含财报核心信息回顾、高管陈述与 11 组问答。</p>
+    <p>底层数据：CoreWeave（CRWV.US）2026 年第三季度财报、财报电话会、Bloomberg 一致预期、Dolphin Research 模型。文中「核心指标总表」原为图片，本页已逐格转录；1Q26 / 2Q26 的经营利润与利息为按披露利润率与利息占收入比重反算，4Q26 取指引中值，图表中已标注。</p>
     <h4 style="margin-top:16px">免责声明</h4>
     <p>本文为对海豚研究原创文章的完整内容提炼与结构化整理，<strong>观点与数据均归原作者及原始出处</strong>，仅作信息记录与学习参考，不构成任何投资建议。原文版权归海豚研究所有。</p>
     <p>⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
   </div>
   <footer>
-    <span>CoreWeave 3Q26 财报全文精读 · 海豚研究观点全集</span>
+    <span>CoreWeave 3Q26 财报 + 电话会纪要 · 全文精读与观点全集</span>
     <span>整理日期 2026-11-11</span>
   </footer>
 </section>
@@ -898,6 +1267,42 @@ footer{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-si
       areaStyle:{color:'rgba(109,74,255,.08)'},
       label:{show:true,position:'top',distance:5,color:C.purple,fontSize:9,
         formatter:function(p){return p.dataIndex===9 ? p.value+'%' : '';}}}]
+  });
+
+  /* ---- 纪要新增：盈利路径 vs 利息 ---- */
+  var q4=['1Q26','2Q26','3Q26','4Q26e'];
+  var opi=[21,129,379,798];
+  var ni=[540,644,846,1100];
+  mk('c7',{
+    grid:{left:64,right:24,top:46,bottom:32},
+    tooltip:Object.assign({},base.tooltip),
+    legend:{data:['调整后经营利润','净利息支出'],top:6,left:0,itemWidth:10,itemHeight:10,itemGap:16,
+      textStyle:{color:C.muted,fontSize:11}},
+    xAxis:Object.assign({},base.xAxis,{data:q4}),
+    yAxis:Object.assign({},base.yAxis,{max:1300}),
+    series:[
+      {name:'调整后经营利润',type:'bar',data:opi,barWidth:'38%',
+       itemStyle:{color:function(p){return p.dataIndex===3?'#a9c6f7':C.blue;},borderRadius:[4,4,0,0]},
+       label:{show:true,position:'top',color:C.muted,fontSize:10,formatter:'{c}'}},
+      {name:'净利息支出',type:'line',data:ni,smooth:false,symbol:'circle',symbolSize:6,
+       lineStyle:{color:C.red,width:2.4},itemStyle:{color:C.red},
+       label:{show:true,position:'top',distance:8,color:C.red,fontSize:10,
+         backgroundColor:'rgba(255,255,255,.92)',padding:[2,3],borderRadius:3,formatter:'{c}'}}
+    ]
+  });
+
+  /* ---- 纪要新增：电力阶梯 ---- */
+  mk('c8',{
+    grid:{left:132,right:78,top:20,bottom:32},
+    tooltip:Object.assign({},base.tooltip),
+    xAxis:Object.assign({},base.yAxis,{max:9}),
+    yAxis:{type:'category',data:['2030 长期规划','合同电力','在线电力（3Q26）'],
+      axisLine:{lineStyle:{color:'#dfe3e9'}},axisTick:{show:false},
+      axisLabel:{color:C.muted,fontSize:11}},
+    series:[{type:'bar',data:[8.0,4.6,1.7],barWidth:'46%',
+      itemStyle:{color:function(p){return p.dataIndex===2?C.teal:(p.dataIndex===1?'#7fd4c8':'#bfe9e2');},
+        borderRadius:[0,4,4,0]},
+      label:{show:true,position:'right',color:C.muted,fontSize:11,formatter:'{c} GW'}}]
   });
 })();
 </script>
