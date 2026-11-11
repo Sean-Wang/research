@@ -1,0 +1,184 @@
+{
+  "AWS-CEO-MattGarman访谈-推理不到1%与万亿美元AWS-全文精读与美股ETF映射-20261111.html": {
+    "title": "AWS：推理的规模，才刚刚开始",
+    "description": "算力短缺、云业务增长与推理需求的长期空间。",
+    "category": "人物访谈",
+    "cover": "AWS",
+    "tag": "AMZN · 云计算"
+  },
+  "大摩半导体购物清单-中位股跌53%-英伟达首选与内存进攻-全文精读与美股ETF映射-20261109.html": {
+    "title": "大摩半导体购物清单",
+    "description": "英伟达、内存与半导体板块的配置方向。",
+    "category": "行业专题",
+    "cover": "SEMIS",
+    "tag": "NVDA · 半导体"
+  },
+  "Citrini-AI资本开支见顶与十二篮子调仓-全文精读与美股ETF映射-20261105.html": {
+    "title": "AI 资本开支见顶了吗？",
+    "description": "Citrini 的十二篮子调仓与 AI 投资周期判断。",
+    "category": "行业专题",
+    "cover": "CAPEX",
+    "tag": "AI · 资产配置"
+  },
+  "Coherent-FY1Q27财报-全文精读与美股ETF映射-20261105.html": {
+    "title": "Coherent：创收、赚钱两不误",
+    "description": "FY1Q27 财报精读与光通信产业链投资映射。",
+    "category": "财报解读",
+    "cover": "COHERENT",
+    "tag": "COHR · FY1Q27"
+  },
+  "MAGA退潮与英伟达回调-中期选举与AI算力审批墙-全文精读与美股ETF映射-20261105.html": {
+    "title": "MAGA 退潮与英伟达回调",
+    "description": "中期选举、AI 算力审批与纳指背后的投资逻辑。",
+    "category": "行业专题",
+    "cover": "POLICY",
+    "tag": "NVDA · 宏观政策"
+  },
+  "谷歌-280美元是不是击球区-长坡研究院两篇精读与美股ETF映射-20261105.html": {
+    "title": "280 美元的谷歌，是击球区吗？",
+    "description": "长坡研究院两篇文章精读与投资观点整理。",
+    "category": "公司研究",
+    "cover": "GOOGLE",
+    "tag": "GOOGL · 估值研究"
+  },
+  "亚马逊-2026Q3财报-三篇报道全文精读与观点全集-20261030.html": {
+    "title": "亚马逊 2026 Q3 财报精读",
+    "description": "AWS 增速、利润率与自由现金流的多篇报道对照。",
+    "category": "财报解读",
+    "cover": "AMAZON",
+    "tag": "AMZN · 2026 Q3"
+  },
+  "英特尔-2026Q3财报-四篇报道全文精读与观点全集-20261030.html": {
+    "title": "英特尔：超预期与指引落差",
+    "description": "2026 Q3 财报、四季度指引与市场反应的多篇对照。",
+    "category": "财报解读",
+    "cover": "INTEL",
+    "tag": "INTC · 2026 Q3"
+  },
+  "Alphabet-2026Q3财报-三篇报道全文精读与观点全集-20261029.html": {
+    "title": "Alphabet 2026 Q3 财报精读",
+    "description": "营收、自由现金流与 AI 资本开支的多篇报道对照。",
+    "category": "财报解读",
+    "cover": "ALPHABET",
+    "tag": "GOOGL · 2026 Q3"
+  },
+  "GavinBaker-AnthropicS1与算力期货升水-全文精读与美股ETF映射-20261029.html": {
+    "title": "Gavin Baker：算力市场没有现货贴水",
+    "description": "Anthropic S-1、GPU 价格与算力供需的访谈精读。",
+    "category": "人物访谈",
+    "cover": "GAVIN BAKER",
+    "tag": "AI · 算力供需"
+  },
+  "Anthropic招股书深读-收入十四倍与算力账-全文精读与美股ETF映射-20261027.html": {
+    "title": "Anthropic：收入十四倍之后",
+    "description": "招股书中的客户扩张、商业模式与长期算力支出。",
+    "category": "公司研究",
+    "cover": "ANTHROPIC",
+    "tag": "AI · 招股书"
+  },
+  "HDD机械硬盘-AI数据终点站-全文精读与美股ETF投资映射-20261027.html": {
+    "title": "HDD：AI 的数据终点站",
+    "description": "机械硬盘的产业逻辑、需求变化与美股投资映射。",
+    "category": "行业专题",
+    "cover": "STORAGE",
+    "tag": "HDD · 数据存储"
+  },
+  "微软CEO纳德拉20VC访谈-全文精读与美股ETF投资映射-20261027.html": {
+    "title": "纳德拉：模型之外，价值在哪里？",
+    "description": "20VC 访谈中的模型竞争、评测与应用价值。",
+    "category": "人物访谈",
+    "cover": "SATYA NADELLA",
+    "tag": "MSFT · AI 生态"
+  },
+  "拉斯·特维德-AI没有泡沫与2031超级智能-全文精读与美股ETF投资映射-20261027.html": {
+    "title": "拉斯·特维德：AI 没有泡沫？",
+    "description": "关于超级智能、技术进步与长期投资的访谈精读。",
+    "category": "人物访谈",
+    "cover": "SUPERINTELLIGENCE",
+    "tag": "AI · 长期趋势"
+  },
+  "大摩AI融资质量分化-四大云厂商与信用分层-全文精读与美股ETF映射-20261026.html": {
+    "title": "AI 融资：钱会按信用重新定价",
+    "description": "四大云厂商、融资质量分化与信用市场的传导。",
+    "category": "行业专题",
+    "cover": "AI CREDIT",
+    "tag": "AI · 融资分层"
+  },
+  "诺沃格拉茨访谈-AI泡沫与美国债务-全文精读与美股ETF投资映射-20261025.html": {
+    "title": "诺沃格拉茨：AI 泡沫与美国债务",
+    "description": "关于 AI 叙事、泡沫与宏观风险的访谈精读。",
+    "category": "人物访谈",
+    "cover": "MACRO",
+    "tag": "宏观 · AI 泡沫"
+  },
+  "亚马逊CEO贾西访谈-全文精读与美股ETF投资映射-20261024.html": {
+    "title": "贾西：为什么算力还是不够？",
+    "description": "亚马逊 CEO 访谈，理解算力投入与云业务增长。",
+    "category": "人物访谈",
+    "cover": "ANDY JASSY",
+    "tag": "AMZN · 云计算"
+  },
+  "AllIn播客-CoreWeave债务危机与Anthropic-全文精读与美股ETF映射-20261023.html": {
+    "title": "CoreWeave 的杠杆与 AI 交易风险",
+    "description": "从债务抛售到 Anthropic 投资者日，拆解 AI 融资链条。",
+    "category": "行业专题",
+    "cover": "ALL-IN",
+    "tag": "AI · 信用市场"
+  },
+  "BloomEnergy-2026Q3财报解读与美股ETF映射-20261023.html": {
+    "title": "Bloom Energy：业绩与股价的分歧",
+    "description": "2026 Q3 财报解读，以及电力与 AI 基建的投资映射。",
+    "category": "财报解读",
+    "cover": "BLOOM",
+    "tag": "BE · 2026 Q3"
+  },
+  "PersonalAgent深度讨论-完整总结与美股ETF投资映射-20261023.html": {
+    "title": "Personal Agent：最互联网的 AI 命题",
+    "description": "个人智能体的产品方向、讨论要点与美股投资映射。",
+    "category": "行业专题",
+    "cover": "AGENTS",
+    "tag": "AI · 应用生态"
+  },
+  "USV合伙人访谈-完整总结与美股投资映射-20261023.html": {
+    "title": "USV：彻底颠覆，而非自动化",
+    "description": "三位合伙人谈新基金、AI 应用层与四个下注方向。",
+    "category": "人物访谈",
+    "cover": "USV",
+    "tag": "创投 · AI 应用"
+  },
+  "谷歌AI基建访谈-全文精读与美股ETF投资映射-20261023.html": {
+    "title": "谷歌 AI 基建：真正的瓶颈是电力",
+    "description": "AI 基建负责人访谈，理解电力与算力扩张的关系。",
+    "category": "人物访谈",
+    "cover": "POWER × AI",
+    "tag": "GOOGL · 电力基建"
+  },
+  "Meta-2026Q3-财报解读与投资观点-20261022.html": {
+    "title": "Meta：为算力烧干自由现金流",
+    "description": "2026 Q3 财报中的业务表现、资本支出与投资观点。",
+    "category": "财报解读",
+    "cover": "META",
+    "tag": "META · 2026 Q3"
+  },
+  "training-plan.html": {
+    "title": "长期减脂与力量训练计划",
+    "description": "小飞鸟基础力量与轻松跑，按能力逐步进阶。",
+    "category": "生活与训练",
+    "cover": "PRACTICE",
+    "tag": "训练 · 长期计划"
+  },
+  "福布斯_数据中心亿万富翁_深度解读与投资映射.html": {
+    "title": "数据中心亿万富翁的 AI 判断",
+    "description": "福布斯报道精读：数据中心建设与泡沫争论。",
+    "category": "行业专题",
+    "cover": "DATA CENTERS",
+    "tag": "AI · 基础设施"
+  },
+  "cable-machine-guide.html": {
+    "title": "小飞鸟机：新手完整动作手册",
+    "description": "从认识机器到上肢、躯干与下肢动作的完整指南。",
+    "category": "生活与训练",
+    "cover": "MOVEMENT",
+    "tag": "训练 · 动作指南"
+  }
+}
