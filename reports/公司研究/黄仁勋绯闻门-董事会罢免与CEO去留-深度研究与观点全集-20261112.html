@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄仁勋辞任英伟达 CEO：他会回归吗？回不来，英伟达会变成什么？</title>
+<style>
+  :root{
+    --paper:#f7f5f1;--card:#ffffff;--ink:#1b1a18;--ink-2:#3d3a35;--ink-3:#6b655c;--ink-4:#9a9388;
+    --line:#e2ddd4;--line-2:#efece6;--accent:#8b1e1e;--accent-soft:#f6e8e7;
+    --teal:#1f4e5f;--teal-soft:#e6eef1;--gold:#8a6d1f;--gold-soft:#f8f1dc;
+    --green:#2f6b4f;--green-soft:#e7f0ea;
+    --serif:Georgia,"Songti SC","SimSun","Noto Serif SC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .shell{max-width:1240px;margin:0 auto;padding:0 32px 100px;display:grid;grid-template-columns:212px minmax(0,1fr);gap:56px;}
+  .main{min-width:0;}
+  .toc{position:sticky;top:0;align-self:start;padding:44px 0 40px;max-height:100vh;overflow-y:auto;}
+  .toc-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);font-weight:700;margin-bottom:14px;}
+  .toc ol{list-style:none;margin:0;padding:0;}
+  .toc a{display:block;padding:5px 10px 5px 12px;font-size:12.5px;line-height:1.5;color:var(--ink-3);border-left:2px solid transparent;transition:all .15s;}
+  .toc a:hover{color:var(--ink);text-decoration:none;background:#efece6;}
+  .toc a.active{color:var(--accent);border-left-color:var(--accent);background:#f2ede6;font-weight:600;}
+  .hero{padding:60px 0 38px;border-bottom:1px solid var(--line);}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px;}
+  .kicker::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block;}
+  h1{font-family:var(--serif);font-size:clamp(29px,4vw,44px);line-height:1.26;font-weight:700;letter-spacing:-.01em;margin:0 0 18px;}
+  h1 .q{color:var(--accent);}
+  .deck{font-size:16.5px;color:var(--ink-2);line-height:1.8;max-width:780px;margin:0 0 28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:12px;color:var(--ink-3);padding-top:22px;border-top:1px dashed var(--line);}
+  .meta b{color:var(--ink-2);font-weight:600;}
+  .verdict{margin:30px 0 0;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:3px;padding:26px 30px;box-shadow:0 1px 2px rgba(27,26,24,.04),0 10px 30px -18px rgba(27,26,24,.18);}
+  .verdict h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-family:var(--sans);font-weight:700;}
+  .verdict p{margin:0 0 12px;font-size:15px;color:var(--ink-2);line-height:1.85;}
+  .verdict p:last-child{margin-bottom:0;}
+  .verdict strong{color:var(--ink);font-weight:700;}
+  section{padding:54px 0 8px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:8px;}
+  .sec-num{font-family:var(--serif);font-size:34px;line-height:1;color:#cfc8bc;font-weight:700;flex:none;letter-spacing:-.02em;}
+  h2.sec-title{font-family:var(--serif);font-size:26px;line-height:1.35;margin:0;font-weight:700;letter-spacing:-.01em;}
+  .sec-sub{color:var(--ink-3);font-size:13.5px;margin:0 0 28px;padding-left:52px;line-height:1.7;}
+  h3{font-family:var(--sans);font-size:15.5px;font-weight:700;margin:34px 0 12px;color:var(--ink);}
+  h3 .h3n{color:var(--ink-4);font-weight:600;margin-right:8px;font-variant-numeric:tabular-nums;}
+  h4{font-size:14px;font-weight:700;margin:22px 0 8px;color:var(--ink-2);}
+  p{margin:0 0 15px;}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:7px;}
+  li::marker{color:var(--ink-4);}
+  .tw{margin:18px 0 24px;border:1px solid var(--line);border-radius:3px;overflow-x:auto;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.65;min-width:560px;}
+  thead th{background:#efece5;text-align:left;padding:11px 14px;font-weight:700;font-size:11.5px;letter-spacing:.06em;color:var(--ink-2);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfaf7;}
+  td strong{color:var(--ink);font-weight:700;}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:2px;white-space:nowrap;line-height:1.6;}
+  .b-ok{background:var(--green-soft);color:var(--green);}
+  .b-mid{background:var(--gold-soft);color:var(--gold);}
+  .b-no{background:var(--accent-soft);color:var(--accent);}
+  .callout{background:var(--teal-soft);border-left:3px solid var(--teal);padding:16px 20px;margin:20px 0 24px;font-size:13.5px;color:var(--ink-2);line-height:1.8;border-radius:0 3px 3px 0;}
+  .callout.warn{background:var(--accent-soft);border-left-color:var(--accent);}
+  .callout.gold{background:var(--gold-soft);border-left-color:var(--gold);}
+  .callout b{color:var(--ink);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:24px 0 30px;}
+  .stat{background:var(--card);padding:20px 18px;}
+  .stat .v{font-family:var(--serif);font-size:29px;line-height:1.1;font-weight:700;letter-spacing:-.02em;color:var(--accent);}
+  .stat .v small{font-size:15px;font-weight:600;}
+  .stat .k{font-size:11.5px;color:var(--ink-3);margin-top:7px;line-height:1.5;}
+  .timeline{margin:26px 0 10px;padding-left:0;list-style:none;}
+  .timeline li{position:relative;padding:0 0 22px 30px;margin:0 0 0 6px;border-left:1px solid var(--line);}
+  .timeline li:last-child{border-left-color:transparent;padding-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--card);border:1.5px solid var(--ink-4);}
+  .timeline li.hot::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
+  .timeline li.now::before{background:var(--teal);border-color:var(--teal);box-shadow:0 0 0 4px var(--teal-soft);}
+  .timeline .d{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--accent);display:block;margin-bottom:2px;}
+  .timeline li.now .d{color:var(--teal);}
+  .timeline .t{font-size:13.5px;color:var(--ink-2);line-height:1.75;}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0 26px;}
+  .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 0 26px;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:20px 22px;}
+  .panel.for{border-top:3px solid var(--accent);}
+  .panel.against{border-top:3px solid var(--teal);}
+  .panel.neutral{border-top:3px solid var(--gold);}
+  .panel h4{margin:0 0 12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+  .panel.for h4{color:var(--accent);}
+  .panel.against h4{color:var(--teal);}
+  .panel.neutral h4{color:var(--gold);}
+  .panel ol,.panel ul{margin:0;padding-left:20px;font-size:13px;line-height:1.75;}
+  .panel li{margin-bottom:9px;color:var(--ink-2);}
+  .panel li b{color:var(--ink);}
+  .panel .tag{font-size:11px;color:var(--ink-4);display:block;margin-top:10px;line-height:1.6;}
+  .prob{margin:22px 0 8px;}
+  .prob-row{display:grid;grid-template-columns:1fr 64px;gap:14px;align-items:center;margin-bottom:13px;}
+  .prob-row .lbl{font-size:13px;color:var(--ink-2);line-height:1.5;}
+  .prob-row .lbl span{display:block;font-size:11.5px;color:var(--ink-4);margin-top:1px;}
+  .prob-row .pct{font-family:var(--serif);font-size:19px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
+  .bar{grid-column:1 / -1;height:7px;background:#e9e5dd;border-radius:99px;overflow:hidden;margin-top:-6px;}
+  .bar i{display:block;height:100%;border-radius:99px;}
+  .bar i.a{background:var(--accent);}
+  .bar i.b{background:#b5573f;}
+  .bar i.c{background:var(--teal);}
+  .bar i.d{background:#8d8477;}
+  blockquote{margin:22px 0;padding:4px 0 4px 20px;border-left:2px solid var(--line);color:var(--ink-2);font-family:var(--serif);font-size:15px;line-height:1.8;}
+  blockquote cite{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-4);font-style:normal;margin-top:8px;letter-spacing:.04em;}
+  .check{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:8px 24px;margin:20px 0 10px;}
+  .check ol{list-style:none;padding:0;margin:0;counter-reset:c;}
+  .check li{counter-increment:c;position:relative;padding:11px 0 11px 34px;border-bottom:1px solid var(--line-2);font-size:13.5px;color:var(--ink-2);margin:0;}
+  .check li:last-child{border-bottom:none;}
+  .check li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:11px;font-size:11px;font-weight:700;color:var(--ink-4);font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+  footer{padding:40px 0 0;font-size:12px;color:var(--ink-4);line-height:1.8;border-top:1px solid var(--line);margin-top:50px;}
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;gap:0;padding:0 20px 60px;}
+    .toc{display:none;}
+    .hero{padding:40px 0 30px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .duo,.trio{grid-template-columns:1fr;}
+    .sec-sub{padding-left:0;}
+    .sec-head{gap:12px;}
+    .sec-num{font-size:26px;}
+    h2.sec-title{font-size:21px;}
+    body{font-size:15px;}
+  }
+  @media print{
+    body{background:#fff;font-size:10.5pt;}
+    .toc{display:none;}
+    .shell{display:block;padding:0;}
+    .verdict,.panel,.tw{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="toc" aria-label="目录">
+    <div class="toc-label">目录</div>
+    <ol>
+      <li><a href="#s0">结论摘要</a></li>
+      <li><a href="#s1">01 终局时间线</a></li>
+      <li><a href="#s2">02 事实核验</a></li>
+      <li><a href="#s3">03 三条并行的线索</a></li>
+      <li><a href="#s4">04 治理机制与辞职动因</a></li>
+      <li><a href="#s5">05 观点全景</a></li>
+      <li><a href="#s6">06 复盘：判断对不对</a></li>
+      <li><a href="#s7">07 他会回归吗</a></li>
+      <li><a href="#s8">08 短期影响</a></li>
+      <li><a href="#s9">09 中期影响</a></li>
+      <li><a href="#s10">10 长期影响</a></li>
+      <li><a href="#s11">11 定价与估值锚</a></li>
+      <li><a href="#s12">12 历史对照</a></li>
+      <li><a href="#s13">13 不确定项</a></li>
+      <li><a href="#s14">14 结论</a></li>
+      <li><a href="#s15">15 观测清单</a></li>
+    </ol>
+  </nav>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="kicker">深度研究 · 事件已定论 · 第二版</div>
+      <h1>黄仁勋辞任英伟达 CEO：<br>他会不会回来？<span class="q">回不来，英伟达会变成什么？</span></h1>
+      <p class="deck">
+        11 月 11 日夜董事会紧急开会，11 月 12 日官宣辞职——33 年创始人时代在 48 小时内落幕，CFO Colette Kress 出任临时 CEO，正式继任者至今空缺。本文以时间线复盘全过程，并回答两个前瞻问题：<strong>他有没有可能回归？如果回不来，短、中、长期分别意味着什么？</strong>
+      </p>
+      <div class="meta">
+        <span><b>研究截止</b> 北京时间 2026 年 11 月 16 日 10:30</span>
+        <span><b>新增信源</b> 摩根士丹利 11/13 更新 · SemiAnalysis《Nvidia and the World Without Jensen》 · All In 播客 · 华盛顿邮报 · Dylan Patel 访谈 · 美股投资网</span>
+      </div>
+
+      <div class="verdict" id="s0">
+        <h2>核心结论</h2>
+        <p>
+          <strong>一、他确实下台了，而且是以"辞职"而非"被投票罢免"的方式。</strong>这符合上一版报告"最可能是协议式退出"的判断，但速度快于预期——从第二段关系曝光到官宣，不到 24 小时。
+        </p>
+        <p>
+          <strong>二、回归 CEO 的概率很低（约 8%—12%），但并非零。</strong>真正的障碍不是道德，而是<strong>已经做出的可审计陈述</strong>：季报 10-K 认证、审计师问答、D&amp;O 保险契约条款——只要曾经声明"未违反行为准则"而存在未申报利益冲突，就构成虚假陈述，触发一连串契约违约。加上董事会已启动正式遴选、政治对手的目标本就是把他从决策圈拔除，回归的制度成本远高于情感成本。
+        </p>
+        <p>
+          <strong>三、回不来的影响是"先杀估值、再伤节奏、最后改物种"。</strong>短期是 11 倍市盈率与散户接盘的对峙；中期是 2790 亿美元锁单撑住两年、但决策从"一人拍板"变成"委员会共识"；长期是"零亿美元级豪赌"的能力消失，公司从愿景驱动转向职业经理人驱动——大概率苹果化，小概率英特尔化。
+        </p>
+      </div>
+    </header>
+
+    <!-- ============ 01 ============ -->
+    <section id="s1">
+      <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">终局时间线：从绯闻到辞职，只用了 6 天</h2></div>
+      <p class="sec-sub">以时间为主轴重建全过程。红色为引爆点，青色为当前状态。</p>
+
+      <h3>前史（2025 年 10 月—2026 年 10 月）</h3>
+      <ul class="timeline">
+        <li><span class="d">2025 年 10 月</span><span class="t">纽约时报首次提及 Alice Huang（黄乐）与黄仁勋的关系。此后一年间，CIA 对两人往来的调查持续进行，<strong>未找到确凿证据证明她是间谍</strong>，原始报告措辞谨慎，不少情报官员本身并不信服这套怀疑（华盛顿邮报）。</span></li>
+        <li><span class="d">2026 年 4—5 月</span><span class="t">国务卿兼国安顾问<strong>鲁比奥</strong>拿到 CIA 报告后并未原样上呈，而是另行撰写一份独立备忘录，用更激进的措辞把这段交往定性为重大安全隐患，警告特朗普"黄仁勋已成为安全风险"。这份备忘录在今年春天、即特朗普 5 月访华之前下发给一众高级官员，鲁比奥还亲自向特朗普当面汇报。<strong>黄仁勋原本被移出访华随行企业家名单，直到特朗普登上专机后才得知，随即致电让他到阿拉斯加汇合。</strong>这一次"隔开两人"的计划落空（华盛顿邮报）。</span></li>
+        <li><span class="d">2026 年 5 月</span><span class="t">Culper Research 发布做空报告《Nvidia: CN Problem》，点名 Megaspeed 与 Alice Huang。当时股价反涨逾 2%，华尔街未予重视。</span></li>
+        <li><span class="d">2026 年 10 月 29 日</span><span class="t">纽约时报报道美国情报界怀疑黄乐向中方传递信息。10 月 30 日中国外交部驳斥"捕风捉影、纯属对华污蔑抹黑"。</span></li>
+        <li><span class="d">11 月 4—5 日</span><span class="t">众议院外委会主席 Mast、中国问题特别委员会主席 Moolenaar、情报委员会主席 Crawford 联名致函，要求黄仁勋 11 月 18 日出席闭门简报。</span></li>
+      </ul>
+
+      <h3>引爆（11 月 6 日—11 月 12 日）</h3>
+      <ul class="timeline">
+        <li class="hot"><span class="d">11 月 6 日（周五）</span><span class="t"><strong>事件起点。</strong>时间点在中期选举刚结束之后——共和党遭遇重大失利，党内路线矛盾爆发。金融时报称两人关系为恋爱性质，援引年初美国情报备忘录。<strong>同一时间，机密备忘录被泄露给纽约时报。</strong>萨克斯在 All In 播客中强调：泄密本身是刑事犯罪，而"这是迄今为止我们确凿知晓的唯一犯罪行为"。</span></li>
+        <li class="hot"><span class="d">11 月 8 日（周日）</span><span class="t">黄仁勋发出全员信承认"对妻子不忠"，向家人、员工、董事会、股东道歉，称"领导英伟达是我一生的荣幸"，承诺配合调查。同日董事会声明启动独立调查，事由限定为"他是否成为外国情报行动的目标"，并称"没有理由相信"机密受损、"对 Jensen 及其领导团队有信心"。公司发言人称其"不受中断地"继续担任 CEO。</span></li>
+        <li><span class="d">11 月 9 日（周一）</span><span class="t">收跌 4.27% 至 178.67 美元，单日市值蒸发约 1930 亿美元。收盘后 5 分钟遭股东集体诉讼（Rosen Law Firm，案号 5:26-cv-13448，代表 2025/10/9—2026/11/8 期间买入者）。特朗普在白宫记者会称已与黄通话，黄否认知道对方是间谍，"我知道 FBI 正在调查"。AMD 当日大涨 12%。</span></li>
+        <li><span class="d">11 月 10 日（周二）</span><span class="t">独立董事聘请前纽约南区代理联邦检察官 Joon H. Kim 及 Wachtell, Lipton, Rosen &amp; Katz 展开独立调查。花旗在财报前瞻中把估值倍数从 21 倍下调到 19 倍。</span></li>
+        <li class="hot"><span class="d">11 月 11 日（周三）</span><span class="t">常规时段反弹 +2.87% 收 173.73 美元。<strong>盘后三连击</strong>：①纽约时报曝第二段关系——对象是<strong>直接向他汇报</strong>的医疗健康业务副总裁 Kimberly Powell（48 岁，2008 年加入，2017 年底升副总裁），并披露今年 3 月圣何塞 GTC 期间两人在附近酒店被目击举止亲密、旁观者拍摄后被安保要求签保密协议（纽约时报称自己未见到该视频）；②华尔街日报称董事会正准备罢免、最快当晚开会；③彭博称董事会已聘外部机构物色继任者、考虑临时 CEO。<strong>股价盘后一度跌 8%—10%。</strong></span></li>
+        <li class="hot"><span class="d">11 月 11 日夜</span><span class="t">董事会紧急开会。据 All In 播客与多家媒体，会议就"去留"作出决定。<strong>注意：没有任何官方文件记载"投票罢免"这一程序</strong>——最终以辞职形式落地。</span></li>
+        <li class="hot"><span class="d">11 月 12 日（周四）</span><span class="t"><strong>黄仁勋官宣辞任 CEO，33 年创始人时代结束。CFO Colette Kress 出任临时 CEO，正式继任者未定。</strong>同日，<strong>十余家机构下调英伟达评级</strong>。股价盘中一度下探 <strong>148.8 美元</strong>（测试极端情绪底），随后深 V 反弹。</span></li>
+      </ul>
+
+      <h3>余波（11 月 13 日—11 月 16 日）</h3>
+      <ul class="timeline">
+        <li><span class="d">11 月 13 日（周五）</span><span class="t">摩根士丹利发布更新：目标价 <strong>300 → 267 美元</strong>，维持"增持"；把 2028 财年收入增速预测从 70% 砍到 <strong>53.5%</strong>。同日 SemiAnalysis 发表《Nvidia and the World Without Jensen》。全周自 11 月 6 日的 186.64 美元计算，累计跌幅约 <strong>11%—15%</strong>（不同口径）。</span></li>
+        <li><span class="d">11 月 14 日</span><span class="t">All In 播客专题讨论；华盛顿邮报爆料鲁比奥在事件中的角色；Dylan Patel 访谈流出。Vanda Research 数据：截至 11 月 13 日收盘，<strong>散户本周净买入约 19.6 亿美元</strong>英伟达股票，逼近 2025 年 3 月以来单周最高纪录，而大型机构整体观望。</span></li>
+        <li><span class="d">11 月 15 日</span><span class="t">股价回到 166 美元附近；远期市盈率被压到 <strong>约 11 倍</strong>（对比博通 20.1 倍、AMD 33.5 倍）。市场开始讨论"这是黄金坑还是诱多陷阱"。</span></li>
+        <li class="now"><span class="d">11 月 16 日（今日）</span><span class="t">现价约 <strong>163 美元</strong>。董事会仍在遴选正式 CEO，未公布时间表。市场进入"财报前静默期"。</span></li>
+        <li class="now"><span class="d">11 月 17 日（明日）盘后</span><span class="t"><strong>Q3 FY2027 财报——Kress 的临时 CEO 首秀。</strong>高盛预期营收 1100.8 亿美元、数据中心 1025 亿、毛利率 74.1%，Q4 指引 1248 亿美元。</span></li>
+        <li class="now"><span class="d">11 月 18 日—11 月底</span><span class="t">国会闭门质询（原定 11/18 的众议院简报）。据美股投资网，<strong>感恩节前黄仁勋仍需赴国会宣誓作证</strong>，就出口管制与合规接受质询——即使已卸任，他仍在一线。</span></li>
+        <li class="now"><span class="d">11 月 20 日（观察点）</span><span class="t">Anthropic IPO 定价窗口。Chamath 提示："从现在到 11 月 20 日之间还会被泄露曝出什么新料"将影响定价。同期已有关于<strong>"第三起潜在婚外情"</strong>的报道流传。</span></li>
+      </ul>
+
+      <div class="callout">
+        <b>时间线里最值得注意的一点：</b>从 11 月 8 日"董事会表达信心、公司称其继续担任 CEO"，到 11 月 12 日官宣辞职，中间只有 <b>4 天</b>；从第二段关系曝光到辞职，不到 <b>24 小时</b>。这个速度本身就说明——<b>决定不是在那 24 小时里做出的，而是在之前就已经形成了。</b>第二段关系只是给了董事会一个不必解释的落点。
+      </div>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section id="s2">
+      <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">事实核验：哪些已定，哪些仍悬</h2></div>
+      <p class="sec-sub">事件已有结论，但结论周边的细节仍有大量未证实项。引用时必须分清。</p>
+
+      <h3><span class="h3n">2.1</span>已确定的事实</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:24%">事项</th><th style="width:22%">状态</th><th>要点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>黄仁勋辞任 CEO</strong></td><td><span class="badge b-ok">已官宣</span> 11 月 12 日</td><td>33 年创始人时代结束。以"辞职"形式落地，而非董事会投票罢免</td></tr>
+            <tr><td><strong>Colette Kress 任临时 CEO</strong></td><td><span class="badge b-ok">已确认</span></td><td>2013 年加入英伟达，此前有思科与微软的财务背景，任 CFO 约 13 年。摩根士丹利评价其为"很强的 CFO，预计能平稳度过过渡期"</td></tr>
+            <tr><td><strong>正式继任者未定</strong></td><td><span class="badge b-ok">已确认</span></td><td>董事会"内外部同时物色"，<strong>至今未公布遴选时间表</strong></td></tr>
+            <tr><td><strong>独立调查仍在进行</strong></td><td><span class="badge b-ok">已确认</span></td><td>Wachtell Lipton 的 Joon H. Kim 主导；截至目前未公开任何"机密或国安受损"的结论</td></tr>
+            <tr><td><strong>股东集体诉讼已提起</strong></td><td><span class="badge b-ok">已确认</span></td><td>加州北区联邦法院圣何塞分院，案号 5:26-cv-13448，指控隐瞒关联关系与风险、构成虚假或误导性陈述</td></tr>
+            <tr><td><strong>十余家机构下调评级</strong></td><td><span class="badge b-ok">已确认</span></td><td>11 月 12 日单日。摩根士丹利下调目标价但维持增持</td></tr>
+            <tr><td><strong>散户大举净买入</strong></td><td><span class="badge b-ok">已确认</span></td><td>Vanda Research：截至 11/13 一周净买入约 19.6 亿美元，逼近 2025 年 3 月以来单周最高</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">2.2</span>媒体报道、但未经独立证实</h3>
+      <ul>
+        <li><strong>第二段关系（Kimberly Powell）：</strong>纽约时报引述五名曾在英伟达任职者。英伟达拒评、Powell 未回应、黄仁勋挂断记者电话（原话："我认为你不应该直接和我谈话"）。<strong>三方均未确认。</strong></li>
+        <li><strong>"安保要求旁观者签保密协议"：</strong>仅匿名信源，纽约时报自己未见到视频。这是全案最重、也最脆弱的一环。</li>
+        <li><strong>"第三起潜在婚外情"：</strong>已有报道流传，但证据强度更弱，目前只宜作为"风险未出清"的信号，不宜当作事实。</li>
+        <li><strong>鲁比奥改写 CIA 备忘录、主导扳倒黄仁勋：</strong>来自华盛顿邮报爆料，属<strong>单一信源的政治性指控</strong>。时间线吻合度高（备忘录下发→访华名单风波→中期选举后引爆），但没有任何一方公开承认。</li>
+        <li><strong>SemiAnalysis 的"1.5 吉瓦受限芯片流入中国"：</strong>来自其自研"加速器追踪模型"，并称美国商务部已采信该数字。属机构测算，非官方公布数据。</li>
+        <li><strong>市值蒸发规模：</strong>Friedberg 称"九天蒸发近 1 万亿美元"，Chamath 称"近 1.5 万亿"——<strong>两人口径不同</strong>，且未说明起算点，不宜直接引用。</li>
+      </ul>
+
+      <h3><span class="h3n">2.3</span>已被官方否认或反转的</h3>
+      <ul>
+        <li><strong>美国国家情报总监办公室（ODNI）与司法部官员先后公开表态：没有证据证实黄乐是间谍</strong>，相关指控被过度渲染。这是"间谍叙事"退潮的最强信号，也是回归论者的主要依据。</li>
+        <li><strong>新加坡内政部</strong>否认华尔街日报关于"新加坡官员表达担忧"的关键内容，但确认对 Megaspeed 有调查。</li>
+        <li><strong>中国外交部</strong>多次表态：间谍论调捕风捉影，属刻意抹黑。</li>
+        <li><strong>Megaspeed 与黄乐律师</strong>否认全部指控，称"毫无根据"。</li>
+      </ul>
+
+      <h3><span class="h3n">2.4</span>六篇新增材料的质量评估</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:26%">材料</th><th style="width:20%">性质</th><th>可靠性判断</th></tr></thead>
+          <tbody>
+            <tr><td><strong>摩根士丹利 11/13 更新</strong></td><td>卖方研报转述</td><td><span class="badge b-ok">最可用</span> 数字完整（目标价、收入、EPS、毛利率逐项），且明确承认"这组数字偏保守""并不确定是否真的需要下调"。是判断机构定价的最佳锚</td></tr>
+            <tr><td><strong>SemiAnalysis《Nvidia and the World Without Jensen》</strong></td><td>独立研究长文</td><td><span class="badge b-ok">信息密度最高</span> 提供锁单、表外担保、HBM 报价差等一手级数据。<strong>但其"阴谋论推演"部分作者自己也承认是推演</strong>，需与事实层分开</td></tr>
+            <tr><td><strong>All In 播客实录</strong></td><td>观点型对话</td><td><span class="badge b-mid">观点鲜明</span> 三位主持立场明确（多为黄仁勋同情者）。<strong>10-K 认证与 D&amp;O 保险的机制分析是全篇最有价值的部分</strong>；但"回归"判断带有明显个人偏好</td></tr>
+            <tr><td><strong>华盛顿邮报爆料（经公众号转述）</strong></td><td>政治内幕</td><td><span class="badge b-mid">需谨慎</span> 叙事完整、动机链条自洽，但属单一信源政治爆料，且转述层级较多。<strong>宜作为"一种解释框架"，不宜作为事实</strong></td></tr>
+            <tr><td><strong>Dylan Patel 访谈</strong></td><td>播客实录</td><td><span class="badge b-ok">技术判断可靠</span> 对继任者能力错配的分析（技术 vs 供应链 vs 商务）最细致。但访谈体，含大量闲聊，观点需自行提炼</td></tr>
+            <tr><td><strong>美股投资网（StockWe）</strong></td><td>交易型分析</td><td><span class="badge b-no">须打折</span> 估值与情景测算可参考，但含大量自我业绩宣传（"2016 年 42 美元重仓""AMD 翻 120 倍"）与社群引流，<strong>立场与利益高度相关</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section id="s3">
+      <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">三条并行的线索</h2></div>
+      <p class="sec-sub">上一版只有两条。新增的第三条，可能才是真正的动因。</p>
+
+      <div class="trio">
+        <div class="panel for">
+          <h4>A · 公司治理</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">与直接下属的未申报关系，触碰行为准则与利益冲突红线。这是<b>董事会能够公开援引的理由</b>，也是麦当劳 2019、英特尔 2018 的同类剧本。</p>
+          <span class="tag">作用：提供"体面退出"的合法出口</span>
+        </div>
+        <div class="panel neutral">
+          <h4>B · 情报与出口管制</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">"CEO 被设蜜罐"的叙事。但 ODNI 与司法部后来都表态无证据，CIA 查了一年也没找到确凿证据。这条线的<b>司法基础正在瓦解，政治杀伤力却已经完成</b>。</p>
+          <span class="tag">作用：提供"必须调查"的正当性</span>
+        </div>
+        <div class="panel against">
+          <h4>C · 华盛顿路线斗争</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">黄仁勋是"松绑派"最有分量的代言人，能直接面见特朗普、影响 H200 出口决策。鹰派要的不是查清一段私情，而是<b>把他从总统的核心圈层拔除</b>。</p>
+          <span class="tag">作用：解释"为什么是现在"</span>
+        </div>
+      </div>
+
+      <h3>线索 C 的证据链（华盛顿邮报版本）</h3>
+      <p>这条线索的核心不是"有没有间谍"，而是"<strong>谁需要这个叙事</strong>"。华邮的叙述可以拆成五步：</p>
+      <ol>
+        <li><strong>CIA 查了一年，没找到确凿证据。</strong>原始报告措辞谨慎，不少情报官员本身并不信服。</li>
+        <li><strong>鲁比奥没有原样上呈，而是另写一份备忘录</strong>，用更激进的语言把交往定性为重大安全隐患，并在今年春天、特朗普 5 月访华前下发给高级官员，还亲自向特朗普当面汇报。</li>
+        <li><strong>第一次尝试失败。</strong>黄仁勋被移出访华随行名单，但特朗普登机后得知，主动致电让他到阿拉斯加汇合——两人绑定反而更深。</li>
+        <li><strong>中期选举共和党惨败，成为时机窗口。</strong>鲁比奥需要巩固"对华最强硬派"人设，为 2028 年党内竞争铺路；同时跛脚鸭会期是推动法案的最佳时段。</li>
+        <li><strong>备忘录被泄露给纽约时报，舆论焦点被引导到私生活与"间谍疑云"上。</strong>机密情报外泄本身是刑事犯罪，但报道标题直接把黄乐塑造为间谍——即便正文只有"情报界的怀疑"。</li>
+      </ol>
+      <div class="callout warn">
+        <b>必须保持的怀疑：</b>这条叙事自洽、动机清晰、时间点吻合，但<b>它是单一信源的政治爆料，且经过多层转述</b>。萨克斯在 All In 中的表述更谨慎——他没有断言鲁比奥策划，而是提出"五个疑问"：谁泄露了备忘录？为什么没按规定给黄仁勋"防御性简报"？他被指控泄露了什么机密（他不在政府任职、接触不到机密）？间谍证据在哪？为什么是现在？<br><br>
+        萨克斯的结论是："疑问远多于答案""这完全是国内力量所为""归根结底，是因为黄仁勋树立了强大的政商敌人"。<b>这是一个有力的推断，但不是已证实的事实。</b>
+      </div>
+
+      <h3>为什么三条线索最终收敛到"辞职"这一个出口</h3>
+      <p>三条线索各自都能解释一部分，但都无法单独解释"48 小时内的极速退出"。All In 播客里弗里德伯格给出的机制解释，是目前最扎实的一个：</p>
+      <blockquote>
+        真正的触发点不是私人关系本身，而是上市公司高管必须按季度做出的<b>可审计认证</b>——10-K、与审计师逐项问答、D&amp;O 保险的契约条款。如果你在认证中声明"没有违反行为准则"，却存在未申报的利益冲突，那就是虚假陈述，会触发契约违约的"多米诺骨牌"。
+        <cite>All In 播客，弗里德伯格</cite>
+      </blockquote>
+      <p>这解释了为什么董事会动作这么快：<strong>它要规避的不是舆论，是被起诉的风险和 D&amp;O 保险失效的风险。</strong>也解释了为什么最终是"辞职"而不是"罢免"——辞职可以让双方都不必对"是否存在违规"作出正式认定，从而把法律暴露面压到最小。</p>
+      <div class="callout">这也直接决定了"回归"的难度：<b>一旦辞职，此前那些认证就成了既成事实。</b>要回归，就得先处理这些认证的效力——而这恰恰是最难的部分。</div>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section id="s4">
+      <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">治理机制：他本来是可以被投票赶走的</h2></div>
+      <p class="sec-sub">这一节在上一版是"假设"，现在成了"对照"——机制存在，但没有被使用。</p>
+
+      <div class="stats">
+        <div class="stat"><div class="v">3.37<small>%</small></div><div class="k">持股（另一口径 3.58%），<strong>无 AB 股、无超级投票权</strong></div></div>
+        <div class="stat"><div class="v">6<small>票</small></div><div class="k">在任董事过半即可撤 CEO，<strong>无需股东大会</strong></div></div>
+        <div class="stat"><div class="v">2/3</div><div class="k">撤<strong>董事席位</strong>才需三分之二股东表决权</div></div>
+        <div class="stat"><div class="v">99<small>%</small></div><div class="k">2026 年 6 月董事选举得票率（166.5 亿赞成 vs 1.66 亿反对）</div></div>
+      </div>
+
+      <ul>
+        <li><strong>没有股权护城河。</strong>一股一票，无 AB 股。对比扎克伯格以约 13% 股权掌握 Meta 约 61% 投票权，黄仁勋没有任何制度性保护。</li>
+        <li><strong>不设董事长，设首席独立董事。</strong>Stephen C. Neal（2019 年加入，Cooley LLP 名誉主席，曾代理 Theranos 创始人 Elizabeth Holmes 案）可在 CEO 缺席时主持董事会会议、召集独立董事会议。</li>
+        <li><strong>章程门槛极低。</strong>无论有因无因，在任董事过半即可解除高管职务。10 人董事会 = 6 票。</li>
+        <li><strong>但最终没有用这条路径。</strong>这一点值得记录：<strong>机制的存在本身就是压力</strong>。董事会不必真的投票，只要让当事人知道票数够，就足以促成"主动辞职"。这在治理实践里近似"影子投票"——结果一样，但双方都保留了体面。</li>
+      </ul>
+    </section>
+
+    <!-- ============ 05 ============ -->
+    <section id="s5">
+      <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">观点全景：事件之后的六方判断</h2></div>
+      <p class="sec-sub">按主体分组，保留原始措辞与立场差异。</p>
+
+      <h3><span class="h3n">5.1</span>公司 / 董事会 / 当事人</h3>
+      <ul>
+        <li><strong>董事会：</strong>启动独立调查（事由限定为"外国情报行动目标"）；未对辞职给出详细说明；未公布 CEO 遴选时间表。</li>
+        <li><strong>Colette Kress（临时 CEO）：</strong>接手日常运营与新云收入分成计划的推进。摩根士丹利称她是"很强的 CFO"，但 Dylan Patel 认为"归根结底无法在技术上领导这家公司"。</li>
+        <li><strong>黄仁勋：</strong>辞职后未公开发表系统性声明。据美股投资网，他仍将在感恩节前赴国会宣誓作证。</li>
+      </ul>
+
+      <h3><span class="h3n">5.2</span>白宫 / 行政当局</h3>
+      <ul>
+        <li><strong>特朗普（11/8）：</strong>"我没和他谈过。我只知道他是个不错的人，但事情究竟是怎么回事，谁也说不准。"</li>
+        <li><strong>特朗普（11/9）：</strong>已与黄通话，黄否认知道对方是间谍；"我知道 FBI 正在调查。"</li>
+        <li><strong>关键变化：</strong>SemiAnalysis 判断"过去特朗普一直罩着卢特尼克，现在特朗普撒手不管了"。行政当局的保护伞在中期选举后消失。</li>
+        <li><strong>ODNI 与司法部：</strong>先后公开表态，无证据证实黄乐是间谍，指控被过度渲染。</li>
+      </ul>
+
+      <h3><span class="h3n">5.3</span>国会</h3>
+      <ul>
+        <li><strong>共和党三主席（Mast / Moolenaar / Crawford）：</strong>要求闭门简报，措辞为"重大国家安全担忧"。</li>
+        <li><strong>参议员沃伦等：</strong>发函要求保留全部对华芯片出口审批记录，把矛头指向特朗普政府的决策链条。</li>
+        <li><strong>两党芯片管制条款：</strong>三项条款正在冲刺纳入国防授权法案（NDAA）——国会对出口许可证的审查权、反走私机制、限制盟友出售芯片制造设备。</li>
+        <li><strong>《远程访问安全法》（RASA）：</strong>2026 年 1 月 12 日众议院以 <strong>369 票赞成、22 票反对</strong>通过（此前外委会 51:0 全票放行），目前在参议院银行委员会待表决，长期被压下——英伟达与甲骨文在背后大力游说阻拦。</li>
+      </ul>
+
+      <h3><span class="h3n">5.4</span>华尔街：从"杀估值"到"砍盈利"</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:22%">机构 / 人物</th><th>核心表述</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>摩根士丹利</strong><br><span style="font-size:11.5px;color:var(--ink-4)">11/13 更新</span></td>
+              <td>维持"增持"，行业观点"有吸引力"，目标价 <strong>300 → 267 美元</strong>。2028 财年收入增速从 <strong>70% 砍到 53.5%</strong>，收入预测下调 9.7%、EPS 下调 10.9%；2029 财年收入下调 10.7%、EPS 下调 10.9%；毛利率仅下调 0.09 个百分点。下调集中在 2028 财年下半年（Q3 EPS 3.98→3.49，Q4 4.78→3.78），2027 财年剩余季度不变。自称"这组数字偏保守""并不确定是否真的需要下调"</td>
+            </tr>
+            <tr>
+              <td><strong>Josh Brown</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Ritholtz 资管 CEO</span></td>
+              <td>英伟达没有崩盘式下跌，唯一原因是<strong>盈利增速跑赢了估值收缩的速度</strong>。反向测算：如果未来 12 个月盈利预期下调 5%，股价可能暴跌 40%——<strong>盈利每下调 1 个百分点，对应股价 8 个百分点下行</strong></td>
+            </tr>
+            <tr>
+              <td><strong>高盛</strong></td>
+              <td>Q3 营收 1100.8 亿美元、数据中心超 1025 亿、毛利率 74.1%、Q4 指引 1248 亿美元。只要不低于这个底线，过去三季度的交货成绩单就已锁定</td>
+            </tr>
+            <tr>
+              <td><strong>花旗</strong></td>
+              <td>11/10 已把估值倍数从 21 倍下调到 19 倍，理由之一即"CEO 长期可持续性风险"</td>
+            </tr>
+            <tr>
+              <td><strong>十余家机构</strong></td>
+              <td>11 月 12 日单日下调英伟达评级</td>
+            </tr>
+            <tr>
+              <td><strong>Dan Niles</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Niles Investment</span></td>
+              <td>早前即称黄仁勋"并不重要"，援引乔布斯去世后的苹果（"它倒闭了吗？"），认为董事会会强制推进继任程序、"水到渠成"。近期已公开抄底</td>
+            </tr>
+            <tr>
+              <td><strong>Gary Black / Jim Cramer</strong></td>
+              <td>Black 早前怀疑其能否留任、警告基金经理将减持；Cramer 称要为"没有黄仁勋的英伟达"做准备，调查漫长等于股东的"死钱"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">5.5</span>SemiAnalysis：最完整的一份"失去黄仁勋"清单</h3>
+      <p>这篇 11 月 13 日的长文提供了本轮最有价值的一手级数据，也提供了最悲观的产业判断。核心论点：</p>
+      <ul>
+        <li><strong>组织架构是"为一个人量身定制"的。</strong>60 名直属下属、不开一对一、产品研发拖到最后一刻才收口（GB200 设计定稿"比谁希望的都要晚"），目的是随时保留改主意的余地。</li>
+        <li><strong>没有接班人梯队。</strong>官网高管页除黄仁勋外只重点介绍五人，其中两位还是管法务和财务的。高管跳槽去别家当 CEO 的案例"凤毛麟角"，Arm 的 Rene Haas 是罕见例外。</li>
+        <li><strong>客户买的是"个人信用"。</strong>截至第二财季，表外担保总额 <strong>5300 亿美元</strong>（上一季度 1840 亿），含针对新云的 <strong>360 亿美元"照付不议"保底条款</strong>，账上还有 <strong>990 亿美元股权投资组合</strong>。英伟达像"中央银行"，而这套信用体系的锚就是黄仁勋本人。"黄仁勋兜底期权"一旦失效，整条生态链将剧烈收缩。</li>
+        <li><strong>供应链铁网靠"CEO 对 CEO"谈下来。</strong>供应与产能采购承诺从 1190 亿暴增至 <strong>2790 亿美元</strong>（920 亿落在今年下半年，870 亿锁定 2028 财年，880 亿锁定 2029 财年），大头砸在内存。SK 海力士 2027 年 HBM4 给英伟达的报价约 <strong>3.0—3.3 美元/Gb</strong>，给 AMD、博通、亚马逊、谷歌等则要 <strong>3.7—4.1 美元/Gb</strong>。</li>
+        <li><strong>预测：到 2028 年，全行业超过 70% 的总产能可能流向非英伟达阵营。</strong></li>
+        <li><strong>开源生态断流。</strong>英伟达开发者团队长期与中国顶尖实验室贴身协作，催生宽专家并行、DeepGEMM、DeepEP 等突破，再回流西方开源社区。黄一走，中国实验室可能不再开源这些针对 Blackwell 调优的算子库——而 SGLang、vLLM 等生产级推理引擎都在直接调用它们。</li>
+        <li><strong>结论：</strong>"这家公司从根子上就没按'没有他也能转'的逻辑来搭建""SpaceX 和特斯拉离了马斯克转不动，英伟达没了黄仁勋同样玩不转"。</li>
+      </ul>
+
+      <h3><span class="h3n">5.6</span>All In 播客：四个立场鲜明的判断</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:18%">人物</th><th>核心观点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>弗里德伯格</strong></td><td>①"如果最终调查结果证实黄仁勋没有违反任何法律，我认为黄仁勋应当重返 CEO 职位""股东完全有权选择包容这一切并将他重新迎回""能够执掌英伟达的最佳 CEO 人选，恐怕依然是黄仁勋本人"；②真正的机制是 10-K 可审计认证与 D&amp;O 保险契约；③若回归，股东诉讼规模"极其庞大"，SEC 势必介入，审计机构也会有自己的定论，"需要斡旋应对的环节实在太多了"</td></tr>
+            <tr><td><strong>杰森（主持人）</strong></td><td>"根据我目前所见的信息，我认为黄仁勋最终会洗清嫌疑，以董事长或 CEO 的身份回归。这是我的判断，也是我所希望看到的结局。"主张等调查彻底结束、由股东投票表决去留，批评董事会"完全是出于自保的立场，为了免责甩锅"</td></tr>
+            <tr><td><strong>萨克斯</strong></td><td>强调无罪推定；提出"五个疑问"（谁泄露备忘录、为何没给防御性简报、他被指控泄露了什么、间谍证据在哪、为什么是现在）；结论"这完全是国内力量所为""归根结底，是因为黄仁勋树立了强大的政商敌人"。断言"英伟达的迭代节奏会不会慢上半拍甚至一拍？那是绝对的"</td></tr>
+            <tr><td><strong>查马斯</strong></td><td>①"给英伟达使绊子并不会让其他人的芯片凭空变好"——竞争对手"功课一点都没减少"；②唯一真正的赢家是"渴望对算力基础设施实行更集中化监管的人"；③必须警惕经济增速损失 <strong>50—150 个基点</strong>的切实风险；④"积木抽签效应"：黄仁勋是 AI 生态底部最关键的那块积木</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">5.7</span>Dylan Patel：继任者为什么这么难找</h3>
+      <ul>
+        <li><strong>三个维度同时缺人：</strong>技术决策（谁在方案 A/B/C 之间拍板、并安抚落选方案的供应商）、供应链（说服供应商以低于市价分配 60%—70% 的稀缺产能）、生态支撑（对开源生态的资金与工程扶持）。</li>
+        <li><strong>内部人选：</strong>Ian Buck（斯坦福读博期间一手做出 CUDA，2004 年加入，超大规模与高性能计算副总裁，掌管数据中心，黄仁勋出差时常由他照看事务）、Jonah Albin（1997 年加入，GPU 工程高级副总裁，统管 GPU 芯片设计，技术威望更高但极少露面）。<strong>但"没有哪一个人能独自扛下全部盘子"。</strong></li>
+        <li><strong>一句关键的引述：</strong>"伊恩宁死也不愿接黄仁勋的班，他根本没那心思。乔纳在公司威望更高，大家觉得他或许能顶上，但说到底，谁会真想接这个位置呢？"（今年早些时候一位内部高管语）</li>
+        <li><strong>外部人选：</strong>Charlie Kawwas（博通二把手）、Johny Srouji（苹果硬件负责人）——"业内只有他们具备同时把控复杂供应链与底层技术细节的综合能力"。至于 Hock Tan 或苏姿丰"自然更好，但我认为他们都不可能接手"。</li>
+        <li><strong>对 Anthropic 与 OpenAI 的差异判断：</strong>OpenAI 与英伟达绑定程度高达 90% 以上，Anthropic 对英伟达的依赖度只有三分之一甚至更低。开源势头受阻对闭源阵营反而有利。</li>
+      </ul>
+
+      <h3><span class="h3n">5.8</span>散户 vs 机构：一次罕见的对赌</h3>
+      <ul>
+        <li><strong>散户：</strong>Vanda 数据，截至 11/13 一周净买入约 <strong>19.6 亿美元</strong>，逼近 2025 年 3 月以来单周最高。Stocktwits 情绪升至"极度看多"。</li>
+        <li><strong>机构：</strong>整体观望，十余家下调评级，大摩虽维持增持但砍了目标价。</li>
+        <li><strong>解读：</strong>散户买的是"11 倍市盈率 + 品牌信仰"，机构卖的是"盈利可见度下降"。这两件事可以同时成立——直到财报给出答案。</li>
+      </ul>
+    </section>
+
+    <!-- ============ 06 ============ -->
+    <section id="s6">
+      <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">复盘：上一版的判断，对了多少</h2></div>
+      <p class="sec-sub">预测的价值在于事后对照。这一节把 11 月 12 日的判断逐条拿出来对账。</p>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:34%">上一版的判断</th><th style="width:14%">结果</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>"被赶下台是基准情形，但更可能是协议式退出而非董事会投票罢免"</td><td><span class="badge b-ok">命中</span></td><td>确以辞职形式落地，无公开的投票罢免程序</td></tr>
+            <tr><td>"数日—数周内离职/被替换：45%"</td><td><span class="badge b-ok">命中</span></td><td>实际用时不到 24 小时，落在最快的那个情景里</td></tr>
+            <tr><td>"理性路径是先由独立调查出具结论，再完成交接"</td><td><span class="badge b-no">未命中</span></td><td><strong>调查没有先出结论</strong>。辞职跑在了调查前面——我低估了政治时钟的压力，高估了程序的约束力</td></tr>
+            <tr><td>"没有接班人 + 调查未结 + 白宫不支持，使当场罢免既无必要也无好处"</td><td><span class="badge b-no">部分未命中</span></td><td>三条里两条失效：白宫在中期选举后不再支持，调查未结也没能阻止辞职。<strong>"没有接班人"这一条仍然成立，但它阻止不了人走，只能拖慢继任</strong></td></tr>
+            <tr><td>"首日跌幅大概率 8%—14%"</td><td><span class="badge b-ok">基本命中</span></td><td>自 11/6 的 186.64 起算，全周跌约 11%—15%，盘中最低 148.8（约 -20%）</td></tr>
+            <tr><td>"有序换人的价值损失约 10%—15%，最坏 30%"</td><td><span class="badge b-ok">命中</span></td><td>与后续大摩下调、机构目标价区间基本一致</td></tr>
+            <tr><td>"真正的分水岭是 11/17 财报和 11/18 国会"</td><td><span class="badge b-mid">待验证</span></td><td>两个节点都在明后天，尚未发生</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <b>最大的方法论教训：</b>我当时把"程序约束"（调查先出结论、董事会需要事实认定）当成了硬约束，把"政治时钟"（中期选举后的跛脚鸭会期、法案表决窗口）当成了背景噪音。<b>结果恰好相反</b>——程序是可以绕过的，政治窗口不会等人。下一次遇到同类事件，应该先问"谁需要在这个时间点解决这件事"，再问"程序上应该怎么走"。
+      </div>
+    </section>
+
+    <!-- ============ 07 ============ -->
+    <section id="s7">
+      <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">核心问题一：他有没有可能回归？</h2></div>
+      <p class="sec-sub">这是当前最容易被情绪左右的问题。把它拆成"支持回归的论据""阻止回归的硬约束""四条路径与概率"。</p>
+
+      <div class="duo">
+        <div class="panel for">
+          <h4>支持回归的六条论据</h4>
+          <ol>
+            <li><b>核心指控正在退潮。</b>ODNI 与司法部先后表态无证据证实黄乐是间谍；CIA 查了一年也没找到确凿证据。若"国安"这条线塌了，辞职的正当性基础就被抽掉一半。</li>
+            <li><b>有重量级公开呼吁。</b>马斯克、Tim Sweeney、Garry Tan 等人联署请愿，要求调查结束后<strong>由股东投票</strong>决定去留；有人把董事会驱逐他比作苹果当年解雇乔布斯。</li>
+            <li><b>股东有权包容。</b>弗里德伯格："任何涉及行为准则的瑕疵，股东完全有权选择包容这一切并将他重新迎回。只要没有触犯刑律。"</li>
+            <li><b>他是最佳人选，这点连批评者也不否认。</b>"能够执掌英伟达的最佳 CEO 人选，恐怕依然是黄仁勋本人。"</li>
+            <li><b>继任者难产。</b>Ian Buck 据说"宁死也不愿接"，Jonah Albin 技术威望够但缺商业与供应链经验，外部人选又都各有障碍。<strong>拖得越久，回归的呼声越高。</strong></li>
+            <li><b>他仍在一线。</b>感恩节前仍要赴国会宣誓作证。如果他在质询中表现良好、且间谍指控进一步瓦解，这就是最好的复出舞台。</li>
+          </ol>
+        </div>
+        <div class="panel against">
+          <h4>阻止回归的六条硬约束</h4>
+          <ol>
+            <li><b>可审计认证已成既成事实。</b>这是最硬的一条。季报 10-K 认证、审计师逐项问答、D&amp;O 保险契约条款——若曾声明"未违反行为准则"而存在未申报利益冲突，即构成虚假陈述。<strong>辞职不能追溯性地修正已经提交的陈述。</strong></li>
+            <li><b>诉讼与监管链条已经启动。</b>集体诉讼规模"极其庞大"，SEC 势必介入表达立场，审计机构也会有自己的定论。弗里德伯格："需要斡旋应对的环节实在太多了。"</li>
+            <li><b>董事会已启动正式遴选。</b>一旦定了人，回归窗口即关闭。而"临时"身份拖得越久，市场压制估值的窗口也越长——<strong>董事会没有动机为一个人保留位置</strong>。</li>
+            <li><b>政治对手的目标就是让他不回来。</b>如果把他从决策圈拔除是目的，那么回归就等于鹰派的失败。相关法案（RASA、NDAA 三条款）正在推进，<strong>没有人会允许变量重新回到牌桌上</strong>。</li>
+            <li><b>第二段关系不是误会。</b>与直接下属的未申报关系，是治理硬伤而非私德瑕疵。这一点无法用"调查洗清"来解决——因为它本身不需要调查就能成立。</li>
+            <li><b>还有第三起在传。</b>事件尚未见底（Chamath 提示 11/20 前可能还有新料）。任何回归尝试都要承担"再爆一次"的风险。</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>四条路径与概率（12 个月维度）</h3>
+      <div class="prob">
+        <div class="prob-row">
+          <div class="lbl">A. 调查完全洗清 + 股东施压 → 重回 CEO<span>需要：调查明确否定违规 + 股东特别会议 + 董事会转向 + 诉讼与 SEC 风险可控</span></div>
+          <div class="pct" style="color:var(--accent)">8%</div>
+          <div class="bar"><i class="a" style="width:8%"></i></div>
+        </div>
+        <div class="prob-row">
+          <div class="lbl">B. 以董事长 / 首席架构师 / 技术顾问等非 CEO 身份回归<span>不碰 CEO 的认证责任，但保留战略影响力。摩根士丹利、亚马逊、苹果都有类似先例</span></div>
+          <div class="pct" style="color:#b5573f">20%</div>
+          <div class="bar"><i class="b" style="width:20%"></i></div>
+        </div>
+        <div class="prob-row">
+          <div class="lbl">C. 不回公司治理，但作为大股东 + 行业布道者保持影响力<span>持股 3.37%，仍是重要股东；可通过公开演讲、投资、顾问角色影响产业</span></div>
+          <div class="pct" style="color:var(--teal)">45%</div>
+          <div class="bar"><i class="c" style="width:45%"></i></div>
+        </div>
+        <div class="prob-row">
+          <div class="lbl">D. 彻底退出公众视野，低调生活<span>63 岁，家庭因素，且已承受巨大舆论代价</span></div>
+          <div class="pct" style="color:#8d8477">27%</div>
+          <div class="bar"><i class="d" style="width:27%"></i></div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <b>怎么读这组数字：</b>市场上有两种极端说法——"他一定会像乔布斯一样回来"和"他永远回不来了"。两者都过度简化。<br><br>
+        <b>真正要区分的是"回到 CEO 位置"和"回到影响力中心"。</b>前者概率很低（8%），因为要跨越的是一整套已经生效的法律与契约机制；后者概率不低（B+C 合计 65%），因为他的产业认知、人脉与股权都还在，而这些不需要董事会批准。<br><br>
+        <b>一个可操作的判断标准：</b>看董事会在 11/17 财报会上是否给出"正式 CEO 遴选时间表"。<b>给得越早、越具体，回归越不可能</b>——因为那意味着董事会已经决定向前看，而不是给他留门。
+      </div>
+
+      <h3>乔布斯先例能不能套用？</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:20%">维度</th><th style="width:40%">乔布斯 1985—1997</th><th>黄仁勋 2026—</th></tr></thead>
+          <tbody>
+            <tr><td>离开原因</td><td>与 CEO 的权力斗争、董事会站队，<strong>无个人操守问题</strong></td><td>与直接下属的未申报关系 + 情报疑云，<strong>涉及合规与披露</strong></td></tr>
+            <tr><td>离开时的公司状态</td><td>苹果正在失去方向，市场份额下滑，濒临危险</td><td>英伟达处于历史最好状态：2790 亿锁单、单季 630 亿美元营业利润</td></tr>
+            <tr><td>回归的触发</td><td>公司濒临崩溃，<strong>董事会主动请他回来</strong>（收购 NeXT）</td><td>公司经营仍强，<strong>董事会没有请他回来的动机</strong></td></tr>
+            <tr><td>法律障碍</td><td>几乎没有</td><td>集体诉讼、SEC、10-K 认证、D&amp;O 保险</td></tr>
+            <tr><td>结论</td><td colspan="2"><strong>先例不成立。</strong>乔布斯回归的前提是"公司需要被拯救"，而英伟达现在不需要。真正可比的是"创始人因丑闻离职后以非 CEO 身份回归"这一类——概率明显更高，但影响力也不同</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 08 ============ -->
+    <section id="s8">
+      <div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">核心问题二之一：短期影响（0—3 个月）</h2></div>
+      <p class="sec-sub">短期不是"基本面问题"，是"估值与筹码问题"。三件事决定方向：财报、期权、国会。</p>
+
+      <h3>已经发生的定价</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:30%">指标</th><th style="width:22%">数值</th><th>含义</th></tr></thead>
+          <tbody>
+            <tr><td>11/6 收盘（风波前）</td><td class="num">186.64 美元</td><td>基准</td></tr>
+            <tr><td>11/12 盘中低点</td><td class="num">148.8 美元</td><td>极端情绪底，已被测试一次</td></tr>
+            <tr><td>11/13—11/15</td><td class="num">166 美元附近</td><td>深 V 反弹，散户接盘</td></tr>
+            <tr><td>11/16（今日）</td><td class="num"><strong>约 163 美元</strong></td><td>财报前静默</td></tr>
+            <tr><td>远期市盈率（下一财年）</td><td class="num"><strong>约 11 倍</strong></td><td>对比博通 20.1 倍、AMD 33.5 倍。当前财年 18.6 倍</td></tr>
+            <tr><td>2027 / 2028 财年 EPS 共识</td><td class="num">9.3 / 15.9 美元</td><td><strong>不但没下修，还分别微升 0.1% 和 0.2%</strong>——这是关键矛盾点</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <b>短期最重要的一个矛盾：</b>股价已经按"盈利会被砍"定价（11 倍），但卖方共识还没砍（EPS 微升）。<b>两者必有一个错。</b>如果财报与指引证明盈利不动，11 倍就是明显的错杀；如果卖方开始成片下修，11 倍根本不构成硬底——按 Josh Brown 的公式，盈利下修 5%，股价对应 -40%。<b>这就是 11/17 财报的真正意义：它不是在公布业绩，是在裁决这个矛盾。</b>
+      </div>
+
+      <h3>11/17 财报：只看三个信号，不看赚了多少钱</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:24%">信号</th><th style="width:34%">看什么</th><th>出问题的含义</th></tr></thead>
+          <tbody>
+            <tr><td><strong>① Q4 毛利率指引</strong></td><td>上一份指引是 Q4 触底 71%—72%、明年回升 72%—73%。看是否被"保险性"下修半档</td><td>Kress 是干了 13 年财务的保守派，若主动压低指引，市场会解读为"交接期成本失控"或"议价能力松动"</td></tr>
+            <tr><td><strong>② Rubin 客户认证措辞</strong></td><td>是"完全按原计划推进"，还是出现"正在与客户重新确认节奏""部分规格仍在微调"</td><td>多余的限定词＝"决策带宽收缩"开始变成现实，这是中期最关键的先行指标</td></tr>
+            <tr><td><strong>③ CEO 遴选时间表</strong></td><td>能否给出"明年一季度前敲定"之类的明确节点</td><td>绝口不提＝市场默认进入漫长的"看守内阁期"，不确定性折价不会收窄</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>高盛给出的底线：Q3 营收 1100.8 亿美元、数据中心超 1025 亿、毛利率 74.1%、Q4 指引 1248 亿美元。只要不低于这条线，过去三季度的交货成绩单就已锁定。</p>
+
+      <h3>期权与事件风险：这两天最不该做的事</h3>
+      <ul>
+        <li>Cboe 数据：期权市场定价财报后有 <strong>50% 概率出现超过 6.88% 的单日波动</strong>（约 12 美元振幅）。</li>
+        <li>30 日隐含波动率已升到<strong>过去一年最高 10% 的极端区间</strong>。</li>
+        <li><strong>结论：不要买末日期权赌方向。</strong>只要走不出超过 7% 的单边行情，即使猜对方向，第二天 IV Crush 也会让期权大亏——这是最经典的"多空双杀"。</li>
+        <li>11 月下旬还有国会作证，消息面暗雷没排完。</li>
+      </ul>
+
+      <h3>短期判断</h3>
+      <p><strong>短期是"估值先杀、盈利后验"，不是"基本面崩塌"。</strong>支撑来自三处：<strong>①</strong> 未来约两年的产品路线与供应链已锁定（大摩明确以此为维持增持的理由）；<strong>②</strong> 2790 亿美元锁单里，未来 12 个月的紧缺部件大多已被预付款覆盖；<strong>③</strong> 大客户（微软、谷歌、亚马逊、Meta）不会因为换了 CEO 就不用 H200/Blackwell。</p>
+      <p>压力来自两处：<strong>①</strong> 十余家机构已下调评级，若形成"下修潮"，11 倍不构成支撑；<strong>②</strong> 散户 19.6 亿美元的净买入是"浮筹"，一旦跌破 148.8，这批筹码会变成抛压。</p>
+    </section>
+
+    <!-- ============ 09 ============ -->
+    <section id="s9">
+      <div class="sec-head"><div class="sec-num">09</div><h2 class="sec-title">核心问题二之二：中期影响（3 个月—2 年）</h2></div>
+      <p class="sec-sub">中期不是"产品会不会做不出来"，而是"同样的产品，还会不会以同样的频率、同样的价格、同样的条件做出来"。</p>
+
+      <h3>9.1 最先变化的不是产品，是决策机制</h3>
+      <p>SemiAnalysis 与 Dylan Patel 的判断高度一致：英伟达的组织架构是"为一个人量身定制"的，抽掉主心骨后，它很可能变成"完全不同的物种"。</p>
+      <ul>
+        <li><strong>原来的机制：</strong>面对方案 A、B、C，三者同时并进，直到最后一刻由黄仁勋拍板，把资源全押一个；再负责安抚落选方案的供应商，让他们全力支持 A。若 A 出偏差，立刻切到 B。</li>
+        <li><strong>换人后的机制：</strong>这个问题交给委员会。谁来决定？谁能在选定 A 之后安抚 B 和 C 的供应商？</li>
+        <li><strong>Dylan Patel 的总结：</strong>"英伟达最大的担忧正是决策权落入委员会手中，这会导致决策变得缓慢，技术上甚至可能因此掉队。"</li>
+        <li><strong>诺基亚的教训（StockWe 引用）：</strong>巅峰期占全球手机份额 40% 以上，倒下前一个决策要经过四到六层审批，前任 CEO 自己称之为"委员会管理"——"每一个单独的决策看起来都合理，加起来就是每个季度都差一点"。</li>
+      </ul>
+      <div class="callout">
+        <b>关键洞察：</b>这种损耗<strong>不会立刻体现在营收上</strong>。它会先体现在"激进程度"的下降——下一代平台的规格从"大幅超出客户预期"变成"刚好符合客户预期"；供应链加单从"提前两个季度拍板"变成"按季度滚动确认"。<strong>这些变化在单季财报里几乎看不见，但两年后会体现在份额上。</strong>
+      </div>
+
+      <h3>9.2 供应链：铁网还在，但偏心会消失</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:22%">维度</th><th>现状与变化</th></tr></thead>
+          <tbody>
+            <tr><td><strong>锁单规模</strong></td><td>供应与产能采购承诺从 1190 亿美元暴增至 <strong>2790 亿美元</strong>（920 亿落在今年下半年，870 亿锁定 2028 财年，880 亿锁定 2029 财年），大头砸在 HBM 内存</td></tr>
+            <tr><td><strong>价格特权</strong></td><td>SK 海力士 2027 年 HBM4 给英伟达约 <strong>3.0—3.3 美元/Gb</strong>，给 AMD、博通、亚马逊、谷歌等要 <strong>3.7—4.1 美元/Gb</strong>。这个价差是"CEO 对 CEO"谈出来的，<strong>换人后会回归纯商业条款</strong></td></tr>
+            <tr><td><strong>产能分配</strong></td><td>SemiAnalysis 预测：到 2028 年，全行业超过 <strong>70%</strong> 的总产能可能流向非英伟达阵营</td></tr>
+            <tr><td><strong>缓冲</strong></td><td>大摩认为"失去进取作风"的担心被夸大，依据是预付款已覆盖未来 12 个月大部分紧缺部件。<strong>但预付款覆盖期之后的策略确实悬而未决</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.3 信用兜底：最容易被忽略、也最危险的一环</h3>
+      <p>英伟达不只是一家芯片公司，它还是 AI 生态的"中央银行"：为算力集群提供信用担保、牵头组织银团、给买家营收托底、为房东做担保甚至亲自签机房租约，让原本拿不到投资级评级的运营商能按投资级利率借到钱。</p>
+      <div class="stats">
+        <div class="stat"><div class="v">5300<small>亿</small></div><div class="k">表外担保总额（美元），上一季度仅 1840 亿</div></div>
+        <div class="stat"><div class="v">360<small>亿</small></div><div class="k">针对新云的"照付不议"保底条款（美元）</div></div>
+        <div class="stat"><div class="v">990<small>亿</small></div><div class="k">股权投资组合（美元）</div></div>
+        <div class="stat"><div class="v">25<small>%</small></div><div class="k">大摩预计新云贡献的收入占比</div></div>
+      </div>
+      <p><strong>这套体系的锚是黄仁勋本人的金字招牌。</strong>下一任 CEO "多半没胆量也没底气这么干"（SemiAnalysis）。大摩的判断更具体：临时身份会让三类事变难——<strong>对客户做出长期承诺、组织大型投资银团、让内部对战略规划形成共识</strong>。</p>
+      <p>后果是分化：英伟达此前募集的 5000 亿美元第三方资金池，更可能流向规模更大的成熟客户（大型云厂商）；小型新云更难凑齐占多数的融资。<strong>大摩仍预计新云贡献接近 25% 的收入，但其中来自成熟玩家的比例会更高。</strong></p>
+
+      <h3>9.4 产品与出口管制：两个新增变量</h3>
+      <ul>
+        <li><strong>产品侧（相对乐观）：</strong>Vera Rubin 正在爬坡，客户反馈其在"每吉瓦电力产出多少 token"这项指标上保持领先；Rubin Ultra 已基本完成定义；供应偏紧的环节通过预付款锁住了未来两年大部分产能。</li>
+        <li><strong>出口管制侧（新增风险）：</strong>美国本周加快讨论进一步收紧，重点可能是<strong>中国模型租用海外云算力</strong>这类业务。RASA 已在众议院以 369:22 通过、待参议院表决；三项两党条款正在冲刺纳入 NDAA。</li>
+        <li><strong>大摩的两条缓冲：</strong>① 这些海外算力主要为中国模型做推理，token 需求若消失，可能由其他开放权重模型填补；② 整体需求远未被满足，腾出的硬件很快会被别处吸收——公司给 2027 年增长 70% 指引时同时谈到需求增长超过 100%，差额意味着部分减速可被消化。</li>
+        <li><strong>但大摩仍选择先留余量：</strong>把 2028 和 2029 财年数据中心收入各下调约 10%，2028 财年收入增速从 70% 砍到 53.5%。</li>
+      </ul>
+
+      <h3>9.5 开源生态：一条被低估的断流</h3>
+      <p>SemiAnalysis 认为这是"眼下最致命的危机"。逻辑链是：<strong>只有开源生态繁茂，各国政府、传统企业和新兴云厂商才有动力买 GPU</strong>；否则买家就只剩几家正在自研芯片的头部实验室。而英伟达是"全天下最指望开源 AI 活下去的公司"。</p>
+      <ul>
+        <li>英伟达开发者团队长期与中国顶尖实验室贴身协作，从重度用户身上学到经验，反哺 CUDA 生态，催生宽专家并行、DeepGEMM、DeepEP 等突破，再顺流惠及西方开源社区与初创公司。</li>
+        <li>黄一走、鹰派占上风，这条通道"算是彻底悬了"。中国实验室可能不再开源针对 Blackwell 调优的算子库——而 <strong>SGLang、vLLM 等生产级推理引擎都在直接调用它们</strong>。</li>
+        <li>英伟达自家开源模型 Nemotron 也可能被边缘化。过去美国本土大模型纷纷转闭源，几乎全靠英伟达一己之力撑着开源阵营（投资 Reflection、Thinking Machines、Poolside，收购 Hugging Face）。</li>
+        <li><strong>净效果：利好闭源巨头，重创初创公司。</strong>Dylan Patel 也持同样判断——开源势头受阻对 Anthropic 等闭源阵营反而有利。</li>
+      </ul>
+
+      <h3>9.6 中期的量化结论</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:30%">指标</th><th style="width:24%">变化</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>2028 财年收入增速</td><td class="num">70% → <strong>53.5%</strong></td><td>大摩明确承认"明显低于公司 70% 的出货增长指引"，属于保守假设</td></tr>
+            <tr><td>2028 财年收入</td><td class="num">-9.7%</td><td>降至 6229.81 亿美元</td></tr>
+            <tr><td>2028 财年 EPS</td><td class="num">-10.9%</td><td>降至 13.37 美元（8 月上修前为 13.15 美元）</td></tr>
+            <tr><td>2029 财年</td><td class="num">收入 -10.7%、EPS -10.9%</td><td>—</td></tr>
+            <tr><td>毛利率</td><td class="num">仅 -0.09 个百分点</td><td><strong>调整主要落在收入规模，而非盈利能力</strong>——这是"杀估值不杀质地"的关键证据</td></tr>
+            <tr><td>目标价</td><td class="num">300 → <strong>267</strong></td><td>低于 8 月的 288 美元，因为 8 月已把估值倍数从 22 倍降到 20 倍</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">把大摩的数字放回三个月前的基准看：这次下调<strong>抹掉了 8 月那轮上修的大部分</strong>，盈利预测基本退回公司给出 70% 框架之前的水平。<strong>换句话说，机构并没有"看空英伟达"，而是把"黄仁勋溢价"这部分从模型里拿掉了。</strong></div>
+    </section>
+
+    <!-- ============ 10 ============ -->
+    <section id="s10">
+      <div class="sec-head"><div class="sec-num">10</div><h2 class="sec-title">核心问题二之三：长期影响（2—5 年及以后）</h2></div>
+      <p class="sec-sub">长期只有一个问题：这家公司还会不会做"当期不赚钱但决定十年后格局"的赌注。</p>
+
+      <h3>10.1 消失的不是能力，是"敢赌的权力"</h3>
+      <p>SemiAnalysis 的核心判断：英伟达之所以成为今天的英伟达，靠的是周期动辄数年甚至十年的豪赌，而<strong>创始人能在董事会力挺下放手去搏，不用担心半路被掀桌子</strong>。</p>
+      <ul>
+        <li><strong>CUDA：</strong>连续烧钱好几年，华尔街分析师天天质疑，黄仁勋硬扛了下来。</li>
+        <li><strong>一位前员工的原话：</strong>"当年可编程着色器、CUDA 和张量核心应用场景还很有限，反对把宝贵晶体管面积浪费在这上面的声音很大，可黄仁勋愣是押上了全公司。"</li>
+        <li><strong>现在的赌注：</strong>Omniverse 和自动驾驶，黄仁勋私下称为"<strong>零亿美元级豪赌</strong>"——现在一分钱不赚，但他认定未来能像 CUDA 一样大成。此外还有 Shield TV、DGX Cloud 这类"不赚钱甚至被砍掉"的尝试，初衷是让团队贴近终端客户。</li>
+        <li><strong>关键差异：</strong>"非创始人出身的继任者，哪怕在公司干了一辈子，面对董事会和股东时的腰杆也是不一样的。这种不计短期回报的孤注一掷，往后恐怕很难再现。"</li>
+      </ul>
+
+      <h3>10.2 三种终局</h3>
+      <div class="trio">
+        <div class="panel neutral">
+          <h4>路径一 · 苹果化（概率最高）</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">职业经理人上位，风格趋保守，现金用于<b>回购与分红</b>而非激进投资。运营与赚钱能力极强，颠覆性创新放缓。</p>
+          <span class="tag">股东短期开心，技术冲劲回不到从前。参照库克接任后的苹果：三个月 +21%，但"没人会说苹果最新产品多么不可思议"</span>
+        </div>
+        <div class="panel for">
+          <h4>路径二 · 英特尔化（概率较低）</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">技术路线连续误判、制程或架构掉队，份额被侵蚀。</p>
+          <span class="tag">但当前坐标相反：2790 亿锁单、Rubin 爬坡、Rubin Ultra 已定义。<b>英特尔是技术掉队在先，换帅只是把已有折价引爆</b>——英伟达不在这条线上</span>
+        </div>
+        <div class="panel against">
+          <h4>路径三 · 算力商品化（最被低估）</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;">护城河从"迁移成本"退化为"生态惯性"。模型自己写内核、算力池可替换，GPU 换一代、模型自适应。</p>
+          <span class="tag">这条与绯闻无关，却决定 5 年后的估值中枢。Anthropic 称 Claude 约 3 天跑上 AMD MI355X 是第一个信号</span>
+        </div>
+      </div>
+
+      <h3>10.3 三个容易被忽略的长期变量</h3>
+      <ul>
+        <li><strong>人才。</strong>未来半年市场会高度关注硬件、软件架构部门的 VP 是否被 AMD、博通、谷歌 TPU 团队高薪挖走。SemiAnalysis 的观察是：英伟达高管层过去"被按着不许出风头"，因为薪酬优厚、认准使命，愿意安稳干到退休——<strong>但这个默契的前提是"黄仁勋在"</strong>。</li>
+        <li><strong>竞争对手未必受益。</strong>查马斯的判断值得记住："给英伟达使绊子并不会让其他人的芯片凭空变好。"竞争对手仍需时间让芯片在大规模集群稳定运行、争取台积电与 HBM 产能，"功课一点都没减少"。但差距确实在缩小——通过网络互联（对标 NVL72）与能源优势快速追赶。<strong>若英伟达陷入"两到三年的瘫痪"，对 AMD、英特尔构成实质利好。</strong></li>
+        <li><strong>监管范式。</strong>弗里德伯格的警告：真正的风险不是某家公司，而是"每枚 AI 芯片、每台计算机、每个数据中心都装开关回连国家系统"的立法倾向，形成"奥威尔式极权国家的骤然扩张"。查马斯则判断唯一真正的赢家是"渴望对算力基础设施实行更集中化监管的人"。<strong>这才是长期估值最大的不确定性——不是竞争，是规则。</strong></li>
+      </ul>
+
+      <h3>10.4 宏观外溢</h3>
+      <p>查马斯给出的量化警告：必须警惕经济增速损失 <strong>50—150 个基点</strong>的切实风险，资本投资步伐可能放缓。他的比喻是"积木抽签效应"——<strong>黄仁勋/英伟达是 AI 生态底部最关键的那块积木，抽掉它，上面所有积木都要重新找平衡。</strong></p>
+      <p>这与 FT 总编 Khalaf 此前的判断同构：英伟达占标普 500 近 7% 权重、4.5 万亿美元市值，"正在变得同样具有系统重要性"——只不过她当时说的是"单一 CEO 风险"，现在风险已经实现。</p>
+
+      <h3>10.5 中国侧的连锁反应（已被验证的部分）</h3>
+      <p>SemiAnalysis 认为，一旦彻底切断中国实验室接触英伟达 GPU 的门路，"他们只会破釜沉舟，全力扑向国产 AI 加速器"。这一幕已经在发生：</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:18%">时间</th><th>事件</th></tr></thead>
+          <tbody>
+            <tr><td>2026 年 2 月</td><td>智谱宣布 GLM-5 已实现对 <strong>7 款国产加速器</strong>的推理支持</td></tr>
+            <tr><td>2026 年 4 月</td><td>DeepSeek 发布 V4 技术论文，随后开源基于<strong>华为昇腾 NPU</strong> 的 V4 Pro 推理超级算子</td></tr>
+            <tr><td>2026 年 6 月</td><td>美团推出 LongCat 2.0，号称<strong>完全基于华为昇腾 910B NPU 从头预训练</strong>完成</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>SemiAnalysis 的反讽很尖锐：现行机制其实给美国带来八项实利（利润归美企、研发动向可监控、可随时切断访问、供应链离不开中国、依赖中国工程师做底层开发、受益于中国研究者开源成果、延缓中国转向国产芯片、开源算子库红利外溢全球）。<strong>"把对抗情绪推向极点，只会让全球造出来的芯片越来越少，全人类 AI 进步的脚步一起放慢。"</strong></p>
+    </section>
+
+    <!-- ============ 11 ============ -->
+    <section id="s11">
+      <div class="sec-head"><div class="sec-num">11</div><h2 class="sec-title">定价：现在的位置在哪儿</h2></div>
+      <p class="sec-sub">把现价放进四套独立框架里对照，看它们是否收敛。</p>
+
+      <h3>11.1 四套框架的价格区间</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:26%">框架</th><th style="width:22%">区间（美元）</th><th>依据</th></tr></thead>
+          <tbody>
+            <tr><td><strong>情景 A：温和过渡</strong><br><span style="font-size:11.5px;color:var(--ink-4)">盈利不动，只修估值</span></td><td class="num">190—207</td><td>EPS 维持 15.9 美元，估值修复到 12—13 倍——仍远低于过去五年均值</td></tr>
+            <tr><td><strong>情景 B1：双杀但温和</strong></td><td class="num">152—162</td><td>2028 EPS 砍 15%—20% 至 12.7—13.5 美元 × 12 倍（花旗所说的上轮周期底部）</td></tr>
+            <tr><td><strong>情景 B2：治理折价放大</strong></td><td class="num">127—135</td><td>同上 EPS × 10 倍</td></tr>
+            <tr><td><strong>三级台阶（第四篇）</strong></td><td class="num">145—155 / 125—135 / 110—120</td><td>去创始人溢价 + 治理折价，PE 从 30—35x 压到 18—22x</td></tr>
+            <tr><td><strong>大摩目标价</strong></td><td class="num"><strong>267</strong></td><td>FY2028 EPS 13.37 美元 × 20 倍（8 月已从 22 倍降到 20 倍）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <b>收敛性检验：</b>四套框架的<b>下沿高度一致</b>——145—155 / 152—162 指向同一带；125—135 / 127—135 指向同一带。<b>上沿分歧很大</b>（190—207 vs 267），因为分歧在于"该给多少倍"，而不在"该给多少盈利"。<br><br>
+        <b>这意味着：</b>下跌空间是可测的（市场对"最坏"有共识），上涨空间是不可测的（取决于情绪修复的速度）。<b>这种"下有底、上无顶"的结构，通常有利于分批建仓而非一次性押注。</b>
+      </div>
+
+      <h3>11.2 现价 163 美元的位置</h3>
+      <ul>
+        <li><strong>高于</strong>第一台阶 145—155，说明市场还没有完全按"有序离职"定价。</li>
+        <li><strong>远低于</strong>大摩目标价 267，说明卖方认为当前明显低估。</li>
+        <li><strong>对应远期市盈率约 11 倍</strong>，是博通的一半、AMD 的三分之一。</li>
+        <li><strong>但 11 倍不是"便宜"的结论，是一个条件句</strong>——它只在"盈利不被砍"的前提下成立。这个条件将在 11/17 被裁决。</li>
+      </ul>
+
+      <h3>11.3 一个必须记住的数字关系</h3>
+      <blockquote>
+        如果未来 12 个月的盈利预期下调 5%，股价可能暴跌 40%。盈利每下调 1 个百分点，对应的就是股价 8 个百分点的下行。
+        <cite>Josh Brown，Ritholtz 资管 CEO（经美股投资网转述）</cite>
+      </blockquote>
+      <p>这个弹性系数（约 8 倍）说明：<strong>在 11 倍市盈率上，估值的保护很薄，盈利的杠杆很大。</strong>任何"盈利下修"的信号，都会以远大于其本身幅度的方式传导到股价。</p>
+    </section>
+
+    <!-- ============ 12 ============ -->
+    <section id="s12">
+      <div class="sec-head"><div class="sec-num">12</div><h2 class="sec-title">历史对照：四个换帅样本 + 一个回归样本</h2></div>
+      <p class="sec-sub">关键不是"换帅后涨还是跌"，而是"换帅那一刻，公司处在技术周期的什么位置"。</p>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:20%">案例</th><th style="width:26%">情形</th><th style="width:20%">股价反应</th><th>对英伟达的参照意义</th></tr></thead>
+          <tbody>
+            <tr><td><strong>惠普 2010</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Mark Hurd</span></td><td>被迫离职、无准备，触发点为违反商业行为准则</td><td class="num">盘后 -9.7%，次日再 -7.4%</td><td><strong>触发点最像</strong>：个人行为、接班人不清、CEO 对业务掌控极强</td></tr>
+            <tr><td><strong>英特尔 2018</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Krzanich → Swan</span></td><td>违反内部合规政策辞职，CFO 临时接任——<strong>剧情配置与今天几乎一样</strong></td><td class="num">仅 -2%</td><td>但英特尔后来掉队，<strong>问题不在 CFO 当临时 CEO，而在换帅前技术已经烂掉</strong>（10nm 量产两度跳票、AMD 7nm 放量）。英伟达在完全相反的坐标上</td></tr>
+            <tr><td><strong>苹果 2011</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Jobs → Cook</span></td><td>有准备的交接，PE 13.6 倍（十年低位）</td><td class="num">卸任当日 -0.65%，三个月 +21%</td><td><strong>最像的正面样本</strong>：库克的运营纪律恰好是"执行已锁定路线图"最需要的能力。英伟达的 2790 亿锁单 + Rubin 路线图，就是已经铺好的铁轨</td></tr>
+            <tr><td><strong>特斯拉 2018</strong><br><span style="font-size:11.5px;color:var(--ink-4)">Musk vs SEC</span></td><td>保留 CEO、拿出治理方案</td><td class="num">起诉次日 -14%，和解后次日 +17%</td><td>对应"留任 + 治理补救"路径——<strong>这条路径已经不存在了</strong></td></tr>
+            <tr><td><strong>苹果 1985—1997</strong><br><span style="font-size:11.5px;color:var(--ink-4)">乔布斯离开与回归</span></td><td>权力斗争出局，12 年后因公司濒危被请回</td><td class="num">—</td><td><strong>回归先例不成立</strong>：乔布斯无操守问题，且回归前提是"公司需要被拯救"。英伟达现在经营仍强，<strong>董事会没有请他回来的动机</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>推论一：</strong>首日跌幅落在惠普与特斯拉之间（8%—14%）已被验证（实际全周 -11%—-15%，盘中最低约 -20%）。<strong>推论二：</strong>之后的走势取决于接班安排是否清晰——而这次<strong>接班安排恰恰是最不清晰的一环</strong>，这是当前最大的结构性弱点。</p>
+      <p><strong>推论三（最重要）：</strong>判断走苹果路还是英特尔路，不需要猜董事会的偏好，也不需要赌 Kress 会不会变成第二个黄仁勋。<strong>真正在定价的只有一件事：离开强人之后，这套系统还能不能以同样的频率把牌打出去。</strong></p>
+    </section>
+
+    <!-- ============ 13 ============ -->
+    <section id="s13">
+      <div class="sec-head"><div class="sec-num">13</div><h2 class="sec-title">必须标注的不确定项</h2></div>
+      <p class="sec-sub">不写这一节，前面的结论就会被高估。</p>
+
+      <ol>
+        <li><strong>辞职是主动还是被迫，官方没有说明。</strong>媒体一致描述为"董事会施压逼退"或"体面辞职"，但没有任何文件记载投票程序或谈判条件。</li>
+        <li><strong>是否附带"不回归"或竞业条款，完全未知。</strong>这直接决定回归路径 A 是否可行。</li>
+        <li><strong>他是否保留董事席位，未知。</strong>若保留，"以董事身份影响战略"这条路径就敞开着；若一并辞去，回归难度显著上升。</li>
+        <li><strong>独立调查没有出结论就辞职了。</strong>这意味着"是否存在违规"至今没有权威认定——<strong>既不能说他被洗清，也不能说他被认定违规</strong>。</li>
+        <li><strong>第二段关系仍未获三方确认。</strong>核心证据是五名匿名前员工；"保密协议"细节纽约时报自己也没看到视频。</li>
+        <li><strong>"第三起潜在婚外情"证据更弱。</strong>只宜作为"风险未出清"的信号。</li>
+        <li><strong>鲁比奥线是单一信源的政治爆料。</strong>时间线吻合、动机自洽，但没有一方承认，且经过多层转述。</li>
+        <li><strong>市值蒸发口径冲突：</strong>1 万亿（Friedberg）/ 1.5 万亿（Chamath），且未说明起算点。</li>
+        <li><strong>"1.5 吉瓦受限芯片流入中国"是机构测算</strong>，非官方数据，尽管据说商务部已采信。</li>
+        <li><strong>六篇材料均有立场相关性：</strong>All In 三位主持多为同情者；StockWe 含大量自我业绩宣传与社群引流；华邮爆料经公众号转述；大摩与 SemiAnalysis 各有商业立场。结论需与利益动机分开评估。</li>
+        <li><strong>本报告的回归概率是判断，不是测算。</strong>没有任何可交易工具能给出这个数字，它基于制度约束与政治动机的定性推演。</li>
+      </ol>
+    </section>
+
+    <!-- ============ 14 ============ -->
+    <section id="s14">
+      <div class="sec-head"><div class="sec-num">14</div><h2 class="sec-title">结论</h2></div>
+      <p class="sec-sub">七条，从事件定性到两个前瞻问题。</p>
+
+      <h3><span class="h3n">一</span>这不是"绯闻导致下台"，是"三方力量在同一周完成了各自的目标"</h3>
+      <p>董事会要切断法律与保险风险，政治鹰派要拔除政策变量，市场要重新定价"创始人溢价"。三条线各有各的动机，恰好都需要同一件事发生。<strong>第二段关系不是原因，是那根让所有人都不必再解释的引信。</strong></p>
+
+      <h3><span class="h3n">二</span>他回归 CEO 的概率很低（8%—12%），但不是零</h3>
+      <p>障碍不是道德，是<strong>已经做出的可审计陈述</strong>——10-K 认证、审计师问答、D&amp;O 保险契约。辞职不能追溯性地修正已经提交的陈述。加上董事会已启动遴选、政治对手的目标本就是让他不回来，回归的制度成本远高于情感成本。</p>
+      <p><strong>但"回到影响力中心"是另一回事：</strong>以董事长、技术顾问或大股东身份保持影响力，概率合计约 65%。他的产业认知、人脉与 3.37% 股权都还在，这些不需要董事会批准。</p>
+
+      <h3><span class="h3n">三</span>短期是估值问题，中期是节奏问题，长期是物种问题</h3>
+      <div class="trio">
+        <div class="panel for">
+          <h4>短期 0—3 个月</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;"><b>估值先杀、盈利后验。</b>11 倍市盈率与未下修的盈利共识必有一个错，11/17 财报裁决。<b>下有底（145—155 有共识）、上无顶</b>。</p>
+        </div>
+        <div class="panel neutral">
+          <h4>中期 3 个月—2 年</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;"><b>2790 亿锁单撑住两年，但决策从"一人拍板"变"委员会共识"。</b>损耗先体现在"激进程度"，两年后才体现在份额。大摩把 2028 增速从 70% 砍到 53.5%，砍的是溢价不是质地（毛利率仅降 0.09 个点）。</p>
+        </div>
+        <div class="panel against">
+          <h4>长期 2—5 年</h4>
+          <p style="margin:0;font-size:13px;color:var(--ink-2);line-height:1.75;"><b>"零亿美元级豪赌"的能力消失。</b>大概率苹果化（稳健但平庸），小概率英特尔化，另有第三条被低估的路径——算力商品化，护城河从"迁移成本"退化为"生态惯性"。</p>
+        </div>
+      </div>
+
+      <h3><span class="h3n">四</span>最容易被误读的一点：这不是"英伟达不行了"</h3>
+      <p>大摩在砍目标价的同时<strong>维持增持</strong>，理由是"基础仍然稳固、未来约两年的产品路线和供应链已经锁定、即便换用更保守的假设，盈利和估值的对比仍然有利"。毛利率预测只下调 0.09 个百分点——<strong>这是"杀估值不杀质地"最硬的证据。</strong></p>
+      <p>真正的问题不是"英伟达还能不能赚钱"，而是<strong>"它还值不值原来那个倍数"</strong>。这两个问题的答案可以完全不同。</p>
+
+      <h3><span class="h3n">五</span>最被低估的风险不是竞争，是规则</h3>
+      <p>RASA 已在众议院以 369:22 通过、待参议院表决；三项两党条款正在冲刺 NDAA。黄仁勋这个最强的游说者离场之后，<strong>英伟达再也没有一个能直接影响总统的重量级人物去阻拦法案落地</strong>。而更长远的风险是弗里德伯格警告的那条——"每枚芯片、每台计算机、每个数据中心都装开关回连国家系统"。</p>
+
+      <h3><span class="h3n">六</span>对持股者：结构比方向重要</h3>
+      <p>四套框架的下沿高度收敛（145—155 / 152—162），上沿严重分歧（190—207 vs 267）。<strong>这种"下有底、上无顶"的分布，天然适合分批而非一次性押注。</strong>11 倍市盈率的保护很薄，盈利的杠杆很大（1% 下修 → 8% 下跌），所以真正的风控不是猜底，而是<strong>盯住"卖方是否开始成片下修盈利"这一条红线</strong>——那是"杀估值"变成"伤基本面"的唯一可靠信号。</p>
+
+      <h3><span class="h3n">七</span>需要保持的克制</h3>
+      <p>辞职已定，但<strong>调查没有结论、回归条款未知、第三起传闻未证、鲁比奥线是单一信源</strong>。本报告关于回归的概率、关于短中长期的判断，都是基于制度约束与产业逻辑的推演，不是事实陈述，也不构成投资建议。</p>
+    </section>
+
+    <!-- ============ 15 ============ -->
+    <section id="s15">
+      <div class="sec-head"><div class="sec-num">15</div><h2 class="sec-title">附：观测清单</h2></div>
+      <p class="sec-sub">按时间顺序，标注每条信号指向哪个判断。</p>
+
+      <div class="check">
+        <ol>
+          <li><strong>11/17 盘后财报——Q4 毛利率指引</strong>是否被"保险性"下修半档。下修＝交接期成本失控或议价能力松动。</li>
+          <li><strong>11/17 盘后财报——Rubin 客户认证措辞</strong>是否出现"重新确认节奏""部分规格微调"等多余限定词。这是"决策带宽收缩"的先行指标，也是中期最重要的单一信号。</li>
+          <li><strong>11/17 盘后财报——CEO 遴选时间表</strong>是否给出明确节点。<strong>给得越早越具体，回归越不可能</strong>；绝口不提＝默认进入漫长看守内阁期。</li>
+          <li><strong>11/18—11 月底国会作证</strong>：黄仁勋以什么身份出席、表现如何、议员措辞是"实质性"还是"不配合"。这是他最好的复出舞台，也是最可能再受伤的地方。</li>
+          <li><strong>11/20 前后是否有新爆料</strong>（Chamath 提示的窗口，也是 Anthropic IPO 定价窗口）。事件是否见底，取决于这一条。</li>
+          <li><strong>ODNI / 司法部 / SEC 的正式表态</strong>：是否从"无证据"升级为"结案"，这决定回归路径 A 是否还敞着。</li>
+          <li><strong>集体诉讼是否扩容</strong>、是否有 SEC 正式问询、审计机构是否对前期财报出具保留意见——后者是"10-K 认证"这条硬约束是否真正生效的检验。</li>
+          <li><strong>RASA 在参议院的表决</strong>，以及三项两党条款是否进入 NDAA 终稿。这是中期最实质的盈利变量。</li>
+          <li><strong>正式 CEO 人选落定</strong>：Ian Buck（SemiAnalysis 押注的领跑者）还是外部空降（Charlie Kawwas / Johny Srouji）。<strong>内部提拔＝延续性更好；外部空降＝变革预期更强但磨合风险更大。</strong></li>
+          <li><strong>供应链价差是否消失</strong>：SK 海力士 HBM4 给英伟达的 3.0—3.3 美元/Gb 是否被拉平到 3.7—4.1。这是"CEO 对 CEO 特权"是否终结的最直接证据。</li>
+          <li><strong>核心 VP 是否流失</strong>：硬件、软件架构、数据中心、CUDA 生态四条线的负责人变动。</li>
+          <li><strong>卖方是否成片下修 2028 财年 EPS 且幅度超 10%</strong>——这是"杀估值"变"伤基本面"的红线，也是加仓逻辑失效的止损边界。</li>
+        </ol>
+      </div>
+
+      <footer>
+        本报告基于公开报道、官方公告与卖方研报转述整理。涉及匿名信源、未证实指控、政治爆料与概率推算的部分均已逐项标注。文中概率为研究判断，不构成投资建议。<br>
+        第二版 · 研究截止：2026 年 11 月 16 日 10:30（GMT+8）。
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    var pos = window.scrollY + 140;
+    var idx = 0;
+    for (var i = 0; i < sections.length; i++){
+      if (sections[i] && sections[i].offsetTop <= pos) idx = i;
+    }
+    links.forEach(function(a, i){ a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>凯茜·伍德：AI革命才刚开始 — 全文精读与美股ETF映射</title>
+<style>
+  :root{
+    --paper:#f7f5f1;
+    --card:#ffffff;
+    --ink:#1b1a18;
+    --ink-2:#3d3a35;
+    --ink-3:#6b655c;
+    --ink-4:#9a9388;
+    --line:#e2ddd4;
+    --line-2:#efece6;
+    --accent:#8b1e1e;
+    --accent-soft:#f6e8e7;
+    --teal:#1f4e5f;
+    --teal-soft:#e6eef1;
+    --gold:#8a6d1f;
+    --gold-soft:#f8f1dc;
+    --green:#2f6b4f;
+    --green-soft:#e7f0ea;
+    --serif:Georgia,"Songti SC","SimSun","Noto Serif SC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:15.5px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .shell{
+    max-width:1240px;margin:0 auto;padding:0 32px 100px;
+    display:grid;grid-template-columns:210px minmax(0,1fr);gap:56px;
+  }
+  .main{min-width:0;}
+
+  .toc{position:sticky;top:0;align-self:start;padding:44px 0 40px;max-height:100vh;overflow-y:auto;}
+  .toc-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);font-weight:700;margin-bottom:14px;}
+  .toc ol{list-style:none;margin:0;padding:0;}
+  .toc a{display:block;padding:5px 10px 5px 12px;font-size:12.5px;line-height:1.5;color:var(--ink-3);border-left:2px solid transparent;transition:all .15s;}
+  .toc a:hover{color:var(--ink);text-decoration:none;background:#efece6;}
+  .toc a.active{color:var(--accent);border-left-color:var(--accent);background:#f2ede6;font-weight:600;}
+
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px;}
+  .kicker::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block;}
+  h1{font-family:var(--serif);font-size:clamp(29px,4vw,44px);line-height:1.26;font-weight:700;letter-spacing:-.01em;margin:0 0 18px;}
+  h1 .q{color:var(--accent);}
+  .deck{font-size:16.5px;color:var(--ink-2);line-height:1.8;max-width:770px;margin:0 0 30px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:12px;color:var(--ink-3);padding-top:22px;border-top:1px dashed var(--line);}
+  .meta b{color:var(--ink-2);font-weight:600;}
+
+  .verdict{
+    margin:34px 0 0;background:var(--card);border:1px solid var(--line);
+    border-top:3px solid var(--accent);border-radius:3px;padding:26px 30px;
+    box-shadow:0 1px 2px rgba(27,26,24,.04),0 10px 30px -18px rgba(27,26,24,.18);
+  }
+  .verdict h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-family:var(--sans);font-weight:700;}
+  .verdict p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.85;}
+  .verdict strong{color:var(--ink);font-weight:700;}
+
+  section{padding:54px 0 8px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:8px;}
+  .sec-num{font-family:var(--serif);font-size:34px;line-height:1;color:#cfc8bc;font-weight:700;flex:none;letter-spacing:-.02em;}
+  h2.sec-title{font-family:var(--serif);font-size:26px;line-height:1.35;margin:0;font-weight:700;letter-spacing:-.01em;}
+  .sec-sub{color:var(--ink-3);font-size:13.5px;margin:0 0 28px;padding-left:52px;line-height:1.7;}
+
+  h3{font-family:var(--sans);font-size:15.5px;font-weight:700;margin:34px 0 12px;color:var(--ink);}
+  h3 .h3n{color:var(--ink-4);font-weight:600;margin-right:8px;font-variant-numeric:tabular-nums;}
+  h4{font-size:14px;font-weight:700;margin:22px 0 8px;color:var(--ink-2);}
+  p{margin:0 0 15px;}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:7px;}
+  li::marker{color:var(--ink-4);}
+
+  .tw{margin:18px 0 24px;border:1px solid var(--line);border-radius:3px;overflow-x:auto;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.65;min-width:600px;}
+  thead th{background:#efece5;text-align:left;padding:11px 14px;font-weight:700;font-size:11.5px;letter-spacing:.06em;color:var(--ink-2);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfaf7;}
+  td strong{color:var(--ink);font-weight:700;}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:2px;white-space:nowrap;line-height:1.6;}
+  .b-ok{background:var(--green-soft);color:var(--green);}
+  .b-mid{background:var(--gold-soft);color:var(--gold);}
+  .b-no{background:var(--accent-soft);color:var(--accent);}
+  .b-neutral{background:#eceae4;color:var(--ink-3);}
+
+  .callout{background:var(--teal-soft);border-left:3px solid var(--teal);padding:16px 20px;margin:20px 0 24px;font-size:13.5px;color:var(--ink-2);line-height:1.8;border-radius:0 3px 3px 0;}
+  .callout.warn{background:var(--accent-soft);border-left-color:var(--accent);}
+  .callout.gold{background:var(--gold-soft);border-left-color:var(--gold);}
+  .callout b{color:var(--ink);}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:24px 0 30px;}
+  .stat{background:var(--card);padding:20px 18px;}
+  .stat .v{font-family:var(--serif);font-size:29px;line-height:1.1;font-weight:700;letter-spacing:-.02em;color:var(--accent);}
+  .stat .v small{font-size:14px;font-weight:600;}
+  .stat .k{font-size:11.5px;color:var(--ink-3);margin-top:7px;line-height:1.5;}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0 26px;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:20px 22px;}
+  .panel.for{border-top:3px solid var(--accent);}
+  .panel.against{border-top:3px solid var(--teal);}
+  .panel h4{margin:0 0 12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;}
+  .panel.for h4{color:var(--accent);}
+  .panel.against h4{color:var(--teal);}
+  .panel ol,.panel ul{margin:0;padding-left:20px;font-size:13px;line-height:1.75;}
+  .panel li{margin-bottom:9px;color:var(--ink-2);}
+  .panel li b{color:var(--ink);}
+
+  blockquote{margin:22px 0;padding:4px 0 4px 20px;border-left:2px solid var(--line);color:var(--ink-2);font-family:var(--serif);font-size:15px;line-height:1.8;}
+  blockquote cite{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-4);font-style:normal;margin-top:8px;letter-spacing:.04em;}
+
+  .check{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:8px 24px;margin:20px 0 10px;}
+  .check ol{list-style:none;padding:0;margin:0;counter-reset:c;}
+  .check li{counter-increment:c;position:relative;padding:11px 0 11px 34px;border-bottom:1px solid var(--line-2);font-size:13.5px;color:var(--ink-2);margin:0;}
+  .check li:last-child{border-bottom:none;}
+  .check li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:11px;font-size:11px;font-weight:700;color:var(--ink-4);font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+
+  footer{padding:40px 0 0;font-size:12px;color:var(--ink-4);line-height:1.8;border-top:1px solid var(--line);margin-top:50px;}
+
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;gap:0;padding:0 20px 60px;}
+    .toc{display:none;}
+    .hero{padding:40px 0 30px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .duo{grid-template-columns:1fr;}
+    .sec-sub{padding-left:0;}
+    .sec-head{gap:12px;}
+    .sec-num{font-size:26px;}
+    h2.sec-title{font-size:21px;}
+    body{font-size:15px;}
+  }
+  @media print{
+    body{background:#fff;font-size:10.5pt;}
+    .toc{display:none;}
+    .shell{display:block;padding:0;}
+    .verdict,.panel,.tw{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="toc" aria-label="目录">
+    <div class="toc-label">目录</div>
+    <ol>
+      <li><a href="#s0">核心结论</a></li>
+      <li><a href="#s1">一、整体宏观判断</a></li>
+      <li><a href="#s2">二、石油、OPEC 与地缘</a></li>
+      <li><a href="#s3">三、7% 增速的百年论证</a></li>
+      <li><a href="#s4">四、五大平台与 15 项技术</a></li>
+      <li><a href="#s5">五、融合案例一：Robotaxi</a></li>
+      <li><a href="#s6">六、融合案例二：多组学</a></li>
+      <li><a href="#s7">七、研究方法论与三次回撤</a></li>
+      <li><a href="#s8">八、大模型格局：iOS 与安卓</a></li>
+      <li><a href="#s9">九、Anthropic 与 IPO 定价</a></li>
+      <li><a href="#s10">十、一级市场与 Kalshi</a></li>
+      <li><a href="#s11">十一、就业、企业与年轻人</a></li>
+      <li><a href="#s12">十二、SaaS 之死与微软</a></li>
+      <li><a href="#s13">十三、医疗保健：定价最低效</a></li>
+      <li><a href="#s14">十四、SpaceX 收购特斯拉</a></li>
+      <li><a href="#s15">十五、业绩辩护与自我定位</a></li>
+      <li><a href="#s16">十六、美股与 ETF 映射</a></li>
+      <li><a href="#s17">十七、观点全集清单</a></li>
+      <li><a href="#s18">十八、风险与反面</a></li>
+    </ol>
+  </nav>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="kicker">深度研究 · 全文精读 · 观点全集</div>
+      <h1>凯茜·伍德：<span class="q">"AI 革命才刚开始"</span><br>7% 增长、10 万亿 Robotaxi 与 Anthropic 的 20 倍 PS</h1>
+      <p class="deck">
+        这是方舟投资（ARK Invest）创始人凯茜·伍德在澳大利亚一场客户活动（"Beyond the Boardroom"，主持人为 Johnny Shin）上的长篇对话实录，原文由微信公众号「404K」于 2026 年 11 月 16 日整理发布。全场覆盖宏观（利率与 7% 增长）、地缘（阿布扎比退出 OPEC）、五大创新平台与融合、Robotaxi 与多组学两个 10 万亿美元级市场、大模型竞争格局（OpenAI / Anthropic / Grok / SpaceX）、Anthropic 的营收与估值、预测市场 Kalshi、AI 对就业与企业组织的影响、以及对 Salesforce、微软、医疗保健的明确好恶。
+      </p>
+      <div class="meta">
+        <span><b>原文来源</b> 微信公众号「404K」· 2026-11-16 10:37</span>
+        <span><b>讲话人</b> 凯茜·伍德（Cathie Wood），方舟投资创始人兼 CIO</span>
+        <span><b>场合</b> 澳大利亚 · "Beyond the Boardroom" 客户活动</span>
+        <span><b>精读整理</b> 2026-11-16</span>
+      </div>
+
+      <div class="verdict" id="s0">
+        <h2>一句话结论</h2>
+        <p>
+          伍德这场讲话的核心不是"某个股票能不能买"，而是一整套<strong>自上而下的宏观叙事重置</strong>：她认为市场正在用旧的利率框架误读当下——<strong>利率上行主要由实际利率（真实增长预期）驱动，而非通胀预期</strong>，因此"利率涨、股市跌"的历史规律这次会失效；支撑这一判断的是<strong>五大创新平台（AI、机器人、储能、区块链、多组学）共 15 项技术的同步融合</strong>，足以把全球实际 GDP 增速从过去 125 年的 3% 推升到 <strong>7%–8%</strong>。在这个框架下，她给出的最具体、最有争议的两个数字是：<strong>Robotaxi 市场 5–10 年内从近零扩张到 10 万亿美元以上</strong>，以及<strong>Anthropic 年底 ARR 触及 1000 亿美元、2 万亿美元估值对应 20 倍市销率"说得过去"</strong>。
+        </p>
+        <p style="margin-top:14px">
+          她对个股的态度同样鲜明：<strong>看多</strong> AI 算力与电力、Robotaxi、多组学（尤其 ARKG）、预测市场；<strong>明确回避</strong> Salesforce（并购拼凑增长、收购 Informatica 是"极糟信号"）与微软（Copilot"远谈不上及格"）；<strong>认为医疗保健是当前市场定价效率最低的板块</strong>，而 ARKG 有 60% 份额被做空。
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">7<small>%+</small></div><div class="k">未来几年全球实际 GDP 增速预测（过去 125 年为 3%）</div></div>
+        <div class="stat"><div class="v">10<small>万亿美元</small></div><div class="k">Robotaxi 及运营网络 5–10 年市场规模</div></div>
+        <div class="stat"><div class="v">90→650<small>亿</small></div><div class="k">Anthropic ARR，7 个月内（美元）</div></div>
+        <div class="stat"><div class="v">20<small>倍</small></div><div class="k">2 万亿美元估值 / 1000 亿 ARR 的市销率</div></div>
+      </div>
+    </header>
+
+    <!-- 1 -->
+    <section id="s1">
+      <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">整体宏观判断：这次利率上行不一样</h2></div>
+      <p class="sec-sub">伍德开场即反驳市场的普遍焦虑，用 TIPS 拆解给出了她全部判断的宏观地基。</p>
+
+      <p>主持人问她如何看待当下的整体走向，伍德的回答从一个"反常识观察"切入：<strong>利率在上行，但美国股市却接近历史高位</strong>。而在过去 10–15 年里，只要利率上升，市场通常都会报以负面反应。</p>
+
+      <p>她认为这次的区别在于利率上行的<strong>成因结构</strong>：</p>
+      <ul>
+        <li>通过<strong>通胀保值债券（TIPS）</strong>拆解长期利率中"实际收益率"与"通胀预期"的构成，会发现<strong>利率上行主要由实际利率驱动，而不是通胀预期</strong>。</li>
+        <li>实际利率上行的背后，是她所判断的<strong>全球 GDP 增长的结构性跃升</strong>——因为世界正处在一场技术革命之中。</li>
+        <li>结论：<strong>通胀可能远低于大多数人的预期</strong>，因为增长主要由<strong>生产力提升</strong>驱动，而非需求过热。</li>
+      </ul>
+
+      <div class="callout">
+        <b>这是全场最关键的逻辑枢纽。</b>如果利率上行 = 通胀预期上行，那么估值必须压缩；如果利率上行 = 实际增长预期上行，那么盈利上修可以抵消贴现率上行，股市创新高就是"合理"的。伍德后面所有的 7% 增长、10 万亿市场、20 倍 PS，全部挂在这个前提上。这个前提一旦证伪，整场讲话的推论链条就同时失效。
+      </div>
+
+      <h3><span class="h3n">1.1</span>她点出的三个市场担忧</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:26%">市场担忧</th><th>伍德的表述</th><th style="width:30%">她的回应</th></tr></thead>
+          <tbody>
+            <tr><td><strong>油价推动通胀上升</strong></td><td>很多人看到受油价推动，通胀正在上升</td><td>这是"石油危机"，但结构上不可持续，见下节</td></tr>
+            <tr><td><strong>美联储与白宫的摩擦</strong></td><td>美联储主席<strong>沃什</strong>正全力抗击通胀，可能很快与<strong>特朗普</strong>总统产生分歧，"届时免不了会有更多摩擦"</td><td>未直接评价，但暗示政策摩擦不改变技术驱动的增长路径</td></tr>
+            <tr><td><strong>利率走高压制估值</strong></td><td>过去 10–15 年，只要利率上升，市场通常报以负面反应</td><td>这次由实际利率驱动，性质不同，故股市仍近历史高位</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <blockquote>
+        "我们认为正在发生的是全球 GDP 增长的结构性跃升，因为我们正处在一场技术革命之中。……我们认为未来几年实际经济增长将会加速，并维持在 7% 以上的水平。其中大部分将由生产力提升驱动，这意味着通胀可能会远低于大多数人的预期。"
+        <cite>—— 凯茜·伍德</cite>
+      </blockquote>
+
+      <p>她还给出了一个判断这些平台"够不够格撼动宏观"的门槛式表述：<strong>AI、机器人、储能、区块链技术、生命科学领域的跨组学技术，如今其体量都足以开始撼动宏观经济的指针</strong>。注意这里的关键词是"<strong>如今</strong>"——不是"未来会"，而是"已经跨过临界体量"。</p>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">石油、OPEC 与地缘：一个被忽视的顶部信号</h2></div>
+      <p class="sec-sub">伍德用一个产油国的行为，反推石油资产的长期价值判断。</p>
+
+      <h3><span class="h3n">2.1</span>阿布扎比退出 OPEC</h3>
+      <p>她把这个事件称为"<strong>极其重大的信号</strong>"，并强调方舟"对阿布扎比的领导层相当了解"。她的解读是：</p>
+      <ul>
+        <li>阿布扎比认为<strong>自身石油储备的价值已经见顶</strong>；</li>
+        <li>因此必须<strong>趁着现在的高油价尽可能把石油开采出来</strong>，让这项资产的现金流最大化；</li>
+        <li>换句话说，这是产油国自己在做"<strong>趁高位变现</strong>"的动作——一个供给侧对长期价格投不信任票的行为。</li>
+      </ul>
+
+      <h3><span class="h3n">2.2</span>油价路径与交通电气化</h3>
+      <ul>
+        <li>她认为随着<strong>霍尔木兹海峡恢复通行</strong>——尽管"谁也说不准具体是什么时候"——<strong>油价将会出现大幅下挫</strong>。</li>
+        <li>结构性论据：<strong>57% 的石油用于交通运输</strong>；随着交通运输全面接入电网，<strong>石油将不再有立足之地</strong>。</li>
+        <li>替代能源清单：<strong>天然气、核能、水电、太阳能、风能</strong>。</li>
+        <li>结论：该地区（中东产油国）"将会迎来一场翻天覆地的剧变"。</li>
+      </ul>
+
+      <div class="callout gold">
+        <b>可验证性提示：</b>这是全场<strong>最容易在短期被证伪、也最容易在中期被验证</strong>的一段判断。短期看霍尔木兹通航时点（不可预测），中期看 57% 交通用油被电力替代的斜率（她给的替代清单里，核能与天然气是"过渡+基荷"，风光是"增量"，储能是"必需配套"——这直接对应后文的电力与储能标的）。
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">7% 增速的百年论证：从 0.6% 到 3%，再到 7%</h2></div>
+      <p class="sec-sub">这是她全部宏观判断的"历史计量"支撑，也是被主持人当场质疑"很多人肯定会提出质疑"的部分。</p>
+
+      <p>她引用的研究来自方舟<strong>首席未来学家布雷特·温顿（Brett Winton）与学术界的合作</strong>，逻辑是"平台数量 → 增速跃升"：</p>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:24%">时期</th><th style="width:20%">全球实际 GDP 年均增速</th><th>驱动平台</th><th style="width:22%">倍数关系</th></tr></thead>
+          <tbody>
+            <tr><td>工业革命前约 <strong>400 年</strong></td><td class="num"><strong>约 0.6%</strong></td><td>无主导性通用技术平台</td><td>基准</td></tr>
+            <tr><td>工业革命后 <strong>125 年</strong></td><td class="num"><strong>约 3%</strong></td><td><strong>电力、电话、内燃机</strong>三大平台</td><td>相对 0.6% 提升 <strong>5 倍</strong></td></tr>
+            <tr><td><strong>未来几年（预测）</strong></td><td class="num"><strong>7%–8%</strong></td><td><strong>五大平台 / 15 项技术</strong></td><td>相对 3% 仅 <strong>2.5 倍</strong>，她称"实际上还是相对保守的"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>这套论证的巧妙之处在于<strong>把 7% 这个"疯狂数字"重新锚定为"保守数字"</strong>：既然三大平台能带来 5 倍跃升，五大平台只带来 2.5 倍，从平台数量与增速的历史弹性看并不激进。</p>
+
+      <div class="callout warn">
+        <b>需要读者自己打问号的地方：</b>这个论证隐含了两个强假设——① 增速与"平台数量"近似线性相关；② 五大平台的经济带动力可比于电力/电话/内燃机。原文并未展开对这两个假设的检验，也没有给出 7% 的分解（多少来自 AI、多少来自机器人、多少来自多组学）。这是全篇<strong>最需要外部交叉验证</strong>的一环。
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">五大平台与 15 项技术：为什么"融合"才是关键词</h2></div>
+      <p class="sec-sub">伍德反复强调的不是单项技术，而是技术之间的交叉赋能——这也解释了她为什么按"技术"而非"行业"划分研究团队。</p>
+
+      <h3><span class="h3n">4.1</span>五大平台</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:22%">平台</th><th>文中定位</th><th style="width:34%">对应下游</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong></td><td>渗透到方方面面、影响每一个行业；是几乎所有融合案例的"公约数"</td><td>算力、云、Agent、科学研究</td></tr>
+            <tr><td><strong>机器人</strong></td><td>自动驾驶汽车"本质上就是机器人"</td><td>Robotaxi、人形机器人、自动化</td></tr>
+            <tr><td><strong>储能</strong></td><td>电动化成本降幅"实在太大了"，是 Robotaxi 的必选项</td><td>电池、电动车、电网侧储能</td></tr>
+            <tr><td><strong>区块链</strong></td><td>与 AI/金融基础设施交汇（对应 Kalshi、预测市场、稳定币等）</td><td>交易、清算、预测市场</td></tr>
+            <tr><td><strong>多组学（生命科学）</strong></td><td>DNA/RNA/蛋白质的单细胞层面测序 + AI + 基因编辑</td><td>药物发现、基因治疗、逆龄</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>她明确说：这五大平台涵盖<strong>15 种不同的技术</strong>，它们<strong>正在全面融合</strong>。</p>
+
+      <h3><span class="h3n">4.2</span>研究方法论：按技术分工，不按行业分工</h3>
+      <ul>
+        <li>传统资管按行业划分研究团队，在技术融合时代"<strong>会让很多机构感到非常困惑</strong>"。</li>
+        <li>方舟的分析师<strong>按技术划分</strong>，理由：<strong>随着成本下降，这些技术将会跨行业铺开</strong>。</li>
+        <li>她给分析师的定义是"<strong>技术专家同时也是行业通才</strong>"，任务是判断：<strong>每项技术的成本下降到哪个节点时，会跨越到哪个行业进行规模化扩张</strong>。</li>
+        <li>现场介绍了企业 AI 与云计算团队资深分析师<strong>约瑟夫·索亚（Joseph Soya）</strong>。</li>
+      </ul>
+
+      <div class="callout">
+        <b>这句话对投资实操的含义：</b>伍德的选股起点不是"这个行业好不好"，而是"<strong>这项技术的单位成本曲线走到哪了</strong>"。成本曲线一旦越过某行业的经济性临界点，就会发生"跨行业铺开"——这是她买"看起来很贵"的公司的底层依据，也是她最容易在成本曲线放缓时被套的原因。
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">融合案例一：Robotaxi，三条 S 曲线同时爆发</h2></div>
+      <p class="sec-sub">这是她给出的第一个"10 万亿美元"市场，也是她承认"研究了 12 年才刚商业化"的领域。</p>
+
+      <h3><span class="h3n">5.1</span>为什么 Robotaxi 是"融合"的标准样本</h3>
+      <ul>
+        <li>自动驾驶汽车<strong>本质上就是机器人</strong>；</li>
+        <li>它们<strong>必然是纯电动的</strong>——因为相比内燃机汽车，电动化的成本降幅实在太大；</li>
+        <li>它们<strong>由 AI 驱动</strong>。</li>
+      </ul>
+      <p>她的原话是："<strong>这就相当于有三条不同的 S 型曲线在相互赋能</strong>"，对每一项技术而言都是"<strong>始于微末，骤然爆发</strong>"。在无人出租车革命中，<strong>机器人、储能和 AI 三者正在相互推波助澜</strong>。</p>
+
+      <h3><span class="h3n">5.2</span>市场规模与时间表</h3>
+      <div class="stats">
+        <div class="stat"><div class="v">&gt;10<small>万亿美元</small></div><div class="k">全球自动出行（Robotaxi 及运营网络）5–10 年市场规模</div></div>
+        <div class="stat"><div class="v">&gt;30<small>万亿美元</small></div><div class="k">当前美国经济总量（作为对照系）</div></div>
+        <div class="stat"><div class="v">12<small>年</small></div><div class="k">方舟研究 Robotaxi 的时长，直到现在才真正开始商业化</div></div>
+        <div class="stat"><div class="v">≈0</div><div class="k">当前该市场的起点规模</div></div>
+      </div>
+
+      <p>她的推理落点是："当你考虑到美国经济总量目前刚超过 30 万亿美元时，<strong>10 万亿美元完全能够撼动大局</strong>，并且必将带来深远改变。"</p>
+
+      <div class="callout gold">
+        <b>她自己给出的"为什么大家不信"的解释：</b>"自方舟投资成立以来的 12 年里，我们一直在研究无人出租车……直到现在它们才真正开始商业化。但正如创新的典型规律一样，<strong>前期总是进展缓慢，期间你会面对大量的怀疑者，然后突然之间一切就全面爆发了</strong>。"这段话既是解释，也是她为长期跑输做的铺垫——请注意她后面在业绩辩护部分如何呼应这一点。
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">融合案例二：多组学、CRISPR 与"衰老是一种疾病"</h2></div>
+      <p class="sec-sub">这是她认为"最重要"、也是她认为市场定价最低效的领域。信息量最大的一段。</p>
+
+      <h3><span class="h3n">6.1</span>从"DNA 测序"到"多组学测序"</h3>
+      <ul>
+        <li>过去说 DNA 测序，现在改称<strong>多组学测序</strong>——因为涉及的<strong>不仅是 DNA，还包括 RNA、蛋白质</strong>，且<strong>完全聚焦于单细胞层面</strong>。</li>
+        <li>现场小测验：人体内有<strong>35 万亿到 40 万亿个细胞</strong>（主持人猜"35 万亿"，被伍德称赞"猜得非常准，通常大家猜的数字都没这么高"）；另有<strong>30 亿个 DNA 碱基对</strong>。</li>
+      </ul>
+
+      <h3><span class="h3n">6.2</span>AI 在这里为什么不可替代</h3>
+      <blockquote>
+        "AI 的核心秘诀在于专有数据。我们每个人都是行走的、自带专有数据的 AI 工厂……这是 AI 最深远的应用场景。"
+        <cite>—— 凯茜·伍德</cite>
+      </blockquote>
+      <ul>
+        <li>AI 的作用是<strong>帮助理解人体多重生物组学中究竟哪里出了问题</strong>；</li>
+        <li>她的疾病观："<strong>衰老本身就是一种疾病</strong>，其特征就是随着时间推移<strong>突变不断累积</strong>"；</li>
+        <li>她纠正一个常见误解："许多人以为 DNA 是一成不变的，其实<strong>表观遗传学</strong>会引起改变进而促成突变"；</li>
+        <li>她的判断标准："理解突变发生在何处固然重要，但<strong>如果我们无法采取应对手段，那也无济于事</strong>。而现在我们做到了。"</li>
+      </ul>
+
+      <h3><span class="h3n">6.3</span>基因编辑与逆龄</h3>
+      <ul>
+        <li><strong>CRISPR 基因编辑可以对基因组进行重编程，从而治愈或预防疾病</strong>；</li>
+        <li>目前"还处于非常早期的阶段"，但在<strong>镰状细胞病</strong>和<strong>β 地中海贫血</strong>上"已经取得了切实成效"；</li>
+        <li>逆龄方向的关键突破来自<strong>京都大学山中伸弥教授的诱导性多能干细胞（iPSC）</strong>：通过对干细胞逆向工程，可以提取皮肤细胞或眼部细胞，<strong>重编程使其转变成肾脏细胞</strong>；</li>
+        <li>她指出的真正难点不是"能不能逆转"，而是"<strong>你如何遏制这种衰老逆转？在何处叫停？</strong>"——即<strong>可控性</strong>问题，"他们需要将其不断完善"。</li>
+      </ul>
+
+      <div class="callout">
+        <b>注意她的表述边界：</b>她说的是"营收机会将从目前的几乎为零，扩大到 10 万亿美元以上"——这是<strong>医疗保健整体（含逆龄/长寿）</strong>的 TAM，不是某家公司的收入预测。她把这一领域称为"世界上最重要的一家公司"级别的机会（原文语境中指向 SpaceX，见第十四节，需注意两处"最重要"分别指向不同标的）。
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">研究方法论、三次回撤与"真相终将大白"</h2></div>
+      <p class="sec-sub">这一段是理解 ARK 行为模式的关键：她如何找项目、为什么坚持、以及她如何面对回撤。</p>
+
+      <h3><span class="h3n">7.1</span>她如何发现"下一个 OpenAI"</h3>
+      <ul>
+        <li>她把自己的位置定义为"<strong>站在分析师团队、首席未来学家以及研究总监们的肩膀上</strong>"；</li>
+        <li>方舟做的是"<strong>真正的原创研究——就是过去投行分析师经常做的那类研究</strong>"，而"投行现在已经不太做这种深入研究了。我希望他们能重新回归"；</li>
+        <li>她给出投行退出的原因：<strong>美国上一任 FTC 任内并购环境基本处于停滞状态，监管层不希望大公司变得更大</strong>；</li>
+        <li>后果：尤其在<strong>多组学领域，完全缺乏战略层面的价格发现机制</strong>，"所以当时处境非常艰难"；</li>
+        <li>正向循环：因为做原创研究，很多公司"<strong>主动找上门来做自我介绍</strong>"，创始人对坚持研究的人"非常感激"；</li>
+        <li>方舟的研究成果"<strong>免费公开</strong>"给任何愿意倾听的人——这本身是一种"市场教育→估值锚定"的策略。</li>
+      </ul>
+
+      <blockquote>
+        "我们的信条之一……就是'真相终将大白'。如果我们坚守所做的事情，创始人们尤其会感激我们。"
+        <cite>—— 凯茜·伍德</cite>
+      </blockquote>
+
+      <h3><span class="h3n">7.2</span>她亲口复盘的三次剧烈回撤</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:30%">回撤</th><th>她的描述</th><th style="width:26%">她的归因</th></tr></thead>
+          <tbody>
+            <tr><td>科技与电信泡沫破裂期</td><td>第一次剧烈回撤</td><td>—</td></tr>
+            <tr><td><strong>2008–2009</strong></td><td>第二次剧烈回撤</td><td>—</td></tr>
+            <tr><td><strong>新冠危机及其后续</strong></td><td>"<strong>或许是最艰难的</strong>"，因为"我们当时正站在技术革命的大门前"</td><td><strong>利率经历了 22 倍激增</strong>；供应链陷入混乱，"<strong>彻底打破了我们模型中至关重要的单位增长经济效益</strong>"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">7.3</span>她为什么"喜欢被质疑的环境"</h3>
+      <ul>
+        <li>"我认为这让人们神经紧绷，充满了质疑。<strong>我喜欢这种环境</strong>。我认为这比大家盲目追逐泡沫的环境要健康得多。"</li>
+        <li>结构性观察：<strong>公开市场没有看到太多盲目追涨的现象；非公开市场追逐的情况相对更多一些</strong>。</li>
+        <li>IPO 定价经验：历史经验表明，这些非上市企业上市时"<strong>初期往往都会经历波折</strong>"；</li>
+        <li>举例：<strong>Circle 是例外</strong>（未出现波折）；<strong>SpaceX 以 135 美元上市后，股价一度跌破 120 多美元</strong>，但"<strong>IPO 后反弹的速度比其他公司要快得多</strong>"；</li>
+        <li>她的结论："我认为眼下有些东西正在发生变化。"</li>
+      </ul>
+
+      <div class="callout warn">
+        <b>这一段的可操作价值很高：</b>伍德实际上给了两个"打新"经验法则——① 明星私募公司 IPO 初期破发是常态，不必追首日；② 但基本面最强的标的（她点名的 SpaceX）反弹速度显著更快，<strong>破发后的回撤窗口可能是更好的介入点</strong>。这与她后面"Anthropic 上市我们是否买"的回答逻辑一致（合规不允许透露，但态度积极）。
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section id="s8">
+      <div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">大模型格局：三家像 iOS，其余像安卓</h2></div>
+      <p class="sec-sub">这是全篇传播度最高的一个比喻，也是她给出"谁是赢家"判断的核心框架。</p>
+
+      <h3><span class="h3n">8.1</span>短期赢家与"要留心"的变量</h3>
+      <ul>
+        <li><strong>短期来看，OpenAI 和 Anthropic 是这里的赢家</strong>；</li>
+        <li>"<strong>但要留心 Grok 和 SpaceX 的 AI 布局</strong>。埃隆坚决要拥有最庞大的算力"；</li>
+        <li>她补充了 Grok/SpaceX 的具体路径：<strong>最庞大的算力 + 最廉价的能源供应（也就是太阳能），这意味着轨道数据中心</strong>；"<strong>他决意要在这个领域取胜</strong>"；</li>
+        <li>但她也明确："<strong>显然，赢家绝不会只有一家。</strong>"</li>
+      </ul>
+
+      <h3><span class="h3n">8.2</span>iOS / 安卓的类比</h3>
+      <div class="duo">
+        <div class="panel for">
+          <h4>iOS 阵营（闭源、高利润）</h4>
+          <ol>
+            <li><b>OpenAI</b></li>
+            <li><b>Anthropic</b></li>
+            <li><b>SpaceX 的 AI</b>（她把 SpaceX 的 AI 也归入其中）</li>
+          </ol>
+          <p style="font-size:12.5px;color:#6b655c;margin:10px 0 0">关键数据：<b>iOS 至今仍攫取了整个行业 75%–80% 的利润份额</b>。她也留了口子："也许不是这三家全部胜出，可能有一家会掉队，或者某一家决定走更专业化的路线"。</p>
+        </div>
+        <div class="panel against">
+          <h4>安卓阵营（开源权重）</h4>
+          <ol>
+            <li>其余模型</li>
+            <li><b>开源权重模型</b></li>
+          </ol>
+          <p style="font-size:12.5px;color:#6b655c;margin:10px 0 0">她的关键提醒："<b>那些都是免费模型，但运行成本可不是免费的</b>。使用它们需要消耗庞大的算力和电力。"但"<b>开源阵营在电力上并不处于劣势</b>，即便在最尖端芯片方面有所欠缺，<b>他们也会通过加大电力投入来弥补</b>"。</p>
+        </div>
+      </div>
+
+      <p>她强调两者"<strong>是可以共存的</strong>，因为安卓是开源的，就像这些开源权重模型一样"。</p>
+
+      <h3><span class="h3n">8.3</span>Anthropic 的"专业化路线"</h3>
+      <ul>
+        <li>她特别点出：<strong>达里奥（Dario Amodei）拥有多组学背景</strong>，Anthropic"正在与我们投资的很多上市企业在<strong>科学研究、药物发现和药物研发</strong>方面展开大量合作"；</li>
+        <li>这意味着 Anthropic 的差异化不在通用聊天，而在<strong>企业级 + 科学研发</strong>场景——这也是她后面说"他们自始至终深耕企业级市场的策略为他们确立了显著优势"的伏笔。</li>
+      </ul>
+
+      <h3><span class="h3n">8.4</span>与互联网初期的对照</h3>
+      <p>"回想互联网时代初期，局势并不明朗，当时有 <strong>Netscape、Napster</strong>，随后涌现出无数 dot-com 和 dot-net 公司。我记得当时的感觉就像<strong>身处迷宫</strong>，远没有现在这样定型，这正是一个有趣的差异。"</p>
+      <div class="callout">
+        <b>这句话的潜台词：</b>她认为当前格局比 1999 年"更清晰"——头部三家已经可识别。这是一个<strong>乐观但危险</strong>的判断：1999 年的 Netscape 也曾被认为"格局已定"。她自己用"可能有一家会掉队"对冲了这个风险。
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section id="s9">
+      <div class="sec-head"><div class="sec-num">09</div><h2 class="sec-title">Anthropic：7 个月 7 倍，与"20 倍 PS 说得过去"</h2></div>
+      <p class="sec-sub">全场数据最密集、也最需要读者自行加注脚的一段。所有数字均为她引述的"坊间传闻"，她本人认为"有充分依据"。</p>
+
+      <h3><span class="h3n">9.1</span>增长数据</h3>
+      <div class="stats">
+        <div class="stat"><div class="v">90→650<small>亿美元</small></div><div class="k">年化营收运行率（ARR），7 个月内</div></div>
+        <div class="stat"><div class="v">25<small>年</small></div><div class="k">Salesforce 建立"相当于 Anthropic 过去 7 个月新增营收规模"所需时间</div></div>
+        <div class="stat"><div class="v">80<small>%</small></div><div class="k">毛利率（她称"仍是传闻，但我认为有充分依据"）</div></div>
+        <div class="stat"><div class="v">2<small>个季度</small></div><div class="k">已连续实现营业利润为正</div></div>
+      </div>
+
+      <ul>
+        <li>她的原话："<strong>Anthropic 的年化营收运行率在 7 个月内从 90 亿美元激增至 650 亿美元</strong>"；</li>
+        <li>对照："<strong>Salesforce 花了 25 年时间才建立起相当于 Anthropic 在过去 7 个月里新增的营收规模</strong>"——即新增约 <strong>560 亿美元</strong>；</li>
+        <li>针对"他们还没实现盈利"的质疑，她的反驳是：这<strong>并非事实</strong>——<strong>80% 毛利率</strong> + <strong>连续两个季度营业利润为正</strong>；</li>
+        <li>她承认数据性质："虽然这些仍是传闻，但我认为<strong>随着其筹备上市，这些数据是有充分依据的</strong>"。</li>
+      </ul>
+
+      <h3><span class="h3n">9.2</span>她用一个"个人开支"例子证明需求真实性</h3>
+      <blockquote>
+        "我们的首席未来学家布雷特，一个月在 OpenAI 上的支出可能高达 4000 美元，光他一个人就花费这么多。为什么呢？因为布雷特的办公方式就是深度驾驭这些 AI 工具，完全不需要雇人培训，他自己一个人就能搞定。我认为这种模式将在各行各业中更为广泛地普及开来。"
+        <cite>—— 凯茜·伍德</cite>
+      </blockquote>
+      <p>这个例子的论证意图很明确：<strong>AI 支出正在从"公司 IT 预算"变成"个人生产力预算"</strong>，单位经济性来自"替代人力"而非"替代软件"。</p>
+
+      <h3><span class="h3n">9.3</span>IPO 估值：2 万亿 / 20 倍 PS</h3>
+      <p>观众直接问："基于其营收增速、盈利能力和竞争格局，你对其合理的估值区间怎么看？你们会选择在 IPO 时买入，还是等待回调后再择机介入？"</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:30%">项目</th><th>伍德的回答</th></tr></thead>
+          <tbody>
+            <tr><td><strong>年底 ARR</strong></td><td>"很可能<strong>会触及 1000 亿美元</strong>"</td></tr>
+            <tr><td><strong>2 万亿美元估值</strong></td><td>"<strong>大概率是合理的，相当于 20 倍市销率</strong>，因为其增长速度令人惊叹，盈利能力也着实令人惊喜"</td></tr>
+            <tr><td><strong>一级市场持仓</strong></td><td>"我们<strong>已经在私募阶段持有了它的股份</strong>"</td></tr>
+            <tr><td><strong>公募基金策略</strong></td><td>"虽然<strong>合规上不允许我提前透露交易计划</strong>，但可以说他们的成绩确实让我们感到非常惊喜"</td></tr>
+            <tr><td><strong>总体态度</strong></td><td>"我们对其<strong>持积极态度</strong>"；"在眼下的局势下，我们<strong>必须坚定支持这些正在崛起的领跑者</strong>"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">9.4</span>她对达里奥与"模型失控舆论"的解读（尖锐但重要）</h3>
+      <ul>
+        <li>"我不确定达里奥最近发表的文章是否另有深意，我感觉他<strong>似乎希望外部世界的发展步伐能稍稍慢下来，以便他巩固自身地位</strong>。"</li>
+        <li>她的通用判断："很多时候，<strong>资源最雄厚的大企业往往会利用游说力量促成监管落地，以此阻遏或大幅延缓行业竞争</strong>。"</li>
+        <li>对"模型失控"叙事的定性："之前关于<strong>模型失控的种种骇人舆论，背后都带有浓厚的市场营销成分</strong>，每个人都被吊足了胃口，急切地想一探究竟。"</li>
+      </ul>
+
+      <h3><span class="h3n">9.5</span>她对 OpenAI 的"反向承认"</h3>
+      <ul>
+        <li>"看到 <strong>OpenAI 在帕累托前沿上展现出超越 Anthropic 的竞争力</strong>同样十分有趣——<strong>即在既定的智能水平下，推理成本表现如何</strong>。"</li>
+        <li>"在这方面，<strong>OpenAI 不仅优于 Anthropic，也领先于部分开源权重模型</strong>，因此 OpenAI 正在给他们带来更强劲的竞争压力。"</li>
+        <li>时间表："我认为在 <strong>2020 年代末到 2030 年代初</strong>，Grok——或者说 SpaceX 的 AI——将会给 OpenAI 和 Anthropic 都带来强有力的竞争，而这种<strong>充分竞争对所有参与者而言都是好事</strong>。"</li>
+      </ul>
+
+      <div class="callout warn">
+        <b>这里有一个重要的自我矛盾需要指出：</b>她一方面说"20 倍 PS 说得过去"（隐含极高确定性），另一方面承认 OpenAI 在推理成本这一核心指标上已经领先。如果推理成本是"帕累托前沿"的决定变量，那么 20 倍 PS 的估值锚就建立在"Anthropic 能守住企业级溢价"这一假设上，而不是"增长快"本身。<strong>她的估值论证用的是收入增速，风险论证用的是成本曲线，两者并未闭合。</strong>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <div class="sec-head"><div class="sec-num">10</div><h2 class="sec-title">一级市场与 Kalshi：她最愿意"点名"的未上市标的</h2></div>
+      <p class="sec-sub">主持人问"风险投资基金前十大持仓中，有没有让你特别有共鸣、值得在万亿估值前分享的公司"，她只给了一个名字。</p>
+
+      <h3><span class="h3n">10.1</span>Kalshi vs Polymarket</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:20%">维度</th><th style="width:40%">Kalshi（她看好）</th><th>Polymarket（她认为落后）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>行业地位</strong></td><td>"目前绝对是<strong>预测市场的领头羊</strong>"</td><td>"这一赛道始于 Polymarket"，因上次大选被熟知</td></tr>
+            <tr><td><strong>团队出身</strong></td><td>"他们<strong>出身于金融界</strong>"</td><td>"而谢恩（Shane）不是"</td></tr>
+            <tr><td><strong>产品构想</strong></td><td>"虽然从<strong>体育预测</strong>切入，但内心真正构想的是<strong>衍生品市场</strong>"；很早就思考<strong>永续合约（perps）</strong>架构——"没有到期交割日、永远存续"</td><td>大选流量爆发时"有些措手不及"，"没能及时组织好架构去像 Kalshi 那样把市场潜力充分变现"</td></tr>
+            <tr><td><strong>合规态度</strong></td><td>"<strong>一直高度重视合规监管</strong>，与监管机构保持着密切沟通，主动沟通业务方向并确认是否合规"</td><td>"<strong>发迹于美国境外</strong>，对美国监管机构漠不关心，态度甚至有些对抗"</td></tr>
+            <tr><td><strong>结论</strong></td><td>"他们处于<strong>极其有利的领跑位置</strong>"，"整个预测市场规模将会极其庞大"</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>她还透露了一个时间细节：她"<strong>很早就见过 Polymarket 的 CEO 谢恩</strong>，比接触 Kalshi 团队要早得多"——但仍选择了 Kalshi。这是她"<strong>看人、看架构、看合规，而不看先发流量</strong>"的典型选股逻辑。</p>
+
+      <div class="callout">
+        <b>为什么这一条对二级市场重要：</b>Kalshi 未上市，但"预测市场"作为一个资产类别正在通过两条路径进入公开市场——① <strong>经纪商分销</strong>（零售券商把预测合约做成产品线）；② <strong>交易所入股</strong>（传统交易所通过投资/合作切入事件合约）。这两条路径对应的上市公司，是本节映射的核心（见第十六节）。
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <div class="sec-head"><div class="sec-num">11</div><h2 class="sec-title">就业、企业与年轻人：她给出的三条可执行建议</h2></div>
+      <p class="sec-sub">这是全篇最"接地气"的部分，也隐含了她对 AI 渗透速度的判断。</p>
+
+      <h3><span class="h3n">11.1</span>总量判断：净新增为正，但结构错配</h3>
+      <ul>
+        <li>"从科技发展史来看，技术最终<strong>创造的就业净额总是多于消灭的岗位</strong>"；</li>
+        <li>引用数据："<strong>FTT 和《经济学人》</strong>最近各自发布了一张图表显示，尽管达里奥本人持悲观论调，但全球范围内<strong>由 AI 带来的净新增就业岗位已经达到了 100 万个</strong>"（原文记为"FTT"，应指《金融时报》FT）；</li>
+        <li>真正的痛点："<strong>初级岗位</strong>"。刚毕业的年轻人找工作非常困难，"因为至少在美国，初级岗位的空缺远没有以往那么多，<strong>而这些基础工作恰恰是 AI 擅长处理的</strong>"；</li>
+        <li>美国数据：<strong>16–24 岁年龄段失业率已上升到 9.5%</strong>；<strong>整体失业率为 4.1%</strong>，且"一直在小幅回落"。</li>
+      </ul>
+
+      <div class="stats">
+        <div class="stat"><div class="v">9.5<small>%</small></div><div class="k">美国 16–24 岁失业率</div></div>
+        <div class="stat"><div class="v">4.1<small>%</small></div><div class="k">美国整体失业率（且在小幅回落）</div></div>
+        <div class="stat"><div class="v">100<small>万个</small></div><div class="k">全球 AI 带来的净新增就业岗位</div></div>
+        <div class="stat"><div class="v">3–6<small>个月</small></div><div class="k">美国求职周期：中位数 3 个月、平均 6 个月</div></div>
+      </div>
+
+      <h3><span class="h3n">11.2</span>给年轻人的建议：把失业期变成创业期</h3>
+      <div class="check">
+        <ol>
+          <li><strong>认知重置：</strong>"这其实是一次<strong>塞翁失马</strong>的契机。"</li>
+          <li><strong>利用窗口期：</strong>美国平均需 6 个月找到工作、中位数 3 个月，"在这期间，继续投递简历的同时，去<strong>寻找一个困扰你的实际问题，完全只依靠 AI 来创办一家公司</strong>。不要雇佣任何人，就用 AI 把公司做起来"。</li>
+          <li><strong>把创业当面试材料：</strong>"之后在面试时，去向面试官讲述你的公司以及你是如何使用 AI 的，这很有可能会让你<strong>在雇主的候选名单上名列前茅</strong>"。</li>
+          <li><strong>赔率视角：</strong>"从初创企业统计数据来看，虽然 <strong>90% 都会失败</strong>，但这意味着有 <strong>10% 能够成功</strong>，你或许真的能做成一番全新的事业"。</li>
+        </ol>
+      </div>
+
+      <h3><span class="h3n">11.3</span>给企业的建议：自上而下 + 自下而上并行</h3>
+      <p>她的核心观察是：<strong>AI 推广速度超出许多人预期，原因是"自上而下"与"自下而上"同时发生</strong>。</p>
+      <div class="duo">
+        <div class="panel for">
+          <h4>自上而下（高管推动）</h4>
+          <p style="font-size:13px;margin:0 0 8px">她以自己的公司为例："我对团队明确表态：我们必须<strong>全身心拥抱这个全新的世界</strong>，如果有人该率先垂范，那非我们莫属。"</p>
+          <ul>
+            <li>引入 <b>Palantir</b> 开展合作；</li>
+            <li>聘请<b>自己的工程师</b>与 Palantir 的<b>前线工程师</b>协同作业；</li>
+            <li>目的：<b>理顺内部架构、深度理解自身数据、大幅提升运营效率</b>。</li>
+          </ul>
+        </div>
+        <div class="panel against">
+          <h4>自下而上（员工自发）</h4>
+          <p style="font-size:13px;margin:0 0 8px">"因为员工和年轻人心存担忧，他们看到了初级岗位的缩减，于是开始<b>自发使用 AI</b>。"</p>
+          <ul>
+            <li>关键动作："<b>亲自去用它</b>"；</li>
+            <li>底层逻辑："<b>自然语言就是编程语言</b>……这意味着我们距离成为程序员比以往任何时候都要近"；</li>
+            <li>结果：主动找问题的人"<b>在组织内脱颖而出，获得了极高的能见度</b>"。</li>
+          </ul>
+        </div>
+      </div>
+      <p>她对管理者的要求很具体：<strong>一定要奖励这样的员工</strong>，"因为对某些人来说，迈出这一步需要巨大的勇气"；并且"<strong>务必要做好内部沟通，并鼓励大家彼此协助</strong>"。</p>
+
+      <div class="callout gold">
+        <b>这条建议里藏着一个投资信号：</b>她把 <strong>Palantir</strong> 作为"自上而下 AI 落地"的样板供应商点名，并用"本体（Ontology）"概念对比 SaaS 的"千篇一律"（见下一节）。这是全场<strong>唯一被她正面点名的已上市公司软件标的</strong>。
+      </div>
+    </section>
+
+    <!-- 12 -->
+    <section id="s12">
+      <div class="sec-head"><div class="sec-num">12</div><h2 class="sec-title">"SaaS 大溃败"之后：为什么她回避 Salesforce 与微软</h2></div>
+      <p class="sec-sub">这是全篇对个股最直白的负面表态，也是被提问者（科技公司 CEO 大卫·博耶）直接追问的部分。</p>
+
+      <h3><span class="h3n">12.1</span>提问背景</h3>
+      <p>大卫·博耶："我们刚刚经历过'<strong>SaaS 大溃败</strong>'（SaaSpocalypse），而现在随着 <strong>Salesforce 交出亮眼成绩</strong>，人们又开始谈论'<strong>软件复兴</strong>'。……Salesforce 股价的提振似乎源于他们找到了<strong>对 Agent 工作流收费</strong>的途径。我们是否对 Salesforce 少数客户的采纳过度解读了？"</p>
+
+      <h3><span class="h3n">12.2</span>她对 SaaS 的整体判断：PaaS 蚕食应用层</h3>
+      <ul>
+        <li>"我们此前<strong>淡出了 SaaS 领域</strong>，因为在撰写 <strong>2024 年《Big Ideas》报告</strong>时，我们注意到<strong>平台即服务（PaaS）正在蚕食以 SaaS 为主的应用层市场份额</strong>"；</li>
+        <li>她从 <strong>Palantir</strong> 那里得到的启示："<strong>SaaS 是千篇一律的一刀切模式</strong>，而 Palantir 致力于<strong>结合企业自身的'本体'（Ontology）来定制软件</strong>——所谓的本体就是<strong>企业内部通用的独特业务语言</strong>，两者存在本质区别"。</li>
+      </ul>
+
+      <h3><span class="h3n">12.3</span>对 Salesforce 的四条批评</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:26%">批评点</th><th>原话要点</th><th style="width:22%">性质</th></tr></thead>
+          <tbody>
+            <tr><td><strong>并购依赖</strong></td><td>"他们习惯通过<strong>激进并购来实现既定的营收目标</strong>"</td><td>商业模式质疑</td></tr>
+            <tr><td><strong>最近一次收购质量差</strong></td><td>收购的 <strong>Informatica</strong> "资产非常陈旧，这是一个<strong>极其糟糕的信号</strong>"</td><td>资本配置质疑</td></tr>
+            <tr><td><strong>整合包袱</strong></td><td>"他们至今仍被<strong>整合此类公司的重负所拖累</strong>，我们认为这是他们的<strong>战略失误</strong>"</td><td>执行力质疑</td></tr>
+            <tr><td><strong>转折但不够</strong></td><td>"现在他们的 <strong>Agent 业务营收增长了 150%</strong>，确实是一个巨大的转折，但<strong>公司其余部分依然背负着以往靠并购驱动增长的包袱</strong>，因此我们对此持保留态度"</td><td>承认亮点，但不改结论</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>她的最终定性："<strong>它现在沦为了一只价值股</strong>，未来或许表现尚可，但我们<strong>通常会避开这类显露增长阵痛、依赖并购扩张的标的</strong>。战略性并购固然可行，但<strong>靠并购拼凑增长并不健康</strong>。"并坦承："我们在<strong>价值股投资上并不擅长</strong>，我们更偏好纯粹的成长标的。"</p>
+
+      <h3><span class="h3n">12.4</span>对微软：Copilot"远谈不上及格"</h3>
+      <ul>
+        <li>"我们已经有<strong>很长时间没有持有微软了</strong>"；</li>
+        <li>历史成功的原因："微软过去之所以能够与时俱进，是因为它拥有<strong>庞大的既有用户基础</strong>，过去做到'<strong>过得去</strong>'就足够了"；</li>
+        <li>当下判断："但 <strong>Copilot 目前的表现远远谈不上及格，确实不够好</strong>"；</li>
+        <li>需求质量问题："<strong>很多人使用 Copilot 仅仅是因为公司现成配置了它</strong>，但它并不需要做到最好"——即<strong>装机量不等于产品力</strong>；</li>
+        <li>她的反问："置身于 AI 正以磅礴之势疾速推进的新世界中，你难道要<strong>依赖一款平庸的产品</strong>来带领你前行吗？"</li>
+        <li>风险时点："庞大的装机基础或许能<strong>支撑它平稳运行一段时间，直到瓶颈显现</strong>。<strong>我不知道拐点何时到来</strong>，但坦白讲，在微软这只股票上我<strong>之前也曾看走眼过</strong>"。</li>
+      </ul>
+
+      <h3><span class="h3n">12.5</span>主持人的补充："软件即服务"新范式</h3>
+      <p>主持人提出："有人提出'<strong>SaaS 已死</strong>'，但正在演进出'<strong>软件即服务</strong>'（Service-as-Software）的新范式。初创企业依托<strong>财富管理或法律等领域的深厚行业经验</strong>，自行构建专属工具并向<strong>整个专业服务行业输出推广</strong>。"伍德的回应只有一句："<strong>确实如此，放手去做就是了。</strong>"</p>
+
+      <div class="callout warn">
+        <b>需要提示的表述风险：</b>她对微软的判断用的是"产品体验"层面的观察（Copilot 不够好），而非财务或份额数据；同时她承认"之前也曾看走眼过"、"不知道拐点何时到来"。这意味着<strong>这是一条弱信号、长周期的负面观点，不适合作为短期交易依据</strong>。
+      </div>
+    </section>
+
+    <!-- 13 -->
+    <section id="s13">
+      <div class="sec-head"><div class="sec-num">13</div><h2 class="sec-title">医疗保健：她认为"定价效率最低"的板块</h2></div>
+      <p class="sec-sub">这是全场唯一被她称为"市场定价效率最低"的领域，也是她给出最具体做空数据的地方。</p>
+
+      <h3><span class="h3n">13.1</span>为什么定价低效：专利悬崖的 3000 亿美元缺口</h3>
+      <ul>
+        <li>"我们认为，当今市场上<strong>定价效率最低的领域是医疗保健行业</strong>"；</li>
+        <li>但"这将是一个<strong>极度考验选股能力</strong>的市场"；</li>
+        <li>结构性原因：大型制药和生物技术公司面临"<strong>专利悬崖</strong>"，正在形成一个高达 <strong>3000 亿美元的收入缺口</strong>，"必须采取应对措施"；</li>
+        <li>分化路径：<strong>一部分公司会处理得很好、顺应时代潮流；另一部分则无法过关，面临重组或被并购等结局</strong>。</li>
+      </ul>
+
+      <h3><span class="h3n">13.2</span>ARKG 的"双层做空"</h3>
+      <div class="stats">
+        <div class="stat"><div class="v">60<small>%</small></div><div class="k">ARKG 份额被做空（第一层做空）</div></div>
+        <div class="stat"><div class="v">3000<small>亿美元</small></div><div class="k">大型药企专利悬崖收入缺口</div></div>
+        <div class="stat"><div class="v">双层</div><div class="k">ETF 层面 + 成分股逐只做空</div></div>
+        <div class="stat"><div class="v">今年最佳</div><div class="k">该组合是 ARK 今年表现最好的组合</div></div>
+      </div>
+
+      <blockquote>
+        "以我们的 ETF 为例，我们此前称为基因组革命、现称为多组学革命的 ARKG，其 <strong>60% 的份额都被做空</strong>，这是第一层；而在底层资产层面，在这只 ETF 内部，<strong>各个成分股还面临着另一层逐只股票的做空</strong>。这难道不疯狂吗？……虽然医疗保健一直以来表现平平，但<strong>那个投资组合却是我们今年表现最好的</strong>。然而它<strong>依然被严重低估</strong>，做空者也依然坚守仓位，他们根本不相信医疗保健会成为一个良好的投资方向。<strong>而我恰恰喜欢在这样的市场环境下进行投资。</strong>"
+        <cite>—— 凯茜·伍德</cite>
+      </blockquote>
+
+      <div class="callout">
+        <b>这条信息的独特价值：</b>它同时提供了三个可验证事实——① <strong>ARKG 被极端做空（60%）</strong>；② <strong>该组合是 ARK 今年表现最好的</strong>（即"高做空 + 高收益"的逼空结构）；③ 她认为<strong>估值仍被严重低估</strong>。这是一个典型的"<strong>拥挤空头 + 基本面改善</strong>"的逆向交易结构，也是全篇最具体的可操作信号。
+      </div>
+    </section>
+
+    <!-- 14 -->
+    <section id="s14">
+      <div class="sec-head"><div class="sec-num">14</div><h2 class="sec-title">SpaceX 收购特斯拉：她给出的"全球最重要公司"</h2></div>
+      <p class="sec-sub">观众问"五大平台中最强大的融合会在哪里发生"，她给了一个非常大胆的答案。</p>
+
+      <ul>
+        <li><strong>判断：SpaceX 未来将会收购特斯拉</strong>；</li>
+        <li>收购后的图景：不仅将在地球上拥有 <strong>Robotaxi 的商业机遇</strong>，"大概率还会将其<strong>拓展至月球和火星</strong>"；</li>
+        <li>核心优势：<strong>完全的垂直整合</strong>；</li>
+        <li>结论："从<strong>重塑世界</strong>的角度以及<strong>长期的市值规模</strong>来看，我认为它将成为<strong>全球最重要的公司</strong>"。</li>
+      </ul>
+
+      <div class="callout gold">
+        <b>需要标注的性质：</b>这是一条<strong>明确的、可被时间检验的并购预测</strong>，不是"可能"。它同时把三个主题绑在了一起——<strong>太空（SpaceX/轨道数据中心）、自动驾驶（Robotaxi）、储能与电动化（特斯拉）</strong>。若成立，等于把"五大平台"中的三个装进一个实体；若不成立，则她对"最强融合"的回答落空。原文中她没有给出时间表，也没有讨论反垄断与估值路径。
+      </div>
+      <p>另外，她还提到此前在多组学领域被问"逆龄抗衰会不会是革命的一部分"时，用"<strong>它将成为世界上最重要的一家公司，彻底改变整个世界</strong>"形容该领域的机会——请注意这里指的是<strong>领域/赛道</strong>，而非与 SpaceX 同一标的。原文两处"最重要"分指不同对象，阅读时不宜混用。</p>
+    </section>
+
+    <!-- 15 -->
+    <section id="s15">
+      <div class="sec-head"><div class="sec-num">15</div><h2 class="sec-title">业绩辩护：5 年窗口的"终点敏感性"</h2></div>
+      <p class="sec-sub">一位持有 ARK ETF 十年的观众提问后，伍德主动回应了市场上对 ARK 业绩的长期批评。</p>
+
+      <ul>
+        <li>观众："我持有你的 ETF 基金已经大约 <strong>10 年</strong>了，一直非常满意。"</li>
+        <li>伍德的回应框架："很多人总在议论我们<strong>过去 5 年</strong>的业绩，对此我非常坦诚：<strong>5 年期是一个对终点极度敏感的时间窗口，刚好对应着我们策略的历史高点</strong>"；</li>
+        <li>她主张看全周期："如果审视<strong>自成立以来</strong>的全周期，无论是 <strong>1 年期、3 年期还是 10 年期</strong>，即便在报端常被报道对我们颇有微词的<strong>晨星（Morningstar）</strong>评价体系中，其量化数据也将我们在这三个周期内<strong>排在全市场前 10% 的分位数</strong>"；</li>
+        <li>关于风格分类："他们拿我们与<strong>中盘成长股</strong>作对比，从投资特征来看我们确实符合，不过我们对自己风格的定位是<strong>全市值覆盖</strong>"。</li>
+      </ul>
+
+      <div class="callout warn">
+        <b>这段话的方法论价值大于其结论：</b>"<strong>5 年期对终点极度敏感</strong>"是一个真实存在的统计陷阱——如果起点恰好是 2020–2021 年的估值峰值，那么任何 5 年滚动收益都会被系统性压低。<strong>评估任何主动管理型主题 ETF，都应检查其业绩起点的估值水位，而不是只看滚动区间数字。</strong>反过来，她用"1/3/10 年前 10%"来辩护，也同样依赖起点选择——读者应对两个方向都保持同样的怀疑。
+      </div>
+    </section>
+
+    <!-- 16 -->
+    <section id="s16">
+      <div class="sec-head"><div class="sec-num">16</div><h2 class="sec-title">美股与 ETF 映射</h2></div>
+      <p class="sec-sub">以下为"由文中观点推导出的可投资映射"，非原文推荐。原文本身不构成任何选股建议，且未披露具体持仓权重。</p>
+
+      <div class="callout warn">
+        <b>三点前提必须先说清：</b>① 本节所有标的与 ETF 均为<strong>按主题逻辑做的对应</strong>，伍德在原文中<strong>仅点名</strong>了 Palantir、Salesforce、微软、特斯拉、Circle、SpaceX、OpenAI、Anthropic、Kalshi、Polymarket、ARKG、Informatica；② 原文未给出任何价格、估值倍数（除 Anthropic 的 20 倍 PS）或仓位建议；③ 下文"映射强度"是<strong>逻辑贴合度</strong>，不代表收益确定性。
+      </div>
+
+      <h3><span class="h3n">16.1</span>第一层：ARK 自家产品线（最直接的"观点载体"）</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:14%">代码</th><th style="width:20%">名称/主题</th><th>对应文中观点</th><th style="width:14%">映射强度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ARKK</strong></td><td>旗舰·颠覆性创新</td><td>五大平台融合的整体表达；她本人对"1/3/10 年前 10% 分位"的辩护即针对该产品线</td><td><span class="badge b-ok">直接</span></td></tr>
+            <tr><td><strong>ARKG</strong></td><td>多组学革命（原基因组革命）</td><td><strong>全场最强单一信号</strong>：60% 份额被做空 + 今年最佳 + 仍被严重低估 + 专利悬崖 3000 亿缺口</td><td><span class="badge b-ok">直接·点名</span></td></tr>
+            <tr><td><strong>ARKQ</strong></td><td>自主技术与机器人</td><td>Robotaxi = 机器人 + 储能 + AI 三曲线融合；10 万亿美元 TAM</td><td><span class="badge b-ok">直接</span></td></tr>
+            <tr><td><strong>ARKW</strong></td><td>下一代互联网</td><td>AI 平台化、Agent、云；"PaaS 蚕食 SaaS"的受益侧</td><td><span class="badge b-mid">较强</span></td></tr>
+            <tr><td><strong>ARKX</strong></td><td>太空探索</td><td>SpaceX 生态、轨道数据中心、"最廉价能源+最庞大算力"路径</td><td><span class="badge b-mid">较强</span></td></tr>
+            <tr><td><strong>ARKF</strong></td><td>金融科技创新</td><td>Kalshi/预测市场、永续合约、衍生品基础设施、区块链平台</td><td><span class="badge b-mid">较强</span></td></tr>
+            <tr><td><strong>ARKVX</strong></td><td>ARK Venture Fund（区间基金，非 ETF）</td><td><strong>唯一能同时覆盖 Anthropic、SpaceX、Kalshi 的公开载体</strong>（她明确说"已在私募阶段持有 Anthropic 股份"）</td><td><span class="badge b-ok">直接</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px;color:#6b655c">注：ARKVX 为封闭式区间基金，流动性与申购门槛与 ETF 不同，且通常仅对特定投资者开放；ARKX 对 SpaceX 的敞口以间接持股/相关上市公司为主，非直接持有。</p>
+
+      <h3><span class="h3n">16.2</span>第二层：AI 算力与"最庞大算力"军备竞赛</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:26%">主题</th><th style="width:26%">文中依据</th><th>代表标的 / ETF</th><th style="width:12%">强度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI 加速计算</strong></td><td>"埃隆坚决要拥有最庞大的算力"；算力是 iOS 阵营的护城河</td><td><strong>NVDA</strong>、AMD、AVGO、MRVL、TSM；<strong>SMH</strong>、SOXX、PSI</td><td><span class="badge b-ok">强</span></td></tr>
+            <tr><td><strong>定制 ASIC / 自研芯片</strong></td><td>OpenAI 在"帕累托前沿（同等智能下的推理成本）"领先 → 推理成本战 → 自研芯片需求</td><td>AVGO、MRVL、ALAB、CRDO；SOXX</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>电力与电网（"最廉价能源"）</strong></td><td>"开源阵营通过加大电力投入弥补芯片劣势"；轨道数据中心；交通全面电气化</td><td>VRT、ETN、GEV、PWR、HUBB；<strong>GRID</strong>、XLU、NLR</td><td><span class="badge b-ok">强</span></td></tr>
+            <tr><td><strong>核能（基荷）</strong></td><td>替代石油的清单明确包含"核能"</td><td>CCJ、OKLO、SMR、LEU；<strong>URA</strong>、URNM</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>太阳能（她称"最廉价能源"）</strong></td><td>"最廉价的能源供应——也就是太阳能"</td><td>FSLR、ENPH；<strong>TAN</strong>、ICLN</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>天然气（过渡能源）</strong></td><td>替代石油的清单包含"天然气"</td><td>EQT、AR、LNG；XLE 中的气权重</td><td><span class="badge b-neutral">中性</span></td></tr>
+            <tr><td><strong>数据中心与云</strong></td><td>AI 支出从 IT 预算转向"个人生产力预算"；Brett 单月 4000 美元</td><td>MSFT（Azure，但她对公司整体负面）、AMZN、GOOGL、ORCL；<strong>IGV</strong>（软件，她偏空）</td><td><span class="badge b-mid">中</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">16.3</span>第三层：Robotaxi 与自动出行（10 万亿美元）</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:24%">主题</th><th style="width:30%">文中依据</th><th>代表标的 / ETF</th><th style="width:12%">强度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Robotaxi 整车与网络</strong></td><td>"Robotaxi 及运营网络 5–10 年从近零到 10 万亿美元以上"；"三条 S 曲线相互赋能"</td><td><strong>TSLA</strong>（她明确预测 SpaceX 将收购它）、GOOGL（Waymo）、PONY、WRD；<strong>ARKQ</strong>、DRIV、KARS</td><td><span class="badge b-ok">强·点名</span></td></tr>
+            <tr><td><strong>机器人 / 自动化</strong></td><td>"自动驾驶汽车本质上就是机器人"</td><td>BOTZ、ROBO；ISRG、TER</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>储能与电池</strong></td><td>"电动化成本降幅实在太大"，是 Robotaxi 必选项</td><td><strong>LIT</strong>、BATT、QCLN；ALB、ENVX</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>石油的空头侧</strong></td><td>阿布扎比退出 OPEC = 储备价值见顶；霍尔木兹复航后油价"大幅下挫"；57% 石油用于交通且正被电力替代</td><td>做空工具：SCO、DTO；受损方：XLE、XOP、OIH、USO（<strong>方向性偏空</strong>）；受益方：航空 JETS、运输 IYT</td><td><span class="badge b-mid">中（时点不可测）</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">16.4</span>第四层：多组学与医疗保健（她认为定价最低效）</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:22%">主题</th><th style="width:30%">文中依据</th><th>代表标的 / ETF</th><th style="width:12%">强度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>多组学 ETF</strong></td><td>60% 被做空 + 今年最佳 + 仍严重低估</td><td><strong>ARKG</strong>（唯一被点名）；GNOM</td><td><span class="badge b-ok">强·点名</span></td></tr>
+            <tr><td><strong>基因编辑</strong></td><td>CRISPR 可重编程基因组，"镰状细胞病、β 地中海贫血已取得切实成效"</td><td><strong>CRSP</strong>、NTLA、BEAM、VERV、EDIT；ARKG 成分</td><td><span class="badge b-ok">强</span></td></tr>
+            <tr><td><strong>测序工具</strong></td><td>"多组学测序"聚焦单细胞层面（DNA/RNA/蛋白质）</td><td>ILMN、PACB、TXG（10x Genomics）；ARKG</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>iPSC / 细胞重编程</strong></td><td>山中伸弥 iPSC，"皮肤细胞重编程为肾脏细胞"</td><td>通过 ARKG 间接敞口；FATE、SANA</td><td><span class="badge b-mid">中</span></td></tr>
+            <tr><td><strong>生物科技整体（逆向）</strong></td><td>"医疗保健定价效率最低"；"极度考验选股能力"</td><td><strong>XBI</strong>（等权、小盘占比高，弹性大）、IBB（大盘、专利悬崖暴露更多）</td><td><span class="badge b-mid">中强</span></td></tr>
+            <tr><td><strong>专利悬崖受损方</strong></td><td>大型药企 3000 亿美元收入缺口，"一部分无法过关，面临重组或被并购"</td><td>PFE、MRK、BMY、ABBV（<strong>分化，需个股精选</strong>）；并购方：LLY、NVS、AZN、MRK</td><td><span class="badge b-no">偏空/分化</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">16.5</span>第五层：预测市场与"区块链"平台</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:22%">主题</th><th style="width:32%">文中依据</th><th>代表标的 / ETF</th><th style="width:12%">强度</th></tr></thead>
+          <tbody>
+            <tr><td><strong>预测市场（Kalshi）</strong></td><td>"Kalshi 绝对是预测市场领头羊"；合规、衍生品架构、永续合约思维；市场规模"极其庞大"</td><td>Kalshi 未上市。二级敞口：<strong>HOOD</strong>（零售端预测合约分销）、<strong>ICE</strong>（对 Polymarket 的战略投资，事件合约/衍生品基础设施）、DKNG、FLUT（体育博彩相邻）</td><td><span class="badge b-mid">中（间接）</span></td></tr>
+            <tr><td><strong>加密/区块链基础设施</strong></td><td>五大平台之一"区块链技术"；永续合约是加密衍生品的原生形态</td><td>COIN、HOOD、MSTR；<strong>IBIT</strong>、FBTC；BLOK、ARKF</td><td><span class="badge b-mid">中</span></td></tr>
+            <tr><td><strong>交易所/清算</strong></td><td>"预测市场本质是衍生品市场"；合规是护城河</td><td>CME、ICE、NDAQ、CBOE</td><td><span class="badge b-mid">中</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">16.6</span>第六层：她点名或明确评价的个股</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:14%">标的</th><th style="width:16%">文中态度</th><th>核心依据</th><th style="width:16%">操作含义</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PLTR</strong></td><td><span class="badge b-ok">正面（唯一正面点名的软件公司）</span></td><td>ARK 亲自引入合作、聘工程师与其前线工程师协同；"本体（Ontology）"定制优于 SaaS 一刀切</td><td>AI 落地"自上而下"路径的核心受益者</td></tr>
+            <tr><td><strong>TSLA</strong></td><td><span class="badge b-ok">正面（并购标的）</span></td><td>"SpaceX 未来将会收购特斯拉"；Robotaxi 三曲线融合；"完全垂直整合"</td><td>事件驱动 + Robotaxi 期权价值</td></tr>
+            <tr><td><strong>CRM</strong></td><td><span class="badge b-no">保留/回避</span></td><td>激进并购驱动增长；Informatica"资产非常陈旧"=极糟信号；整合包袱；"沦为价值股"</td><td>Agent 业务 +150% 是亮点，但不足以改变定性</td></tr>
+            <tr><td><strong>MSFT</strong></td><td><span class="badge b-no">负面/不持有</span></td><td>Copilot"远谈不上及格"；使用源于公司配置而非产品力；"装机基础支撑一段时间直到瓶颈显现"</td><td>弱信号、长周期；她自认"曾看走眼"</td></tr>
+            <tr><td><strong>CRCL</strong></td><td><span class="badge b-mid">正面（举例）</span></td><td>作为"IPO 后未出现波折"的例外被点名</td><td>仅作案例，非推荐</td></tr>
+            <tr><td><strong>AMZN / GOOGL</strong></td><td><span class="badge b-neutral">未直接评价</span></td><td>但二者是 Anthropic 的主要战略投资方；GOOGL 另有 Waymo（Robotaxi）</td><td>Anthropic 上市前的"影子敞口"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3><span class="h3n">16.7</span>一张表看懂：她的观点 → 最纯的载体</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:30%">她的核心论断</th><th style="width:26%">最纯载体</th><th>次优载体</th></tr></thead>
+          <tbody>
+            <tr><td>全球实际 GDP 增速上 7%</td><td>ARKK（全平台）</td><td>SMH + GRID 组合</td></tr>
+            <tr><td>Robotaxi 10 万亿美元</td><td>ARKQ / TSLA</td><td>DRIV、GOOGL</td></tr>
+            <tr><td>多组学 + 逆龄</td><td>ARKG</td><td>XBI、CRSP</td></tr>
+            <tr><td>Anthropic 1000 亿 ARR</td><td>ARKVX（一级）</td><td>AMZN、GOOGL（战略股东）</td></tr>
+            <tr><td>iOS 阵营攫取 75–80% 利润</td><td>MSFT（OpenAI）、AMZN/GOOGL（Anthropic）</td><td>NVDA（卖铲人，通吃）</td></tr>
+            <tr><td>预测市场</td><td>HOOD（分销）</td><td>ICE（入股 Polymarket）</td></tr>
+            <tr><td>石油长期见顶</td><td>XLE 方向性偏空</td><td>核能 URA / 太阳能 TAN / 电网 GRID</td></tr>
+            <tr><td>SaaS 被 PaaS 蚕食</td><td>PLTR（受益）</td><td>IGV 偏空、CRM 回避</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 17 -->
+    <section id="s17">
+      <div class="sec-head"><div class="sec-num">17</div><h2 class="sec-title">观点全集清单（逐条，确保无遗漏）</h2></div>
+      <p class="sec-sub">按讲话顺序编号，共 38 条。每条保留她的原始判断口径，便于逐条核验与后续复盘。</p>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:5%">#</th><th style="width:22%">主题</th><th>观点原文要点</th><th style="width:16%">性质</th></tr></thead>
+          <tbody>
+            <tr><td class="num">01</td><td>GDP 增速</td><td>未来几年实际经济增长将加速，<strong>持续保持在 7% 以上</strong></td><td>核心预测</td></tr>
+            <tr><td class="num">02</td><td>利率归因</td><td>用 TIPS 拆解，<strong>利率上行主要由实际利率驱动，而非通胀预期</strong></td><td>核心论证</td></tr>
+            <tr><td class="num">03</td><td>通胀</td><td>增长由生产力驱动，<strong>通胀可能远低于大多数人预期</strong></td><td>推论</td></tr>
+            <tr><td class="num">04</td><td>政策摩擦</td><td>美联储主席沃什全力抗通胀，<strong>可能很快与特朗普产生分歧</strong>，会有更多摩擦</td><td>风险提示</td></tr>
+            <tr><td class="num">05</td><td>技术体量</td><td>AI、机器人、储能、区块链、跨组学<strong>如今体量已足以撼动宏观指针</strong></td><td>核心判断</td></tr>
+            <tr><td class="num">06</td><td>阿布扎比/OPEC</td><td>阿布扎比退出 OPEC 是<strong>极其重大的信号</strong>，表明其认为<strong>石油储备价值已见顶</strong></td><td>地缘判断</td></tr>
+            <tr><td class="num">07</td><td>油价</td><td>霍尔木兹复航后（时点不可测），<strong>油价将大幅下挫</strong></td><td>方向预测</td></tr>
+            <tr><td class="num">08</td><td>交通电气化</td><td><strong>57% 石油用于交通</strong>，全面接电网后石油"不再有立足之地"，由天然气/核能/水电/太阳能/风能取代</td><td>结构判断</td></tr>
+            <tr><td class="num">09</td><td>历史增速</td><td>工业革命前 400 年约 <strong>0.6%</strong>；工业革命后 125 年约 <strong>3%</strong>（Brett Winton 与学术界合作研究）</td><td>数据引用</td></tr>
+            <tr><td class="num">10</td><td>平台数量论</td><td>三大平台（电力/电话/内燃机）带来 <strong>5 倍</strong>跃升；五大平台对应 7–8%，仅 <strong>2.5 倍</strong>，"相对保守"</td><td>核心论证</td></tr>
+            <tr><td class="num">11</td><td>五大平台</td><td>涵盖 <strong>15 种技术</strong>，正在<strong>全面融合</strong></td><td>框架</td></tr>
+            <tr><td class="num">12</td><td>研究组织</td><td>按<strong>技术</strong>而非行业划分分析师；判断"成本下降到哪个节点会跨行业铺开"</td><td>方法论</td></tr>
+            <tr><td class="num">13</td><td>Robotaxi 构成</td><td>本质是机器人 + 必然纯电（储能）+ AI 驱动，<strong>三条 S 曲线相互赋能</strong></td><td>框架</td></tr>
+            <tr><td class="num">14</td><td>Robotaxi 规模</td><td>5–10 年从近零到 <strong>&gt;10 万亿美元</strong>；对照美国 GDP &gt;30 万亿</td><td>核心预测</td></tr>
+            <tr><td class="num">15</td><td>创新节奏</td><td>"始于微末，骤然爆发"；研究 12 年才刚商业化，期间<strong>面对大量怀疑者</strong></td><td>自我解释</td></tr>
+            <tr><td class="num">16</td><td>多组学定义</td><td>不止 DNA，含 <strong>RNA、蛋白质</strong>，聚焦<strong>单细胞层面</strong></td><td>定义</td></tr>
+            <tr><td class="num">17</td><td>人体数据</td><td>人体 <strong>35–40 万亿细胞</strong>、<strong>30 亿碱基对</strong>；"每个人都是行走的专有数据 AI 工厂"</td><td>数据/比喻</td></tr>
+            <tr><td class="num">18</td><td>衰老观</td><td><strong>衰老本身就是一种疾病</strong>，特征是突变随时间累积；表观遗传学会促成突变</td><td>核心判断</td></tr>
+            <tr><td class="num">19</td><td>CRISPR</td><td>可重编程基因组以治愈/预防疾病；<strong>镰状细胞病、β 地中海贫血已有切实成效</strong></td><td>进展判断</td></tr>
+            <tr><td class="num">20</td><td>逆龄</td><td>山中伸弥 <strong>iPSC</strong> 可将皮肤/眼部细胞重编程为肾脏细胞；难点在"<strong>如何遏制、在何处叫停</strong>"</td><td>技术判断</td></tr>
+            <tr><td class="num">21</td><td>医疗 TAM</td><td>未来 5–10 年该领域营收机会<strong>从近零扩大到 10 万亿美元以上</strong></td><td>核心预测</td></tr>
+            <tr><td class="num">22</td><td>原创研究</td><td>方舟做"投行过去做的那类研究"，投行因 <strong>FTC 任内并购停滞</strong>而放弃；多组学<strong>缺乏战略价格发现</strong></td><td>行业批评</td></tr>
+            <tr><td class="num">23</td><td>信条</td><td>"<strong>真相终将大白</strong>"；研究成果免费公开</td><td>价值观</td></tr>
+            <tr><td class="num">24</td><td>三次回撤</td><td>科技电信泡沫、2008–09、新冠（最艰难：<strong>利率 22 倍激增</strong> + 供应链混乱打破单位经济模型）</td><td>复盘</td></tr>
+            <tr><td class="num">25</td><td>市场情绪</td><td>喜欢被质疑的环境，"比盲目追逐泡沫健康得多"；<strong>公开市场追涨少，私募更多</strong></td><td>观察</td></tr>
+            <tr><td class="num">26</td><td>IPO 经验</td><td>明星私募上市初期"往往都会经历波折"；<strong>Circle 是例外</strong>；<strong>SpaceX 以 135 美元上市后跌破 120 多美元</strong>但反弹更快</td><td>可操作经验</td></tr>
+            <tr><td class="num">27</td><td>短期赢家</td><td><strong>OpenAI 与 Anthropic 是短期赢家</strong>；要留心 <strong>Grok 和 SpaceX</strong> 的 AI 布局</td><td>核心判断</td></tr>
+            <tr><td class="num">28</td><td>马斯克路径</td><td>最庞大算力 + 最廉价能源（太阳能）→ <strong>轨道数据中心</strong>；"决意取胜"</td><td>判断</td></tr>
+            <tr><td class="num">29</td><td>开源模型</td><td>模型免费但<strong>运行成本不免费</strong>；开源在电力上不劣势，缺尖端芯片就<strong>加大电力投入弥补</strong></td><td>核心论证</td></tr>
+            <tr><td class="num">30</td><td>iOS/安卓</td><td>OpenAI + Anthropic + SpaceX AI ≈ <strong>iOS</strong>；其余与开源权重 ≈ <strong>安卓</strong>；<strong>iOS 攫取行业 75–80% 利润</strong>；两者可共存</td><td>核心框架</td></tr>
+            <tr><td class="num">31</td><td>Anthropic 数据</td><td>ARR <strong>7 个月 90 亿→650 亿美元</strong>；<strong>80% 毛利率</strong>；<strong>连续两季营业利润为正</strong>；Salesforce 花 25 年才建同等增量</td><td>数据引用</td></tr>
+            <tr><td class="num">32</td><td>Anthropic 估值</td><td>年底 ARR 或<strong>触及 1000 亿美元</strong>；<strong>2 万亿估值 / 20 倍 PS 大概率合理</strong>；已在一级持股；公募策略不便透露</td><td>核心预测</td></tr>
+            <tr><td class="num">33</td><td>达里奥动机</td><td>猜测其"希望外部世界发展慢一点以巩固自身地位"；大企业常用游说促成监管<strong>阻遏竞争</strong>；"模型失控"舆论有<strong>营销成分</strong></td><td>尖锐评价</td></tr>
+            <tr><td class="num">34</td><td>OpenAI 反超</td><td>OpenAI 在<strong>帕累托前沿（同智能下推理成本）</strong>优于 Anthropic，也领先部分开源模型，形成更强竞争压力</td><td>关键承认</td></tr>
+            <tr><td class="num">35</td><td>竞争时点</td><td><strong>2020 年代末到 2030 年代初</strong>，Grok/SpaceX AI 将强力竞争；充分竞争对所有人是好事</td><td>时间表</td></tr>
+            <tr><td class="num">36</td><td>Kalshi</td><td>预测市场<strong>领头羊</strong>；金融出身、体育切入但构想<strong>衍生品市场/永续合约</strong>；<strong>高度重视合规</strong>；Polymarket 发迹境外、对监管对抗</td><td>点名看好</td></tr>
+            <tr><td class="num">37</td><td>就业</td><td>技术净创造就业；<strong>AI 已净新增 100 万岗位</strong>；痛点在初级岗位（<strong>16–24 岁失业率 9.5%</strong> vs 整体 4.1%）；建议用 AI 创业、把创业当面试材料</td><td>社会判断</td></tr>
+            <tr><td class="num">38</td><td>SaaS/微软/医疗</td><td>SaaS 被 <strong>PaaS 蚕食</strong>；CRM 靠并购拼凑增长、Informatica 是"极糟信号"、"沦为价值股"；<strong>Copilot 远谈不上及格</strong>；<strong>医疗保健定价效率最低</strong>、<strong>ARKG 60% 被做空</strong>；<strong>SpaceX 将收购特斯拉</strong>；5 年期业绩"对终点极度敏感"</td><td>个股/板块结论</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 18 -->
+    <section id="s18">
+      <div class="sec-head"><div class="sec-num">18</div><h2 class="sec-title">风险与反面：这套叙事最容易在哪里断裂</h2></div>
+      <p class="sec-sub">伍德自己给了不少"免责式"提示，把它们集中起来看，比看她的乐观结论更有用。</p>
+
+      <div class="duo">
+        <div class="panel for">
+          <h4>她自己承认的不确定</h4>
+          <ol>
+            <li><b>霍尔木兹复航时点</b>："谁也说不准具体是什么时候"</li>
+            <li><b>iOS 阵营可能掉队</b>："也许不是这三家全部胜出，可能有一家会掉队"</li>
+            <li><b>Anthropic 数据性质</b>："这些仍是传闻"</li>
+            <li><b>微软拐点时点</b>："我不知道拐点何时到来"、"之前也曾看走眼过"</li>
+            <li><b>公募买入计划</b>："合规上不允许我提前透露"</li>
+            <li><b>5 年业绩</b>：承认该窗口"刚好对应策略历史高点"</li>
+          </ol>
+        </div>
+        <div class="panel against">
+          <h4>外部最该追问的四个点</h4>
+          <ol>
+            <li><b>7% 增速缺少分解</b>：没有给出 AI/机器人/多组学各自的贡献度，也未检验"平台数量—增速"的线性假设</li>
+            <li><b>估值与风险论证未闭合</b>：用收入增速论证 20 倍 PS，却用推理成本承认 OpenAI 领先</li>
+            <li><b>10 万亿美元 TAM 的口径宽泛</b>：Robotaxi 与医疗保健都用了同一个量级，缺乏自上而下与自下而上的交叉验证</li>
+            <li><b>利益相关性</b>：她已持有一级市场 Anthropic 股份、ARKG 有 60% 被做空、ARK 全线产品是这些主题的直接载体——观点与商业利益高度同向</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3><span class="h3n">18.1</span>对二级市场的三条实操提醒</h3>
+      <div class="check">
+        <ol>
+          <li><strong>不要把"主题正确"当成"标的正确"。</strong>她自己在医疗保健上的原话就是最好的注脚——"这将是一个极度考验选股能力的市场"，同一板块内一部分公司"会处理得很好"，另一部分"无法过关，面临重组或被并购"。</li>
+          <li><strong>注意 ARK 产品的"载体风险"。</strong>ARKK/ARKG 等是主动管理型、集中度高、换手高的产品，其净值波动远大于主题 ETF 的行业平均；ARKVX 更是区间基金，流动性受限。</li>
+          <li><strong>把她的"时间表"当作最软的部分。</strong>全篇唯一给出的具体时点是"5–10 年"（Robotaxi、医疗 TAM）与"2020 年代末到 2030 年代初"（Grok 竞争）。这类区间长度足以让任何仓位管理失效，必须以"能否承受中途 50% 回撤"为前提。</li>
+        </ol>
+      </div>
+
+      <div class="callout warn">
+        <b>一句话收口：</b>这场讲话的价值不在于"该买什么"，而在于它给出了一个<strong>完整、自洽、可被逐条证伪的宏观框架</strong>——实际利率驱动增长、五大平台融合、iOS 攫取利润、多组学被极端低估。真正有用的做法不是照抄结论，而是<strong>把她列出的每一个可验证节点（阿布扎比行为、霍尔木兹复航、Anthropic ARR、ARKG 空头回补、SpaceX 收购特斯拉）做成观察清单，用事实而不是叙事来更新仓位</strong>。
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>原文</strong>：微信公众号「404K」，《木头姐｜AI革命才刚刚开始，Anthropic年底ARR或触及1000亿美元，20倍市销率说得过去，OpenAI、Anthropic、SpaceX的AI像iOS》，2026 年 11 月 16 日。</p>
+      <p><strong>说明</strong>：本文为对上述公开访谈内容的全文精读与观点整理，所有引述均来自原文；第十六节"美股与 ETF 映射"为基于文中观点的逻辑推导，原文未作任何个股推荐，亦未提供价格或估值数据。文中提及的 Anthropic 财务数据、SpaceX 上市价格、Kalshi 与 Polymarket 竞争格局等，均为讲话人现场引述的"坊间传闻"或第三方信息，未经独立核验。</p>
+      <p style="margin-top:18px;color:#8b1e1e">⚠️ 以上内容由 AI 基于公开信息整理生成，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function onScroll(){
+    var y = window.scrollY + 120, idx = 0;
+    for (var i=0;i<secs.length;i++){ if (secs[i].offsetTop <= y) idx = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===idx); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

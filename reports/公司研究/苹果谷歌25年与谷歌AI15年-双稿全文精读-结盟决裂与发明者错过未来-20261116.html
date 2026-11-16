@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苹果谷歌二十五年 · 谷歌AI十五年｜双稿全文精读</title>
+<style>
+  :root{
+    --paper:#f7f5f1;
+    --card:#ffffff;
+    --ink:#1b1a18;
+    --ink-2:#3d3a35;
+    --ink-3:#6b655c;
+    --ink-4:#9a9388;
+    --line:#e2ddd4;
+    --line-2:#efece6;
+    --accent:#8b1e1e;
+    --accent-soft:#f6e8e7;
+    --teal:#1f4e5f;
+    --teal-soft:#e6eef1;
+    --gold:#8a6d1f;
+    --gold-soft:#f8f1dc;
+    --green:#2f6b4f;
+    --green-soft:#e7f0ea;
+    --serif:Georgia,"Songti SC","SimSun","Noto Serif SC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:15.5px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .shell{max-width:1250px;margin:0 auto;padding:0 32px 100px;display:grid;grid-template-columns:208px minmax(0,1fr);gap:54px;}
+  .main{min-width:0;}
+
+  .toc{position:sticky;top:0;align-self:start;padding:44px 0 40px;max-height:100vh;overflow-y:auto;}
+  .toc-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);font-weight:700;margin-bottom:14px;}
+  .toc ol{list-style:none;margin:0;padding:0;}
+  .toc a{display:block;padding:4px 10px 4px 12px;font-size:12.3px;line-height:1.5;color:var(--ink-3);border-left:2px solid transparent;transition:all .15s;}
+  .toc a:hover{color:var(--ink);text-decoration:none;background:#efece6;}
+  .toc a.sub{padding-left:24px;font-size:11.8px;color:var(--ink-4);}
+  .toc .grp{font-size:10px;letter-spacing:.14em;color:var(--accent);font-weight:700;margin:16px 0 6px;padding-left:12px;text-transform:uppercase;}
+
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px;}
+  .kicker::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block;}
+  h1{font-family:var(--serif);font-size:clamp(29px,3.9vw,44px);line-height:1.26;font-weight:700;letter-spacing:-.01em;margin:0 0 18px;}
+  h1 em{font-style:normal;color:var(--accent);}
+  .deck{font-size:16.5px;color:var(--ink-2);line-height:1.82;max-width:790px;margin:0 0 28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:12px;color:var(--ink-3);padding-top:20px;border-top:1px dashed var(--line);}
+  .meta b{color:var(--ink-2);font-weight:600;}
+
+  .verdict{margin:34px 0 0;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:3px;padding:26px 30px;box-shadow:0 1px 2px rgba(27,26,24,.04),0 10px 30px -18px rgba(27,26,24,.18);}
+  .verdict h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-family:var(--sans);font-weight:700;}
+  .verdict p{margin:0 0 12px;font-size:15px;color:var(--ink-2);line-height:1.88;}
+  .verdict p:last-child{margin-bottom:0;}
+  .verdict strong{color:var(--ink);font-weight:700;}
+
+  section{padding:54px 0 10px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:8px;}
+  .sec-num{font-family:var(--serif);font-size:32px;line-height:1;color:#cfc8bc;font-weight:700;flex:none;letter-spacing:-.02em;}
+  h2.sec-title{font-family:var(--serif);font-size:25px;line-height:1.36;margin:0;font-weight:700;letter-spacing:-.01em;}
+  .sec-sub{color:var(--ink-3);font-size:13.5px;margin:0 0 26px;padding-left:50px;line-height:1.72;}
+
+  h3{font-size:15.5px;font-weight:700;margin:32px 0 12px;color:var(--ink);}
+  h3 .h3n{color:var(--ink-4);font-weight:600;margin-right:8px;font-variant-numeric:tabular-nums;}
+  h4{font-size:13.6px;font-weight:700;margin:22px 0 8px;color:var(--ink-2);letter-spacing:.01em;}
+  p{margin:0 0 14px;}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:6px;}
+  li::marker{color:var(--ink-4);}
+  strong{color:var(--ink);}
+  em{font-style:normal;background:linear-gradient(transparent 62%, #f4e6c8 62%);padding:0 1px;}
+
+  .tw{margin:16px 0 24px;border:1px solid var(--line);border-radius:3px;overflow-x:auto;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.62;min-width:560px;}
+  thead th{background:#efece5;text-align:left;padding:10px 13px;font-weight:700;font-size:11.5px;letter-spacing:.05em;color:var(--ink-2);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:10px 13px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfaf7;}
+  td strong{color:var(--ink);font-weight:700;}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+
+  .quote{margin:18px 0;padding:16px 20px;background:var(--card);border-left:3px solid var(--ink-4);border-radius:0 3px 3px 0;font-family:var(--serif);font-size:14.6px;line-height:1.82;color:var(--ink-2);}
+  .quote p{margin:0 0 8px;}
+  .quote p:last-child{margin:0;}
+  .quote .src{display:block;margin-top:8px;font-family:var(--sans);font-size:11.5px;color:var(--ink-4);letter-spacing:.04em;}
+
+  .note{margin:20px 0;padding:16px 20px;background:var(--gold-soft);border:1px solid #ecdfb8;border-radius:3px;font-size:13.6px;color:#5c4c1d;line-height:1.78;}
+  .note b{color:#4a3d15;}
+  .note-blue{background:var(--teal-soft);border-color:#c9dde3;color:#1c414d;}
+  .note-blue b{color:#12303a;}
+  .note-green{background:var(--green-soft);border-color:#cfe2d6;color:#254f3a;}
+  .note-green b{color:#1c3d2c;}
+
+  .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:18px 0 24px;}
+  .kv div{background:var(--card);padding:14px 16px;}
+  .kv .k{font-size:11px;color:var(--ink-4);letter-spacing:.06em;margin-bottom:5px;}
+  .kv .v{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);line-height:1.3;}
+  .kv .s{font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.5;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 24px;}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:16px 18px;}
+  .col h4{margin:0 0 10px;font-size:13px;letter-spacing:.02em;}
+  .col.a h4{color:var(--accent);}
+  .col.b h4{color:var(--teal);}
+  .col ul{margin:0;padding-left:18px;font-size:13.2px;line-height:1.7;color:var(--ink-2);}
+
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:1px 7px;border-radius:2px;line-height:1.7;white-space:nowrap;}
+  .t-a{background:var(--accent-soft);color:var(--accent);}
+  .t-b{background:var(--teal-soft);color:var(--teal);}
+  .t-g{background:var(--gold-soft);color:var(--gold);}
+  .t-n{background:#eceae4;color:var(--ink-3);}
+
+  .part-band{margin:56px 0 0;padding:22px 26px;background:#1b1a18;color:#f2efe8;border-radius:3px;}
+  .part-band .pk{font-size:10.5px;letter-spacing:.2em;color:#b9ac95;font-weight:700;margin-bottom:8px;}
+  .part-band h2{margin:0;font-family:var(--serif);font-size:23px;font-weight:700;line-height:1.4;color:#f7f4ee;}
+  .part-band p{margin:8px 0 0;font-size:13px;color:#c9c0b0;line-height:1.7;}
+
+  .foot{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-4);line-height:1.8;}
+
+  @media (max-width:980px){
+    .shell{grid-template-columns:1fr;gap:0;padding:0 20px 70px;}
+    .toc{display:none;}
+    .cols{grid-template-columns:1fr;}
+    .sec-sub{padding-left:0;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<nav class="toc">
+  <div class="toc-label">目录</div>
+  <ol>
+    <li><a href="#intro">导读：两篇文稿的分工</a></li>
+    <div class="grp">文稿一</div>
+    <li><a href="#p1">苹果谷歌二十五年</a></li>
+    <li><a href="#p1-1" class="sub">1 蜜月：不合并地合并</a></li>
+    <li><a href="#p1-2" class="sub">2 分岔：iPhone 重写安卓</a></li>
+    <li><a href="#p1-3" class="sub">3 决裂：核战争</a></li>
+    <li><a href="#p1-4" class="sub">4 换代：战争变生意</a></li>
+    <li><a href="#p1-5" class="sub">5 失速：AI 困局</a></li>
+    <li><a href="#p1-6" class="sub">6 续约：租下谷歌大脑</a></li>
+    <li><a href="#p1-7" class="sub">7 尾声：谁也走不进下一个时代</a></li>
+    <div class="grp">文稿二</div>
+    <li><a href="#p2">谷歌 AI 十五年</a></li>
+    <li><a href="#p2-1" class="sub">1 谷歌大脑：铺地基的人</a></li>
+    <li><a href="#p2-2" class="sub">2 DeepMind：伦敦的赌注</a></li>
+    <li><a href="#p2-3" class="sub">3 独立之战</a></li>
+    <li><a href="#p2-4" class="sub">4 黄金时代</a></li>
+    <li><a href="#p2-5" class="sub">5 错失先机</a></li>
+    <li><a href="#p2-6" class="sub">6 应战</a></li>
+    <li><a href="#p2-7" class="sub">7 反攻</a></li>
+    <li><a href="#p2-8" class="sub">8 光环之下，群星散落</a></li>
+    <li><a href="#p2-9" class="sub">9 黄金时代的余晖</a></li>
+    <li><a href="#p2-10" class="sub">10 尾声：与 Meta 同构</a></li>
+    <div class="grp">交叉索引</div>
+    <li><a href="#cross">时间线 · 数字 · 人物</a></li>
+    <li><a href="#views">两份文稿的观点总账</a></li>
+  </ol>
+</nav>
+
+<div class="main">
+
+<header class="hero">
+  <div class="kicker">深度研究 · 双稿全文精读</div>
+  <h1>结盟、决裂、再续约：<br>苹果与谷歌的二十五年，<br>以及<em>发明未来的人</em>为何错过未来</h1>
+  <p class="deck">
+    两篇长文，一条暗线。第一篇写两家公司从"不合并地合并"到热核战争、再到在 AI 时代重新签下一份合同的二十五年；第二篇写谷歌内部两支 AI 团队——山景城的谷歌大脑与伦敦的 DeepMind——如何在十五年间发明了未来，又把未来让给了别人。合起来看，它们是同一个故事的两面：<strong>谁生产模型，谁掌握入口，以及为什么最成功的旧业务既是最坚实的后盾，也是最沉重的枷锁。</strong>
+  </p>
+  <div class="meta">
+    <span><b>文稿一</b>《苹果谷歌25年恩怨录：结盟、决裂，和一场迟来的联姻》· UrbanRitual（公众号"科技这碗饭"）· 2026年8月1日</span>
+    <span><b>文稿二</b>《谷歌AI风云15年：诸神的黄昏——发明未来的人为何错过未来（文字版）》· 同作者 · 2026年8月之后</span>
+    <span><b>整理</b>按原文叙事顺序逐章梳理，保留全部数据、引语与判断</span>
+  </div>
+
+  <div class="verdict">
+    <h2>一句话结论</h2>
+    <p><strong>文稿一给出的答案是"入口"：</strong>苹果手里握着全世界最贵的提问入口，谷歌手里握着模型、芯片、机房和隐私架构。二十五年里钱一直从谷歌流向苹果，2026 年第一次有一小笔钱往回流——十亿美元买下的不是一笔订单，而是原来用两百亿美元买来的那个位置。</p>
+    <p><strong>文稿二给出的答案是"组织"：</strong>谷歌三次都看见了未来（语言模型、发布时机、推理赛道），三次都把先手让给了 OpenAI。不是因为缺钱、缺人、缺技术，而是因为搜索与广告的利润既养大了研究院，也锁住了研究院——发明者被自己的成功结构性地挡在了产品门外。</p>
+    <p><strong>合起来看：</strong>一个负责把智能做出来，一个负责把人带到智能面前；两件事都做到极致的两家公司，最后都发现<strong>自己缺的那块拼图恰好握在对方手里</strong>。</p>
+  </div>
+</header>
+
+<!-- ============ 导读 ============ -->
+<section id="intro">
+  <div class="sec-head"><div class="sec-num">00</div><h2 class="sec-title">导读：两篇文稿的分工与读法</h2></div>
+  <p class="sec-sub">一份是关系史，一份是组织史；一份讲"合同"，一份讲"实验室"。</p>
+
+  <div class="cols">
+    <div class="col a">
+      <h4>文稿一 · 关系史（外部视角）</h4>
+      <ul>
+        <li>主角：乔布斯、施密特、库克、劈柴</li>
+        <li>主线：结盟 → 决裂 → 诉讼 → 和解 → 合同 → AI 时代再结盟</li>
+        <li>核心变量：默认搜索入口的价格（10 亿 → 200 亿美元/年 → 10 亿美元的新合同）</li>
+        <li>结论落点：谁也无法独自走进下一个时代</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>文稿二 · 组织史（内部视角）</h4>
+      <ul>
+        <li>主角：Jeff Dean、桑杰、哈萨比斯、苏莱曼、科拉伊、沙泽尔、布林</li>
+        <li>主线：谷歌大脑 + DeepMind → 各自为战 → 被迫合并 → 反攻 → 再次失速 → 群星散落</li>
+        <li>核心变量：算力分配权、产品发布权、治理结构</li>
+        <li>结论落点：研究院的尽头是工程战争</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note note-blue">
+    <b>阅读提示：</b>两篇文稿的叙事时间线延伸到 2026 年 8 月（含库克卸任、Gemini 3.5 Pro 延期、AlphaFold 团队解散、Jeff Dean 离职创业等情节）。本报告严格按原文叙述整理，只做忠实转述与交叉对照，不对其中未来时点的事件做事实核验；凡两稿时点或口径不一致处，均在正文中标注，供读者自行判断。
+  </div>
+
+  <h3><span class="h3n">0.1</span>两篇文稿共享的三个结构性判断</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:15%">判断</th><th style="width:42%">文稿一的表述</th><th style="width:43%">文稿二的表述</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>旧业务是资源，也是枷锁</strong></td>
+        <td>搜索合同每年给苹果带来近两百亿美元，接近其全年利润的五分之一；苹果因此从不敢真正换掉谷歌，只是拿微软当筹码抬价。</td>
+        <td>搜索与广告的利润让谷歌养得起全世界最自由的研究院，也让它在聊天机器人送审十一轮后仍不敢发布。</td>
+      </tr>
+      <tr>
+        <td><strong>微软是那条隐形线索</strong></td>
+        <td>2001 年，共同的敌人微软把乔布斯和施密特推到一起（Don't be evil 里的 evil 影射微软）；2026 年，让库克和劈柴重新走回彼此身边的，是微软投资的 OpenAI。</td>
+        <td>OpenAI 背后最大的投资人正是微软；微软为 OpenAI 专门造了一万台 GPU 的超级计算机集群，而谷歌的芯片分散在各个项目里——"这很蠢"（Jeff Dean）。</td>
+      </tr>
+      <tr>
+        <td><strong>创始人退场，职业经理人接棒</strong></td>
+        <td>乔布斯与施密特谈的是朋友、背叛和立场；库克与劈柴谈的只剩合同、价格和风险。"当一家公司不再需要证明自己能不能活下来，它需要的就不再是另一个创始人。"</td>
+        <td>哈萨比斯从"我们要做人类历史上最大的发明"到"我们不能只做科学了"；最终交出日常管理，改任董事长兼 Alphabet 首席科学家，主要职责是"提供建议"。</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ PART 1 ============ -->
+<div class="part-band" id="p1">
+  <div class="pk">文稿一 · 第一部分</div>
+  <h2>苹果与谷歌：二十五年，从"不合并地合并"到"迟来的联姻"</h2>
+  <p>六个章节，一条完整弧线：蜜月（2001–2007）→ 分岔（2007–2008）→ 决裂（2008–2012）→ 换代（2011–2020）→ 失速（2022–2025）→ 续约（2026）。</p>
+</div>
+
+<section id="p1-0">
+  <div class="sec-head"><div class="sec-num">1.0</div><h2 class="sec-title">序章：二十五年后，苹果重新选择谷歌</h2></div>
+  <p class="sec-sub">2026 年 WWDC，库克作为 CEO 主持的最后一场发布会。</p>
+
+  <ul>
+    <li><strong>人事背景：</strong>这是库克作为 CEO 主持的最后一场 WWDC；他 4 月已宣布九月卸任 CEO、转任董事长，十六年的库克时代走到落幕时刻。</li>
+    <li><strong>发布会最重要的消息：</strong>苹果终于把新一代 Siri 做出来了。背后是苹果与谷歌非常深度、全面的合作——新 Siri 深度集成 Gemini 提供的能力；训练依靠谷歌 TPU 芯片；模型直接托管在谷歌数据中心运行；连保护隐私的整套加密架构，都是两家公司重新整合、联手搭建的。</li>
+    <li><strong>作者的概括：</strong>"模型虽然是苹果的，但教它的老师、训它的芯片、跑它的机房，全是谷歌的。"</li>
+    <li><strong>苹果的措辞：</strong>iOS 负责人反复强调"Siri 还是苹果的 Siri"，谷歌只在背后提供技术，用户不会在 iPhone 上看到任何谷歌的痕迹。作者翻译成："<em>里子是租来的，面子坚持是自己的。</em>"</li>
+    <li><strong>对照 2010 年：</strong>乔布斯曾对传记作者说，会"用尽最后一口气，花光苹果账上的四百亿美金，去毁掉安卓"，愿意为这件事打一场核战争。</li>
+    <li><strong>叙事框架：</strong>从最早合作算起已二十五年。作者认为这段历史"与其说是商战片，倒不如说更像一段从校园走到中年的爱情"。</li>
+  </ul>
+</section>
+
+<section id="p1-1">
+  <div class="sec-head"><div class="sec-num">1.1</div><h2 class="sec-title">第一章 · 蜜月：不合并地合并（2001–2007）</h2></div>
+  <p class="sec-sub">两个挑战者，为了对付同一个霸主，站到了同一个阵营。</p>
+
+  <h3><span class="h3n">①</span>起点：两个二十七八岁的创始人，想找乔布斯当 CEO</h3>
+  <ul>
+    <li>2001 年，谷歌成立刚满三年，还是创业公司。佩奇和布林都是技术出身，在斯坦福读博士读到一半休学创业，当时都只有二十七八岁。</li>
+    <li>投资人觉得两个二十多岁的工程师管不了一家上市公司，逼他们找一个更成熟的人来当 CEO。他们面试了很多人都不满意，内心真正想找的人是<strong>乔布斯</strong>——两人甚至真的去找过，被拒绝了。</li>
+    <li>当时乔布斯 46 岁，是被苹果踢走后回归的第四年，刚把苹果从破产边缘拉回来，不可能去接手另一家创业公司。但他没把两个年轻人打发走，而是把他们当后辈，保持很长时间的师徒关系：乔布斯和布林住得很近，经常一起散步，聊产品、聊管理、聊怎么经营一家公司。</li>
+    <li>谷歌最终找来的 CEO 是 <strong>Eric Schmidt（埃里克·施密特）</strong>，四十多岁，职业经理人出身。任务只有一个：替两个年轻创始人把公司看稳。硅谷后来给这种安排起了个名字——<strong>"成年人监护"</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>黏合剂：共同的敌人微软</h3>
+  <ul>
+    <li>2001 年的微软市值三千多亿美元，全世界九成以上电脑跑 Windows；苹果市值还不到微软的一个零头，谷歌甚至还没上市。在那个年代的硅谷，微软是当之无愧的霸主。</li>
+    <li>乔布斯一直认定 Windows 抄走了苹果的图形界面，这件事他耿耿于怀将近二十年。施密特加入谷歌之前，曾执掌一家做网络操作系统的公司，最后也在 Windows 的挤压下节节败退。</li>
+    <li>谷歌那句著名座右铭 Don't be evil 里的 evil（恶），影射的就是微软。</li>
+    <li><strong>"敌人的敌人就是朋友。"</strong>苹果和谷歌最初走到一起，更像两个挑战者为了对付同一个霸主，站到了同一个阵营里。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>关系最深的几年：从免费默认搜索到同一个董事会</h3>
+  <ul>
+    <li><strong>2002 年：</strong>谷歌成为苹果 Safari 浏览器的默认搜索引擎——那时候这份协议还是免费的，谷歌一分钱都不用付。</li>
+    <li><strong>2006 年：</strong>乔布斯把施密特请进苹果董事会。关系最好的时候，有三个董事同时坐在苹果和谷歌的董事会里，"重叠到几乎像是一家公司"，美国联邦贸易委员会（FTC）还专门为此做过反垄断调查。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>2007 年 1 月：初代 iPhone 发布会</h3>
+  <ul>
+    <li>这场发布会几乎改写了之后整个科技行业的走向。但当时台下的人并不知道：整个会场能正常工作的 iPhone 只有一百来台，每一步操作都提前安排、严格写进剧本，按错任何一步机器都可能死机；每过完一个环节，后台工程师都得喝一口威士忌压惊。</li>
+    <li>乔布斯请上台的<strong>第一个嘉宾就是施密特</strong>。施密特先恭喜乔布斯，然后开玩笑："我有幸加入了苹果董事会，我们两家公司的关系已经这么深了，有时候我甚至觉得，我们干脆合并算了。名字都想好了，可以叫 <strong>AppleGoo</strong>。"</li>
+    <li>随后补上那句更有名的话："我们其实不需要真的合并。我们可以 <strong>merge without merging</strong>——不合并地合并。"</li>
+    <li>乔布斯接过话筒，演示在 iPhone 上用谷歌地图搜附近的星巴克。初代 iPhone 预装了三个谷歌应用：<strong>谷歌搜索、谷歌地图、YouTube</strong>。"苹果负责造出全世界最漂亮的手机，里面装了一整个谷歌的世界。"</li>
+    <li>当时市面上的智能手机，要么跑诺基亚塞班，要么是黑莓，要么搭载微软 Windows Mobile。iPhone 要推翻的正是这一整个旧世界——在乔布斯的设想里，苹果负责重新发明手机，谷歌是和它一起挑战旧秩序的盟友。那时没有人觉得这两家未来会成为对手。</li>
+  </ul>
+
+  <div class="note">
+    <b>第一章最锋利的一处反讽：</b>就在施密特站在台上说出"我们干脆合并算了"的时候，谷歌园区另一栋楼里，有一个团队正在悄悄开发手机操作系统——<strong>Android</strong>，谷歌两年前悄悄买下的一家小公司。换句话说，在施密特坐进苹果董事会的时候，他自己的公司已经开始准备进入苹果最核心的地盘。
+  </div>
+</section>
+
+<section id="p1-2">
+  <div class="sec-head"><div class="sec-num">1.2</div><h2 class="sec-title">第二章 · 分岔：iPhone 如何重写安卓（2003–2009）</h2></div>
+  <p class="sec-sub">一个被苹果同事起的外号，最后改变了整个手机行业。</p>
+
+  <h3><span class="h3n">①</span>安迪·鲁宾：从苹果制造工程师到"Android"</h3>
+  <ul>
+    <li>被谷歌收购前，这家做安卓的小公司只有<strong>八个人</strong>，没有产品、没有收入，连明确的商业模式都没想清楚。创始人 <strong>Andy Rubin（安迪·鲁宾）</strong>是整个安卓团队里与苹果渊源最深的人。</li>
+    <li>他是机器人工程师。26 岁在开曼群岛度假时偶然认识一个苹果工程师，回美国后被介绍进苹果，在苹果做了<strong>三年制造工程师</strong>。</li>
+    <li>他极度痴迷机器人，办公室到处是机器人零件，同事干脆给他起了个外号叫 <strong>Android</strong>——意思是人形机器人。后来他注册了 android.com 域名，那时距离安卓系统诞生还有十几年。<strong>"Android 这个后来改变了整个手机行业的名字，最早其实是苹果同事给鲁宾起的外号。"</strong></li>
+    <li>离开苹果后辗转几家公司。2003 年创办 Android 公司，最初想做数码相机操作系统，很快发现市场太小，转向手机操作系统。两年后谷歌以约 <strong>5000 万美元</strong>买下这家公司——作者称这是"谷歌历史上最划算的一笔交易"。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>两台原型机：Sooner 与 Dream</h3>
+  <ul>
+    <li><strong>Sooner：</strong>长得很像黑莓，物理全键盘、没有触摸屏。黑莓是当时美国最火的智能手机，打字发邮件很快，商务人士人手一台，奥巴马当上总统都舍不得换掉。</li>
+    <li><strong>Dream：</strong>配触摸屏，但只是备选方案，优先级排在后面。</li>
+    <li>从代号就能看出计划：Sooner 的意思是"更早"，按原计划它应该最先上市。<strong>这说明最早谷歌做手机，想挑战的是黑莓和微软，苹果根本不在它的作战地图上。</strong></li>
+    <li><strong>2007 年 1 月 9 日，转折点：</strong>鲁宾在拉斯维加斯出差，坐在出租车后座看初代 iPhone 发布会直播，看到一半让司机靠边停车，在路边把整场看完。他意识到那台黑莓样式的安卓手机不能发了，必须从头再来。Sooner 被直接放弃，团队重心全部转向带触摸屏的 Dream。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>开放手机联盟与 G1：安卓选择了一条与 iPhone 完全相反的路</h3>
+  <ul>
+    <li>十个月后，谷歌第一次正式对外公布安卓——没有像苹果那样独自开发布会，而是一口气拉来三十多家公司共同官宣：三星、HTC、摩托罗拉、高通、T-Mobile，从芯片、手机厂商到电信运营商，几乎凑齐整条产业链。名字叫<strong>开放手机联盟</strong>。</li>
+    <li>一年后，2008 年 10 月，第一款安卓手机上市：HTC 生产的 <strong>T-Mobile G1</strong>。</li>
+  </ul>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:14%"></th><th style="width:43%">苹果：封闭生态</th><th style="width:43%">谷歌：开放生态</th></tr></thead>
+    <tbody>
+      <tr><td><strong>硬件与系统</strong></td><td>硬件自己做，系统自己做</td><td>系统开源，任何手机厂商可免费使用（三星、HTC、摩托罗拉，后来的 vivo/OPPO/小米、最早的华为都用安卓）</td></tr>
+      <tr><td><strong>应用分发</strong></td><td>只能从 App Store 下载，连充电接口都是自己的</td><td>不一定非从谷歌官方商店下载，很多厂商有自己的应用商店</td></tr>
+      <tr><td><strong>怎么赚钱</strong></td><td>卖手机</td><td>不收授权费，把搜索、地图等服务预装进手机，通过广告赚钱——"它真正想卖的从来不是操作系统，而是自己的互联网服务"</td></tr>
+      <tr><td><strong>信念</strong></td><td>相信控制，把一切攥在自己手里</td><td>相信开放，把系统交给整个行业，联合全世界的手机厂商建立覆盖全球的生态</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>作者的原话：</strong>"如果说苹果卖的是 iPhone 手机，那么谷歌卖的就是生态。"</p>
+
+  <h3><span class="h3n">④</span>施密特的处境：从回避一个议题，到回避越来越多议题</h3>
+  <ul>
+    <li>第一台安卓手机上市后，施密特在苹果董事会的处境越来越微妙。每次董事会讨论到 iPhone 相关议题，他就得起身离开会议室主动回避。</li>
+    <li>后来谷歌又宣布要做 Chrome 浏览器和笔记本操作系统 Chrome OS。谷歌的解释是：Chrome 瞄准微软 IE，Chrome OS 挑战 Windows——枪口名义上始终对着微软。但对乔布斯来说，苹果的 Safari 和 Mac 也在同一个射程之内。</li>
+    <li><strong>2009 年 8 月，施密特退出苹果董事会。</strong>乔布斯的官方声明写得很客气，说施密特是优秀董事、双方协商共同决定。但"真正发生的事情，远没有这么体面"——因为在施密特离开董事会之前一年，乔布斯已经亲自开车去谷歌总部兴师问罪。</li>
+  </ul>
+</section>
+
+<section id="p1-3">
+  <div class="sec-head"><div class="sec-num">1.3</div><h2 class="sec-title">第三章 · 决裂：乔布斯发动核战争（2008–2012）</h2></div>
+  <p class="sec-sub">"你连发型和眼镜都在学我。"</p>
+
+  <h3><span class="h3n">①</span>2008 年夏：库比蒂诺到山景城的二十分钟车程</h3>
+  <ul>
+    <li>第一台安卓手机还没上市。一个下午，乔布斯亲自开车，从苹果总部库比蒂诺开到 20 分钟外的谷歌总部山景城，同行的是当时的 iOS 负责人斯科特·弗雷斯特（Scott Forstall）。此行目的只有一个：<strong>看安卓的样机</strong>。</li>
+    <li>会议室里坐着佩奇、几位谷歌工程高管，以及 Android 负责人鲁宾。会面一开始火药味就很浓。鲁宾把样机递给乔布斯，乔布斯低头看了几分钟，然后一项一项点过去："<strong>这个手势是我们的，这个滑动解锁是我们的，这个应用图标网格是我们的。</strong>"他越说越激动，当面指着鲁宾说："<strong>你连发型和眼镜都在学我，安卓的每一个地方都在抄我们。</strong>"</li>
+    <li>整个会议室一下安静了。佩奇在场、谷歌几位高管也在场，却没有人替鲁宾说话。"鲁宾是谷歌的员工，乔布斯只是来谈判的客人。但那个房间里的气氛，却不像两家公司在谈判，更像老师在训学生。"</li>
+    <li><strong>结果：</strong>谷歌让步，从安卓手机上拿掉多点触控（今天人人习惯的双指缩放）。乔布斯在 iPhone 发布会上专门强调过多点触控已申请专利，谷歌承认了这一条——所以 2008 年 10 月上市的第一台安卓手机 G1 没有双指缩放。</li>
+    <li>鲁宾一直耿耿于怀：开会时谷歌没替他撑腰，后来又拿掉关键功能，"连续两次，他的老板都没有站在自己这一边"。一气之下，他在办公室白板上写了一句：<strong>"乔布斯当众欺负我。"</strong></li>
+  </ul>
+
+  <h3><span class="h3n">②</span>2010 年 1 月：Nexus One 把退让过的东西全加回来</h3>
+  <ul>
+    <li>谷歌发布 Nexus One，第一台真正意义上的谷歌手机。双指缩放、滑动解锁、应用图标网格——"谷歌表示我全都要，之前我们退让过，但现在，我们不退了"。</li>
+    <li>月底苹果召开内部全员大会。乔布斯刚讲完 iPad，突然话锋一转说谷歌："<strong>我们没有进入搜索业务，是他们进入了手机业务。</strong>"（搜索是谷歌主业，所有钱都靠搜索广告赚，苹果从没碰过；是谷歌先跑过来做手机，抢苹果的地盘。）</li>
+    <li>接着说："<strong>不要搞错，他们想要干掉 iPhone，我们不会让他们得逞。</strong>"最后又补一句："<strong>那个 Don't be evil 的口号，就是扯淡。</strong>"——意思是，如今谷歌做的事，正是当年谷歌最讨厌的那一套：像微软一样把手伸进别人的地盘。台下苹果员工一片欢呼、掌声雷动。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>代理人战争：为什么告 HTC 而不是告谷歌</h3>
+  <ul>
+    <li>两个月后，苹果正式起诉 <strong>HTC</strong>（代工第一台安卓手机 G1 的台湾厂商），指控侵犯 20 项 iPhone 专利；随后又先后起诉三星和摩托罗拉，几乎把所有安卓阵营的重要厂商告了个遍。</li>
+    <li><strong>为什么不直接起诉谷歌？</strong>因为谷歌免费把安卓授权给厂商，安卓本身没有营收，苹果没法在法庭上算出谷歌害它损失了多少钱。但 HTC、三星不同——他们卖手机，有销售收入，也有实体产品可以申请禁售。<strong>"所以苹果打的其实是代理人战争，目标是谷歌，子弹却打向了安卓阵营里的每一家手机厂商。"</strong></li>
+  </ul>
+
+  <h3><span class="h3n">④</span>核战争宣言与那场无果的咖啡馆谈判</h3>
+  <div class="quote">
+    <p>"安卓是偷来的产品，谷歌是在批发式地抄袭 iPhone。我愿意用尽最后一口气，花光苹果账上的四百亿美元，去毁掉安卓。我愿意为此打一场核战争。"</p>
+    <span class="src">乔布斯对传记作者，2010 年春</span>
+  </div>
+  <p>当时苹果刚凭 iPhone 掀翻整个手机行业，市值也已超过微软。作者评论：愿意把账上四百亿全部拿出来，只为让安卓让谷歌身败名裂，"可见这已经不是一场普通的商业竞争，更像是一场关于信念的战争"。</p>
+  <ul>
+    <li>几乎同一时间，乔布斯和施密特被拍到在一家咖啡馆见面：施密特身体前倾说话，是恳请的姿态；乔布斯靠在椅背上，一只手搭在桌沿。</li>
+    <li>施密特提出和解。乔布斯的回答很直接："<strong>我不要你的钱。你给我五十亿，我也不要。我不缺这点钱。我只想要一件事，你们停止在安卓里使用我们的想法。</strong>"</li>
+    <li>谈判无果而终，双方陷入长达两年的诉讼。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>乔布斯与库克的分野：信念 vs 供应链</h3>
+  <ul>
+    <li>当时在苹果内部，<strong>库克是反对起诉三星的</strong>。他当时是 COO，负责供应链和运营，十年里把苹果库存周转从一个月压到两天。所以他看待世界的方式本质上是供应链的方式：一件东西要么自己做成本更低，要么向外采购更划算，一切都是生意。</li>
+    <li>而三星当时是苹果最大的芯片和屏幕供应商。在库克看来，"你不能跟你的供应商打官司"。乔布斯没听，坚持起诉——在他眼里，三星<strong>首先是叛徒和小偷，其次才是供应商</strong>，他关心的是打赢；库克眼里没有叛徒，他担心的是断供。</li>
+    <li><strong>作者判断：</strong>"一个在意的是价值观、是信念，另一个在意的是划不划算。所以后来很多人觉得，苹果从乔布斯时代走向库克时代，就是从这里开始的。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>2011：专利军备、乔布斯去世、库克收拾战场</h3>
+  <ul>
+    <li>谷歌为防御，2011 年花 <strong>125 亿美元</strong>买下摩托罗拉移动——不是为了手机业务，而是为了它手里的<strong>整整一万七千项专利</strong>。双方都在为长期战争储备弹药。</li>
+    <li><strong>2011 年 10 月，乔布斯去世。</strong>库克接手后，与其说继续战争，不如说在收拾战场。</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>苹果地图：一场战略上合理、产品上灾难的切割</h3>
+  <ul>
+    <li>乔布斯留下的第一份考卷就是苹果地图。随着两家彻底决裂，乔布斯决定把谷歌地图从 iPhone 上拿掉。<strong>2012 年 6 月</strong>苹果宣布 iOS 6 不再预装谷歌地图；三个月后新地图随 iPhone 5 上线。</li>
+    <li><strong>灾难：</strong>三维视图里桥会变形、道路会消失。最严重的一次在澳大利亚——一个镇被标在七十公里外荒无人烟的国家公园里，夏天气温接近五十度、没有水源，不少司机跟着导航开进去被困，最后出动警方才把人救出；维多利亚州警方专门发布公告，提醒公众不要使用苹果地图导航。</li>
+    <li><strong>库克公开道歉：</strong>他说苹果没有达到自己的承诺，"对此我们深感抱歉"；更意外的是，他直接建议用户暂时使用其他公司的地图产品，包括谷歌地图、微软必应地图和诺基亚地图——"公开建议用户去用竞争对手的产品，在苹果历史上几乎从未发生过"。</li>
+    <li><strong>代价：</strong>道歉信并非所有高管都同意。当时的 iOS 负责人（就是当年跟乔布斯一起开车去谷歌对峙的那位）拒绝签字，他的想法更接近乔布斯时代——产品出问题就把产品做好，没必要向外界低头。一个月后他离开苹果，从此再没回到科技行业。"很多人后来把这件事视为一个象征性的时刻：属于乔布斯的时代，在这一刻彻底结束了。"</li>
+    <li><strong>讽刺的一幕：</strong>12 月谷歌地图重回 App Store，上线 48 小时下载量突破一千万次。"核战争打了两年，苹果终于把谷歌地图赶出了系统，结果用户自己又把它装了回来。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑧</span>战争的结果：没有赢家，但改写了整个时代</h3>
+  <ul>
+    <li>专利战开始降温：乔布斯说要用最后一口气毁掉安卓，库克接手一年就和 HTC 签了和解。</li>
+    <li><strong>2012 年，安卓全球市场份额超过 iPhone</strong>，成为世界最大的智能手机操作系统。从被谷歌收购、到被乔布斯痛骂"偷来的产品"、再到登上全球第一，安卓只用了七年。此后十几年，全世界每卖出十台智能手机，约七台运行安卓。</li>
+    <li>但单看战争结果，很难说谁赢：双方打了四年，花了无数律师费、买了无数专利、开了无数场庭审，苹果没能消灭安卓，谷歌也没能消灭 iPhone。</li>
+  </ul>
+  <div class="kv">
+    <div><div class="k">2010 年 · iOS + 安卓份额</div><div class="v">38%</div><div class="s">其余大部分属于诺基亚、黑莓、微软</div></div>
+    <div><div class="k">2015 年 · iOS + 安卓份额</div><div class="v">97%</div><div class="s">其他手机厂商已被清理得差不多</div></div>
+    <div><div class="k">安卓登顶用时</div><div class="v">7 年</div><div class="s">从被收购到全球第一</div></div>
+    <div><div class="k">每十台手机中安卓</div><div class="v">约 7 台</div><div class="s">此后的十几年</div></div>
+  </div>
+  <div class="note">
+    <b>作者的核心判断：</b>"苹果和谷歌拼命想打败彼此。最后，他们真正消灭的，却是所有其他竞争者，也包括那个最初它们想要联手狙击的微软。它们终于完成了年轻时共同的目标，却不是并肩作战，而是在彼此厮杀中，一起建立了新的秩序。这场战争没有赢家。又或者说，最大的赢家，是他们两家共同创造出来的智能手机时代。"
+  </div>
+
+  <h3><span class="h3n">⑨</span>乔布斯最后一次见谷歌的人：不是狠话，是提醒</h3>
+  <ul>
+    <li>他生命里最后一次见谷歌的人，是<strong>佩奇</strong>。当时佩奇即将接替施密特出任谷歌 CEO，专门发邮件说想来请教一个问题：怎样才能成为一名合格的 CEO。</li>
+    <li>乔布斯第一反应是骂了句脏话说不想见。但转念想起自己十几岁时惠普的创始人也曾给予过他很多帮助，于是答应了。</li>
+    <li>两人在乔布斯家里见面。当时他已瘦得很厉害，大部分时间只能待在家里。那天他们几乎没有谈 Android，也没有谈专利官司，讨论的是如何搭建团队、如何管理、一家伟大的公司应该如何继续成长。</li>
+    <li><strong>乔布斯的建议：</strong>"先想清楚，谷歌长大以后，到底要成为什么样的公司。"他觉得当时的谷歌什么都想做、战线铺得太开；如果继续这样下去，总有一天会变成微软。</li>
+    <li>那时距离乔布斯去世还有大半年。过去四年他一直在骂谷歌，甚至说要用最后一口气毁掉安卓；但最后一次见面，留下的不是一句狠话，而是一条"来自长辈、对于晚辈最真心的提醒"。</li>
+    <li><strong>身后：</strong>乔布斯去世当天佩奇发表悼文；谷歌首页那个一向除了搜索框什么都没有的页面，那天破例出现一行字："Steve Jobs, 1955-2011"，点进去是苹果官网。施密特后来评价：他是过去五十年最伟大的 CEO，也许也是过去一百年最伟大的 CEO。</li>
+  </ul>
+  <div class="quote">
+    <p>"核战争真正结束，不是因为哪一方终于决定认输了。是因为发动战争的那两个人，都离开了舞台。乔布斯去世了，施密特卸任谷歌 CEO。接过接力棒的两位新 CEO，他们面对的不再是战争，而是一门生意。"</p>
+  </div>
+</section>
+
+<section id="p1-4">
+  <div class="sec-head"><div class="sec-num">1.4</div><h2 class="sec-title">第四章 · 换代：战争如何变成一门生意（2011–2022）</h2></div>
+  <p class="sec-sub">库克与劈柴：两个"同一种人"。</p>
+
+  <h3><span class="h3n">①</span>2011 年的三件事</h3>
+  <ul>
+    <li>乔布斯去世，<strong>库克接任苹果 CEO</strong>。</li>
+    <li>施密特卸任谷歌 CEO，<strong>佩奇重新接掌</strong>。安卓之父鲁宾被调离安卓团队，又过一年彻底离开谷歌。</li>
+    <li>佩奇头两年真把乔布斯"别铺太开"的建议听进去了：一口气砍掉几十个产品，谷歌官方博客发了一篇公告，标题叫<strong>《把更多木料用在更少的箭上》</strong>。</li>
+    <li>但佩奇骨子里依然是那个什么都想做的人。2015 年他对谷歌做了大重组：搜索、广告、YouTube 等成熟业务留在谷歌；自动驾驶、抗衰老这些跟搜索八竿子打不着的项目单独拆出去，装进新成立的母公司 <strong>Alphabet</strong>。佩奇自己去当 Alphabet CEO，谷歌 CEO 换成<strong>劈柴</strong>。</li>
+  </ul>
+
+  <div class="cols">
+    <div class="col a">
+      <h4>库克：供应链出身</h4>
+      <ul>
+        <li>每天凌晨 3:45 起床，四点开始回邮件；苹果很多高管养成习惯：睡前最后一件事和醒来第一件事都是查库克的邮件。</li>
+        <li>同事说他几乎从不闲聊。</li>
+        <li>刚到苹果第一年，把核心供应商从 100 家砍到 24 家，关掉一半仓库，库存周转从一个月压到两天。</li>
+        <li>乔布斯要为"背叛"起诉三星，库克最关心的只是三星作为供应商的身份。</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>劈柴：产品经理出身</h4>
+      <ul>
+        <li>2004 年加入谷歌时是普通产品经理，没人觉得他会成为 CEO；在谷歌工作十一年。</li>
+        <li>同事最常给的评价："这个人没有敌人。"谷歌内部派系林立，他不属于任何一派，也很少得罪任何一派。</li>
+        <li>2007 年谷歌与苹果重谈默认搜索协议，内部坚持要拿下浏览器里唯一的默认位置；他写邮件反对：我觉得苹果应该可以放其他搜索引擎进去，我不认为只有谷歌才能提供好的用户体验，而且从外界来看观感也不会太好。</li>
+        <li>擅长顺着眼前的变化往后推演：再这样发展几年，谷歌会失去什么？</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>作者对两人的定性：</b>"劈柴和库克其实是同一种人。谨慎，克制，习惯先计算后果，也非常在意外界如何看待自己。一个做供应链，一个做产品；都不在创始人的核心圈子里，也都不是被钦定的天才，而是在公司内部一步一步走上来的。亲自开车冲到对方公司、不差五十亿美元、要花光四百亿美元发动热核战争——这种话，他们俩一辈子大概都说不出口。"
+  </div>
+  <p>他们面对和处理的，"从来不是那种被最亲密的伙伴朋友背叛的愤怒，而是一份每年都要续签的合同"。而"当一家公司已经不再需要证明自己能不能活下来，它需要的就不再是另一个创始人，而是一个把一台越来越庞大的机器继续运转下去的人"。</p>
+
+  <h3><span class="h3n">②</span>两家公司开始越来越像</h3>
+  <ul>
+    <li><strong>谷歌转向硬件：</strong>2016 年发布 Pixel。在此之前安卓手机由不同厂商生产，有人预装一大堆删不掉的软件，有人随意修改系统，谷歌设计的功能最后以什么样子呈现，谷歌自己说了不算。Pixel 是谷歌第一次把软件和硬件都握在自己手里，"亲自下场，示范怎么做出像苹果手机一样优雅完美的安卓机"。</li>
+    <li><strong>安卓向内收：</strong>定位、推送、支付这些核心服务，逐渐被挪进谷歌自己控制的闭源服务里。</li>
+    <li><strong>苹果被迫向外开：</strong>换成与安卓相同的通用充电接口；在欧盟允许第三方应用商店；把支付芯片开放给 Apple Pay 以外的钱包。</li>
+    <li>两家又先后把最核心的芯片设计从第三方手里收回来，开始自己设计芯片。</li>
+  </ul>
+  <div class="quote">
+    <p>"一个主动收紧开放生态，一个被迫拆开封闭生态。它们从两个完全相反的方向出发，最后却越来越接近同一个位置。"</p>
+  </div>
+
+  <h3><span class="h3n">③</span>2017–2018：顶峰相见</h3>
+  <ul>
+    <li>2017 年，库克和劈柴在硅谷一家越南餐厅吃饭，有人拍到他们坐在窗边喝红酒，照片很快传遍互联网——距乔布斯喊出热核战争已过去七年。</li>
+    <li>第二年他们又见了一次。库克说："<strong>我希望我们能像一家公司那样深度连接、深度合作。我知道我们之间有过去，但我不觉得我们应该被那个过去困住。</strong>"</li>
+    <li>此时苹果已成为第一家市值突破万亿美元的公司，谷歌市值也即将破万亿。"他们确实没有被过去困住。两家公司顶峰相见，在台面上是彼此最强的对手，生意上却早已离不开对方。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>搜索合同：一份共同守护了二十年的秘密</h3>
+  <ul>
+    <li>真正把两家牢牢连接在一起的，正是那份搜索合同。最早泄露的数字是 2014 年的<strong>十亿美元</strong>——还是甲骨文的律师在另一场不相干的官司里说漏嘴的。消息一出，苹果和谷歌立刻联手要求法院封存相关记录——"打了四年核战争的两家公司，这一次站到了同一边，共同守护一个秘密"。</li>
+    <li><strong>2020 年：</strong>美国司法部起诉谷歌垄断搜索市场——谷歌花钱买下互联网上所有的搜索入口，让竞争对手根本没机会出现在用户面前；而买得最贵的那个入口就是苹果。</li>
+    <li><strong>2023 年开庭：</strong>藏了二十年的账本一页页被翻开。最关键的数字来自谷歌自己请的专家证人：<strong>苹果拿走 Safari 搜索广告收入的 46%</strong>；仅 2022 年一年，谷歌支付给苹果的钱就<strong>接近两百亿美元，接近苹果全年利润的五分之一</strong>。苹果只需要继续把谷歌放在默认位置，每年就有两百亿美元进账。</li>
+    <li><strong>纳德拉出庭：</strong>他说这些年每年都去找苹果，愿意每年付高达<strong>一百五十亿美元</strong>让必应进入苹果，甚至讨论过把整个必应搜索卖给苹果，但苹果始终没答应。一位微软高管说得更直接：<strong>"苹果靠 Bing 的存在赚到的钱，比 Bing 自己赚的还多。"</strong>——暗示苹果根本没想过换搜索引擎，只是拿微软当筹码逼谷歌加钱。纳德拉后来感叹："现在的互联网，其实就是谷歌的互联网。"</li>
+    <li><strong>最有戏剧性的一幕：</strong>庭审里出现了一封老邮件，正是劈柴 2007 年当产品经理时写的那封。16 年前，身为产品经理的劈柴担心独占默认位置会带来不好的观感；16 年后，坐在被告席上听这封邮件的，正是谷歌 CEO 劈柴本人。</li>
+    <li><strong>2024 年：</strong>法官裁定谷歌构成垄断，但没有禁止苹果和谷歌之间的这份协议。支票没被撕掉，只是"从一张长期通行证，变成了一份每年都要重新谈判的合同"。</li>
+  </ul>
+  <p>而苹果和谷歌很快会发现，接下来真正影响它们命运的已经不再是搜索，而是另一个它们都始料未及的东西：<strong>2022 年 11 月，ChatGPT 出现了。</strong></p>
+</section>
+
+<section id="p1-5">
+  <div class="sec-head"><div class="sec-num">1.5</div><h2 class="sec-title">第五章 · 失速：苹果与谷歌的 AI 困局（2022–2025）</h2></div>
+  <p class="sec-sub">同一个 ChatGPT，同样是三年：谷歌被逼仓促应战，苹果迟迟没有醒来。</p>
+
+  <h3><span class="h3n">①</span>谷歌：Code Red 与那个最讽刺的字母 T</h3>
+  <ul>
+    <li>2022 年 11 月 30 日 ChatGPT 上线。不到一个月，谷歌内部拉响最高级别警报：<strong>Code Red（红色警报）</strong>——劈柴当 CEO 七年来第一次。</li>
+    <li>他直接把佩奇和布林两位创始人请回来重新敲定 AI 方向；公司内部随即大规模重组，多个团队被重新调配，目标只有一个：半年后的开发者大会上，谷歌必须拿出东西。</li>
+    <li><strong>最讽刺的地方：</strong>ChatGPT 最后那个 T 指的就是 Transformer，而 Transformer 恰恰是谷歌自己的团队发明的。2017 年谷歌大脑发表《Attention Is All You Need》，八位作者当时全部来自谷歌。</li>
+    <li>不只算法，连产品谷歌都做出来过。Transformer 作者之一<strong>诺姆·沙泽尔</strong>后来在谷歌内部带队做出了聊天机器人，比 ChatGPT 早两年。团队希望公开发布，被管理层拦下，理由是它可能会胡说八道，在安全、公平和事实准确性上都过不了谷歌的审查。</li>
+    <li><strong>作者为这个决定做了辩护式解读：</strong>这个理由不完全是托词。那时的谷歌已是十几万名员工、市值超万亿美元的大公司。创业公司可以把不成熟的产品先放出去试，谷歌不行——它发布的每一句错误答案，都会被放大成公司的信誉问题。"所以，谷歌不是做不出 ChatGPT，而是在结果还不可控的时候，不把一个可能胡说八道的机器人直接交到全世界手里。"</li>
+    <li>沙泽尔等了一年没等到发布，2021 年从谷歌辞职创业。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>Bard 翻车与布林回归</h3>
+  <ul>
+    <li>2023 年 2 月谷歌推出 Bard（正是沿着沙泽尔当年的模型发展出来的）。就在发布会当天，一名路透社记者发现宣传视频里 Bard 的回答是错误的。<strong>当天谷歌市值蒸发约一千亿美元。</strong></li>
+    <li>谷歌员工在内部论坛痛骂管理层：公司是在恐慌中仓促把 Bard 推了出去，最后反而亲手证明了大家最担心的事——谷歌果然没有准备好。</li>
+    <li><strong>布林回来了：</strong>2023 年初员工发现布林向代码库提交了一个改动。那年他 49 岁，离开管理岗四年，也很多年没亲自写过代码。到夏天，他开始频繁出现在办公室，直接参与 Gemini 开发。</li>
+    <li><strong>作者的规律总结：</strong>"当公司过了求生阶段、江山已定的时候，接任 CEO 位置的就会是一个擅长管理、能把既有优势继续做大的人。这个道理反过来也成立：一旦旧地图开始失效，当年那个最敢下注的冒险家又会重新回来。"</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>合并两支 AI 团队：与其说合并，不如说被吞并</h3>
+  <ul>
+    <li>一支是加州总部的<strong>谷歌大脑</strong>（Transformer 诞生地）；另一支是伦敦的 <strong>DeepMind</strong>（2014 年被收购）。多年来预算分开、汇报线分开，连算力都要各自申请——名义上都属于谷歌，实际上是两套人马、两条路线。</li>
+    <li>2023 年 4 月劈柴宣布合并，由 DeepMind 创始人<strong>哈萨比斯</strong>统一管理。谷歌大脑内部不少人觉得，这"与其说合并，不如说是被吞并"：发明 Transformer 的是谷歌大脑，但合并后留下名字、拿到主导权的却是 DeepMind。</li>
+    <li>新部门很快推出第一个大模型 Gemini，后来又发布图片模型 Nano Banana，口碑起起伏伏，一度超过 ChatGPT 和 Claude，"那一阵子，很多人都觉得，那个曾经定义过一个时代的谷歌，好像真的回来了"。</li>
+    <li><strong>但作者的当下判断（文稿一）：</strong>到今天，业界很多人都质疑 Gemini 的模型能力已经跌出第一梯队，而且谷歌完全错过了今年年初爆火的企业客户市场。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>人才流失：Transformer 八位作者，一个都不在谷歌了</h3>
+  <ul>
+    <li>沙泽尔 2021 年离开创业，2024 年被谷歌重金请回；但就在这期播客录制前几天，他再次离开谷歌、官宣加入 OpenAI。奥特曼发推说：从 OpenAI 成立第一天起，他最想共事的人之一就是沙泽尔，这一天他等了十年。</li>
+    <li>沙泽尔走的第二天，谷歌另一位科学家、2024 年诺贝尔化学奖得主<strong>约翰·江珀</strong>也宣布离开，加入 Anthropic。</li>
+    <li>至此，Transformer 那篇论文的八位作者，已经一个都不在谷歌了。"这些还只是被报道的、被看见的人才流失。在新闻看不见的角落里，还有更多人正在悄悄离开。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>谷歌真正害怕的事：用户不再需要搜索框</h3>
+  <ul>
+    <li>对谷歌来说，模型榜单上暂时排第几不是最可怕的。最害怕的是<strong>用户不再需要搜索框</strong>——谷歌每年两千多亿美元的广告收入，很大一部分建立在搜索之上。</li>
+    <li>2025 年苹果高管在法庭上披露：苹果 Safari 浏览器上的谷歌搜索量，<strong>22 年来第一次因为这些 AI 开始往下降</strong>。</li>
+    <li>谷歌随后紧急声明反驳，强调整体搜索量仍在增长、广告收入也还在上涨。作者承认谷歌说的没错：直到今天，搜索仍然是一台巨大的印钞机——"但没有人敢保证，这台机器还会以同样的方式运转二十年"。</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>苹果这边：红色警报的时候，内部几乎什么也没发生</h3>
+  <ul>
+    <li><strong>AI 负责人詹南德雷亚：</strong>2018 年库克把他从谷歌挖来，此前他在谷歌负责的正是搜索和人工智能。库克最早让他研究一件事：苹果能不能自己做搜索？他带团队研究了半年，结论是——<strong>不能</strong>。</li>
+    <li>后来他接手 Siri，但并不相信聊天机器人会成为下一个重要的消费产品。ChatGPT 上线后他对同事说：普通消费者并不需要这种聊天机器人，用户最常见的需求之一，可能反而是研究怎么把它关掉。（作者补了一句："这么说，他这么想可能也没错，毕竟大部分 iPhone 用户确实挺想关掉 Siri 的。"）</li>
+    <li>他的部门在苹果内部外号叫 <strong>AIMLess</strong>（漫无目的、没有方向）。他手下负责 Siri 的团队，花了两年多时间，把唤醒词"嘿，Siri"里的"嘿"去掉。</li>
+  </ul>
+
+  <div class="note">
+    <b>苹果"不做第一个"这套打法的失效：</b>iPod 不是第一个 MP3，iPhone 不是第一台智能手机，Apple Watch 不是第一块智能手表。苹果总习惯让别人先试错，等技术成熟、市场形成，再出手做一个更完整更好用的版本。这套打法在硬件时代是优势——硬件一年更新一次，供应链几年才大变一次，晚两年出手反而可以等到屏幕更成熟、芯片更便宜、零部件更稳定。<br><br>
+    <b>但大模型不一样：</b>"模型几个月就迭代一代，用户习惯也在几个月里迅速形成。你以为自己是在等别人试错，回过头来才发现，别人已经跑完了好几轮。"
+  </div>
+
+  <h3><span class="h3n">⑦</span>算力账：苹果 140 亿，只有别人的五分之一</h3>
+  <ul>
+    <li>2023 年詹南德雷亚找库克申请增加 GPU 采购预算。库克批准了，还给了翻倍预算；结果方案到财务部门又被砍掉大半，理由是"把现有的芯片用得更高效一点"。</li>
+    <li>当时苹果手上大概有<strong>五万块训练用 GPU，大部分用了五年以上</strong>。</li>
+  </ul>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:34%">2025 年资本开支</th><th style="width:22%">金额</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>谷歌</td><td class="num"><strong>850 亿美元</strong></td><td>大头投向 AI 相关算力和基础设施</td></tr>
+      <tr><td>Meta</td><td class="num"><strong>720 亿美元</strong></td><td>同上</td></tr>
+      <tr><td>苹果</td><td class="num"><strong>140 亿美元</strong></td><td>只有别人的五分之一</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="quote">
+    <p>"苹果习惯的是先想清楚要做什么产品，再把每一分钱花到极致；但训练大模型这件事就是要先烧掉几十亿、几百亿美元，再看能不能得到想要的结果。<strong>先下注，才能证明这笔钱值不值得花。</strong>"</p>
+  </div>
+
+  <h3><span class="h3n">⑧</span>组织：两个部门互不信任到要"留痕追责"</h3>
+  <ul>
+    <li>苹果 AI 团队和 iOS 团队长期处于互相不信任的状态。iOS 部门负责人说过一句话："<strong>我宁愿外界说苹果不会做 AI，也不愿意外界说苹果做了一个糟糕的 AI。</strong>"</li>
+    <li>互不信任到什么程度？双方合作的项目，要求两边工程师<strong>全程留痕存档</strong>——不是为了方便复盘，而是方便未来追责。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>2024 年 WWDC：一个演示了但没做出来的 Siri</h3>
+  <ul>
+    <li>苹果在台上展示全新 Siri：能查驾照号码、找邮件里的信息、告诉你妈妈的航班什么时候落地。发布会效果很好，看上去苹果虽然来得晚，但又一次做出了最完整的版本。</li>
+    <li>也是在那场发布会上，苹果第一次宣布 Siri 将接入一家外部公司的大模型——但选的不是谷歌，而是当时最炙手可热的 <strong>OpenAI</strong>。Siri 答不上来的问题，用户可以一键转给 ChatGPT。</li>
+    <li><strong>作者的评论：</strong>"谷歌和苹果合作了二十多年，Transformer 是谷歌发明的，谷歌也已经推出了自己的 Gemini。可当苹果终于承认单靠自己已经追不上这一轮 AI 浪潮时，它在 AI 时代做出的第一个选择，是刚刚改写游戏规则的 OpenAI。它选择把聚光灯留给了谷歌最大、也是最危险的竞争对手。"</li>
+    <li><strong>真相：</strong>苹果演示的那一套，当时根本还没做出来，很多演示其实是预先录制的概念视频；连 Siri 团队自己都没见过能稳定跑通的版本。2025 年 3 月苹果正式宣布延期，Siri 负责人用两个词形容这件事——<strong>丑陋、尴尬</strong>。"这一次，苹果不是把产品做好以后再拿出来，而是先向全世界展示了一个产品，然后才发现，自己暂时做不出来。"</li>
+    <li><strong>后果：</strong>延期后苹果高层开了一场危机会议，库克本人甚至没有出席。会后 Siri 从 AI 部门划到 iOS 部门——这场持续多年的内部拉扯终于分出胜负：AI 部门输了。年底詹南德雷亚退休：七年前被苹果从谷歌高价挖来，七年后带着一个没有完成的 Siri 离开。</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>苹果的人才账：一封没有回复的邮件</h3>
+  <ul>
+    <li>苹果基础模型团队总共只有一百多人，2025 年一年就走了十几位。</li>
+    <li>连苹果大模型负责人<strong>庞若鸣</strong>，也被 Meta 的扎克伯格用<strong>两亿美元</strong>薪酬挖走。</li>
+    <li>他在苹果发出的最后一封邮件，是恳请苹果允许团队对外发表论文——苹果长期限制 AI 研究员公开研究成果，担心泄露技术方向。<strong>这封邮件始终没有得到回复。</strong></li>
+  </ul>
+  <p><strong>作者定性：</strong>"产品延期、部门内斗、人才流失，AI 成了库克任内最大也是最难回避的一次失误。"</p>
+
+  <h3><span class="h3n">⑪</span>两家困境的同构性</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:22%"></th><th style="width:39%">谷歌</th><th style="width:39%">苹果</th></tr></thead>
+    <tbody>
+      <tr><td><strong>共同点</strong></td><td colspan="2">不缺钱、不缺技术、不缺人才，但旧业务太成功、新世界来得太快，庞大的组织来不及转身。战略方向迟疑、组织内耗、等不到结果的人才只能离开——这些问题两家一个都没躲过去。</td></tr>
+      <tr><td><strong>同一个 ChatGPT，同样是三年</strong></td><td>被逼得仓促应战</td><td>迟迟没有醒来</td></tr>
+      <tr><td><strong>手里有什么</strong></td><td>有模型，却害怕用户不再需要它的入口</td><td>有全世界最好的入口，却没有一个足够好的模型</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="quote">
+    <p>"而它们各自最缺的东西，恰好都握在对方手里。"</p>
+  </div>
+</section>
+
+<section id="p1-6">
+  <div class="sec-head"><div class="sec-num">1.6</div><h2 class="sec-title">第六章 · 续约：苹果租下谷歌的大脑（2026）</h2></div>
+  <p class="sec-sub">苹果需要模型，谷歌需要入口。这张拼图重新拼到了一起。</p>
+
+  <h3><span class="h3n">①</span>这一次不一样</h3>
+  <ul>
+    <li>2026 年 WWDC，苹果宣布新一代 Siri 建立在 Gemini 提供的基础能力之上。这是库克以 CEO 身份主持的最后一场 WWDC。</li>
+    <li>与 2024 年的对比：那一次演示了一个还没做出来的 Siri；这一次苹果换掉了负责 AI 的高管，<strong>从手机端到云端一口气做出了五款模型</strong>；Siri 也被单独做成一个 App，可以打字对话，能处理生活问题，也能处理工作和学习上的问题——"它不再只是那个设闹钟、打电话、报天气的语音助手"。</li>
+    <li>到了库克任期最后，苹果终于把 AI 当成一件不能再输的事。它需要一个比自己更强的模型提供底层能力，需要几万块自己不愿重金买下的芯片，需要能运行模型的数据中心，还需要一套极其复杂的隐私架构——<strong>"这些东西，苹果一样都没有。"</strong></li>
+    <li>在苹果公布的技术报告里，谷歌的名字几乎贯穿始终：模型、芯片、数据中心、隐私架构，苹果缺少的每一块，谷歌都能补上。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>为什么 OpenAI 出局</h3>
+  <ul>
+    <li>2024 年被请进 Siri 的 ChatGPT 接入其实非常浅层：只有当 Siri 回答不出来，才会跳出一个弹窗询问要不要把问题交给 ChatGPT，用户确认后才能跳转。<strong>"看上去只多了一次点击，却足以让大量用户在这一步直接放弃。"</strong></li>
+    <li>OpenAI 原本期待借助苹果获得大量新用户和付费订阅，结果远未达到预期。后来 OpenAI 高管在采访里公开抱怨：他们该做的都做了，苹果却始终没拿出多少诚意；甚至有报道说 OpenAI 一度考虑起诉苹果违约。</li>
+    <li><strong>苹果对 OpenAI 同样积怨：</strong>2025 年 OpenAI 收购了一家硬件公司，创始人是苹果前首席设计师<strong>艾夫</strong>——乔布斯生前在苹果最信任的人之一，初代 iPhone 的设计就是他们在一次次午饭里慢慢讨论出来的。很快 OpenAI 又公开宣布要做"iPhone 之后的下一代设备"，接下来半年从苹果挖走二十多名硬件工程师。</li>
+    <li>"对于苹果来说，这件事的性质就变了。OpenAI 原本只是它的一家模型供应商，现在却公开宣布要做它的竞争对手，还顺手把人也挖走了。"于是双方已经谁都不太愿意坐下来认真谈条件。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>为什么 Anthropic 出局</h3>
+  <ul>
+    <li>苹果也找过北美大模型御三家的另一家 Anthropic。事实上，苹果内部测试几家模型后，结论是<strong>效果最好的是 Anthropic</strong>，但报价也最高：<strong>每年几十亿美金起步，之后还要逐年翻倍</strong>。苹果听完报价就没再往下谈。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>为什么只剩谷歌：三件别人做不了的事</h3>
+  <ul>
+    <li><strong>愿意为一家客户单独定制：</strong>只有谷歌既有能力，也愿意为苹果单独定制一套 Gemini 模型。</li>
+    <li><strong>能配合搭隐私架构：</strong>苹果一直把隐私当核心卖点。这次 Siri 接入外部模型，意味着合作方必须配合搭建一套全新的隐私架构——用户问的问题在发送之前先加密，模型有了结果再加密传回来，<strong>全程谁都不能看到问题原文，连苹果自己也不能</strong>。这件事全世界除了谷歌没人能陪苹果做，也只有谷歌有足够庞大的基础设施团队。</li>
+    <li><strong>报价低一个量级：</strong>谷歌报价一年<strong>十亿美元</strong>，比 Anthropic 便宜得不是一点。</li>
+    <li><strong>动机不同：</strong>OpenAI 和 Anthropic 未必有这样的基础设施能力，也未必愿意为苹果一家客户投入如此庞大的团队和资源；更重要的是，它们现在争夺的重点已经转向企业客户，苹果这笔生意对它们没那么重要。谷歌不一样——它要保住的远远不只是这笔订单。它在企业客户市场上彻底掉队，苹果手里的消费者入口是它最不能失去的东西。<strong>"别人觉得不值得做的生意，谷歌必须做。"</strong></li>
+    <li>谷歌专门抽调了一整支团队与苹果一起开发这套系统。<strong>"因为谷歌陪苹果打这一仗，救的不只是苹果，也是它自己。"</strong></li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>这笔交易真正的标的：那个"第一个被问到"的位置</h3>
+  <ul>
+    <li>苹果真正想做的，是把 Siri 变成 iPhone 上回答一切问题的第一入口。而它交给谷歌的这个位置，恰恰是谷歌最害怕失去的位置——<strong>当用户产生一个问题时，他第一个会去问谁</strong>。过去谷歌每年给苹果两百亿，买的就是这个位置。</li>
+    <li>苹果曾公开一个数字：<strong>Siri 每天要处理十五亿次请求</strong>——而且这还是过去那个 Siri 的数字，其中大部分不过是设闹钟、打电话、查天气这样的小问题。一旦用户开始用 Siri 处理工作、学习和信息查询，这个数字会增长多少，没有人知道。</li>
+    <li><strong>所以对谷歌来说：</strong>这次合作的意义不是赚到苹果支付的十亿美元，而是<strong>用这十亿美元，保住原来那两百亿美元买来的入口</strong>。</li>
+    <li><strong>更大的意义：</strong>今天的安卓手机背后运行的已经是 Gemini，未来苹果手机背后运行的也会是 Gemini。这意味着谷歌的模型将同时进入全世界最大的两个手机生态——"这件事，目前其他任何一家大模型公司都还做不到"。</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>这不是友情复燃，是抱团取暖</h3>
+  <ul>
+    <li>苹果成立于 1976 年，谷歌成立于 1998 年，放在今天的硅谷已经是两家中年公司。OpenAI 成立的时候 iPhone 都出到了第六代，Anthropic 更是才成立五年。</li>
+    <li>两个分分合合二十年的老对手，到头来发现真正改变游戏规则的人已经不是对方了。"与其说它们重新成为了朋友，不如说是面对来势汹汹的后起之秀、面对组织内部的管理危机和大量流失的人才，在内忧外患之下的抱团取暖，他们才是彼此最现实的选择。"</li>
+    <li>但从 2002 年那份默认搜索协议签下来的那一天起，这两家公司就已经绑在一起了：<strong>谷歌负责回答全世界的问题，苹果负责把全世界最有钱的那批用户领到谷歌门口。</strong></li>
+  </ul>
+  <div class="quote">
+    <p>"你在 WWDC 上看到的，不止是一场产品发布会，而是一份长达二十五年的合同，在 AI 时代重新续了签。过去的二十年，苹果和谷歌之间的钱，从来只有一个方向，就是从谷歌流向苹果。但从 2026 年开始，第一次开始有一笔钱往回流了。"</p>
+  </div>
+  <div class="note">
+    <b>命运的二十五回响：</b>那个掀起了 AI 巨浪的 OpenAI，背后最大的投资人正是微软。25 年前，把乔布斯和施密特推到一起的是微软；25 年后，让库克和劈柴重新走回彼此身边的，依然是微软。
+  </div>
+</section>
+
+<section id="p1-7">
+  <div class="sec-head"><div class="sec-num">1.7</div><h2 class="sec-title">尾声 · 谁也无法独自走进下一个时代</h2></div>
+  <p class="sec-sub">真正改变这段关系的，也许从来不是手机，不是地图，不是 AI，是时间。</p>
+
+  <ul>
+    <li>作者自述"梳理这两家公司的 25 年，我都有点磕到了"：这段关系特别像一段从校园到中年的感情——年轻的时候敢爱敢恨，爱和恨都轰轰烈烈，但走到中年才发现，那个曾经历过背叛与防备的对手，反倒成了最难割舍、也最稳固的盟友。</li>
+    <li>掌门人换了一代又一代，产品换了一轮又一轮，连整个行业也从移动互联网走到了 AI。真正改变这段关系的，也许从来不是手机、不是地图、不是 AI，是<strong>时间</strong>。</li>
+    <li>年轻的时候，两家公司都相信只要自己足够厉害就可以什么都自己做；苹果想摆脱谷歌，谷歌也想绕过苹果——"它们都尝试过，都失败过，也都付出了代价"。</li>
+  </ul>
+  <div class="quote">
+    <p>"时间并不总是会让一家公司越来越自由、越来越无所不能。很多时候，它只是让人慢慢认清：抛开理想和情绪，成本和边界到底在哪里。什么事情可以单枪匹马，什么事情必须要共生；什么原则可以坚持，什么代价已经付不起。时间让最激烈的敌人学会共存，也让最坚定的原则，变成了可以坐在谈判桌前讨论的选项。"</p>
+  </div>
+  <p>"二十年前，它们都以为自己可以定义时代。二十年后才发现，<strong>谁也无法独自走进下一个时代</strong>。"今天再看苹果和谷歌，已经不是关于谁赢谁输的故事，而是两个定义了一个时代的公司共同演化成了今天的模样。</p>
+  <div class="note note-green">
+    <b>全文最后一句：</b>"虽然看起来什么都变了，但有一件事没变：<strong>你在 iPhone 上问的每一个问题，最后流向的，还是谷歌。</strong>"
+  </div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<div class="part-band" id="p2">
+  <div class="pk">文稿二 · 第二部分</div>
+  <h2>谷歌 AI 十五年：发明未来的人，为什么错过了未来</h2>
+  <p>九章加尾声，一部双城记：山景城的谷歌大脑（工程地基）与伦敦的 DeepMind（科学野心），如何从各自辉煌走向被迫合并、反攻、再失速，最后群星散落。</p>
+</div>
+
+<section id="p2-0">
+  <div class="sec-head"><div class="sec-num">2.0</div><h2 class="sec-title">引子：三个破圈时刻，都出自谷歌</h2></div>
+  <p class="sec-sub">而它们的缔造者，在同一个夏天离开了谷歌。</p>
+
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:12%">年份</th><th style="width:26%">事件</th><th style="width:30%">出处</th><th>意义</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><strong>2016</strong></td><td>AlphaGo 四比一击败李世石</td><td>DeepMind</td><td>现代 AI 的一个转折点</td></tr>
+      <tr><td class="num"><strong>2022</strong></td><td>ChatGPT 横空出世，把大模型带到普通人面前</td><td>最后那个 T 指 Transformer，来自谷歌八名研究员 2017 年的论文</td><td>这一轮 AI 爆发的技术起点</td></tr>
+      <tr><td class="num"><strong>2024</strong></td><td>两名研究员凭 AlphaFold 拿下诺贝尔化学奖，解决困扰生物学界五十年的蛋白质结构预测难题</td><td>DeepMind</td><td>AI 第一次凭一项具体的科学成果获得诺奖认可</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <ul>
+    <li><strong>谷歌大脑：</strong>2011 年在加州山景城谷歌总部成立，写出了改变整个 AI 行业的 Transformer 论文，负责人 <strong>Jeff Dean</strong>。</li>
+    <li><strong>DeepMind：</strong>原本是伦敦的一家创业公司，创始人<strong>哈萨比斯</strong>，2014 年被谷歌收购。AlphaGo 和 AlphaFold 都出自这个团队。</li>
+    <li><strong>长久以来的定位：</strong>两个团队在谷歌内部都是"研究院"——不用急着把研究变成产品，也不用回答明年能赚多少钱；研究什么自己决定；需要多少算力，公司尽量满足。</li>
+  </ul>
+
+  <h3><span class="h3n">①</span>2026 年夏天：象牙塔生活彻底结束</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">日期</th><th>事件</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><strong>7 月 30 日</strong></td><td>谷歌解散 <strong>AlphaFold 团队</strong>——距离这个团队替公司拿回诺贝尔化学奖，只过去了<strong>二十个月</strong>。</td></tr>
+      <tr><td class="num"><strong>8 月 5 日</strong></td><td>六天后，谷歌 CEO 劈柴发出公开信：DeepMind 创始人<strong>哈萨比斯改任首席科学家</strong>，不再带领 DeepMind 团队。</td></tr>
+      <tr><td class="num"><strong>8 月 5 日</strong></td><td>同一天，谷歌大脑创始人 <strong>Jeff Dean</strong>——谷歌头号元老级工程师，在谷歌工作整整 <strong>27 年</strong>之后——正式宣布离职创业。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>"谷歌 AI 前后两个团队的创始人，在同一天，都离开了谷歌 AI 的中心。"今天当大家说起最强大模型时会说 Claude、GPT、DeepSeek，但已经很少会有人想到谷歌的 Gemini 了。</p>
+  <p><strong>全篇要回答的问题：</strong>谷歌的 AI 是怎么从世界瞩目走到今天泯然众人的？发明未来的人，为什么错过了未来？最后还要把它和 Meta 放在一起看：两家公司走了完全不同的路，却撞上了惊人相似的困境——<strong>到底是什么，困住了这些最早看见未来的人？</strong></p>
+</section>
+
+<section id="p2-1">
+  <div class="sec-head"><div class="sec-num">2.1</div><h2 class="sec-title">第一章 · 加州的谷歌大脑：铺地基的人</h2></div>
+  <p class="sec-sub">"不追求每台机器都不出错，而是让任何一台机器出了错，都不至于影响整个系统。"</p>
+
+  <h3><span class="h3n">①</span>Jeff Dean 与桑杰：一段以冰淇淋店为由的友谊</h3>
+  <ul>
+    <li>1999 年 Jeff Dean 加入刚成立不到一年的谷歌，当时全公司只有二三十人。后来谷歌搜索背后的很多核心系统，都是他和老搭档<strong>桑杰</strong>两个人一行一行写出来的。</li>
+    <li>两人进谷歌前就是同事，在一家老牌电脑公司做研究。虽然各自实验室隔着两个街区，却总喜欢凑到一起写代码——Jeff Dean 给的理由是：<strong>两间实验室中间正好有一家冰淇淋店</strong>。</li>
+    <li>桑杰比 Jeff Dean 大两岁，话不多，一直没有结婚。Jeff Dean 的两个女儿从小管他叫叔叔；很多个周五晚上，两家人——准确说是他们五个人——都会一起吃饭。</li>
+    <li>Jeff Dean 进谷歌几个月后桑杰也跟了过来。此后两人几乎成了固定搭档，谷歌的很多系统署名都是他们两个人的名字。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>2000 年的那间作战室：一次深入底层的修复</h3>
+  <ul>
+    <li><strong>故障：</strong>谷歌整个系统出问题，公司的互联网索引已经<strong>五个月没有更新</strong>。工程师查了很多天，始终找不到原因。</li>
+    <li><strong>介入：</strong>Jeff Dean 和桑杰走进作战室。桑杰坐在电脑前看代码，Jeff Dean 把椅子滚到桑杰旁边，一边看一边指挥。查了很多天也查不出代码有什么问题，于是两人开始怀疑：错的可能不是软件，而是机器。</li>
+    <li><strong>发现：</strong>把一批看上去毫无关系的错误放在一起比较，最后发现这些数据到了机器里，总有某一位二进制数字会莫名其妙地翻转——本来是 0 的变成 1，本来是 1 的变成 0。答案是：<strong>不是程序写错了，而是机器的内存出了问题，偶尔会把数据自己改掉。</strong></li>
+    <li><strong>根因：</strong>为了省钱，谷歌当时的服务器用的是不带纠错功能的便宜内存。单看一台机器这种故障很少见，但机器多了之后，偶发错误就变成了常见错误。</li>
+    <li><strong>解法：</strong>没有让公司去换更贵的机器，而是从软件层面给系统加了一层保险——哪台机器出了错，就自动把它找出来、隔离掉，不要让一台坏机器拖垮整个系统。</li>
+    <li><strong>方法论（作者提炼）：</strong>"他们不会只在表层修好眼前的故障，而是深入到系统底层，把这一类问题一次解决。其他工程师在这个基础上写程序，就不必再考虑机器会不会出错。"这套思路后来成了谷歌基础设施最重要的原则之一。</li>
+    <li>后来两人还优化了谷歌的搜索系统，<strong>只用了几天时间，就让搜索速度快了一个数量级</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>第 11 级工程师与那些段子</h3>
+  <ul>
+    <li>谷歌工程师职级满级十级，第十级叫 <strong>Google Fellow</strong>，能升到这一级的都是极少数最顶尖的工程师。但为了他们俩，谷歌专门增加了<strong>第 11 级</strong>。之后很多年谷歌工程师涨到几万名，11 级始终只有他们两个。</li>
+    <li>段子一：Jeff Dean 的简历只列他没做过的事，因为这样比较短。</li>
+    <li>段子二：光速原本只有每小时五六十公里，后来 Jeff Dean 花了一个周末，顺手把它优化到了现在每小时 10.8 亿公里。</li>
+    <li>"这些段子当然都是玩笑，但可见 Jeff Dean 早期在谷歌内部的地位，几乎是一个神话。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>2011 年茶水间：吴恩达、谷歌 X 与一个不起眼的小实验</h3>
+  <ul>
+    <li>2011 年初的一天，Jeff Dean 在茶水间碰到斯坦福教授<strong>吴恩达</strong>——机器学习领域最有影响力的研究者之一，当时在谷歌兼职做顾问，同时参加谷歌 X 的一个小项目。</li>
+    <li><strong>谷歌 X：</strong>2010 年成立的秘密实验室，是佩奇和布林的自留地，很多内部员工都不知道公司里还有这样一个地方。这里不背任何业务指标、不急着赚钱，专门探索那些听上去像科幻小说一样的项目。谷歌内部把这类项目叫<strong>"登月计划"</strong>：目标不是比现有技术好 10%，而是要做最大胆、最疯狂、最有颠覆性的项目；能不能实现、能不能赚钱暂时都不在考虑范围内。最早也最有名的项目之一就是谷歌无人车。</li>
+    <li>吴恩达提到，谷歌 X 的一个角落里正在进行一个当时看上去很不起眼的实验：<strong>试着用神经网络让计算机自己学会识别东西</strong>，而且已经做出了一些结果。</li>
+    <li>Jeff Dean 对这个方向太熟了——二十年前他的大学毕业论文做的就是相关研究，只是那时候算力差得太远，很多想法无法实验。谷歌当时允许工程师拿出 <strong>20% 的工作时间</strong>做自己真正感兴趣的项目，他立刻投了进去。</li>
+    <li><strong>身边人的反应：</strong>老板觉得这么好的工程师去做神经网络完全是浪费人才；连好搭档桑杰也不支持，觉得这个方向和 Jeff Dean 擅长的毫无关系。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>猫脸实验：它自己发明了"猫"这个概念</h3>
+  <ul>
+    <li>2012 年 6 月，这个小项目第一次拿出成果：用<strong>一万六千个处理器核心</strong>搭起一张神经网络，给它看了<strong>一千万帧</strong>从视频里截下来的画面。没有人告诉它画面里有什么，也没人告诉它画面的哪个部分是猫、哪个部分是人脸。</li>
+    <li>一千万帧喂进去以后，研究人员在网络里找到了一个很特别的神经元：<strong>只要猫脸出现，它就会明显活跃起来</strong>。</li>
+    <li>Jeff Dean 的原话："我们从来没有告诉它'这是一只猫'。某种意义上，它自己发明了'猫'这个概念。"</li>
+    <li><strong>为什么让人兴奋：</strong>在这之前，想教机器识别一个东西，通常得先靠人把训练数据一张张标好——这张是猫，那张是狗；要让机器认识更多东西，就得标更多数据，光准备训练材料就要花掉大量人力。而这一次没有人告诉机器答案，它只是看了足够多的画面，就自己找出了规律。</li>
+    <li><strong>一个细节：</strong>Jeff Dean 在公司内部演示"猫脸实验"时，台下坐着当时还是副总裁、后来成为谷歌 CEO 的劈柴。很多年后劈柴回忆，那是他第一次真正觉得：人工智能也许不是一句空话。</li>
+    <li>"猫脸论文"的第一作者是这个团队招进来的<strong>第一个实习生</strong>。论文发表后，谷歌大脑这个名字第一次真正进入公众视野。</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>从实验室走进产品：语音、图片，然后是算力瓶颈</h3>
+  <ul>
+    <li>谷歌大脑很快从谷歌 X 毕业。独立出来不久吴恩达离开，Jeff Dean 成为负责人。</li>
+    <li><strong>2012 年语音识别：</strong>谷歌大脑与语音团队合作，把安卓手机语音搜索背后的一部分系统换成神经网络。用户对着手机说话，机器听错的情况明显减少——按语音团队的说法，这是他们<strong>二十年来见过的最大一次进步</strong>。</li>
+    <li><strong>2013 年 5 月图片：</strong>谷歌相册上线新功能，用户输入"花"就能从自己照片里找出所有拍到花的照片，哪怕这些照片从来没加过任何标签。</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>两页 PPT 与 TPU 的诞生</h3>
+  <ul>
+    <li><strong>问题：</strong>神经网络用得越多，计算量越大。2013 年 Jeff Dean 只拿语音一项做估算，做成两页 PPT 给管理层看：假如有一天每个安卓用户每天只对着手机说三分钟话，光是处理这些语音，谷歌全球的数据中心就得再扩大<strong>两到三倍</strong>。语音只是其中一项，照这个趋势，光靠不断新建数据中心、增加机器行不通，得让每台机器算得更快。</li>
+    <li><strong>思路：</strong>专门为神经网络打造一种芯片，别的什么都不用管，只把这一件事做到极致。</li>
+    <li><strong>这违背了他对芯片的一贯看法：</strong>Jeff Dean 说过专用硬件通常不是什么好主意——一款芯片从设计到真正装进机房往往要好几年，等它造出来算法可能早就换代了。</li>
+    <li><strong>但神经网络是例外：</strong>不管认猫还是听写，最底层做的其实都是同一类计算——把一大堆数字排成矩阵，不停地相乘、再相乘。只要这种计算不过时，专门为它做的芯片就不会轻易过时。市面上的显卡虽然已很擅长并行计算，但为了兼容不同任务，芯片上不少地方得留给通用功能；专门为神经网络造芯片，可以把其他东西统统砍掉，<strong>同样耗电量，能跑的计算量高出几十倍</strong>。</li>
+    <li><strong>为什么谷歌能做：</strong>从很早开始，谷歌很多基础设施都是自己做的——从服务器到数据中心、机柜之间的网络，都是自己设计。到造芯片时已积累足够工程经验。前提是谷歌足够有钱、也足够大：一款芯片从设计到生产前期要砸一大笔钱，只有用量足够大，摊到每块芯片上才划算。2013 年这几个条件都已具备：有需求、有规模、也有钱。</li>
+    <li><strong>速度：</strong>行业里一款新芯片做上三四年很正常，谷歌没这么多时间。为缩短时间，他们把芯片直接做成一张插卡，大小刚好塞进服务器原本留给硬盘的位置，这样不用重新改造数据中心。<strong>从项目启动到第一批芯片真正装进数据中心，前后只用了十五个月。</strong></li>
+    <li>2015 年初这些插卡开始一块块装进谷歌机柜，最早跑的是搜索排序和街景，后来越来越多神经网络跑在它上面。要到几年以后外界才知道它的名字：<strong>TPU</strong>——到今天已是全球最重要的 AI 芯片之一。</li>
+  </ul>
+
+  <h3><span class="h3n">⑧</span>2015：神经网络进入主业</h3>
+  <ul>
+    <li>这一年神经网络进入谷歌最核心的搜索排序系统，上线几个月后就成了<strong>第三重要的排序依据</strong>。</li>
+    <li>同年 11 月 Gmail 上线"智能回复"；再往后连广告推荐也开始交给神经网络。</li>
+    <li>Jeff Dean 统计：<strong>2012 年谷歌主要产品没有一个用到深度学习；到 2015 年秋天，公司内部用上深度学习的项目已经有约一千两百个。</strong></li>
+    <li>用户未必知道这些功能背后是谷歌大脑，但搜索和广告效果提升了，收入也会跟着涨。后来谷歌 X 的负责人说，光谷歌大脑一个项目带来的收入，就足以覆盖整个谷歌 X 的成本。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>第二块地基：从 MapReduce 到 TensorFlow</h3>
+  <ul>
+    <li>当年认出猫脸的那张网络训练时一次要用一万六千个处理器核心，要让这么多机器一起运转，背后必须有一套系统统一调度——这套系统正是 Jeff Dean 团队搭起来的。</li>
+    <li><strong>2003 年的前身：</strong>Jeff Dean 和桑杰花四个月写出了一套叫 <strong>MapReduce</strong> 的系统。以前想让几千台机器一起干活，程序员得自己操心机器怎么分工、哪台坏了怎么办、数据怎么搬来搬去；MapReduce 把这些调度打包进一个系统，普通程序员只要写自己的程序，剩下的交给它，就能调度一个数据中心里的几千台机器。谷歌没开源、只发表论文，很快有人照着做出开源版本；没过几年 MapReduce 成了各大公司处理海量数据的标准办法之一——"如今'大数据'这个词火遍全球，背后撑着它的，就是这一整套技术"。</li>
+    <li><strong>2015 年重写：</strong>他们把系统彻底重写了一遍，起了一个后来响彻 AI 圈的名字——<strong>TensorFlow</strong>。它解决的本质是同样的问题，只是处理对象从海量数据变成了神经网络：研究人员不必再自己操心底层计算怎么拆、任务怎么分、机器之间怎么配合，只需要专心设计网络、训练模型。</li>
+    <li>之后好几年深度学习席卷全球，很多人第一次自己动手训练神经网络，用的都是 TensorFlow。</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>谷歌大脑的气质：像一间贝尔实验室</h3>
+  <ul>
+    <li>2015 年前后团队已有一百来人，但仍很像一间实验室，运转模式参考的是贝尔实验室这样的老牌机构：研究员自己决定研究方向，上面很少规定团队今年必须交出什么产品。</li>
+    <li>Jeff Dean 自己也很少盯着某一款具体产品，更多时间花在搭系统、造工具、铺基础设施上，想办法让其他研究员能更快地做实验。</li>
+    <li>还有一条当时没人觉得特别的规则：<strong>研究成果原则上公开发表，代码能开放的也尽量开放。</strong>技术不是公司内部机密，而是把发表论文、推动整个领域往前走，也当成研究本身的一部分。</li>
+    <li><strong>作者定性：</strong>"它没有独立的产品，也不急着做出什么产品来，但它带来的影响，最后都会一点点渗透进整个谷歌。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑪</span>2016：AI 优先与谷歌翻译的重做</h3>
+  <ul>
+    <li>2015 年 8 月劈柴接任谷歌 CEO。2016 年 4 月他在致股东信里写道：谷歌将从"移动优先"转向"<strong>AI 优先</strong>"。信里举的例子——语音搜索、过滤垃圾邮件、在相册里搜照片——都是谷歌大脑这几年放进产品里的功能。</li>
+    <li><strong>年初：</strong>Jeff Dean 和谷歌大脑另一位创始成员找到谷歌翻译负责人，提出一个想法——彻底重写旧翻译系统，把这套已上线十年、几百名工程师一条规则一条规则搭出来的系统彻底扔掉，改用神经网络。翻译团队估计至少要三年，<strong>Jeff Dean 说：年底上线。</strong></li>
+    <li><strong>三个月后的挑战：</strong>神经网络翻译效果明显更好，但速度太慢——输一句话要等好几秒，以谷歌的用户规模根本没法上线。要把速度提上去就需要换一种新芯片，正是三年前用两页 PPT 算出来的 TPU，这时候它进机房才刚满一年。</li>
+    <li><strong>结果：</strong>到当年 11 月，英语和另外八种语言之间的翻译全部切换成神经网络。内部盲测显示，这次升级带来的提升<strong>大致相当于旧系统过去十年进步的总和</strong>。</li>
+    <li><strong>庆功会上 Jeff Dean 双手插在裤兜里说：</strong>"我们证明了，研究成果真的可以走出实验室，交到五亿用户手里。"</li>
+    <li>此时谷歌大脑成立五年，依旧只有百来号人。谷歌翻译是"AI 优先"提出之后第一件完整交付的产品——"AI 不再只是远离主业的研究项目，它开始进入谷歌每天服务亿万用户的业务"。</li>
+  </ul>
+  <p>但同一时间，谷歌手里拥有了另一支 AI 队伍。两年前谷歌收购了伦敦的一家小公司 DeepMind，而哈萨比斯心中的 AI 蓝图，和 Jeff Dean 完全不同。</p>
+</section>
+
+<section id="p2-2">
+  <div class="sec-head"><div class="sec-num">2.2</div><h2 class="sec-title">第二章 · 伦敦的 DeepMind：先解决智能，再用智能解决一切</h2></div>
+  <p class="sec-sub">"这个人没有 50% 模式，甚至没有 99%，只有 100%。"</p>
+
+  <h3><span class="h3n">①</span>哈萨比斯：从棋盘到"造一台会思考的机器"</h3>
+  <ul>
+    <li>1976 年出生在北伦敦，标准的天才少年：四岁学国际象棋，十三岁已排到同年龄段<strong>世界第二</strong>。</li>
+    <li>那些年每到周末，父亲就开一辆面包车带他去英国各地比赛。为了省住宿费，父子俩晚上把睡袋铺在车后面过夜。父亲总说"输赢不重要，尽力就好"，哈萨比斯却把这句话理解成：<strong>只有把自己逼到极限，才叫尽力</strong>。所以联合创始人形容他："这个人没有 50% 模式，甚至没有 99%，只有 100%。"</li>
+    <li><strong>十二岁那年的顿悟：</strong>去列支敦士登参赛，和一个成年棋手下了将近十个小时，最后觉得自己必输无疑主动认输。没想到对手一下跳起来问："你为什么认输？"当场把棋摆给他看——明明还有一步可以把这盘棋下成和棋。</li>
+    <li>哈萨比斯懊恼得要命。比赛结束后，他看着大厅里那些已经下了一整天棋、累得精疲力尽的棋手，突然冒出一个念头：<strong>这么多聪明人，为什么要把全部脑力耗在六十四个格子的小游戏上？这根本就是对脑力的浪费。如果把这些脑力拿去做科学呢？</strong></li>
+    <li>在那之前，身边所有人包括他自己都默认他以后会成为职业棋手。那场比赛以后，他第一次觉得也许不该把一辈子花在棋盘上。从那一年起，他开始自己写程序，让电脑学习如何下棋——正是这个念头后来一路把他带进人工智能。</li>
+    <li><strong>为什么不去做理论物理：</strong>他一度认真考虑过，因为在他看来那是最接近"解释整个世界"的学问。但后来觉得，如果连费曼那样的天才都没法把现实彻底解释清楚，自己再聪明也未必走得更远。于是曲线救国：<strong>与其自己去解所有问题，不如先造出一台会思考的机器，再用它去攻克物理、生物里那些最艰深的问题。</strong></li>
+    <li>十七岁参与做出一款游戏，卖了几百万份，老板开出五十万英镑想留下他，他还是决定去剑桥读计算机——偶像沃森和克里克当年就是在剑桥解开了 DNA 双螺旋结构，他也想做出这样一件足以改变科学进程的事。</li>
+    <li>毕业后开了个游戏公司，以失败告终。随后回学校读神经科学博士，研究人的大脑怎样形成记忆和想象。到这时他越来越认定：如果想解决那些最宏大、最困难的科学问题，最需要先弄明白的就是智能本身——<strong>智能是一切的基石</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>2010：三个人与一句使命</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:20%">创始成员</th><th>背景与分工</th></tr></thead>
+    <tbody>
+      <tr><td><strong>哈萨比斯</strong></td><td>负责技术和研究。目标是"先解决智能，再用智能解决其他一切问题"。</td></tr>
+      <tr><td><strong>新西兰数学家</strong></td><td>很早就在琢磨怎么做出真正通用的人工智能。2009 年的伦敦，真正相信能在有生之年做出 AI 的几乎只有他们两个。他想得很远：如果这样的机器真的造出来了，人类还能不能控制它？</td></tr>
+      <tr><td><strong>穆斯塔法·苏莱曼</strong></td><td>哈萨比斯弟弟从十几岁起最要好的朋友；叙利亚出租车司机的儿子，少年时家里出了变故，有一段时间几乎是在哈萨比斯家里长大的。大学读了两年就退学去做社会工作，办过穆斯林青年求助热线，也为伦敦市长工作过。这些经历让他越来越坚信：想要真正大规模地改变社会，技术也许比政治更有效。负责运营和对外。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li><strong>最早的办公室：</strong>伦敦大学附近一栋老联排屋的阁楼里，很小，只有几张桌子，和一个放服务器的储物间。</li>
+    <li><strong>那个路口：</strong>离办公室几步远有一个不起眼的路口。1933 年匈牙利物理学家西拉德站在这里等红灯时想到了核链式反应，十几年后它变成了原子弹的一部分，也由此开启了核时代——"世界历史的一次巨大转向，最初就发生在这个路口"。因此每次走过，哈萨比斯都会提醒自己：<strong>人工智能一旦做成，影响可能不亚于核技术。它能造福人类，也可能带来同样巨大的风险。</strong></li>
+    <li><strong>前三年的官网：</strong>只有一块黑底和一个 logo。参加学术会议介绍自己说"我们在做通用人工智能"，十个人里大概有八个听完就翻个白眼走开。但他们觉得，这反而是很高效地筛选出谁值得聊、谁不值得的好办法。</li>
+    <li><strong>对投资人的回答：</strong>VC 不断追问"你们的产品到底是什么"，哈萨比斯答："我们要做人类历史上最大的发明，它会把今天所有的产品都重新做一遍。你非要我挑一个产品出来当然可以，但你会这么问，本身就说明你还没明白我们在做什么。"</li>
+    <li><strong>同一年两地的对比：</strong>加州山景城的谷歌大脑已经开始把神经网络一点一点放进搜索、广告和翻译；而伦敦的 DeepMind 连"最后要做什么产品"这个问题都拒绝回答。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>2012 年底：账上的钱快烧完了</h3>
+  <ul>
+    <li><strong>飞机上的偶遇：</strong>2012 年 10 月马斯克的 SpaceX 完成一次重要发射。回加州的私人飞机上坐着几位客人，其中一个是佩奇。聊到人工智能时，佩奇随口提起谷歌最近正打算收购多伦多一位老教授带出来的 AI 团队。</li>
+    <li>马斯克说：现在做 AI 的公司里，我只看好一家，我自己也投了钱，它的名字叫 <strong>DeepMind</strong>。（他投资很大程度上是出于对 AI 安全的担忧，想离这项技术近一点，确保自己能看清它正在发生什么。）</li>
+    <li>佩奇没说什么，只是掏出手机把这个名字记了下来。</li>
+    <li><strong>机上还有一位 DeepMind 的早期投资人</strong>，看到这一幕当场紧张起来：他觉得 AI 这么关键的技术绝对不能落进一家巨头手里，最好还是由哈萨比斯这样对后果足够警惕的人掌握方向。更让他担心的是，佩奇并不是一个碰巧对 AI 有点兴趣的有钱人——<strong>佩奇的父亲就是人工智能教授，佩奇自己也说过，谷歌从一开始就是为了做 AI</strong>。</li>
+    <li>飞机一落地，这位投资人就给伦敦打电话报信。电话那头哈萨比斯倒很平静："这可能是件好事。"</li>
+    <li>一个月后哈萨比斯收到一封邮件，发件人是谷歌的工程高级副总裁："佩奇今天早上把你的名字发给了我，不知道你有没有时间聊聊。"双方就这样坐上了谈判桌。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>辛顿拍卖：一场关于"谁更值钱"的博弈</h3>
+  <ul>
+    <li><strong>谈判的开场：</strong>哈萨比斯催谷歌给时间表——"你们再不快一点，我们就得去融下一轮；钱一融进来，估值涨了，到时候你们想买就会更贵。"财大气粗的谷歌副总裁淡淡说："<strong>那你们就去融吧。</strong>"三个创始人听傻了：多付几个亿，居然也能完全无所谓？</li>
+    <li><strong>但谷歌等得起，DeepMind 等不起。</strong></li>
+    <li><strong>谷歌着急的是另一个收购：</strong>佩奇在飞机上提到的多伦多老教授，就是<strong>辛顿</strong>——研究神经网络几十年，这个领域公认的奠基人物。那年秋天他的两个学生只用两块打游戏的显卡做出一个图像识别程序，在 ImageNet 比赛中把同行远远甩在后面。（这一场比赛让黄仁勋看到了 GPU 在 AI 中的巨大潜力，而谷歌也在同一场比赛中看到了深度学习的未来。）</li>
+    <li>谷歌手里有全世界最多的机器，它现在最想要的是能把这条路真正跑通的人。刚好辛顿和两个学生这时候注册了一家几乎什么都没有的公司，谷歌决定买下来。</li>
+    <li><strong>酒店房间里的邮件拍卖：</strong>12 月底，辛顿趁一场学术年会，直接在酒店房间里用邮件办起拍卖。桌上四个买家：谷歌、微软、百度（三家现金流充裕的大公司），第四个是哈萨比斯的 DeepMind。</li>
+    <li><strong>DeepMind 的算盘：</strong>它其实没什么现金。哈萨比斯报出的价是<strong>价值一千万美元的 DeepMind 股票</strong>——按当时估值差不多等于整家公司五分之一，甚至比他自己手里的股份还多。没钱还要掺一脚，是因为：谷歌既然已经开始四处抢 AI 人才，未来这些研究员的身价只会越来越高；DeepMind 要是能把辛顿这几个人收入麾下，自己的分量自然也会跟着变重。</li>
+    <li><strong>退出后的那通电话：</strong>价格很快超出承受范围，哈萨比斯退出。退出后他给辛顿打了个电话，辛顿说："这帮人疯了，价格还在往上叫。"哈萨比斯告诉他："虽然我本来只想拿一千万把你买下来，但我心里觉得你们真正的价值是<strong>五千万美元</strong>。"</li>
+    <li>这句话辛顿听进去了。拍卖价格来到三千万美元左右时，微软一位高层私下找到辛顿，说只要现在停拍，微软愿意再加一千万。辛顿一度心动，但想到哈萨比斯那句"你值五千万"，最后还是回绝了微软。<strong>最终谷歌出价四千四百万美元，把辛顿和两个学生一起买下。</strong></li>
+    <li><strong>哈萨比斯的真实算盘：</strong>这通电话当然不是来给辛顿打气的。辛顿也看明白了：DeepMind 如果买到了辛顿的公司，自己的身价会跟着大涨；如果买不成也没关系——今天辛顿卖得越贵，也就意味着未来 DeepMind 可以卖得更贵。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>2013 年 6 月：城堡城垛上的那次散步</h3>
+  <ul>
+    <li>马斯克过生日，他当时的妻子在纽约郊外租下一座美式仿古城堡办派对，佩奇和哈萨比斯也受邀参加。派对进行到一半，佩奇把哈萨比斯叫了出去，两人沿着城堡的城垛散步。</li>
+    <li>佩奇多年前得过一场病，两侧声带部分麻痹，说话的声音变成了沙哑的耳语。他就用这样的声音问："<strong>你为什么非要自己再造一家公司？这就像眼前这些城垛和箭孔一样，已经没有必要了。我花了十五年把谷歌造出来，你直接过来，用现成的，不就行了？</strong>"</li>
+    <li><strong>当时的谷歌有钱到什么地步：</strong>曾有一位工程副总裁下单买了一队小飞机，原因是要拿去拍三维地图，CFO 听完笑了笑就批准了，一句话都没多问。在大多数上市公司所有人都只盯着未来九十天；但谷歌不一样，它的资产负债表大到就算你往里面塞进美国的一个州，也未必有人注意得到。</li>
+    <li>哈萨比斯后来承认，这句话他答不上来。人的一辈子也许只够做成一件真正大的事；自己再造一家谷歌可能就要花掉十几年，而他真正想做的是把智能这件事弄明白。答案其实很清楚：对一个想关起门来做二十年研究、偏偏眼下又快没钱的 DeepMind 来说，谷歌几乎就是全世界最理想的买家。</li>
+    <li><strong>更重要的是：</strong>那次散步让哈萨比斯第一次觉得，佩奇不是在拿一个商人的逻辑劝他卖公司，而是真的理解他想做什么。他甚至觉得，如果两个人交换位置，佩奇自己也会做出同样的选择。此时的佩奇在他眼里已经不只是一个买家，而是"<strong>另一个把 AI 当成毕生目标的知己</strong>"。</li>
+    <li>用哈萨比斯自己的话说："行，那我就去谷歌，弄来一大堆电脑，把智能这个问题解决掉。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>扎克伯格的晚餐：一次刻意设计的技术品味测试</h3>
+  <ul>
+    <li>知己归知己，谈判归谈判。这时 Facebook 也加入竞购，而且开出的价钱比谷歌更高。</li>
+    <li>哈萨比斯去西海岸见佩奇时，扎克伯格听说他来了，也把他请到 Palo Alto 的家里吃晚饭。哈萨比斯正好借这顿饭偷偷做了个测试：两人一开始聊 AI，扎克伯格表现得非常兴奋；聊了一阵，他故意把话题岔开，开始谈虚拟现实、增强现实、3D 打印这些同样炙手可热的技术——<strong>结果每说一样，扎克伯格都表现出同样的兴奋。</strong></li>
+    <li>那一刻哈萨比斯心里就有了答案：Facebook 虽然给的钱更多，但不是他想要找的人。他要找一个真正明白<strong>为什么 AI 比其他这些技术都重要得多</strong>的人。这也是佩奇和扎克伯格在他心里最大的区别：对扎克伯格来说，AI 当时更像一种厉害的工具；对佩奇来说，AI 本身就是一件值得用几十年去做的事。</li>
+    <li>十多年后扎克伯格被问起这桩往事，表示很服气："我当时确实想买 DeepMind，哈萨比斯很会谈判，拿我和谷歌相互抬价，替自己谈了个好价钱。干得漂亮，我尊重他。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>四个条件：想卖掉公司，但不想把自己一起卖掉</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:8%">序</th><th style="width:34%">条件</th><th>分量与后果</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>谷歌要成立一个<strong>独立的 AI 伦理与安全委员会</strong>，监督这项技术以后怎么使用</td><td>苏莱曼最重视的一条。他最在意的是：如果 DeepMind 真把技术做成了，以后究竟由谁决定这项技术能拿来做什么。既然公司要卖给谷歌，这些边界就不能只靠口头承诺，必须写进合同。</td></tr>
+      <tr><td class="num">2</td><td>技术<strong>不能用于军事和情报</strong></td><td>写进了收购协议。十一年后（2025）被修改的 AI 原则删掉——见第八章。</td></tr>
+      <tr><td class="num">3</td><td>公司<strong>继续独立运营</strong></td><td>更多靠佩奇本人的承诺，未写进协议——这成了后来三年"马里奥"谈判的起点。</td></tr>
+      <tr><td class="num">4</td><td>团队<strong>留在伦敦</strong>，不搬去美国</td><td>同上，靠承诺。这一条最终守住了。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>谷歌负责谈判的律师一度觉得这笔交易很难谈成：DeepMind 的条件等于要求谷歌花大价钱收购它，同时主动放弃一部分控制权，甚至限制自己如何使用这项资产去为公司和股东争取更大利益。</p>
+  <div class="quote">
+    <p>"DeepMind 要的这四样东西，没有一样是钱。DeepMind 想卖掉公司，但不想把自己一起卖掉。这些条件真正划定的，是这家公司进了谷歌以后还能保住多少边界。它想带着自己定义的这些边界走进谷歌。"</p>
+  </div>
+
+  <h3><span class="h3n">⑧</span>2013 年 12 月：杨立昆的挖角与一次差点崩盘的插曲</h3>
+  <ul>
+    <li>扎克伯格眼看买不下 DeepMind，转头请来当时还是纽约大学教授的<strong>杨立昆</strong>，组建 Facebook 自己的 AI 实验室。月初两拨人在一场学术会议上碰见，哈萨比斯半开玩笑："你不会把我的人都挖走吧？"杨立昆也没避讳："我刚和 Facebook 签下合同，我今天就是来挖人的。"</li>
+    <li>圣诞节前，杨立昆真的给 DeepMind 一名土耳其研究员<strong>科拉伊</strong>打了电话——不巧的是，这个年轻人正是杨立昆本人亲自带出来的博士生。</li>
+    <li>苏莱曼一下急了。圣诞节当天专门打电话给哈萨比斯："Facebook 要是开始把关键研究员一个个挖走，DeepMind 很快就会被掏空，到时候谷歌还买什么？"</li>
+    <li>哈萨比斯只好赶紧向科拉伊交底，告诉他公司正在和谷歌谈收购，先把人稳住；然后又赶紧去催谷歌加快进度。幸运的是科拉伊最终决定留下。</li>
+    <li><strong>"谁也没想到，这个当时看来不起眼的小插曲，后来会深刻影响 DeepMind 的走向。"</strong>（七年后，正是科拉伊带队追赶 GPT-3。）</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>12 月 29 日：尽调团队与"渡过卢比孔河"</h3>
+  <ul>
+    <li>谷歌尽调团队坐着佩奇的私人飞机飞往伦敦。佩奇原本想亲自去，但为了加快收购进度，最后不得不派一位负责工程的高级副总裁带队。同行还有两位负责技术把关的人：<strong>辛顿</strong>和 <strong>Jeff Dean</strong>。</li>
+    <li><strong>辛顿的腰：</strong>他有严重腰疾，几乎不能坐着，长途飞行尤其难熬。大家想了个办法：把飞机上的座椅全部放平拼成一张临时的床，又找来登山绳固定在机舱壁上，给辛顿全身套上一副安全带，起飞和降落时就这么把他固定在床上，免得一路滚来滚去。第二天早上到伦敦，哈萨比斯站在前面讲，辛顿不能坐，只能躺在会议桌旁边的地板上听；碰到疑问，会议室里的人就会看到一只手默默地从桌沿边举起来。</li>
+    <li><strong>Jeff Dean 的任务：</strong>这一年他 45 岁，谷歌大脑刚独立一年多，还是一支几十人的小队伍。他肩负一项非常具体的任务——替谷歌看看，DeepMind 所说的这些东西到底是不是真的。</li>
+    <li><strong>价格争议：</strong>一家只有 50 个人、尚且没有收入的公司，开出的价格却是谷歌平时收购同等规模公司的两倍。谈判桌上不少人都觉得离谱，Jeff Dean 也觉得贵。</li>
+    <li><strong>他要看源代码：</strong>DeepMind 的 PPT 一个接一个放完，Jeff Dean 提出一个要求——他要看源代码。"演示可以包装，但代码很难骗人。"（作者的比喻：别人看引擎盖，他一张口就要看发动机。）</li>
+    <li>负责写代码的研究员一下子就慌了：做研究时写代码最重要的是尽快让实验跑起来，因此代码通常比较乱、比较难读，很多研究代码只有写代码的人自己看得懂。</li>
+    <li><strong>哈萨比斯把这一刻叫作"渡过卢比孔河"：</strong>代码一旦交出去，就再也没有回头路了。全世界最懂这行的一群人已经把你的底牌看了个遍；如果最后谷歌还是不买，DeepMind 就彻底被动了。</li>
+    <li>Jeff Dean 把代码从头到尾过了一遍，最后给出了肯定的判断。</li>
+    <li><strong>辛顿站到了 DeepMind 这一边：</strong>一年前辛顿公司拍卖时，是哈萨比斯劝辛顿把价格抬高到五千万美元；这一回，辛顿直接对 Jeff Dean 说："<strong>光哈萨比斯这个人，就值一亿五千万美元。</strong>"在他看来，值钱的不只是哈萨比斯的技术判断，还有他的野心、领导力，以及处理人和利益关系的手腕。</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>2014 年 1 月底：成交与蜜月</h3>
+  <ul>
+    <li>交易正式完成。谷歌花了约<strong>六亿多美元</strong>收购 DeepMind，价格大约是一年之前收购辛顿公司的<strong>十五倍</strong>。谈判桌上 DeepMind 提出的四个条件，佩奇全部答应。</li>
+    <li>"DeepMind 连同它想守住的边界，一起走进了谷歌。"</li>
+    <li><strong>蜜月期的特殊待遇：</strong>DeepMind 的人拿着谷歌工牌，全球任何一栋谷歌办公楼都能刷卡进去；反过来，谷歌的人到了伦敦，却刷不开 DeepMind 的门。有的时候 DeepMind 一个研究小组用掉的计算资源，<strong>超过全球九亿 Gmail 用户加起来的用量</strong>。团队从五十来人迅速扩张到一两百人，亏损一年比一年多。佩奇无所谓，钱和机器只要 DeepMind 需要都照给不误。</li>
+  </ul>
+
+  <h3><span class="h3n">⑪</span>2014 年 5 月："那不是不可能的吗？"</h3>
+  <ul>
+    <li>收购完成四个月后，哈萨比斯飞到山景城给谷歌高管做汇报。会后他跟布林闲聊，布林问他接下来想做什么。哈萨比斯说：<strong>想做围棋，做一个能赢世界冠军的程序。</strong></li>
+    <li>布林自己会下围棋，听到这里忍不住脱口而出："<strong>那不是不可能的吗？</strong>"——围棋的变化比宇宙里的原子还多，靠一步一步往下算是算不完的；机器要想下好围棋，必须像人一样学会判断局面，知道哪一块棋形好、哪一步值得走，而当时还没有任何人做到过。</li>
+    <li>哈萨比斯听到"不可能"，心里想的是：<strong>太好了。连布林都觉得不可能做成，那如果我们真的做成了，绝对能震撼全世界。</strong></li>
+    <li>这成为 AlphaGo 的起点。从第一天起，这个项目面对的就不仅是围棋界，它还有一个非常重要的观众：金主爸爸谷歌。</li>
+  </ul>
+  <div class="note">
+    <b>作者提炼的"哈萨比斯方法论"：</b>"真正的创新太难做，一旦做出来，就应该尽可能把它的影响放大。只有一次足够震撼世界的成功，才能让更多人看见你、相信你，给你更多的人、钱和算力，然后再拿这些资源去争取下一阶段的空间，攀登下一个高峰。这基本上就是哈萨比斯和谷歌的相处之道。"
+  </div>
+
+  <h3><span class="h3n">⑫</span>AlphaGo：从 5:0 樊麾到 4:1 李世石</h3>
+  <ul>
+    <li><strong>2015 年 10 月：</strong>AlphaGo 第一次和人类职业棋手下棋，DeepMind 把连拿三届欧洲冠军的职业棋手<strong>樊麾</strong>请到伦敦办公室。在这之前从没有哪台机器在不让子的情况下击败过职业棋手，行内普遍估计这一天至少还要再等十年。DeepMind 自己也不知道结果会怎样，但哈萨比斯说：不真正跟职业棋手下一次，你根本不知道机器到底离人还有多远。<strong>结果 5:0。</strong></li>
+    <li><strong>《自然》与保密：</strong>比赛后 DeepMind 写论文讲 AlphaGo 怎么训练、以及 5:0 的结果，投给《自然》。按杂志规矩，正式发表前结果必须严格保密。</li>
+    <li><strong>Facebook 抢跑：</strong>偏偏就在这个时候，Facebook 抢先当着一屋子记者宣布他们也在开发下围棋的 AI。此时大众不知道 DeepMind 已有的成绩，因此第二天报道一发表，Facebook 反而变成了跑在前面的那个。</li>
+    <li><strong>哈萨比斯当即决定两件事：</strong>第一，要让这场 5:0 登上《自然》封面；第二，论文一发表就立刻打一场公开赛，这次直接找世界最顶尖的棋手。他要让所有人、包括谷歌高层都看清楚：真正领先的是 DeepMind。他问带队研究员"AlphaGo 什么时候有把握去挑战世界冠军"，研究员其实也没底，给了个时间说"三月"，哈萨比斯说："<strong>那就三月。</strong>"</li>
+    <li><strong>2016 年初的赌注：</strong>距去首尔只剩两个月，AlphaGo 偶尔还会莫名其妙地乱走。队里有人主张再留几个月把这些毛病都修好再去比赛，哈萨比斯不同意——论文已登上《自然》，他担心别的团队会追上来，比赛不能推迟。</li>
+    <li><strong>谷歌的神助攻：</strong>真正让他敢坚持 3 月开赛的，还有母公司送来的一记助攻。2015 年底团队给 AlphaGo 接上了谷歌刚部署进数据中心的<strong>第一代 TPU</strong>。换成 TPU 之后一测试，新版对旧版的胜率超过八成；而且换了芯片以后 AlphaGo 连棋风都变了，开始下出一些很有创意、甚至称得上漂亮的棋。</li>
+    <li>开赛前几个星期，谷歌董事长施密特飞到伦敦询问准备情况。哈萨比斯说指标很好，就是偶尔还会乱走一步。施密特回答："<strong>不要搞砸。</strong>"</li>
+    <li><strong>2016 年 3 月，首尔：</strong>全世界有整整<strong>两亿人</strong>看了比赛直播。第一局施密特坐在现场，第三局布林专程飞到首尔，Jeff Dean 也从加州赶了过去。最后 AlphaGo <strong>4:1</strong> 击败李世石。</li>
+    <li><strong>两手棋：</strong>第二局第 37 手，AlphaGo 下了一手职业棋手几乎不会考虑的棋，现场一度以为机器走错了；直到一百多手后人们才看懂，这一步恰好落在了决定胜负的位置。第四局第 78 手，李世石下出了"神之一手"，终于从 AlphaGo 手里扳回一局——也是五局比赛里人类唯一的一场胜利。</li>
+    <li><strong>TPU 的亮相：</strong>在 AlphaGo 轰动世界的那个当下，外界没有人知道支撑整场比赛计算的芯片到底是什么。直到两个月后，谷歌才在开发者大会上第一次公开了这块芯片的名字：TPU。AlphaGo 正是 TPU 最耀眼的一次早期亮相。</li>
+    <li><strong>蜜月最高点：</strong>全世界最瞩目的 AI、谷歌自己造的芯片、几乎不设上限的算力。几年前哈萨比斯向投资人描绘的那些未来，第一次不再只是遥远的幻想。"命运总是在抵达巅峰之后，悄悄转向。"</li>
+  </ul>
+</section>
+
+<section id="p2-3">
+  <div class="sec-head"><div class="sec-num">2.3</div><h2 class="sec-title">第三章 · DeepMind 独立之战：马里奥计划（2015–2021）</h2></div>
+  <p class="sec-sub">"AlphaGo 越成功，AI 在谷歌内部就越重要；越接近主业的核心，就越不可能被放进'其他赌注'那一栏。"</p>
+
+  <h3><span class="h3n">①</span>2015：那场只开了一次的安全会议</h3>
+  <ul>
+    <li>收购时答应成立一个独立的 AI 伦理与安全委员会，专门讨论可能影响整个人类的技术风险。但收购一年半，这个委员会<strong>一次正式会议都还没开过</strong>。</li>
+    <li>这些年，想买 DeepMind 被谷歌截胡的<strong>马斯克</strong>一直在外面公开敲警钟：他担心 DeepMind 的研究推进得太快，外界又看不到进度，很有可能在几年之内带来真正的危险。</li>
+    <li>为了安抚马斯克，哈萨比斯和佩奇决定干脆把他请进这个安全委员会，第一次会议就在马斯克的 SpaceX 总部开，让他主场作战。</li>
+    <li><strong>2015 年 8 月 14 日：</strong>十来个人坐进 SpaceX 会议室——谷歌几位最高层、DeepMind 三位创始人、马斯克，还有几位外部人士。哈萨比斯先讲技术路线图；接下来轮到苏莱曼，他讲的是 AI 会不会制造大规模失业、会不会把贫富差距越拉越大。演讲最后他放出动画片《辛普森一家》的一个画面：<strong>全镇居民举着火把和干草叉往前冲</strong>——意思是如果这些问题处理不好，迟早有一天老百姓的干草叉会冲着我们来。</li>
+    <li>房间里陷入一片冰冷的沉默。过了一会儿佩奇开口："AI 创造的工作岗位会比它消灭的更多，不用太担心。"这个话题就这么重重拿起，又轻轻放下。</li>
+    <li><strong>那个叫"天网"的机房：</strong>会后他们参观 SpaceX 工厂。走过一间放服务器的房间时，有人发现这个房间的名字居然叫"<strong>Skynet 天网</strong>"——正是《终结者》里最终毁灭人类的人工智能。马斯克一直在外面警告 AI 可能威胁人类，结果自家公司的服务器却是用毁灭人类的 AI 命名的。哈萨比斯转头对他说："我要是敢在 DeepMind 的服务器房门口挂一块'天网'，你还不知道得怎么抨击我们。"</li>
+    <li>这场会议最后<strong>没有形成任何决议</strong>。四个月后，马斯克拉了一群人成立 OpenAI。</li>
+    <li><strong>哈萨比斯多年后的教训总结：</strong>"如果你请来的，是既有权势、又看得懂这项技术的人，他们不会甘心一直坐在场边给你提意见。所谓顾问，最后很可能就是你的对手。"</li>
+    <li>而谷歌当初答应设立的那个独立 AI 伦理与安全委员会，只开了这一次会，此后几乎没了下文。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>2015 年 8 月：Alphabet 重组，与一个没写进架构图的"特殊地位"</h3>
+  <ul>
+    <li>谷歌完成重大重组，在公司上面新设母公司 <strong>Alphabet</strong>。搜索、安卓这些成熟赚钱的主业继续留在谷歌；无人车等登月项目被挪出去，成为 Alphabet 旗下与谷歌并列的公司，财报里统统归进一个新栏目——<strong>"其他赌注"</strong>。</li>
+    <li>佩奇卸任谷歌 CEO，和布林一起去 Alphabet 负责更大胆的项目，谷歌 CEO 交给<strong>劈柴</strong>。</li>
+    <li>重组后谷歌内部有两支 AI 团队，但汇报关系不同：<strong>谷歌大脑直接汇报给劈柴</strong>；<strong>DeepMind 保留收购之后的特殊地位</strong>，独立运营、做什么自己决定，哈萨比斯仍然直接汇报给已经去了 Alphabet 的佩奇。</li>
+    <li><strong>问题在于：</strong>这种"特殊地位"并没有写进新的公司架构图，只是 DeepMind、哈萨比斯和佩奇之间的默契。DeepMind 没有自己的独立董事会，未来要往哪里走，最终仍然由谷歌说了算。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>"马里奥"计划：把承诺变成制度</h3>
+  <ul>
+    <li>重组期间，谷歌负责并购的一位高管找到哈萨比斯和苏莱曼，提议 DeepMind 也可以走"其他赌注"这条路，从谷歌里搬出去，变成 Alphabet 旗下的半独立子公司：<strong>董事会设九个席位，DeepMind 三席、Alphabet 三席、另外三席交给外部独立人士</strong>。</li>
+    <li>苏莱曼真的把这个方案听进去了。那场安全会议开得毫无成效，因此他想借这次重组重新建立一套治理结构：将来 DeepMind 真做出了通用人工智能，它的命运不能只由一家公司的股东决定。</li>
+    <li>DeepMind 内部给这场谈判起了个代号——<strong>"马里奥"</strong>。</li>
+    <li><strong>表面双赢的逻辑：</strong>这次重组的目的，就是把稳定赚钱的主业（搜索、广告）和长期烧钱的登月项目分开来管。DeepMind 一年亏掉几亿美元，如果也能被划进"其他赌注"，这些亏损就不会再拖累谷歌主业的利润率。所以他们觉得，这不只是 DeepMind 单方面争取独立：既然对谷歌的财报甚至股价也有好处，这个方案就很有可能通过。</li>
+    <li><strong>性质的变化：</strong>当初卖给谷歌时，前两个条件（成立伦理安全委员会、技术不能用于军事和情报）是白纸黑字写进收购协议的；而独立运营、继续留在伦敦，则更多靠佩奇本人的承诺。马里奥真正想做的，是再往前走一步——把 DeepMind 四周这些靠承诺划定的边界，<strong>变成写进公司章程和董事会结构里的制度</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>2016：四见佩奇、第五轮谈判与"靠什么养活自己"</h3>
+  <ul>
+    <li>2016 年上半年谈判正式开始，为了这件事哈萨比斯前后见了佩奇<strong>四次</strong>。</li>
+    <li><strong>同时筹划独立后的收入：</strong>苏莱曼加紧给医院做免费软件，等成功帮医院省下成本，再从省下来的钱里分成；哈萨比斯则悄悄拉了二十来个研究员做高频交易，还去找华尔街的大型资管公司谈合作。他最欣赏的是一家由数学家创办、极度保密的传奇量化基金——但因为谷歌不喜欢这个项目，后来只能悄悄解散，<strong>一分钱也没能赚到</strong>。</li>
+    <li>到夏天，和佩奇的第五轮谈判结束，一份正式的条款清单落到了纸面上。</li>
+    <li>又过了几个月，2016 年 11 月中旬，为了确认谷歌新管理层也认可这套安排，哈萨比斯和苏莱曼第一次因为马里奥这个项目，正式坐到了新任 CEO 劈柴面前。截至此时，马里奥已经谈了一年多，前面每一步点头的人都是佩奇。</li>
+    <li><strong>对劈柴的第一印象：</strong>他是一个公认没有敌人的人，不喜欢主动制造冲突。DeepMind 那天的印象也差不多：人很亲切，也很平淡，看起来不像会主动横生枝节的人。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>转折：一句"有一些顾虑"</h3>
+  <ul>
+    <li>然而大约一周后，谷歌的首席法务官飞到伦敦，告诉他们：关于 AI 安全治理，双方的目标完全一致；但对于把 DeepMind 从谷歌分拆出去这件事，公司"<strong>有一些顾虑</strong>"。</li>
+    <li><strong>11 月 25 日电话：</strong>劈柴的态度是——母公司 Alphabet 底下"其他赌注"那一栏，是留给那些跟谷歌主业相距很远的登月项目的：比如无人驾驶，比如延长寿命。但<strong>AI 已经不属于这一类了</strong>。恰恰相反，它正在成为谷歌最核心的技术，未来无论搜索还是云计算，都要靠它。</li>
+    <li><strong>作者的全篇关键因果：</strong>哈萨比斯过去很擅长"先打下一场足够大的胜仗，再拿这场胜利去换下一阶段的筹码"。AlphaGo 当然给了 DeepMind 更大的分量，只是这一次，筹码变化的方向跟他预想的正好相反——<strong>AlphaGo 越成功，AI 在谷歌内部就越重要；越接近主业的核心，就越不可能被放进"其他赌注"那一栏。</strong></li>
+    <li>DeepMind 完全没有料到会是这个结果。在他们看来，这件事一直由佩奇亲自推动，连条款都落到了纸面上；劈柴当然可以反对，但最后拍板的应该还是 Alphabet CEO 佩奇。</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>2017 年 1 月：佩奇迟到了两个小时</h3>
+  <ul>
+    <li>哈萨比斯在一场 AI 大会的会场里找到佩奇，当面问："你不是一直支持马里奥这个方案吗，为什么现在不行了？"佩奇表示："我还是支持。但这件事，得劈柴点头。"</li>
+    <li>哈萨比斯提前离会赶去山景城，第二次坐到劈柴面前。这一次他把姿态放得很低：独立董事会里 Alphabet 的三席，可以请劈柴、佩奇和施密特来坐；谷歌有什么顾虑，也都可以写进制度里。他还说，这几个月光顾着谈这件事，自己已经没法专心管 DeepMind 了，希望尽快把事情定下来，回去做科学。</li>
+    <li>劈柴还是很客气，似乎什么都可以继续谈，具体细节让他们去找首席法务官。<strong>可第二天，首席法务官换了一套说法："你们误会了，劈柴根本没有同意让 DeepMind 分出去。"</strong></li>
+    <li>几天后，哈萨比斯和苏莱曼一起给劈柴写邮件：谈判已拖了一年多，开始实实在在影响他们管理公司；他们愿意取消去达沃斯参加世界经济论坛的行程，再飞一趟山景城把事情一次谈清。这一次他们特意点名：<strong>佩奇和布林也必须到场。</strong></li>
+    <li>月底几方终于坐到一张桌子前。<strong>佩奇迟到了两个小时，布林比他还晚。</strong>两个人都没有像哈萨比斯期待的那样站出来替 DeepMind 说话。劈柴在会上表态：AI 是他对谷歌未来规划的核心，他不会同意把谷歌的 AI 研究力量拆出去。</li>
+    <li>这次会以后，佩奇和布林就不再参与谈判了。DeepMind 接下来真正需要说服的，变成了劈柴。</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>那顿素咖喱：焦点从"是否独立"变成"如何拆分"</h3>
+  <ul>
+    <li>接下来一周，劈柴单独把苏莱曼请到自己家里吃晚饭。劈柴是印度人，这天准备的晚饭是素咖喱——这顿饭只请了苏莱曼，没有哈萨比斯。</li>
+    <li><strong>劈柴对通用人工智能非常不以为然，甚至不认为真的能实现。</strong></li>
+    <li>他提出另一个方案：把 DeepMind <strong>一拆为二</strong>——一半做研究，可以跟着哈萨比斯分出去，继续追逐他的通用人工智能梦想；另一半做应用，并进谷歌，苏莱曼搬到加州，接手整个谷歌的应用 AI。</li>
+    <li>从这顿饭开始，谈判的焦点变了：<strong>不再是 DeepMind 是否独立，而是如何拆分。</strong></li>
+  </ul>
+
+  <h3><span class="h3n">⑧</span>2017 年 6 月：那张只活了十天的幻灯片</h3>
+  <ul>
+    <li>2017 年春天就在来回拉锯中过去了。DeepMind 的两位创始人每隔几个星期就要飞十一个小时去加州开会，谈完再飞回伦敦倒时差。</li>
+    <li>到了 5 月底，谷歌那边释放出来的信号，让 DeepMind 以为劈柴提出的"一分为二"方案已经八九不离十了。</li>
+    <li><strong>6 月第一周团建：</strong>五百个人包下两架飞机，飞到苏格兰高地的一座度假小镇。苏莱曼上台放出一页幻灯片，标题是"<strong>DeepMind：一家全球利益公司</strong>"。图上有两个框：一个框里是苏莱曼和应用部门，并入谷歌；另一个框里是研究部门，独立出去，变成一家<strong>不发股票、不分红、只受公司章程约束</strong>的新型机构，它和谷歌之间只剩下一根代表技术授权的虚线。</li>
+    <li>台下五百个人一下子安静了。很多人原本以为这场谈判谈的是整个 DeepMind 独立出去，甚至已经开始期待自己会拿到新公司的股份；现在才发现，真正被独立出去的只有研究部门。</li>
+    <li><strong>这张幻灯片只活了十天。</strong>十天后谷歌把方案发回来，文件上密密麻麻全是修改建议，离真正能获批还差得很远。苏莱曼刚刚当着五百个人宣布的未来，只能重新收了回去。</li>
+    <li>哈萨比斯彻底怒了，直接取消了下一次跟劈柴的例行通话。劈柴立刻发来消息表示希望尽快聊一聊；哈萨比斯晾了他一阵，才重新接上电话。两边的关系也在这个时候跌到了冰点。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>2018：签了字，又被一场"无关"的人事变动作废</h3>
+  <ul>
+    <li>拉锯又持续了大半年。到 2018 年初，双方终于沿着"一拆为二"的框架谈妥细则正式签字。协议写道：<strong>未来十年，给分出去的 DeepMind 研究部门一百五十亿美元经费。</strong>苏莱曼已经通知副手，准备跟他一起搬去加州。</li>
+    <li><strong>几个月后，一场看似无关的人事变动让这份协议直接作废：</strong>4 月，原本负责接纳苏莱曼的那位谷歌 AI 主管被苹果挖走了。谷歌随即重整 AI 研究体系，把 <strong>Jeff Dean</strong> 提了上来，谷歌大脑和整个研究部门都归他管，直接向劈柴汇报。等这轮调整结束，原本留给苏莱曼的位置就不存在了。</li>
+    <li><strong>作者的历史偶然性观察：</strong>"Jeff Dean 并不是这场博弈里的参与者。但他在这个节骨眼上升了个职，组织架构一变，就彻底改变了苏莱曼和 DeepMind 的命运。"</li>
+    <li><strong>2018 年 11 月：</strong>劈柴当初"一拆为二"方案的一部分落地——只是在当时还没有人意识到，这已经是结局的前奏。那个月谷歌成立了一个新的健康部门；五天以后宣布，DeepMind 内部苏莱曼负责的医疗数据和软件团队，连人带业务一起并入谷歌。</li>
+    <li><strong>失信争议：</strong>两年前这支团队曾拿伦敦一家医院的<strong>一百六十万份病历</strong>开发产品，引发过一场舆论风波；苏莱曼当时公开承诺，病人的数据永远不会跟谷歌的产品发生关联。现在，做这套医院软件的工程师和产品本身都进了谷歌。合作的医院在宣布前三天才接到通知。一位研究隐私的学者公开批评："DeepMind 说过永远不会把这款软件和谷歌连在一起，现在整款软件都成了谷歌的产品，这是严重的失信。"苏莱曼当年还专门请外部人士组成了一个独立审查小组监督数据使用，这次团队并入谷歌，审查小组也随之解散。</li>
+    <li><strong>结局的定性：</strong>"回看两年前劈柴和素咖喱里一起摆出来的方案，最后落地的，只有对谷歌有利的那一半：DeepMind 的应用团队被收编进谷歌；而 DeepMind 想要争取的独立和自主权，从此再也没有了下文。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>三个人先后退场</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:14%">时间</th><th style="width:18%">人物</th><th>经过</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num"><strong>2019 年初</strong></td><td><strong>苏莱曼</strong></td>
+        <td>几名员工投诉他管理方式粗暴，曾把下属骂哭。哈萨比斯因与他相识多年主动回避，请外部律师调查。三个月后调查有结论：公司给他两个小时做选择——主动休假，或接受正式纪律处分。两小时后他选择休假。年底谷歌保留了他的副总裁头衔，但收走团队，同时把他调往加州。三位创始人里最想把技术做成产品、也一直主导独立谈判的那个人，就这样离开了伦敦。三年后（2022）离开谷歌，后来加入微软，成为微软 AI 掌门人。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>2019 年 12 月</strong></td><td><strong>佩奇、布林</strong></td>
+        <td>联名宣布退出 Alphabet 的日常管理，劈柴兼任 Alphabet CEO。过去几年哈萨比斯遇到大事还能越过劈柴直接找佩奇；从这一刻起这条通道也没了——他名义上和实际上，都只剩下了劈柴一个老板。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>2021 年 4 月</strong></td><td><strong>独立谈判本身</strong></td>
+        <td>哈萨比斯在全员会上告诉所有员工：争取独立，到此结束。</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">⑪</span>清算：守住了什么，失去了什么</h3>
+  <ul>
+    <li><strong>失去的：</strong>独立的安全伦理委员会只在马斯克施压下开了一次会；独立运营谈了三年，两次写进协议、两次作废。DeepMind 最终没能把那些边界写进公司章程。</li>
+    <li><strong>守住的：</strong>团队继续留在伦敦，每年亏掉几亿英镑谷歌照样出钱；研究什么仍然由他自己决定。</li>
+    <li><strong>哈萨比斯的认知转变：</strong>三年下来，他已经不再相信一套提前写好的治理结构真的能保证安全。关键时刻，董事会未必会做出对的决定；很多年前定下的边界，真到了那一天也未必还适用。而且，DeepMind 越想设计一套"即使双方互不信任也能运转"的制度，就越是在向谷歌表明：<strong>我们不信任你。</strong></li>
+    <li><strong>于是他换了思路：</strong>不再想办法脱离谷歌，而是主动融入，在合作的过程中慢慢积累信任。这样万一将来安全问题真的出现，至少他还坐在决策桌前，有资格参与决定。</li>
+    <li>"哈萨比斯把这个变化看作是自己的成熟：从理想主义走向了现实主义，方法和手段可以变，但初心从未改变。"</li>
+  </ul>
+</section>
+
+<section id="p2-4">
+  <div class="sec-head"><div class="sec-num">2.4</div><h2 class="sec-title">第四章 · 黄金时代：人才、芯片、算力，几乎全有</h2></div>
+  <p class="sec-sub">2018 年前后，是谷歌在 AI 领域最接近全面统治的时刻。</p>
+
+  <h3><span class="h3n">①</span>2018：基础设施全面铺开</h3>
+  <ul>
+    <li><strong>TPU 第二代：</strong>第一代只能跑已经训练好的模型，第二代开始可以直接训练模型。谷歌把几百块 TPU 用高速网络连在一起，组成一套更大的计算系统。<strong>2018 年 2 月，TPU 第一次通过谷歌 Cloud 对外开放</strong>，外面的公司可以按小时付费直接租用谷歌的 AI 算力。</li>
+    <li><strong>组织：</strong>2018 年 4 月 Jeff Dean 升职，开始管理整个谷歌大脑和研究部门，直接汇报给劈柴；一个月后谷歌连研究部门的招牌都换了，直接改叫<strong>谷歌 AI</strong>。</li>
+    <li><strong>那段友谊：</strong>桑杰依然留在一线做基础设施。Jeff Dean 大部分时间要管研究，只有每周一，他们还是会像 20 年前那样坐到同一台电脑前写代码。那年年底《纽约客》专门写了他们，文章标题叫《造就谷歌的一段友谊》。记者八卦地跑去问 Jeff Dean 的妻子怎么看，她说："我觉得他们俩想对方了。"</li>
+    <li><strong>学术统治力：</strong>TensorFlow 已成了全世界做深度学习最常用的工具。几场顶级 AI 学术会议里谷歌的论文数量长期排第一——2018 年 1 月一场会议，<strong>谷歌一家 83 篇，伯克利、斯坦福、麻省理工每家只有二三十篇</strong>。差距大到连马斯克看完这张论文统计图，都忍不住转手发给 OpenAI 的几位创始人说："<strong>OpenAI 对上谷歌，必败无疑。</strong>"</li>
+    <li><strong>伦敦的独孤求败：</strong>2017 年 5 月 AlphaGo 三比零击败柯洁；10 月，新一代 AlphaGo 不再学习任何人类棋谱、只靠自己跟自己下棋，就以 <strong>100:0</strong> 击败了前一年战胜李世石的版本；12 月又用同一套方法训练出 <strong>AlphaZero</strong>，花几个小时学会国际象棋，直接击败当时最强的棋类程序。</li>
+  </ul>
+  <p>"在这个时间点上，后来大模型时代最关键的几样东西——<strong>人才、芯片、和算力</strong>，谷歌手里几乎全有，而且基本都断层领先。"</p>
+
+  <h3><span class="h3n">②</span>2017 年 6 月：Transformer 的两个突破</h3>
+  <p>谷歌八名研究员发表《Attention is all you need 注意力就是你所需要的一切》，提出了一种新的神经网络架构——<strong>Transformer</strong>。它最关键的突破有两个：</p>
+  <div class="cols">
+    <div class="col a">
+      <h4>突破一：注意力机制（Attention）</h4>
+      <ul>
+        <li>以前的模型读一句话，基本上是一个词一个词从头往后读，前面出现过的东西要一层一层往后传。句子一旦变长，前面的信息传到后面就容易丢掉。</li>
+        <li>Transformer 换了一种办法：读到一个词时，不必再靠前面传话，而是可以直接去看其他位置的词，判断哪些跟自己关系最大。</li>
+        <li>就像我们读到"他"，不会把前面每个字重新念一遍，而是直接去找：前文出现的所有人里，这个"他"到底指谁。</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>突破二：训练可以大规模并行</h4>
+      <ul>
+        <li>过去模型一个词一个词往下算，就像盖一座大楼，很多工序得按顺序一道一道做，前面没做完后面的人就开不了工，所以人再多也快不起来。</li>
+        <li>Transformer 把很多原本要排队做的事情拆开，让更多机器可以同时开工。</li>
+        <li>为什么重要：想让模型更强，最直接的办法就是把它做得更大——塞进更多参数、喂更多数据、投入更多机器训练。</li>
+      </ul>
+    </div>
+  </div>
+  <p>按谷歌大脑的惯例，这篇论文<strong>没等同行评审就直接放到了网上</strong>，公众都可以读、可以用。</p>
+
+  <h3><span class="h3n">③</span>OpenAI 的三年三级跳：一个读到论文的人</h3>
+  <ul>
+    <li><strong>伊利亚：</strong>OpenAI 一名研究员，辛顿教授的学生——2013 年谷歌买下辛顿的公司时他也跟着老师一起进了谷歌，2015 年又离开谷歌加入刚成立的 OpenAI。</li>
+    <li>他看完 Transformer 论文立刻意识到机会来了：<strong>从椅子上跳起来，跑去找他最得力的搭档，让他立刻停掉手上的一切，全面押注 Transformer</strong>。</li>
+    <li>那时 OpenAI 成立还不到两年，他们原本就在研究怎样让机器不断预测下一个词，并发现只要预测得足够准，机器会顺带学到语法、语义，甚至一些藏在文字里的知识。只是旧架构很快碰到瓶颈——文章一长前面的内容就容易忘。而 Transformer 正好解决了这个问题。</li>
+  </ul>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:18%">时间</th><th style="width:16%">模型</th><th style="width:18%">参数规模</th><th>意义</th></tr></thead>
+    <tbody>
+      <tr><td class="num">一年后</td><td><strong>GPT</strong></td><td class="num">1 亿多</td><td>第一代</td></tr>
+      <tr><td class="num">又过 8 个月</td><td><strong>GPT-2</strong></td><td class="num">15 亿（翻 15 倍）</td><td>以"模型能力可能带来滥用风险"为由暂不公开完整版，只放缩小版。媒体打出"危险到不敢发布的 AI"，不少同行觉得只是炒作。</td></tr>
+      <tr><td class="num">十个月后（2020.5 底）</td><td><strong>GPT-3</strong></td><td class="num">1750 亿（又大 100 多倍）</td><td>具备举一反三的能力：给几个例子，就能照着写邮件、写诗、写能运行的代码。开放给一小批开发者试用后视频传遍全网——有人只用一句话说自己想要什么样的网页，GPT-3 就把代码写了出来。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>"如果说 GPT-2 让 OpenAI 成了挑战者，那么 GPT-3 就让它成为了这个领域的领跑者。"而这一切的起点，正是谷歌那篇 Transformer 论文——今天所有的大语言模型（GPT、Claude、Gemini）底层都沿着 Transformer 这条路线发展起来。</p>
+
+  <h3><span class="h3n">④</span>核心追问：为什么推开时代大门的是 OpenAI？</h3>
+  <p>论文是谷歌写的，训练模型需要的算力谷歌最多，人才、数据、工程能力谷歌几乎在每一个维度都断层领先，甚至它还有两个 AI 团队。按道理谷歌才应该是引领这场变革的人。作者给出的第一层答案：</p>
+  <ul>
+    <li><strong>谷歌大脑并没有把论文束之高阁，只是把它用到了别的地方。</strong>2018 年谷歌大脑用 Transformer 做出了 <strong>BERT</strong>，专门帮搜索引擎更准确地理解用户在问什么；第二年 BERT 被正式用进谷歌搜索，谷歌称这是<strong>搜索五年来最大的一次升级</strong>。那几年学界引用最多的语言模型也是 BERT，不是 GPT。</li>
+    <li><strong>路径依赖：</strong>"发明了新技术，优先用来把搜索做得更好，这是谷歌二十年来最熟悉的成功路径。"就像当年神经网络一点一点装进语音输入、相册、翻译这些已有产品里。这个剧本在 Transformer 身上重演了一遍，而且<strong>效果好得足以让所有人相信，这就是它最有价值的用法</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>沙泽尔：一个想扔掉搜索索引的人</h3>
+  <ul>
+    <li>Transformer 论文八个作者里，有一位谷歌老工程师叫<strong>诺姆·沙泽尔</strong>。2000 年他就进了谷歌，早年跟 Jeff Dean 和桑杰还在同一间办公室工作过，后来一度离开。2012 年有一天他回谷歌园区吃饭，碰巧跟 Jeff Dean 和刚刚起步的谷歌大脑团队坐到了一桌，Jeff Dean 顺口说"你该来看看我们现在做的深度神经网络"——<strong>这顿午饭让他重新回到了谷歌</strong>。</li>
+    <li><strong>那个"近乎疯狂"的建议：</strong>论文刚写出来，他就开始琢磨这套架构的未来。他找到谷歌高层，提议把谷歌搜索用了这么多年的索引整个扔掉，改用这种新架构训练一张巨大的神经网络，重新学习和组织谷歌掌握的全部信息，用户问什么它就回答什么。<strong>然而连跟他一起写论文的合作者都觉得这个想法太疯狂，提议不了了之。</strong></li>
+    <li><strong>Meena：</strong>2018 年前后，他和一个同事训练了一个专门用来聊天的模型 Meena，能跟人聊哲学、能闲扯电视剧、还会现编谐音梗。两个人越做越觉得这东西有戏，可能会改变人使用搜索的方式。</li>
+    <li><strong>三次申请、三次否决：</strong>接下来几年他们先后提过三次申请——开放给外部研究者试用、接入谷歌的语音助手、做一次公开演示。<strong>三次都因为同一个理由被否决：不符合公司的 AI 原则。</strong>管理层担心它说错话，也担心它会给出带有种族、性别歧视的内容。</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>AI 原则的来路：一场 2018 年的员工抗议</h3>
+  <ul>
+    <li>这套 AI 原则并非管理层的挡箭牌，它背后是前一年闹得沸沸扬扬的一场五角大楼风波。</li>
+    <li>2018 年春天，谷歌接下五角大楼一个项目，用 AI 帮助分析军用无人机拍摄的图像。消息传开后约<strong>四千名员工联名抗议</strong>，认为谷歌不应该做战争生意，十余人辞职。很多员工认为，这套技术今天或许只是帮无人机看图，下一步就可能被用来寻找和锁定打击目标。Jeff Dean 自己也公开反对把 AI 用在自主武器上。</li>
+    <li>到 6 月，谷歌宣布与五角大楼的合同到期后不再续约，同时公布了<strong>七条"AI 原则"</strong>，第一次公开明确划分了公司使用 AI 的边界。</li>
+    <li><strong>最尖锐的反讽：</strong>"只是这些原则落地之后，最先被它们挡住的，不是军方项目，而是谷歌大脑自己做出来的一个聊天机器人。"</li>
+    <li>那几年谷歌整个 AI 研究体系的最高负责人正是 Jeff Dean。他甚至把 Meena 作为研究成果写进第二年《谷歌研究年度回顾》，称它是"一个理想状态下什么都能聊的对话模型"。<strong>但 Meena 最终只停留在研究成果这一步。</strong></li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>伦敦这边：为什么 DeepMind 也没押注大语言模型</h3>
+  <ul>
+    <li><strong>2019 年 2 月 GPT-2 发布后</strong>，DeepMind 有一位年轻研究员<strong>杰克·雷</strong>写了一份内部分析，结论是：把模型继续做大这个方向值得押注；而且这个方向上 DeepMind 已经落后了。<strong>但他的意见只是极少数</strong>，公司大多数人的反应仍然只是耸耸肩、不以为然。</li>
+  </ul>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">原因</th><th>具体内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>① 时机</strong></td>
+        <td>那段时间哈萨比斯很大一部分精力都耗在了和谷歌、劈柴的那场漫长拉锯战里。当 OpenAI 看到 Transformer 以及大语言模型的巨大潜力时，伦敦这边哈萨比斯收到的却是劈柴打回来的拆分方案，上面密密麻麻全是修改意见。</td>
+      </tr>
+      <tr>
+        <td><strong>② 对"智能"的理解分歧</strong></td>
+        <td>DeepMind 早年写给投资人的商业计划书里有一句话：把"语言看成智能的表达"是一个错误、却影响深远的观念。在哈萨比斯看来，语言终究只是一套符号——机器通过文字知道了狗有腿，可真把一条狗放到机器眼前，它怎么知道哪一部分叫"腿"？在他看来，智能不是记住多少知识，而是能把眼前发生的事情和自己的行动联系起来。<br><br>所以 DeepMind 的思路是：智能要读万卷书，但更要行万里路。给它一副机器人的身体，让它在现实或游戏里行动、触碰物体、不断尝试，做对了有奖励，做错了就换一种办法，在不断试错中摸索规律。AlphaGo 学围棋用的就是这个思路。<strong>这个"自己行动、得到反馈、再继续调整"的过程就叫强化学习</strong>，DeepMind 很长时间都把它看成通往通用人工智能最有希望的一条途径。</td>
+      </tr>
+      <tr>
+        <td><strong>③ 伦敦学术文化对硅谷工程文化的轻视</strong></td>
+        <td>2014 年卖给谷歌时，哈萨比斯开出的条件之一就是必须留在伦敦。留在伦敦更容易招到人才——一个剑桥毕业的物理博士想找地方做一点可能改变世界的技术，在英国其实没多少选择，但硅谷类似的机会遍地都是。更重要的一点是：DeepMind 想做的是一个可能要花十年、二十年来探索的长期问题，而硅谷的节奏太快太浮躁，每天都在不断冒出新的风口，所有人都忙于追逐下一个热门，噪音太多，不适合静下心来做研究。<br><br>最直观的例子：DeepMind 有了成果，目标是发《自然》这样的学术期刊；而 OpenAI 做出了东西，直接写博客立刻告诉全世界。<br><br>哈萨比斯和同事们私下对 OpenAI 的评价并不高。DeepMind 追求的是对科学、对智能本身的理解，而在他们看来 OpenAI 走的是典型的硅谷式工程路线——堆机器、堆算力、把模型做大，离他们理解的真正的"智能"差得很远。<br><br>从两个创始人就能看出来：一个是马斯克，爱出风头、争强好胜、表演型人格；另一个是奥特曼，长袖善舞、野心勃勃、什么都想做，却唯独不肯认认真真做研究。<br><br>更重要的是，从小到大哈萨比斯走的都是别人没有走过的路，DeepMind 又长期被视为世界上最领先的 AI 实验室。在他眼里 OpenAI 不过是追赶 DeepMind 的后来者，他很难想象这样的公司有朝一日有可能超过自己。<strong>要让他学 OpenAI，他的第一反应就是没这个必要。</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="quote">
+    <p>"AI 学界一向轻视工程上的脏活累活；但 OpenAI 相信，现有方法已经足够有效强大，关键是持续把它做深、做大。这恰恰是 DeepMind 不具备的，也是 OpenAI 的优势。"</p>
+    <span class="src">伊利亚后来的总结，作者引用</span>
+  </div>
+
+  <h3><span class="h3n">⑧</span>第四个原因：蛋白质折叠——那个记了二十年的问题</h3>
+  <ul>
+    <li>2016 年 3 月，AlphaGo 赢下李世石的<strong>当天晚上</strong>，哈萨比斯走出首尔的酒店，雄心勃勃地对 AlphaGo 团队负责人说："<strong>我觉得，蛋白质折叠，我们肯定能攻克。以前只是感觉，现在我确定我们肯定能。</strong>"</li>
+    <li><strong>问题本身：</strong>蛋白质是一长串氨基酸，不同的氨基酸排列会让这条长链折叠成不同的三维结构，它折叠成什么样会影响它在细胞里发挥什么作用。但要怎样才能只看氨基酸的排列，就算出它最后会折叠成什么样？这个问题困了生物学界几十年。</li>
+    <li><strong>种子：</strong>20 年前哈萨比斯还在剑桥读书时，有一次在酒吧听一个学生物的朋友提到，如果能从氨基酸序列预测出蛋白质的形状，那会成为医学的一次重大突破。<strong>这件事他记了 20 年。</strong></li>
+    <li><strong>立项：</strong>AlphaGo 比赛一结束，他回到伦敦就立了项——攻克蛋白质结构预测。项目名就是 <strong>AlphaFold</strong>。</li>
+    <li><strong>行业基线：</strong>过去蛋白质结构主要靠实验一个一个测，测清一个常常需要一个博士生忙上几年；因此五十年下来，全世界也只测出来了<strong>十几万个</strong>。</li>
+    <li><strong>进展：</strong>2018 年 DeepMind 第一次参加这个领域两年一届的蛋白质结构预测比赛就拿了第一，但离真正解决问题还差很远。哈萨比斯随后换了项目负责人，交给一个博士毕业没多久、进公司才一年多的年轻研究员<strong>约翰·江珀</strong>。接下来两年团队成功不断提高预测准确度分数。</li>
+    <li><strong>2020 年 11 月 30 日：</strong>新的比赛结果公布，DeepMind 的成绩比之前的最高记录<strong>高了一半</strong>，预测精度第一次逼近实验测量。一个几十年的老评委忍不住感慨："我一直希望有生之年能看到这一天，只是以前并不确定，自己能不能活着等到它。"</li>
+    <li><strong>开放：</strong>第二年夏天 DeepMind 把人类和二十种常见生物的<strong>几十万个</strong>蛋白质结构预测结果全部免费公开；又过一年，数据库扩到<strong>两亿多个</strong>，几乎覆盖了科学界已知的全部蛋白质，免费开放给世界各地的所有生物学家。</li>
+    <li><strong>商业化：</strong>2021 年底哈萨比斯另外成立了一家用 AI 做新药的公司 <strong>Isomorphic Labs（同构实验室）</strong>，挂在母公司 Alphabet 下面。AlphaFold 的研究成果免费开放给全世界，商业化则放到新药研发上。</li>
+  </ul>
+  <div class="note">
+    <b>作者对 AlphaFold 的定位：</b>"AlphaFold 没有替谷歌多卖一条广告，也没有让搜索多赚一分钱。但也正因为如此，它最像 DeepMind。DeepMind 成立之初的使命，就是'先解决智能，再用智能解决其他一切问题'。它比任何一个商业产品，都更接近这家公司最初想成为的样子。很多年以后再回头看，那一天，大概是 DeepMind 最像自己的一天。"
+  </div>
+</section>
+
+<section id="p2-5">
+  <div class="sec-head"><div class="sec-num">2.5</div><h2 class="sec-title">第五章 · 错失先机：四条技术路线都不落后，但没有一个产品</h2></div>
+  <p class="sec-sub">"问题从来不是当时有没有看见这条路，而是明明已经看见了，为什么最后什么也没做。"</p>
+
+  <h3><span class="h3n">①</span>谷歌大脑的四条路线</h3>
+  <p>2020 年 5 月 GPT-3 问世后，追赶 OpenAI 成了整个 AI 行业的共同课题，各大公司都开始跟风把语言模型越做越大。对山景城的谷歌大脑来说，它并不觉得自己落后——Transformer 本来就诞生在这里，它还坐拥其他公司难以匹敌的 TPU 算力。内部有好几个团队，分别探索不同方向：</p>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">路线</th><th>做法与结果</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 把模型做大</strong></td><td>沙泽尔团队的 Meena 最初发布时 <strong>26 亿参数</strong>；四个月后发布的 GPT-3 参数规模是 Meena 的 <strong>六十多倍</strong>。团队沿着 OpenAI 的路继续推进，一年后下一代模型参数一下涨到 Meena 的 <strong>五十倍</strong>，但依旧不如一年前的 GPT-3 大。</td></tr>
+      <tr><td><strong>② 改变模型结构</strong></td><td>普通模型每处理一个词全部参数都要参与运算；他们尝试把模型拆成许多个各有分工的小网络，每次只调用其中一两个。这样参数总量可以扩大几十倍、堆到<strong>一万亿以上</strong>，处理每个词的计算量却只相当于一个规模小得多的模型。这叫<strong>"稀疏模型"</strong>——2017 年沙泽尔和 Jeff Dean 就共同发表过相关论文，今天很多最前沿的模型仍然在沿用这种结构。</td></tr>
+      <tr><td><strong>③ 更多芯片一起训练</strong></td><td>2022 年 4 月训练出一个 <strong>5400 亿参数</strong>的模型，背后用了<strong>六千多块第四代 TPU</strong>，组成当时谷歌最大的一套训练系统。</td></tr>
+      <tr><td><strong>④ 怎么用它</strong></td><td>同一个模型，训练方法不同表现能差出一大截。谷歌大脑在这个问题上发表了好几篇后来影响很大的论文，最出名的就是<strong>"思维链"</strong>：给模型一道小学应用题，跳过解题步骤直接报答案它常常会算错；但如果先示范一遍推理过程、让它学着一步一步往下算，正确率就能提高几倍。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="quote">
+    <p>"单从技术上来看，谷歌大脑确实没有落后，甚至做出了很多开创性的成果。但问题始终没有变：学术研究成果斐然，但真正面向公众的产品却迟迟没有发布。"</p>
+  </div>
+
+  <h3><span class="h3n">②</span>LaMDA：送审十一轮，还是没能走出谷歌</h3>
+  <ul>
+    <li>2018 年做出 Meena 的沙泽尔团队，后来推出了一个规模更大、也更强调安全和事实可靠性的版本，叫 <strong>LaMDA</strong>。</li>
+    <li>2021 年劈柴亲自在开发者大会的舞台上演示了它。演示结束后两位作者觉得时机到了，再次申请把它做成正式开放给用户的产品，<strong>依旧没能获批</strong>，拒绝的理由和前三次一样。</li>
+    <li><strong>LaMDA 前后送审了十一轮，但十一轮下来，它还是没能作为产品走出谷歌。</strong></li>
+  </ul>
+
+  <h3><span class="h3n">③</span>2022 年 6 月：那个"有意识"的聊天机器人与被开除的工程师</h3>
+  <ul>
+    <li>谷歌有一位工程师，专门负责测试 LaMDA 是否会说出歧视性内容。这名工程师跟它聊了几个月，最后确信这个聊天机器人已经有了意识，上报给了公司。公司不接受这个判断，工程师于是把对话记录交给媒体公开了出来，<strong>一个月后他被谷歌开除</strong>。</li>
+    <li><strong>管理层的解读：</strong>这件事反而坐实了他们的担心——如果连明知它只是语言模型的自家工程师，聊久了都会把它当成一个有意识的人，真的开放给几亿用户，只会造成更多的误解、更大的混乱。</li>
+    <li><strong>8 月底的"开放"：</strong>谷歌把 LaMDA 向公众开放了一点点——做成一个需要排队申请的 App，里面只有三段事先设计好的体验。其中一段只能聊狗，无论用户怎么把话题往别处带，它最后都会绕回狗身上。</li>
+  </ul>
+  <div class="note">
+    <b>作者的全篇题眼之一：</b>"这时，距离 ChatGPT 面世还有五个月。谷歌已经站在了新时代的门前，却在最后一步停下了。"
+  </div>
+
+  <h3><span class="h3n">④</span>2020 年底：伦理风波与 Jeff Dean 神话的裂缝</h3>
+  <ul>
+    <li>谷歌大脑伦理 AI 团队的一位联合负责人参与写了一篇论文，讨论大语言模型可能带来的偏见、环境成本等问题。论文投稿前经过谷歌内部评审，<strong>公司要求她撤稿</strong>。</li>
+    <li>作者随后给管理层发邮件，要求公司说明：这篇论文究竟是谁审的、提出了哪些意见、今后内部按什么规则评审；并表示如果得不到回应，就商量一个离职的日期。<strong>结果第二天，她的公司账号被直接强行切断了。</strong></li>
+    <li>12 月 3 日，Jeff Dean 署名给全体研究人员发信，其中有一句话："<strong>我们接受并尊重她辞职的决定。</strong>"</li>
+    <li>这个说法立刻引爆争议：<strong>将近七千名谷歌员工和外部学者联名抗议</strong>，公开反驳说她根本没有辞职。两个月后这个团队的另一位联合负责人也被解雇；AI 伦理领域最主要的学术会议随即暂停了谷歌的赞助，甚至有学者公开拒收谷歌的经费。</li>
+    <li>Jeff Dean 随后发内部信道歉："这件事我们本可以、也本应该处理得更妥当一些。"并承认公司和研究员之间的信任已经出现裂痕，他自己也负有责任。</li>
+    <li>又过了两个月，谷歌大脑一位手下管着几百人的资深研究负责人宣布辞职；很快又有一位在谷歌待了十六年的研究总监和一名工程师，也公开宣布因为这场风波离职。</li>
+    <li><strong>对 Jeff Dean 形象的转折：</strong>"在这之前，Jeff Dean 在工程师圈几乎零差评；然而这场风波打破了这种近乎无条件的信任，在一部分学者眼里，他不再只是一个纯粹的传奇工程师，也成了代表公司意志的管理者。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>2021 年底：沙泽尔离开，与那句"看见了却什么也没做"</h3>
+  <ul>
+    <li>始终没能把聊天机器人推向公众的沙泽尔和搭档离开谷歌。劈柴本人出面挽留，但没能成功。两人随后出去创业，做了一款 AI 聊天机器人，用户可以在里面跟各种虚拟角色聊天。</li>
+    <li>到 2024 年，Transformer 的八位作者已经<strong>全部离开谷歌</strong>。其中一位后来接受采访时说："<strong>谷歌本来在 2019 年就有能力做出 GPT-3 级别的模型，最晚也不会超过 2020 年。问题从来不是当时有没有看见这条路，而是明明已经看见了，为什么最后什么也没做。</strong>"</li>
+    <li><strong>Jeff Dean 多年后的复盘：</strong>疫情期间大家在家办公，不少人午饭时会找谷歌的聊天机器人 Meena 聊上几句，甚至把它当成一个不错的饭搭子。但谷歌当时看问题还是习惯从搜索的角度出发——搜索最重要的是答案要准确，而语言模型的问题在于它经常一本正经地胡说八道。<strong>"后来我们才意识到，真正被低估的，是另一类需求：那些你根本不会拿去问搜索引擎的事情。比如，帮我给宠物医生写张便条，替我起草一封邮件，或者陪我把一个念头聊清楚。"</strong></li>
+    <li>"要是当时早点把这个聊天机器人发布出去，也许会更好。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>伦敦：被打了个措手不及</h3>
+  <ul>
+    <li>GPT-3 出来的当月，DeepMind 被打了个措手不及。当时它只有一个成立才几个月的语言模型小组——这个小组能成立，靠的还是前一年秋天从 OpenAI 跳槽来的一位研究员。</li>
+    <li>他到了伦敦才发现，这里几乎没有像样的语言模型项目；但他知道 OpenAI 内部已经有一个还未公开的模型，比 GPT-2 还大十倍以上。在他的据理力争之下，哈萨比斯终于勉强同意，拨出一部分人力算力试一试大语言模型这条路。</li>
+    <li><strong>2020 年 1 月开工，目标 640 亿参数</strong>——根据他们当时的判断，这是 OpenAI 未公开模型的三倍，只要在几个月内做出来就能实现反超。</li>
+    <li><strong>结果：</strong>GPT-3 发布，参数规模是他们原计划目标的<strong>三倍之多</strong>。"DeepMind 这才发现，他们不光落后，甚至严重低估了差距本身。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>哈萨比斯的两个误判</h3>
+  <div class="cols">
+    <div class="col a">
+      <h4>低估了语言和现实之间的联系</h4>
+      <ul>
+        <li>机器就算没见过一条狗，只要读过足够多关于狗、腿和奔跑的文字，也能慢慢学会"狗腿"是什么。</li>
+        <li>语言本身，就带着现实留下的痕迹。</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>高估了人类经验的复杂度和丰富度</h4>
+      <ul>
+        <li>互联网上十几万亿个词，其实已经足够覆盖人类生活里的绝大多数东西，太阳底下没有那么多新鲜事。</li>
+        <li>很多我们以为必须亲身经历才能学会的东西，其实早就以文字的形式被人类反复书写过了无数遍。</li>
+      </ul>
+    </div>
+  </div>
+  <p>哈萨比斯承认自己判断错了：前两代 GPT 大致还在他的预判之中，在他看来那些模型无非是把读过的东西重新拼接、复述；<strong>但 GPT-3 展现出来的能力远远超出了他的预期</strong>。他反思道："你不可能每一次都当预言家。这些大语言模型后来表现出来的能力，几乎让所有人都吃了一惊。"</p>
+
+  <h3><span class="h3n">⑧</span>科拉伊接手：从 280B 到 Gopher</h3>
+  <ul>
+    <li>DeepMind 紧急组建团队追赶。这一次亲自带队的是<strong>科拉伊</strong>——七年前的圣诞节，扎克伯格派杨立昆来挖墙脚但没能挖走的那位土耳其研究员。</li>
+    <li>他在 2012 年加入 DeepMind，比谷歌收购还早一年多，后来一手搭起公司的深度学习团队。2016 年有媒体按论文发表和引用情况给 DeepMind 两百多名研究员排名，<strong>他排第二，哈萨比斯排第九</strong>。</li>
+    <li><strong>目标：</strong>直接定在 <strong>2800 亿参数</strong>——不只要追上 GPT-3，还要反超。项目最初的代号很直接，就叫 <strong>280B</strong>。</li>
+    <li><strong>然后他们意识到一个问题：</strong>DeepMind 和谷歌大脑用的是同一套内部存储系统。谷歌大脑的人只要在共享硬盘上看见"280B"这个文件夹，立刻就能猜到伦敦准备做多大的模型。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>算力政治：同一家公司里的两个国家</h3>
+  <ul>
+    <li><strong>为什么提防：</strong>DeepMind 没有自己的数据中心。事实上哈萨比斯当年看中谷歌的一个重要原因，就是它手里有全世界最充足的一批计算资源。但这些机器并不归 DeepMind 独享——谷歌的数据中心是一个巨大的公共算力池，搜索、YouTube、谷歌云这些成熟的、真金白银给公司赚钱的团队，以及谷歌大脑、DeepMind 这些烧钱的研究团队，都共享同一个池子。DeepMind 想训练模型，也得按额度排队。</li>
+    <li><strong>争得最多的是机器：</strong>DeepMind 多年最强大的对手就是山景城的谷歌大脑，两边常年争人才、争成绩，但争得最多的是机器。<strong>芯片是山景城团队造的，但那几年真正占用最多机器的却是伦敦</strong>：2017 年底为了让机器学会下国际象棋，光是让它自己跟自己下棋就同时占了<strong>五千块 TPU</strong>；作为对比，第二年谷歌大脑训练 BERT 只用了<strong>六十四块</strong>，只有十分之一多一点。</li>
+    <li><strong>分配方式不同：</strong>DeepMind 是自上而下——哈萨比斯定一个项目，算力跟着项目分配；谷歌大脑内部却更像一个市场——每个研究员手里有一个算力额度，拿额度去换机器，机器越紧张价格越高；谁想训练一个特别大的模型，往往得先说服二十来个同事暂时把自己的机器让出来。</li>
+    <li><strong>账面：</strong>DeepMind 在 2018–2019 两年间就亏损了近 <strong>10 亿英镑</strong>，多年积下的内部贷款和利息已超过 <strong>11 亿英镑</strong>，谷歌不光一笔勾销，还另外又注资了<strong>5 亿多</strong>。反观谷歌大脑团队做出来的成果已经进了搜索和广告、真正在替谷歌挣钱，可研究员想多用几台机器还得跟同事抢。</li>
+    <li><strong>矛盾升级：</strong>2018 年底的一场学术大会上，两个 DeepMind 研究员问谷歌大脑研究员，为什么没去尝试一个显而易见的改进。对面的研究员当场怼道："<strong>我们当然也想试，可机器不都让你们占了吗。</strong>"</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>2021 年 3 月：能聊天的模型已经做出来了，但没人响应</h3>
+  <ul>
+    <li>最开始两边虽然在抢机器，但目标不同，不构成最直接的竞争：DeepMind 忙着下棋、预测蛋白质，谷歌大脑忙着做搜索、翻译。</li>
+    <li><strong>GPT-3 出来以后，两边的目标一下子都变成了语言模型</strong>，都想做出谷歌自己的 GPT-3，都想把模型做得更大。所以 DeepMind 必须改掉文件夹的名字，不能让谷歌大脑知道自己的参数规模。于是从 280B 换成了 <strong>Gopher（地鼠）</strong>——名字来源于那位新西兰创始人常说的一句话：最早的通用人工智能也许只有老鼠那么聪明，于是他们就干脆挑了一种老鼠的名字来命名。</li>
+    <li>到 2021 年 3 月，DeepMind 内部已经有了一个可以对话的模型，<strong>内部测试效果比 GPT-3 更好</strong>。就有研究员开始四处游说：既然已经做出来了，就应该把它公布出去。</li>
+    <li><strong>没人响应。</strong>在哈萨比斯和几位高层看来：模型上的差距已经补上了，而 DeepMind 衡量自己的标准一向是研究，而不是产品；况且当时没有任何一家公司把聊天机器人直接开放给公众，GPT-3 也只是开放给开发者，并没有发布真正面向公众的产品。</li>
+    <li><strong>他们的自我解释：</strong>先把风险研究清楚、再谈产品，恰恰是 DeepMind 比 OpenAI 更负责任的表现——语言模型会胡编事实，也会把互联网上的偏见学进去，不能对这些风险视而不见。</li>
+    <li><strong>心理阴影：</strong>2016 年 DeepMind 曾用伦敦一家医院的病历开发软件，被英国小报送上头版；调查持续两年多，最后虽然认定违规责任在医院，但还是给 DeepMind 留下了严重的阴影。因此从 2019 年起，DeepMind 越来越不愿以自己的名义推出面向公众的产品。于是一个已经能聊天的大语言模型，就这样留在了公司内部。</li>
+    <li><strong>2021 年 12 月 8 日：</strong>DeepMind 发表地鼠论文，同时还发布了一篇梳理语言模型<strong>二十一类风险</strong>的论文，态度很明确——模型确实可以越做越大，但风险也不能忽视。<strong>第二天，谷歌大脑团队也发布了一篇 1.2 万亿参数模型的论文。</strong></li>
+    <li><strong>关键对比：</strong>两个团队前后脚发表论文，却都没有把任何一个模型做成公众可以直接使用的产品，甚至连模型都没有公开对外开放过。而当时 GPT-3 至少有一个付费的开发者接口。</li>
+  </ul>
+
+  <h3><span class="h3n">⑪</span>2022：追上了学术，却拉大了产品差距</h3>
+  <ul>
+    <li><strong>人才继续外流：</strong>2022 年 1 月，有五名研究员离开 DeepMind 去了 OpenAI。其中一位解释："<strong>在 OpenAI，超大语言模型就是唯一的赌注。没有第二条路，也没有别的东西来分散注意力。</strong>"</li>
+    <li><strong>2022 年春天：</strong>DeepMind 又发表了一个模型——参数只有地鼠的四分之一，训练数据却是它的四倍，花同样的算力表现反而更好。这后来改变了整个行业训练大模型的方法：<strong>不能一味把模型做大，还得让它读足够多的数据</strong>。团队里当时觉得，他们终于追上 OpenAI 了。</li>
+    <li>"但这句话只在学术研究上成立。从产品角度上来看，差距反而越来越明显。"那两年 OpenAI 先后推出 GPT-3 的开发者接口、图像生成模型和编程助手，而 DeepMind 的模型从来没有真正交到用户手上。</li>
+    <li><strong>态度开始松动：</strong>团队决定把新模型进一步做成聊天机器人，准备第一次真正面向公众发布。2022 年 9 月底论文先发表，这个机器人叫 <strong>Sparrow（麻雀）</strong>。</li>
+    <li>Sparrow 已经很像后来人们熟悉的聊天产品：回答事实问题时会自己上网搜索，还会把依据一并列出来。团队又给它定了<strong>二十三条规矩</strong>——比如不能威胁别人或发表仇恨言论，也不能假装自己是人；又专门找人做了安全测试，通过了团队标准。</li>
+    <li>"只要再花几个月把界面做好，继续减少胡编乱造的回答，就可以正式发布。看上去，一切都蓄势待发。"</li>
+  </ul>
+  <div class="note">
+    <b>2022 年 11 月 30 日，ChatGPT 上线。</b>
+  </div>
+</section>
+
+<section id="p2-6">
+  <div class="sec-head"><div class="sec-num">2.6</div><h2 class="sec-title">第六章 · 应战：红色警报、合并、与"DeepMind 的美国化"</h2></div>
+  <p class="sec-sub">"我们不能只做科学了。"</p>
+
+  <h3><span class="h3n">①</span>三个人的第一反应</h3>
+  <ul>
+    <li>ChatGPT 上线<strong>五天用户突破一百万，两个月后突破一亿</strong>。</li>
+    <li><strong>劈柴：</strong>12 月拉响红色警报，进入危机模式，接连召开紧急会议。佩奇和布林都到场了，佩奇尤其坚决——谷歌必须不惜一切代价追上去。</li>
+    <li><strong>哈萨比斯：</strong>召开 DeepMind 全员会，宣布 DeepMind 从"和平时期"转入"战时状态"——大批不问用途的长线研究要收缩，关键论文暂缓发表，资源向工程和产品倾斜。<br><strong>作者的一段对照：</strong>"十二岁那年，他在列支敦士登决定，这辈子最值得做的事就是把脑力用在科学上。四十六岁这一年，他站在一屋子科学家面前说：<em>我们不能只做科学了。</em>"</li>
+    <li><strong>Jeff Dean：</strong>写了一页备忘录，追问问题到底出在哪、为什么我们没有更早做出来。答案是——<strong>谷歌最大的问题是资源太分散</strong>：谷歌大脑训一个模型，DeepMind 训一个模型，研究部门其他组也各有项目；算力被分散了，人才也被分散了。对面的 OpenAI 却是集中力量办大事：它的投资方微软专门为它造了一台超级计算机集群，<strong>一万块 GPU，算力排得进当时全球前五，全部供 OpenAI 一家使用</strong>。谷歌手里的芯片总量多得多，却分散在了不同项目里。Jeff Dean 直言："<strong>这很蠢。</strong>"</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>合并：Gemini 这个名字的两层含义</h3>
+  <ul>
+    <li>紧急会议之后，劈柴做出的第一个决定是<strong>合并两个团队</strong>，合力开发下一代大模型——"AI 到了该走出实验室的时候"。哪怕财大气粗如谷歌，也养不起两支研究团队各训各的，更不可能最后推出两个互相竞争的产品。</li>
+    <li><strong>名字：</strong>Jeff Dean 提议叫 <strong>Gemini（双子座）</strong>。两层意思：一层指原本分开的两支队伍终于合体；另一层来自美国航天史——双子座计划正是阿波罗登月之前的关键一步。</li>
+    <li><strong>更宏大的设想：</strong>它不能只是一个语言模型。文字、图片、声音、视频，要从第一天起放进同一个模型里一起训练。当时业内做多模态更常见的做法是先把不同模态各自训好、再拼到一起；Gemini 从出生起就是一个整体。</li>
+    <li><strong>但谷歌没有时间等 Gemini 诞生。</strong>它需要马上拿出一个东西回应 ChatGPT。劈柴拍板：先发谷歌大脑团队做出来的聊天机器人 LaMDA，对外发布的名字叫 <strong>Bard</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>麻雀成了牺牲品，而且理由不能说</h3>
+  <ul>
+    <li>这个决定意味着 DeepMind 做出来的 Sparrow 成了牺牲品。但这个时候合并计划还只有高层知道，哈萨比斯没法告诉团队为什么做了这么久的项目突然停掉。</li>
+    <li><strong>真正的原因不能说，内部只能自己猜。</strong>很快就传出一种说法：哈萨比斯太骄傲，不愿意跟在 ChatGPT 后面，所以把麻雀机器人叫停了。那段时间 DeepMind 内部士气跌到谷底：有人写抗议信，有人直接跳槽去了 OpenAI。</li>
+    <li>一位研究员后来苦笑："也许他们就是得先当一阵子第二名，狠狠丢一次脸，才能涅槃重生。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>Bard 翻车与对劈柴的信任危机</h3>
+  <ul>
+    <li><strong>2023 年 2 月 6 日</strong>，谷歌在压力之下仓促官宣 Bard。又过一天，有人发现谷歌宣传 Bard 的动图里，Bard 把<strong>韦伯太空望远镜</strong>的一项成就说错了。<strong>当天 Alphabet 市值蒸发约一千亿美元。</strong></li>
+    <li>一个多月后 Bard 正式向公众开放，此时 OpenAI 已发布 GPT-4。有商学院教授拿 Bard 和 GPT-4 比了几轮：无论是读论文、创意、写诗、解释问题，Bard 几乎全面落后；其中一次让它读完论文再评论，得到的答案几乎全是错的。</li>
+    <li><strong>矛头转向 CEO：</strong>就在不久前谷歌刚以削减成本为由裁掉<strong>一万两千人</strong>；现在又仓促推出一个一开口就答错问题的聊天机器人。员工论坛上嘲讽劈柴的帖子被大量转发："亲爱的劈柴，Bard 的发布和这次裁员一样，都是仓促、混乱而短视的决定。"</li>
+    <li>外界也开始质疑：这个擅长守成的 CEO，到了真正需要打仗的时候到底行不行。一位谷歌前高管甚至说，他们私下已经开始打赌，劈柴还能在这个位置上撑多久。</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>2023 年 4 月 20 日：谷歌大脑这个名字正式退场</h3>
+  <ul>
+    <li>劈柴发出公开信，正式宣布把两支队伍合并。新部门叫 <strong>Google DeepMind</strong>，哈萨比斯出任 CEO，继续直接汇报给劈柴；Jeff Dean 改任谷歌首席科学家，也汇报给劈柴。</li>
+    <li><strong>"从这一天起，谷歌大脑这个存在了十二年的名字，正式退出了历史舞台。"</strong></li>
+    <li><strong>为什么掌舵的是哈萨比斯而不是 Jeff Dean：</strong>论资历他在谷歌待得更久，论把技术真正推向产品的经验他更丰富，而且他人就在山景城总部。但最后掌舵的，却是多年来坚持留在伦敦、始终不肯搬去加州的哈萨比斯。</li>
+    <li><strong>劈柴的解释：</strong>Jeff Dean 一直想回到一线做研究，觉得管理工作占掉了太多时间，所以哈萨比斯是更自然的人选。把两支团队合到一起并不是一个轻松的决定，整个决定和落地过程压力都非常大。</li>
+    <li><strong>外界的解读就没这么客气：</strong>有离职员工表示，这次合并掩盖了谷歌大脑这两年人才流失的根本原因，Jeff Dean 从一开始就不该被推上管理岗位。更尖锐的说法是——劈柴多年来想做的事情终于做成了：从此以后 DeepMind 再也没有独立出去的可能，哈萨比斯和他的团队被彻底收编进了谷歌。</li>
+    <li><strong>哈萨比斯的回应：</strong>外界总觉得他是个科学家、对产品没兴趣，在他看来这只是因为大家见到的更多是做 AlphaFold 的那个他，忘了他其实是做游戏出身的。过去这些年没有更早把重心转向产品，是因为更想去证明 AI 不只是能下棋、能聊天，它还能真正推动科学突破。AlphaFold 之后这个愿望已经实现了；除非有一天能解开物理学和现实本身的奥秘，否则自己很难再做出一件超过 AlphaFold 的科学成果，所以接下来开始做产品，反而没有了牵挂。<br>"<strong>走了这么多年，我们终于进入了谷歌的心脏。</strong>"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>布林重新挂上工牌</h3>
+  <ul>
+    <li>公开信是 4 月发的，公司给 Gemini 定的期限是：年底前拿出一个 GPT-4 水平的模型。伦敦这边哈萨比斯任 CEO，Gemini 由他和科拉伊共同负责；加州这边 Jeff Dean 升任首席科学家后不再带团队、重新回到一线做研究，因此补上来的技术负责人是创始人<strong>布林</strong>。</li>
+    <li>2019 年底布林和佩奇一起退出谷歌日常管理，他原本的退休梦想是每天泡在咖啡馆里读物理。结果 2022 年底 ChatGPT 一出来，又被劈柴请回公司开紧急会议。会开完，退休是退不了了——快五十岁的布林重新挂上工牌，开始写代码。</li>
+    <li><strong>2023 年 1 月：</strong>谷歌内部代码系统里出现了一份布林提交的代码改动——给自己开通 LaMDA 训练数据的访问权限。这是他几年来第一次改公司的代码，两行修改，有几十个工程师给了绿灯。</li>
+    <li>他每星期来办公室三四天，直接跟训练 Gemini 的研究员坐在一起，主持每周的研究讨论，也会参与团队的招聘决策。</li>
+    <li>2023 年夏天，几百名研究员开始连轴转，不少人一周要工作<strong>八十个小时</strong>。整个团队被一种紧迫感推着往前跑：生怕 OpenAI 的下一代模型抢在前面发布出来。</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>组织合并了，但信任没有</h3>
+  <ul>
+    <li><strong>信息不对称：</strong>合并以后伦敦的研究员能打开山景城同事的项目和文档；反过来，加州的人却打不开伦敦的。两边始终处于互相提防的状态。</li>
+    <li><strong>工作方式冲突（训练基座模型时爆发）：</strong>前谷歌大脑的两个组习惯"先冲再说、边做边改"；前 DeepMind 那一组则坚持一定要弄清楚效果到底来自哪里，再继续执行。前者嫌对面太慢；后者受不了对面一口气往模型里塞五个改动、都不先分清到底是哪一个起了作用。</li>
+    <li><strong>结果：</strong>最终还是前谷歌大脑团队的打法占了上风——把模型尽量做大，最新一代 TPU 能用多少就用多少；训练过程经常突然崩掉，也顾不上停下来慢慢查原因，反正有布林坐镇，机器、算力想要多少有多少。DeepMind 那套打法最终没能坚持下去，面对紧迫的 deadline，"这个时候科学研究的严谨性已经微不足道了"。</li>
+    <li><strong>"DeepMind 的美国化"：</strong>一位在伦敦待过的前员工把这几年叫作"DeepMind 的美国化"，他说："美国那边，就是屋里嗓门最大的人说了算。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑧</span>后训练之战：工程与 deadline 赢过科学与野心</h3>
+  <ul>
+    <li>基座模型训练完成后进入后训练阶段，这一步做的是教模型怎么按人的偏好来回答问题——聊天机器人最后好不好用，很大程度就看这一步。</li>
+    <li><strong>DeepMind 式的押注：</strong>负责人本来是 DeepMind 最强的科学家之一。他一上来就押了一个很 DeepMind 的方向——别靠人一条条给答案打分，让模型自己学，能做得更好。AlphaGo 当年就是靠这条技术路线所向披靡。<strong>结果做了六个月，没跑通。</strong></li>
+    <li><strong>为什么跑不通：</strong>围棋有输赢，评判标准非常清楚；但聊天不同，什么回答更好、什么回答不好，很难有一个稳定的标准。再加上团队一半在加州一半在伦敦，隔着时差，合作困难重重。六个月后这位负责人退出了。</li>
+    <li><strong>谷歌大脑的解法（非常朴素）：</strong>让人给回答打分、选哪个更好，再把数据清一遍——去重、改错、统一格式。没有什么漂亮前沿的新理论，但分数很快就上去了。</li>
+    <li>"<strong>工程和 deadline，最终赢过了科学和野心。</strong>"哈萨比斯接受了这个结果：哪条路管用，就走哪条。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>战时状态如何改变了研究生态</h3>
+  <ul>
+    <li>长期研究项目开始收缩，论文发表也不再是默认选项。凡是涉及生成式 AI、被列为"战略性"的论文，都要先压半年，再经过层层审批，才有可能发表。</li>
+    <li>有研究员感叹：今天的谷歌恐怕已经再也不会把 Transformer 那样的论文开放给全世界了。</li>
+    <li>2025 年一位知名 AI 安全研究员因此离职，直言论文越来越难发、想做的研究也做不下去。伦敦的研究员更惨，受到竞业限制，连离职跳槽都没那么容易。</li>
+    <li><strong>哈萨比斯个人的代价：</strong>十几年来，无论白天开多少会，他总会把晚上十点以后的时间用来独自思考。但自从 Gemini 立项，他再也没有了独自思考的时间——每天跟加州团队开会，一开就得开到凌晨两三点。</li>
+  </ul>
+
+  <h3><span class="h3n">⑩</span>2023 年 12 月 6 日：Gemini 一代与一段被拆穿的视频</h3>
+  <ul>
+    <li>第一代 Gemini 发布。率先发布的是两个小一点的模型版本，同时宣布内部最强模型版本在一项综合考试里成绩第一次超过了人类专家。<strong>第二天 Alphabet 股价涨了 5%。</strong></li>
+    <li><strong>最震撼的是六分钟演示视频：</strong>看上去模型能实时看着镜头、听人说话，再根据眼前发生的事实时回应。结果没过两天就被发现——这段视频并不是实时演示，而是把静态截图和文字提示一段一段喂给模型，再剪辑到一起。外界嘲讽："这也是一种 fake it until you make it。"</li>
+    <li><strong>为什么不等最强模型做好再发：</strong>哈萨比斯解释，以前总能找到各种理由不发布，谷歌也确实一直这么做；但现在不一样了，所有人都在盯着看谷歌够不够快，这一仗必须打赢。团队得更灵活、更拼，也得更像一家创业公司。他承认 OpenAI 有几样东西是 DeepMind 没有的：<strong>把模型做大的能力、工程能力，还有对产品的专注</strong>。</li>
+    <li>"这一年虽然很难，但 Gemini 终于发出来了。现在，我们终于站上竞技场了。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑪</span>2024 年 2 月：Gemini 1.5 与那场"多元过头"的事故</h3>
+  <ul>
+    <li><strong>能力：</strong>Gemini 1.5 一次能读进去七八十万个词——一部长篇小说、一整套代码，甚至一个小时的视频都可以一次放进去，随便挑一处细节问它都对答如流。这个容量是 OpenAI 当时最新模型的<strong>将近八倍</strong>。</li>
+    <li><strong>但同一天，OpenAI 放出了视频生成模型 Sora 的几段演示：</strong>只要一句话，它就能生成东京雪夜里的情侣、玩蜡烛的毛茸茸小怪物，画面逼真得像电影镜头。Sora 当时还没有开放，外界能看到的只有几段视频，却几乎抢走了当天所有注意力。</li>
+    <li><strong>更严重的是自己的事故：</strong>有用户让 Gemini 画"1943 年的德国士兵"，画出来的是黑人和亚裔面孔；画维京人，出来的也是黑人；画教皇，出现女性；反过来要求画一个白人，它有时又会拒绝。谷歌很快关掉了生成人物图片的功能。几天后劈柴在内部信里承认：Gemini 的回答带有偏见，"这完全不能接受，是我们做错了"。</li>
+    <li><strong>原因并不完全在 Google DeepMind 内部：</strong>谷歌还有一个叫"<strong>负责任 AI</strong>"的部门，他们的工作是在生成图片时增加种族和性别上的多样性；一个负责模型后训练的小组做了个很简单粗暴的处理——在用户的画图指令后面自动加上一段强调多元化的提示词。结果为了追求多元化、政治正确，矫枉过正，连最基本的历史常识和语境都被牺牲了。哈萨比斯非常生气，说有人往系统里塞进了"非常粗糙的东西"，而自己的团队事先甚至不知道；但那个小组则推说，他们做之前问过 Google DeepMind 的人。双方各执一词。</li>
+    <li><strong>外界的定性：</strong>Y Combinator 创始人保罗·格雷厄姆一针见血——这些荒唐的图片并不是一次偶然失误，而是<strong>谷歌官僚文化的一幅自画像</strong>。有媒体评论更狠：谷歌需要像纳德拉当年改造微软那样来一次从上到下的文化整顿；而放任这些问题发生的管理层，也该一起换掉，甚至包括 CEO 劈柴。到 3 月，媒体的标题已经是《要求劈柴下台的呼声越来越高》。</li>
+    <li><strong>哈萨比斯的组织认知：</strong>管理 Google DeepMind 跟以前管理 DeepMind 完全不是一回事。过去的 DeepMind 只是一个处于公司边缘的、很酷的研究机构，别的部门怎么运转他可以不过问；现在他们走到了整个公司的正中央——别的部门一个决定就可能直接影响 Gemini，而外界只会看到 Gemini 出了问题。</li>
+    <li>几个月后 Gemini 产品团队约两千人也并入 Google DeepMind。合并刚满一年，这个组织已经从三千多人膨胀到<strong>五千多人</strong>。哈萨比斯不得不把更多时间和精力投入到管理上。</li>
+  </ul>
+  <p>"内忧外患之下，摆在哈萨比斯面前的始终是同一道题：怎样超过 OpenAI，而且要让全世界都看见。到 2024 年春天，这道题谷歌还没有答出来。"</p>
+</section>
+
+<section id="p2-7">
+  <div class="sec-head"><div class="sec-num">2.7</div><h2 class="sec-title">第七章 · 反攻：把比赛拉回 DeepMind 最熟悉的战场</h2></div>
+  <p class="sec-sub">第三次被抢先，然后是"现在，就是你们的时刻"。</p>
+
+  <h3><span class="h3n">①</span>为什么押注"会思考"：一次赛道的重新选择</h3>
+  <ul>
+    <li><strong>当时的问题：</strong>ChatGPT 也好、Gemini 也好，基本都是问什么就立刻往下答，一个词接一个词地生成。碰到需要几步才能解出来的问题，它也是张口就来，因此很容易变成"人工智障"。</li>
+    <li><strong>人类不是这么做题的：</strong>人会先打草稿，一步一步往下推，发现此路不通，再退回去换一条。</li>
+    <li><strong>"思维链"的局限：</strong>谷歌大脑 2022 年提出的思维链已经开始让模型把推理过程一步一步写出来，但这更多还是一种提问技巧，模型本身没有变——它通常只是顺着一条路一直写下去，不会主动停下来检查，更不会发现走错以后再退回去重来。</li>
+    <li><strong>哈萨比斯押注的下一步：</strong>让模型自己掌握思考的能力——回答之前反复推演，发现不对就自己调整，给它的时间越长，思考就能越全面。</li>
+    <li><strong>这恰好是 DeepMind 的看家本领：</strong>AlphaGo 每下一步棋都不是立刻落子，而是先往后推演许多种可能，再决定走哪一步；从自己跟自己下棋，到落子之前的搜索和推演，这套强化学习的方法 DeepMind 已经研究了十年。ChatGPT 出现以后的一年多里，整个行业比拼的是谁的模型更大、训练数据更多，DeepMind 这套看家本领很难发挥作用；<strong>但如果下一轮开始比谁更会推理，比赛就重新回到了 DeepMind 和哈萨比斯最熟悉的战场</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>两百多个实验，和一次"谷歌大脑式"的并行推进</h3>
+  <ul>
+    <li>从 4 月开始，Google DeepMind 里一批小组分别开工，陆续做了<strong>两百多个实验</strong>，专攻数学和逻辑题——因为这类题有标准答案，对就是对、错就是错，模型每试一次都能立刻知道自己是赢是输。</li>
+    <li>这一次并没有统一指挥调度：每个组自己找方向、自己做实验，谁跑出结果谁继续往前推。</li>
+    <li><strong>一个有趣的反转：</strong>"这一套其实沿用了原来谷歌大脑的作风，而不是 DeepMind 那种集中兵力、统一推进的突击队打法。"</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>2024 年 9 月 12 日：o1 抢先，第三次被截胡</h3>
+  <ul>
+    <li>OpenAI 抢先一步发布会推理、会思考的新模型 <strong>o1</strong>。效果非常明显：一套奥数选拔赛题，上一代模型只能做对 10% 多一点，新模型已经能做到百分之七八十；如果给模型更多的深度思考时间，成绩还能继续提高。</li>
+    <li><strong>对 Google DeepMind 来说，这几乎是当头一棒。</strong>这是哈萨比斯春天看准的方向，结果再一次被 OpenAI 抢了先。</li>
+    <li><strong>作者的"三次"总结：</strong>第一次，他们没有押注语言模型这条路；第二次，模型做出来了，却迟迟不敢发；第三次更丢人——当比赛终于来到 DeepMind 最擅长的强化学习和推理、方向也早早看准了，先把东西做出来的还是 OpenAI。</li>
+    <li><strong>最讽刺的一处：</strong>o1 的核心团队里，有一位研究员曾经参与了谷歌大脑那篇思维链论文，但他在 2023 年初选择了离开谷歌、加入 OpenAI。</li>
+    <li><strong>唯一的窗口：</strong>OpenAI 这次发布的只是预览版，正式版本还没有出来。谷歌面前还剩下一个很短的窗口，哈萨比斯必须抓住它。</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>两个人选：一个负责号召力，一个负责打法</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">人选</th><th>背景</th><th style="width:30%">为什么是他</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>沙泽尔</strong></td>
+        <td>2021 年离开谷歌自己创业。两个月前，谷歌刚花约 <strong>27 亿美元</strong>把出走三年的他和团队一起请了回来——这笔钱大约是 2014 年收购整个 DeepMind 的<strong>四倍</strong>，内部都说这笔钱真正买的其实就是沙泽尔本人。他回归时，哈萨比斯在内部信里把沙泽尔和 Jeff Dean 并列，任命为 Gemini 的总技术负责人之一。</td>
+        <td>沙泽尔过去没做过推理模型。哈萨比斯看中的是他的<strong>号召力</strong>：只要他来带队，最强的一批研究员就自然会被吸引过来。</td>
+      </tr>
+      <tr>
+        <td><strong>杰克·雷</strong></td>
+        <td>DeepMind 老部下，就是最早警告"DeepMind 已经落后"的那位研究员，后来因为不满跳槽去了 OpenAI；2023 年夏天又回到 DeepMind。</td>
+        <td>看中的不是名望，而是他非常熟悉 DeepMind 那套<strong>突击队式打法</strong>——快速组队、集中资源、明确目标、死磕到底。这套打法是哈萨比斯从游戏行业带进 DeepMind 的，很多年前在伦敦亲手教给了杰克·雷。</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p>两人的任务：把散在各个小组的两百多个实验，尽快整合进一个模型。</p>
+
+  <h3><span class="h3n">⑤</span>10 月 2 日：动员会与一次差点流产的算力</h3>
+  <ul>
+    <li>反攻动员会定在 10 月 2 日。开会前一两天差点出岔子：原本答应好了这个项目的算力"要多少给多少"，这时高层却突然改口。杰克·雷急得差点要撂挑子。<strong>最后是科拉伊出面，强行从谷歌其他团队手里调来一批机器，顶着抗议把算力保了下来</strong>，动员会才得以照常举行。</li>
+    <li><strong>沙泽尔负责打气：</strong>"最强的模型写一百万个词，只花一美元；同样的工作交给程序员，成本要高出百万倍不止。所以不要心疼算力，让模型放开算。现在，就是你们的时刻。"</li>
+    <li><strong>杰克·雷负责定规矩：</strong>所有人集中火力做同一个模型；谁都可以提意见，但一切靠成绩说话——只有分数涨了，才有资格进主模型。</li>
+    <li><strong>招人：</strong>突击队只召一种人——愿意放下手头项目、全身心扑进来的人。两人原本估计能招到四十个人就不错了，结果一口气招到了<strong>一百五十个</strong>。</li>
+    <li><strong>为什么来：</strong>一部分人冲着沙泽尔——他是 Transformer 的发明者之一，很多平时很难被召集起来的顶尖研究员，冲着这个名字也愿意为他破例；另一部分是前 DeepMind 的老兵——强化学习原本就是他们的主场，如今居然在眼皮子底下被 OpenAI 偷家了，大家心里都憋着一股气，"这一仗，DeepMind 不打谁打？"</li>
+    <li><strong>第一周并不顺利：</strong>前谷歌大脑的人冲得很猛，但他们从来没有过上百号人同时盯着同一个模型、听同一套指挥的经验，很多人担心人越多反而会影响进度。直到 10 月中排行榜上的分数开始涨，证明了突击队模式的可行性，这些疑虑很快消失，进展也加快了。</li>
+    <li>"<strong>两个团队合并整整一年半，直到这一仗，才第一次真正成为一支队伍。</strong>"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>反攻见效：四个月里的四次出手</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">时间</th><th style="width:22%">动作</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num"><strong>2024.12 上旬</strong></td><td>OpenAI 开放 Sora 给付费用户</td><td>一周后谷歌发布视频模型 <strong>Veo 2</strong>：分辨率更高，连羽毛的纹理和水面细微的反光都能还原出来。谷歌做了一轮盲测，多数用户认为 Veo 2 效果更好。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>2024.12.19</strong></td><td>Gemini 2 推理模型</td><td>速度比对手更快，价格却只有对方的零头。Jeff Dean 在上播客时忍不住连说了两遍："Gemini 真是个好模型。"</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>全程</strong></td><td>自研芯片的底气</td><td>Gemini 从头到尾都是在谷歌自己的 TPU 上训练出来的。过去两年全行业为了训练大模型排队等英伟达发货，谷歌不需要——<strong>模型是自己的，芯片也是自己的</strong>。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>2025.3.25</strong></td><td>Gemini 2.5</td><td>发布即登上第三方评测榜榜首，多数技术指标小胜 OpenAI。<strong>但这一次又被抢了风头</strong>：同一天 OpenAI 给 ChatGPT 加上画图功能，几天之内社交网络上到处都是被改成吉卜力动画风格的照片。</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <ul>
+    <li><strong>哈萨比斯的定性：</strong>"DeepMind 把创业公司的那股狠劲和强度带进了谷歌，终于让这艘战列舰完成了转向。"他特意强调——<strong>不是一艘油轮，是战列舰</strong>。</li>
+    <li><strong>作者对"被抢风头"的判断：</strong>"一年前 Gemini 1.5 发布被 OpenAI 的 Sora 视频模型抢走风头的那一幕，换成图片又重演了一遍：谷歌手里或许已经有了最强的模型，但比赛本身，却从比模型能力，变成了谁能把它做成真正有人用、有人传播的产品。"</li>
+    <li><strong>一周后（4 月 2 日）：</strong>哈萨比斯宣布换掉 Gemini 手机应用的负责人，接手的是<strong>谷歌实验室</strong>的掌门人——这个部门专门做实验性产品，曾做出 NotebookLLM（给它几份材料，它能直接做成一期 AI 双人对谈播客，一时风靡整个社交网络）。这个人选意味着哈萨比斯开始把更多重心放到产品和应用上。</li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>2025 年夏天：三个模型，三种"世界理解"</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:12%">日期</th><th style="width:16%">模型</th><th>关键突破</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num"><strong>5 月 20 日</strong></td><td><strong>Veo 3</strong><br><span class="tag t-n">视频</span></td>
+        <td>此前主流视频模型生成的基本都是默片，声音要另外配；Veo 3 第一次把画面和声音一起生成——人物说话时口型能对上，走路会有脚步声，风吹过会响起相应的环境音。更震撼的是对物理世界的理解：水怎么流动、光怎么反射、不同材质应是什么质感，模型只是看了海量视频，自己就学会了。几个星期内，Veo 3 做出来的短片很快刷遍社交网络。哈萨比斯对此大为赞叹，说接下来的方向就是让这些视频变成人类可以走进去、四处探索的世界。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>8 月 5 日</strong></td><td><strong>Genie 3</strong><br><span class="tag t-n">世界模型</span></td>
+        <td>用户只要输入一句话，Genie 3 就会以每秒 24 帧的速度实时生成一个可以用键盘操控、自由探索的世界。更厉害的是这个世界还有记忆：走出几分钟再回头，刚才路过的东西依然留在原处。Genie 3 只开放给少量研究者和创作者；谷歌对这个模型的定位是"可以不断生成新的环境，用来训练 AI"，并表示"世界模型是通往通用人工智能的关键一步"。</td>
+      </tr>
+      <tr>
+        <td class="num"><strong>8 月 26 日</strong></td><td><strong>Nano Banana</strong><br><span class="tag t-n">图片</span></td>
+        <td>月初先匿名参加第三方榜单盲测，两个星期里在图片编辑这一项上碾压所有对手，大家纷纷猜测是谁家的模型；谷歌出面认领后，干脆把测试时随手起的"Nano Banana"这个名字保留了下来。最厉害的地方在于编辑图片时能确保人物长相的一致性——之前的模型往往每做一次编辑，照片中人物的长相也会发生变化；用它换衣服、换场景，照片里还是同一个人。<strong>上线两个星期，Gemini 应用新增 2300 万用户，生成 5 亿多张图片；9 月 12 日登上美国应用总榜第一，ChatGPT 掉到第二。</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p>"半年前 ChatGPT 靠画图抢走了 Gemini 的风头，半年后 Gemini 用同一招实现了反超。"</p>
+  <p><strong>对哈萨比斯个人评价的反转：</strong>2023 年春天他接手 Google DeepMind 时，公司内外曾有大量质疑的声音——这个人会做产品吗？当时他就说："他们只见过我做 AlphaFold，但他们忘了我是做游戏出身的，你要我做产品，我也能做。"两年后（2025 年夏天），这是哈萨比斯交出的漂亮答卷。外界甚至开始猜测他会成为劈柴的接班人选，更有谷歌老员工说，他如今的上升轨迹很像当年的劈柴。</p>
+
+  <h3><span class="h3n">⑧</span>2025 年秋：局面彻底倒转</h3>
+  <ul>
+    <li><strong>11 月 18 日：</strong>Gemini 3 发布，在推理、编程、多模态等核心测试上全面领先，聊天模型排行榜也登上第一。</li>
+    <li><strong>几天后：</strong>传出 Meta 准备大举采购谷歌的 TPU。英伟达股价应声下跌，英伟达不得不专门发帖强调自己仍领先业界一代、是唯一能运行所有 AI 模型的平台。</li>
+    <li><strong>12 月 1 日：</strong>OpenAI 内部拉响警报。奥特曼给全体员工发内部备忘录，宣布进入"<strong>红色警报</strong>"期，暂停其他项目，把资源集中到 ChatGPT 上。</li>
+    <li>"三年前，ChatGPT 逼得谷歌拉响警报；三年后，Gemini 把警报原样送了回去。"</li>
+    <li><strong>2026 年 1 月：</strong>苹果宣布下一代 Siri 将采用 Gemini，谷歌母公司 Alphabet 市值突破<strong>四万亿美元</strong>。Google DeepMind 从一个研究院，真正变成了驱动整个谷歌的 AI 引擎。</li>
+  </ul>
+  <div class="note">
+    <b>章节的最后一句：</b>"然而光环之下，新的危机正在悄然酝酿。"
+  </div>
+</section>
+
+<section id="p2-8">
+  <div class="sec-head"><div class="sec-num">2.8</div><h2 class="sec-title">第八章 · 光环之下，群星散落（2026）</h2></div>
+  <p class="sec-sub">比赛又换场地了：从模型能力，换到企业市场、写代码，再换到组织本身。</p>
+
+  <h3><span class="h3n">①</span>表面上的好成绩</h3>
+  <ul>
+    <li>Gemini 3 登上模型评测榜第一，Gemini 应用的月活在一年内翻了三倍。</li>
+    <li>最重要的是：几年前很多人担心 ChatGPT 之类的 AI 会直接冲击谷歌最核心的搜索业务，但这件事没有发生——<strong>谷歌搜索收入的增速一年里从一成提高到接近两成</strong>。从模型能力到应用，谷歌把前两年丢掉的阵地一点点抢了回来。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>但比赛换了场地：企业市场排第三</h3>
+  <ul>
+    <li>从 2025 年下半年开始，AI 最大的一块生意开始转向<strong>企业市场</strong>：公司把大模型接进自己的软件，让它真正参与工作，再按使用量付钱。到 2025 年底，谷歌在这个比赛里<strong>只排第三</strong>。</li>
+    <li><strong>企业花钱最多的不是聊天，是写代码</strong>——风投机构称之为"AI 的第一个杀手级应用"。这一块市场有一半落在谷歌的竞争对手、做出 Claude Code 的 <strong>Anthropic</strong> 手里，另一半是专门做 AI 编程工具的初创公司 <strong>Cursor</strong>。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>"一抽屉刀，没一把好用"</h3>
+  <ul>
+    <li>谷歌的问题不是没看到这个方向、没做 AI 编程工具，而是<strong>做得太多了，散落在了各个不同的部门</strong>。光是对外的产品，就有五个部门做出了六七款编程工具，彼此之间甚至还有功能上的重叠。2025 年 7 月，Google DeepMind 甚至还花了 <strong>24 亿美元</strong>从外面买下一支做 AI 编程的队伍。</li>
+    <li>公司内部还另外有两三套给自家工程师用的工具，甚至做了用量统计和团队排行榜。</li>
+    <li><strong>那条微妙的规矩：</strong>写代码原则上只能用自家的 AI 工具，第三方产品需要特别审批；出于安全考虑，大多数员工都不能使用竞争对手 Anthropic 的 Claude Code。但这条规矩留了个口子——只要能证明业务上确实需要，就可以申请特批。</li>
+    <li><strong>最扎心的细节：</strong>有几位前员工说，Google DeepMind 里负责训练 Gemini 的几个团队，<strong>全都申请了 Claude Code</strong>。他们表示："最好的工程师，就该用最好的工具。"讽刺的是，他们口中"最好的工具"并不是谷歌自己的。</li>
+    <li><strong>作者的比喻：</strong>"对手手里是一把尖刀，谷歌这边一拉出来，一抽屉刀，结果没一把好用。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>2026 年初的追赶：布林亲自下场</h3>
+  <ul>
+    <li>2026 年初谷歌再次开始追赶，已经比对手晚了半年多。年初 Google DeepMind 成立一个小组，专门负责提高 AI 编程能力。</li>
+    <li><strong>最着急的人是布林。</strong>他给公司写了封内部信，大意是：竞争已经进入最后冲刺，对手的工具已经能自己写代码、跑测试、完成任务，Gemini 在这一步上落后了，必须尽快补上，让模型真正成为谷歌的主力程序员。</li>
+    <li>到了 4 月，布林索性亲自下场，在 Google DeepMind 的全员会上当着几百人催进度；接下来的几个月，他开始直接过问模型训练和算力分配。</li>
+    <li><strong>但推不动：</strong>Gemini 的编程产品分散在几个部门，各自有自己的团队、目标和节奏，哪怕是以创始人的身份，也很难让几个部门真正协同起来。一位前员工形容："<strong>想让谷歌各部门的负责人同时朝一个方向走，难度堪比把海水煮开。</strong>"</li>
+  </ul>
+
+  <h3><span class="h3n">⑤</span>组织架构的空前混乱：头衔、管理、领导权分属三人</h3>
+  <ul>
+    <li>2023 年底第一版 Gemini 发布以后，模型的日常管理就逐渐交到了<strong>科拉伊</strong>手里。但当时的组织架构并没有跟着变：Gemini 仍有 Jeff Dean、沙泽尔等几位名义上的技术负责人，整个 Google DeepMind 的最高负责人则还是哈萨比斯。</li>
+    <li>接下来两年，科拉伊手里的实权越来越大。<strong>2025 年 6 月</strong>，劈柴任命他为谷歌"<strong>首席 AI 架构师</strong>"，升任高级副总裁，直接向自己汇报——这意味着科拉伊第一次绕过哈萨比斯，直接进入谷歌最高管理层。他负责的也不再只是 Gemini 模型，而是要把搜索、YouTube、地图等各条产品线里的 AI 工作收拢起来。随后，科拉伊从伦敦搬到了加州山景城。</li>
+    <li>再往后，科拉伊开始接手更多谷歌团队的日常事务管理。到 2026 年上半年，哈萨比斯已经很少参加 Gemini 的例会，只在重要节点出现；名义上的技术负责人 Jeff Dean 也早已退出实际管理。</li>
+    <li><strong>结果：</strong>"新的权力关系已经形成，旧的组织架构却一直没有彻底改掉。到最后，Gemini 的技术头衔、日常管理和组织领导，已经分散在了不同的人手里。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑥</span>Gemini 3.5 Pro 的延期</h3>
+  <ul>
+    <li>2026 年 5 月开发者大会，劈柴宣布下一代旗舰模型 <strong>Gemini 3.5 Pro</strong> 已经在公司内部使用，计划 6 月发布。</li>
+    <li>到 6 月，团队换了一批专门针对编程的训练数据，结果没有达到预期。7 月中，延期的消息终于传了出来。</li>
+    <li><strong>三个原因：</strong>编程能力达不到内部定的标准；算力紧张；模型还要同时接进搜索、地图、YouTube 等一整条产品线，发布前需要协调的部门越来越多。</li>
+    <li><strong>同期对手的节奏：</strong>OpenAI 从 2 月到 7 月接连发了四版新模型；Anthropic 的旗舰模型半年里也更新了四次；开源模型一批接着一批发布。模型、架构、价格几乎每隔几个星期就会刷新一次。<strong>而谷歌这边，2 月之后旗舰模型就再也没有更新过。</strong></li>
+  </ul>
+
+  <h3><span class="h3n">⑦</span>意外跑出来的生意：卖 TPU</h3>
+  <ul>
+    <li>2025 年年底，<strong>Anthropic 跟谷歌云签下一张大单，计划使用最多一百万颗 TPU 训练模型</strong>。十三年前为谷歌自己造的芯片，如今最大的外部客户成了竞争对手 Anthropic。</li>
+    <li>2026 年夏天，谷歌云尚未交付的合同已经超过<strong>五千亿美元</strong>，芯片订单占了很大一块。</li>
+    <li><strong>反噬：</strong>DeepMind 内部开始抱怨——TPU 都被卖给了外部客户，留给自己训模型的算力反而不够了，这也成了 Gemini 延期的原因之一。8 月初媒体的标题写道："<strong>Gemini 凉了，但谷歌云火了。</strong>"</li>
+    <li><strong>作者的总结：</strong>AI 这一轮真正带出来的几个新市场——写代码、聊天应用、企业模型——谷歌都排在后面。真正意外跑出来的反而是 TPU："别人还在争 AI 应用的入口，谷歌已经把卖算力做成了一门生意。"</li>
+  </ul>
+
+  <h3><span class="h3n">⑧</span>2026 年 2 月：涉密项目与"不做军用"承诺的撤销</h3>
+  <ul>
+    <li>谷歌披露自己正在为<strong>五角大楼做涉密项目</strong>。一年前，谷歌修改了 2018 年制定的 AI 原则，<strong>删掉了"不开发武器、不用于监控"的承诺</strong>，理由是：一场争夺 AI 领导权的全球竞争已经开始了。</li>
+    <li><strong>这篇文章由两个人共同署名，其中一个就是哈萨比斯。</strong>十一年前谷歌收购 DeepMind 时，他坚持的四个条件里有一条就是不做军用；到了 2025 年，他的说法变成了：西方实验室如果单方面放弃军事用途，只会让自己处于劣势。</li>
+    <li><strong>八年前的对照：</strong>涉密项目披露之后，近千名员工再次联名写信给劈柴，要求公司承诺不把 Gemini 用于涉密军事用途。八年前也发生过类似的一幕——那一次谷歌最终没有续约，随后为公司立下七条 AI 安全原则。<strong>而这一次，谷歌签下了合同，Gemini 获准进入涉密网络，用于"任何合法目的"。</strong></li>
+    <li>一名 Google DeepMind 研究员花了两个月试图阻止这件事，没有成功，随后宣布辞职。接下来的大半年，一批核心研究员陆续离开。</li>
+  </ul>
+
+  <h3><span class="h3n">⑨</span>群星散落：一份离职名单</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:20%">时间（2026）</th><th style="width:30%">人物</th><th>去向</th></tr></thead>
+    <tbody>
+      <tr><td class="num">年初</td><td>AlphaGo 总设计师</td><td>离职创业</td></tr>
+      <tr><td class="num"><strong>6 月 18 日</strong></td><td><strong>沙泽尔</strong></td><td>第三次离职，去了 OpenAI</td></tr>
+      <tr><td class="num">第二天</td><td><strong>约翰·江珀</strong>（AlphaFold 负责人、2024 诺贝尔化学奖得主）</td><td>离职，加入 Anthropic</td></tr>
+      <tr><td class="num">五天后</td><td>AlphaFold 团队另外两位核心成员</td><td>离职，加入 Anthropic</td></tr>
+      <tr><td class="num">六周后</td><td>整个 <strong>AlphaFold 团队</strong></td><td>被宣布解散：一部分离职，剩下的一部分被调去做 Gemini，或是谷歌内部的其他科学项目</td></tr>
+      <tr><td class="num"><strong>8 月 5 日</strong></td><td><strong>哈萨比斯</strong></td><td>交出 Google DeepMind 日常管理，改任董事长兼 Alphabet 首席科学家</td></tr>
+      <tr><td class="num"><strong>8 月 5 日</strong></td><td><strong>Jeff Dean 与桑杰</strong></td><td>在谷歌工作整整 27 年后离职，创办新公司</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">⑩</span>8 月 5 日那封公开信：三条人事</h3>
+  <ol>
+    <li><strong>哈萨比斯</strong>交出 Google DeepMind 的日常管理，改任 <strong>Google DeepMind 董事长兼 Alphabet 首席科学家</strong>。信里写道，未来哈萨比斯的主要职责将会是"<strong>提供建议</strong>"。</li>
+    <li><strong>科拉伊</strong>升任 Google DeepMind 高级副总裁。模型开发、前沿研究、Gemini 应用和开发者平台全部归到他手里。但"<strong>Google DeepMind CEO</strong>"这一职<strong>保持空缺</strong>。</li>
+    <li><strong>Jeff Dean</strong> 将与老搭档桑杰一起离职、创办新公司，谷歌会成为这家新公司的早期投资人。</li>
+  </ol>
+  <ul>
+    <li>同一天，哈萨比斯也给团队发了一封信：Gemini 交给科拉伊和几位负责人，他很放心。科拉伊跟随他十三年，从 DeepMind 一路做到首席技术官；2025 年 6 月起开始直接向劈柴汇报；此后布林亲自过问 AI 的算力和人事，也主要找他。Google DeepMind 的大半，其实早已交到了科拉伊手里。</li>
+  </ul>
+  <div class="quote">
+    <p>"到这里，劈柴终于彻底实现了九年前的规划：DeepMind 被拆成了两半。应用、模型和大部分研究，全部归加州；哈萨比斯得到的，是一个科学家头衔，和一支研究队伍。2017 年在马里奥项目里谈的'一分为二'，终于尘埃落定。只是当年计划里研究的那一半是半家公司，如今，只剩下了一个人的头衔。"</p>
+  </div>
+  <p>一位谷歌前高管说：DeepMind 作为独立行动者的时代已经彻底结束。哈萨比斯仍坐在伦敦的办公室里，但 Google DeepMind 的组织和权力中心，正在一点点向加州移动。</p>
+</section>
+
+<section id="p2-9">
+  <div class="sec-head"><div class="sec-num">2.9</div><h2 class="sec-title">第九章 · 黄金时代的余晖：Jeff Dean 的最后一次出走</h2></div>
+  <p class="sec-sub">二十六年后，一个五十八岁，一个五十九岁，两个人一起走出谷歌，重新坐回同一张桌子前。</p>
+
+  <h3><span class="h3n">①</span>Discovery Loop：把科研循环自动化</h3>
+  <ul>
+    <li>离开谷歌后 Jeff Dean 创办了新公司 <strong>Discovery Loop</strong>，并把它注册成<strong>公共利益公司</strong>——不只追求财务回报。</li>
+    <li>他想做的是让"提出问题、设计实验、得到结果、再决定下一步"这个科研循环自动转起来。</li>
+    <li><strong>四位创始成员都来自谷歌大脑：</strong>好搭档桑杰；2011 年谷歌大脑招进来的第一个实习生、也是猫脸论文的作者；还有一位曾经是 Gemini 三位总技术负责人之一。</li>
+    <li>公司估值约<strong>一百亿美元</strong>。谷歌是创始投资人，也是云合作伙伴，第一年的算力由谷歌提供。</li>
+  </ul>
+
+  <h3><span class="h3n">②</span>这次离开意味着什么</h3>
+  <ul>
+    <li>Jeff Dean 的离开很容易被读成"谷歌为这位工作了 27 年的老将安排的一次体面告别"。不过有报道披露，<strong>劈柴前后曾经开了好几次会挽留</strong>。</li>
+    <li>一位在谷歌待了十年的员工把这次离职称作"谷歌大脑和 DeepMind 合并留下的最后一道余波"：合并以后 Jeff Dean 在组织里的位置越来越边缘——先是权力集中到哈萨比斯手里，后来 Gemini 的日常又进一步交给科拉伊，到这一次他干脆离开了公司。</li>
+    <li><strong>一个细节：</strong>他当天在社交媒体上发出的第一条消息，只宣布了新公司的成立，只字不提谷歌和那二十七年；几个小时以后，他才又补了一条，感谢过去的同事。</li>
+    <li><strong>影响远不只是少了一个 Jeff Dean：</strong>对很多人来说，他是谷歌工程师文化的象征。很多员工表示，这次离职重创了士气，也会让谷歌以后更难说服最顶尖的研究者留下来。很多人担心，他这一走，谷歌未来留给研究者自由探索的空间会变得越来越小。</li>
+    <li><strong>离职两天后的公开对谈：</strong>在斯坦福，被问到为什么离职，Jeff Dean 明显有些动情，但最后说出口的却几乎全是谷歌的好话——公司有一整套把 Gemini 做好的计划；至于他的离开，只是因为他想重新拥有一支十来个人、只专注做一件事的小团队。桑杰那年 59 岁，专门为此新注册了一个社交账号，说："我们想用一种和今天谷歌造东西不太一样的方式，去造点东西。"</li>
+    <li><strong>一个闭环：</strong>2000 年 3 月，在那间处理搜索故障的作战室里，Jeff Dean 把椅子滚到桑杰桌边，两个人并肩坐下，从此一起写了二十六年的代码。二十六年后，一个 58 岁、一个 59 岁，两个人一起走出谷歌，重新坐回了同一张桌子前。</li>
+  </ul>
+
+  <h3><span class="h3n">③</span>哈萨比斯这次变动：两种解释</h3>
+  <div class="cols">
+    <div class="col a">
+      <h4>解释一：并非全是主动选择</h4>
+      <ul>
+        <li>旗舰模型连续延期，团队长期疲于奔命，骨干也在不断流失，管理方式必须调整。</li>
+        <li>因此很难说这次究竟算升职还是架空，很多人担心"董事长"只是他彻底淡出的第一步。</li>
+        <li>甚至有消息称，哈萨比斯这次也想和 Jeff Dean 一起离职，只是为了稳住军心才暂时留了下来。</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>解释二：求仁得仁</h4>
+      <ul>
+        <li>他本来就对管理一支庞大的产品和工程团队兴趣不大，更想回到科学本身。</li>
+        <li>有人这样形容他："<strong>他不在乎聊天机器人，他想拿 AI 去治疗癌症。</strong>"</li>
+      </ul>
+    </div>
+  </div>
+  <ul>
+    <li><strong>交权半年里他的精力主要在两件事上：</strong>一件是 AI 制药——5 月他管理的 Isomorphic Labs 又融了<strong>二十一亿美元</strong>，此后无论在达沃斯还是长篇专访里，他谈得更多的都是蛋白质、新药，以及 AI 怎么改变科学发现；另一件是他想参照<strong>国际原子能机构的模式</strong>，成立一个独立于各家公司的国际 AI 安全机构，为此他亲自去游说美国财政部长、白宫科技顾问和几家 AI 实验室的负责人。</li>
+    <li><strong>他谈过很多次权力：</strong>如果自己真的在乎权力，当初就不会把 DeepMind 卖给谷歌；今天的他依然是一个可以被公司开除的人，而马斯克、扎克伯格、佩奇这些创始人不能。他创办 DeepMind 不是为了建立一个属于自己的帝国，只是因为那是做出通用人工智能最好的办法。</li>
+    <li>"如今他的梦想成真了，只是现实和想象不太一样。AI 真的走到了世界中央，等着他的却不是安静的实验室，而是一场几乎失控的商业战争。"</li>
+    <li><strong>但他某种程度上也在享受这场战争：</strong>"这是有史以来最疯狂、最凶猛的一场商战，而我正在用一种属于自己的方式打下去：一个古怪的英国异类，待在这个小岛上，走自己的路。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>那块奖章：一次跨越三十年的重逢</h3>
+  <ul>
+    <li>2024 年 10 月，诺贝尔化学奖公布，一半授予哈萨比斯和 AlphaFold 的负责人。预测蛋白质结构这个难题，生物学家靠实验做了五十年、总共测出十几万个；AlphaFold 一口气预测了两亿多个。</li>
+    <li>12 月，哈萨比斯从斯德哥尔摩领奖回来一个星期，在伦敦一家酒吧接受访谈。他还是老样子：冲锋衣、运动鞋，背着一个小双肩包。坐下以后，他从双肩包里掏出一个皮质盒子递给记者——里面是刚刚颁给他的<strong>诺贝尔化学奖金质奖章</strong>。</li>
+    <li>那块沉甸甸的金属圆牌上，一面刻着工业巨头诺贝尔的侧影，另一面则是揭开自然女神面纱的科学之神。在哈萨比斯眼中，科学的终极意义莫过于此——<strong>揭开自然的隐秘，通向某种神圣的秩序</strong>。</li>
+    <li><strong>签名簿：</strong>他在社交平台上晒出了诺贝尔基金会的访客签名簿，上面是影响了他一生的名字——1921 年爱因斯坦；1962 年发现 DNA 双螺旋的沃森、克里克（他们让少年哈萨比斯决定赴剑桥读书）；1965 年物理学家理查德·费曼（费曼那句"我无法创造的，我就无法理解"，从 DeepMind 创立之初就成了他的信条）。</li>
+    <li><strong>闭环：</strong>18 岁那年，因为觉得自己不可能在理论物理上超越费曼，他决定换一条路——不去发现下一个自然定律，而去创造一种能帮助人类发现定律的智能。三十年后，他最终靠着自己亲手创造的超级智能，在那本写满了英雄名字的签名簿上，留下了自己的名字。</li>
+  </ul>
+  <div class="quote">
+    <p>"当我站在诺贝尔颁奖台上的时候，我心里想的是，多少钱都无法交换这个时刻。就算你现在开价一百亿美元买这枚奖章，我也绝对不卖。更重要的是，它本来就不是花钱能买到的东西——这恰恰是最吸引我的地方。"</p>
+    <span class="src">哈萨比斯</span>
+  </div>
+</section>
+
+<section id="p2-10">
+  <div class="sec-head"><div class="sec-num">2.10</div><h2 class="sec-title">尾声 · 谁在掌管未来：谷歌与 Meta 的同构困境</h2></div>
+  <p class="sec-sub">"搜索和广告带来的利润，是创新最坚实的后盾，但也成为了它的束缚。"</p>
+
+  <h3><span class="h3n">①</span>前提：故事远不到写结局的时候</h3>
+  <p>在 AI 的战场上，没有人能永远领先，也没有人永远落后。如今的谷歌也许暂时掉队，但它依然拥有一流的模型、算力、产品、人才，以及二十多年的技术积累。所以关于谷歌 AI 的故事，现在还远不到写下结局的时候。</p>
+
+  <h3><span class="h3n">②</span>同构一：两家都从研究院做起</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:20%"></th><th style="width:40%">Meta</th><th style="width:40%">谷歌</th></tr></thead>
+    <tbody>
+      <tr><td><strong>研究院</strong></td><td>2013 年成立 AI 研究院，负责人是扎克伯格从纽约大学请来的教授杨立昆</td><td>2011 年成立谷歌大脑，2014 年收购 DeepMind</td></tr>
+      <tr><td><strong>运行方式</strong></td><td colspan="2">三座研究院高度相似：研究成果可以公开发表；研究人员可以自己选择方向；算力和资金由公司长期供给；没有明确的商业化期限。它们能这样运转，都是因为母公司背后的广告业务足够强大——前沿 AI 研究在很长一段时间里并不承担赚钱的任务。</td></tr>
+      <tr><td><strong>由此决定的目标</strong></td><td colspan="2">从一开始瞄准的就不是某一款短时间能赚钱的产品，而是人工智能最前沿的基础问题，目标是不断逼近更通用、更强大的智能。这也正是当年哈萨比斯愿意被谷歌收购的重要原因：这种周期漫长、回报不确定、甚至十年都未必见到商业结果的研究，在当时只有这样的公司养得起。</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="note">
+    <b>自由必然伴随代价：</b>论文和演示可以大胆尝试，可一旦要做成面向几亿人的产品，决定权就不在研究员手里了。所以我们看到：谷歌的聊天机器人<strong>申请四次、送审十一轮</strong>，始终没能上线；Meta 推出一个公开演示，<strong>三天后就被迫因争议下线</strong>。两家公司其实都做出了后来 ChatGPT 的雏形，却都因为背后牵着庞大的搜索和广告业务，无法贸然把它推向大众。<br><br>
+    "搜索和广告带来的利润，是创新最坚实的后盾，但也成为了它的束缚。结果，最后先迈出这一步的，是当时没有这些成熟业务包袱的 OpenAI。"
+  </div>
+  <p><strong>十五年的本质：</strong>谷歌的两支团队做的其实一直是同一件事——把前沿科学的边界再往前推动一点。围棋、Transformer、蛋白质结构，都是这样做出来的。而问题也恰恰在于，<strong>他们做得太成功了</strong>。技术一旦走出实验室，规则就变了：资本开始涌入，公司开始争夺人才、算力和市场，AI 也从一个科学问题变成了一场关于商业和权力的竞争。那些原本只想推动科学边界的人，就这样被推上了一场自己从未选择的赛场。</p>
+
+  <h3><span class="h3n">③</span>同构二：AI 一夜之间变成必须赢下的战场</h3>
+  <ul>
+    <li><strong>路线上的共同误判：</strong>哈萨比斯和杨立昆真正追求的都是最终那个通用而完整的智能；在他们看来，大语言模型并不足以通向终点。因此在 OpenAI 沿着大语言模型一路加码的那几年，DeepMind 和 Meta 的研究院始终没有把这条路线放在首位。</li>
+    <li><strong>但最难改变的不是技术路线，还有组织本身。</strong>过去的研究院是按探索前沿方向的需求形成的：组织方式分散，研究者自己选择问题、各走各的路线，交付的结果是论文，看重的是自由探索的空间。</li>
+    <li><strong>而这场 AI 大模型战争的本质已经变成了工程战争：</strong>集中所有的算力和资源，研究、工程、产品绑在一起，快速推进迭代。</li>
+    <li><strong>于是问题变成：</strong>怎么把一座为探索而生的研究院，改造成一支为产品和竞争而战的队伍？</li>
+  </ul>
+  <div class="cols">
+    <div class="col a">
+      <h4>Meta：绕过去，另起炉灶</h4>
+      <ul>
+        <li>在旁边成立新的团队，再不断从研究院里抽调人才。</li>
+        <li>随着一轮轮拆分和重组，几支队伍开始争夺同一批人才、算力和资源。</li>
+        <li>原来的研究院虽然还在，却一步步退到了组织边缘。</li>
+      </ul>
+    </div>
+    <div class="col b">
+      <h4>谷歌：强行合并，改造成主力部队</h4>
+      <ul>
+        <li>把两个研究团队强行合并，解决了力量分散的问题。</li>
+        <li>却也把原来做科学的人推向了工程、管理和交付。</li>
+        <li>研究院内部多年习惯的工作方式，开始和公司的产品节奏发生越来越剧烈的摩擦。</li>
+      </ul>
+    </div>
+  </div>
+  <ul>
+    <li><strong>留给研究员的只有两种选择：</strong>接受新的规则，或者离开。哈萨比斯留下来打了三年；Jeff Dean 和杨立昆先后走了出去。到今天，三个人都已经离开了产品一线。</li>
+    <li><strong>结论：</strong>"所以谷歌和 Meta 面对的，是同一样一种处境：当 AI 还只是研究时，它们养得起最自由的研究院；当 AI 从研究课题变成核心战场、变成了必须赢的战争，研究院原来的那套方式，也走到了尽头。"</li>
+  </ul>
+
+  <h3><span class="h3n">④</span>余晖：NeoLab 与资本的悖论</h3>
+  <ul>
+    <li>但或许依然值得庆幸的是，对于科学、对于真理的追求依然没有彻底消亡。离开 Meta 和谷歌之后，杨立昆和 Jeff Dean 做出了几乎一样的选择：<strong>重新办一间把研究放在产品前面的实验室</strong>。</li>
+    <li><strong>讽刺之处：</strong>把他们从大公司里挤出去的是资本的游戏，重新给它空间的也是资本。当 AI 从一门科学变成一场巨大的生意，资本开始害怕错过下一次 Transformer、下一个 AlphaFold，争相把钱押在了最顶尖的研究者身上。</li>
+    <li>于是离开的杨立昆、Jeff Dean 又做起了十几年前他们做过的事：找一群最聪明的人，给他们空间和时间，去探索那些还不知道有没有答案的问题。行业给这批新机构起了一个名字——<strong>NeoLab</strong>。</li>
+  </ul>
+  <div class="quote">
+    <p>"科学没有摆脱资本，它借着资本对下一次革命的恐惧，重新给自己争取到了一点空间。"</p>
+  </div>
+</section>
+
+<!-- ============ 交叉索引 ============ -->
+<section id="cross">
+  <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">交叉索引：时间线、关键数字、人物图谱</h2></div>
+  <p class="sec-sub">两篇文稿合并后的完整时间轴，以及可以被单独引用的硬数据。</p>
+
+  <h3><span class="h3n">3.1</span>二十五年时间线（2001–2026）</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:10%">年份</th><th style="width:60%">事件</th><th style="width:30%">出处</th></tr></thead>
+    <tbody>
+      <tr><td class="num">2001</td><td>谷歌成立三年，佩奇布林被逼找职业 CEO；施密特上任（"成年人监护"）。微软市值三千多亿美元、九成 PC 跑 Windows。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2002</td><td>谷歌成为 Safari 默认搜索引擎，<strong>免费</strong>。这份协议是后来二十年所有故事的起点。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2003</td><td>鲁宾创办 Android 公司；Jeff Dean 与桑杰用四个月写出 MapReduce。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2005</td><td>谷歌约 <strong>5000 万美元</strong>收购 Android（8 人、无产品无收入）。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2006</td><td>施密特进入苹果董事会；三家董事同时在两家董事会，FTC 反垄断调查。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num"><strong>2007.1</strong></td><td>初代 iPhone 发布会，施密特站台说"merge without merging"；同一时刻谷歌另一栋楼在做 Android。鲁宾在出租车上看直播后放弃 Sooner。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2007.6</td><td>Transformer 论文发表（八位作者全部来自谷歌），未等同行评审即公开。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2008 夏</td><td>乔布斯驱车赴谷歌看安卓样机；谷歌拿掉多点触控。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2008.10</td><td>T-Mobile G1（HTC 生产）上市，无双指缩放。开放手机联盟此前已集结 30 多家公司。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2009.8</td><td>施密特退出苹果董事会。</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2010.1</td><td>Nexus One 发布，退让过的功能全部加回；乔布斯内部大会："Don't be evil 就是扯淡。"</td><td><span class="tag t-a">文稿一</span></td></tr>
+      <tr><td class="num">2010</td><td>苹果起诉 HTC（20 项专利），随后三星、摩托罗拉——代理人战争。乔布斯"核战争"言论。哈萨比斯与两人创办 DeepMind。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2011</td><td>谷歌大脑成立；谷歌 <strong>125 亿美元</strong>买摩托罗拉移动（1.7 万项专利）；乔布斯去世（10 月）；库克接任；施密特卸任、佩奇接掌。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2012</td><td>iOS 6 移除谷歌地图，苹果地图灾难与库克公开道歉；12 月谷歌地图回归，48 小时下载 1000 万次。安卓份额超越 iPhone。猫脸实验（16000 核 / 1000 万帧）。马斯克在私人飞机上向佩奇提到 DeepMind。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2013</td><td>谷歌大脑从 X 毕业；两页 PPT 推算算力需求，决定自研芯片。辛顿公司拍卖，谷歌 <strong>4400 万美元</strong>买下。城堡散步；<strong>6 亿多美元</strong>收购 DeepMind（四个条件全部答应）。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2014</td><td>搜索合同金额首次泄露：<strong>10 亿美元</strong>；两家联手要求封存记录。DeepMind 蜜月：刷开工牌、算力超 9 亿 Gmail 用户。布林："那不是不可能的吗？"</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2015</td><td>第一代 TPU 装机；TensorFlow 发布；Alphabet 重组。8 月 14 日 SpaceX 安全会议（唯一一次）；四个月后 OpenAI 成立。10 月 AlphaGo 5:0 樊麾。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2016</td><td>AlphaGo 4:1 李世石（2 亿人观看）；TPU 首次公开；谷歌翻译全面切换神经网络；"马里奥"谈判启动；谷歌转向 Pixel 硬件。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2017</td><td>AlphaGo 3:0 柯洁、AlphaZero；库克与劈柴越南餐厅被拍；<strong>马里奥失败</strong>：素咖喱、一拆二方案、只活了十天的幻灯片。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2018</td><td>苹果与谷歌顶峰相见（"不被过去困住"）。TPU 二代 / 对外开放；谷歌 AI 更名；BERT 进搜索。马里奥签字（十年 <strong>150 亿美元</strong>）后因 Jeff Dean 升职而作废；苏莱曼团队并入谷歌。五角大楼风波与七条 AI 原则。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2019</td><td>苏莱曼退场；佩奇布林退出日常管理，劈柴兼任 Alphabet CEO。GPT-2 与杰克·雷的警告。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2020</td><td>GPT-3（1750 亿参数）；DeepMind 目标 640 亿、严重低估差距。伦理风波：账号被切断、7000 人联名。司法部起诉谷歌垄断。AlphaFold 精度逼近实验测量。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2021</td><td>LaMDA 演示；DeepMind 内部模型效果超 GPT-3 但无人响应；12 月 8 日地鼠论文 + 21 类风险论文，次日谷歌大脑 1.2 万亿参数论文。<strong>4 月：争取独立，到此结束。</strong>沙泽尔离开谷歌。</td><td><span class="tag t-b">文稿二</span></td></tr>
+      <tr><td class="num">2022</td><td>LaMDA"有意识"事件；Sparrow 蓄势待发；<strong>11 月 30 日 ChatGPT 上线</strong>；12 月谷歌 Code Red。搜索分成数字曝光：苹果拿 46%、一年近 <strong>200 亿美元</strong>（占苹果利润约 1/5）。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2023</td><td>Bard 翻车（蒸发约 1000 亿美元）；<strong>4 月 20 日合并为 Google DeepMind</strong>，谷歌大脑名字退场；布林回归写代码；12 月 6 日 Gemini 一代（视频被拆穿）。苹果宣布 Siri 接入 OpenAI。搜索合同庭审。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2024</td><td>法官裁定谷歌垄断但未禁协议；合同变为逐年重谈。Gemini 1.5 与"多元过头"事故；o1 抢先；10 月 2 日反攻动员会（150 人）；Veo 2、Gemini 2。2024 WWDC 演示未完成的 Siri。诺奖。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num">2025</td><td>Gemini 2.5、Veo 3、Genie 3、Nano Banana；11 月 18 日 Gemini 3 登顶；12 月 1 日 OpenAI 拉响红色警报。苹果 Siri 延期（"丑陋和尴尬"）、詹南德雷亚退休、庞若鸣被 2 亿美元挖走。谷歌删掉"不开发武器"承诺。Anthropic 签下最多 100 万颗 TPU。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+      <tr><td class="num"><strong>2026</strong></td><td>1 月苹果宣布 Siri 采用 Gemini，Alphabet 破 4 万亿美元；2 月涉密项目披露；6 月起沙泽尔、江珀、AlphaFold 团队相继离场；7 月 30 日 AlphaFold 团队解散；<strong>8 月 5 日哈萨比斯交权、Jeff Dean 离职</strong>；WWDC 新 Siri 展示。</td><td><span class="tag t-a">一</span><span class="tag t-b">二</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">3.2</span>关键数字速查</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:34%">项目</th><th style="width:18%">数字</th><th>语境</th></tr></thead>
+    <tbody>
+      <tr><td>谷歌支付苹果的搜索分成（2022）</td><td class="num"><strong>近 200 亿美元/年</strong></td><td>接近苹果全年利润的 1/5；分成比例 46%（Safari 搜索广告收入）</td></tr>
+      <tr><td>最早泄露的默认搜索合同金额（2014）</td><td class="num">10 亿美元</td><td>甲骨文律师在另一场官司说漏嘴</td></tr>
+      <tr><td>微软愿为必应进苹果支付的价码</td><td class="num">最高 150 亿美元/年</td><td>纳德拉出庭作证；苹果始终没答应</td></tr>
+      <tr><td>谷歌为 Siri 定制 Gemini 的报价</td><td class="num"><strong>10 亿美元/年</strong></td><td>Anthropic 报价为每年几十亿美元起步、逐年翻倍</td></tr>
+      <tr><td>Siri 每日请求量</td><td class="num">15 亿次</td><td>仍是"旧 Siri"的数字，多为设闹钟、查天气</td></tr>
+      <tr><td>2025 年资本开支：谷歌 / Meta / 苹果</td><td class="num">850 / 720 / 140 亿美元</td><td>苹果只有别人的五分之一</td></tr>
+      <tr><td>苹果手上的训练 GPU</td><td class="num">约 5 万块</td><td>大部分已使用五年以上</td></tr>
+      <tr><td>微软为 OpenAI 造的集群</td><td class="num">1 万块 GPU</td><td>算力排得进当时全球前五，全部供一家使用</td></tr>
+      <tr><td>收购 Android</td><td class="num">约 5000 万美元</td><td>8 人团队，无产品无收入</td></tr>
+      <tr><td>收购摩托罗拉移动</td><td class="num">125 亿美元</td><td>为 1.7 万项专利</td></tr>
+      <tr><td>收购辛顿公司</td><td class="num">4400 万美元</td><td>击败微软、百度、DeepMind</td></tr>
+      <tr><td>收购 DeepMind</td><td class="num">6 亿多美元</td><td>约为辛顿公司的 15 倍；四个条件全部答应</td></tr>
+      <tr><td>请回沙泽尔</td><td class="num">约 27 亿美元</td><td>约为收购整个 DeepMind 的四倍</td></tr>
+      <tr><td>DeepMind 研究部门十年经费（2018 协议）</td><td class="num">150 亿美元</td><td>协议数月后作废</td></tr>
+      <tr><td>Jeff Dean 新公司估值</td><td class="num">约 100 亿美元</td><td>Discovery Loop，公共利益公司</td></tr>
+      <tr><td>Isomorphic Labs 新一轮融资</td><td class="num">21 亿美元</td><td>2026 年 5 月</td></tr>
+      <tr><td>买 AI 编程团队</td><td class="num">24 亿美元</td><td>2025 年 7 月，Google DeepMind</td></tr>
+      <tr><td>谷歌云未交付合同</td><td class="num">超 5000 亿美元</td><td>2026 年夏，芯片订单占很大一块</td></tr>
+      <tr><td>Anthropic 计划使用的 TPU</td><td class="num">最多 100 万颗</td><td>谷歌芯片最大的外部客户是竞争对手</td></tr>
+      <tr><td>猫脸实验</td><td class="num">16000 核 / 1000 万帧</td><td>2012 年 6 月，第一个实习生是一作</td></tr>
+      <tr><td>第一代 TPU 研发周期</td><td class="num">15 个月</td><td>做成硬盘位插卡，避免改造数据中心</td></tr>
+      <tr><td>BERT 训练用 TPU / AlphaZero 对弈用 TPU</td><td class="num">64 块 / 5000 块</td><td>同一家公司内部算力分配的落差</td></tr>
+      <tr><td>DeepMind 两年亏损（2018–2019）</td><td class="num">近 10 亿英镑</td><td>内部贷款与利息超 11 亿英镑，谷歌另注资 5 亿多</td></tr>
+      <tr><td>LaMDA 送审</td><td class="num">11 轮</td><td>申请 4 次，始终未上线</td></tr>
+      <tr><td>Gemini 反攻突击队</td><td class="num">150 人 / 200+ 实验</td><td>原计划只招 40 人</td></tr>
+      <tr><td>Gemini 应用（Nano Banana 后）</td><td class="num">两周 +2300 万用户 / 5 亿张图</td><td>9 月 12 日登上美国应用总榜第一</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">3.3</span>人物图谱</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:16%">人物</th><th style="width:20%">身份</th><th>在两篇文稿中的功能</th></tr></thead>
+    <tbody>
+      <tr><td><strong>乔布斯</strong></td><td>苹果创始人</td><td>结盟的设计者、核战争的发动者、最后给佩奇留下"别铺太开"的提醒。他的去世是"核战争结束"的真正原因。</td></tr>
+      <tr><td><strong>施密特</strong></td><td>谷歌前 CEO</td><td>"merge without merging"的提出者；同时在两家董事会的尴尬者；评价乔布斯是"过去五十年最伟大的 CEO"。</td></tr>
+      <tr><td><strong>库克</strong></td><td>苹果 CEO（至 2026.9）</td><td>供应链思维的代表：反对起诉供应商、公开道歉、把搜索合同变成逐年谈判；任内最大的失误被归为 AI。</td></tr>
+      <tr><td><strong>劈柴</strong></td><td>谷歌 CEO</td><td>"没有敌人"的职业经理人；2007 年反对独占默认位、2023 年坐在被告席听那封邮件；九年前的"一分为二"最终由他完成。</td></tr>
+      <tr><td><strong>安迪·鲁宾</strong></td><td>Android 创始人</td><td>名字来自苹果同事起的外号；被乔布斯当面训斥；白板上写下"乔布斯当众欺负我"。</td></tr>
+      <tr><td><strong>Jeff Dean</strong></td><td>谷歌大脑创始人、前首席科学家</td><td>铺地基的人：内存故障、MapReduce、TPU 的两页 PPT、TensorFlow、猫脸实验。27 年后与桑杰一起离开。</td></tr>
+      <tr><td><strong>桑杰</strong></td><td>谷歌基础设施元老</td><td>与 Jeff Dean 组成"第 11 级"双人组；以冰淇淋店为由的友谊；26 年后一起创业。</td></tr>
+      <tr><td><strong>哈萨比斯</strong></td><td>DeepMind 创始人</td><td>从棋童到诺奖得主；"只有 100%"；三次错失、三年改造、最终交出日常管理。</td></tr>
+      <tr><td><strong>苏莱曼</strong></td><td>DeepMind 联合创始人</td><td>四个条件与"马里奥"的操盘者；最想把技术做成产品的人；2019 年退场，后任微软 AI 掌门人。</td></tr>
+      <tr><td><strong>科拉伊</strong></td><td>DeepMind CTO → 首席 AI 架构师</td><td>2013 年圣诞节差点被杨立昆挖走、最终留下的人；带队追赶 GPT-3；2026 年 8 月接手模型、研究、应用与平台。</td></tr>
+      <tr><td><strong>沙泽尔</strong></td><td>Transformer 作者之一</td><td>提出"扔掉搜索索引"的人；Meena/LaMDA 的推动者；三次离职谷歌；27 亿美元被请回、又去了 OpenAI。</td></tr>
+      <tr><td><strong>布林</strong></td><td>谷歌联合创始人</td><td>一句"那不是不可能的吗"催生 AlphaGo；2023 年重新写代码；2026 年亲自催编程进度，形容推不动各部门"堪比把海水煮开"。</td></tr>
+      <tr><td><strong>佩奇</strong></td><td>谷歌联合创始人</td><td>城堡散步的劝说者、"我还是支持但得劈柴点头"的退场者；迟到两小时、没有替 DeepMind 说话。</td></tr>
+      <tr><td><strong>马斯克</strong></td><td>OpenAI 联合创始人</td><td>在飞机上说出 DeepMind 的名字；AI 安全委员会唯一一次会议的主场主人；四个月后成立 OpenAI。</td></tr>
+      <tr><td><strong>杨立昆</strong></td><td>Meta AI 研究院负责人</td><td>"我今天就是来挖人的"；与 Jeff Dean 一样，最终选择重新办一间研究优先的实验室。</td></tr>
+      <tr><td><strong>詹南德雷亚</strong></td><td>苹果前 AI 负责人</td><td>从谷歌挖来、判断"苹果做不了搜索"、不相信聊天机器人；部门外号 AIMLess；2025 年退休。</td></tr>
+      <tr><td><strong>杰克·雷</strong></td><td>DeepMind 研究员</td><td>最早警告 DeepMind 落后的人；跳槽 OpenAI 又回归；反攻突击队的纪律执行者。</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">3.4</span>两稿之间的时点差异与互相印证</h3>
+  <div class="note">
+    <b>差异一：Gemini 的位置。</b>文稿一（2026 年 8 月 1 日）写的是"业界很多人质疑 Gemini 已跌出第一梯队，且完全错过了今年年初爆火的企业客户市场"；文稿二则完整记录了 Gemini 3 在 2025 年 11 月登顶、2026 年上半年旗舰连续延期、企业市场只排第三。<b>两稿并不矛盾，而是同一条曲线的两端</b>：2025 年底登顶 → 2026 年上半年失速。文稿一截取的是"当下"，文稿二给出的是"来路"。
+  </div>
+  <div class="note note-blue">
+    <b>差异二：Siri 采用 Gemini 的时点。</b>文稿二写"2026 年 1 月苹果宣布下一代 Siri 将采用 Gemini"；文稿一写"2026 年 WWDC 上苹果宣布新 Siri 建立在 Gemini 之上"。可理解为<b>宣布在前、正式展示与落地在后</b>——1 月宣布、6 月 WWDC 展示五款模型与独立 Siri App。
+  </div>
+  <div class="note note-green">
+    <b>互相印证的关键事实：</b>①合并发生在 2023 年 4 月，哈萨比斯任 CEO、Jeff Dean 任首席科学家（两稿一致）；②沙泽尔离开谷歌加入 OpenAI（两稿一致）；③AlphaFold 团队解散、江珀加入 Anthropic（两稿一致）；④谷歌在企业市场掉队、必须靠苹果的入口（两稿从不同角度得出同一结论）；⑤微软始终是那条隐形线索（两稿分别从"共同敌人"与"集中算力"两个角度论证）。
+  </div>
+</section>
+
+<!-- ============ 观点总账 ============ -->
+<section id="views">
+  <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">两份文稿的观点总账</h2></div>
+  <p class="sec-sub">把作者的判断逐条抽出，不做评价，只做归位。</p>
+
+  <h3><span class="h3n">4.1</span>文稿一的二十二条判断</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:5%">#</th><th style="width:34%">判断</th><th>支撑</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>苹果与谷歌的二十五年更像一段从校园走到中年的感情，而不是商战片</td><td>敢爱敢恨 → 背叛与防备 → 最难割舍的盟友</td></tr>
+      <tr><td class="num">2</td><td>新 Siri 是"里子租来的，面子坚持自己的"</td><td>模型、芯片、机房、隐私架构全在谷歌，品牌叙事必须留在苹果</td></tr>
+      <tr><td class="num">3</td><td>两家最初的黏合剂是共同的敌人微软</td><td>2001 年微软市值三千多亿、九成 PC；Don't be evil 的 evil 影射微软</td></tr>
+      <tr><td class="num">4</td><td>苹果卖手机，谷歌卖生态；苹果相信控制，谷歌相信开放</td><td>App Store vs 开源 + 预装 + 广告</td></tr>
+      <tr><td class="num">5</td><td>苹果起诉 HTC/三星而非谷歌，是一场代理人战争</td><td>安卓无营收、算不出损失；厂商有销售收入可申请禁售</td></tr>
+      <tr><td class="num">6</td><td>乔布斯与库克的分野在"信念 vs 划不划算"，苹果的时代转换由此开始</td><td>库克反对起诉三星（最大供应商）；乔布斯视三星首先是叛徒和小偷</td></tr>
+      <tr><td class="num">7</td><td>核战争没有赢家，但两家合力消灭了所有其他竞争者，包括最初的敌人微软</td><td>iOS+安卓份额 38% → 97%</td></tr>
+      <tr><td class="num">8</td><td>核战争结束不是因为认输，而是发动战争的两个人离开了舞台</td><td>乔布斯去世、施密特卸任，接棒者面对的是生意而非战争</td></tr>
+      <tr><td class="num">9</td><td>公司过了求生阶段，需要的不再是创始人，而是把机器运转下去的人</td><td>库克与劈柴的共性：谨慎、克制、计算后果、在意外界看法</td></tr>
+      <tr><td class="num">10</td><td>一个主动收紧开放生态，一个被迫拆开封闭生态，从相反方向走到了同一位置</td><td>Pixel + 闭源服务 vs USB-C + 第三方商店 + NFC 开放</td></tr>
+      <tr><td class="num">11</td><td>真正的黏合剂是那份搜索合同，两家曾为守秘密站到同一边</td><td>2014 年泄露后联手要求封存记录</td></tr>
+      <tr><td class="num">12</td><td>苹果从没想过换搜索引擎，只是拿微软当筹码逼谷歌加钱</td><td>纳德拉愿付 150 亿美元被拒；"苹果靠 Bing 的存在赚得比 Bing 自己还多"</td></tr>
+      <tr><td class="num">13</td><td>谷歌不是做不出 ChatGPT，而是在结果不可控时不肯把可能胡说八道的机器人交给全世界</td><td>十几万员工、万亿市值的信誉成本；沙泽尔等一年未果</td></tr>
+      <tr><td class="num">14</td><td>苹果"不做第一个"在硬件时代是优势，在大模型时代是致命伤</td><td>硬件一年一更、供应链几年一变；模型几个月一代、习惯几个月形成</td></tr>
+      <tr><td class="num">15</td><td>苹果习惯"先想清楚产品再把每分钱花到极致"，而训练大模型必须"先下注才能证明钱值不值得花"</td><td>GPU 预算被财务砍掉大半；140 亿 vs 850 亿</td></tr>
+      <tr><td class="num">16</td><td>AI 是库克任内最大也最难回避的一次失误</td><td>产品延期、部门内斗、人才流失三件事叠加</td></tr>
+      <tr><td class="num">17</td><td>同一个 ChatGPT：谷歌被逼仓促应战，苹果迟迟没有醒来</td><td>谷歌有模型缺入口，苹果有入口缺模型</td></tr>
+      <tr><td class="num">18</td><td>苹果与谷歌的 AI 联姻不是友情复燃，而是内忧外患下的抱团取暖</td><td>后起之秀、内部管理危机、人才流失；彼此是最现实的选择</td></tr>
+      <tr><td class="num">19</td><td>合作本质是"苹果需要模型，谷歌需要入口"；10 亿美元保的是 200 亿美元买来的位置</td><td>Siri 每日 15 亿次请求；谷歌模型将同时进入两大手机生态</td></tr>
+      <tr><td class="num">20</td><td>2026 年起，钱第一次开始往回流</td><td>过去二十年只有谷歌→苹果一个方向</td></tr>
+      <tr><td class="num">21</td><td>25 年前推到一起的是微软，25 年后让两人走回一起的仍是微软</td><td>OpenAI 背后最大投资人是微软</td></tr>
+      <tr><td class="num">22</td><td>时间让人认清成本与边界；谁也无法独自走进下一个时代</td><td>"什么可以单枪匹马，什么必须共生；什么原则可以坚持，什么代价已经付不起"</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">4.2</span>文稿二的二十三条判断</h3>
+  <div class="tw">
+  <table>
+    <thead><tr><th style="width:5%">#</th><th style="width:34%">判断</th><th>支撑</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td>谷歌发明了未来，却错过了未来</td><td>AlphaGo、Transformer、AlphaFold 三个破圈时刻都出自谷歌，商业化先手都给了别人</td></tr>
+      <tr><td class="num">2</td><td>谷歌大脑的气质是"不急于做产品，影响渗透整个谷歌"</td><td>像贝尔实验室；成果公开发表、代码尽量开放；Jeff Dean 只铺地基</td></tr>
+      <tr><td class="num">3</td><td>Jeff Dean 的方法论是深入底层一次性解决一类问题</td><td>内存位翻转 → 软件层隔离；"不追求每台机器不出错，而是任何一台出错都不影响系统"</td></tr>
+      <tr><td class="num">4</td><td>专用硬件通常不是好主意，但神经网络是例外</td><td>底层计算是矩阵相乘，不会过时；同耗电量算力高几十倍</td></tr>
+      <tr><td class="num">5</td><td>DeepMind 与谷歌大脑的根本分歧在"什么是智能"</td><td>语言只是符号；"要读万卷书，更要行万里路"；强化学习才是通往 AGI 的路</td></tr>
+      <tr><td class="num">6</td><td>哈萨比斯的方法是"先打一场足够大的胜仗，再拿胜利换下一阶段筹码"</td><td>AlphaGo、AlphaFold 都是这个逻辑</td></tr>
+      <tr><td class="num">7</td><td>但这一次筹码变化的方向与预期相反</td><td>AlphaGo 越成功 → AI 在谷歌越核心 → 越不可能被放进"其他赌注"</td></tr>
+      <tr><td class="num">8</td><td>治理结构无法替代信任；越想设计"互不信任也能运转"的制度，越是在说"我不信任你"</td><td>马里奥三年、两次签字两次作废</td></tr>
+      <tr><td class="num">9</td><td>谷歌三次看见未来、三次让出先手</td><td>没押注语言模型 → 做出来不敢发 → 最擅长的推理赛道也被抢先</td></tr>
+      <tr><td class="num">10</td><td>四条技术路线都不落后，问题是"学术斐然、产品缺席"</td><td>稀疏模型、5400 亿参数、思维链都是开创性成果</td></tr>
+      <tr><td class="num">11</td><td>2018 年的 AI 原则最先挡住的是自家聊天机器人，而不是军方项目</td><td>Meena 三次申请被否；LaMDA 送审十一轮</td></tr>
+      <tr><td class="num">12</td><td>伦理风波打破了 Jeff Dean 的"零差评"神话</td><td>账号被切断、7000 人联名、他成为"代表公司意志的管理者"</td></tr>
+      <tr><td class="num">13</td><td>哈萨比斯有三重误判</td><td>低估语言与现实的联系、高估人类经验的复杂度、低估工程与规模化的价值</td></tr>
+      <tr><td class="num">14</td><td>合并解决了力量分散，也制造了新的摩擦</td><td>"组织合并了，但信任没有"；DeepMind 的美国化；"屋里嗓门最大的人说了算"</td></tr>
+      <tr><td class="num">15</td><td>后训练之战：工程与 deadline 赢过科学与野心</td><td>模型自学的方向六个月没跑通；人工打分 + 洗数据很快见效</td></tr>
+      <tr><td class="num">16</td><td>战时状态摧毁了公开发表的传统</td><td>战略性论文压半年、层层审批；"今天的谷歌恐怕再也不会公开 Transformer 那样的论文"</td></tr>
+      <tr><td class="num">17</td><td>反攻成功靠三件事：突击队模式、沙泽尔的号召力、科拉伊保下的算力</td><td>150 人、200+ 实验、一个月内分数起涨</td></tr>
+      <tr><td class="num">18</td><td>比赛已从"比模型"变成"比产品与传播"</td><td>Gemini 1.5 被 Sora 抢、Gemini 2.5 被吉卜力画图抢；Nano Banana 反向超车</td></tr>
+      <tr><td class="num">19</td><td>2026 年的困局不是模型不行，而是组织分散、算力被自己卖的 TPU 挤占、旗舰延期</td><td>五个部门六七款编程工具；"一抽屉刀，没一把好用"</td></tr>
+      <tr><td class="num">20</td><td>卖 TPU 是意外赢家，但反噬自家训练</td><td>Anthropic 最多 100 万颗；"Gemini 凉了，但谷歌云火了"</td></tr>
+      <tr><td class="num">21</td><td>九年前的"一分为二"终于落地，只是研究那一半从半家公司变成了一个人的头衔</td><td>2026 年 8 月 5 日三条人事；CEO 职位空缺</td></tr>
+      <tr><td class="num">22</td><td>谷歌与 Meta 同构：广告养研究院 → 研究院做出雏形 → 不能发布 → 被无包袱者抢先 → 工程战争改造研究院 → 科学家出走 → NeoLab</td><td>两家的时间线几乎平行</td></tr>
+      <tr><td class="num">23</td><td>搜索与广告的利润是创新最坚实的后盾，也是它的束缚；科学没摆脱资本，只是借资本对下一次革命的恐惧争回了一点空间</td><td>NeoLab 的出现与融资</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3><span class="h3n">4.3</span>两稿合成的一条主线</h3>
+  <div class="note note-blue">
+    <b>如果只记一句话，可以记这一句：</b>苹果用二十年时间把"入口"做成了一门年入两百亿美元的生意，谷歌用十五年时间把"模型"做成了三次错失先手的技术；2026 年，两家各自缺的那一半终于拼到一起——<strong>一个拿十亿美元租下别人的大脑，一个用十亿美元保住自己的入口</strong>。而真正的讽刺在于：这两家公司都因为太成功而无法自己完成转身，最终不得不回到二十五年前那个"敌人的敌人"身边。
+  </div>
+</section>
+
+<div class="foot">
+  <p><b>资料来源：</b>①《苹果谷歌25年恩怨录：结盟、决裂，和一场迟来的联姻》，UrbanRitual，公众号"科技这碗饭"，2026 年 8 月 1 日；②《谷歌AI风云15年：诸神的黄昏——发明未来的人为何错过未来（文字版）》，同作者，2026 年 8 月之后。</p>
+  <p><b>整理原则：</b>按原文叙事顺序逐章梳理，保留全部数据、人物引语与作者判断；对原文中个别笔误未作改写，对两稿时点或口径不一致处在 3.4 节单独标注。文中所涉 2026 年及之后的事件均为原文叙述，本报告只做忠实转述，不作事实核验。</p>
+</div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var targets = links.map(function(a){
+    var id = a.getAttribute('href').slice(1);
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var idx = 0;
+    for (var i=0;i<targets.length;i++){
+      if (targets[i].offsetTop <= pos) idx = i;
+    }
+    links.forEach(function(a){a.classList.remove('active');});
+    if (links[idx]) links[idx].classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
