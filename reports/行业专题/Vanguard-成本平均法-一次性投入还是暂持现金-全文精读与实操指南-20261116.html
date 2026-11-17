@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanguard《成本平均法：现在一次性投入，还是暂时持有现金？》全文精读</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc;
+    --red:#c0392b; --red-soft:#fdeeec; --green:#1e7a4b; --green-soft:#eaf6ef;
+    --amber:#a86400; --amber-soft:#fdf3e3; --purple:#5b3fa8; --purple-soft:#f1ecfb;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 80px;}
+  header.top{padding:52px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px;}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  h1{font-size:30px;line-height:1.34;margin:0 0 12px;letter-spacing:-.01em;font-weight:700;}
+  .sub{font-size:16px;color:var(--ink-2);margin:0 0 18px;}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px;}
+
+  h2{font-size:22px;margin:52px 0 10px;padding-top:18px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em;}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:8px;}
+  h3{font-size:17px;margin:30px 0 8px;font-weight:650;}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2);}
+  p{margin:9px 0;}
+  ul,ol{margin:9px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  strong{font-weight:650;}
+  .src{font-size:12px;color:var(--ink-3);margin:6px 0 0;}
+
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4;}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:5px;line-height:1.5;}
+  .up{color:var(--red);} .down{color:var(--green);} .neutral{color:var(--ink);}
+
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7;}
+  .box.red{background:var(--red-soft);border-color:#f6d5d0;}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe;}
+  .box.green{background:var(--green-soft);border-color:#cfe8d9;}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5;}
+  .box h4{margin-top:0;}
+  .box p:last-child{margin-bottom:0;}
+  .box ul:last-child,.box ol:last-child{margin-bottom:0;}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.2px;background:var(--card);}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{background:#f0f2f5;font-weight:650;font-size:12.3px;color:var(--ink-2);}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;}
+  tbody tr:hover{background:#fafbfc;}
+
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0;}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px;}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;}
+  .chart{width:100%;height:330px;}
+
+  .tag{display:inline-block;font-size:11.3px;padding:2px 8px;border-radius:20px;font-weight:600;white-space:nowrap;}
+  .t-bull{background:var(--red-soft);color:var(--red);}
+  .t-bear{background:var(--green-soft);color:var(--green);}
+  .t-mid{background:#eef0f3;color:var(--ink-2);}
+  .t-blue{background:var(--blue-soft);color:var(--blue);}
+  .t-amber{background:var(--amber-soft);color:var(--amber);}
+  .t-purple{background:var(--purple-soft);color:var(--purple);}
+
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 16px;margin:14px 0;color:var(--ink-2);font-style:italic;}
+
+  .rank{display:flex;gap:4px 10px;align-items:flex-start;margin:12px 0;flex-wrap:wrap;}
+  .rank .n{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;font-size:12.5px;
+    display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 auto;margin-top:2px;}
+  .rank .n.g{background:#8a939f;}
+  .rank .t{font-weight:650;flex:1 1 auto;line-height:1.6;}
+  .rank .d{font-size:13px;color:var(--ink-3);flex:1 1 100%;padding-left:36px;margin-top:2px;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;}
+  .card h4{margin-top:0;}
+  .card p{font-size:13.5px;margin:6px 0;}
+  .card ul{font-size:13.5px;}
+
+  .foot{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);}
+  @media (max-width:820px){
+    .tldr{grid-template-columns:repeat(2,1fr);}
+    .grid2{grid-template-columns:1fr;}
+    h1{font-size:24px;}
+    table{font-size:12.4px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">全文精读 · 逐节拆解 · 数据复刻 · 方法论批判 · 实操映射</div>
+  <h1>成本平均法：现在一次性投入，还是暂时持有现金？</h1>
+  <p class="sub">Vanguard 研究部 2023 年 2 月报告完整精读。作者 Megan Finlay、Josef Zorn（Ph.D., CFP®），全文 11 页、6 张图表、3 个技术附录。<strong>核心结论：历史上一次性投入（LS）在约三分之二的时间里战胜分批建仓（CA）；但 CA 仍远胜于一直持有现金。</strong>本文逐段还原全部论证、全部数字与全部限定条件，不做观点取舍。</p>
+  <div class="meta">
+    <span>原文：Vanguard research, February 2023</span>
+    <span>标题：Cost averaging: Invest now or temporarily hold your cash?</span>
+    <span>篇幅：11 页 / 图 6 幅 / 附录 3 则</span>
+    <span>本报告整理：2026-11-16</span>
+  </div>
+</header>
+
+<div class="box blue">
+  <h4>原文开篇的三条结论（逐条直译，后文全部围绕它们展开）</h4>
+  <ol>
+    <li><strong>基于历史数据与模拟市场数据，一次性投入策略在约三分之二的情况下战胜常见的成本平均法策略。</strong>（原文：beat common cost averaging investment strategies two-thirds of the time）</li>
+    <li><strong>尽管预期收益更低，但对于同时具有极高风险厌恶与损失厌恶、并且本来可能把整笔钱全部留在现金里的投资者，成本平均法仍值得考虑。</strong>（注意原文的措辞是"might be considered"，不是"推荐"）</li>
+    <li><strong>即使手上没有一笔横财，投资者也能通过退休账户"前置缴款"（front-loading）与"提取顺序"（withdrawal sequence）策略，或者仅仅是不在资金到位后拖延，来最大化自己在市场中的时间。</strong></li>
+  </ol>
+</div>
+
+<div class="tldr">
+  <div class="kpi">
+    <div class="lab">LS 战胜 CA 的历史概率（全球股票，1 年期）</div>
+    <div class="val">68%</div>
+    <div class="note">MSCI World，1976–2022，滚动 1 年</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">LS 战胜"一直持现金"的概率</div>
+    <div class="val">70%</div>
+    <div class="note">现金以 3 个月美债收益率代理</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">CA 战胜"一直持现金"的概率</div>
+    <div class="val">69%</div>
+    <div class="note">这是 CA 唯一站得住的相对优势</div>
+  </div>
+  <div class="kpi">
+    <div class="lab">60/40 组合中位数，LS 相对 CA 多赚</div>
+    <div class="val">+1.8%</div>
+    <div class="note">$109,360 vs $107,453（10 万美元本金）</div>
+  </div>
+</div>
+
+<h2><span class="num">01</span>问题的提出：一笔横财，怎么下手？</h2>
+
+<p>原文用一个非常具体的场景开场：你因为<strong>继承、拿到一笔奖金、或卖掉一家小企业</strong>而突然获得一笔现金。你会立刻全部投入（lump sum，以下简称 LS）？还是会分几次、在一段时间内陆续投入（cost averaging，以下简称 CA），以规避"刚好在下跌前把钱全砸进去"的风险？</p>
+
+<p>这是全文唯一的研究问题。<strong>它研究的不是"每月工资定投"，而是"手上一笔已经到账的整钱，该一次性投还是分批投"。</strong>这个区分在第二节被专门澄清，也是绝大多数中文转述会搞混的地方。</p>
+
+<p>论文给出的答案是分层的，不是一句"一次性更好"：</p>
+
+<div class="box">
+  <p>历史上，LS 战胜 CA 的时间占比约为 <strong>三分之二</strong>。这个结果与另一个事实互为印证：<strong>1976–2022 年间，美国股票有 76% 的年份跑赢现金（以 3 个月美国国库券利率代理），债券有 68% 的年份跑赢现金。</strong>原文由此点出全文的理论支点——</p>
+  <p style="margin-top:10px"><strong>"即便是临时性的现金配置，其代价也是失去风险溢价的机会成本。"</strong>（原文：a cash allocation, even if temporary, represents the opportunity cost of lost risk premium）</p>
+</div>
+
+<h3>图 1：两种策略"满仓时间"的差别</h3>
+
+<p>图 1 是一个纯示意的时间轴，但它是全文最有效的直觉工具：</p>
+
+<table>
+  <thead>
+    <tr><th style="width:180px">策略</th><th>时间轴结构（12 个月）</th><th class="num">满仓月数</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>一次性投入 LS</strong></td><td>第 1 个月起即 100% 投入，此后 12 个月全部满仓</td><td class="num">12 / 12</td></tr>
+    <tr><td><strong>成本平均 CA（3 个月）</strong></td><td>前 3 个月为分批建仓期（资金逐步由现金转为持仓），其后 9 个月满仓</td><td class="num">9 / 12</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">原文注释：该图仅作两种策略"完全投资期"长度对比的示意，不代表任何具体投资。来源：Vanguard。</p>
+
+<p>也就是说，3 个月分批建仓的代价，是<strong>放弃了 1/4 的市场暴露时间</strong>。原文紧接着给出全文的规范性判断：</p>
+
+<div class="quote">"考虑到这一成本，大多数投资者——特别是那些对损失没有显著厌恶的投资者——应当立即一次性投入。"</div>
+
+<h3>论文同时给出的"另一面"（不可省略）</h3>
+
+<p>原文在第 2 页用整整一段交代 CA 的辩护理由，这段是全文最容易被删掉、但恰恰是作者立场的完整表达：</p>
+
+<div class="box amber">
+  <p>"尽管 CA 策略平均而言不会带来更高回报，但它<strong>优于一直停留在现金</strong>，并且通过系统性地降低现金配置，<strong>临时降低了组合风险</strong>。特别是对损失厌恶型投资者，降低风险可以限制回撤以及随之而来的投资者后悔，从而<strong>保全对投资计划的承诺</strong>。但用 CA 把投资者与'后悔的可能性'隔离开来，<strong>必须与该策略预期收益更低这一代价仔细权衡</strong>。"</p>
+</div>
+
+<p>这段话包含四个独立论点，缺一不可：① CA 不提高收益；② CA 优于纯现金；③ CA 临时降低风险、限制回撤、减少后悔、维持计划执行力；④ 这种"心理保护"必须与收益折价做权衡。全文后面所有章节，都是在为这四点提供证据。</p>
+
+<h2><span class="num">02</span>定义澄清：CA 到底指什么</h2>
+
+<p>原文专门用一个小节（"Clarifying cost averaging"）做概念切割，这在学术报告里不常见，说明作者清楚这里存在系统性误读。</p>
+
+<div class="grid2">
+  <div class="card">
+    <h4>名称与地域</h4>
+    <p>CA 在美国被称为 <strong>dollar-cost averaging</strong>，在英国被称为 <strong>pound-cost averaging</strong>，但"成本平均"这个概念<strong>不依附于任何特定地区</strong>，因此本文的分析对全球投资者都适用。</p>
+  </div>
+  <div class="card">
+    <h4>两种被混用的含义</h4>
+    <p>该词也常被用来描述"<strong>从每张工资单里拿出固定金额投资，不看市场时机</strong>"。原文明确：<strong>本文研究的不是这个</strong>，而是"<strong>一笔当下已经可用的整钱该怎么办</strong>"。</p>
+  </div>
+</div>
+
+<div class="box red">
+  <h4>这是全文最关键的适用边界</h4>
+  <p>把本文结论直接套用到"每月工资定投"上是<strong>错误引用</strong>。工资定投的钱是随时间陆续产生的，本就不存在"一次性投入"这个选项；本文的 CA 是"<strong>主动选择把已到手的钱推迟投入</strong>"，因此才有机会成本可言。反过来，本文的结论也不能用来否定"收入流定投"这一储蓄纪律工具——两者不是同一件事。</p>
+</div>
+
+<h2><span class="num">03</span>历史证据：LS 平均而言战胜 CA</h2>
+
+<h3>跨市场的结论一致性</h3>
+
+<p>原文比较了美国、英国、澳大利亚、加拿大、欧盟等多个市场的 LS 与 CA 表现，结论方向一致。为便于展示，图 2 只用了<strong>一个全球市场指数</strong>（MSCI World）作为示例。原文的措辞是："通常你更好的选择是立即投入，而不是把潜在投资的一部分按住不发。"</p>
+
+<h3>图 2：三个概率</h3>
+
+<div class="chart-card">
+  <div class="ct">图 2 复刻 · 历史超越概率（MSCI World，1976–2022，滚动 1 年）</div>
+  <div class="cs">假设 100% 股票、未投入部分不计息；超额以 1 年期末财富比较；现金以 3 个月美国国库券利率代理</div>
+  <div id="c1" class="chart"></div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>比较</th><th class="num">胜率</th><th>解读</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>LS vs CA</strong></td><td class="num" style="color:var(--blue);font-weight:700">68%</td><td>一次性投入在 2/3 的 1 年窗口里期末财富更高</td></tr>
+    <tr><td><strong>LS vs 现金</strong></td><td class="num" style="color:var(--blue);font-weight:700">70%</td><td>拿住现金是三者中最差的默认选项</td></tr>
+    <tr><td><strong>CA vs 现金</strong></td><td class="num" style="color:var(--amber);font-weight:700">69%</td><td>CA 的"次优"仍显著优于不投资</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">图 2 注释原文要点：超额定义为 1 年投资期后 LS 与"3 个月 CA 拆分（把一笔钱分成三等份、每隔一个月投一份）"的财富比较；假设 100% 股票、未投资部分不产生利息；按滚动方式在 1 年后计量；纯现金策略以 3 个月美国国库券利率近似；使用 MSCI World 1976–2022 年收益。过去业绩不保证未来回报。</p>
+
+<div class="box">
+  <h4>这一组数字里最容易被忽略的一层</h4>
+  <p>68% 与 69% 几乎相等，但含义完全不同。LS 对 CA 的 68% 说的是"<strong>LS 更好，但 CA 有 32% 的时候更好</strong>"；CA 对现金的 69% 说的是"<strong>只要不一直拿着现金，怎么投都对</strong>"。所以真正的分界线不在 LS 与 CA 之间，而在"<strong>投 vs 不投</strong>"之间——这正是原文结论段"having a plan 最重要"的数据基础。</p>
+</div>
+
+<h2><span class="num">04</span>幅度：到底差多少（图 3 全表）</h2>
+
+<p>为了量化 LS 优势的大小，原文以 <strong>10 万美元</strong>初始本金、<strong>1 年</strong>投资期，计算了三种组合的期末财富：100% 股票、60% 股票/40% 债券、40% 股票/60% 债券。股票用 MSCI World，债券用 Bloomberg U.S. Aggregate Bond Index。低百分位代表历史上最差的结果，高百分位代表最好的结果。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2" style="width:80px">百分位</th>
+      <th colspan="2" style="text-align:center">100% 股票</th>
+      <th colspan="2" style="text-align:center">60% 股票 / 40% 债券</th>
+      <th colspan="2" style="text-align:center">40% 股票 / 60% 债券</th>
+    </tr>
+    <tr>
+      <th class="num">一次性 LS</th><th class="num">分批 CA</th>
+      <th class="num">一次性 LS</th><th class="num">分批 CA</th>
+      <th class="num">一次性 LS</th><th class="num">分批 CA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>95th</strong></td><td class="num">$139,453</td><td class="num">$131,012</td><td class="num">$127,631</td><td class="num">$121,967</td><td class="num">$122,673</td><td class="num">$118,303</td></tr>
+    <tr><td><strong>75th</strong></td><td class="num">119,063</td><td class="num">116,286</td><td class="num">113,661</td><td class="num">111,545</td><td class="num">111,686</td><td class="num">109,640</td></tr>
+    <tr style="background:#f7fafd"><td><strong>50th（中位）</strong></td><td class="num"><strong>111,940</strong></td><td class="num"><strong>109,580</strong></td><td class="num"><strong>109,360</strong></td><td class="num"><strong>107,453</strong></td><td class="num"><strong>107,648</strong></td><td class="num"><strong>106,400</strong></td></tr>
+    <tr><td><strong>25th</strong></td><td class="num">102,070</td><td class="num">101,531</td><td class="num">104,082</td><td class="num">103,134</td><td class="num">104,420</td><td class="num">103,290</td></tr>
+    <tr><td><strong>5th</strong></td><td class="num">82,947</td><td class="num">85,906</td><td class="num">92,720</td><td class="num">94,043</td><td class="num">97,144</td><td class="num">97,701</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">图 3 原表完整复刻。注释：仅作示意；百分位基于 1 年滚动投资期、10 万美元起始财富；CA 为 3 个月三等分、每月投一份；使用 MSCI World 与 Bloomberg U.S. Aggregate Bond Index 1976–2022 年收益。来源：Vanguard。</p>
+
+<div class="chart-card">
+  <div class="ct">图 3 复刻 · 各百分位期末财富曲线</div>
+  <div class="cs">横轴为百分位（越往右越是历史上最好的市场环境）；蓝线为 LS，橙线为 CA</div>
+  <div id="c2" class="chart" style="height:360px"></div>
+</div>
+
+<h3>从表里能读出的五层信息</h3>
+
+<div class="rank"><div class="n">1</div><div class="t">胜负分界在 5th 与 25th 之间</div><div class="d">原文表述为"LS 在除最差结果（低于 25 百分位）之外的所有情形中胜出"。严格看数据：<strong>在 25 百分位，LS 在三种组合中仍然全部胜出</strong>（102,070 vs 101,531；104,082 vs 103,134；104,420 vs 103,290）；<strong>到 5 百分位，CA 在三种组合中全部反超</strong>。所以真实交叉点落在 5–25 百分位之间，而非恰好在 25。</div></div>
+
+<div class="rank"><div class="n">2</div><div class="t">中位数差幅 1.2%–2.2%</div><div class="d">60/40 组合中位：CA 期末 $107,453，LS $109,360，<strong>LS 高 1.8%</strong>（原文直接给出）。100% 股票中位 LS 高 <strong>2.2%</strong>；40/60 组合 LS 高 <strong>1.2%</strong>。</div></div>
+
+<div class="rank"><div class="n">3</div><div class="t">股票比例越高，LS 优势越大</div><div class="d">原文解释："花在部分持币上的月份代表失去的风险溢价，而<strong>股票权重越高的组合，其潜在风险溢价越大</strong>。"这是纯粹的算术结果，不是统计巧合。</div></div>
+
+<div class="rank"><div class="n">4</div><div class="t">极端情形揭示风险—收益对称性</div><div class="d">LS 多承担的风险在 95 百分位得到回报（100% 股票：$139,453 vs $131,012，<strong>+6.4%</strong>），但在 5 百分位反而受损（$82,947 vs $85,906，<strong>−3.4%</strong>）。原文："承担更多风险可以在上行情景中带来更大回报，代价是下行情景中的额外损失。"</div></div>
+
+<div class="rank"><div class="n">5</div><div class="t">推荐依据是"最可能"的区间</div><div class="d">原文明确："尽管研究极端情景有帮助，我们推荐使用 LS 是基于 <strong>25–75 百分位之间更可能发生的情景</strong>，在该区间 LS 战胜 CA。"这是一个刻意的规范性选择——不拿尾部事件当决策依据。</div></div>
+
+<div class="box purple">
+  <h4>一个可以量化的类比（本报告补充，非原文）</h4>
+  <p>把三种组合的 5 百分位与 95 百分位差幅并列，CA 的经济含义非常清楚：它像一份<strong>期限 3 个月的下跌保险</strong>——你在中位数上付出 1.2%–2.2% 的保费，换来在最差 5% 情景里少亏 0.6%–3.6%，同时放弃最好 5% 情景里 3.7%–6.4% 的收益。<strong>股票仓位越高，这份"保险"越贵、也越有用</strong>；债券仓位越高，保险越便宜、也越无用。</p>
+</div>
+
+<h3>持有期会不会改变结论？</h3>
+
+<p>原文主动提出这个疑问：如果比较 5 年后而非 1 年后的财富，结果会变吗？答案是<strong>排序不变，但差额会变</strong>，理由是一个干净的逻辑：</p>
+
+<ul>
+  <li>CA 期结束时，两个组合的资产配置<strong>完全相同</strong>；因此届时资产更多的那个组合，在假设两者都不再做调整的前提下，<strong>会永远领先</strong>。</li>
+  <li>但研究期限会影响两个组合之间的<strong>美元差额</strong>：更大的余额在时间推移中具有更大的潜在盈亏——<strong>尽管两个组合的百分比回报率完全相同</strong>。</li>
+</ul>
+
+<p>这句话值得反复读：<strong>百分比差距是固定的，美元差距是复利放大的</strong>。所以"分批建仓的代价"不是一个可以靠拉长时间"摊薄"的成本，恰恰相反，它会随持有期在绝对金额上被放大。</p>
+
+<h3>两个敏感性测试</h3>
+
+<div class="grid2">
+  <div class="card">
+    <h4>① 分批期越长，代价越大</h4>
+    <p>原文："<strong>CA 期限越长——把钱完全投出去所需的时间越久——机会成本越大。</strong>把投资分散到更长的期间，会进一步拉低 CA 相对 LS 的表现。"这直接推导出结论段的处方：<strong>若要用 CA，就把它做短（如 3 个月）</strong>。</p>
+  </div>
+  <div class="card">
+    <h4>② 现金利息会削弱 LS 优势</h4>
+    <p>把未投入资金按 3 个月国库券利率计息后，结论方向不变：<strong>全股票组合中，LS 仍在 65% 的时间里战胜 3 个月 CA</strong>（低于不计息时的 68%）。进一步变动现金利率后发现："<strong>现金利率越高，LS 的优势越小</strong>，其他条件不变。"</p>
+  </div>
+</div>
+
+<h2><span class="num">05</span>模拟检验：把结论放到 10,000 条未来路径上</h2>
+
+<p>历史分析只能说明"过去哪种策略更好"。原文用模拟收益做<strong>稳健性检验（robustness check）</strong>，并且强调它是<strong>前瞻性（forward-looking）</strong>的。方法要点：</p>
+
+<ul>
+  <li><strong>10,000 条模拟收益路径</strong>，测试多种组合类型与多种 CA 期限。</li>
+  <li><strong>基准情景（base case）</strong>：3 个连续月等额投入、60/40 股债组合、<strong>现金利息 0%</strong>。原文解释 0% 假设的现实依据是："投资者在 CA 期间把钱放在接近零利率的活期账户或储蓄账户里。"</li>
+  <li>模拟方法见附录 2：VAR(p) 模型，或以经验一阶、二阶矩构造多元正态 iid 数据。</li>
+</ul>
+
+<p>结论与历史分析一致：<strong>LS 在多数情况下 1 年后财富更高，但在最差的市场环境中回撤更大，此时 CA 的期末财富更高。</strong></p>
+
+<h3>图 4：分布形态与两个具体数字</h3>
+
+<div class="box">
+  <p>图 4 分两个子图：(a) 3 次等额投入（每月一次）；(b) 6 次等额投入（每月一次）。两图纵轴均为组合价值 $80,000–$130,000，横轴为第 1–12 个月，画的是 <strong>95th / 50th / 5th 三个百分位的路径</strong>。</p>
+  <ul style="margin-top:8px">
+    <li><strong>LS 的分布更宽</strong>：95 百分位高于 CA，5 百分位低于 CA。这就是"更高中位回报 + 更多风险"的图形化表达。</li>
+    <li><strong>在极端上行与极端下行情景中，LS 与 CA 的差距在最初几个月特别宽</strong>。原文的解释极为凝练："这展示了 CA 期如何在极端下跌市场中起到保护作用，但在最好的上涨市场中<strong>阻碍了组合增长</strong>。"</li>
+    <li><strong>期末差额（起始 10 万美元、1 年后）：3 个月 CA 比 LS 少 $504；6 个月 CA 比 LS 少 $1,491。</strong>（图 4 注释原文给出）</li>
+  </ul>
+</div>
+
+<p>原文由这条"以更高风险换取更高回报"的关系推出一个明确的行为学结论：<strong>"损失厌恶程度更高的投资者，用 CA 会更好。"</strong>这句话把第 6 节的效用模型自然引出。</p>
+
+<h2><span class="num">06</span>谁该用 CA：效用模型与确定性等价</h2>
+
+<h3>论证起点</h3>
+
+<p>原文先承认一个直觉事实："<strong>并非所有投资者都纯粹以财富最大化为目标</strong>；对某些人来说，如果一条更慢的组合增长路径能帮助最小化大幅回撤，那么这条路本身就有价值。"愿意牺牲部分预期收益以规避大额损失的投资者，即"损失厌恶"（loss-averse）。</p>
+
+<p>为此原文构建了一个<strong>含损失厌恶的效用模型</strong>，用<strong>确定性等价（certainty equivalent）</strong>来比较 CA 与 LS：确定性等价是"投资者今天愿意接受的、可替代未来更高但不确定回报的那个收益率"。确定性等价越高，说明投资者对该策略的偏好越强。</p>
+
+<p>作者明确写出了待检验假设：<strong>"具有显著损失厌恶的投资者会偏好 CA，因为它临时降低了风险，尽管预期收益更低。"</strong></p>
+
+<h3>模型设定</h3>
+
+<ul>
+  <li>同时包含<strong>风险厌恶</strong>（偏好更确定的结果）与<strong>损失厌恶</strong>（对负结果的额外惩罚），二者是投资者风险画像的关键成分。</li>
+  <li>设定三类投资者画像，风险厌恶系数分别为：<strong>Adventurous（进取）= 3；Moderately conservative（稳健偏保守）= 6；Very conservative（极保守）= 10</strong>。</li>
+  <li>损失厌恶情景下 <strong>λ = 2.50</strong>（引自 Tversky & Kahneman, 1992）。</li>
+  <li>策略归属判定规则：<strong>确定性等价更高者胜出</strong>。</li>
+</ul>
+
+<h3>图 5：六组确定性等价收益（全表）</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2" style="width:200px">投资者画像（风险厌恶 γ）</th>
+      <th colspan="3" style="text-align:center">a. 无损失厌恶</th>
+      <th colspan="3" style="text-align:center">b. 有损失厌恶（λ = 2.50）</th>
+    </tr>
+    <tr>
+      <th class="num">LS 的 CER</th><th class="num">CA 的 CER</th><th>偏好</th>
+      <th class="num">LS 的 CER</th><th class="num">CA 的 CER</th><th>偏好</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Adventurous（γ = 3）</strong></td>
+      <td class="num">1.0603</td><td class="num">1.0559</td><td><span class="tag t-blue">LS</span></td>
+      <td class="num">1.0321</td><td class="num">1.0296</td><td><span class="tag t-blue">LS</span></td>
+    </tr>
+    <tr style="background:#f7fafd">
+      <td><strong>Moderately conservative（γ = 6）</strong></td>
+      <td class="num">1.0443</td><td class="num">1.0421</td><td><span class="tag t-blue">LS</span></td>
+      <td class="num">1.0100</td><td class="num">1.0102</td><td><span class="tag t-amber">CA</span></td>
+    </tr>
+    <tr>
+      <td><strong>Very conservative（γ = 10）</strong></td>
+      <td class="num">1.0232</td><td class="num">1.0237</td><td><span class="tag t-amber">CA</span></td>
+      <td class="num">0.9836</td><td class="num">0.9869</td><td><span class="tag t-amber">CA</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="tbl-note">图 5 全表复刻。CER = certainty equivalent return，确定性等价收益。数值 > 1 表示 1 年后财富高于初始本金，< 1 表示低于本金（有损失）。</p>
+
+<div class="chart-card">
+  <div class="ct">LS 相对 CA 的确定性等价优势（单位：基点 bps）</div>
+  <div class="cs">正值 = LS 更优；负值 = CA 更优。注意所有差值都在 50bp 以内——这是一个"偏好翻转"而非"经济量级差异"</div>
+  <div id="c3" class="chart" style="height:300px"></div>
+</div>
+
+<h3>三条必须并列读出的结论</h3>
+
+<div class="rank"><div class="n">1</div><div class="t">损失厌恶会把"稳健派"从 LS 推向 CA</div><div class="d">原文的主论证：对比图 5a 与 5b 中同为"Moderately conservative"的投资者——<strong>有损失厌恶者偏好 CA，无损失厌恶者偏好 LS</strong>。原文结论："具有显著损失厌恶的投资者可能更适合 CA 策略。"</div></div>
+
+<div class="rank"><div class="n">2</div><div class="t">极保守投资者即使没有损失厌恶，也偏好 CA</div><div class="d">这是原文文字未点明、但图 5a 清楚显示的事实：γ = 10 的投资者在<strong>无损失厌恶</strong>情形下 CER 已是 CA 1.0237 > LS 1.0232。<strong>风险厌恶本身（而非损失厌恶）就足以让极端保守者选择分批。</strong></div></div>
+
+<div class="rank"><div class="n">3</div><div class="t">损失厌恶把所有人的 CER 都压低</div><div class="d">加入 λ = 2.50 后，进取型 CER 从 1.0603 降到 1.0321，极保守型从 1.0232 降到 <strong>0.9836（低于本金）</strong>。这说明损失厌恶不是"偏好微调"，而是对<strong>整个风险资产的效用评价</strong>做了系统性下调——这也解释了为什么这类投资者会天然倾向持币。</div></div>
+
+<div class="box amber">
+  <h4>诚实提醒：这些差值有多小</h4>
+  <p>进取型无损失厌恶时 LS 领先 44bp；稳健型有损失厌恶时 CA 领先仅 <strong>2bp</strong>。原文没有讨论这一点，但从数据看：<strong>效用模型给出的"策略偏好"在经济量级上极其接近</strong>。因此更稳妥的读法是——模型说明"损失厌恶会改变偏好方向"，但<strong>不足以说明"分批建仓在效用上明显更优"</strong>。真正的差别来自行为执行层面（是否真的投出去了），而不是效用数值。</p>
+</div>
+
+<h2><span class="num">07</span>没有横财的人怎么办：两种把"时间"买回来的办法</h2>
+
+<p>原文在此处做了一个漂亮的转折：<strong>大多数在职成年人不会中彩票或继承大笔钱</strong>，但他们中的多数有机会在税收优惠账户里为退休储蓄（美国的 401(k)、英国的 pension）。于是 LS 的逻辑可以被"移植"到日常现金流上。</p>
+
+<h3>办法一：退休账户前置缴款（front-loading）</h3>
+
+<div class="box green">
+  <p>思想实验：投资者<strong>每年尽早把全年应缴额度一次性缴足</strong>，会带来更高财富。原文承认代价："这种策略意味着投资者在最初几个月会<strong>放弃收入</strong>（因为要一次性拿出全年的钱）。"但 LS 研究支持其收益："<strong>更多的市场时间会在中位数上带来更高的退休账户余额</strong>，如果年复一年地使用这一策略，效果可能相当可观。"</p>
+</div>
+
+<p>这是全文唯一一个把"一次性投入"从"横财场景"推广到"工资场景"的地方，而且它是<strong>有条件的</strong>：前提是你有足够的现金流储备，能在年初拿出全年的缴款额而不影响生活。原文对此的表述是"forgo income for the first few months"——用几个月的生活现金流换取 12 个月而非 12 个月平均的市场暴露。</p>
+
+<h3>办法二：退休账户的提取顺序（withdrawal sequence）</h3>
+
+<p>原文指出：从退休账户或养老金中取钱时，投资者同样面临"一次性 vs 按月"的选择，而这里可以做<strong>反向的成本平均</strong>论证——</p>
+
+<ul>
+  <li><strong>年初一次性取出全年所需</strong> vs <strong>每月取一次</strong>，前者"可能是次优的"（因为取出的钱不再享有市场暴露）。</li>
+  <li>但<strong>手上握有全年所需的整笔资金，会在市场下跌时提供一定的安全感</strong>。</li>
+  <li>原文的收束句："<strong>在两种策略之间做决定，归根结底还是机会成本、风险与投资者偏好。</strong>"</li>
+</ul>
+
+<div class="box">
+  <h4>这一节的隐含对称性</h4>
+  <p>投资端：LS 优于 CA，因为时间是朋友。<strong>提取端逻辑镜像翻转</strong>：越晚取越好，因此"一次性取全年"是错的，"按月取"更优——除非你把"下跌时不必卖"的安全感单独定价。原文没有给出提取端的量化结果，只给出框架，这一点在引用时不应夸大。</p>
+</div>
+
+<h2><span class="num">08</span>结论段：原文真正想说的那句话</h2>
+
+<p>结论段共六句，逐句还原：</p>
+
+<ol>
+  <li><strong>持币的机会成本应当阻止大多数投资者使用成本平均法。</strong></li>
+  <li><strong>即便是对 CA 感觉更舒服的高损失厌恶投资者，也应通过保持相对较短的分批期（如 3 个月）来最小化机会成本。</strong></li>
+  <li><strong>认识到 CA/LS 决策涉及的诸多考量，是制定"现金投资计划"的第一步。</strong></li>
+  <li><strong>尽管风险偏好各异，多数人会同意：股票与固定收益提供的风险调整后回报，比现金更有吸引力。</strong></li>
+  <li><strong>换句话说，为现金制定一个投资计划才是最重要的部分；选 LS 还是 CA，与"永久性地保留现金配置"相比，只会产生边际差异。</strong>（尤其是当这笔钱只占投资者总财富的一小部分时）</li>
+  <li><strong>许多投资者持有过多现金，原因是不确定"如何投、何时投"而无限期推迟决策。无论这种囤积现金源于犹豫、风险厌恶还是单纯的疏于管理，我们都清楚：在长期视角下，投资者按既定资产配置满仓投资，会取得更优结果。</strong></li>
+</ol>
+
+<div class="box blue">
+  <h4>作者的真实优先级（这是全文最容易被误读的地方）</h4>
+  <p>论文标题是二选一，但结论不是二选一。作者的排序是：</p>
+  <p style="margin-top:8px"><strong>① 有投资计划并按资产配置满仓 &gt; ② 一次性投入 &gt; ③ 短期分批建仓 &gt; ④ 一直拿着现金。</strong></p>
+  <p style="margin-top:8px">LS 与 CA 的差距是 1%–2% 量级；"投 vs 不投"的差距是风险溢价量级（历史上股票 76%、债券 68% 的时间跑赢现金）。<strong>所以"选错策略"的代价，远小于"永远不开始"的代价。</strong></p>
+</div>
+
+<h2><span class="num">09</span>附录：方法与国际证据的完整数据</h2>
+
+<h3>附录 1 · 九大市场、四种分批期的命中率全表</h3>
+
+<p>原文用图 6 给出更多国际证据，并把 CA 拆分从 3 份逐步拉长到 6 份。结论："即使把 CA 拆分从三份改为六份，LS 在大多数时候仍然战胜 CA"，说明结论具有跨市场适用性。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:150px">市场 / 指数</th>
+      <th>美国<br><span style="font-weight:400;font-size:11.5px">Russell 3000</span></th>
+      <th>英国<br><span style="font-weight:400;font-size:11.5px">FTSE All-Share</span></th>
+      <th>加拿大<br><span style="font-weight:400;font-size:11.5px">S&P/TSX Comp.</span></th>
+      <th>欧洲<br><span style="font-weight:400;font-size:11.5px">MSCI Europe</span></th>
+      <th>澳洲<br><span style="font-weight:400;font-size:11.5px">S&P/ASX 300</span></th>
+      <th>新兴市场<br><span style="font-weight:400;font-size:11.5px">MSCI EM</span></th>
+      <th>全球<br><span style="font-weight:400;font-size:11.5px">USD</span></th>
+      <th>全球<br><span style="font-weight:400;font-size:11.5px">EUR</span></th>
+      <th>全球<br><span style="font-weight:400;font-size:11.5px">GBP</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>3 个月拆分</strong></td><td class="num">66.4%</td><td class="num">68.1%</td><td class="num">67.2%</td><td class="num">66.5%</td><td class="num">67.5%</td><td class="num">61.6%</td><td class="num">67.7%</td><td class="num">66.4%</td><td class="num">67.8%</td></tr>
+    <tr><td><strong>4 个月拆分</strong></td><td class="num">69.9</td><td class="num">69.8</td><td class="num">67.9</td><td class="num">66.9</td><td class="num">69.6</td><td class="num">61.8</td><td class="num">69.7</td><td class="num">66.8</td><td class="num">68.9</td></tr>
+    <tr><td><strong>5 个月拆分</strong></td><td class="num">72.6</td><td class="num">70.2</td><td class="num">69.3</td><td class="num">66.5</td><td class="num">71.0</td><td class="num">62.9</td><td class="num">71.7</td><td class="num">67.2</td><td class="num">69.7</td></tr>
+    <tr><td><strong>6 个月拆分</strong></td><td class="num">73.7</td><td class="num">69.5</td><td class="num">69.7</td><td class="num">65.4</td><td class="num">72.5</td><td class="num">61.8</td><td class="num">72.6</td><td class="num">67.9</td><td class="num">70.8</td></tr>
+  </tbody>
+</table>
+<p class="tbl-note">数据区间：美国 1979–2022；英国 1986–2022；加拿大 1985–2022；欧洲 1998–2022；澳洲 1992–2022；新兴市场 1988–2022；全球（USD/GBP）1976–2022、全球（EUR）1998–2022。命中率 = 1 年投资期后一方战胜另一方的频率，滚动计算。来源：Vanguard。</p>
+
+<div class="chart-card">
+  <div class="ct">附录 1 复刻 · LS 战胜 CA 的命中率（按分批期长度）</div>
+  <div class="cs">横轴为市场，纵轴为命中率；四条序列对应 3/4/5/6 个月拆分</div>
+  <div id="c4" class="chart" style="height:390px"></div>
+</div>
+
+<div class="box purple">
+  <h4>这张表里藏着一个反直觉但重要的规律</h4>
+  <p>在<strong>美国、澳洲、全球（USD）</strong>，分批期从 3 个月拉长到 6 个月，LS 命中率明显上升（美国 66.4% → 73.7%，澳洲 67.5% → 72.5%，全球 USD 67.7% → 72.6%）。这与第 4 节"CA 期限越长、机会成本越大"完全一致——<strong>胜率的提升来自"更多时间空仓"这个确定性成本，而不是路径依赖</strong>。</p>
+  <p>但<strong>欧洲是例外</strong>：66.5% → 65.4%，几乎不动甚至略降；<strong>新兴市场</strong>则始终最低（61.6%–62.9%），且在 5 个月见顶（62.9%）后回落至 61.8%。合理解释是这两个市场的收益路径更"厚尾"、单月波动贡献更大，拉长分批期带来的确定性拖累被路径效应部分抵消。<strong>结论仍然成立，但"分批越久越差"的边际强度在不同市场并不一致。</strong></p>
+</div>
+
+<h3>附录 2 · 模拟方法</h3>
+
+<div class="box">
+  <p><strong>VAR(p) 模拟：</strong>使用标准 VAR(p) 模型，其中系数矩阵为相应维度；以经验股票与债券收益拟合滞后阶数为 p 的模型，然后用随机种子向前预测。</p>
+  <p><strong>备选方案：</strong>以经验一阶矩与二阶矩构造多元正态分布（MVN），模拟 iid 数据。</p>
+  <p class="src">原文此处含矩阵与公式（PDF 中为图形化排版），正文文字描述如上；本报告不臆造公式细节。</p>
+</div>
+
+<h3>附录 3 · 效用函数与确定性等价</h3>
+
+<ul>
+  <li><strong>基础效用函数：</strong>采用<strong>幂效用（power utility）</strong>刻画<strong>常数相对风险厌恶（CRRA）</strong>，γ 为风险厌恶系数，W 表示财富。</li>
+  <li><strong>期望效用：</strong>对 s 条模拟路径求财富效用的期望。</li>
+  <li><strong>确定性等价（CER）定义：</strong>"能带来与风险投资相同效用分数的无风险收益率"。换言之，对给定效用函数，一个效用最大化的投资者，从风险组合与无风险资产中获得的效用水平相同。</li>
+  <li><strong>求解：</strong>令 CER 所对应财富的效用等于上述期望效用；对 CRRA 函数可通过展开与移项得到<strong>闭式解</strong>。</li>
+  <li><strong>参照文献：</strong>沿用 Brennan, Li, and Torous (2005) 的定义——CER 是在时点 T 确定收到的、能让投资者与执行策略 s 一样好的财富金额。</li>
+  <li><strong>引入损失厌恶：</strong>按前景理论（Tversky & Kahneman, 1992）对损失与收益赋予不同权重，把效用写成对<strong>财富变化量</strong>（而非财富水平）的函数，并拆分为正、负两个分量，用指示函数区分；移项后得到<strong>给定 γ 与 λ 的 CER 离散化解法</strong>。</li>
+</ul>
+
+<h3>参考文献（原文 6 篇，全部列出）</h3>
+<ol style="font-size:13.5px;color:var(--ink-2)">
+  <li>Brennan, M. J., F. Li, and W. N. Torous, 2005. "Dollar Cost Averaging." <em>Review of Finance</em> 9(4): 509–535.</li>
+  <li>Constantinides, G. M., 1979. "A Note on the Suboptimality of Dollar-Cost Averaging as an Investment Policy." <em>Journal of Financial and Quantitative Analysis</em> 14(2): 443–450.</li>
+  <li>Rozeff, M. S., 1994. "Lump-Sum Investing Versus Dollar-Averaging." <em>Journal of Portfolio Management</em> (Winter): 45–50.</li>
+  <li>Shtekhman, A., C. Tasapoulos, and B. Wimmer, 2012. "Dollar-Cost Averaging Just Means Taking Risk Later." Valley Forge, PA: The Vanguard Group.</li>
+  <li>Statman, M., 1995. "A Behavioral Framework for Dollar-Cost Averaging." <em>Journal of Portfolio Management</em> 22(1): 70–78.</li>
+  <li>Tversky, A., and D. Kahneman, 1992. "Advances in Prospect Theory: Cumulative Representation of Uncertainty." <em>Journal of Risk and Uncertainty</em> 5(4): 297–323.</li>
+</ol>
+<p class="src">原文脚注 1 特别指出：关于成本平均法的文献"普遍支持一次性投入"，其中最具代表性的是 Constantinides (1979)、Rozeff (1994)、Brennan, Li, and Torous (2005)，以及较近的 Shtekhman, Tasapoulos, and Wimmer (2012)。</p>
+
+<h2><span class="num">10</span>观点全清单：31 条，逐条对应原文</h2>
+
+<p>为确保"无观点遗漏"，以下把全文可识别的独立论断逐条列出并标注出处页码，可作核对清单使用。</p>
+
+<table>
+  <thead>
+    <tr><th style="width:46px">#</th><th>原文论断</th><th style="width:70px">页码</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>历史上与模拟数据中，LS 在约 2/3 的情况下战胜常见 CA 策略</td><td>p1, p2</td></tr>
+    <tr><td>2</td><td>对同时极度厌恶风险与损失的投资者，CA 仍可考虑（措辞为 "might be considered"）</td><td>p1</td></tr>
+    <tr><td>3</td><td>即使没有横财，也可通过退休账户前置缴款、提取顺序策略、或不拖延来最大化市场时间</td><td>p1, p8</td></tr>
+    <tr><td>4</td><td>1976–2022 年，美股 76% 的时间、美债 68% 的时间跑赢现金（3 个月国库券）</td><td>p2</td></tr>
+    <tr><td>5</td><td>即使是临时性的现金配置，其代价就是失去风险溢价的机会成本</td><td>p2</td></tr>
+    <tr><td>6</td><td>3 个月 CA 的满仓时间为 9/12 个月，LS 为 12/12 个月</td><td>p2 图 1</td></tr>
+    <tr><td>7</td><td>考虑到机会成本，大多数投资者（尤其无明显损失厌恶者）应立即一次性投入</td><td>p2</td></tr>
+    <tr><td>8</td><td>CA 平均而言不会带来更高回报</td><td>p2</td></tr>
+    <tr><td>9</td><td>CA 优于一直停留在现金</td><td>p2, p3</td></tr>
+    <tr><td>10</td><td>CA 通过系统性降低现金配置，临时降低组合风险</td><td>p2</td></tr>
+    <tr><td>11</td><td>对损失厌恶者，降低风险可限制回撤与随之而来的后悔，从而保全对投资计划的承诺</td><td>p2</td></tr>
+    <tr><td>12</td><td>用 CA 隔离"后悔的可能性"，必须与预期收益更低这一代价仔细权衡</td><td>p2</td></tr>
+    <tr><td>13</td><td>CA 在美称 dollar-cost averaging、英称 pound-cost averaging，但概念不依附地域，全球适用</td><td>p2</td></tr>
+    <tr><td>14</td><td>本文研究的不是"每张工资单固定金额投资"，而是"一笔当下可用的整钱"</td><td>p2</td></tr>
+    <tr><td>15</td><td>跨美国、英国、澳洲、加拿大、欧盟，LS 平均而言均胜出，方向一致</td><td>p3</td></tr>
+    <tr><td>16</td><td>全球指数层面：LS 胜 CA 68%，LS 胜现金 70%，CA 胜现金 69%</td><td>p3 图 2</td></tr>
+    <tr><td>17</td><td>超额以 1 年投资期后的财富比较衡量；图 2 假设 100% 股票、未投资部分不计息、滚动计算</td><td>p3 图 2 注</td></tr>
+    <tr><td>18</td><td>60/40 组合中位：CA $107,453 vs LS $109,360，LS 高 1.8%</td><td>p5</td></tr>
+    <tr><td>19</td><td>股票配置越高，LS 相对 CA 的财富增幅越大：100% 股票 +2.2%、60/40 +1.8%、40/60 +1.2%（中位）</td><td>p5</td></tr>
+    <tr><td>20</td><td>该关系可由"失去的风险溢价"解释，股票权重越高潜在风险溢价越大</td><td>p5</td></tr>
+    <tr><td>21</td><td>LS 的额外风险在 95 百分位得到回报，但在 5 百分位反而受损</td><td>p5</td></tr>
+    <tr><td>22</td><td>推荐 LS 的依据是 25–75 百分位之间更可能的情景，而非极端情景</td><td>p5</td></tr>
+    <tr><td>23</td><td>CA 期结束时两组合配置相同，资产更多者将永远领先（假设不再调整）</td><td>p5</td></tr>
+    <tr><td>24</td><td>研究期限会影响两者的美元差额，因更大余额有更大潜在盈亏，尽管百分比回报相同</td><td>p5</td></tr>
+    <tr><td>25</td><td>CA 期限越长，机会成本越大，CA 相对 LS 的表现越差</td><td>p5</td></tr>
+    <tr><td>26</td><td>加入现金利息后结论不变：全股票组合 LS 仍 65% 的时间战胜 3 个月 CA；现金利率越高 LS 优势越小</td><td>p5</td></tr>
+    <tr><td>27</td><td>模拟用 10,000 条路径；基准为 3 个月、60/40、0% 现金利息（对应近零利率活期账户）</td><td>p6</td></tr>
+    <tr><td>28</td><td>LS 分布更宽：95 百分位更高、5 百分位更低；极端情景下差距在最初几个月最宽</td><td>p6 图 4</td></tr>
+    <tr><td>29</td><td>CA 期在极端下跌市中提供保护，但在最好的上涨市中阻碍组合增长</td><td>p6</td></tr>
+    <tr><td>30</td><td>期末差额：3 个月 CA 比 LS 少 $504；6 个月 CA 少 $1,491（10 万美元本金）</td><td>p6 图 4 注</td></tr>
+    <tr><td>31</td><td>损失厌恶会把稳健型投资者从 LS 推向 CA；极保守者即使无损失厌恶也偏好 CA</td><td>p7 图 5</td></tr>
+  </tbody>
+</table>
+
+<h2><span class="num">11</span>方法论批判：这份报告没说什么</h2>
+
+<p>以下为本报告基于原文数据的独立审视，不属于原文观点，但对正确使用结论是必要的。</p>
+
+<table>
+  <thead>
+    <tr><th style="width:170px">维度</th><th>原文设定</th><th>影响方向</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>图 2 的资产假设</strong></td>
+      <td>100% 股票、未投入部分 0 利息</td>
+      <td><span class="tag t-blue">偏向 LS</span> 这是对 LS 最有利的设定。原文随后用"加现金利息 → 65%"和"40/60 组合 → 1.2%"两个测试自我修正，方向正确。</td>
+    </tr>
+    <tr>
+      <td><strong>税费</strong></td>
+      <td>全文未建模资本利得税、股息税</td>
+      <td><span class="tag t-amber">因地区而异</span> 在"短期资本利得按普通所得税率"的税制下（如美国持有不满 1 年），CA 可能因分批落入不同纳税年度而产生额外复杂性；在无资本利得税地区影响较小。</td>
+    </tr>
+    <tr>
+      <td><strong>交易成本</strong></td>
+      <td>未计入佣金、买卖价差、申购费</td>
+      <td><span class="tag t-blue">偏向 LS</span> 若每次申购有固定费用，CA 成本进一步上升；若大额一次性买入有冲击成本或溢价，则 LS 成本上升。对 A 股场外基金（申购费按笔或按额）需单独计算。</td>
+    </tr>
+    <tr>
+      <td><strong>现金代理</strong></td>
+      <td>3 个月美国国库券</td>
+      <td><span class="tag t-mid">时代敏感</span> 2023 年初美国 3 个月国库券利率已在 4.5% 附近，0% 的基准假设偏保守（对 LS 不利）。<strong>高利率环境下 CA 的真实成本明显低于文中基准情景</strong>，这一点原文只在敏感性分析里提了一句。</td>
+    </tr>
+    <tr>
+      <td><strong>估值条件</strong></td>
+      <td>不做任何估值择时</td>
+      <td><span class="tag t-mid">结构性局限</span> 全文不问"今天贵不贵"。LS 必胜的根源是股权风险溢价长期为正，而非"任何时点一次性买入都优于分批"。<strong>本文不能用来论证"不必看估值"</strong>。</td>
+    </tr>
+    <tr>
+      <td><strong>行为收益未量化</strong></td>
+      <td>承认"减少后悔、保全计划承诺"，但未度量</td>
+      <td><span class="tag t-amber">关键缺口</span> 如果 CA 让一个本来会一直持币的人真的投出去了，其行为收益（从 0 暴露到 100% 暴露）远超 1%–2% 的收益折价。<strong>原文的结论段其实承认了这一点，但模型没有把它算进去。</strong></td>
+    </tr>
+    <tr>
+      <td><strong>效用差值极小</strong></td>
+      <td>CER 差 2–44bp</td>
+      <td><span class="tag t-mid">解读需谨慎</span> "偏好翻转"在统计上成立，但经济量级上近乎无差异。不宜表述为"分批建仓在效用上明显更好"。</td>
+    </tr>
+    <tr>
+      <td><strong>数据截止</strong></td>
+      <td>2022 年底</td>
+      <td><span class="tag t-mid">样本外未知</span> 2023 年以来的强势上涨会让 LS 优势更大；若期间出现深度回撤则相反。<strong>结论方向稳健，具体幅度不可外推。</strong></td>
+    </tr>
+    <tr>
+      <td><strong>汇率</strong></td>
+      <td>未单独处理非美元投资者的汇率风险</td>
+      <td><span class="tag t-amber">对中国投资者重要</span> 用人民币买 QDII/港股，CA 会额外引入"汇率路径风险"——分批意味着分多次结汇，汇率不确定性叠加在市场不确定性之上。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2><span class="num">12</span>落地：给中国投资者的翻译</h2>
+
+<div class="box blue">
+  <h4>先纠正一个最常见的误引</h4>
+  <p>本文结论<strong>不能</strong>用来否定"每月定投"。本文的比较对象是"<strong>已到手的一整笔钱</strong>"，而工资定投的钱是逐月产生的，不存在"一次性"选项。<strong>能对定投说的话只有一句：不要把"定投"当成拖延投入已到手资金的借口。</strong></p>
+</div>
+
+<h3>场景一：你真的有一笔整钱（卖房、年终奖、股权变现、继承）</h3>
+
+<div class="rank"><div class="n">1</div><div class="t">默认方案</div><div class="d"><strong>按目标资产配置一次性建仓。</strong>历史与模拟都显示，1 年期末财富更高的概率约 2/3，中位数多 1.2%–2.2%（按股票比例）。这是"期望值最优"的答案。</div></div>
+
+<div class="rank"><div class="n">2</div><div class="t">若你确定自己会一直持币</div><div class="d"><strong>那就用 3 个月分批，不要用 12 个月。</strong>原文的处方非常具体：短分批期，把机会成本压到最小。6 个月分批的代价（$1,491）是 3 个月（$504）的近 3 倍。</div></div>
+
+<div class="rank"><div class="n">3</div><div class="t">若这笔钱占你总财富很小</div><div class="d"><strong>直接一次性投，不必纠结。</strong>原文明确："尤其当这笔钱只占投资者总财富的一小部分时"，LS 与 CA 的差别相对于"永久持币"是边际的。</div></div>
+
+<div class="rank"><div class="n">4</div><div class="t">待投资金放哪里</div><div class="d">原文基准假设是 0% 利息（活期）。<strong>现实中应放在货币基金/短债/同业存单指数</strong>——这会把 CA 的真实成本压低（对应原文"现金利率越高，LS 优势越小"）。注意：原文的 65% 是在 3 个月国库券利率下算的，国内短端利率环境需自行代入。</div></div>
+
+<div class="rank"><div class="n">5</div><div class="t">QDII / 港股 / 美股</div><div class="d">分批＝多次结汇，<strong>汇率路径风险与市场路径风险叠加</strong>。若你本意是"降低择时风险"，分批反而增加了另一个不确定性维度。此时更合理的是"一次性投入 + 用汇率工具处理汇率"，而不是用分批同时处理两件事。</div></div>
+
+<h3>场景二：你没有横财，只有工资</h3>
+
+<div class="grid2">
+  <div class="card">
+    <h4>把"前置缴款"用起来</h4>
+    <p>个人养老金账户（每年 1.2 万元额度）、企业年金、以及任何有年度额度的税优账户：<strong>在年初一次性缴足，而不是按月平摊</strong>。原文的逻辑是"更多市场时间在中位数上带来更高余额，年复一年效果可观"。前提：不影响生活现金流。</p>
+  </div>
+  <div class="card">
+    <h4>把"提取顺序"想清楚</h4>
+    <p>退休后不要年初一次性取出全年开支。原文的反向 CA 论证：<strong>按月取更优</strong>，因为取出的钱失去市场暴露；但握有全年现金能在下跌时避免被迫卖出。<strong>折中方案：留 6–12 个月开支的现金缓冲，其余按月取。</strong>（此折中为本报告建议，非原文）</p>
+  </div>
+</div>
+
+<h3>一个决策流程</h3>
+
+<div class="box">
+  <p><strong>第 1 问：这笔钱你打算投出去吗？</strong> 如果答案是否定的，先解决这个问题——任何策略都比永久持币好（CA 胜现金 69%）。</p>
+  <p><strong>第 2 问：如果全部投进去、三个月后跌 20%，你会做什么？</strong></p>
+  <ul style="margin-top:6px">
+    <li>"继续持有，可能加仓" → <strong>一次性投入</strong>。你的风险厌恶低，LS 的期望优势（+1.2%~2.2%）你能拿得住。</li>
+    <li>"会后悔到睡不着，可能全部卖掉" → <strong>3 个月分批</strong>。你买到的是"不中途下车"的概率，这笔保费值得付。</li>
+    <li>"会一直不敢投，钱就放活期" → <strong>3 个月分批，并且设置自动执行</strong>。这是原文最想覆盖的人群。</li>
+  </ul>
+  <p style="margin-top:10px"><strong>第 3 问：分批期能不能再短一点？</strong> 能短则短。原文的处方是 3 个月，不是 12 个月。</p>
+</div>
+
+<h2><span class="num">13</span>一句话总结</h2>
+
+<div class="box green">
+  <p style="font-size:16px;line-height:1.85;margin:0"><strong>一次性投入在约 2/3 的情况下赢，赢的幅度是中位数 1.2%–2.2%；分批建仓从不提高收益，它只是用这笔确定的折价，去买一份"三个月内不会后悔"的保险；而这份保险真正的价值，不在于收益，而在于让那些本来会把钱永远放在活期里的人，真的把钱投出去。</strong></p>
+</div>
+
+<div class="foot">
+  <p><strong>原文信息：</strong>Vanguard research, February 2023, "Cost averaging: Invest now or temporarily hold your cash?" 作者 Megan Finlay、Josef Zorn, Ph.D., CFP®。© 2023 The Vanguard Group, Inc. 文件编号 ISGCALS 022023。原文 11 页，含图 6 幅、附录 3 则、参考文献 6 篇。</p>
+  <p><strong>原文风险提示（照录）：</strong>所有投资均涉及风险，包括可能损失本金。金融市场波动及其他因素可能导致账户价值下跌。无法保证任何特定的资产配置或基金组合能实现投资目标或提供特定水平的收入。债券投资面临利率风险、信用风险与通胀风险。指数业绩不代表任何特定投资，且无法直接投资于指数。过去业绩不保证未来回报。</p>
+  <p><strong>本报告说明：</strong>正文所有数字、概率、表格均取自原文图表与附录，已逐项核对 PDF 原页；标注为"本报告补充/建议"的内容为独立分析，不属于 Vanguard 原文观点。</p>
+</div>
+
+</div>
+
+<script>
+const AXIS = {axisLine:{lineStyle:{color:'#e4e7ec'}},axisLabel:{color:'#6b7280',fontSize:11},splitLine:{lineStyle:{color:'#f0f2f5'}}};
+
+// 图2
+const c1 = echarts.init(document.getElementById('c1'));
+c1.setOption({
+  grid:{left:60,right:30,top:30,bottom:40},
+  tooltip:{trigger:'axis',valueFormatter:v=>v+'%'},
+  xAxis:{type:'category',data:['LS 战胜 CA','LS 战胜 现金','CA 战胜 现金'],...AXIS,splitLine:{show:false}},
+  yAxis:{...AXIS,type:'value',min:0,max:100,axisLabel:{formatter:'{value}%',color:'#6b7280',fontSize:11}},
+  series:[{
+    type:'bar',barWidth:56,
+    data:[
+      {value:68,itemStyle:{color:'#1f5fbf'}},
+      {value:70,itemStyle:{color:'#1f5fbf'}},
+      {value:69,itemStyle:{color:'#e0a03c'}}
+    ],
+    label:{show:true,position:'top',formatter:'{c}%',color:'#16181d',fontWeight:700,fontSize:14},
+    markLine:{silent:true,symbol:'none',data:[{yAxis:50,label:{formatter:'50% 基准线',color:'#6b7280',fontSize:11,position:'insideEndTop'},lineStyle:{color:'#c9ced6',type:'dashed'}}]}
+  }]
+});
+
+// 图3
+const c2 = echarts.init(document.getElementById('c2'));
+c2.setOption({
+  grid:{left:70,right:30,top:50,bottom:40},
+  tooltip:{trigger:'axis',valueFormatter:v=>'$'+v.toLocaleString()},
+  legend:{data:['LS 100%股票','CA 100%股票','LS 60/40','CA 60/40'],top:0,itemWidth:14,itemHeight:8,textStyle:{color:'#3d4450',fontSize:11.5}},
+  xAxis:{type:'category',data:['5th','25th','50th','75th','95th'],...AXIS,splitLine:{show:false}},
+  yAxis:{...AXIS,type:'value',min:80000,max:145000,interval:10000,axisLabel:{formatter:v=>'$'+(v/1000)+'k',color:'#6b7280',fontSize:11}},
+  series:[
+    {name:'LS 100%股票',type:'line',smooth:false,symbolSize:6,lineStyle:{width:2.4,color:'#1f5fbf'},itemStyle:{color:'#1f5fbf'},data:[82947,102070,111940,119063,139453]},
+    {name:'CA 100%股票',type:'line',smooth:false,symbolSize:6,lineStyle:{width:2.4,color:'#e0a03c',type:'dashed'},itemStyle:{color:'#e0a03c'},data:[85906,101531,109580,116286,131012]},
+    {name:'LS 60/40',type:'line',smooth:false,symbolSize:5,lineStyle:{width:1.8,color:'#6f9ad6'},itemStyle:{color:'#6f9ad6'},data:[92720,104082,109360,113661,127631]},
+    {name:'CA 60/40',type:'line',smooth:false,symbolSize:5,lineStyle:{width:1.8,color:'#e8c78a',type:'dashed'},itemStyle:{color:'#e8c78a'},data:[94043,103134,107453,111545,121967]}
+  ]
+});
+
+// CER diff
+const c3 = echarts.init(document.getElementById('c3'));
+c3.setOption({
+  grid:{left:70,right:30,top:50,bottom:40},
+  tooltip:{trigger:'axis',valueFormatter:v=>v+' bp'},
+  legend:{data:['无损失厌恶','有损失厌恶 (λ=2.50)'],top:0,itemWidth:14,itemHeight:8,textStyle:{color:'#3d4450',fontSize:11.5}},
+  xAxis:{type:'category',data:['进取型 γ=3','稳健偏保守 γ=6','极保守 γ=10'],...AXIS,splitLine:{show:false}},
+  yAxis:{...AXIS,type:'value',name:'LS − CA（bps）',nameTextStyle:{color:'#6b7280',fontSize:11},axisLabel:{color:'#6b7280',fontSize:11}},
+  series:[
+    {name:'无损失厌恶',type:'bar',barWidth:36,data:[44,22,-5],itemStyle:{color:'#1f5fbf'},label:{show:true,position:'top',formatter:'{c}',color:'#16181d',fontSize:11.5}},
+    {name:'有损失厌恶 (λ=2.50)',type:'bar',barWidth:36,data:[25,-2,-33],itemStyle:{color:'#e0a03c'},label:{show:true,position:'top',formatter:'{c}',color:'#16181d',fontSize:11.5}}
+  ]
+});
+
+// Appendix 1
+const c4 = echarts.init(document.getElementById('c4'));
+c4.setOption({
+  grid:{left:62,right:30,top:50,bottom:86},
+  tooltip:{trigger:'axis',valueFormatter:v=>v+'%'},
+  legend:{data:['3 个月拆分','4 个月拆分','5 个月拆分','6 个月拆分'],top:0,itemWidth:14,itemHeight:8,textStyle:{color:'#3d4450',fontSize:11.5}},
+  xAxis:{type:'category',data:['美国','英国','加拿大','欧洲','澳洲','新兴市场','全球USD','全球EUR','全球GBP'],...AXIS,splitLine:{show:false},axisLabel:{color:'#6b7280',fontSize:11,interval:0,rotate:20}},
+  yAxis:{...AXIS,type:'value',min:55,max:80,axisLabel:{formatter:'{value}%',color:'#6b7280',fontSize:11}},
+  series:[
+    {name:'3 个月拆分',type:'bar',barWidth:14,itemStyle:{color:'#1f5fbf'},data:[66.4,68.1,67.2,66.5,67.5,61.6,67.7,66.4,67.8]},
+    {name:'4 个月拆分',type:'bar',barWidth:14,itemStyle:{color:'#5a8ed4'},data:[69.9,69.8,67.9,66.9,69.6,61.8,69.7,66.8,68.9]},
+    {name:'5 个月拆分',type:'bar',barWidth:14,itemStyle:{color:'#e8c78a'},data:[72.6,70.2,69.3,66.5,71.0,62.9,71.7,67.2,69.7]},
+    {name:'6 个月拆分',type:'bar',barWidth:14,itemStyle:{color:'#e0a03c'},data:[73.7,69.5,69.7,65.4,72.5,61.8,72.6,67.9,70.8]}
+  ]
+});
+
+window.addEventListener('resize',()=>{[c1,c2,c3,c4].forEach(c=>c.resize());});
+</script>
+</body>
+</html>
