@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英伟达 FY2027 Q3 财报全景摘要｜财报 · 电话会 · 现场 · 金融底座</title>
+<style>
+  :root{
+    --bg:#f5f6f8;
+    --card:#ffffff;
+    --ink:#14181d;
+    --ink2:#39424d;
+    --muted:#6b7683;
+    --line:#e3e7ec;
+    --line2:#eef1f5;
+    --navy:#12365e;
+    --navy2:#1d4f8c;
+    --amber:#a8580a;
+    --amberbg:#fdf7ee;
+    --tealbg:#eef7f4;
+    --teal:#0f6b5f;
+    --bluebg:#eef3fa;
+    --red:#a32a1e;
+    --redbg:#fdf3f1;
+    --graybg:#f4f6f8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+    font-size:15px;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px;}
+
+  /* ---------- 封面 ---------- */
+  .cover{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-top:4px solid var(--navy);
+    border-radius:14px;
+    padding:44px 46px 38px;
+    margin:34px 0 26px;
+    box-shadow:0 1px 2px rgba(16,24,40,.04),0 10px 30px -18px rgba(16,24,40,.18);
+  }
+  .kicker{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--navy2);font-weight:700;margin-bottom:14px;
+  }
+  .cover h1{
+    font-family:"Songti SC","STSong",Georgia,serif;
+    font-size:34px;line-height:1.4;margin:0 0 12px;color:var(--navy);
+    letter-spacing:-.01em;font-weight:700;
+  }
+  .cover .sub{
+    font-size:16px;color:var(--ink2);margin:0 0 24px;line-height:1.75;
+  }
+  .cover .sub em{font-style:normal;color:var(--navy2);font-weight:600;}
+  .metaline{
+    display:flex;flex-wrap:wrap;gap:10px 26px;
+    padding-top:20px;border-top:1px solid var(--line2);
+    font-size:13px;color:var(--muted);
+  }
+  .metaline b{color:var(--ink2);font-weight:600;}
+
+  /* ---------- KPI ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 26px;}
+  .kpi{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px 14px;
+  }
+  .kpi .k{font-size:12px;color:var(--muted);letter-spacing:.04em;margin-bottom:6px;}
+  .kpi .v{font-size:23px;font-weight:700;color:var(--navy);line-height:1.25;letter-spacing:-.01em;}
+  .kpi .v small{font-size:13px;font-weight:600;color:var(--ink2);margin-left:2px;}
+  .kpi .d{font-size:12px;color:var(--teal);margin-top:4px;font-weight:600;}
+  .kpi .d.warn{color:var(--amber);}
+
+  /* ---------- 目录 ---------- */
+  .toc{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:22px 26px;margin:0 0 34px;
+  }
+  .toc h2{
+    font-size:12px;letter-spacing:.14em;color:var(--muted);margin:0 0 14px;
+    font-weight:700;text-transform:uppercase;
+  }
+  .toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:36px;}
+  .toc li{margin:0 0 9px;break-inside:avoid;}
+  .toc a{
+    color:var(--ink2);text-decoration:none;font-size:14px;
+    display:flex;gap:9px;align-items:baseline;
+  }
+  .toc a:hover{color:var(--navy2);}
+  .toc .n{
+    font-size:11px;font-weight:700;color:var(--navy2);
+    background:var(--bluebg);border-radius:4px;padding:1px 6px;flex:none;
+  }
+
+  /* ---------- 章节 ---------- */
+  section{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:34px 40px 30px;margin:0 0 22px;
+    box-shadow:0 1px 2px rgba(16,24,40,.03);
+  }
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:6px;}
+  .sec-num{
+    flex:none;width:34px;height:34px;border-radius:9px;
+    background:var(--navy);color:#fff;font-size:15px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  h2.sec-title{
+    font-family:"Songti SC","STSong",Georgia,serif;
+    font-size:23px;color:var(--navy);margin:0;font-weight:700;letter-spacing:-.01em;
+  }
+  .sec-desc{color:var(--muted);font-size:13px;margin:2px 0 22px 48px;}
+  h3{
+    font-size:17px;color:var(--navy);margin:30px 0 12px;font-weight:700;
+    padding-left:11px;border-left:3px solid var(--navy2);line-height:1.5;
+  }
+  h4{font-size:14.5px;color:var(--ink);margin:22px 0 8px;font-weight:700;}
+  p{margin:0 0 13px;color:var(--ink2);}
+  strong{color:var(--ink);font-weight:700;}
+  .hl{background:linear-gradient(transparent 62%,#fdf0c9 62%);padding:0 1px;font-weight:600;color:var(--ink);}
+  ul,ol{margin:0 0 14px;padding-left:22px;color:var(--ink2);}
+  li{margin:0 0 7px;}
+  li::marker{color:var(--navy2);}
+  a{color:var(--navy2);}
+
+  /* ---------- 表格 ---------- */
+  .tw{overflow-x:auto;margin:14px 0 18px;border:1px solid var(--line);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;background:#fff;}
+  th{
+    background:var(--graybg);color:var(--ink);font-weight:700;text-align:left;
+    padding:10px 13px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:13px;
+  }
+  td{padding:9px 13px;border-bottom:1px solid var(--line2);color:var(--ink2);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  tbody tr:nth-child(even){background:#fbfcfd;}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  table.fixed-first th:first-child,
+  table.fixed-first td:first-child{white-space:nowrap;width:1%;min-width:96px;}
+  .up{color:var(--red);font-weight:600;}
+  .down{color:var(--teal);font-weight:600;}
+  .muted{color:var(--muted);}
+  caption{caption-side:bottom;text-align:left;font-size:12px;color:var(--muted);padding:8px 13px 2px;}
+
+  /* ---------- 提示块 ---------- */
+  .box{border-radius:10px;padding:16px 18px;margin:16px 0;font-size:14px;line-height:1.85;}
+  .box p:last-child{margin-bottom:0;}
+  .box .lbl{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;
+    padding:2px 8px;border-radius:4px;margin-bottom:8px;
+  }
+  .box-judge{background:var(--amberbg);border:1px solid #f0e0c4;}
+  .box-judge .lbl{background:#f6e3c4;color:var(--amber);}
+  .box-note{background:var(--bluebg);border:1px solid #dbe6f4;}
+  .box-note .lbl{background:#dbe8f8;color:var(--navy2);}
+  .box-editor{background:var(--tealbg);border:1px solid #d5e9e3;}
+  .box-editor .lbl{background:#d3e9e2;color:var(--teal);}
+  .box-warn{background:var(--redbg);border:1px solid #f4d9d4;}
+  .box-warn .lbl{background:#f6dcd7;color:var(--red);}
+
+  blockquote{
+    margin:16px 0;padding:14px 18px;background:var(--graybg);
+    border-left:3px solid #c8d2de;border-radius:0 8px 8px 0;
+    color:var(--ink2);font-size:14px;
+  }
+  blockquote p:last-child{margin-bottom:0;}
+  blockquote .who{display:block;margin-top:6px;font-size:12px;color:var(--muted);}
+
+  /* ---------- 卡片网格 ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+  .mini{
+    background:#fbfcfd;border:1px solid var(--line);border-radius:10px;padding:15px 16px;
+  }
+  .mini .t{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .mini .b{font-size:13px;color:var(--ink2);line-height:1.8;}
+  .mini .big{font-size:20px;font-weight:700;color:var(--navy);display:block;margin-bottom:4px;font-variant-numeric:tabular-nums;}
+
+  /* ---------- 时间线 ---------- */
+  .tl{list-style:none;padding:0;margin:16px 0;border-left:2px solid var(--line);margin-left:6px;}
+  .tl li{position:relative;padding:0 0 16px 22px;margin:0;}
+  .tl li::before{
+    content:"";position:absolute;left:-6px;top:9px;width:10px;height:10px;
+    border-radius:50%;background:#fff;border:2px solid var(--navy2);
+  }
+  .tl .d{font-size:12px;color:var(--navy2);font-weight:700;letter-spacing:.02em;}
+  .tl .c{font-size:13.5px;color:var(--ink2);}
+
+  /* ---------- QA ---------- */
+  .qa{border:1px solid var(--line);border-radius:10px;margin:14px 0;overflow:hidden;}
+  .qa .q{
+    background:var(--graybg);padding:12px 16px;font-size:13.5px;
+    font-weight:700;color:var(--navy);border-bottom:1px solid var(--line);
+  }
+  .qa .q span{font-weight:600;color:var(--muted);font-size:12px;margin-left:6px;}
+  .qa .a{padding:14px 16px;font-size:13.5px;color:var(--ink2);}
+  .qa .a p:last-child{margin-bottom:0;}
+
+  .tag{
+    display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;
+    background:var(--bluebg);color:var(--navy2);margin-right:6px;
+  }
+  .tag.g{background:var(--tealbg);color:var(--teal);}
+  .tag.o{background:var(--amberbg);color:var(--amber);}
+
+  hr.sep{border:none;border-top:1px solid var(--line2);margin:26px 0;}
+
+  footer{
+    text-align:center;color:var(--muted);font-size:12.5px;line-height:1.9;
+    padding:26px 20px 0;border-top:1px solid var(--line);margin-top:30px;
+  }
+  footer .dis{max-width:760px;margin:0 auto 14px;}
+
+  @media (max-width:860px){
+    .kpis{grid-template-columns:repeat(2,1fr);}
+    .grid2,.grid3{grid-template-columns:1fr;}
+    .toc ol{columns:1;}
+    section{padding:26px 22px;}
+    .cover{padding:30px 24px;}
+    .cover h1{font-size:26px;}
+  }
+  @media print{
+    body{background:#fff;font-size:11pt;}
+    .wrap{max-width:none;padding:0;}
+    section,.cover,.toc,.kpi{box-shadow:none;border-color:#ddd;break-inside:avoid;}
+    .toc{display:none;}
+    a{color:inherit;text-decoration:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= 封面 ================= -->
+  <header class="cover">
+    <div class="kicker">NVIDIA · FY2027 Q3 · 全景摘要</div>
+    <h1>英伟达 FY2027 Q3 财报全景摘要</h1>
+    <p class="sub">一份财报的四层切面：<em>财报本体</em>、<em>电话会实录</em>、<em>会场侧写</em>，以及财报之外的 <em>AI 金融底座</em>。<br>四篇原始材料完整提炼，保留全部观点与关键数据，不做删减。</p>
+    <div class="metaline">
+      <span><b>财报期间</b>　FY2027 Q3（截至 2026 年 10 月 25 日）</span>
+      <span><b>发布时点</b>　北京时间 2026-11-18 凌晨（美股 11-17 盘后）</span>
+      <span><b>特殊背景</b>　黄仁勋 11-12 辞任后首份财报</span>
+      <span><b>整理日期</b>　2026-11-18</span>
+    </div>
+  </header>
+
+  <!-- ================= KPI ================= -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="k">单季总营收</div>
+      <div class="v">1,158<small>亿美元</small></div>
+      <div class="d">同比 +103%　环比 +20%</div>
+    </div>
+    <div class="kpi">
+      <div class="k">GAAP 净利润</div>
+      <div class="v">653<small>亿美元</small></div>
+      <div class="d">同比 +105%　环比 +9%</div>
+    </div>
+    <div class="kpi">
+      <div class="k">数据中心营收</div>
+      <div class="v">1,076<small>亿美元</small></div>
+      <div class="d">同比 +110%　环比 +21%</div>
+    </div>
+    <div class="kpi">
+      <div class="k">FQ4 收入指引</div>
+      <div class="v">1,300<small>亿 ±3%</small></div>
+      <div class="d warn">14 周季度　毛利率降至 71%–72%</div>
+    </div>
+  </div>
+
+  <!-- ================= 目录 ================= -->
+  <nav class="toc">
+    <h2>目录</h2>
+    <ol>
+      <li><a href="#s0"><span class="n">00</span>一分钟结论</a></li>
+      <li><a href="#s1"><span class="n">01</span>财报本体：数据中心与三组承诺</a></li>
+      <li><a href="#s2"><span class="n">02</span>电话会实录：管理层说了什么</a></li>
+      <li><a href="#s3"><span class="n">03</span>会场侧写：一场微妙的财报会</a></li>
+      <li><a href="#s4"><span class="n">04</span>财报之外：AI 的金融底座</a></li>
+      <li><a href="#s5"><span class="n">05</span>四篇材料交叉印证与分歧</a></li>
+      <li><a href="#s6"><span class="n">06</span>附录：数据表与口径说明</a></li>
+    </ol>
+  </nav>
+
+  <!-- ================= 00 结论 ================= -->
+  <section id="s0">
+    <div class="sec-head"><div class="sec-num">00</div><h2 class="sec-title">一分钟结论</h2></div>
+    <p class="sec-desc">四篇材料读完后，最值得记住的六句话。</p>
+
+    <ol>
+      <li><strong>业绩本身是"超预期"的</strong>：营收 1,158 亿（同比 +103%、环比 +20%），GAAP 净利 653 亿（+105%），FQ4 指引 1,300 亿高于共识 1,247 亿，FY28 增速展望由 70% 上调至 <strong>约 75%</strong>。</li>
+      <li><strong>增长结构换挡</strong>：Rubin 首季量产即贡献近 200 亿美元（占数据中心 18%）；超大规模客户重回最大增量（601 亿，环比 +23%），而靠"扶持新云 + 资产负债表兜底"撑起来的 ACIE 增速由 25% 放缓至 18%，<strong>低于预期</strong>。</li>
+      <li><strong>上游锁死、下游收手</strong>：供应承诺 3,900 亿（环比 +1,110 亿，几乎全落在 FY28），附加承诺降至 320 亿，担保升至 1,180 亿且新增"硬件融资安排"兜底——<strong>产能赌注加大，客户兜底变谨慎</strong>。</li>
+      <li><strong>治理是本次财报的真正考题</strong>：董事会"无意让黄仁勋复职"，永久 CEO 无时间表；黄仁勋本人在会前 5 小时公开发文称"若董事会认为符合最佳利益，愿回归"。<strong>治理风险未出清</strong>。</li>
+      <li><strong>电话会的语气变了</strong>：从黄仁勋式的产业叙事，转为克雷斯式的供应能力、客户资本、融资担保与利润率；现场"微妙紧张"，数次口误，会议提前 10 分钟结束。</li>
+      <li><strong>财报之外，风险在信用端定价</strong>：CoreWeave 5 年期 CDS 一度突破 1,289bp、债券收益率超 16%；铜价五周连跌；软银为 AI 数据中心发电设备确认 37 亿美元减值。<strong>AI 的瓶颈正从"能不能造出来"转向"钱从哪来、能撑多久"</strong>。</li>
+    </ol>
+  </section>
+
+  <!-- ================= 01 财报本体 ================= -->
+  <section id="s1">
+    <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">财报本体：数据中心与三组承诺</h2></div>
+    <p class="sec-desc">来源：海豚研究《答卷照牛！但没了老黄，英伟达已不对味！》（2026-11-18 10:15）</p>
+
+    <h3>1.1 数据中心：1,076 亿，同比 +110%</h3>
+    <p>本季数据中心收入 <strong>1,076 亿美元</strong>，环比增量 <strong>186 亿美元</strong>，同比增长 <strong>110%</strong>，好于市场预期（1,018 亿）。增长由 <strong>Vera Rubin 首季量产出货</strong>与 <strong>Blackwell Ultra（GB300）持续出货</strong>共同带动。</p>
+    <ul>
+      <li><strong>Rubin 在量产出货的第一个季度就贡献接近 200 亿美元收入</strong>，约占数据中心收入的 <strong>18%</strong>（略低于上季度所说的 20%）。</li>
+      <li><strong>网络业务收入超过 210 亿美元</strong>，约占数据中心收入的两成。</li>
+      <li>本季公司对华出货 <strong>24 亿美元</strong>获许可的 Hopper 数据中心产品（<strong>直接销售的 H200</strong>）。</li>
+    </ul>
+
+    <h4>披露口径调整：Hyperscale 与 ACIE</h4>
+    <p>公司从本财年开始把数据中心拆分为 <strong>Hyperscale（超大规模客户）</strong>与 <strong>ACIE（AI 云、工业与企业，含主权客户）</strong>两块。</p>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>分部</th><th>本季收入</th><th>环比增量</th><th>环比增速</th><th>一致预期</th><th>相对预期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Hyperscale 超大规模</td><td class="num"><strong>601 亿</strong></td><td class="num">+114 亿</td><td class="num up">+23%</td><td class="num">533 亿</td><td class="up">明显高于</td></tr>
+          <tr><td>ACIE（AI 云 / 工业 / 企业）</td><td class="num"><strong>475 亿</strong></td><td class="num">+72 亿</td><td class="num">+18%</td><td class="num">489 亿</td><td class="down">略低于</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>时隔两个季度，超大规模客户重新成为收入增长的最大增量</strong>；<strong>云行业积压订单（backlog）从 3 个月前的 2 万亿美元增至 2.5 万亿美元</strong>。ACIE 的环比增长则来自对头部新云的 Vera Rubin 出货，以及前沿实验室开始自建数据中心。</p>
+
+    <div class="box box-judge">
+      <span class="lbl">原文观点</span>
+      <p>在各家大 CSP 自研芯片的情况下，英伟达过去一年用"<strong>扶持中小客户 + 资产负债表兜底</strong>"打开了 ACIE 市场（新云占 ACIE 一半以上）。但这条路径本季已经出现收缩迹象：<strong>ACIE 环比增速从上季的 25% 放缓至 18%，并低于一致预期</strong>。</p>
+      <p>Kress 在电话会上表示，会对新云"<strong>保持自律、有选择地支持</strong>"，未来融资支持将优先放在土地、电力和机房（land, power, shell）上，并坦言"<strong>过去一个季度很多事情都变了</strong>"。</p>
+    </div>
+
+    <h3>1.2 核心增量信息：Commitments / Additional Commitments / Guarantees</h3>
+    <p>公司从上季度开始披露这三组数据，原文定性：它们把英伟达"<strong>算力央行</strong>"的角色摆上了台面。本季是黄仁勋离任后的第一次披露，变化可概括为——<strong>上游继续锁产能，下游兜底是有选择的</strong>。</p>
+
+    <h4>① Commitments（供应与产能承诺）</h4>
+    <ul>
+      <li>本季 <strong>3,900 亿美元</strong>，环比 <strong>+1,110 亿</strong>（上季 2,790 亿），公司称主要是<strong>多年期的内存采购</strong>。</li>
+      <li>年份分布：<strong>FY28 由 870 亿跳升至 2,030 亿</strong>；FY29 由 880 亿小幅增至 920 亿；<strong>FY30 及以后合计只有 260 亿</strong>。新增供应承诺几乎全部落在 FY28（对应 2027 自然年）。</li>
+      <li>原文推算：按 FY28 收入增长 75%、毛利率 72%–73% 计算，FY28 营业成本约 <strong>2,000–2,080 亿美元</strong>，与 FY28 的 2,030 亿供应承诺大体相当——<strong>支撑"75% 增长"的上游供给基本已经锁定</strong>。</li>
+    </ul>
+
+    <h4>② Additional Commitments（附加承诺）</h4>
+    <ul>
+      <li>本季<strong>只剩"新云协议"一项</strong>（原"AI cloud 协议"更名），金额 <strong>320 亿美元</strong>，环比<strong>减少 40 亿</strong>。</li>
+      <li>新增说明：这类承诺<strong>只有在新云自行完成融资、相关算力部署上线并经英伟达验收后才生效</strong>。</li>
+      <li>Kress 称"<strong>没有改变任何东西</strong>"，只因收到不少询问而把条款写得更清楚。</li>
+      <li>原文判断：不管怎么解释，<strong>余额从 360 亿降到 320 亿，实际上附加承诺的扩张已经停了下来</strong>。</li>
+    </ul>
+
+    <h4>③ Guarantees（担保）</h4>
+    <ul>
+      <li>本季担保<strong>最大敞口 1,180 亿美元</strong>（上季 1,085 亿），<strong>增加的 95 亿全部来自新出现的"电力与系统信贷支持担保"</strong>。</li>
+      <li>担保描述从"土地、电力、机房"扩展为"<strong>土地、电力、机房和硬件融资安排</strong>"，即<strong>开始为部分客户的硬件融资提供兜底</strong>。</li>
+      <li>存量：新云土地电力机房担保 <strong>35 亿</strong>、SB Energy / PORTS-Pike 园区 <strong>1,050 亿</strong>，均维持不变。</li>
+      <li>PORTS-Pike 担保随 <strong>9 栋楼逐期完工生效，首期预计在 FY29</strong>；英伟达另有约 <strong>3.8GW 的扩容担保选择权</strong>。</li>
+      <li>截至目前，公司<strong>尚未因担保支付过任何款项</strong>。</li>
+      <li>8 月宣布的 <strong>5,000 亿美元算力融资平台</strong>（Apollo、BlackRock、Blackstone、Brookfield、高盛、KKR）仍在搭建中，<strong>本季没有披露落地项目</strong>。</li>
+    </ul>
+
+    <h3>1.3 管理层交接后的首次表态</h3>
+    <p>电话会由 <strong>Jones（新任董事长，首次设该职位）开场</strong>、<strong>临时 CEO Kress 主讲</strong>。</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:88px">主题</th><th>具体表态</th></tr></thead>
+        <tbody>
+          <tr><td><strong>人事</strong></td><td>董事会<strong>一致接受</strong>黄仁勋辞职，并"<strong>无意让其重新担任 CEO</strong>"；已<strong>聘请猎头公司</strong>牵头遴选永久 CEO，内外部人选都考虑；新 CEO 必须能应对先进芯片与国家安全交织的环境；希望尽快任命，但"<strong>不会为了快而降低标准</strong>"，<strong>未给时间表</strong>；对辞职具体情况和正在进行的调查<strong>不予回应</strong>。</td></tr>
+          <tr><td><strong>合规</strong></td><td>董事会当天宣布成立"<strong>国家安全与出口管制监督委员会</strong>"，由部分独立董事、外部资深顾问和法律顾问组成，加强与美国政府各相关部门的沟通。</td></tr>
+          <tr><td><strong>经营</strong></td><td>Kress 反复强调"<strong>业务一切照常</strong>"、<strong>路线图不变</strong>（Vera Rubin Ultra 明年、Feynman 2028）；客户、供应商和合作伙伴"<strong>100% 支持</strong>"；<strong>台积电管理层本周到访</strong>；公司已<strong>追加锁定内存和先进封装产能</strong>。</td></tr>
+          <tr><td><strong>资本回报</strong></td><td>未来将把<strong>扣除战略用途后的全部超额自由现金流返还股东</strong>；剩余 <strong>2,273 亿美元回购授权计划在 FY28 内用完</strong>；股东回报列为<strong>最优先事项之一</strong>。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>资金优先级（Kress 明确排序）</strong>：① 供应商（以预付款等方式支持扩产）→ ② 已承诺的投资 → ③ 对少数优质客户提供融资或担保（逐一严格评估）。</p>
+
+    <h3>1.4 指引</h3>
+    <ul>
+      <li><strong>FQ4（4Q26，为 14 周季度）收入 1,300 亿美元（±3%）</strong>，环比 +142 亿，<strong>高于市场预期 1,247 亿</strong>。</li>
+      <li><strong>下季度毛利率（GAAP）71.0%–72.0%</strong>，环比下降约 3 个百分点，<strong>符合市场预期（71.9%）</strong>。</li>
+      <li><strong>指引不含任何中国数据中心计算收入</strong>；管理层明确表示<strong>已停止向中国出货获许可的 Hopper 数据中心产品（H200）</strong>，这部分三季度的 24 亿美元<strong>在四季度归零</strong>。</li>
+      <li><strong>剔除中国 Hopper 部分、按 13 周折算，同口径环比仍约 +6% 增长</strong>。</li>
+      <li>管理层重申：<strong>FQ4 毛利率是底部</strong>；四季度仍<strong>按旧价格履行已接下的订单</strong>；<strong>新价格从新财年开始生效</strong>；<strong>FY28 毛利率回到 72%–73% 的框架不变</strong>。</li>
+      <li><strong>FY28 收入增长展望从约 70% 上调至约 75%</strong>。Kress："<strong>需求远超供给，预计业绩仍将保持强劲</strong>"。展望<strong>已考虑对现行出口管制的评估</strong>，但"<strong>还需要时间研究其中较难的部分</strong>"，<strong>未给出量化影响</strong>。</li>
+    </ul>
+
+    <h3>1.5 海豚君整体观点：业绩撑得住，但回落不是简单的"错杀"</h3>
+    <div class="box box-judge">
+      <span class="lbl">原文观点 · 核心判断</span>
+      <p>上季度老黄甩出 FY28"约 +70%"的明牌，股价一度修复至 <strong>239 美元</strong>的高点。但随后，英伟达遭遇了"<strong>人事 + 合规</strong>"的双重冲击。<strong>本次财报的意义已超出单季业绩，市场真正要验证的是"没有黄仁勋的英伟达"能否守住 2027 年（FY28）。</strong></p>
+      <p>管理层把 FY28 营收增速展望从约 70% 上调至约 <strong>75%</strong>、毛利率指引 <strong>72%–73%</strong>，是想以此回应——"<strong>有没有黄仁勋，英伟达照样能增长</strong>"。</p>
+      <p>通过与上下游采购和担保承诺的详细披露、对新云"自律、有选择地支持"的态度、成立委员会、更大力度的分红回购、H200 后续收入归零……这一切都在说明，英伟达新班子：<strong>靠着老黄打下的深厚底子，与老黄割席、对国家表忠诚、用财务管理思维来安抚华尔街的当下需求</strong>。</p>
+      <p>但这些选择的背后，仍缺乏对最最最关键问题的回答：<strong>后黄仁勋时代，到底谁为公司的长期战略和执行掌舵？</strong></p>
+    </div>
+    <p>原文结论：这是一份"<strong>经营超预期、风险未出清</strong>"的财报。股价回落到当前位置后，<strong>业绩端的支撑反而更强了</strong>，但<strong>并不认为这是简单的"错杀"</strong>——<strong>估值折价来自治理、合规和融资生态三块尚未出清的风险，而非业绩本身</strong>。在出现明确的出清信号（<strong>永久 CEO 落地、独立调查结论、出口管制立法定案</strong>）之前，<strong>修复空间有限</strong>。</p>
+  </section>
+
+  <!-- ================= 02 电话会 ================= -->
+  <section id="s2">
+    <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">电话会实录：管理层到底说了什么</h2></div>
+    <p class="sec-desc">来源：《英伟达三季度电话会实录：黄仁勋辞任后的第一场电话会》（实录整理稿）</p>
+
+    <h3>2.1 会议基本信息</h3>
+    <div class="grid3">
+      <div class="mini"><div class="t">时间</div><div class="b">2026 年 11 月 17 日（美股盘后）；所有陈述截至当日</div></div>
+      <div class="mini"><div class="t">出席</div><div class="b">临时 CEO 兼 CFO <strong>Colette Kress</strong>；董事会主席 <strong>Harvey Jones</strong>；超大规模计算与 HPC 副总裁 <strong>Ian Buck</strong>（问答环节）</div></div>
+      <div class="mini"><div class="t">主持</div><div class="b">投资者关系 Toshiya Hari；会议操作员 Sarah</div></div>
+    </div>
+
+    <h3>2.2 董事长 Harvey Jones 开场：定调与边界</h3>
+    <ul>
+      <li>"英伟达是一家<strong>实力极其雄厚</strong>的公司。这份实力来自出色的员工、突破性的技术，以及卓越的执行记录。"</li>
+      <li>11 月 12 日，董事会宣布，在<strong>"与公司行为准则、标准和文化规范不符的个人行为"</strong>被披露后，黄仁勋<strong>自愿辞去</strong>总裁、CEO 及董事职务；董事会<strong>一致接受</strong>，并<strong>无意恢复其 CEO 职务</strong>。</li>
+      <li>任命长期担任 CFO、备受尊重的 <strong>Colette Kress 为临时 CEO</strong>；正式 CEO 遴选已启动，<strong>已聘请海德思哲（Heidrick &amp; Struggles）</strong>负责。</li>
+      <li>"尽管这是一次<strong>意料之外</strong>的管理层交接，董事会仍经过审慎考虑，基于公司员工、客户、合作伙伴和股东的最佳利益采取了行动。"</li>
+      <li>当天上午宣布成立<strong>国家安全与出口管制监督委员会</strong>，成员包括部分独立董事、高级外部顾问及法律顾问，以加强与美国政府及所有相关机构的沟通。</li>
+      <li><strong>明确划定边界</strong>："在今天的电话会上，我们<strong>不会讨论</strong>黄仁勋辞职的具体情况及正在进行的调查，也不会回答相关问题。董事会将在适当时候进一步沟通。"</li>
+      <li>强调 Kress 已在公司 13 年、"始终处于公司非凡增长历程的核心"。</li>
+    </ul>
+
+    <h3>2.3 Kress 主讲：业绩、业务与供应链</h3>
+
+    <h4>开场定调</h4>
+    <blockquote>
+      <p>"我们的增长势头实实在在，支撑这一势头的是市场领先的多年产品路线图、延续至本世纪末的供应协议，以及可持续的需求。……<strong>我们的雄心不会改变。我们对创新的热情不会改变。我们对客户、合作伙伴和股东的承诺不会改变。</strong>"</p>
+      <span class="who">Colette Kress</span>
+    </blockquote>
+
+    <h4>核心财务与产品节奏</h4>
+    <ul>
+      <li>营收、营业利润、每股收益<strong>均创历史新高</strong>；总营收 <strong>1,160 亿美元</strong>（原文口径），同比增长超过一倍，环比 +20%。</li>
+      <li><strong>Vera Rubin 取得"非凡的开局"</strong>：量产出货首个季度贡献近 200 亿美元（实录原文写作"近 2000 万美元"，与其余材料及常识明显不符，属笔误），<strong>成为英伟达历史上放量最快的产品</strong>。</li>
+      <li><strong>FY28 指引上调至约 +75%</strong>（原约 70%），且"这一增长将建立在<strong>如今更高的 FY27 营收基数</strong>之上"。展望三大依据：<strong>数据中心就绪情况、终端客户需求的强度与持续性、客户获取资本的能力</strong>。</li>
+      <li>数据中心环比 +21% 至 <strong>1,080 亿</strong>；超大规模 <strong>600 亿</strong>（环比 +23%），由 Rubin 放量与 Grace Blackwell 持续强劲驱动。</li>
+      <li><strong>超大规模客户的云业务营收增速已连续第六个季度加快</strong>；云行业 backlog <strong>2.5 万亿</strong>（三个月前 2 万亿）。</li>
+    </ul>
+
+    <h4>需求侧的三组"证据"</h4>
+    <div class="grid3">
+      <div class="mini">
+        <div class="t">前沿模型</div>
+        <div class="b">OpenAI 推出 <strong>GPT-6</strong>、Anthropic 发布 <strong>Claude 5.5</strong>；Anthropic 10 月底<strong>年化营收 810 亿美元</strong>；预计今年主要前沿模型实验室贡献约 <strong>15% 的数据中心营收</strong>。</div>
+      </div>
+      <div class="mini">
+        <div class="t">开放模型与推理</div>
+        <div class="b">OpenRouter 周词元量增至上年同期 <strong>35 倍</strong>，近三个月再增至 3.5 倍；<strong>智能体工作负载约占词元总量 80%</strong>；9 月签署<strong>收购 Hugging Face</strong> 最终协议（1,800 万开发者、20 万家公司）；<strong>Nemotron</strong> 为 OpenRouter 上使用最广泛的美国开放模型。</div>
+      </div>
+      <div class="mini">
+        <div class="t">价格与利用率</div>
+        <div class="b">自 5 月以来<strong>词元价格下降近 60%</strong>，反而推动用量与算力需求加速；<strong>Hopper 已按最高达原价两倍重签多年期合同</strong>，<strong>B300 租赁价自推出涨超 60%</strong>；所有超大规模与新云中<strong>英伟达算力保持充分利用</strong>。</div>
+      </div>
+    </div>
+    <p>生态侧：微软、Salesforce、Palantir、CrowdStrike、Cadence、新思科技等推出基于后训练开放模型的产品；Scale、Mercor、Prime Intellect、Applied Compute 做企业侧转化；Leland Science、Harvey、Firma、Abridge 在科学、法律、医疗落地。</p>
+    <p>安全侧：与 100 多家伙伴推出 <strong>OpenAgent Safety Platform</strong>；<strong>OpenShell</strong> 限制智能体对文件和工具的访问，运行于 BlueField-4 的 <strong>Sentry</strong> 在芯片层面毫秒级阻断越界行为。生态伙伴包括 Anthropic、AWS、CoreWeave、CrowdStrike、戴尔、谷歌云、HPE、IREN、DeepSeek、摩根大通、联想、微软、Nebius、OpenAI、SpaceX。</p>
+
+    <h4>分部与新兴业务</h4>
+    <ul>
+      <li><strong>ACI&amp;E 收入 470 亿</strong>，环比 +18%，<strong>达上年同期近三倍</strong>；增长来自向领先 NeoCloud 交付 Vera Rubin、前沿模型实验室自建数据中心。Kress：NeoCloud"发挥着日益重要的作用"，支持方式将"<strong>审慎且有选择</strong>"。</li>
+      <li><strong>主权 AI 收入达上年同期三倍以上</strong>；9 月与澳大利亚多家云伙伴合作，计划到 2027 自然年底前落实最高 <strong>2GW</strong> 容量所需的土地、电力、机房壳体。</li>
+      <li><strong>企业侧金融服务最强</strong>：过去 12 个月本地部署收入近 <strong>50 亿美元</strong>，同比翻倍以上；预计 <strong>FY28 企业业务收入增长超过一倍</strong>。</li>
+      <li><strong>物理 AI 收入达上年同期近三倍</strong>，全年有望超过 <strong>250 亿美元</strong>；柏林 GTC 扩展 Isaac 平台，推出基于 Isaac GROOT 与 Jetson Thor 的人形机器人参考设计；汽车侧 Hyperion / Alpamayo 服务奔驰、与 Lucid 合作的 Bolt（Robotaxi）、Ride（L4 卡车）、沃尔沃。</li>
+      <li><strong>边缘计算 82 亿</strong>，环比 +14%、同比 +42%，来自企业 Blackwell 工作站与物理 AI 边缘需求。</li>
+      <li><strong>Vera CPU</strong>：CoreWeave、Meta、Anyscale、OpenAI 新采用，加入 AWS、OCI、SpaceX/xAI 行列；预计 <strong>FY28 CPU 总收入增长超过一倍</strong>。Meta 的 Muse 智能体上线六周内在美加安装超 <strong>1,000 万次</strong>，并计划扩大 Vera Rubin 部署。</li>
+    </ul>
+
+    <h4>供应链、承诺与担保（电话会口径）</h4>
+    <ul>
+      <li>宣布与基板领域的<strong>景硕科技、三星电机</strong>及先进封装领域的 <strong>Amkor</strong> 达成新协议；此前已与 Amkor、揖斐电、京元电子、欣兴电子合作。</li>
+      <li><strong>采购承诺增至 3,900 亿美元</strong>；<strong>数据中心租赁与云服务承诺合计增至略高于 1,000 亿美元</strong>（主要由长期租赁推动）；<strong>NeoCloud 相关承诺 320 亿美元</strong>。</li>
+      <li>NeoCloud 协议结构：<strong>前期出售基础设施获得收入 + 分享超过最低承诺金额部分的租赁收入增益</strong>。</li>
+      <li><strong>担保总额 1,180 亿美元</strong>，含 PORTS-Pike 园区土地、电力、机房壳体 <strong>1,050 亿美元</strong>信用支持；该园区按与 OpenAI 的 <strong>20 年租约</strong>专供英伟达基础设施，软银能源计划按进度推进，<strong>预计 2028 自然年起分阶段投用</strong>。</li>
+      <li>融资平台："继续与基础设施资本合作伙伴密切合作"；"随着市场成熟、更多资本来源出现，我们正在<strong>严格评估未来的投资、承诺和担保</strong>"。</li>
+    </ul>
+
+    <h4>技术与路线图</h4>
+    <ul>
+      <li><strong>MLPerf Inference：Vera Rubin 每瓦 token 吞吐量达 GB300 的 10 倍</strong>；且"仍处生命周期早期，软件优化将持续带来更高性能"。</li>
+      <li>GB → VR 过渡"异常顺利"：8 月量产三个月后已进入各大超大规模与新云；<strong>超大规模伙伴约一个月即投产，用时只有 Grace Blackwell 的一半</strong>。</li>
+      <li>网络收入 <strong>超过 210 亿美元</strong>；CPO 横向扩展产品<strong>已进入批量生产</strong>；Lambda 首次生产部署 Photonics CPO 交换机，连接超 <strong>10,000 颗 GB300</strong>；相较可插拔光模块，<strong>能效 5 倍、可靠性 15 倍、延迟降低 10%</strong>。</li>
+      <li>按计划 <strong>明年推出 Vera Rubin Ultra、2028 年推出 Feynman</strong>；推出 <strong>DSX Pod</strong> 全栈模块化 AI 工厂参考架构，交付时已做好连接准备，<strong>部署时间从数月缩短至数周</strong>。</li>
+      <li>原文给出的经济性："<strong>一座 1GW AI 工厂每年创造的收入接近 500 亿美元</strong>，因此只要提前一个季度产出首个 token，就可能为运营商带来<strong>超过 100 亿美元的额外收入</strong>。"合作伙伴包括戴尔、富士康、施耐德电气、维谛技术，<strong>明年初向美国和中欧客户交付首批 Pod</strong>。</li>
+    </ul>
+
+    <h4>损益表其余部分与股东回报</h4>
+    <ul>
+      <li><strong>GAAP / 非 GAAP 毛利率分别为 74.8% / 74.9%</strong>，因产品组合更有利而<strong>超过指引</strong>。</li>
+      <li>GAAP / 非 GAAP 运营费用环比 <strong>+9% / +7%</strong>（计算与基础设施支出增加），<strong>略低于预期</strong>，主因工程费用发生时点。</li>
+      <li>非 GAAP 实际税率 <strong>17%</strong>，高于上年同期（收入增加）。</li>
+      <li>第三季度<strong>向股东返还创纪录的 280 亿美元</strong>（<strong>220 亿回购 + 60 亿股息</strong>）；年初至今已返还自由现金流的 <strong>65%</strong>；今后拟返还"扣除战略用途后剩余的全部自由现金流"。</li>
+      <li>本季批准<strong>追加 1,500 亿美元回购授权，"有史以来最大规模的一次追加"</strong>；期末剩余授权 <strong>2,270 亿美元</strong>，计划 FY28 年底前执行完毕。</li>
+    </ul>
+
+    <h4>FQ4 指引（电话会口径）</h4>
+    <ul>
+      <li>总收入 <strong>1,300 亿美元 ±3%</strong>；<strong>额外增加一周</strong>；增长由 AI 基础设施强劲需求与 Rubin 持续放量推动。</li>
+      <li>GAAP 与非 GAAP 毛利率<strong>均为 71%–72%</strong>，<strong>Q4 是毛利率低点</strong>，FY28 改善至 <strong>72%–73%</strong>。</li>
+      <li>GAAP / 非 GAAP 运营费用约 <strong>110 亿 / 107 亿美元</strong>（受额外一周与"过渡相关成本"影响）。</li>
+      <li>FY27 全年税率维持 <strong>16%–18%</strong>（剔除离散项目与税务环境重大变化）。</li>
+      <li>对本周美国商务部新出口管制："由于<strong>需求远远超过供给</strong>，我们预计业绩仍将保持强劲"；FY28 约 +75% 的展望<strong>已纳入评估</strong>。</li>
+    </ul>
+
+    <h3>2.4 问答环节：六个问题，六次追问</h3>
+
+    <div class="qa">
+      <div class="q">Q1 · 摩根士丹利 Joseph Moore<span>75% 的信心从哪来？需求是否仍强于这个数字？</span></div>
+      <div class="a">
+        <p><strong>问：</strong>主要限制是晶圆供应，但是什么让你们有信心上调到 75%？此前一度谈到 100% 的增长，在 BIS 新规之后，以 100% 理解需求增长是否仍然合适？</p>
+        <p><strong>答：</strong>最初给出约 70%，现上调至 75%。"我们投入了大量时间，一方面研究<strong>持续增长的需求</strong>，另一方面研究<strong>能够向不同客户提供的新增供应</strong>。"同时评估了当前出口管制措施，"<strong>仍将花一些时间研究其中的不同条款</strong>"。综合需求、现有供应与可增加供应，有信心实现 75%。<span class="muted">（未直接回应"100% 需求"的说法。）</span></p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q2 · 美银证券 Vivek Arya<span>结构性护城河与人才留存，哪些会变？</span></div>
+      <div class="a">
+        <p><strong>问：</strong>对结构性护城河和人才留存，您想向投资者传达什么？哪些优势能持续？过渡期哪些方面可能变化？</p>
+        <p><strong>答：</strong>最看重<strong>员工</strong>；"与任何群体一样，大家会有不同意见"，但相信员工<strong>依然坚定投入</strong>，"致力于在英伟达完成自己毕生的事业"。领导团队过去一周"非常坚定"，既支持财报发布也支持全球员工，"甚至超出了期待，实现了无缝协作"。强调拥有"全球最优秀的技术人才"与"世界一流的多年产品路线图"。业务上"<strong>一切照常</strong>"，客户、供应商、合作伙伴"<strong>百分之百支持</strong>"；<strong>台积电领导团队本周到访</strong>，已<strong>锁定内存供应、锁定先进封装产能</strong>。</p>
+        <p><strong>董事长补充：</strong>遴选会同时考察<strong>内部与外部候选人</strong>；新 CEO 必须"非常审慎地应对"先进芯片与国家安全交织的变化；"<strong>希望尽快任命，但在找到完全合适的人选之前，不会为了求快而仓促任命</strong>"。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q3 · 瑞银 Timothy Arcuri<span>ASIC 挤压下，可接受的利润率压缩幅度是多少？</span></div>
+      <div class="a">
+        <p><strong>问：</strong>前沿模型公司更积极投入 ASIC，并把计算效率当作新 KPI。为保护竞争地位，是否存在一个您愿意接受的利润率压缩幅度？</p>
+        <p><strong>答：</strong>上次电话会已讨论过 FY27 后两季与 FY28 的毛利率框架；当时供应成本发生显著变化，进入 FY28 后仍将面对，"因此重新梳理这些情况对我们来说很有必要"。<strong>"我们考虑了价格及其各个组成部分，在当时给出的数字中，也自行吸收了不少成本。"</strong> Q4 水平就是底部——因为<strong>履行了大量已收到的客户采购订单</strong>，转向新定价时要"确保这些既有订单的安排得到切实维持"。FY28 的调整"与上个季度就 FY28 所作的沟通一致"，<strong>"目前我们没有看到任何变化"</strong>。</p>
+        <p>长期定价：<strong>未给出可接受的压缩幅度</strong>，只强调完整产品路线图与系统"处于世界一流水平"，"<strong>我们的定价经过了充分考虑</strong>。至于未来，我们会继续思考届时应该采取怎样的定价"。</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q4 · Cantor Fitzgerald CJ Muse<span>供应商融资意愿若有变化，对新云意味着什么？</span></div>
+      <div class="a">
+        <p><strong>问：</strong>未来对提供供应商融资的意愿如何更新？若变化，对这一业务领域（尤其云服务商客户）的增长有何影响？</p>
+        <p><strong>答：</strong>先拆解 ACI&amp;E 客户群——新云很重要（尤其主权 AI），但这一类里还包括企业、物理 AI、边缘等"非常广泛的不同类型客户"。未来融资中<strong>最重要的部分是围绕土地、电力和机房壳体</strong>；"必须详细审查，确保这样做是合适的"，这类资产"对任何持有者而言都是很好的资产"，会作为<strong>最优先方向之一</strong>。</p>
+        <p>融资基金"能发挥很大作用"；合作公司"本身也是 AI 客户"，可考虑让其<strong>通过预付款提供帮助</strong>。但"<strong>目前我们会非常认真地审视希望为哪些类型的公司提供融资帮助，因为过去这个季度发生了许多变化</strong>"。<span class="muted">（未给出新的额度或增长目标。）</span></p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q5 · 伯恩斯坦 Stacy Rasgon<span>新增那段话，是新做法还是新披露？</span></div>
+      <div class="a">
+        <p><strong>问：</strong>CFO 评论里新增一段：只有当新云获得融资、购买基础设施且算力完成部署后，你们的承诺才生效；若未做到，某些承诺可能被削减或取消。这是新做法，还是一直如此、只是现在才说？听起来你们并不是实际提供融资的一方。</p>
+        <p><strong>答：</strong>担保安排涉及大量必须建成并整合到位的土地、电力、机房壳体，"有施工建设，也有它们可能需要通过<strong>股权和/或债务方式筹集的资本</strong>"；资金既用于建造楼宇达到可使用状态，也用于采购、安装、调试设备。<strong>"到这个时候，我们的担保才开始生效。"</strong> 若已启动但出现延误或建设困难，"<strong>我们的担保就不再存在</strong>"。大部分担保"都围绕项目已经准备好投入使用的时点"，尤其 Portsmouth 那项安排。这也说明"我们在作出安排时，确实认真考虑过这些企业的实力"。</p>
+        <p><strong>关键一句：</strong>"<strong>这是新安排吗？不是。我们改变了什么吗？没有。</strong>这段表述只是为了确保清楚。"</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <div class="q">Q6 · Melius Research Ben Reitzes<span>实录在此处截止</span></div>
+      <div class="a">
+        <p><strong>问：</strong>"非常感谢。Colette 和团队，今晚的介绍很精彩。"</p>
+        <p class="muted">原文实录至此结束，未包含该问题的完整提问与回答。</p>
+      </div>
+    </div>
+
+    <div class="box box-note">
+      <span class="lbl">阅读提示</span>
+      <p>该篇实录为<strong>部分转录</strong>：包含开场、董事长致辞、Kress 主讲全文，以及前 6 位分析师的问答，<strong>在 Melius Research 的 Ben Reitzes 处截断</strong>。因此本节的问答部分并非电话会全部内容，缺失部分不做推测性补写。</p>
+    </div>
+  </section>
+
+  <!-- ================= 03 侧写 ================= -->
+  <section id="s3">
+    <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">会场侧写：一场"微妙紧张"的财报会</h2></div>
+    <p class="sec-desc">来源：智东西《没有黄仁勋的首个英伟达财报会：微妙紧张、几次说错、董事长拒绝CEO复职》（作者 陈骏达，编辑 心缘）</p>
+
+    <h3>3.1 现场气氛：紧张、口误、沉默与提前结束</h3>
+    <p>以往的英伟达财报电话会，通常由黄仁勋回答战略和业务问题，克雷斯负责财务数据与业绩指引。这一次黄仁勋缺席，克雷斯以<strong>临时 CEO 兼 CFO</strong> 的身份主讲；与她一同出席的是董事会主席<strong>琼斯</strong>，以及英伟达超大规模计算与高性能计算副总裁、"CUDA 之父"<strong>伊恩·巴克（Ian Buck）</strong>。</p>
+    <div class="grid2">
+      <div class="mini">
+        <div class="t">四个"不对劲"的细节</div>
+        <div class="b">
+          ① 整场电话会笼罩在<strong>微妙的紧张气氛</strong>中；<br>
+          ② 琼斯开场即<strong>定调不谈辞职细节与调查进展</strong>；<br>
+          ③ 克雷斯<strong>好几次说错话、声音微微颤抖</strong>，甚至把<strong>摩根大通（JPMorgan）的名字念错</strong>；<br>
+          ④ <strong>巴克全程没有发言</strong>；整场会议比以往<strong>提前 10 分钟结束</strong>。
+        </div>
+      </div>
+      <div class="mini">
+        <div class="t">会前 5 小时：黄仁勋首次公开发文</div>
+        <div class="b">在财报会开始前 5 个多小时，黄仁勋在辞任后首次公开发文，称<strong>如果董事会决定他的回归符合股东、员工、公司和美国的最佳利益，他将荣幸地回应这些呼吁并回归担任 CEO</strong>。<br><br>这与电话会上琼斯"<strong>不打算让其重新担任 CEO</strong>"的表态形成直接对冲。</div>
+      </div>
+    </div>
+
+    <h3>3.2 侧写补充的财务细节</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>项目</th><th>数据</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>营收</td><td class="num"><strong>1,158 亿</strong>（约 7,720.73 亿元）</td><td>同比 +103%，环比 +20%，<strong>超指引 1,080 亿与 LSEG 共识约 1,090 亿</strong></td></tr>
+          <tr><td>GAAP 净利润</td><td class="num"><strong>653 亿</strong>（约 4,353.75 亿元）</td><td>同比 +105%，环比 +9%</td></tr>
+          <tr><td>Non-GAAP 净利润</td><td class="num"><strong>649 亿</strong>（约 4,327.08 亿元）</td><td>摊薄 EPS <strong>2.68 美元</strong>（约 17.87 元）</td></tr>
+          <tr><td>计算与网络部门</td><td class="num"><strong>1,060 亿</strong>（约 7,067.34 亿元）</td><td>同比 +108%，环比 +20%，<strong>增速高于上一财季</strong></td></tr>
+          <tr><td>图形部门</td><td class="num"><strong>98 亿</strong>（约 653.40 亿元）</td><td>同比 +62%，环比 +25%</td></tr>
+          <tr><td>数据中心</td><td class="num"><strong>1,076 亿</strong>（约 7,174.01 亿元）</td><td>同比 +110%，环比 +21%</td></tr>
+          <tr><td>— Hyperscale</td><td class="num">601 亿（约 4,007.05 亿元）</td><td>同比 <strong>+71%</strong>，环比 +23%</td></tr>
+          <tr><td>— ACIE</td><td class="num">475 亿（约 3,166.97 亿元）</td><td>同比 <strong>+195%</strong>，环比 +18%</td></tr>
+          <tr><td>边缘计算</td><td class="num">82 亿（约 546.72 亿元）</td><td>环比 +14%，同比 +42%</td></tr>
+          <tr><td>现金及有价证券</td><td class="num down">535 亿（约 3,567.01 亿元）</td><td><strong>罕见下滑</strong>：低于去年同期 567 亿与上季 566 亿</td></tr>
+          <tr><td>新增回购授权</td><td class="num">1,500 亿（约 10,000.95 亿元）</td><td>期末剩余授权 <strong>2,270 亿</strong>（约 15,134.77 亿元），FY28 结束前执行完</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3.3 侧写对"管理层交接"的观察</h3>
+    <div class="box box-judge">
+      <span class="lbl">原文观点</span>
+      <p>过去的财报电话会中，黄仁勋习惯把英伟达的下一步放进更大的产业叙事里；此次克雷斯则更多地谈到<strong>供应能力、客户资本、融资担保和利润率</strong>，反复强调业务仍在正常运转。</p>
+      <p>对于克雷斯这位临时 CEO 来说，眼下的核心事项是<strong>稳住公司的经营节奏</strong>，为下一阶段的管理层交接和业务发展做好准备。</p>
+      <p>压力也给到了下一任正式 CEO：不仅要接住高速增长和庞大的产品路线图，还要继续回应<strong>出口管制、客户融资、供应链投入及管理层稳定性</strong>等问题，证明这轮增长能够持续兑现。</p>
+    </div>
+    <blockquote>
+      <p>"我们的发展势头是真实的，需求正在加速，供应正在增长，客户和合作伙伴与我们站在一起，员工也全心投入。"</p>
+      <p>她最后用一句"<strong>We've got this</strong>"收尾。只是，她的声音听上去似乎没有黄仁勋那样充满激情。</p>
+      <span class="who">Colette Kress（原文结尾）</span>
+    </blockquote>
+
+    <h3>3.4 侧写补出的两个新事实</h3>
+    <ul>
+      <li><strong>黄仁勋公开发文寻求回归</strong>——这是四篇材料中唯一提及的、来自黄仁勋本人的直接表态，且时间点在电话会前 5 小时。</li>
+      <li><strong>Ian Buck 全程未发言</strong>——作为"CUDA 之父"与超大规模/HPC 负责人，其被安排出席但未被提问或未作答，被原文作为现场紧张气氛的佐证之一。</li>
+    </ul>
+  </section>
+
+  <!-- ================= 04 财报之外 ================= -->
+  <section id="s4">
+    <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">财报之外：AI 的金融底座</h2></div>
+    <p class="sec-desc">来源：扑克投资家《黄仁勋离开之后，英伟达最难回答的问题不在财报里》（经"经纬低调分享"转载）——<strong>非财报解读</strong>，而是沿融资、信贷、大宗商品三条链拆解算力繁荣背后的信用循环。</p>
+
+    <div class="box box-note">
+      <span class="lbl">这篇在讲什么</span>
+      <p>原文的核心命题：<strong>对华尔街来说，真正值得追问的已不只是"英伟达还能卖出多少 GPU"，而是"支撑这场 AI 算力狂奔的资金究竟从哪里来，又能持续多久"。</strong></p>
+      <p>一边是英伟达不断刷新纪录的利润表，一边是 AI 基础设施不断膨胀的融资账单——两者之间的距离，正在成为判断这轮 AI 投资周期能走多远的关键。</p>
+    </div>
+
+    <h3>4.1 事件与市场反应</h3>
+    <ul>
+      <li>2026 年 11 月 12 日，董事会宣布黄仁勋辞去总裁、CEO 和董事职务，<strong>即刻生效</strong>；克雷斯出任<strong>临时 CEO 并继续担任 CFO</strong>；哈维·琼斯出任<strong>首任董事长</strong>；董事会开始遴选正式 CEO。公告称运营、客户承诺与产品路线图预计继续推进。</li>
+      <li>股价：11/12 <strong>-4.34%</strong>，11/13 再跌 <strong>-2.01%</strong> 收 <strong>162.85 美元</strong>；11/6–11/13 累计下跌约 <strong>12.7%</strong>。</li>
+      <li>"大多美国人内心里并没有把它当成一件需要认真对待的事。但是金融市场对此事件的反应却截然不同。"</li>
+      <li>真正触发神经的是表外数字：<strong>990 亿美元股权投资、360 亿美元 AI 云服务采购承诺、1,085 亿美元最高担保敞口</strong>；而英伟达牵头的 <strong>5,000 亿美元 AI 融资平台自推出至今实际成交依然为零</strong>。</li>
+      <li>黄仁勋离职次日，<strong>高盛信贷研究团队</strong>给出定性：这<strong>虽尚未构成融资危机，但极可能成为风险重定价的催化剂</strong>。</li>
+    </ul>
+    <p>原文的定位判断：一位创始人的离场不会直接制造金融危机，芯片、现金和合同也不会在公告当天消失；但这起人事剧变<strong>恰好发生在市场开始质疑 AI 投资规模、下游客户融资能力与数据中心真实回报的敏感时刻，为原本紧绷的局势叠加了一项关键的治理变量</strong>。</p>
+
+    <h3>4.2 现金流与利润的背离（上一财季，截至 2026-07-26）</h3>
+    <p>先厘清基本事实：主营业务仍在高速轨道上——营收 <strong>962.21 亿美元</strong>（同比 +106%），数据中心 <strong>890 亿</strong>（+117%，占 92.5%），GAAP 净利 <strong>596.88 亿</strong>。真正的观察点在损益表之外。</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>指标</th><th>上上季</th><th>上一财季</th><th>变化</th></tr></thead>
+        <tbody>
+          <tr><td>应收账款</td><td class="num">约 407 亿</td><td class="num"><strong>630.59 亿</strong></td><td class="up">激增约 223.5 亿</td></tr>
+          <tr><td>应收账款周转天数</td><td class="num">45 天</td><td class="num"><strong>60 天</strong></td><td class="up">+15 天</td></tr>
+          <tr><td>存货</td><td class="num">—</td><td class="num">增加约 57.8 亿</td><td class="up">—</td></tr>
+          <tr><td>经营现金流</td><td class="num">503.44 亿</td><td class="num down"><strong>240.77 亿</strong></td><td class="down">腰斩</td></tr>
+          <tr><td>自由现金流</td><td class="num">485.54 亿</td><td class="num down"><strong>213.41 亿</strong></td><td class="down">腰斩</td></tr>
+          <tr><td>供应与产能承诺</td><td class="num">1,190 亿</td><td class="num"><strong>2,790 亿</strong></td><td class="up">大幅抬升</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>客户集中度</strong>：未具名的前五大直接客户分别占应收账款总额的 <strong>22%、14%、13%、11%、10%，合计 70%</strong>。管理层将应收拉长归因于"部分投资级客户签署的多季度大额合同延长了付款周期"。</p>
+    <p>原文特别提示口径：供应与产能承诺是<strong>针对上游供应商的采购义务</strong>，<strong>既不能误读为客户债务，也不能简单与担保金额相加得出所谓的"总负债"</strong>。其性质是——"当市场供不应求时，这笔承诺是锁死交付的护城河；但一旦下游需求降温，刚性的采购义务依然存在，英伟达将不得不独自面对存货积压与付款节奏错配的压力"。</p>
+
+    <h3>4.3 循环融资的具体结构</h3>
+    <ul>
+      <li>截至该季末：<strong>990 亿美元生态系统股权投资 + 250 亿美元追加投资承诺</strong>。</li>
+      <li>与多家 AI 云服务商签署<strong>总额 360 亿美元、期限普遍为六年的云服务回购协议</strong>：<strong>云服务商借钱采购英伟达算力基础设施，英伟达承诺向对方购买云服务</strong>；只有当<strong>外部第三方客户实际消耗了这些算力容量</strong>后，英伟达的兜底回购义务才会相应递减。</li>
+    </ul>
+
+    <h4>PORTS Technology Campus：最具代表性的巨型样本</h4>
+    <ul>
+      <li>俄亥俄州项目，英伟达为 <strong>SB Energy 主导的土地、电力和建筑外壳</strong>建设提供信用支持，<strong>担保上限 1,050 亿美元</strong>。</li>
+      <li>园区规划向 <strong>OpenAI 提供约 4.25GW IT 负载</strong>，<strong>分九个阶段</strong>建设并匹配 <strong>20 年租约</strong>。</li>
+      <li>加上给予其他 AI 云合作伙伴的 <strong>35 亿美元租约担保</strong>，最高担保总敞口 <strong>1,085 亿美元</strong>。</li>
+      <li><strong>会计边界</strong>：这是<strong>最高担保上限</strong>，<strong>既非已划拨的真金白银，也不属于当期表内债务</strong>；要等各阶段基础设施达到投用条件后才逐步生效，<strong>首阶段预计落在 FY2029</strong>，且<strong>担保范围仅限租约和电力付款中的约定部分</strong>；只要 OpenAI 按期履约，敞口随之递减。</li>
+      <li><strong>双面性</strong>：申报文件测算，园区<strong>每一代基础设施部署约对应 150 万块 GPU 需求</strong>，带来 <strong>1,500 亿–2,000 亿美元远期收入</strong>。"担保承诺与销售预期并列出现在同一份申报文件里"——它既是锁定巨额订单的商业引擎，也是<strong>把客户履约风险绑定在自身信用上的长期责任</strong>。</li>
+    </ul>
+
+    <h4>5,000 亿美元融资平台为何卡壳</h4>
+    <ul>
+      <li>2026 年 8 月 10 日，与<strong>阿波罗、贝莱德、黑石、布鲁克菲尔德、高盛、KKR</strong> 六家签署谅解备忘录，计划逐步动员超过 5,000 亿美元第三方资本。英伟达澄清：这是"多个融资平台拟逐步撬动的资金总量"，<strong>既非营收，也非单一基金或对特定客户的付款承诺</strong>。</li>
+      <li>彭博 11/12：<strong>落地至今未完成任何一笔实际交易</strong>，首笔最早可能<strong>推迟至 2027 年 1 月</strong>才宣布。</li>
+      <li><strong>症结是"剩余价值担保比例"</strong>：现有方案英伟达<strong>最高仅覆盖交易金额的 25%</strong>，部分客户与金融机构要求大幅提高；市场甚至拿<strong>博通在一笔 Anthropic 相关融资中高达 72.5% 的支持比例</strong>作对比。</li>
+      <li>原文的审慎表述：两份合同的责任范围、触发条件和底层资产各不相同，<strong>百分比不能直接等同于最终损失率</strong>；但"信贷机构拒绝对 25% 的方案签字"本身已说明——<strong>单靠 GPU 的硬件品牌和远期算力租金预期，已不足以支撑低成本的融资条件</strong>。</li>
+      <li>路透援引知情人士：<strong>克雷斯及财务团队此前曾对部分涉及 OpenAI 和 Lambda 的融资安排持保留意见</strong>。原文同时强调：公开文件未披露完整内部讨论，"外界无法据此推断她会推翻既有的商业承诺"。</li>
+    </ul>
+    <div class="box box-judge">
+      <span class="lbl">原文提出的考题</span>
+      <p>在同时兼任临时 CEO 与 CFO 的双重身份下，克雷斯必须在下一季度的财报沟通中正面回答一个核心问题：<strong>如何在延续主营业务高增长的同时，为不断膨胀的表外信用责任划出清晰的风控边界。</strong></p>
+    </div>
+
+    <h3>4.4 信贷市场如何给下游定价</h3>
+    <h4>CoreWeave：扩张与亏损同时加速</h4>
+    <div class="tw">
+      <table>
+        <thead><tr><th>指标</th><th>2026 Q3</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>营业收入</td><td class="num"><strong>36.61 亿</strong></td><td>同比 <strong>+168%</strong></td></tr>
+          <tr><td>营业利润</td><td class="num">2.07 亿</td><td>—</td></tr>
+          <tr><td>净亏损</td><td class="num down"><strong>7.09 亿</strong></td><td>由盈转亏</td></tr>
+          <tr><td>净利息支出</td><td class="num up"><strong>8.46 亿</strong></td><td>上年同期 3.10 亿，<strong>翻倍有余</strong>；单季利息已达营业利润的<strong>4 倍以上</strong></td></tr>
+          <tr><td>收入积压（截至 9/30）</td><td class="num">1,325 亿</td><td>含法律约束力剩余履约义务与预计确认收入</td></tr>
+          <tr><td>2026 全年收入指引</td><td class="num">130–133 亿</td><td>上调</td></tr>
+          <tr><td>2026 全年资本开支</td><td class="num up">370–390 亿</td><td><strong>接近收入指引上限的 3 倍</strong>，必须依赖外部债务与客户预付款</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>CDS 与债券：市场给出的"分层定价"</h4>
+    <ul>
+      <li>德意志银行数据（财联社 11/9 援引）：CoreWeave <strong>五年期 CDS 利差 11/5 一度突破 1,289bp</strong>，11/6 回落至约 <strong>1,155bp</strong>；<strong>2032 年到期、票面 9.625% 的债券二级市场收益率攀升至 16% 以上</strong>。按标普全球市场财智通用界定，<strong>CDS 利差超过 1,000bp 通常标志发行人进入信用困境区间</strong>。</li>
+      <li>原文的克制：CDS 飙升<strong>不等于已发生实质违约</strong>，隐含违约概率高度依赖回收率假设与定价模型；但<strong>收益率突破 16% 有极强现实传导效应</strong>——推高新发债与再融资成本，并<strong>改变贷款人对同类算力资产的报价基准</strong>。"即便是完全相同的 GPU 硬件，部署到不同项目时，因承租方信用资质、合同期限与预付款安排差异，融资利率也会出现巨大悬殊。"</li>
+      <li><strong>分层而非恐慌</strong>：<strong>英伟达 5 年期 CDS 约 139bp</strong>、<strong>甲骨文约 298bp</strong>，均明显高于此前水平，但与 CoreWeave 超 1,100bp <strong>存在量级鸿沟</strong>。原文警告：把三者混为一谈会丢失核心信号——资金正在<strong>严格区分资产负债表厚实的芯片供应商、背负大量长期基建合同的软件巨头、以及高度依赖外部输血的新云厂商</strong>。</li>
+      <li><strong>一级市场照常</strong>：10/29 以来完成 <strong>5 笔 AI 相关债券、670 亿美元</strong>；年内超大规模云厂累计发行 <strong>2,960 亿美元</strong>；高盛预计 2027 年超大规模云厂发行或达 <strong>4,400 亿美元</strong>，另加约 <strong>3,000 亿美元项目级债券</strong>。"一级市场高歌猛进与 CoreWeave 二级市场高收益率同时并存"，说明<strong>AI 信贷市场并未全面停摆，但资金正加速向顶级信用主体集中</strong>。</li>
+    </ul>
+
+    <h3>4.5 大宗商品的三条价格信号</h3>
+
+    <h4>① 铜：五周连跌，但现货并不弱</h4>
+    <ul>
+      <li>11/13 LME 三个月期铜收 <strong>13,399 美元/吨</strong>，当日 -189 美元（<strong>-1.39%</strong>），盘中低见 13,353；当周 <strong>-2.8%</strong>，<strong>连续第五周收跌</strong>，创 3 月 20 日当周以来最大单周跌幅。</li>
+      <li>高盛 11/12：过去一个月 LME 铜跌约 <strong>7%</strong> 至 13,588 美元/吨；<strong>COMEX 与 LME 净多头占未平仓合约比例由 9 月底约 21% 降至约 9%</strong>（低于其 2027 年 16% 的基准假设）；<strong>维持 2027 年均价 15,400 美元/吨</strong>，但把<strong>AI 头寸平仓与美国关税政策</strong>列为两大下行风险。</li>
+      <li>现货偏紧：上期所铜库存单周 <strong>-18.3% 至 27,642 吨</strong>（2023 年 12 月以来最低）；<strong>洋山铜溢价升至 285 美元/吨历史高位</strong>；LME 总库存 316,625 吨，其中<strong>约 70.1% 在美国仓库</strong>。</li>
+      <li>另一条独立线索：8 月 COMEX 对 LME 溢价一度超 <strong>700 美元/吨</strong>，11/11 已<strong>逆转为约 25 美元贴水</strong>，套利动机消失；中期选举后市场重新评估关税节奏。</li>
+      <li>原文结论：<strong>11 月铜价回调既不能全部归咎于黄仁勋辞职，也不能简单等同于数据中心实际用铜量下滑</strong>；是 AI 风险偏好降温带动多头减仓、关税交易退潮、美元利率预期共同作用。<strong>中国现货高升水与 LME 期货下跌的背离，说明衍生品与区域现货在消化截然不同的信息。</strong></li>
+    </ul>
+    <div class="box box-note">
+      <span class="lbl">传导逻辑</span>
+      <p>融资门槛抬高 → 新建项目商业谈判周期拉长 → 项目延期 → 高压电缆、变压器、开关设备、配电系统的阶段性采购减少。"那些已经落实电力接入、土地审批和客户预付款的头部园区仍会按期施工，而<strong>高度依赖高息债务的新增项目则更容易面临调整</strong>。"期货交易的是远期预期——<strong>不需要等到工地停工，只要融资收紧的预期形成，多头就会提前平仓</strong>。</p>
+    </div>
+
+    <h4>② 电力：软银的 37 亿美元已写入报表</h4>
+    <ul>
+      <li>软银 11/10 业绩材料：子公司 <strong>Silver Bands 7</strong> 此前为俄亥俄 PORTS 项目及其他美国 AI 数据中心发电设施<strong>预付 95 亿美元采购款</strong>；项目组合审查后调整部分发电设备采购策略，<strong>当季确认 37 亿美元减值，其中 29 亿为已支付现金</strong>；截至 9/30，相关预付款扣除损失后<strong>账面余额 66 亿美元</strong>。</li>
+      <li>日元口径：损失总额 <strong>5,972 亿日元</strong>（<strong>4,570 亿不可退还预付款 + 1,402 亿合同修改与结算赔偿</strong>），是拖累软银当季 <strong>1.115 万亿日元归母净亏损</strong>的重要因素；未来若推进符合条件的采购，最高可能获 <strong>21 亿美元厂商返利</strong>（尚未计入已确认资产）。</li>
+      <li>CFO <strong>后藤芳光</strong>承认，部分电力设备是在<strong>长期园区规划尚未最终敲定之前就提前下单</strong>；同时强调俄亥俄项目并未终止，剩余 66 亿预付款继续用于推进建设。</li>
+      <li>为何甘愿提前锁单：摩根士丹利测算 2026–2028 年美国数据中心<strong>累计新增电力需求约 97GW</strong>，在建项目仅覆盖 <strong>21GW</strong>、现有电网可用容量 <strong>19GW</strong>，<strong>初步缺口 57GW</strong>；即便纳入表后发电、燃料电池、核电选址改造，<strong>基准情景仍缺 32GW，占总需求约 34%</strong>。</li>
+      <li>结构性错配：数据中心按季度推进融资与 IT 采购，而<strong>大型燃气轮机、超高压输电、并网审批需要数年</strong>。融资宽松期预付可锁定稀缺排产，但方案或节奏一变，<strong>不可退还条款就把锁单成本直接转为当期亏损</strong>。</li>
+    </ul>
+
+    <h4>③ 存储：最灵敏的预警指标</h4>
+    <ul>
+      <li>2026 年全球高端存储产能<strong>已被长单填满</strong>：<strong>SK 海力士与美光均宣布 2026 年 HBM 产能全部售罄</strong>，客户提前锁定 2027 乃至 2028 年配额；三星存储业务副总裁<strong>金宰俊</strong>（4/30）确认 2026 年 HBM 售罄、客户批量预订 2027 年产能，<strong>明年供需缺口甚至比 2026 年进一步扩大</strong>；SK 海力士（4 月底）称 2026 年 HBM 产线<strong>100% 满载、无余量可追加</strong>，英伟达、谷歌、微软等已通过长协锁至 <strong>2027 年以后，部分延伸至 2028 年</strong>。</li>
+      <li>财务兑现：SK 海力士 2026 Q1 营收 <strong>52.58 万亿韩元（+198%）</strong>，营业利润 <strong>37.61 万亿韩元（+405%）</strong>，<strong>营业利润率 72%</strong>。</li>
+      <li>价格：<strong>HBM4 2026 下半年约 2 美元/GB</strong>，业内预计 2027 年涨至 <strong>4–5 美元/GB</strong>；<strong>HBM3E 36GB 现货 2,100 美元</strong>（约为长约 4–5 倍）；<strong>16 层 HBM4 现货报价 3,500 美元</strong>；TrendForce：<strong>2026 年前三个月全球合约 DRAM 价格环比涨 93%–98%</strong>。</li>
+      <li>原文判断：存储是"整条传导链上最灵敏的预警指标"——标准化程度最高，三到四年一轮周期，<strong>每轮暴涨源于短期供需错配，每轮暴跌始于原厂同步扩产后的需求退潮</strong>。当前超级周期的推手，是云厂与 AI 巨头<strong>借充裕融资信用、用巨额预付款和五年期长协把 2026–2028 年远期产能提前买断</strong>。</li>
+      <li>核心风险：<strong>锁单狂热期无法分辨天价合约里有多少来自真实终端消化、多少来自金融信用支撑下的恐慌性前置囤货</strong>；一旦信贷收紧，<strong>锁定产能会在短时间内逆转为账面库存与预付款减值，卖方市场迅速切回买方市场</strong>。</li>
+    </ul>
+
+    <h3>4.6 循环贷的完整闭环与监管口径</h3>
+    <p>原文用一笔闭环交易说明结构：<strong>英伟达向云厂商卖 GPU → 同时持有对方股权、提供设备残值或租约担保、签署长期云服务回购协议 → 云厂商拿 GPU 集群与长期算力合同作抵押向金融机构借债 → 借来的钱再付给英伟达买更多芯片。</strong></p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>机构 / 时点</th><th>关键数据</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>美联储</strong><br>2026-11-13<br>半年度《金融稳定报告》</td>
+            <td>正式把这种多方相互支撑、资金闭环流转的安排<strong>定性为"循环融资"</strong>；<br>2026 年前十个月<strong>先进计算相关公开债务发行超 6,800 亿美元</strong>（2023 全年仅 1,300 亿）；<br>相关领域<strong>未偿公开债务总额突破 1.1 万亿美元</strong>；<br>七家大型科技公司<strong>尚未起租的数据中心租约未折现金额超 1 万亿美元</strong>，加保底采购合同与 GPU 残值担保等其他表外义务<strong>超 2 万亿美元</strong>，<strong>合计超 3 万亿美元</strong>。</td>
+          </tr>
+          <tr>
+            <td><strong>国际清算银行（BIS）</strong><br>2026 年 6 月<br>年度经济报告</td>
+            <td>五家最大超大规模云厂商 2025–2026 年 AI 相关资本开支<strong>合计预计超 1 万亿美元</strong>，<strong>部分巨头开支已超出自身盈利与自由现金流</strong>；AI 相关私人信贷未偿贷款<strong>已超 2,000 亿美元</strong>；<br>严厉警告：一旦发生风险重定价（无论由利率维持高位还是 AI 泡沫破裂触发），<strong>对信贷市场的冲击潜力堪比 2008 年全球金融危机</strong>；<br>并警示：此类交易<strong>合同条款普遍披露不足</strong>，<strong>同一批底层硬件与基建资产存在被多次重复质押的隐患</strong>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>4.7 与思科的关键差异，以及它的前置条件</h3>
+    <p>原文给出一个重要的平衡视角：今天的英伟达与二十六年前的思科之间存在一个<strong>真实的物理差异</strong>——<strong>GPU 是高度标准化的通用并行计算芯片，某个客户违约后可以拆解并重新部署给其他客户，底层资产通用性显著高于当年专用于特定电信网络的路由器和交换机</strong>。黄仁勋此前回应质疑时也多次援引这一理由：OpenAI 等大客户会按期支付算力租金，即便出现局部变动，数据中心里的硬件依然可以顺利转租。</p>
+    <div class="box box-judge">
+      <span class="lbl">原文的关键转折</span>
+      <p>"从工程技术与物理属性来看，这个差异完全真实。然而，<strong>GPU 的物理可复用性在金融层面上有一个不可或缺的前置条件——市场必须存在一个不依赖循环贷信用支撑的外部真实需求池</strong>。"</p>
+      <p>"如果终端算力需求的相当一部分本身就是由同一套担保、股权投资和采购承诺催生出来的，那么硬件的可复用性在物理层面虽然成立，<strong>在商业需求层面却可能面临落空</strong>。一台昂贵的 GPU 服务器当然可以从破产的客户 A 机房搬进客户 B 的机架，<strong>但前提是客户 B 的采购预算与付款能力，并没有绑定在同一张已经开始收紧的信用担保网络之中</strong>。"</p>
+    </div>
+
+    <h3>4.8 原文给出的观察指标清单</h3>
+    <div class="grid2">
+      <div class="mini"><div class="t">信贷市场</div><div class="b">CoreWeave 五年期 CDS <strong>约 1,155bp</strong> 与英伟达 <strong>约 139bp</strong> 的利差变动</div></div>
+      <div class="mini"><div class="t">铜</div><div class="b">LME 三个月期铜 <strong>13,399 美元/吨</strong>的盘面支撑；上期所 <strong>27,642 吨</strong>低位库存；洋山溢价 <strong>285 美元/吨</strong></div></div>
+      <div class="mini"><div class="t">电力</div><div class="b">软银 <strong>95 亿</strong>美元预付与 <strong>37 亿</strong>美元已确认损失之后，是否有其他基建商跟进减值</div></div>
+      <div class="mini"><div class="t">存储</div><div class="b"><strong>2026 年 HBM 产能售罄</strong>与排产至 <strong>2028 年</strong>的长协履约进度</div></div>
+      <div class="mini"><div class="t">宏观监管</div><div class="b">美联储记录的 <strong>6,800 亿</strong>新增发行、<strong>1.1 万亿</strong>未偿债务、<strong>3 万亿</strong>表外合同义务</div></div>
+      <div class="mini"><div class="t">治理</div><div class="b">黄仁勋辞职——在上述硬数据之外<strong>最新叠加的一项治理变量</strong></div></div>
+    </div>
+
+    <h3>4.9 原文结论：分水岭，而非崩塌</h3>
+    <ul>
+      <li>传导路径：<strong>信贷市场对最脆弱节点完成定价 → 融资收紧放缓新项目 → 新项目放缓减少电缆、变压器、发电设备与存储的前置采购</strong>。铜价已连跌五周、软银已确认 37 亿损失，这两个市场先给出了价格；存储仍在卖方市场，给出的是另一端的信息。</li>
+      <li>"循环贷的金融结构把 AI 产业的信用杠杆实实在在地铸进了<strong>铜、电力和存储的价格曲线</strong>里，而这些基础商品的供需与价格变动，必然会<strong>先于大型企业的破产清算</strong>反映出风险的真实流向。"</li>
+      <li>三项指标（铜价继续寻底、电力设备更多减值、存储长协出现推迟与砍单）<strong>任一项实质性松动</strong>，就意味着循环贷收缩完成了<strong>从表外融资 → 信贷定价 → 物理世界</strong>的完整传导。</li>
+      <li><strong>克制的边界</strong>：所有数据表明市场正在经历剧烈的风险重新定价，<strong>但尚不足以证明系统性金融危机已经爆发</strong>。真正演变为系统性危机，还需要三个条件相互强化——<strong>大型金融机构出现实质性资产减值、全市场融资渠道普遍枯竭、实体资本开支全面下滑</strong>。"当下的全球市场，正处于<strong>信用分层定价与基建项目优胜劣汰的关键分水岭</strong>上。"</li>
+      <li>结尾一句："到那时候，华尔街就再也不需要用财报电话会去争论泡沫破裂的真伪了。"</li>
+    </ul>
+  </section>
+
+  <!-- ================= 05 交叉印证 ================= -->
+  <section id="s5">
+    <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">四篇材料交叉印证与分歧</h2></div>
+    <p class="sec-desc">本节为编者归纳，用于把四篇材料的相互关系讲清楚；不代表任何一方原始立场。</p>
+
+    <h3>5.1 四篇材料的分工</h3>
+    <div class="tw">
+      <table class="fixed-first">
+        <thead><tr><th>材料</th><th>性质</th><th>回答的问题</th><th>核心贡献</th></tr></thead>
+        <tbody>
+          <tr><td><strong>海豚研究</strong><br>财报解读</td><td>卖方式财报拆解</td><td>这一季赚了多少？靠什么赚？下一季怎么走？</td><td>三组承诺（Commitments / Additional / Guarantees）的完整拆解与年份分布；提出"治理、合规、融资生态"三块未出清风险</td></tr>
+          <tr><td><strong>电话会实录</strong><br>一手文本</td><td>逐字转录</td><td>管理层原话是什么？分析师在担心什么？</td><td>董事长定调与边界、Kress 全部业务表述、六个问答的完整攻防</td></tr>
+          <tr><td><strong>智东西</strong><br>现场侧写</td><td>报道 / 观察</td><td>这场会开得怎么样？气氛如何？</td><td>紧张气氛、口误、巴克沉默、提前 10 分钟结束、黄仁勋会前发文愿回归</td></tr>
+          <tr><td><strong>扑克投资家</strong><br>金融底座</td><td>产业链 / 信用分析（非财报解读）</td><td>钱从哪来？能撑多久？风险如何传导到实物？</td><td>表外三组数字、CoreWeave 信贷定价、铜/电/存储三条实物链、美联储与 BIS 的监管口径</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 四篇高度一致的五点</h3>
+    <ol>
+      <li><strong>业绩是真的强</strong>：营收 1,158 亿、同比翻倍、FQ4 指引 1,300 亿超共识，四篇无异议。</li>
+      <li><strong>Rubin 是史上爬坡最快产品</strong>：首季即贡献近 200 亿美元、占数据中心 18%，"三个月进入各大云厂、投产用时仅 GB 的一半"。</li>
+      <li><strong>FY28 由 70% 上调至约 75%</strong>，且建立在更高的 FY27 基数上；依据是需求强度 + 可增加供应，并已纳入出口管制评估。</li>
+      <li><strong>对华 Hopper（H200）停止出货</strong>，Q3 的 24 亿美元在 Q4 归零，指引不含任何中国数据中心计算收入。</li>
+      <li><strong>兜底在收缩、担保在扩大</strong>：新云协议 360 → 320 亿；担保 1,085 → 1,180 亿且新增"硬件融资安排"；5,000 亿平台仍未落地。</li>
+    </ol>
+
+    <h3>5.3 三处值得注意的分歧与口径差异</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:130px">议题</th><th>材料 A 的说法</th><th>材料 B 的说法</th><th>编者判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Rubin 首季收入</strong></td>
+            <td>海豚 / 智东西：<strong>近 200 亿美元</strong></td>
+            <td>实录：<strong>"近 2000 万美元"</strong></td>
+            <td>实录为转录笔误。按数据中心 1,076 亿、占比 18% 反推，<strong>200 亿美元</strong>自洽。</td>
+          </tr>
+          <tr>
+            <td><strong>新增条款是否"新做法"</strong></td>
+            <td>海豚：不管怎么解释，<strong>附加承诺扩张已停</strong></td>
+            <td>Kress：<strong>"没有改变任何东西"</strong>，只为提高披露清晰度</td>
+            <td>两者可并存：<strong>措辞未变、余额在降</strong>。分歧在"解释"与"事实"之间，事实是 360 → 320。</td>
+          </tr>
+          <tr>
+            <td><strong>毛利率底部的位置</strong></td>
+            <td>海豚：FQ4 是底部，FY28 回 72%–73%</td>
+            <td>实录 / 智东西：一致，且强调"仍按旧价格履行既有订单"</td>
+            <td>无分歧。<strong>底部成因是旧价格订单 + 供应成本上升</strong>，非需求转弱。</td>
+          </tr>
+          <tr>
+            <td><strong>风险的主战场</strong></td>
+            <td>海豚：<strong>治理、合规、融资生态</strong>（估值层面）</td>
+            <td>扑克：<strong>信用循环 → 信贷定价 → 铜/电/存储</strong>（实体与信贷层面）</td>
+            <td>互补而非冲突：前者讲<strong>为什么估值折价</strong>，后者讲<strong>折价如何传导</strong>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.4 编者综合：三个待验证问题</h3>
+    <div class="box box-editor">
+      <span class="lbl">编者归纳</span>
+      <p><strong>问题一：供给锁死了，需求侧的"自有资金"够不够？</strong>上游 3,900 亿承诺、FY28 单年 2,030 亿已把"能不能造出来"基本解决；但 ACIE 增速放缓、新云协议收缩、5,000 亿平台零成交，说明<strong>下游的融资能力正在成为新的瓶颈</strong>。这是四篇材料在事实层面共同指向、但结论强度不同的地方。</p>
+      <p><strong>问题二：75% 的指引，是"需求给出的"还是"供给给出的"？</strong>管理层口径是两者兼有（需求强度 + 可增加供应）。但 FY28 供应承诺恰好覆盖 75% 增长所需的营业成本，这意味着<strong>该指引在供给端已被"物理锁定"，其可信度取决于需求端能否兑现，而非产能</strong>。</p>
+      <p><strong>问题三：治理折价何时消除？</strong>四篇材料给出三个可核对的路标——<strong>永久 CEO 落地、独立调查结论、出口管制立法定案</strong>。在此之前，业绩超预期只能托住股价的"下限"，难以修复"上限"。</p>
+    </div>
+  </section>
+
+  <!-- ================= 06 附录 ================= -->
+  <section id="s6">
+    <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">附录：数据表与口径说明</h2></div>
+    <p class="sec-desc">便于核对原始数字。</p>
+
+    <h3>附录 A · 财报总表（单位：百万美元）</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>项目</th><th>3Q26A</th><th>同比</th><th>占比 / 利润率</th><th>4Q26 指引</th><th>一致预期</th><th>超预期</th></tr></thead>
+        <tbody>
+          <tr><td>总收入</td><td class="num"><strong>115,844</strong></td><td class="num up">+103.2%</td><td class="num">—</td><td class="num"><strong>130,000</strong></td><td class="num">129,729</td><td class="num up">+4.23%</td></tr>
+          <tr><td>毛利</td><td class="num">86,676</td><td class="num">+102.9%</td><td class="num"><strong>74.8%</strong>（GAAP）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td>研发费用</td><td class="num">7,454</td><td class="num">+105.4%</td><td class="num">6.4%</td><td class="num">—</td><td class="num">7,708</td><td class="num down">-3.29%</td></tr>
+          <tr><td>销售及管理费用</td><td class="num">1,702</td><td class="num">+117.5%</td><td class="num">1.4%</td><td class="num">—</td><td class="num">1,504</td><td class="num up">+13.19%</td></tr>
+          <tr><td>营业利润</td><td class="num">76,945</td><td class="num">+115.3%</td><td class="num"><strong>66.4%</strong></td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td>净利润</td><td class="num">65,287</td><td class="num">+104.6%</td><td class="num"><strong>56.4%</strong></td><td class="num">—</td><td class="num">60,829</td><td class="num up">+7.33%</td></tr>
+          <tr><td>下季毛利率（GAAP）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num"><strong>71.5%</strong></td><td class="num">71.9%</td><td class="num down">-0.35%</td></tr>
+          <tr><td>数据中心</td><td class="num"><strong>107,644</strong></td><td class="num up">+110.2%</td><td class="num">92.9%</td><td class="num">—</td><td class="num">101,838</td><td class="num up">+5.70%</td></tr>
+          <tr><td>— Hyperscale</td><td class="num">60,144</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">53,343</td><td class="num up">+12.75%</td></tr>
+          <tr><td>— ACIE</td><td class="num">47,500</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">48,891</td><td class="num down">-2.88%</td></tr>
+          <tr><td>边缘计算（新）</td><td class="num">8,200</td><td class="num">+41.6%</td><td class="num">7.1%</td><td class="num">—</td><td class="num">7,505</td><td class="num up">+9.26%</td></tr>
+          <tr><td>存货</td><td class="num">39,724</td><td class="num up">+100.8%</td><td class="num">34.3%（存货/收入）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td>应收账款</td><td class="num">81,033</td><td class="num up">+142.7%</td><td class="num"><strong>70.0%</strong>（应收/收入）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+          <tr><td>预付款</td><td class="num">3,506</td><td class="num">+29.4%</td><td class="num">3.0%（预付/收入）</td><td class="num">—</td><td class="num">—</td><td class="num">—</td></tr>
+        </tbody>
+        <caption>数据来源：公司财报、Bloomberg、Investment Bank Expectations、Dolphin Research</caption>
+      </table>
+    </div>
+
+    <h3>附录 B · BIS 出口管制临时最终规则：五部分</h3>
+    <p class="muted" style="font-size:13px">规则名称：Addressing Remote Access to Advanced Semiconductors（RIN 0694-AK50），2026 年 11 月 16 日发布。原文以图表形式呈现，以下为逐条还原。</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th style="width:34px">#</th><th style="width:170px">条款</th><th>变化内容</th><th style="width:190px">豁免 / 过渡</th><th style="width:80px">敞口渠道</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>①</strong></td>
+            <td><strong>远程算力纳入许可</strong><br><span class="muted">Remote compute brought under licensing</span></td>
+            <td><strong>GPU 物理位置不再重要</strong>：向总部（或最终母公司）位于 <strong>D:5 国家组（含中国）或澳门</strong>的实体<strong>远程提供超过 1,200 万 aggregate TPP</strong> 算力，即需许可</td>
+            <td><strong>纯商业推荐系统</strong>（电商、社交媒体）豁免；存量业务 <strong>90 天过渡期</strong></td>
+            <td>B、C</td>
+          </tr>
+          <tr>
+            <td><strong>②</strong></td>
+            <td><strong>规避更难</strong><br><span class="muted">Circumvention made harder</span></td>
+            <td>算力<strong>不得拆分到多个"关联数据中心"</strong>以停留在门槛之下；运营方须做<strong>穿透式 KYC</strong>，识别<strong>最终受益所有人</strong>，而非仅看签约客户</td>
+            <td>—</td>
+            <td>A、D</td>
+          </tr>
+          <tr>
+            <td><strong>③</strong></td>
+            <td><strong>五个转运枢纽的许可要求</strong></td>
+            <td>对<strong>印尼、马来西亚、新加坡、泰国、巴西</strong>出口先进芯片<strong>需许可</strong>；BIS 称其"<strong>转运风险高于正常水平</strong>"</td>
+            <td><strong>母公司在美国</strong>的接收方若满足<strong>月度报告</strong>要求可豁免</td>
+            <td>A、E</td>
+          </tr>
+          <tr>
+            <td><strong>④</strong></td>
+            <td><strong>收紧代工与封测假定</strong><br><span class="muted">foundry / OSAT presumption</span></td>
+            <td>对 <strong>D:1、D:4、D:5 及上述五国</strong>的芯片设计公司，<strong>更难推翻 3A090 假定</strong>；通过<strong>离岸流片或封装测试</strong>规避的空间更小</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>⑤</strong></td>
+            <td><strong>废除 AI Diffusion Rule 与模型权重管制</strong></td>
+            <td>旧 <strong>AI Diffusion Rule 被撤销</strong>，<strong>模型权重不再管制</strong></td>
+            <td>但对<strong>底层算力硬件</strong>的管制<strong>保留</strong></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>门槛直观换算（1,200 万 aggregate TPP ≈ 等效 GPU 数量，海豚研究估算）</strong>：H100 约 <strong>750 颗</strong>；B200 约 <strong>330 颗</strong>；B300 约 <strong>200 颗</strong>。原文注释：这一门槛"<strong>足以覆盖几乎所有规模的训练租用</strong>"。</p>
+
+    <h3>附录 C · 新规毛敞口测算</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>渠道</th><th>毛敞口（占收入）</th><th>对应条款</th></tr></thead>
+        <tbody>
+          <tr><td>A. 经东南亚的实物转运（Megaspeed 型）</td><td class="num"><strong>约 2%</strong></td><td>③、②</td></tr>
+          <tr><td>B. 五国境内非美数据中心向中资出租算力</td><td class="num"><strong>约 2%</strong></td><td>①</td></tr>
+          <tr><td>C. 中资在五国之外租用算力（日本、中东、欧洲、美资 DC），不论物理位置</td><td class="num"><strong>约 1%–2%</strong></td><td>①</td></tr>
+          <tr><td>D. 壳公司代签与拆单（此前被计为合法需求）</td><td class="num"><strong>约 0.5%–1.5%</strong></td><td>②</td></tr>
+          <tr><td><strong>合计（A–D）</strong></td><td class="num"><strong>约 5.5%–7.5%</strong></td><td>—</td></tr>
+          <tr><td>E. 合法本地新云的许可与月报合规延迟（<strong>不计入合计</strong>，影响约 1–2 个季度）</td><td class="num">约 0.5%–1%</td><td>③</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>原文补充：新规直接打到的是<strong>非美系机房向中资出租算力及实物转运这条"离岸通道"</strong>，在财报地区口径里<strong>大多记在"台湾"（ODM 出货）或"美国"（OEM）名下，任何口径都直接看不出来</strong>。假设被挤出配额中 <strong>50%–60% 可被北美云厂、AI 实验室和主权云接走</strong>，则<strong>实际影响约 2%–3%</strong>。</p>
+
+    <h3>附录 D · 数字口径差异说明</h3>
+    <ul>
+      <li><strong>总营收</strong>：精确值 115,844 百万美元；各材料分别表述为"1,158 亿""1,158.4 亿""1,160 亿"（实录为取整）。</li>
+      <li><strong>数据中心</strong>：精确值 107,644 百万美元；实录表述为"1,080 亿"，为四舍五入后的口语化数字。</li>
+      <li><strong>超大规模 / ACIE</strong>：精确值 60,144 / 47,500 百万美元；实录为"600 亿 / 470 亿"。</li>
+      <li><strong>Rubin 首季贡献</strong>：实录原文"近 2000 万美元"应为笔误，其余材料与占比反推均为<strong>近 200 亿美元</strong>。</li>
+      <li><strong>中国（含香港）收入</strong>：Q3 回升至 <strong>110.5 亿美元、占比 9.5%</strong>；其中获许可 Hopper 产品 <strong>24 亿美元</strong>，Q4 归零。</li>
+      <li><strong>回购授权</strong>：本季<strong>新增 1,500 亿</strong>，期末<strong>剩余 2,270 亿</strong>（海豚原文写 2,273 亿，为不同取整口径，差异极小）。</li>
+      <li><strong>表外承诺的时点</strong>：扑克投资家引用的 990 亿股权投资、360 亿云服务承诺、1,085 亿担保均为<strong>上一财季（截至 2026-07-26）</strong>数据；本季（Q3）对应为<strong>320 亿附加承诺、1,180 亿担保、3,900 亿采购承诺</strong>，比较时需注意期间差异。</li>
+    </ul>
+
+    <h3>附录 E · 资料来源</h3>
+    <ol style="font-size:13.5px">
+      <li>海豚研究（海豚君），《答卷照牛！但没了老黄，英伟达已不对味！》，2026-11-18。</li>
+      <li>《英伟达三季度电话会实录：黄仁勋辞任后的第一场电话会，上调 2028 财年指引至增长 75%，强调路线图和野心都不变》。</li>
+      <li>智东西，陈骏达（编辑 心缘），《没有黄仁勋的首个英伟达财报会：微妙紧张、几次说错、董事长拒绝 CEO 复职》，2026-11-18。</li>
+      <li>扑克投资家，《黄仁勋离开之后，英伟达最难回答的问题不在财报里》，经"经纬低调分享"转载。</li>
+    </ol>
+    <p class="muted" style="font-size:12.5px">上述第 4 篇原文另附 25 项主要来源，涵盖英伟达公告与 10-Q、彭博与路透报道、CoreWeave 业绩与 SEC 申报、LME 与上海有色网行情、高盛大宗商品展望、软银业绩材料、摩根士丹利电力缺口研究、美联储《金融稳定报告》、国际清算银行《年度经济报告》等。</p>
+  </section>
+
+  <footer>
+    <p class="dis">⚠️ 本页为对四篇公开报道与研究材料的<strong>客观摘录、结构重组与交叉比对</strong>，所有观点均归属原作者，编者归纳部分已单独标注。内容仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。</p>
+    <p>整理日期 2026-11-18　·　数据与表述以原始材料为准</p>
+  </footer>
+
+</div>
+</body>
+</html>

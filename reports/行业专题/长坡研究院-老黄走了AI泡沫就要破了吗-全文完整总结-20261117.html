@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老黄走了，AI 泡沫就要破了吗？——长坡研究院全文完整总结</title>
+<style>
+  :root{
+    --paper:#f7f5f1;--card:#ffffff;--ink:#1b1a18;--ink-2:#3d3a35;--ink-3:#6b655c;--ink-4:#9a9388;
+    --line:#e2ddd4;--line-2:#efece6;--accent:#8b1e1e;--accent-soft:#f6e8e7;
+    --teal:#1f4e5f;--teal-soft:#e6eef1;--gold:#8a6d1f;--gold-soft:#f8f1dc;
+    --green:#2f6b4f;--green-soft:#e7f0ea;
+    --serif:Georgia,"Songti SC","SimSun","Noto Serif SC",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.85;-webkit-font-smoothing:antialiased;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .shell{max-width:1240px;margin:0 auto;padding:0 32px 100px;display:grid;grid-template-columns:212px minmax(0,1fr);gap:56px;}
+  .main{min-width:0;}
+  .toc{position:sticky;top:0;align-self:start;padding:44px 0 40px;max-height:100vh;overflow-y:auto;}
+  .toc-label{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);font-weight:700;margin-bottom:14px;}
+  .toc ol{list-style:none;margin:0;padding:0;}
+  .toc a{display:block;padding:5px 10px 5px 12px;font-size:12.5px;line-height:1.5;color:var(--ink-3);border-left:2px solid transparent;transition:all .15s;}
+  .toc a:hover{color:var(--ink);text-decoration:none;background:#efece6;}
+  .toc a.active{color:var(--accent);border-left-color:var(--accent);background:#f2ede6;font-weight:600;}
+  .hero{padding:60px 0 38px;border-bottom:1px solid var(--line);}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:22px;}
+  .kicker::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block;}
+  h1{font-family:var(--serif);font-size:clamp(29px,4vw,44px);line-height:1.26;font-weight:700;letter-spacing:-.01em;margin:0 0 18px;}
+  h1 .q{color:var(--accent);}
+  .deck{font-size:16.5px;color:var(--ink-2);line-height:1.8;max-width:790px;margin:0 0 28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:12px;color:var(--ink-3);padding-top:22px;border-top:1px dashed var(--line);}
+  .meta b{color:var(--ink-2);font-weight:600;}
+  .verdict{margin:30px 0 0;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:3px;padding:26px 30px;box-shadow:0 1px 2px rgba(27,26,24,.04),0 10px 30px -18px rgba(27,26,24,.18);}
+  .verdict h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-family:var(--sans);font-weight:700;}
+  .verdict p{margin:0 0 12px;font-size:15px;color:var(--ink-2);line-height:1.85;}
+  .verdict p:last-child{margin-bottom:0;}
+  .verdict strong{color:var(--ink);font-weight:700;}
+  section{padding:54px 0 8px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:8px;}
+  .sec-num{font-family:var(--serif);font-size:34px;line-height:1;color:#cfc8bc;font-weight:700;flex:none;letter-spacing:-.02em;}
+  h2.sec-title{font-family:var(--serif);font-size:26px;line-height:1.35;margin:0;font-weight:700;letter-spacing:-.01em;}
+  .sec-sub{color:var(--ink-3);font-size:13.5px;margin:0 0 28px;padding-left:52px;line-height:1.7;}
+  h3{font-family:var(--sans);font-size:15.5px;font-weight:700;margin:34px 0 12px;color:var(--ink);}
+  h3 .h3n{color:var(--ink-4);font-weight:600;margin-right:8px;font-variant-numeric:tabular-nums;}
+  h4{font-size:14px;font-weight:700;margin:22px 0 8px;color:var(--ink-2);}
+  p{margin:0 0 15px;}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:7px;}
+  li::marker{color:var(--ink-4);}
+  .tw{margin:18px 0 24px;border:1px solid var(--line);border-radius:3px;overflow-x:auto;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.65;min-width:560px;}
+  thead th{background:#efece5;text-align:left;padding:11px 14px;font-weight:700;font-size:11.5px;letter-spacing:.06em;color:var(--ink-2);border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#fbfaf7;}
+  td strong{color:var(--ink);font-weight:700;}
+  .num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .badge{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:2px;white-space:nowrap;line-height:1.6;}
+  .b-ok{background:var(--green-soft);color:var(--green);}
+  .b-mid{background:var(--gold-soft);color:var(--gold);}
+  .b-no{background:var(--accent-soft);color:var(--accent);}
+  .b-teal{background:var(--teal-soft);color:var(--teal);}
+  .callout{background:var(--teal-soft);border-left:3px solid var(--teal);padding:16px 20px;margin:20px 0 24px;font-size:13.5px;color:var(--ink-2);line-height:1.8;border-radius:0 3px 3px 0;}
+  .callout.warn{background:var(--accent-soft);border-left-color:var(--accent);}
+  .callout.gold{background:var(--gold-soft);border-left-color:var(--gold);}
+  .callout.green{background:var(--green-soft);border-left-color:var(--green);}
+  .callout b{color:var(--ink);}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden;margin:24px 0 30px;}
+  .stat{background:var(--card);padding:20px 18px;}
+  .stat .v{font-family:var(--serif);font-size:27px;line-height:1.1;font-weight:700;letter-spacing:-.02em;color:var(--accent);}
+  .stat .v small{font-size:14px;font-weight:600;}
+  .stat .k{font-size:11.5px;color:var(--ink-3);margin-top:7px;line-height:1.5;}
+  .stat.t .v{color:var(--teal);}
+  .stat.g .v{color:var(--gold);}
+  .stat.n .v{color:var(--green);}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0 26px;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:20px 22px;}
+  .panel h4{margin:0 0 10px;font-size:13.5px;letter-spacing:.02em;}
+  .panel p{font-size:13.5px;margin:0 0 10px;color:var(--ink-2);line-height:1.78;}
+  .panel p:last-child{margin-bottom:0;}
+  .panel.hot{border-top:2px solid var(--accent);}
+  .panel.cool{border-top:2px solid var(--teal);}
+  .panel ul{font-size:13.5px;margin:0;padding-left:20px;}
+  .panel li{margin-bottom:6px;}
+  blockquote{margin:22px 0;padding:4px 0 4px 20px;border-left:2px solid var(--line);color:var(--ink-2);font-family:var(--serif);font-size:15.5px;line-height:1.85;}
+  blockquote cite{display:block;font-family:var(--sans);font-size:11.5px;color:var(--ink-4);font-style:normal;margin-top:8px;letter-spacing:.04em;}
+  .check{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:8px 24px;margin:20px 0 10px;}
+  .check ol{list-style:none;padding:0;margin:0;counter-reset:c;}
+  .check li{counter-increment:c;position:relative;padding:11px 0 11px 34px;border-bottom:1px solid var(--line-2);font-size:13.5px;color:var(--ink-2);margin:0;}
+  .check li:last-child{border-bottom:none;}
+  .check li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:11px;font-size:11px;font-weight:700;color:var(--ink-4);font-variant-numeric:tabular-nums;letter-spacing:.04em;}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px;}
+  .flow span{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:7px 12px;font-size:12.5px;color:var(--ink-2);line-height:1.5;}
+  .flow span em{font-style:normal;color:var(--ink-4);margin-right:6px;font-size:11px;font-variant-numeric:tabular-nums;}
+  .flow span.k{background:var(--accent-soft);border-color:#e7cfcd;color:var(--accent);font-weight:600;}
+  .flow span.t{background:var(--teal-soft);border-color:#cfe0e5;color:var(--teal);font-weight:600;}
+  footer{padding:40px 0 0;font-size:12px;color:var(--ink-4);line-height:1.8;border-top:1px solid var(--line);margin-top:50px;}
+  .disc{margin:26px 0 0;padding:18px 22px;background:#efece5;border-radius:3px;font-size:12.5px;color:var(--ink-3);line-height:1.8;}
+  @media (max-width:900px){
+    .shell{grid-template-columns:1fr;gap:0;padding:0 20px 60px;}
+    .toc{display:none;}
+    .hero{padding:40px 0 30px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .duo{grid-template-columns:1fr;}
+    .sec-sub{padding-left:0;}
+    .sec-head{gap:12px;}
+    .sec-num{font-size:26px;}
+    h2.sec-title{font-size:21px;}
+    body{font-size:15px;}
+  }
+  @media print{
+    body{background:#fff;font-size:10.5pt;}
+    .toc{display:none;}
+    .shell{display:block;padding:0;}
+    .verdict,.panel,.tw{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="toc" aria-label="目录">
+    <div class="toc-label">目录</div>
+    <ol>
+      <li><a href="#s0">核心结论</a></li>
+      <li><a href="#s1">01 事件与结论先行</a></li>
+      <li><a href="#s2">02 没了老黄，英伟达还转吗</a></li>
+      <li><a href="#s3">03 算力需求是真的吗</a></li>
+      <li><a href="#s4">04 台积电老板怎么算账</a></li>
+      <li><a href="#s5">05 算力中心是什么生意</a></li>
+      <li><a href="#s6">06 真风险在大模型同质化</a></li>
+      <li><a href="#s7">07 我们该怎么办</a></li>
+      <li><a href="#s8">08 关键数据速查</a></li>
+      <li><a href="#s9">09 原文金句</a></li>
+      <li><a href="#s10">10 往期文章索引</a></li>
+    </ol>
+  </nav>
+
+  <main class="main">
+
+    <header class="hero">
+      <div class="kicker">全文完整总结 · 无观点遗漏</div>
+      <h1>老黄走了，<span class="q">AI 泡沫就要破了吗？</span></h1>
+      <p class="deck">
+        作者在苏州过秋假期间，回应投资群里最热的话题：黄仁勋辞任英伟达 CEO，AI 是不是要崩。全文从<strong>循环融资的真实占比</strong>、<strong>算力需求的真伪</strong>、<strong>台积电的谨慎资本配置逻辑</strong>、<strong>算力中心的四代规模效应</strong>、<strong>大模型同质化带来的利润迁移</strong>五条线索，推演 AI 泡沫的边界与应对方式。
+      </p>
+      <div class="meta">
+        <span><b>原文标题</b> 老黄走了，AI泡沫就要破了吗？</span>
+        <span><b>作者</b> 坡夫Leon · 长坡研究院</span>
+        <span><b>核心事件</b> 2026 年 11 月 12 日黄仁勋卸任</span>
+        <span><b>总结整理</b> 2026 年 11 月 17 日</span>
+      </div>
+
+      <div class="verdict" id="s0">
+        <h2>核心结论</h2>
+        <p>
+          <strong>一、对纳指的判断：短期有情绪，长期不慌。</strong>AI 有<strong>阶段性泡沫</strong>，但<strong>长期看仍处于早期，没有泡沫</strong>；短期则要具体看<strong>各家厂商的资本配置能力</strong>。
+        </p>
+        <p>
+          <strong>二、老黄的去留不是决定泡沫的关键变量。</strong>英伟达未来三五年的技术路线、产品演进、资本开支和收入都已由他规划好，可见的三五年不受影响。真正决定泡沫会不会破的是两点：<strong>算力订单里有多少靠"循环融资"透支</strong>、<strong>大厂几千亿的算力中心能不能赚回机器折旧</strong>。
+        </p>
+        <p>
+          <strong>三、真正的商业风险不在老黄，而在"大模型同质化"。</strong>当纯模型沦为大宗商品，利润向<strong>掌握场景的应用层</strong>和<strong>卡住物理瓶颈的晶圆制造、电网、能源</strong>两头转移；云厂商像"中立收费站"位置最稳，而英伟达的超高溢价承压。
+        </p>
+      </div>
+    </header>
+
+    <!-- ============ 01 ============ -->
+    <section id="s1">
+      <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title">事件与结论先行</h2></div>
+      <p class="sec-sub">先把事实与结论摆清，再进入论证。</p>
+
+      <h3>触发事件</h3>
+      <ul>
+        <li><strong>11 月 12 日</strong>，英伟达宣布<strong>黄仁勋卸任 CEO 和董事</strong>，由 <strong>CFO 科莱特·克雷斯</strong>暂任 CEO。</li>
+        <li>其后几天，随着市场<strong>担忧算力支出放缓</strong>，英伟达<strong>市值跌破 4 万亿美元</strong>。</li>
+        <li>有读者转来<strong>美联储报告</strong>，称 <strong>AI 把估值和债务都推高了</strong>，并追问：<strong>老黄这一走，循环融资会不会断，AI 板块会不会被重创？</strong></li>
+        <li>作者提示：这个话题刚在<strong>知识星球 11 月月度直播</strong>里聊过，此前《"AI 到底是不是泡沫"，对顶级 VC 九十页报告论证"AI 不是泡沫"的反思》一文也算过账。</li>
+      </ul>
+
+      <h3>本文的切入角度</h3>
+      <p>作者利用秋假时间，换一个角度来谈：<strong>从各家大厂对资本开支的态度、管理层性格与过往资本配置的历史</strong>入手，判断这一轮 AI 资本开支的成色。</p>
+
+      <h3>结论先行</h3>
+      <div class="callout warn">
+        <b>对纳指的结论：短期有情绪，长期不慌。</b>AI <b>有阶段性泡沫，但长期看仍处于早期，没有泡沫</b>。短期则要<b>具体看各家厂商的资本配置能力</b>。
+      </div>
+      <p>这个"三段式"判断是全文的骨架：<strong>长期定性（早期、无泡沫）</strong> + <strong>中期定性（阶段性泡沫存在）</strong> + <strong>短期定性（分化，看谁更会花钱）</strong>。三者并不矛盾，而是<strong>时间尺度不同</strong>。</p>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section id="s2">
+      <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title">没了老黄，英伟达还转吗？</h2></div>
+      <p class="sec-sub">答案：可见的三五年，不受影响。但真正的问题不在这里。</p>
+
+      <h3>短期不受影响的理由</h3>
+      <p>作者给出一个很具体的判断：<strong>在可见的三五年内，英伟达不受影响。</strong>因为英伟达未来三五年的<strong>技术路线和产品演进</strong>、<strong>资本开支和收入</strong>，<strong>都已经由老黄规划好了</strong>。这是"路线图惯性"——一家公司被创始人按年为单位排好的产品节奏，不会因为人事变动而立刻改写。</p>
+
+      <h3>但真正决定泡沫的两个问题</h3>
+      <p>作者明确把话题从"人"转向"钱"：<strong>真正决定 AI 泡沫会不会破的，不是老黄一个人的去留，而是更根本的两点。</strong></p>
+      <div class="check">
+        <ol>
+          <li><strong>眼下的算力订单里，有多少是靠"循环融资"透支的超额繁荣？</strong>——即需求中有多少是被金融工程"造"出来的，而非终端真实付费意愿。</li>
+          <li><strong>大厂一年砸几千亿建"算力中心"，未来到底能不能赚回机器折旧？</strong>——即资本开支的<strong>回收周期</strong>能否跑赢<strong>折旧周期</strong>。</li>
+        </ol>
+      </div>
+      <p>这两个问题构成了后文第三、四、五节的论证主线：<strong>先证伪"循环融资"的恐慌，再证伪"需求造假"的恐慌，最后承认"泡沫确实存在，但在结构上而非总量上"</strong>。</p>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section id="s3">
+      <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title">算力需求是真的吗？</h2></div>
+      <p class="sec-sub">拆两件事：循环融资的水分有多大，需求本身有多真。</p>
+
+      <h3>3.1 循环融资：听着吓人，数字不支持</h3>
+      <p><strong>先承认指控的合理之处。</strong>英伟达过去两年确实<strong>身兼三职</strong>：</p>
+      <div class="flow">
+        <span class="k">卖芯片的供应商</span>
+        <span class="k">投资客户的股东</span>
+        <span class="k">替客户担保的担保人</span>
+        <span class="t">钱投出去 → 客户拿去订它的芯片 → 订单又流回来</span>
+      </div>
+      <p>这个闭环<strong>"听着确实挺吓人"</strong>——因为它意味着英伟达的营收里可能有一部分是自己出钱买回来的。</p>
+      <p><strong>但看数字，水分有限。</strong>真正<strong>从英伟达自己兜里掏出来的直投资金，只占营收的 10% 上下</strong>。剩下 <strong>90% 的大头</strong>，是<strong>银行银团、私募信贷和第三方机构</strong>投的钱。</p>
+      <div class="callout">
+        <b>关键论证：</b>剩下那些放贷机构<b>有自己的尽调规则</b>，<b>赔的是自己的真金白银</b>，<b>不会跟着英伟达闭眼签字</b>。——所以"循环融资"不是英伟达单方面可以无限循环的游戏，外部债权人的风控是硬约束。
+      </div>
+
+      <h3>3.2 需求本身：卡点不是"卖不掉"，而是"买不到"</h3>
+      <p>作者把市场担忧整个反转过来：今天 AI 产业链最核心卡脖子的，<strong>不是芯片做出来没人要，而是"压根买不到"</strong>。三个卡点：</p>
+      <ul>
+        <li><strong>晶圆产能不够</strong></li>
+        <li><strong>电不够</strong></li>
+        <li><strong>出口监管卡着</strong></li>
+      </ul>
+
+      <h4>三个实证</h4>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:120px">证据</th><th>内容</th><th style="width:110px">说明什么</th></tr></thead>
+          <tbody>
+            <tr><td><strong>国内大厂</strong></td><td>想买英伟达高端芯片<strong>到现在都买不到</strong></td><td>供给被管制截断</td></tr>
+            <tr><td><strong>腾讯</strong></td><td>花钱向来<strong>很克制</strong>的公司，管理层在<strong>财报会上都坦言算力紧缺，有钱也买不到足够的卡</strong></td><td>需求方主动示弱，不是缺钱</td></tr>
+            <tr><td><strong>甲骨文</strong></td><td>前阵子那笔 <strong>70 亿美元</strong>的芯片租赁<strong>也黄了</strong></td><td>连大额合约都拿不到货</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <blockquote>
+        需求要是假的，这么多手握千亿现金的精明老板，排队抢什么呢？
+        <cite>—— 原文反问</cite>
+      </blockquote>
+
+      <h3>3.3 但泡沫并非不存在：两个判断同时成立</h3>
+      <p>作者没有一边倒。他的结论是：</p>
+      <div class="duo">
+        <div class="panel hot">
+          <h4>产能不足 —— 真</h4>
+          <p>晶圆、电力、监管三重约束下，供给确实追不上被点燃的需求，价格与订单被放大。</p>
+        </div>
+        <div class="panel cool">
+          <h4>需求夸大 —— 也真</h4>
+          <p>下游每个玩家都怕掉队、都想多要一点产能，个体真话加总成集体幻觉。</p>
+        </div>
+      </div>
+      <p>作者特别标注：<strong>这个"产能不足与需求夸大同时存在"的结论，是台积电的老板魏哲家说的。</strong>——由此自然过渡到下一节，用台积电的算账方式来解释"为什么最懂行的人最谨慎"。</p>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section id="s4">
+      <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title">谁在说真话？看台积电老板怎么算账</h2></div>
+      <p class="sec-sub">全篇最重要的一句引语，和一套可复用的资本配置方法论。</p>
+
+      <blockquote>
+        每个客户都尽力说真话，但所有客户的进取需求加在一起，并不是真相。
+        <cite>—— 魏哲家 · 台积电</cite>
+      </blockquote>
+      <p>作者称这句话<strong>"非常反映台积电谨慎资本配置态度"</strong>。原因拆解如下：</p>
+      <ul>
+        <li>下游每个大厂都<strong>怕掉队、都想多要一点产能</strong>；</li>
+        <li><strong>每个人说的都是真心话</strong>（不是撒谎）；</li>
+        <li>可把所有人的"多要一点"<strong>加起来，就是一个被恐慌放大的数字</strong>。</li>
+      </ul>
+      <p>这是一个非常精妙的观察：<strong>泡沫不需要有人说谎，只需要所有人同时乐观一点点。</strong></p>
+
+      <h3>台积电怎么验证：不听口号，看土建和电网</h3>
+      <p>台积电<strong>从来不只听客户单方面口号</strong>，而是<strong>派团队去客户的数据中心实地看土建和电网进度，看他们的真实账单和订单</strong>，<strong>看完才决定扩多少产能</strong>。</p>
+      <div class="callout gold">
+        <b>为什么看"土建和电网"？</b>因为这两项是<b>最难造假、最滞后于口头承诺</b>的物理指标——厂房有没有盖起来、变电站有没有接上，决定了订单最终能不能变成真实算力。
+      </div>
+
+      <h3>台积电心里的两本账</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:150px">选择</th><th>代价</th><th style="width:150px">成本性质</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>少建产能</strong></td>
+              <td>丢掉<strong>营收和份额</strong></td>
+              <td><span class="badge b-teal">隐性成本 · 报表看不见</span></td>
+            </tr>
+            <tr>
+              <td><strong>多建产能</strong></td>
+              <td>两三年后需求回落、<strong>产能利用率掉下来，高折旧直接拖垮毛利率</strong></td>
+              <td><span class="badge b-no">显性成本 · 血淋淋、看得见</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>两害相权，台积电选前者</strong>——宁可少赚、丢份额，也不愿背高折旧。这是一个<strong>把"会计后果"置于"市场份额"之上</strong>的决策偏好，也是它几十年毛利率稳定的根源。</p>
+
+      <h3>历史佐证：苹果的第一笔订单只给四分之一</h3>
+      <p>当年<strong>苹果第一次把手机芯片交给台积电</strong>，台积电初期<strong>也只答应帮它造四分之一</strong>。<strong>不是不想多赚，是不想把自己的身家性命押在客户的乐观上。</strong></p>
+
+      <h3>同行佐证：Anthropic 的阿莫迪</h3>
+      <p><strong>Anthropic 的老板阿莫迪也有同样的态度</strong>：算力得<strong>提前一两年下单</strong>，但<strong>宁可少买，不够再补</strong>。——同样是"宁缺不赌"。</p>
+
+      <div class="callout warn">
+        <b>本节提炼：</b><b>最了解这个行业的人反而最谨慎</b>——<b>有人在恐慌中多喊，有人在冷静地打折听，这是泡沫背后的情况。</b>
+      </div>
+      <p>这句话同时解释了两件事：<strong>为什么订单数字会系统性高估真实需求</strong>（喊的人在放大），以及<strong>为什么龙头企业的资本开支纪律反而是最强的</strong>（听的人在打折）。</p>
+    </section>
+
+    <!-- ============ 05 ============ -->
+    <section id="s5">
+      <div class="sec-head"><div class="sec-num">05</div><h2 class="sec-title">算力中心，到底是门什么生意？</h2></div>
+      <p class="sec-sub">用"规模效应四代论"给 AI 算力中心定位：比互联网重，但仍是最好的生意之一。</p>
+
+      <h3>5.1 商业史上规模效应的四代演进</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:70px">代际</th><th style="width:210px">形态</th><th>规模效应与约束</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>第一代</strong></td>
+              <td>早期酒楼客栈、手工作坊</td>
+              <td><strong>店长管得过来多大，生意就多大</strong>，<strong>几乎没有规模效应</strong></td>
+            </tr>
+            <tr>
+              <td><strong>第二代</strong></td>
+              <td>近现代工厂、全球消费品牌</td>
+              <td>流水线有了<strong>生产规模效应</strong>，但货要靠车运，<strong>受制于物理搬运半径</strong>。强如<strong>可口可乐</strong>，能靠<strong>浓缩糖浆和品牌全球收税</strong>，也<strong>得靠各地的瓶装厂建厂房、买瓶子、雇卡车把汽水运到小卖部</strong>——<strong>物理摩擦吃掉了相对一块利润</strong></td>
+            </tr>
+            <tr>
+              <td><strong>第三代</strong></td>
+              <td>搜索、社交等古典互联网</td>
+              <td><strong>迄今为止人类商业史上最好的生意</strong>：代码写好一次，<strong>机房折旧很小</strong>，多服务一个用户的<strong>边际成本趋近于零</strong>，<strong>一根网线服务全球</strong>，赚来的钱<strong>全是自由现金流</strong>，<strong>可以直接拿来分红和回购</strong></td>
+            </tr>
+            <tr>
+              <td><strong>第四代</strong></td>
+              <td>今天的 AI 算力中心</td>
+              <td>继承第三代最大优点——<strong>通过光纤网线向全球输送"智能"，抹平了物理交付半径</strong>；但<strong>有两个互联网没有的沉重负担</strong>（见下）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.2 第四代的两个沉重负担</h3>
+      <div class="duo">
+        <div class="panel hot">
+          <h4>负担一：每次推理都要实时烧钱</h4>
+          <p><strong>每次推理都要实时烧电、消耗显卡寿命。</strong>这是运营成本，不是一次性的固定投入——用得越多，成本线性上升，无法像软件一样趋零。</p>
+        </div>
+        <div class="panel hot">
+          <h4>负担二：折旧周期极短</h4>
+          <p><strong>前期投入巨大，服务器 4 到 6 年就要折旧完。</strong>这意味着每年必须回收 1/4 到 1/6 的资本开支，容错窗口很窄。</p>
+        </div>
+      </div>
+      <p><strong>结论：所以它比不上纯互联网轻盈。</strong>——这是全文对"AI 生意质量"最诚实的一次降级。</p>
+
+      <h3>5.3 但它依然是一门极其迷人的好生意</h3>
+      <p>作者紧接着给出反面理由，逻辑是<strong>"重资产 + 极高门槛 = 跨过门槛后利润率跳升"</strong>：</p>
+      <ul>
+        <li><strong>入场券是千亿美金级的</strong>；</li>
+        <li><strong>全世界坐得上牌桌的没几家</strong>；</li>
+        <li><strong>一旦跨过规模门槛，利润率反而会向上跳升</strong>（规模效应在第四代不是消失，而是<strong>后置</strong>）。</li>
+      </ul>
+
+      <h3>5.4 最直观的证据：云服务利润率</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:150px">厂商</th><th>关键数据</th><th style="width:130px">趋势</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>亚马逊 AWS</strong></td>
+              <td>年化营收跑上 <strong>1,420 亿美元</strong>后，营业利润率稳在 <strong>35% 以上</strong></td>
+              <td><span class="badge b-ok">规模兑现</span></td>
+            </tr>
+            <tr>
+              <td><strong>微软智能云</strong></td>
+              <td>营业利润率高达 <strong>42% 到 47%</strong></td>
+              <td><span class="badge b-ok">最高区间</span></td>
+            </tr>
+            <tr>
+              <td><strong>谷歌云</strong></td>
+              <td>早年还是<strong>亏损</strong>的；<strong>去年底</strong>营业利润率升到 <strong>30.1%</strong>；<strong>今年二季度</strong>营收<strong>暴增 82%</strong>，营业利润率从 <strong>20.7% 跳到 35.6%</strong>；<strong>三季度云收入同比翻倍</strong>（加上了卖 TPU 芯片）</td>
+              <td><span class="badge b-ok">最典型 · 拐点式跳升</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout green">
+        <b>这组数据的意义：</b>它证明了<b>"跨过规模门槛后利润率向上跳升"不是理论，而是已经发生在云业务上的事实</b>。谷歌云从亏损到 35.6% 的过程，正是"第四代规模效应后置"的实证。
+      </div>
+    </section>
+
+    <!-- ============ 06 ============ -->
+    <section id="s6">
+      <div class="sec-head"><div class="sec-num">06</div><h2 class="sec-title">真正的商业风险不在老黄，在"大模型同质化"</h2></div>
+      <p class="sec-sub">这是全文的风险核心：折旧撞上模型贬值。</p>
+
+      <h3>6.1 风险的时间窗口</h3>
+      <ul>
+        <li><strong>2026 年，北美四大巨头合计的资本开支上限逼近 7,500 亿美元</strong>；</li>
+        <li><strong>谷歌、亚马逊的自由现金流都已转负</strong>；</li>
+        <li>当这么多服务器在未来几年<strong>集中进入折旧期</strong>……</li>
+      </ul>
+      <p>真正的风险<strong>不是某个人辞职，而是模型本身越来越不值钱</strong>。这是一个"资产端贬值"与"成本端刚性"的对撞：<strong>折旧不会因为模型降价而减少</strong>。</p>
+
+      <h3>6.2 同质化的三个推手</h3>
+      <div class="check">
+        <ol>
+          <li><strong>高水平模型陆续开源</strong>——把闭源模型的价格锚打下来；</li>
+          <li><strong>蒸馏技术越来越成熟</strong>——用便宜模型复制贵模型的能力；</li>
+          <li><strong>算力预算的重心从"预训练"转向"后训练与推理"</strong>——投入结构从"造模型"转向"用模型"，模型本身不再是稀缺资源。</li>
+        </ol>
+      </div>
+
+      <h3>6.3 纯模型沦为大宗商品后，钱往两头跑</h3>
+      <div class="duo">
+        <div class="panel cool">
+          <h4>一头：掌握用户场景的应用层</h4>
+          <p>例证：<strong>腾讯 WorkBuddy 上线 8 个月就成为中国提供最多 Token 的单一 AI 产品</strong>；<strong>今年 5 月提价 154% 后，付费转化率依然稳定</strong>。——定价权来自场景与用户关系，不来自模型本身。</p>
+        </div>
+        <div class="panel cool">
+          <h4>另一头：卡住物理瓶颈的环节</h4>
+          <p><strong>晶圆制造、电网和能源。</strong>——这些是模型再便宜也必须消耗的物理要素，供给刚性最强。</p>
+        </div>
+      </div>
+
+      <h3>6.4 对云厂商和英伟达：长期都是需求放大器，但处境不同</h3>
+      <p><strong>共同利好：</strong>模型变成大宗商品，<strong>长期是需求的放大器</strong>——<strong>模型越便宜，用得起的场景越多，总调用量成倍增加</strong>。这是"杰文斯悖论"式的逻辑：单价下降，总支出上升。</p>
+      <p><strong>但两者的差异在于：</strong></p>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:130px">角色</th><th>逻辑</th><th style="width:110px">位置</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>云厂商</strong></td>
+              <td>更像<strong>"中立收费站"</strong>：模型之间<strong>越没差别，客户越不会只绑定一家</strong>，<strong>哪家便宜、哪家懂自己的业务权限就用哪家</strong>。<strong>握着客户数据和多模型调度权的云平台，位置最稳。</strong></td>
+              <td><span class="badge b-ok">最稳</span></td>
+            </tr>
+            <tr>
+              <td><strong>英伟达</strong></td>
+              <td><strong>超高的"溢价"有压力</strong>：①掏钱买芯片的主力是<strong>云巨头，不是大模型创业公司</strong>；②云巨头自己正扛着<strong>百亿折旧和自由现金流转负</strong>的压力；③模型同质化后，云巨头<strong>更没必要为单一模型交"硬件垄断税"</strong>，会更积极地<strong>用自研芯片（比如谷歌 TPU）替换推理算力</strong>。</td>
+              <td><span class="badge b-no">溢价承压</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.5 传导链条</h3>
+      <div class="flow">
+        <span class="k">模型同质化</span>
+        <span>→</span>
+        <span class="k">纯模型公司造血慢</span>
+        <span>＋</span>
+        <span class="k">云巨头放慢下单节奏</span>
+        <span>→</span>
+        <span class="t">卖芯片的最先感受到寒意</span>
+      </div>
+      <div class="callout warn">
+        <b>这是全文对英伟达最实质的警示：</b>不是"老黄走了所以不行"，而是<b>"客户结构决定议价权"</b>——当唯一的大买方同时拥有自研替代方案和现金流压力时，<b>供应商的定价权会被系统性削弱</b>。
+      </div>
+    </section>
+
+    <!-- ============ 07 ============ -->
+    <section id="s7">
+      <div class="sec-head"><div class="sec-num">07</div><h2 class="sec-title">我们该怎么办？</h2></div>
+      <p class="sec-sub">从"判断泡沫"转向"匹配性格与仓位"。</p>
+
+      <h3>7.1 先看牌桌上每个玩家的"花钱性格"</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:190px">玩家</th><th>资本配置性格</th><th style="width:150px">对投资者的含义</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Meta</strong></td>
+              <td><strong>创始人绝对控制的 all-in 风格</strong></td>
+              <td><strong>估值里早就反映了</strong>（预期已定价）</td>
+            </tr>
+            <tr>
+              <td><strong>台积电、Anthropic</strong></td>
+              <td><strong>宁可少赚也不背高折旧</strong></td>
+              <td>盈利质量高，弹性相对小</td>
+            </tr>
+            <tr>
+              <td><strong>谷歌、亚马逊、微软</strong></td>
+              <td><strong>一边狂投数据中心，一边靠云业务收税</strong></td>
+              <td>攻守兼备，现金流双向</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.2 匹配原则</h3>
+      <div class="callout">
+        <b>你能承受多大的波动，就选哪一类的标的，配多大的仓位。</b>——这是全文唯一给出的"操作原则"，本质是<b>风险预算先行</b>，而非预测先行。
+      </div>
+
+      <h3>7.3 作者自己的仓位：押注"能源层"</h3>
+      <p><strong>作者美股的第一重仓，依然放在伯克希尔·哈撒韦上。</strong>理由链条非常清晰：</p>
+      <ul>
+        <li>它<strong>最不需要赌显卡折旧</strong>——绕开了"4 到 6 年折旧"这个第四代生意的核心风险；</li>
+        <li>它<strong>卡住最底层能源命门</strong>——对应前文"卡住物理瓶颈的电网和能源"这一头；</li>
+        <li>账上躺着 <strong>3,774 亿美元现金和美债</strong>；</li>
+        <li>还在<strong>单季砸出 96 亿美元回购自家股票</strong>；</li>
+        <li>只赚<strong>"无论谁赢都要用到电和电网"</strong>的钱。</li>
+      </ul>
+      <div class="callout gold">
+        <b>这套打法的内核：</b>不预测哪家模型公司赢、不赌哪家云厂商份额，而是<b>持有"所有路径都必须经过的收费站"</b>——与他对云厂商"中立收费站"的定性完全一致。
+      </div>
+
+      <h3>7.4 后续写作计划</h3>
+      <p>作者预告：接下来几天会把这些巨头<strong>拆开</strong>，看三件事：<strong>它们花钱的态度</strong>、<strong>背后的性格与组织基因</strong>、<strong>以及过去花出去的钱到底兑现了多少</strong>。下一篇<strong>先从最激进的 Meta 和谷歌开始</strong>。</p>
+
+      <h3>7.5 文末附带信息</h3>
+      <ul>
+        <li>知识星球<strong>《投资正道花不完》</strong>：每周更新<strong>《指数温度》估值表</strong>，持续写交易和研究笔记，<strong>每月底与黄凡老师做闭门直播</strong>。</li>
+        <li>作者提示：<strong>如今 QDII 限额越来越严</strong>，有需求者可扫群二维码或添加微信 <strong>zottalee</strong>，探讨投资及寻找<strong>安全、合规的攻略</strong>；群二维码过期可在最新推文中获取。</li>
+      </ul>
+    </section>
+
+    <!-- ============ 08 ============ -->
+    <section id="s8">
+      <div class="sec-head"><div class="sec-num">08</div><h2 class="sec-title">关键数据速查</h2></div>
+      <p class="sec-sub">全文出现的所有可核验数字，按主题归类。</p>
+
+      <div class="stats">
+        <div class="stat"><div class="v">10<small>%</small></div><div class="k">英伟达直投资金占营收比例（约）</div></div>
+        <div class="stat t"><div class="v">90<small>%</small></div><div class="k">其余资金来自银行银团、私募信贷、第三方机构</div></div>
+        <div class="stat g"><div class="v">4<small>万亿</small></div><div class="k">英伟达市值跌破（美元）</div></div>
+        <div class="stat n"><div class="v">70<small>亿</small></div><div class="k">甲骨文芯片租赁告吹金额（美元）</div></div>
+        <div class="stat"><div class="v">7,500<small>亿</small></div><div class="k">2026 年北美四大巨头资本开支上限（美元）</div></div>
+        <div class="stat t"><div class="v">4–6<small>年</small></div><div class="k">AI 服务器折旧周期</div></div>
+        <div class="stat g"><div class="v">1,420<small>亿</small></div><div class="k">AWS 年化营收（美元），利润率 35%+</div></div>
+        <div class="stat n"><div class="v">3,774<small>亿</small></div><div class="k">伯克希尔账上现金与美债（美元）</div></div>
+        <div class="stat"><div class="v">42–47<small>%</small></div><div class="k">微软智能云营业利润率</div></div>
+        <div class="stat t"><div class="v">35.6<small>%</small></div><div class="k">谷歌云二季度营业利润率（从 20.7% 跳升）</div></div>
+        <div class="stat g"><div class="v">82<small>%</small></div><div class="k">谷歌云二季度营收增速</div></div>
+        <div class="stat n"><div class="v">154<small>%</small></div><div class="k">腾讯 WorkBuddy 今年 5 月提价幅度</div></div>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:150px">主题</th><th>数据点</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="4"><strong>事件</strong></td><td>11 月 12 日黄仁勋卸任 CEO 和董事；CFO <strong>科莱特·克雷斯</strong>暂任 CEO</td></tr>
+            <tr><td>随后几天英伟达市值<strong>跌破 4 万亿美元</strong>，触发因素是市场担忧<strong>算力支出放缓</strong></td></tr>
+            <tr><td>美联储报告称 <strong>AI 把估值和债务都推高了</strong></td></tr>
+            <tr><td>可见的<strong>三五年</strong>内，英伟达的技术路线、产品演进、资本开支与收入已由老黄规划完成</td></tr>
+            <tr><td rowspan="3"><strong>循环融资</strong></td><td>英伟达身兼<strong>供应商、股东、担保人</strong>三职</td></tr>
+            <tr><td>直投<strong>仅占营收 10% 上下</strong>，<strong>90%</strong> 为银行银团、私募信贷、第三方机构资金</td></tr>
+            <tr><td>外部放贷机构<strong>有自己的尽调规则，赔自己的真金白银，不会闭眼签字</strong></td></tr>
+            <tr><td rowspan="4"><strong>需求真实性</strong></td><td>三大卡点：<strong>晶圆产能不够、电不够、出口监管卡着</strong></td></tr>
+            <tr><td>国内大厂<strong>买不到</strong>英伟达高端芯片</td></tr>
+            <tr><td><strong>腾讯</strong>管理层在财报会坦言<strong>算力紧缺、有钱也买不到足够的卡</strong></td></tr>
+            <tr><td><strong>甲骨文 70 亿美元</strong>芯片租赁告吹</td></tr>
+            <tr><td rowspan="4"><strong>台积电逻辑</strong></td><td>魏哲家：<strong>"每个客户都尽力说真话，但所有客户的进取需求加在一起，并不是真相。"</strong></td></tr>
+            <tr><td>验证方式：<strong>派团队实地看数据中心土建与电网进度、真实账单与订单</strong></td></tr>
+            <tr><td>两本账：<strong>少建产能=隐性成本（看不见）；需求回落高折旧拖垮毛利率=显性成本（看得见）</strong></td></tr>
+            <tr><td>历史佐证：<strong>苹果首单，台积电初期只答应造四分之一</strong>；Anthropic 阿莫迪<strong>宁可少买，不够再补</strong></td></tr>
+            <tr><td rowspan="3"><strong>生意属性</strong></td><td>第四代两个负担：<strong>推理实时烧电、消耗显卡寿命</strong>；<strong>服务器 4 到 6 年折旧完</strong></td></tr>
+            <tr><td>正面：<strong>入场券千亿美金级、全球没几家上牌桌、跨过门槛利润率向上跳升</strong></td></tr>
+            <tr><td>云利润率：<strong>AWS 35%+、微软智能云 42%–47%、谷歌云 30.1%→35.6%</strong></td></tr>
+            <tr><td rowspan="4"><strong>风险核心</strong></td><td>2026 年北美四大资本开支上限<strong>逼近 7,500 亿美元</strong>；<strong>谷歌、亚马逊自由现金流已转负</strong></td></tr>
+            <tr><td>同质化三推手：<strong>开源、蒸馏成熟、预算从预训练转向后训练与推理</strong></td></tr>
+            <tr><td>利润迁移两端：<strong>应用层（WorkBuddy 8 个月成中国 Token 第一，提价 154% 转化率稳定）</strong>、<strong>晶圆制造/电网/能源</strong></td></tr>
+            <tr><td>传导：<strong>模型同质化 → 云巨头用自研芯片（谷歌 TPU）替换推理算力 → 卖芯片的最先感受到寒意</strong></td></tr>
+            <tr><td rowspan="2"><strong>应对</strong></td><td>性格匹配：<strong>Meta all-in 但已反映；台积电/Anthropic 宁少赚不背折旧；谷歌亚马逊微软边投边收税</strong></td></tr>
+            <tr><td>作者第一重仓<strong>伯克希尔</strong>：<strong>3,774 亿美元现金与美债、单季 96 亿美元回购、只赚"无论谁赢都要用到电和电网"的钱</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ 09 ============ -->
+    <section id="s9">
+      <div class="sec-head"><div class="sec-num">09</div><h2 class="sec-title">原文金句</h2></div>
+      <p class="sec-sub">保留原话，避免转述损耗。</p>
+
+      <blockquote>短期有情绪，长期不慌。AI 有阶段性泡沫，但长期看仍处于早期，没有泡沫。</blockquote>
+      <blockquote>真正决定 AI 泡沫会不会破的，不是老黄一个人的去留。<cite>—— 引出两个根本问题</cite></blockquote>
+      <blockquote>需求要是假的，这么多手握千亿现金的精明老板，排队抢什么呢？</blockquote>
+      <blockquote>每个客户都尽力说真话，但所有客户的进取需求加在一起，并不是真相。<cite>—— 魏哲家</cite></blockquote>
+      <blockquote>不是不想多赚，是不想把自己的身家性命押在客户的乐观上。<cite>—— 评台积电只给苹果造四分之一</cite></blockquote>
+      <blockquote>最了解这个行业的人反而最谨慎——有人在恐慌中多喊，有人在冷静地打折听，这是泡沫背后的情况。</blockquote>
+      <blockquote>代码写好一次，机房折旧很小，多服务一个用户的边际成本趋近于零，一根网线服务全球。<cite>—— 第三代互联网为何是最好的生意</cite></blockquote>
+      <blockquote>真正的风险不是某个人辞职，而是模型本身越来越不值钱。</blockquote>
+      <blockquote>你能承受多大的波动，就选哪一类的标的，配多大的仓位。</blockquote>
+      <blockquote>只赚"无论谁赢都要用到电和电网"的钱。<cite>—— 为何重仓伯克希尔</cite></blockquote>
+    </section>
+
+    <!-- ============ 10 ============ -->
+    <section id="s10">
+      <div class="sec-head"><div class="sec-num">10</div><h2 class="sec-title">文中引用的往期文章</h2></div>
+      <p class="sec-sub">原文在论证中内嵌引用了 5 篇旧文，并附 3 篇推荐阅读。</p>
+
+      <h3>正文内嵌引用</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th style="width:60px">序号</th><th style="width:380px">标题</th><th>在本文中的作用</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>《"AI 到底是不是泡沫"，对顶级 VC 九十页报告论证"AI 不是泡沫"的反思》</td><td>此前已"算过账"，是本文判断的前置基础</td></tr>
+            <tr><td>2</td><td>《"打死不信老黄只是因为出轨"：从黄仁勋闪电辞职，聊聊美股企业家和监管生态》</td><td>支撑"三五年路线已规划好"的判断</td></tr>
+            <tr><td>3</td><td>《腾讯将会是 AI 智能体时代网络效应王者？》</td><td>承接"第四代算力中心比不上互联网轻盈"</td></tr>
+            <tr><td>4</td><td>《从"找信息"到"替你干活"：一条线看懂谷歌 28 年的商业故事与底牌》</td><td>承接谷歌云利润率跳升的讨论</td></tr>
+            <tr><td>5</td><td>《段永平重仓苹果，巴菲特重仓谷歌，我重仓 AI"能源层"伯克希尔——AI 五层蛋糕（二）》</td><td>支撑"押注能源层"的持仓逻辑</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>文末推荐阅读</h3>
+      <div class="check">
+        <ol>
+          <li><strong>《"AI 到底是不是泡沫"，对顶级 VC 九十页报告论证"AI 不是泡沫"的反思》</strong>——拆穿宏大叙事，算清 AI 基础设施投入产出比的第一笔底账。</li>
+          <li><strong>《段永平重仓英伟达，巴菲特重仓谷歌，我重仓腾讯——AI 五层蛋糕，我们吃的哪一层？（一）》</strong>——从底层能源到上层应用，看懂普通投资者最稳健的卡位逻辑。</li>
+          <li><strong>《寒王提示高估风险，为何英伟达前瞻市盈率才 20 倍，还要准备拿 50% 利润回购？》</strong>——穿透估值波动，看懂算力龙头的真实现金流与股东回报标尺。</li>
+        </ol>
+      </div>
+
+      <div class="callout">
+        <b>全文逻辑主线（一句话串联）：</b>老黄离职只是情绪触发点 → 英伟达 3–5 年路线已定，不受影响 → 真问题是"循环融资占比"和"能否赚回折旧" → 循环融资中英伟达直投仅占营收 10%、90% 是第三方真金白银 → 需求端确实卡在产能、电力、出口管制（腾讯、甲骨文为例） → 但"产能不足"与"需求夸大"并存（魏哲家论断） → 台积电用实地尽调 + 两本账的谨慎逻辑应对 → 算力中心属第四代规模效应：比互联网重、门槛极高、跨过门槛利润率跳升（AWS/微软云/谷歌云佐证） → 真正的风险是模型同质化 + 7,500 亿美元资本开支集中折旧 → 利润向应用层与物理瓶颈两端转移，云厂商是中立收费站、英伟达溢价承压 → 应对之道是按各家"花钱性格"匹配自身波动承受力与仓位，作者自己押注能源层的伯克希尔。
+      </div>
+
+      <div class="disc">
+        ⚠️ 以上内容由 AI 基于公开信息整理生成，为对原文观点的完整提炼，仅供参考，不构成任何投资建议或个股推荐。投资有风险，决策需谨慎。
+      </div>
+
+      <footer>
+        原文：《老黄走了，AI泡沫就要破了吗？》 作者：坡夫Leon · 长坡研究院<br>
+        本页为全文结构化总结，力求覆盖原文全部论点、数据与论证链条；引用数据均来自原文转述，未做外部核验。<br>
+        整理日期：2026 年 11 月 17 日（GMT+8）。
+      </footer>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function onScroll(){
+    var pos = window.scrollY + 140;
+    var idx = 0;
+    for (var i = 0; i < sections.length; i++){
+      if (sections[i] && sections[i].offsetTop <= pos) idx = i;
+    }
+    links.forEach(function(a, i){ a.classList.toggle('active', i === idx); });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
