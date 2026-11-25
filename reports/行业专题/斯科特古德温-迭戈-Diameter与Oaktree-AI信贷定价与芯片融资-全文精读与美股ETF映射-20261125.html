@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谁为 AI 建设付钱：信贷圆桌里的首付、成本曲线与并购出口</title>
+<meta name="report-title" content="AI 信贷圆桌：15% 票息是首付变贵">
+<meta name="report-date" content="2026-11-25">
+<meta name="report-category" content="行业专题">
+<meta name="description" content="Diameter 与 Oaktree 信贷投资人拆解算力融资：3–5 万亿美元缺口，卡点在组合规则与首付成本。">
+<meta name="report-cover" content="CREDIT">
+<meta name="report-tags" content="信贷 · 算力融资">
+<style>，只替换 {{占位符}} 与各节示例文字。
+  2. 标了 [可选] 的整节，若访谈确实不涉及，可整节删除，不要留空壳。
+  3. 所有数字、引语、人名必须来自字幕原文；没有依据就删掉，不要填。
+  4. 单篇 1500–3500 字中文（含台账）。正文只写 3–5 条最硬的论证链，其余观点全部进台账——
+     正文负责"讲透"，台账负责"不漏"，两者分工不能混。
+  5. 台账行数下限按片长折算：约每分钟 0.7 条（26:47 的访谈 ≥19 条）。先做覆盖清单，再动笔。
+  6. head 内六个 report-* / description 元信息必须填全，书架目录靠它们生成；report-category 只能取
+     财报解读 / 公司研究 / 人物访谈 / 行业专题 / 生活与训练 / 未分类 之一。
+  7. 文件保存到 research 仓库的 reports/<分类>/ 下，不要再按日期建子目录，日期由文件名与 report-date 承载。
+-->
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#16181d; --ink-2:#3d4450; --ink-3:#6b7280;
+    --line:#e4e7ec; --blue:#1f5fbf; --blue-soft:#eaf1fc; --red:#c0392b; --red-soft:#fdeeec;
+    --green:#1e7a4b; --green-soft:#eaf6ef; --amber:#a86400; --amber-soft:#fdf3e3;
+    --purple:#5b3fa8; --purple-soft:#f1ecfb; --radius:10px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.78;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px 90px}
+
+  /* ---------- 页头 ---------- */
+  header.top{padding:54px 0 26px;border-bottom:1px solid var(--line);margin-bottom:26px}
+  .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--blue);font-weight:600;margin-bottom:14px}
+  h1{font-size:31px;line-height:1.3;margin:0 0 12px;letter-spacing:-.015em;font-weight:700}
+  .sub{font-size:16.5px;color:var(--ink-2);margin:0 0 16px;line-height:1.65}
+  .meta{font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 20px}
+  .meta a{color:var(--blue);text-decoration:none;border-bottom:1px solid #cfdff7}
+  .meta a:hover{border-bottom-color:var(--blue)}
+
+  /* ---------- 标题层级 ---------- */
+  h2{font-size:22px;margin:52px 0 10px;padding-top:20px;border-top:1px solid var(--line);font-weight:700;letter-spacing:-.01em}
+  h2 .num{color:var(--blue);font-weight:600;margin-right:9px}
+  h3{font-size:17.5px;margin:30px 0 8px;font-weight:650}
+  h3 .ch{display:inline-block;font-size:11.5px;font-weight:600;color:#fff;background:var(--ink-2);border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px;letter-spacing:.03em}
+  h4{font-size:14.5px;margin:20px 0 6px;font-weight:650;color:var(--ink-2)}
+  p{margin:9px 0} ul,ol{margin:9px 0;padding-left:22px} li{margin:5px 0} strong{font-weight:650}
+  code{background:#eef0f3;border-radius:4px;padding:1px 5px;font-size:12.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink)}
+
+  /* ---------- KPI 速览 ---------- */
+  .tldr{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0 22px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .kpi .lab{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.4}
+  .kpi .val{font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+  .kpi .note{font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5}
+  .kpi.neg .val{color:var(--red)} .kpi.pos .val{color:var(--green)} .kpi.blue .val{color:var(--blue)}
+
+  /* ---------- 提示块 ---------- */
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:18px 0}
+  .box.blue{background:var(--blue-soft);border-color:#cfdff7} .box.red{background:var(--red-soft);border-color:#f6d5d0}
+  .box.amber{background:var(--amber-soft);border-color:#f0dfbe} .box.green{background:var(--green-soft);border-color:#cfe8d9}
+  .box.purple{background:var(--purple-soft);border-color:#ddd2f5}
+  .box h4{margin-top:0} .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+
+  /* ---------- 表格 ---------- */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--card)}
+  th,td{text-align:left;padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#f0f2f5;font-weight:650;font-size:12.5px;color:var(--ink-2);white-space:nowrap}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  table.tight th,table.tight td{padding:7px 10px}
+  .tbl-note{font-size:12px;color:var(--ink-3);margin:-6px 0 16px;line-height:1.6}
+  .ledger td:first-child{white-space:nowrap;color:var(--ink-3);font-variant-numeric:tabular-nums;font-size:12.5px}
+  .up{color:var(--red);font-weight:600} .down{color:var(--green);font-weight:600} .mute{color:var(--ink-3)}
+  .src{font-size:12px;color:var(--ink-3)}
+
+  /* ---------- 标签 ---------- */
+  .tag{display:inline-block;font-size:11.5px;font-weight:600;border-radius:4px;padding:1px 7px;line-height:1.7;white-space:nowrap}
+  .tag.bull,.tag.t-bull{background:var(--red-soft);color:var(--red)}
+  .tag.bear,.tag.t-bear{background:var(--green-soft);color:var(--green)}
+  .tag.neu,.tag.t-mid,.tag.t-gray{background:#eef0f3;color:var(--ink-2)}
+  .tag.warn{background:var(--amber-soft);color:var(--amber)}
+  .tag.info,.tag.t-blue{background:var(--blue-soft);color:var(--blue)}
+  .tag.core{background:#16181d;color:#fff}
+
+  /* ---------- 引语 ---------- */
+  .quote{border-left:3px solid var(--blue);padding:2px 0 2px 14px;margin:14px 0;color:var(--ink-2);font-size:14.5px}
+  .quote .src{display:block;margin-top:6px}
+  .who{font-size:12px;color:var(--ink-3);margin-top:6px}
+
+  /* ---------- 目录 ---------- */
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin:6px 0 10px;font-size:13.5px}
+  .toc ol{margin:6px 0 0;padding-left:20px} .toc li{margin:3px 0}
+  .toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px dotted #c3c8d1}
+  .toc a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+  /* ---------- 布局 ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px}
+  .card h4{margin-top:0}
+
+  /* ---------- 观点 / 盲区块 ---------- */
+  .pt{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:6px;padding:12px 16px;margin:10px 0}
+  .pt .h{font-size:14px;font-weight:650;margin-bottom:2px}
+  .pt .b{font-size:13.8px;color:var(--ink-2)}
+
+  /* ---------- 传导链 ---------- */
+  .chain{display:flex;align-items:stretch;gap:0;margin:20px 0;flex-wrap:wrap}
+  .chain .node{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 13px;min-width:112px}
+  .chain .node .n{font-size:10.5px;letter-spacing:.08em;color:var(--blue);font-weight:700;margin-bottom:3px}
+  .chain .node .t{font-size:13px;line-height:1.5}
+  .chain .arrow{align-self:center;color:var(--ink-3);padding:0 8px;font-size:14px}
+
+  /* ---------- 图表容器 [可选] ---------- */
+  .chart-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 10px;margin:18px 0}
+  .chart-card .ct{font-size:14px;font-weight:650;margin-bottom:2px}
+  .chart-card .cs{font-size:12px;color:var(--ink-3);margin-bottom:6px;line-height:1.6}
+  figure.fig{margin:22px 0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 14px 10px}
+  figure.fig svg{display:block;width:100%;height:auto}
+  figure.fig figcaption{font-size:12px;color:var(--ink-3);text-align:center;margin-top:8px;line-height:1.6}
+
+  /* ---------- 页脚 ---------- */
+  .foot{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+  .foot p{margin:5px 0}
+  .disclaimer{background:#f0f2f5;border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;margin-top:24px;font-size:13px;color:var(--ink-2)}
+
+  @media(max-width:820px){
+    .tldr{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr}
+    h1{font-size:25px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="kicker">AI 高管访谈日报 · 2026年11月25日</div>
+    <h1>谁为 AI 建设付钱：15% 的票息不是崩盘，是"首付"变贵了</h1>
+    <p class="sub">两位信贷投资人把 AI 资本开支翻译成信用价格：真正卡住建设的不是电力，而是债务买方的仓位规则，以及 GPU 三年摊还背后的残值风险。</p>
+    <div class="meta">
+      <span>斯科特·古德温（Scott Goodwin）与迭戈（Diego）· 信贷投资人</span>
+      <span>Diameter / Oaktree</span>
+      <span>iConnections · 27:24 · 发布于 2026-11-24</span>
+      <a href="https://www.youtube.com/watch?v=YncbdhUL4cQ" target="_blank">原视频 ↗</a>
+    </div>
+  </header>
+
+  <div class="tldr">
+    <div class="kpi blue"><div class="lab">未来两年新增融资需求</div><div class="val">3–5 万亿美元</div><div class="note">引 SemiAnalysis：每年约 40GW 上线（01:28）</div></div>
+    <div class="kpi"><div class="lab">芯片融资贷款成数</div><div class="val">60–80%</div><div class="note">按成本计（loan to cost），02:54</div></div>
+    <div class="kpi neg"><div class="lab">无抵押债定价</div><div class="val">15%</div><div class="note">一年前同一工具为 7%（05:16）</div></div>
+    <div class="kpi pos"><div class="lab">同一张卡的融资成本跨度</div><div class="val">8% → 15%</div><div class="note">英伟达背书 2.5 年期约 8%，推理云 15%+（11:44）</div></div>
+  </div>
+
+  <div class="box blue">
+    <h4>核心判断</h4>
+    <p><strong>算力建设的真实约束不是电力也不是芯片，而是债务买方愿不愿意在同一张卡上多押 7 个点。</strong></p>
+  </div>
+
+  <div class="toc">
+    <strong>本文目录</strong>
+    <ol>
+      <li><a href="#s1">访谈坐标与文本状况</a></li>
+      <li><a href="#s2">缺口不在需求，在现金流与组合规则</a></li>
+      <li><a href="#s3">15% 是"首付"的价格，不是市场的判决</a></li>
+      <li><a href="#s4">同一张卡，8% 与 15% 决定谁被买走</a></li>
+      <li><a href="#s5">观点台账：逐条清点防遗漏</a></li>
+      <li><a href="#s6">分层投资映射：芯片 / 存储 / 电力 / 算力 / 应用</a></li>
+      <li><a href="#s7">批判性视角：这个判断可能错在哪</a></li>
+      <li><a href="#s8">跟踪清单与一页纸总结</a></li>
+    </ol>
+  </div>
+
+  <h2 id="s1"><span class="num">01</span>访谈坐标与文本状况</h2>
+  <p>这是 TomorrowX 峰会（iConnections 主办）2026 年 11 月 24 日发布的一场圆桌。主持人开场就把议题从技术挪到钱上：前面几场谈公司和数据中心，这一场谈资本市场怎么给这些建设付款。两位嘉宾都来自信贷买方，回答天然带着"我能不能买、能买多少"的约束，这恰好是产业叙事里最容易被跳过的一层。</p>
+  <table class="tight">
+    <tr><th style="width:110px">项目</th><th>内容</th></tr>
+    <tr><td>场合</td><td>TomorrowX 峰会（iConnections），2026-11-24 发布</td></tr>
+    <tr><td>对话者</td><td>峰会主持人，逐一提问两位信贷投资人</td></tr>
+    <tr><td>时长 / 形态</td><td>27 分 24 秒，双人圆桌</td></tr>
+    <tr><td>文本可靠性</td><td>自动字幕，专名误识较多：neoclouds 作 "nail clouds"、HELOC 作 "heliloc"、SemiAnalysis 作 "semi analysis"、Vera Rubin 作 "VR rubins"、ASIC 作 "AS6"；第二位嘉宾在字幕里同时出现 "Andrew Diego West" 与 "Diego"，正文统一写 Diego</td></tr>
+  </table>
+  <p class="tbl-note">说明：所有数字与引语来自 YouTube 字幕，时间戳对应视频进度。两人各自属于 Diameter 还是 Oaktree，字幕未逐字说明，只能依据视频标题判断，故正文不把机构与具体观点绑定。</p>
+
+  <h2 id="s2"><span class="num">02</span>缺口不在需求，在现金流与买方的组合规则</h2>
+  <p>主持人给的框架很直接：前面所有场次都在讲要建多少，没人讲钱从哪来。嘉宾接手后给的第一个数字是二手引用——SemiAnalysis 估算未来两年每年约 40GW 新增上线，对应 3–5 万亿美元融资（01:28）。随即补上更关键的判断：这些项目的现金流撑不起这个资本开支。</p>
+  <div class="quote">"There's not enough cash flow to do that. So where's that come from? It's been coming from debt markets."<span class="src">— 嘉宾，01:28（字幕为无标点连续句，此处仅补标点）</span></div>
+  <h3><span class="ch">信贷</span>钱够，但"一只基金能买多少"不够</h3>
+  <p>他们把可吸收的池子逐个报了口径：投资级约 10 万亿美元、高收益约 1.6 万亿、银团贷款约 1.5 万亿、杠杆与直接贷款约 2 万亿；承载芯片融资的资产支持私募信贷，被描述为"理论上 40 万亿美元，甚至算不上一个市场，只是一个理论"（02:08）。容量是理论值，能装多少取决于单一发行人上限与久期规则。</p>
+  <p>所以约束不是市场没钱，而是组合里不能有 10% 是同一张卡。Meta、亚马逊、谷歌这类发行人，以及英伟达、博通、AMD 做背书的结构，是最想持有的资产，但规则不允许它们占满仓位。</p>
+  <div class="quote">"We're not bumping up against those rules yet, but the amount of supply is making people feel uncomfortable."<span class="src">— 嘉宾，02:08</span></div>
+  <p>这是全场最可跟踪的一句：<strong>约束尚未触发，情绪已经触发</strong>。供给继续放大时，价格调整会先于额度耗尽出现。</p>
+
+  <h2 id="s3"><span class="num">03</span>15% 是"首付"的价格，不是市场的判决</h2>
+  <p>市场标题里最吓人的是"neocloud 债券收益率 15%"。嘉宾用租房类比拆开：买房拿 80% 贷款，相当于 GPU 融资的贷款成数；首付靠自有现金、房屋净值信贷（HELOC），或让租客预付一两年租金。GPU 贷款三年摊还，本质是短周期抵押品融资，风险不在长期技术路线，而在承租方是谁。</p>
+  <div class="chain">
+    <div class="node"><div class="n">STEP 1</div><div class="t">每年约 40GW 上线</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">STEP 2</div><div class="t">3–5 万亿缺口，只能靠债</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">STEP 3</div><div class="t">买方规则限制单一敞口</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">STEP 4</div><div class="t">首付成本 7% → 15%</div></div>
+    <div class="arrow">→</div>
+    <div class="node"><div class="n">STEP 5</div><div class="t">转向预收租金，毛利让渡</div></div>
+  </div>
+  <p>于是 15% 的性质变了：它是首付的融资成本，不是对 GPU 长期价值的定价。一年前同样的工具是 7%，意味着"用杠杆补首付"这条路基本关闭，只剩掏现金或让客户预付租金。这也解释了为什么近期 neocloud 交易里预付款与收入分成越来越多——对客户不是免费的，对 neocloud 就是毛利让渡。</p>
+  <div class="quote">"The 15% is not one single proclamation about the state of the market, but it's a reflection of how to price the down payment."<span class="src">— 嘉宾，05:16</span></div>
+  <p>顺着这条线，他们引用另一组测算：同样一张卡，neocloud 每 GW 要比超大规模厂商多赚 30–40%，才能覆盖更高的资本成本（06:48）。卖 token 的生意在成本曲线右端格外脆弱——不是需求不够，是每瓦收入要先扣掉融资差价。</p>
+
+  <h2 id="s4"><span class="num">04</span>同一张卡，8% 与 15% 决定谁被买走</h2>
+  <p>全场信息密度最高的是那张价格阶梯（11:44）：英伟达或博通背书、以芯片抵押的 2.5 年期贷款约 7.5–8%；SpaceX 带控股担保的芯片抵押债约 8.5%；强一些的 neocloud 约 12%；推理云与 neolab 是 15% 以上，还要附认股权证或现金抵押。同一批 GPU，融资成本差出近一倍。</p>
+  <p>他们把这种现象叫"囤积"：大厂同时囤资本和囤算力，成本曲线右端的玩家被挤出。结论不是小玩家会死，而是小玩家会被买走——他们预期并购明显增多，并给风险投资一句直白提醒：在 50 亿美元估值投进去，退出预期该是 100 亿美元出售，而不是 500 亿（12:37）。</p>
+  <p>被问"你自己买什么"，答案回到相对价值：买 SpaceX、Meta、英伟达背书、博通背书的债，而不是 8–9% 的高收益或银团贷款，理由是 2.5 年自摊还、以芯片抵押、多数还有控股公司担保。但他们同时给自己设限——不能把整只基金押在芯片上，因为私募信贷在 SAS 上吃过 40–50% 仓位的亏（08:12）。</p>
+  <div class="quote">"I just think it's crazy to think you're not going to have periods of under and over supply."<span class="src">— 嘉宾，19:11</span></div>
+  <p>这是全部判断的底色：短缺期让整个生态受益，过剩期让成本曲线底部的玩家受益、让靠推理毛利吃饭的玩家受损。他们不预测拐点，只描述拐点到来时谁被重新定价。</p>
+
+  <h2 id="s5"><span class="num">05</span>观点台账：逐条清点防遗漏</h2>
+  <p>把访谈里可独立成立的观点按时间顺序列全。正文只写了三条最硬的链条，全貌在这里。</p>
+  <table class="ledger">
+    <thead><tr><th style="width:66px">时间</th><th style="width:74px">层级</th><th>观点</th><th style="width:130px">数字/依据</th></tr></thead>
+    <tbody>
+      <tr><td>01:28</td><td><span class="tag t-blue">算力</span></td><td>SemiAnalysis 估算未来两年每年约 40GW 新增上线，对应 3–5 万亿美元融资</td><td>40GW/年；3–5 万亿美元</td></tr>
+      <tr><td>01:28</td><td><span class="tag t-mid">信贷</span></td><td>项目现金流不足以覆盖资本开支，缺口只能由债市承接</td><td>—</td></tr>
+      <tr><td>02:08</td><td><span class="tag t-mid">信贷</span></td><td>可吸收池子：投资级约 10 万亿、高收益 1.6 万亿、银团贷款 1.5 万亿、杠杆与直接贷款 2 万亿</td><td>单位：美元市场规模</td></tr>
+      <tr><td>02:08</td><td><span class="tag t-mid">信贷</span></td><td>承载芯片融资的资产支持私募信贷被称"理论上 40 万亿"，但"算不上一个市场"</td><td>40 万亿美元（理论）</td></tr>
+      <tr><td>02:08</td><td><span class="tag t-mid">信贷</span></td><td>单一发行人上限与久期规则尚未触顶，但供给量已让买方不安</td><td>—</td></tr>
+      <tr><td>02:54</td><td><span class="tag t-blue">芯片</span></td><td>芯片融资今年夏天才成为新资产类别，此前抵押融资只做过房、车、飞机</td><td>—</td></tr>
+      <tr><td>02:54</td><td><span class="tag t-blue">芯片</span></td><td>芯片融资贷款成数普遍为成本价的 60–80%；未来几年至少还需 1.5 万亿美元债与股</td><td>60–80%；1.5 万亿美元</td></tr>
+      <tr><td>03:42</td><td><span class="tag t-mid">信贷</span></td><td>Meta、亚马逊、谷歌及英伟达/博通/AMD 背书的信用最受追捧，但规则不允许占 10%</td><td>—</td></tr>
+      <tr><td>04:31</td><td><span class="tag t-blue">芯片</span></td><td>GPU 融资类比房贷：80% 贷款成数、三年还清，风险取决于承租方而非长期技术</td><td>3 年摊还</td></tr>
+      <tr><td>05:16</td><td><span class="tag t-mid">信贷</span></td><td>15% 的无抵押债收益率对应"首付"成本，一年前该成本为 7%</td><td>15% vs 7%</td></tr>
+      <tr><td>05:16</td><td><span class="tag t-mid">信贷</span></td><td>neocloud 转向让客户预付 1–2 年租金，作为首付的替代融资来源</td><td>1–2 年预收</td></tr>
+      <tr><td>06:48</td><td><span class="tag t-mid">算力</span></td><td>SemiAnalysis：同芯片下 neocloud 每 GW 需比超大规模厂商多赚 30–40%，以覆盖资本成本</td><td>30–40%</td></tr>
+      <tr><td>06:48</td><td><span class="tag t-mid">信贷</span></td><td>一年前 CoreWeave 发约 9% 的债；SpaceX 芯片抵押、带控股担保的债约 8.5%</td><td>9%；8.5%</td></tr>
+      <tr><td>07:34</td><td><span class="tag t-mid">算力</span></td><td>大厂同时囤资本与算力，把成本曲线右端玩家挤出；当前需求仍足以让其出清</td><td>—</td></tr>
+      <tr><td>08:12</td><td><span class="tag t-mid">信贷</span></td><td>相对价值偏向 SpaceX、Meta、英伟达与博通背书的 2.5 年期抵押债，而非 8–9% 高收益</td><td>2.5 年期</td></tr>
+      <tr><td>08:12</td><td><span class="tag t-mid">信贷</span></td><td>不能把整只基金押在芯片上，私募信贷在 SAS 上 40–50% 仓位曾是教训</td><td>40–50%</td></tr>
+      <tr><td>08:53</td><td><span class="tag t-mid">信贷</span></td><td>超大规模厂商已占投资级指数约 10%；历史上银行是最大发行人，三四年后可能换成六家科技公司</td><td>10%</td></tr>
+      <tr><td>11:44</td><td><span class="tag t-blue">芯片</span></td><td>价格阶梯：英伟达/博通背书 2.5 年期 7.5–8%；SpaceX 8.5%；强 neocloud 约 12%；推理云与 neolab 15% 以上</td><td>7.5%–15%+</td></tr>
+      <tr><td>12:37</td><td><span class="tag t-mid">算力</span></td><td>小玩家寄望 6–12 个月后供需失衡；并购增多，VC 应按 100 亿美元出售而非 500 亿定价</td><td>6–12 个月</td></tr>
+      <tr><td>16:02</td><td><span class="tag t-mid">应用</span></td><td>要吸收全部新增算力，需实验室年收入达 4000–5000 亿美元；企业推理渗透率约 3%</td><td>4000–5000 亿；3%</td></tr>
+      <tr><td>16:46</td><td><span class="tag t-mid">算力</span></td><td>1GW 不是同一个 1GW：Vera Rubin 每瓦 token 数可能比 H100 高约 10 倍</td><td>约 10 倍</td></tr>
+      <tr><td>19:48</td><td><span class="tag t-mid">算力</span></td><td>训练（未变现）与推理 token 比例目前约 70:30，该结构决定 token 供给</td><td>70/30</td></tr>
+      <tr><td>20:33</td><td><span class="tag t-mid">电力</span></td><td>被迫卖出最痛的是 neocloud 与 powered shell：带投资级承租方的债 9–12%，可转债跌到面值 50–70 美分</td><td>9–12%；50–70 美分</td></tr>
+      <tr><td>21:23</td><td><span class="tag t-blue">芯片</span></td><td>双 A 与单 A 背书的芯片融资，2 年期相对现金有约 300 个基点溢价</td><td>+300bp</td></tr>
+      <tr><td>23:41</td><td><span class="tag t-mid">电力</span></td><td>风险谱系定价：已投运且承租方为 Meta 的站点约 8%；仍差一个许可但已有合同的 10–12%</td><td>8%；10–12%</td></tr>
+      <tr><td>25:39</td><td><span class="tag t-mid">电力</span></td><td>西弗吉尼亚一个数据中心紧邻已停运煤电厂，称可为该镇带来 5 倍税收</td><td>5 倍（嘉宾口径）</td></tr>
+    </tbody>
+  </table>
+  <p class="tbl-note">台账只收录能独立成立、且带事实或数字支撑的观点；寒暄与串场不计入。标注"嘉宾口径"的数字为访谈自述，未经第三方核对。</p>
+
+  <h2 id="s6"><span class="num">06</span>分层投资映射</h2>
+  <div class="box amber">
+    <h4>映射原则（先读）</h4>
+    <ul>
+      <li><strong>三种来源要分清</strong>：<span class="tag info">原文点名</span> = 访谈中明确提到；<span class="tag neu">逻辑推导</span> = 基于访谈逻辑延伸，原文未提；<span class="tag warn">弱关联</span> = 仅概念沾边，不宜作核心仓位。</li>
+      <li><strong>不做估值判断</strong>。只回答"如果这套逻辑成立，钱会流向哪一层"，不回答"现在贵不贵"。</li>
+      <li><strong>只写访谈确实涉及的层</strong>。没有涉及的层级写"本期访谈未涉及"，不为凑满五层硬填。</li>
+    </ul>
+  </div>
+
+  <h3><span class="ch">L1</span>芯片 / 半导体</h3>
+  <table class="tight">
+    <thead><tr><th style="width:112px">标的</th><th style="width:66px">代码</th><th>与访谈的连接点</th><th style="width:78px">来源</th><th style="width:150px">跟踪指标</th></tr></thead>
+    <tbody>
+      <tr><td><strong>英伟达</strong></td><td>NVDA</td><td>其背书把 2.5 年期芯片抵押债定到 7.5–8%，是整条价格阶梯的锚</td><td><span class="tag info">点名</span></td><td>背书新增融资规模、芯片抵押债利差</td></tr>
+      <tr><td><strong>博通</strong></td><td>AVGO</td><td>与英伟达同列背书方，决定定制芯片项目的融资成本</td><td><span class="tag info">点名</span></td><td>定制 ASIC 订单与背书结构</td></tr>
+      <tr><td>AMD</td><td>AMD</td><td>被列为三大背书方之一，访谈未给其单独定价</td><td><span class="tag info">点名</span></td><td>数据中心 GPU 收入、抵押融资可得性</td></tr>
+      <tr><td>SpaceX</td><td>未上市</td><td>芯片抵押加控股担保的债定价 8.5%，被视为高质量锚</td><td><span class="tag info">点名</span></td><td>私募债发行条款与二级价格</td></tr>
+    </tbody>
+  </table>
+  <p><strong>ETF 映射：</strong><code>SMH</code>（英伟达、博通权重高，与"背书方"逻辑直接对应）、<code>SOXX</code>（更均衡的半导体暴露）。</p>
+
+  <h3><span class="ch">L2</span>存储 / 服务器 / 网络</h3>
+  <p class="tbl-note">本期访谈未涉及存储、服务器与网络环节，两位嘉宾只谈融资结构，不涉及硬件 BOM。</p>
+
+  <h3><span class="ch">L3</span>电力 / 能源 / 基建</h3>
+  <table class="tight">
+    <thead><tr><th style="width:112px">标的</th><th style="width:66px">代码</th><th>与访谈的连接点</th><th style="width:78px">来源</th><th style="width:150px">跟踪指标</th></tr></thead>
+    <tbody>
+      <tr><td>电力设备与公用事业</td><td>ETN / GEV / VST</td><td>访谈把供电、区划、施工、封顶价列为承销四要素，并称已投运带 Meta 承租的站点只给 8%</td><td><span class="tag neu">推导</span></td><td>并网排队月数、变压器交付周期、PPA 价</td></tr>
+      <tr><td>powered shell 运营商</td><td>—</td><td>被点名为"被迫卖出最痛"的一类，债 9–12%，可转债跌到面值 50–70 美分</td><td><span class="tag info">点名</span></td><td>债券二级价格、承租方信用等级</td></tr>
+    </tbody>
+  </table>
+  <p class="tbl-note">powered shell 多为私募主体，无公开代码；上市层面的暴露只能通过电力设备与公用事业间接获得。</p>
+
+  <h3><span class="ch">L4</span>算力 / 数据中心</h3>
+  <table class="tight">
+    <thead><tr><th style="width:112px">标的</th><th style="width:66px">代码</th><th>与访谈的连接点</th><th style="width:78px">来源</th><th style="width:150px">跟踪指标</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CoreWeave</strong></td><td>CRWV</td><td>一年前发约 9% 的债，被当作高成本曲线的标尺；其可转债被举为错杀案例</td><td><span class="tag info">点名</span></td><td>新发债票息、预收款占比</td></tr>
+      <tr><td>Nebius</td><td>NBIS</td><td>与 CoreWeave 并列，预付与收入分成结构变多的 neocloud</td><td><span class="tag info">点名</span></td><td>合同预收比例、单 GW 收入</td></tr>
+      <tr><td>Meta / 亚马逊 / 谷歌</td><td>META / AMZN / GOOGL</td><td>三者是最想持有的承租方与发行人，合计已占投资级指数约 10%</td><td><span class="tag info">点名</span></td><td>资本开支指引、发债久期结构</td></tr>
+    </tbody>
+  </table>
+  <p><strong>ETF 映射：</strong>算力层没有纯 neocloud ETF；<code>IGV</code>、<code>XLK</code> 只覆盖承租方一侧，不构成对 neocloud 信用价的暴露。</p>
+
+  <h3><span class="ch">L5</span>应用 / 模型 / 机器人</h3>
+  <table class="tight">
+    <thead><tr><th style="width:112px">标的</th><th style="width:66px">代码</th><th>与访谈的连接点</th><th style="width:78px">来源</th><th style="width:150px">跟踪指标</th></tr></thead>
+    <tbody>
+      <tr><td>Anthropic</td><td>未上市</td><td>其 IPO 被当作信贷市场重新定价的触发点，可能复制"先股后债"路径</td><td><span class="tag info">点名</span></td><td>上市后首份财报、信用评级</td></tr>
+      <tr><td>OpenAI</td><td>未上市</td><td>被点为算力承租方的另一个变量：谁在用数据中心会改变抵押品价值</td><td><span class="tag info">点名</span></td><td>算力合同期限与预付款</td></tr>
+    </tbody>
+  </table>
+  <p class="tbl-note">应用层两家主体均未上市，二级市场暂无直接标的；访谈也未讨论应用层公司的单位经济。</p>
+
+  <h2 id="s7"><span class="num">07</span>批判性视角：这个判断可能错在哪</h2>
+  <p>两位嘉宾都是信贷买方，看多高质量背书债、看空高成本曲线，恰好是自身持仓与募资方向。这不代表判断错，但需要把事实与仓位语言分开。</p>
+  <div class="pt">
+    <div class="h">盲区一：3–5 万亿是二手口径，且没拆单位成本</div>
+    <div class="b">数字来自 SemiAnalysis，被当作既定事实使用。倒推：每年 40GW 对应 1.5–2.5 万亿美元，等于每 GW 375–625 亿美元，这个单位成本含不含电力接入、土地与变电设备，访谈没说。若不含，缺口会被低估；若含，则与常见的数据中心单 GW 造价区间是否一致无法验证。</div>
+  </div>
+  <div class="pt">
+    <div class="h">盲区二：把"基金规则"当成"市场天花板"</div>
+    <div class="b">"不能把 10% 放在同一发行人"是买方产品设计的约束，不是资本的物理上限。同一批资产可以装进新的 ABS 基金、保险单独账户，或由养老金以不同规则承接。把配置问题说成结构性问题，会系统性高估利差走阔的幅度与持续时间。</div>
+  </div>
+  <div class="pt">
+    <div class="h">盲区三：三年摊还的残值风险被跳过</div>
+    <div class="b">GPU 贷款三年还清，意味着抵押品价值只需撑过三年；但 60–80% 的贷款成数要求三年后仍有 20–40% 残值。全篇没给任何残值假设，也没讨论 Vera Rubin 这类新架构对旧卡二手价的冲击——而他们自己说新一代每瓦 token 数可能高 10 倍（16:46）。这两句话放在一起，是全文最大的内部张力。</div>
+  </div>
+  <div class="box red">
+    <h4>访谈里没有回答的问题</h4>
+    <ul>
+      <li>若 2027 年出现算力过剩，15% 票息、含认股权证的 neolab 债回收率大概是多少？</li>
+      <li>芯片 ABS 的底层是租赁合同，承租方违约时 GPU 二手折价由谁承担、按什么价格清算？</li>
+      <li>powered shell 的并网排队与许可周期有没有量化数据？"差一个许可"是几个月还是几年？</li>
+      <li>Anthropic 上市后，其股权定价与自家债务利差如何互相影响？</li>
+    </ul>
+  </div>
+
+  <h2 id="s8"><span class="num">08</span>跟踪清单与一页纸总结</h2>
+  <table>
+    <thead><tr><th style="width:190px">跟踪指标</th><th>为什么重要</th><th style="width:110px">验证时点</th></tr></thead>
+    <tbody>
+      <tr><td>芯片抵押债的三档定价（8% / 12% / 15%）</td><td>直接检验"首付成本"这条主线是否继续走阔</td><td>每季度新发定价</td></tr>
+      <tr><td>超大规模厂商在投资级指数的权重</td><td>从约 10% 往上走，会同时抬高被动资金集中度与利差敏感度</td><td>2027 年一季度指数调整</td></tr>
+      <tr><td>neocloud 合约中预付款与收入分成占比</td><td>这是首付缺口的替代融资，占比上升等于毛利让渡扩大</td><td>下两个季度新签合同</td></tr>
+      <tr><td>每年 40GW 的实际并网量</td><td>3–5 万亿缺口的分母，兑现不了则融资需求与利差同时回落</td><td>2026 年底并网统计</td></tr>
+      <tr><td>企业推理渗透率（3% 口径）</td><td>决定 4000–5000 亿美元收入目标能否成立</td><td>2027 年中企业调研</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box green">
+    <h4>如果只记四件事</h4>
+    <ol>
+      <li><strong>缺口是现金流缺口，不是需求缺口。</strong>3–5 万亿美元要靠债，债的买方有仓位规则。</li>
+      <li><strong>15% 是首付的价格。</strong>它衡量补足贷款成数的成本，不是 GPU 的长期价值。</li>
+      <li><strong>同一张卡，融资成本差一倍。</strong>背书方是谁，比芯片型号更能决定项目生死。</li>
+      <li><strong>过剩期会重新分配利润。</strong>成本曲线底部受益，靠推理毛利吃饭的受损。</li>
+    </ol>
+  </div>
+
+  <h3>投资上的三句话</h3>
+  <div class="grid2">
+    <div class="card"><h4>第一句：买背书，不买算力</h4><p>决定债券价格的是英伟达、博通、SpaceX 的担保，而不是机房里放了多少张卡。</p></div>
+    <div class="card"><h4>第二句：把预付款当毛利率的先行指标</h4><p>让客户预付租金，等于用未来毛利换今天的现金流；比例越高，单位经济越薄。</p></div>
+    <div class="card"><h4>第三句：残值风险是隐藏的到期日</h4><p>三年摊还意味着 2028–2029 是旧卡集中检验期，新架构的每瓦优势会直接压旧卡二手价。</p></div>
+    <div class="card"><h4>第四句：并购是这套逻辑的出口</h4><p>他们判断小玩家会被买走，VC 应按 100 亿美元而非 500 亿美元定价退出。</p></div>
+  </div>
+
+  <div class="foot">
+    <p>内容来自 YouTube 字幕自动识别，可能存在识别误差；数字与引语已尽量核对原文语境。</p>
+    <p>抓取时间：2026-11-25 12:04 · 频道：iConnections · 原视频：<a href="https://www.youtube.com/watch?v=YncbdhUL4cQ">https://www.youtube.com/watch?v=YncbdhUL4cQ</a></p>
+    <div class="disclaimer">本文为公开访谈内容的整理与产业链映射，不构成任何投资建议。提及的证券标的仅用于说明产业链对应关系，不代表推荐。投资有风险，决策需独立判断。</div>
+  </div>
+
+</div>
+</body>
+</html>
